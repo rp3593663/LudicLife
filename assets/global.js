@@ -1417,7 +1417,7 @@ $(document).on('click', '.product-form__input .size_var', function(){
 
   function openVariantPopup() {
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
-    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+    
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
@@ -1426,9 +1426,10 @@ $(document).on('click', '.product-form__input .size_var', function(){
     $('.size-chart-popup-overlay').addClass('show');
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
+    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
     document.querySelectorAll('.popup-active input[type="radio"]').forEach(input => {
       input.dataset.val = input.value;
-      
+      console.log("===", input.value);
       input.addEventListener('change', () => {
         if (input.checked) {
           const selectedSize = input.value;
