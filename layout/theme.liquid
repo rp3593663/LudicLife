@@ -710,15 +710,6 @@
       {% endif %}
 
       {% if video_src != '' %}
-        <div id="videoPopup" class="video-popup">
-          <div class="video-popup-inner" onclick="openFullScreen()">
-            <button class="close-btn" onclick="closeVideoPopup(event)"><i class="ri-close-line"></i></button>
-            <video id="popupVideo" playsinline autoplay loop muted>
-              <source src="{{ video_src }}" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
         <div id="fullscreenVideo" class="fullscreen-video">
           <div class="full-screen-video-inner">
             <video id="fullscreenVideoElement" playsinline autoplay loop muted>
