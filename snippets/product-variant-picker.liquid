@@ -124,13 +124,39 @@
   </div>
 {% endif %} {% endcomment %}
 
-  <div class="custom_variants">
-<div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content active {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
-      {% if template != 'product.accessories' %}
-      <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
-      {% else %}
-      <p><span> {{ product.metafields.custom.product_color_name }}</span></p>
+    <div class="custom_variants">
+      
+      {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+        <div class="custom-variant-product slider-tab-content" id="tab-slider">
+          <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+          <div class="custom-variant-image">
+            {% assign slider_product = product.metafields.custom.sliders_2_0_products %}
+            {% for slider_product in product.metafields.custom.sliders_2_0_products.value %}
+              {% if slider_product.handle == product.handle %}
+                <a href="" class="selected">
+                  <img src="{{ slider_product.featured_image | img_url:'master' }}">
+                </a>
+              {% else %}
+                <a href="{{ slider_product.url }}">
+                  {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+                  {% if slider_product.metafields.custom.new_product == true %} 
+                      <div class="new-product-dot"></div> 
+                    {% endif %}
+                  {% endif %}
+                  <img src="{{ slider_product.featured_image | img_url:'master' }}">
+                  </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       {% endif %}
+
+      <div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content active {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
+        {% if template != 'product.accessories' %}
+        <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+        {% else %}
+        <p><span> {{ product.metafields.custom.product_color_name }}</span></p>
+        {% endif %} 
         <div class="custom-variant-image">
           {% assign paired_products = product.metafields.custom.pair_with_product %}
           {% for pair_product in product.metafields.custom.pair_with_product.value %}
@@ -153,30 +179,7 @@
         </div>
       </div>
 
-      {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
-      <div class="custom-variant-product slider-tab-content" id="tab-slider">
-        <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
-         <div class="custom-variant-image">
-          {% assign slider_product = product.metafields.custom.sliders_2_0_products %}
-          {% for slider_product in product.metafields.custom.sliders_2_0_products.value %}
-            {% if slider_product.handle == product.handle %}
-              <a href="" class="selected">
-                <img src="{{ slider_product.featured_image | img_url:'master' }}">
-              </a>
-            {% else %}
-              <a href="{{ slider_product.url }}">
-                {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
-                 {% if slider_product.metafields.custom.new_product == true %} 
-                    <div class="new-product-dot"></div> 
-                  {% endif %}
-                {% endif %}
-                <img src="{{ slider_product.featured_image | img_url:'master' }}">
-                </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
+      
 
 
 
