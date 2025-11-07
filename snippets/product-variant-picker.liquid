@@ -530,6 +530,18 @@
 
            
           </fieldset>
+
+          <div class="size_specifications">
+            {% for variant in product.variants %}
+              <span class="size_specification_value" data-variant-title="{{ variant.title }}" style="display: none;">
+                {{ variant.metafields.custom.size_specification }}
+              </span>
+            {% endfor %}
+          </div>
+
+          {% if product.metafields.custom.information != blank %}            
+            <div class="meta_pro_information">{{ product.metafields.custom.information | metafield_tag }}</div>
+          {% endif %}
           {% comment %} <div class="main-reserve">
           {% if product.id == 9672026095920 %}
             {% assign option_disabled = false %}
