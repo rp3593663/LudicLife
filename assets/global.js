@@ -1417,7 +1417,7 @@ $(document).on('click', '.product-form__input .size_var', function(){
 
   function openVariantPopup() {
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
-    
+
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
@@ -1426,23 +1426,6 @@ $(document).on('click', '.product-form__input .size_var', function(){
     $('.size-chart-popup-overlay').addClass('show');
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
-    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
-    document.querySelectorAll('.popup-active input[type="radio"]').forEach(input => {
-      input.dataset.val = input.value;
-      input.addEventListener('click', () => {
-        alert("===", input);
-        if (input.checked) {
-          const selectedSize = input.value;
-            sizeSpecSpans.forEach(span => {
-            if (span.dataset.variantTitle === selectedSize) {
-              span.style.display = 'block';
-            } else {
-              span.style.display = 'none';
-            }
-          });
-        }
-      });
-    });
   }
   function closeVariantPopup() {
     $('.size-chart-popup__content').fadeOut(100);
@@ -1467,19 +1450,6 @@ $(document).on('click', '.product-form__input .size_var', function(){
   function updateRadioDataVals() {
     document.querySelectorAll('.popup-active input[type="radio"]').forEach(input => {
       input.dataset.val = input.value;
-      const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
-      input.addEventListener('change', () => {
-        if (input.checked) {
-          const selectedSize = input.value;
-            sizeSpecSpans.forEach(span => {
-            if (span.dataset.variantTitle === selectedSize) {
-              span.style.display = 'block';
-            } else {
-              span.style.display = 'none';
-            }
-          });
-        }
-      });
     });
   }
 
