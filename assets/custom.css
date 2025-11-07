@@ -1847,6 +1847,9 @@ button#setReminderBtn {
     margin-bottom: 20px!important;
     margin-top: 20px!important;
 }
+.size-chart-popup__size-box .size_specification_value {
+    color: #949598;
+}
 .template-product:not(.template-product\.fw-product) .size-chart-popup__size-box .product-form__input--pill input[type=radio]+label:not(.custom_var_image) {
     font-size: 12px;
     line-height: 12px!important;
