@@ -8047,14 +8047,14 @@ p.sticky-coupon-text {
     margin-bottom:0 !important;
   }
   .meta_pro_information .metafield-rich_text_field {
-    margin-bottom: 0;
+    /* margin-bottom: 0;
     border-top: 1px solid #ddd;
     padding-top: 16px;
     margin-top: 12px;
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
-    color: #1a1a1a;
+    color: #1a1a1a; */
   }
   .main-reserve {
     margin-bottom: 10px;
