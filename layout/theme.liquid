@@ -1210,33 +1210,59 @@ $('.close_size_guide').on('click', function(e) {
 
 document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth <= 768) {
-    const mobile1 = document.querySelector('.wish-with-button.mobile');
-    const mobile2 = document.querySelector('.wish-with-button.desktop');
-    
-    if (!mobile1 || !mobile2) return;
 
-    mobile1.style.display = 'block';
+    const mobileStickyBtn = document.querySelector('.wish-with-button.mobile');
+    const MobileMainBtn = document.querySelector('.wish-with-button.desktop');
 
-    // IntersectionObserver to hide/show button
+    mobileStickyBtn.style.display = 'none';
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // If main button is visible anywhere → hide sticky
           if (entry.isIntersecting) {
-            mobile1.style.display = 'none';
+            mobileStickyBtn.style.display = 'none';
           } else {
-            mobile1.style.display = 'block';
+            const rect = entry.boundingClientRect;
+            if (rect.top < 100) {
+              mobileStickyBtn.style.display = 'block';
+            }
           }
         });
       },
-      {
-        threshold: 0.1,
-      }
+      { threshold: 0 }
     );
 
-    observer.observe(mobile2);
+    observer.observe(MobileMainBtn);
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth >= 767) {
+    const stickyBtn = document.querySelector('.sticky_information_desktop');
+    const mainBtn = document.querySelector('.wish-with-button.desktop');
 
+    stickyBtn.style.display = 'none';
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // If main button is visible anywhere → hide sticky
+          if (entry.isIntersecting) {
+            stickyBtn.style.display = 'none';
+          } else {
+            const rect = entry.boundingClientRect;
+            if (rect.top < 0) {
+              stickyBtn.style.display = 'flex';
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(mainBtn);
+  }
+});
 document.addEventListener('DOMContentLoaded', () => {
   const addToBagButton = document.querySelector('.product-form__submit');
   const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
