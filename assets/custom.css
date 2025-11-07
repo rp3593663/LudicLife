@@ -1079,8 +1079,7 @@ body.size-chart-popup-pdp #MainContent{
     gap: 0px 16px;
     margin: 0 0 12px;
 }
-span.size_specification_value {
-  font-family: Inter;
+span.size_specification_value {;
   font-weight: 400;
   font-size: 10px;
   line-height: 14px;
