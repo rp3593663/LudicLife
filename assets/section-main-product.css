@@ -1596,11 +1596,12 @@ h2.size-chart-popup__title {
   margin-bottom: 10px;
 }
 .size-chart-popup__header p {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.36px;
   font-weight: 400;
   color: #949598;
-  margin-bottom: 17px;
+  margin-bottom: 20px;
 }
 .size-chart-popup__body {
   display: flex;
