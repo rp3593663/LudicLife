@@ -8101,12 +8101,9 @@ body.Sliders .custom-variant-product {
     margin-bottom: 28px;
 }
 
-body.Sliders .custom-variant-product{
-    margin-bottom: 18px;
-}
 .custom-variant-image a.selected {
-    border: 1px solid #939598;
-    border-radius: 8px;
+    border: 1px solid #000000;
+    border-radius: 5px;
   }
 .custom-variant-image a{
   position: relative;
