@@ -42,6 +42,14 @@
 
   if media.media_type == 'image'
     assign image_class = 'zoom-image image-magnify-' | append: section.settings.image_zoom
+    if template == 'product.apparels'
+      assign product_title = product.title | downcase
+      assign alt_text = media.alt | downcase
+
+      if alt_text contains '|' and alt_text != product_title
+        assign image_class = image_class | append: ' hover_blur'
+      endif
+    endif
   endif
 -%}
 
