@@ -1426,7 +1426,7 @@ $(document).on('click', '.product-form__input .size_var', function(){
     $('.size-chart-popup-overlay').addClass('show');
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
-    updateRadioDataVals();
+    
   }
   function closeVariantPopup() {
     $('.size-chart-popup__content').fadeOut(100);
@@ -1453,7 +1453,6 @@ $(document).on('click', '.product-form__input .size_var', function(){
       input.dataset.val = input.value;
       const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
       input.addEventListener('change', () => {
-        alert('1');
         if (input.checked) {
           const selectedSize = input.value;
             sizeSpecSpans.forEach(span => {
