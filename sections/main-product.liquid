@@ -1067,9 +1067,10 @@
                     {% endif %} {% endcomment %}
                     
                   </div>
-                {% if product.metafields.custom.information != blank %}            
+                {% comment %} {% if product.metafields.custom.information != blank %}            
                   <div class="meta_pro_information">{{ product.metafields.custom.information | metafield_tag }}</div>
-                {% endif %}
+                {% endif %} {% endcomment %}
+
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
