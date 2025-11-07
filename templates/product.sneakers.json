@@ -100,18 +100,18 @@
       "type": "product-usp",
       "name": "Product USPs",
       "settings": {
-        "heading": "Video",
+        "heading": "",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 88
       }
     },
     "product_reels_6kwDTk": {
       "type": "product-reels",
       "name": "Product Reels",
       "settings": {
-        "heading": "Video",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "#LudicEdits",
+        "padding_top": 0,
+        "padding_bottom": 88
       }
     },
     "product_shop_the_look_37E6CA": {
@@ -119,9 +119,9 @@
       "name": "Product Shop The Look",
       "settings": {
         "heading": "Shop the look",
-        "description": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "description": "Rooted in movement and transformation, our products are designed to flow with the rhythms of life. Embracing change, they offer versatility and adaptability, ensuring effortless transitions through shifting seasons and environments.",
+        "padding_top": 0,
+        "padding_bottom": 88
       }
     },
     "related-products": {
