@@ -1429,8 +1429,8 @@ $(document).on('click', '.product-form__input .size_var', function(){
     const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
     document.querySelectorAll('.popup-active input[type="radio"]').forEach(input => {
       input.dataset.val = input.value;
-      console.log("===", input.dataset.val);
       input.addEventListener('change', () => {
+        alert("===", input);
         if (input.checked) {
           const selectedSize = input.value;
             sizeSpecSpans.forEach(span => {
