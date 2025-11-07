@@ -418,10 +418,11 @@ span.badge.price__badge-sale.color-scheme-4 {
   }
 
   .template-product product-info .product .product__media-wrapper{
-    z-index: 1;
-    position: sticky;
-    top: 45px;
-    overflow: hidden;
+    /* z-index: 1;
+    position: sticky; */
+    position: relative;
+    /* top: 45px;
+    overflow: hidden; */
   }
   
   /*.template-product product-info .product .product__info-wrapper.swipe-active{
