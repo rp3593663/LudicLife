@@ -7876,9 +7876,9 @@ p.sticky-coupon-text {
   .product-form__buttons {
     position: relative;
   }
-  div#openPopupBtn {
+  /* div#openPopupBtn {
     display: none;
-  }
+  } */
   .product-form form .product-form__submit {
     border-radius: 8px;
     min-height: 40px;
