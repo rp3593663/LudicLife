@@ -2498,6 +2498,23 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     });
   }
+ if ($(window).width() < 767) {
+  if ($('.shop_the_look_products').length > 0) {
+    $('.shop_the_look_products').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      speed: 1000,
+      cssEase: 'ease',
+      infinite: true,
+      arrows: false,
+      pauseOnHover: true,
+      pauseOnFocus: true,
+    });
+  }
+}
+
 </script>
 
 
