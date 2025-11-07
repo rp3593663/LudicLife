@@ -8890,9 +8890,9 @@ a.mega-menu-left-links {
 }
 
 
-.slider-tab-content {
+/* .slider-tab-content {
   display: none;
-}
+} */
 
 .slider-tab-content.active {
   display: block;
