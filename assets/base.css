@@ -8068,16 +8068,16 @@ p.sticky-coupon-text {
 
 .custom-variant-image {
     display: flex;
-    width: 325px;
+    /* width: 325px; */
     flex-wrap: wrap;
     gap: 10px;
 }
 
 .custom-variant-image img {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .custom-variant-product p {
