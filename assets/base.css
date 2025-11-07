@@ -7636,7 +7636,9 @@ product-form form .product-form__submit.button:disabled,
     left: 0;
     display: block;
   }
-  
+  .wish-with-button.mobile button{
+    border-radius: 0px!important;
+  }
 p.sticky-coupon-text {
   width: 100%;
   font-size: 12px;
