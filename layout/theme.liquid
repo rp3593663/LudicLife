@@ -806,39 +806,22 @@
     </script>
 
     <style>
-      .video-popup {
-        position: fixed;
-        bottom: 20px;
-        right: -300px;
-        width: 82px;
-        height: 82px;
-        transition: right 0.5s ease;
-        z-index: 9999;
-        cursor: pointer;
-      }
-
-      .video-popup.visible {
-        right: 20px;
-      }
 
       .video-popup video {
-        width: 100%;
         object-fit: cover;
-        border-radius: 50%;
-        height: 82px;
-        box-shadow: 0px 10px 50px 0px #0000001A;
+        width: 68px;
+        height: 106px;
+        cursor: pointer;
       }
-
-      .video-popup-inner {
-        height: 82px;
+      div#videoPopup {
+          position: relative;
       }
-
-      .video-popup .close-btn {
+      {% comment %} .video-popup .close-btn {
         width: 24px;
         height: 24px;
         top: 0;
         right: 0;
-      }
+      } {% endcomment %}
       .fullscreen-video .close-btn {
         width: 33px;
         height: 33px;
@@ -944,27 +927,6 @@
         bottom: -100%;
       }
 
-      .video-popup video,
-      .video-popup-inner,
-      .video-popup {
-        width:74px;
-        height: 74px;
-      }
-      .video-popup .close-btn,
-      .fullscreen-video .close-btn {
-        width: 24px;
-        height: 24px;
-      }
-      .video-popup.visible {
-        bottom: 91px;
-        right: 12px;
-      }
-      .video-popup .close-btn i.ri-close-line {
-        font-size: 16px;
-        line-height: 12.5px;
-        width: 16px;
-        height: 12px;
-      }
       .fullscreen-video .close-btn i.ri-close-line {
         font-size: 12px;
         line-height: 12.5px;
