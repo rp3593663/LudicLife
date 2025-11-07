@@ -1,0 +1,250 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--sports-registration {
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }};{%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }};{%- endif -%}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--sports-registration {
+      {%- if padding[1] != blank -%} padding: {{ padding[1] }};{%- endif -%}
+      {%- if margin[1] != blank -%} margin: {{ margin[1] }};{%- endif -%}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--sports-registration {
+      {%- if padding[2] != blank -%} padding: {{ padding[2] }};{%- endif -%}
+      {%- if margin[2] != blank -%} margin: {{ margin[2] }};{%- endif -%}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--sports-registration {
+      {%- if padding[3] != blank -%} padding: {{ padding[3] }};{%- endif -%}
+      {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--sports-registration">
+  <div class="{{ container }}">
+    <div class="sport_registration_inner">
+      <div class="img_block">
+        {% if section.settings.bag_image %}
+          <img src="{{ section.settings.bag_image | img_url: 'master' }}" class="sports_bag" alt="Sports Bag">
+        {% endif %}
+      </div>
+      <div class="content_block">
+         <div class="logo_wrapper">
+          {% if section.settings.logo_image %}
+            <img src="{{ section.settings.logo_image | img_url: 'master' }}" class="futurworks_logo" alt="Futurworks Logo">
+          {% endif %}
+          <p>{{ section.settings.logo_caption }}</p>
+         </div>
+         <div class="middle_wrapper">
+            <div>
+              <h4>{{ section.settings.main_heading }}</h4>
+              <p>{{ section.settings.main_description }}</p>
+            </div>
+            <div>
+              <h4>{{ section.settings.units_limited }}</h4>
+              <p>{{ section.settings.units_note }}</p>
+            </div>
+            <div class="time_block">
+              <p>Drops in</p>
+              <div id="time_wrapper">
+                <p id="days">0 <span>Days</span></p>
+                <p id="hours">0 <span>Hours</span></p>
+                <p id="minutes">0 <span>Minutes</span></p>
+                <p id="seconds">0 <span>Seconds</span></p>
+              </div>
+              <p>Better be ready</p>
+            </div>
+         </div>
+         <div class="bag_registration_form_wrapper">
+            <form>
+               <div class="field">
+                <label class="label" for="SportsBagContactForm-name">{{ 'templates.write_to_us.form.name' | t }}<span aria-hidden="true" class="asterisk">*</span></label>
+                <input
+                  class="input_field"
+                  autocomplete="name"
+                  type="text"
+                  id="SportsBagContactForm-name"
+                  name="name"
+                  placeholder="Enter full name"
+                  required
+                >
+                <span class="error" id="sportsBagNameError"></span>
+              </div>
+              <div class="field field--with-error">
+                <label class="label" for="SportsBagContactForm-email">{{ 'templates.write_to_us.form.email' | t }}<span aria-hidden="true" class="asterisk">*</span></label>
+                <input
+                  autocomplete="email"
+                  type="email"
+                  id="SportsBagContactForm-email"
+                  class="input_field"
+                  name="email"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  placeholder="Enter email address"
+                  required
+                >
+                <span class="error" id="sportsBagEmailError"></span>
+              </div>
+              <div class="field">
+                <label class="label" for="SportsBagContactForm-phone">{{ 'templates.write_to_us.form.phone' | t }}<span aria-hidden="true" class="asterisk">*</span></label>
+                <input
+                  type="tel"
+                  id="SportsBagContactForm-phone"
+                  class="input_field"
+                  autocomplete="tel"
+                  name="phone"
+                  pattern="[0-9\-]*"
+                  placeholder="Enter mobile number"
+                >
+                <span class="error" id="sportsBagPhoneError"></span>
+              </div>
+              <button type="button" class="button" id="sports_bag_registration_btn">
+                {{ section.settings.cta_text }}
+              </button>
+            </form>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sport_bag_popup_overlay"></div>
+  <div class="sports_bag_popup">
+    <div class="sports_bag_popup_content">
+      <h2>Done! Check your inbox on <span>3 July 2025.</span></h2>
+      <p>While you wait, explore our latest drop and the other cool stuff in the space.</p>
+      <a href="{{ shop.url }}/collections/sliders">Take me there</a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const countdownDate = new Date("July 03, 2025 20:00:00").getTime();
+  const countdownFunc = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    if (distance < 0) {
+      clearInterval(countdownFunc);
+      document.getElementById("time_wrapper").innerHTML = "<p>Drop is live!</p>";
+      return;
+    }
+
+    document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)) + " <span>Days</span>";
+    document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + " <span>Hours</span>";
+    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)) + " <span>Minutes</span>";
+    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000) + " <span>Seconds</span>";
+  }, 1000);
+</script>
+
+
+{% schema %}
+{
+  "name": "Sports Registration",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "image_picker",
+      "id": "bag_image",
+      "label": "Bag Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_caption",
+      "label": "Logo Caption",
+      "default": "Mindful products for mindless pursuits."
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "It's that Sport Bag."
+    },
+    {
+      "type": "textarea",
+      "id": "main_description",
+      "label": "Main Description",
+      "default": "Where the \"limit\" is rhetorical. Self-aware. Abundant. Alive by design."
+    },
+    {
+      "type": "text",
+      "id": "units_limited",
+      "label": "Units Limited Text",
+      "default": "Limited to <span>500</span> units"
+    },
+    {
+      "type": "text",
+      "id": "units_note",
+      "label": "Units Note",
+      "default": "First come, first serve."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Register your interest"
+    },
+    {
+      "type": "text",
+      "id": "countdown_target",
+      "label": "Countdown Target (YYYY-MM-DD HH:MM:SS)",
+      "default": "2025-07-01 12:00:00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sports Registration",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

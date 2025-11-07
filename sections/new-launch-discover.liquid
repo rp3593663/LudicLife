@@ -1,0 +1,224 @@
+{%- if section.settings.layout == 'box_width' -%}
+	{%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding 	= section.settings.padding | split: "|" %}
+{% assign margin 	= section.settings.margin | split: "|" %}
+
+{%- style -%}
+
+  #shopify-section-{{ section.id }} .section--new-launch{
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+  }
+
+  @media (max-width:1199px){
+      #shopify-section-{{ section.id }} .section--new-launch{
+        {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+        {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+			}
+    }
+
+  @media (max-width:991px){
+      #shopify-section-{{ section.id }} .section--new-launch{
+        {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+        {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+			}
+  }
+
+  @media (max-width:767px){
+      #shopify-section-{{ section.id }} .section--new-launch{
+        {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+        {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+			}
+    }
+
+    .section--new-launch {
+      position: relative;
+    }
+    .section--new-launch:after {
+      content: "";
+      position: absolute;
+      background: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Ludic_Grid_1.svg?v=1744975392)
+        no-repeat center center;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: -1;
+      top: 0;
+    }
+    .video_container video{
+      width: 100%;
+      height: 466px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 767px) {
+      .video_container video {
+        height: auto;
+      }
+    }
+{%- endstyle -%}
+
+
+
+<section class="ludic-section ludic-section-{{ section.id }} section--new-launch">
+  <div class="{{ container }}">
+    <div class="row align-items-center">
+      <div class="col-xl-5 col-md-6">
+        <div class="new_launch_img d-block d-md-none">
+            {%- if section.settings.new_launch_img_mobile != blank -%}
+              <img 
+                src="{{ section.settings.new_launch_img_mobile | image_url }}" 
+                alt="new_launch_img"
+                width="{{ section.settings.new_launch_img_mobile.width }}"
+                height="{{ section.settings.new_launch_img_mobile.height }}"
+              >
+            {%- else -%}
+            {% if section.settings.video != blank -%}
+              <div class="video_container">
+                {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: "master" }}
+              </div>
+            {% endif %}
+            {%- endif -%}
+        </div>
+        <div class="new_launch_content">
+          {%- if section.settings.section_heading != blank -%}
+            <h2>{{ section.settings.section_heading }}</h2>
+          {%- endif -%}
+          <span class="subtext">{{ section.settings.subtext }}</span>
+          <div class="info">
+            {{ section.settings.description }}
+          </div>
+          {%- if section.settings.youtube_url != blank -%}
+            <div class="youtube_link">
+              <i class="ri-youtube-fill"></i><a href="{{ section.settings.youtube_url }}" target="_blank">Campaign Film</a>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.discover_url != blank -%}
+            <a href="{{ section.settings.discover_url }}" class="discover_btn">
+              Discover
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="col-xl-7 col-md-6">
+        <div class="new_launch_img d-none d-md-block">
+          {%- if section.settings.new_launch_img != blank -%}
+            <img src="{{ section.settings.new_launch_img | image_url }}" alt="new_launch_img"  width="{{ section.settings.new_launch_img.width }}"
+              height="{{ section.settings.new_launch_img.height }}">
+          {% elsif section.settings.video != blank %}
+            {% if section.settings.video != blank -%}
+              <div class="video_container">
+                {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: "master" }}
+              </div>
+            {% endif %}
+          {%- else -%}
+              <img class="" src="https://placehold.jp/1258x700.png" alt="new_launch_img">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+  {
+  "name": "New Launch",
+  "settings": [
+    {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full-width",
+            "label": "Full Width"
+          },
+          {
+            "value": "box_width",
+            "label": "Box Width"
+          }
+        ],
+        "label": "Layout",
+        "default": "box_width"
+    },
+    {
+        "type": "text",
+        "id": "padding",
+        "label": "Padding",
+        "default": "0px 0px 0px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "text",
+        "id": "margin",
+        "label": "Margin",
+        "default": "80px 0px | | | 36px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "header",
+        "content": "=== Image Settings"
+    },
+    {
+        "type": "image_picker",
+        "id": "new_launch_img",
+        "label": "Right Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "new_launch_img_mobile",
+        "label": "Right Image for Mobile"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+        "type": "header",
+        "content": "=== Content Settings"
+    },
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Heading",
+        "default": "Canvas, but not as you know it."
+    },
+    {
+        "type": "textarea",
+        "id": "subtext",
+        "label": "Subtext",
+        "default": "Enhanced Canvas Collection / <strong>New Launch<span>*</span></strong>"
+    },
+    {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+    },
+    {
+        "type": "url",
+        "id": "youtube_url",
+        "label": "Youtube URL"
+    },
+    {
+        "type": "url",
+        "id": "discover_url",
+        "label": "Discover Button URL"
+    }
+  ],
+  "presets": [
+  {
+  "name": "New Launch"
+  }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

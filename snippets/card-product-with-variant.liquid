@@ -1,0 +1,47 @@
+<div class="product-img-slider" id="product-{{ select_product.id }}-main">
+  {% for variant in select_product.variants %}
+    {% if variant.available %}
+      <div class="slider-main-img">
+        <img class="color-name-imag" src="{{ variant.featured_image.src | img_url: '' }}" data-value-id="{{ variant.id }}" width="100%" height="auto">
+        <span>{{ variant.title }}</span>
+      </div>
+    {% endif %}
+ {% endfor %}
+</div>
+<div class="product-box-info">
+  <div class="product-title">
+    {% if custom_text != blank %}
+      <p>{{ custom_text }}</p>
+    {% else %}
+      <p>{{ select_product.title }}</p>
+    {% endif %}
+  </div>
+  <div class="color-option" id="product-{{ select_product.id }}-nav">
+    {% for variant in select_product.variants %}
+        {% if variant.available %}
+           {%- assign value_downcase = variant.title | downcase | handle -%}
+           <li class="color-name-more" data-pro-img="{{ variant.featured_image.src | img_url: '' }}" data-value-id="{{ variant.id }}" style="background-color: var(--color-{{value_downcase}});">{{ variant.title }}</li>
+        {% endif %}
+     {% endfor %}
+  </div>
+ </div>
+<script>
+  jQuery(document).ready(function ($) {
+   $('#product-{{ select_product.id }}-main').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      dots: true,
+      asNavFor: '#product-{{ select_product.id }}-nav'
+    });
+    $('#product-{{ select_product.id }}-nav').slick({
+      slidesToShow: 10,
+      slidesToScroll: 1,
+      asNavFor: '#product-{{ select_product.id }}-main',
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true
+    });
+  });
+</script>

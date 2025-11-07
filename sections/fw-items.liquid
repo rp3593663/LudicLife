@@ -1,0 +1,179 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-items {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-items {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-items {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-items {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-items">
+  <div class="{{ container }}">
+
+    <!-- the Sport bag -->
+    <div class="img_plus_content" id="img-plus-content-{{ section.id }}">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875688.png?v=1751368719"
+        class="fw-item-1"
+        alt="fw-item-1"
+      >
+      <div class="right_side">
+        <div class="content">
+          <div class="main_content">
+            <p>Futurworks:</p>
+            <p>The Sport Bag</p>
+          </div>
+
+          <div class="sub_content">
+            <p class="sub_content_title">Built for more</p>
+            <p class="sub_content_desc">Expandable. Detachable. Dimensioned.</p>
+          </div>
+          <div class="sub_content">
+            <p class="sub_content_title">An ecosystem</p>
+            <p class="sub_content_desc">Function. Storage. Reliable.</p>
+          </div>
+          <div class="sub_content">
+            <p class="sub_content_title">Structural + Mindful</p>
+            <p class="sub_content_desc">Spacious. Transformable. Easy.</p>
+          </div>
+          <a href="https://ludic.life/collections/futurworks/products/the-sport-bag" class="sub_content_btn">Shop The Bag</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- the Circuit shirt -->
+    <div class="img_plus_content flex_reverse" id="img-plus-content-{{ section.id }}">
+      <div class="right_side">
+        <div class="content">
+          <div class="main_content">
+            <p>Futurworks:</p>
+            <p>Circuit Shirt</p>
+          </div>
+
+          <div class="sub_content">
+            <p class="sub_content_title">Intentional</p>
+            <p class="sub_content_desc">Minimal. Structured. Comfort-led.</p>
+          </div>
+          <div class="sub_content">
+            <p class="sub_content_title">Built for Movement</p>
+            <p class="sub_content_desc">Clean exits. Quiet arrivals. Instinct-driven.</p>
+          </div>
+          <div class="sub_content">
+            <p class="sub_content_title">Functionally Wired</p>
+            <p class="sub_content_desc">Canvas. 3-Fold Pocket. Hidden Slot.</p>
+          </div>
+          <a href="https://ludic.life/collections/futurworks/products/circuit-shirt" class="sub_content_btn">Shop Shirt</a>
+        </div>
+      </div>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875685.png?v=1751368719"
+        class="fw-item-1"
+        alt="fw-item-1"
+      >
+    </div>
+
+    <!-- the Cap -->
+    <div class="img_plus_content" id="img-plus-content-{{ section.id }}">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875689.png?v=1751368715"
+        class="fw-item-1"
+        alt="fw-item-1"
+      >
+      <div class="right_side">
+        <div class="content">
+          <div class="main_content">
+            <p>Futurworks:</p>
+            <p>Mesh Cap</p>
+          </div>
+
+          <div class="sub_content">
+            <p class="sub_content_title">Instinctively Cerebral</p>
+            <p class="sub_content_desc">Unfussed. Smart. Efficient.</p>
+          </div>
+          <div class="sub_content">
+            <p class="sub_content_title">Reliable</p>
+            <p class="sub_content_desc">True-to-form. Lightweight. Functional.</p>
+          </div>
+          <div class="sub_content">
+            <p class="sub_content_title">Detailed</p>
+            <p class="sub_content_desc">Mesh Pocket. Asterisks. 6 Paneled.</p>
+          </div>
+          <a href="https://ludic.life/collections/futurworks/products/mesh-cap-red" class="sub_content_btn">Shop Cap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Fw Items",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fw Items",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

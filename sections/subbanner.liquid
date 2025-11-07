@@ -1,0 +1,127 @@
+{%- if section.settings.layout == 'box_width' -%}
+	{%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding 	= section.settings.padding | split: "|" %}
+{% assign margin 	= section.settings.margin | split: "|" %}
+
+{%- style -%}
+
+  #shopify-section-{{ section.id }} .section--subbanner{
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+  }
+
+  @media (max-width:1199px){
+      #shopify-section-{{ section.id }} .section--subbanner{
+        {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+        {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+			}
+    }
+
+  @media (max-width:991px){
+      #shopify-section-{{ section.id }} .section--subbanner{
+        {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+        {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+			}
+  }
+
+  @media (max-width:767px){
+      #shopify-section-{{ section.id }} .section--subbanner{
+        {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+        {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+			}
+    }
+
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--subbanner">
+  <div class="{{ container }}">
+    <div class="container_box">
+      <div class="sub_banners_block">
+        {%- assign i = 1 -%}
+        {% for block in section.blocks %}
+          <div class="sub-banner banner-{{ i }}">
+            {%- if block.settings.subbanner != blank -%}
+              <div class="banner-inner contains-media">
+                <a href="{{ block.settings.button_link }}">
+                  <img src="{{ block.settings.subbanner | img_url: "master" }}" itemprop="banner">
+                </a>
+              </div>
+            {%- else -%}
+              <span>
+                {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+              </span>
+            {%- endif -%}
+          </div>
+          {%- assign i = i | plus: 1 -%}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+ {
+   "name": "subbanner",
+   "tag": "section",
+   "class": "section subbanners-section",
+   "max_blocks": 7,
+   "settings": [
+      {
+          "type": "select",
+          "id": "layout",
+          "options": [
+            {
+              "value": "full-width",
+              "label": "Full Width"
+            },
+            {
+              "value": "box_width",
+              "label": "Box Width"
+            }
+          ],
+          "label": "Layout",
+          "default": "box_width"
+      },
+      {
+          "type": "text",
+          "id": "padding",
+          "label": "Padding",
+          "default": "0px 0px 0px 0px",
+          "placeholder": "top right bottom right",
+          "info":"Screen: desktop | 1200px | 991px | 767px"
+      },
+      {
+          "type": "text",
+          "id": "margin",
+          "label": "Margin",
+          "default": "80px 0px | | | 36px 0px",
+          "placeholder": "top right bottom right",
+          "info":"Screen: desktop | 1200px | 991px | 767px"
+      }
+    ],
+   "blocks": [
+     {
+        "type": "image",
+	      "name": "sub banner",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "subbanner",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "URL"
+          }
+       ]
+     }
+   ],
+"presets": [
+     {
+       "name": "subbanner"
+     }
+   ]
+ }
+{% endschema %}

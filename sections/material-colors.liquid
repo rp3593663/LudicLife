@@ -1,0 +1,52 @@
+{%- assign _blocks = section.blocks -%}
+
+{%- if _blocks.size > 0 -%}
+<style type="text/css" media="screen">
+    {%- for block in _blocks -%}
+      {%- assign current_block = block.settings -%}
+
+      {%- if current_block.title != blank -%}
+        {%- assign color_styles = '' -%}
+        {%- assign color_name_arr = current_block.title | split: ',' -%}
+        {%- assign color_selectors = '' -%}
+
+        {%- for color_name in color_name_arr -%}
+          {%- assign color_name_handle = color_name | handle -%}
+
+          {%- assign color_selectors = color_selectors | append: ', [data-checkbox-name="' | append: color_name_handle | append: '"]' -%}
+        {%- endfor -%}
+
+        {%- if current_block.color_1 != blank -%}
+          {%- assign color_styles = 'background: ' | append: current_block.color_1 | append: ';' -%}
+        {%- endif -%}
+
+        {{ color_selectors | replace_first: ',', '' }} { {{ color_styles }}; background-position: center; background-size: contain; }
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+</style>
+
+{% schema %}
+{
+  "name": "Material colors",
+  "blocks": [
+    {
+      "type": "color",
+      "name": "Color",
+      "settings": [
+        {
+          "type": "color",
+          "id": "color_1",
+          "label": "Color 1"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Color names",
+          "info": "You can add one or more names for colors. Please, divide the color names with commas."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

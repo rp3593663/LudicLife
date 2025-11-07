@@ -1,0 +1,256 @@
+<div class="image-with-product-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="image-with-product-image">
+                    {% if section.settings.custom_image != blank %}
+                        <img src="{{ section.settings.custom_image | image_url: width: 600 }}" alt="Image with Product" />
+                    {% elsif section.settings.custom_video != blank %}
+                        {{ section.settings.custom_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex">
+                <div class="image-with-product-content">
+                    <div class="product-list d-flex">
+                        {% if section.settings.product != blank %}
+                            <div class="product-item">
+                                <a href="/products/{{ section.settings.product | product_url }}">
+                                    <img src="{{ section.settings.product.featured_image | image_url: width: 280 }}" alt="{{ section.settings.product.title }}">
+                                </a>
+                                <div class="image-product-detail">
+                                    <div class="d-flex flex-wrap flex-sm-nowrap align-items-baseline gap-sm-4">    
+                                        <a href="/products/{{ section.settings.product | product_url }}">
+                                            <h3>{{ section.settings.product.metafields.custom.product_name_breadcrumb }} / <span class="image-product-color">{{ section.settings.product.metafields.custom.product_color_name }}</span></h3>
+                                        </a>
+                                        <div class="custom-variant-count">
+                                            <span class="custom-color" style="background:{{ section.settings.product.metafields.custom.hexa_code.value }}"></span>
+                                        {% assign paired_products = section.settings.product.metafields.custom.pair_with_product.value %}
+                                            {% if paired_products.count > 1 %}
+                                            + {{ paired_products.count | minus:1 }}  <span class="mobile_only"> colorways</span></span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <p>₹ {{ section.settings.product.price | money_without_currency |  remove: '.00'  }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if section.settings.product_2 != blank %}
+                            <div class="product-item">
+                                <a href="/products/{{ section.settings.product_2 | product_url }}">
+                                    <img src="{{ section.settings.product_2.featured_image | image_url: width: 280 }}" alt="{{ section.settings.product_2.title }}">
+                                </a>
+                                <div class="image-product-detail">
+                                    <div class="d-flex flex-wrap flex-sm-nowrap align-items-baseline gap-sm-4">    
+                                        <a href="/products/{{ section.settings.product_2 | product_url }}">
+                                            <h3>{{ section.settings.product_2.metafields.custom.product_name_breadcrumb }} / <span class="image-product-color">{{ section.settings.product_2.metafields.custom.product_color_name }}</span></h3>
+                                        </a>
+                                        <div class="custom-variant-count">
+                                            <span class="custom-color" style="background:{{ section.settings.product_2.metafields.custom.hexa_code.value }}"></span>
+                                        {% assign paired_products = section.settings.product_2.metafields.custom.pair_with_product.value %}
+                                            {% if paired_products.count > 1 %}
+                                            + {{ paired_products.count | minus:1 }}  <span class="mobile_only"> colorways</span></span>
+                                            {% endif %}
+                                            </div>
+                                        </div>
+                                    <p>₹ {{ section.settings.product_2.price | money_without_currency | remove: '.00'  }}</p>
+                                    
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="image-with-product-text">
+                        <h2>{{ section.settings.heading }}</h2>
+                        <div class="description">Softer steps, cloudier landings, and cushioning that keeps giving. Slider, now in 3x cloud, enhanced softness, and new comfort built in our proprietary CloudFrameTM and muscle recovery footbed delivering exceptional support. Leveled up, tried & tested, and reviewed through real wear. From on-the-move days to unwinding hours, every moment of comfort generously upgraded.</div>
+                        {% if section.settings.button_link != blank and section.settings.button_text != blank %}
+                            <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_text }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% style %}  
+    .product-list {
+        gap: 20px;
+    }
+    .image-product-detail{
+        margin-bottom:4px;
+        margin-top: 8px;
+        gap: 10px;
+    }
+    .image-with-product-image video{
+        width: 100%;
+    }
+    .product-item h3 {
+        font-size: 12px;
+        line-height: 17.1px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin-bottom:7px;
+        letter-spacing: -0.36px;
+    }
+    .product-item a{
+        text-decoration: none;
+    }
+    .product-item .image-product-color{
+        font-weight:700;
+    }
+    .product-item p {
+        font-size: 12px;
+        line-height: 17.1px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0;
+        letter-spacing: -0.36px;
+    }
+    .image-with-product-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .image-with-product-text h2 {
+        font-size: 26px;
+        line-height: 37.1px;
+        letter-spacing: -1.3px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    .image-with-product-text .description {
+        font-size: 14px;
+        line-height: 22.9px;
+        font-weight: 400;
+        margin: 0;
+        letter-spacing: -0.45px;
+        text-align:justify;
+    }
+    .image-with-product-text a {
+        background: #E60013;
+        font-size: 8px;
+        line-height: 11.4px;
+        font-weight: 700;
+        padding: 12px 40px;
+        border-color: #E60013;
+        float: inline-end;
+    }
+    .image-with-product-text a:hover {
+        background: #E60013;
+        color: #fff;
+        border-color: #E60013;  
+    }
+    .product-item .custom-variant-count {
+        font-size: 10px;
+        line-height: 10px;
+    }
+    .product-item span.custom-color {
+        width: 10px;
+        height: 10px;
+    }
+    .image-with-product-content .product-item {
+        width: 100%;
+    }
+    @media screen and (max-width:767px){
+        .image-with-product-text .description{
+            display: block;
+            font-size:10px;
+            line-height: 14px;
+        }
+        .image-with-product-text h2 {
+            font-size: 16px;
+            line-height: 37.1px;
+            letter-spacing: -0.8px;
+            line-height: 100%;
+            margin-bottom: 10px;
+            margin-top: 17px;
+        }
+        .image-with-product-content .product-list {
+            gap: 8px;
+        }
+        .product-item h3{
+            font-size:10px;
+            line-height: 14px;
+        }
+        .product-item p {
+            font-size:10px;
+            line-height: 12px;
+        }
+        .image-with-product-text a {
+            font-size: 7px;
+            line-height: 10px;
+            padding: 6px 13px;
+        }
+        .image-with-product-content {
+            flex-direction: column-reverse;
+            gap: 16px;
+        }
+        .image-product-detail span.mobile_only {
+            margin-left: 5px;
+        }
+        .image-product-detail a {
+            width: 100%;
+        }
+    }
+{% endstyle %}
+
+{% schema %}
+{
+    "name": "Image with Product",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "custom_image",
+            "label": "Image"
+        },
+        {
+            "type": "video",
+            "id": "custom_video",
+            "label": "Video"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+        },
+        {
+            "type":"product",
+            "id":"product",
+            "label":"Product"
+        },
+        {
+            "type": "product",
+            "id": "product_2",
+            "label": "Product 2"
+        },
+        {
+            "type": "header",
+            "content": "=== General Settings"
+        },
+        {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding",
+            "default": "0px 0px 0px 0px",
+            "placeholder": "top right bottom right",
+            "info":"Screen: desktop | 1200px | 991px | 767px"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with Product"
+        }
+    ]
+}
+{% endschema %}

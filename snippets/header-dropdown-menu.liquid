@@ -1,0 +1,147 @@
+{% comment %}
+  Renders a standard dropdown style menu for the header.
+
+  Usage:
+  {% render 'header-dropdown-menu' %}
+{% endcomment %}
+
+{% if request.path != '/pages/footwear-slider-teaser' %}
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      {% assign sub_mega_active = '' %}
+      {%- for block in section.blocks -%}  
+        {% assign current_item_name = link.title | downcase %}
+        {% assign menu_item_name = block.settings.menu_item_name | downcase %}
+          {%- if current_item_name == menu_item_name -%}
+            {% assign sub_mega_active = true %}
+          {%- endif -%}
+      {%- endfor -%}
+      <li class="{% if sub_mega_active == true %}sub-mega-menu{% endif %}">
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {% render 'icon-caret' %}
+              </summary>
+              <ul
+                id="HeaderMenu-MenuList-{{ forloop.index }}"
+                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                role="list"
+                tabindex="-1"
+              >
+                {%- for childlink in link.links -%}
+                  <li>
+                    {%- if childlink.links == blank -%}
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                    {%- else -%}
+                      <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+                        <summary
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                        >
+                          <span>{{ childlink.title | escape }}</span>
+                          {% render 'icon-caret' %}
+                        </summary>
+                        <ul
+                          id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                          class="header__submenu list-menu motion-reduce"
+                        >
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </details>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+            data-menu-id="{{ link.handle }}" 
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+          {%- for block in section.blocks -%} 
+            {% assign current_item_name = link.title | downcase %}
+            {% assign menu_item_name = block.settings.menu_item_name | downcase %} 
+              {%- if current_item_name == menu_item_name -%}
+                <div class="top-nav-subnav">
+                  <div class="top-nav-subnav__inner page-width">
+                      <ul class="menu-product">
+                        {%- for product in block.settings.collection.products -%}
+                          <li class="menu-product-box">
+                            <div class="product-box-inner">
+                              <a class="menu-product-link" href="{{ product.url }}">
+                                <div class="product-img-menu">
+                                  <img
+                                    src="{{ product.featured_media | image_url: width: 300 }}"
+                                    alt="{{ product.title }}"
+                                    class="motion-reduce"
+                                    loading="lazy"
+                                    width="auto"
+                                    height="auto"
+                                  >
+                                </div>
+                                <div class="menu-product-title">
+                                  <p>{{ product.title }}</p>
+                                </div>
+                              </a>
+                            </div>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                  </div>
+                </div>
+              {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+{% endif %}

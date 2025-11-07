@@ -1,0 +1,302 @@
+<div class="pyramid-grid-wrapper {{ section.settings.custom_class }}">
+  <div class="pyramid-grid">
+    {% for block in section.blocks %}
+      {% assign index = forloop.index0 | modulo: 7 %}
+      {% if block.settings.slide_image != blank %}
+        <div class="grid-item column-{{ index }}
+          {% if index == 0 %}first-in-row
+          {% elsif index == 6 %}last-in-row
+          {% endif %}">
+          <img src="{{ block.settings.slide_image | image_url: width: 600 }}" alt="Grid Image">
+        </div>
+      {% endif %} 
+    {% endfor %}
+  </div>
+</div>
+
+<!-- MOBILE VERSION (3 columns only, hidden on desktop) -->
+<div class="pyramid-grid-wrapper-mobile {{ section.settings.custom_class }}" style="display: none;">
+  <div class="pyramid-grid-mobile">
+    {% for block in section.blocks %}
+      {% assign index = forloop.index0 | modulo: 3 %}
+      {% if block.settings.slide_image != blank %}
+        <div class="grid-item column-{{ index }}
+          {% if index == 0 %}first-in-row
+          {% elsif index == 2 %}last-in-row
+          {% endif %}">
+          <img src="{{ block.settings.slide_image | image_url: width: 600 }}" alt="Grid Image">
+        </div>
+      {% endif %} 
+    {% endfor %}
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const columnsConfig = [
+      { index: 3, offset: 300 },
+      { index: 2, offset: 400 },
+      { index: 4, offset: 400 },
+      { index: 1, offset: 500 },
+      { index: 5, offset: 500 },
+      { index: 0, offset: 1000 },
+      { index: 6, offset: 1000 },
+    ];
+
+    const grouped = {};
+    columnsConfig.forEach(({ index, offset }) => {
+      if (!grouped[offset]) grouped[offset] = [];
+      grouped[offset].push(index);
+    });
+
+    const offsets = Object.keys(grouped).sort((a, b) => a - b);
+    offsets.forEach((offset, i) => {
+      const colIndices = grouped[offset];
+      const items = [];
+
+      colIndices.forEach((colIdx) => {
+        document.querySelectorAll(`.column-${colIdx}`).forEach((el) => items.push(el));
+      });
+
+      gsap.fromTo(
+        items,
+        {
+          y: parseInt(offset), // more Y = starts further down
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".pyramid-grid-wrapper",
+            start: `top+=${i * 200} bottom-=20%`, // extended scroll start
+            end: `top+=${(i + 1) * 150} top+=10%`, // longer animation distance
+            scrub: true, // smooth tracking
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  });
+
+
+  // Mobile version
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.innerWidth > 768) return; // Only run this for mobile
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const columnOffsets = {
+      1: 100, // center column (moves first)
+      0: 300, // left column
+      2: 300  // right column
+    };
+
+    Object.entries(columnOffsets).forEach(([colIdx, offset], i) => {
+    const columnItems = gsap.utils.toArray(`.pyramid-grid-wrapper-mobile .column-${colIdx}`);
+
+    if (columnItems.length === 0) return;
+
+    gsap.fromTo(
+      columnItems,
+      {
+        y: offset,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".pyramid-grid-wrapper-mobile",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1, // smoother scrub
+          toggleActions: "play none none reverse",
+          invalidateOnRefresh: true, // fixes layout shifting issues
+          onUpdate: (self) => {
+            const progress = self.progress;
+            columnItems.forEach((el) => {
+              gsap.set(el, {
+                y: offset * (1 - progress),
+                opacity: 0.2 + 0.8 * progress
+              });
+            });
+          }
+        }
+      }
+    );
+  });
+
+  });
+</script>
+
+<style>
+.pyramid-grid-wrapper {
+  position: relative;
+  padding: 40px;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.pyramid-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Make first and last items appear half-visible */
+.grid-item.first-in-row, 
+.grid-item.last-in-row  {
+  position: relative;
+}
+
+/* Add white gradient overlay */
+.grid-item.first-in-row::before,
+.grid-item.last-in-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.grid-item.first-in-row::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.grid-item.last-in-row::before {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+@media screen and (max-width: 768px) {
+  /* MOBILE GRID */
+  .pyramid-grid-wrapper-mobile {
+    position: relative;
+    padding: 0 15px;
+    overflow: hidden;
+    padding-top: 0;
+  }
+
+  .pyramid-grid-mobile {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .pyramid-grid-wrapper-mobile .grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .pyramid-grid-wrapper-mobile .grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .pyramid-grid-wrapper-mobile .grid-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Half-visible gradient edges */
+  .pyramid-grid-wrapper-mobile .grid-item.first-in-row::before,
+  .pyramid-grid-wrapper-mobile .grid-item.last-in-row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    z-index: 2;
+  }
+
+  .pyramid-grid-wrapper-mobile .grid-item.first-in-row::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+  }
+
+  .pyramid-grid-wrapper-mobile .grid-item.last-in-row::before {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+  }
+  .pyramid-grid-wrapper-mobile {
+    display: block !important;
+  }
+
+  .pyramid-grid-wrapper {
+    display: none;
+  }
+  
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Image Scroller",
+  "settings": [
+    {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"  
+      }
+    ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Scroller",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

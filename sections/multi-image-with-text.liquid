@@ -1,0 +1,67 @@
+<div class="multi-image-with-text">
+  <div class="container">
+    <div class="section_wrapper">
+      <div class="info">
+        {% if section.settings.hadding != blank %}
+          <h2 class="hadding">{{ section.settings.hadding }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class="description">{{ section.settings.description }}</div>
+        {% endif %}
+        {% if section.settings.icon != blank %}
+          <div class="icons"><img src="{{ section.settings.icon | img_url: '2048x' }}"></div>
+        {% endif %}
+      </div>
+      <div class="images">
+        {% if section.settings.first_image != blank %}
+          <div class="first_img">
+            <img src="{{ section.settings.first_image | img_url: "2048x" }}">
+          </div>
+        {% endif %}
+        {% if section.settings.second_image != blank %}
+          <div class="second_img">
+            <img src="{{ section.settings.second_image | img_url: "2048x" }}">
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Multi Image With Text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "First Image",
+      "id": "first_image"
+    },
+    {
+      "type": "image_picker",
+      "label": "Second image",
+      "id": "second_image"
+    },
+    {
+      "type": "text",
+      "label": "Hadding",
+      "id": "hadding"
+    },
+    {
+      "type": "richtext",
+      "label": "Description",
+      "id": "description"
+    },
+    {
+      "type": "image_picker",
+      "label": "icon",
+      "id": "icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi Image With Text"
+    }
+  ]
+}
+{% endschema %}

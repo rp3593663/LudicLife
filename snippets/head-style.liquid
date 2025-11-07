@@ -1,0 +1,19 @@
+<script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+{%- if settings.animations_reveal_on_scroll -%}
+  <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<link rel="preload" href="{{ 'bootstrap.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ 'bootstrap.css' | asset_url }}"></noscript>
+<!-- {{ 'bootstrap.css' | asset_url | stylesheet_tag }} -->
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+
+<link rel="preload" href="{{ 'remixicon.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ 'remixicon.css' | asset_url }}"></noscript>
+<!-- {{ 'remixicon.css' | asset_url | stylesheet_tag }} -->
+
+<!-- <link href="//ludic.life/cdn/shop/t/32/assets/style.scss.css?v=41790711733857700361733378911" rel="stylesheet" type="text/css" media="all"> -->
+{{ 'style.scss.css' | asset_url | stylesheet_tag }}

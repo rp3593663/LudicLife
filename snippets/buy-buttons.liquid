@@ -1,0 +1,356 @@
+{% comment %}
+  Renders product buy-buttons.
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} product form id.
+  - section_id: {String} id of section to which this snippet belongs.
+  - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
+
+  Usage:
+  {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
+{% endcomment %}
+<style>
+  .wish-icon{
+    border: 1px solid #1A1A1A;
+    border-radius: 5px;
+    padding: 14px 15px;
+    cursor: pointer;
+  }
+  .wish-icon i{
+    font-size: 13px;
+    display:block;
+  }
+   .wish-icon i.is_selected{
+     color: red;
+   }
+  .wish-with-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+   .wish-with-button .product-form__submit{
+    margin: 0
+  }
+  .wish-icon-mobile{
+      display: none
+    }
+  @media(max-width: 749px){
+    .product-form__buttons {
+    max-width: 100%;
+}
+    .wish-icon-mobile{
+      display: flex;
+    }
+    .wish-icon-desktop{
+      display: none
+    }
+  }
+</style>
+
+<div {{ block.shopify_attributes }} class="custom_main_btn">
+  {%- if product != blank -%}
+    {%- liquid
+      assign gift_card_recipient_feature_active = false
+      if block.settings.show_gift_card_recipient and product.gift_card?
+        assign gift_card_recipient_feature_active = true
+      endif
+
+      assign show_dynamic_checkout = false
+      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+        assign show_dynamic_checkout = true
+      endif
+    -%}
+
+    <product-form
+      class="product-form"
+      data-hide-errors="{{ gift_card_recipient_feature_active }}"
+      data-section-id="{{ section.id }}"
+    >
+      <div class="product-form__error-message-wrapper" role="alert" hidden>
+        <i class="ri-error-warning-line" style="margin-right: 4px;"></i>
+        <span class="product-form__error-message"></span>
+      </div>
+
+      {%- form 'product',
+        product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+          {% if product.selected_or_first_available_variant.available == false
+            or quantity_rule_soldout
+            or product.selected_or_first_available_variant == nil
+          %}
+            disabled
+          {% endif %}
+          class="product-variant-id"
+        >
+
+        {%- if gift_card_recipient_feature_active -%}
+          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+        {%- endif -%}
+
+        <div class="product-form__buttons">
+          {%- liquid
+            assign check_against_inventory = true
+            if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+              assign check_against_inventory = false
+            endif
+            if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+              assign quantity_rule_soldout = true
+            endif
+          -%}
+
+          {% assign option_size = false %}
+          {% for option in product.options_with_values %}
+            {%- if option.name == 'Select your size (in UK)' or option.name == 'Select your size' or option.name == 'Size' -%}
+              {% assign option_size = true %}
+            {% endif %}
+          {% endfor %}
+          {% if option_size == true %}
+             <div class="wish-with-button mobile">
+               {% if product.metafields.custom.pre_book %}
+                  <button
+              id="ProductSubmitButton-{{ section_id }}"
+              type="button"
+              class="custom_product-form__submit pre-book  button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}{% if option_size == true %} d-lg-none d-md-none{% endif %}"
+            >
+              <span>
+               Pre-book
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+               {% else %}
+            <button
+              id="ProductSubmitButton-{{ section_id }}"
+              type="button"
+              class="custom_product-form__submit  button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}{% if option_size == true %} d-lg-none d-md-none{% endif %}"
+            >
+            {% comment %} <button
+              id="ProductSubmitButton-{{ section_id }}"
+              type="button"
+              class="custom_product-form__submit  button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}{% if option_size == true %} d-lg-none d-md-none{% endif %}"
+              {% if product.selected_or_first_available_variant.available == false
+                or quantity_rule_soldout
+                or product.selected_or_first_available_variant == nil
+              %}
+                disabled
+              {% endif %}
+            > {% endcomment %}
+              <span>
+                {%- if product.selected_or_first_available_variant == nil -%}
+                  {{ 'products.product.unavailable' | t }}
+                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+               {% endif %}
+            <!-- <div class="wish-icon  wish-icon-mobile"><i class="ri-bookmark-line"></i></div> -->
+           {% if product.title == 'The Sport Bag' %}
+              <p class="shipping_info">
+                Limited to 500 units.
+              </p>
+            {%- endif -%}
+            {% if product.title == 'Circuit Shirt' or product.title == 'Mesh Cap' %}
+              <p class="shipping_info">       
+                Limited to a few units.
+              </p>
+            {%- endif -%}
+            {% if product.title != 'Circuit Shirt' and product.title != 'Mesh Cap' and product.title != 'The Sport Bag' %}
+              <div class="sticky-coupon bg-white">
+                <p class="sticky-coupon-text">Coupon codes available at checkout.</p>
+              </div>
+            {%- endif -%}
+          </div>
+          
+            {% else %}
+              <div class="wish-with-button mobile">
+                <button id="ProductSubmitButton-{{ section_id }}" type="submit" name="add" class="product-form__submit button hello button--full-width button--primary" aria-haspopup="dialog">
+                <span>
+                  {%- if product.selected_or_first_available_variant == nil -%}
+                    {{ 'products.product.unavailable' | t }}
+                  {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- else -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- endif -%}
+                </span>
+                {%- render 'loading-spinner' -%}
+                </button>
+                {% if product.title == 'The Sport Bag' %}
+                  <p class="shipping_info">
+                    Limited to 500 units.
+                  </p>
+                {%- endif -%}
+                {% if product.title == 'Circuit Shirt' or product.title == 'Mesh Cap' %}
+                  <p class="shipping_info">       
+                    Limited to a few units.
+                  </p>
+                {%- endif -%}
+              </div>
+          {% endif %}
+          <p class="sold_out_error" style="display: none;">
+            <i class="ri-error-warning-line"></i>
+            <span></span>
+          </p>
+          <div class="wish-with-button desktop">
+            {% if product.metafields.custom.pre_book %}
+              <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="text"
+            name="add"
+            class="product-form__submit button pre-book button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == nil
+            %}
+              disabled
+            {% endif %}
+          >
+            <span class="pre-book">
+             Pre-book
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
+          <button
+            style="display: none;"
+            id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add"
+            class="product-form__submit button pre-book button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == nil
+            %}
+              disabled
+            {% endif %}
+          >
+            <span class="pre-book">
+             Pre-book
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
+            {% else %}
+              <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add"
+            class="product-form__submit button hello button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == nil
+            %}
+              disabled
+            {% endif %}
+          >
+            <span>
+              {%- if product.selected_or_first_available_variant == nil -%}
+                {{ 'products.product.unavailable' | t }}
+              {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- else -%}
+                {{ 'products.product.add_to_cart' | t }}
+              {%- endif -%}
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
+            {% endif %}
+            <!-- <div class="wish-icon wish-icon-desktop"><i class="ri-bookmark-line"></i></div> -->
+            {% comment %} <div class="wish-icon  wish-icon-mobile " onclick="toggleWishlist(this)" data-image="{{ product.featured_image | img_url: '' }}" data-price="₹{{ product.price | money_without_currency | remove: ".00" }}" data-url="{{ product.url }}" data-product-title="{{ product.title }} {{ v_title }}" data-product-color="{{ product.metafields.custom.product_color_name }}" data-product-handle="{{ product.handle }}">
+              <i class="ri-bookmark-line"></i>
+             </div> {% endcomment %}
+            {% assign accessories_collection = 'accessories' %}
+            {% assign is_in_accessories = false %}
+            
+            {% for collection in product.collections %}
+              {% if collection.handle == accessories_collection %}
+                {% assign is_in_accessories = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            
+            {% if is_in_accessories %}
+             {% comment %} <div class="wish-icon  wish-icon-mobile " onclick="toggleWishlist(this)" data-image="{{ product.featured_image | img_url: '' }}" data-price="₹{{ product.price | money_without_currency | remove: ".00" }}" data-url="{{ product.url }}" data-product-title="{{ product.title }} {{ v_title }}" data-product-color="{{ product.metafields.custom.product_color_name }}" data-product-handle="{{ product.handle }}">
+              <i class="ri-bookmark-line"></i>
+             </div> {% endcomment %}
+            {% endif %}
+          </div>
+          {%- if show_dynamic_checkout -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+        </div>
+      {%- endform -%}
+    </product-form>
+  {%- else -%}
+    <div class="product-form">
+      <div class="product-form__buttons form">
+        <button
+          type="submit"
+          name="add"
+          class="product-form__submit button button--full-width button--primary"
+          disabled
+        >
+          {{ 'products.product.sold_out' | t }}
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if show_pickup_availability -%}
+    {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+    {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+      | where: 'pick_up_enabled', true
+    -%}
+
+    {% comment %} <pickup-availability
+      class="product__pickup-availabilities quick-add-hidden"
+      {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
+        available
+      {% endif %}
+      data-root-url="{{ routes.root_url }}"
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      data-has-only-default-variant="{{ product.has_only_default_variant }}"
+      data-product-page-color-scheme="gradient color-{{ section.settings.color_scheme }}"
+    >
+      <template>
+        <pickup-availability-preview class="pickup-availability-preview">
+          {% render 'icon-unavailable' %}
+          <div class="pickup-availability-info">
+            <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+            <button class="pickup-availability-button link link--text underlined-link">
+              {{ 'products.product.pickup_availability.refresh' | t }}
+            </button>
+          </div>
+        </pickup-availability-preview>
+      </template>
+    </pickup-availability> {% endcomment %}
+
+    <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  {% if product.title == 'The Sport Bag' %}
+    <p class="shipping_info">
+      Limited to 500 units.
+    </p>
+  {%- endif -%}
+  {% if product.title == 'Mesh Cap' %}
+    <p class="shipping_info">
+      Limited to a few units.
+    </p>
+  {%- endif -%}
+  {% if product.title == 'Circuit Shirt' %}
+    <p class="shipping_info">
+      Limited to a few units.
+    </p>
+  {%- endif -%}
+</div>

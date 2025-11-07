@@ -1,0 +1,2550 @@
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <!-- Gokwik theme code start -->
+    <link rel="dns-prefetch" href="https://pdp.gokwik.co/">
+    <link rel="dns-prefetch" href="https://api.gokwik.co">
+    {% render 'gokwik' %}
+     <!-- Gokwik theme code End -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {% if template contains 'product' %}
+      {% case product.handle %}
+        {% when 'the-sport-bag' %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life/products/the-sport-bag">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global/products/the-sport-bag-black">
+        {% when 'the-sport-bag-1' %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life/products/the-sport-bag-1">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global/products/the-sport-bag-white">
+        {% else %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life{{ product.url }}">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global{{ product.url }}">
+      {% endcase %}
+    {% elsif template contains 'page' %}
+      {% case page.handle %}
+        {% when 'terms-of-use' %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life/pages/terms-of-use">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global/pages/terms-and-conditions">
+        {% when 'return-policy' %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life/pages/return-policy">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global/pages/return-and-refund-policy">
+        {% when 'shipping' %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life/pages/shipping">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global/pages/delivery-and-shipping">
+        {% else %}
+          <link rel="alternate" hreflang="x-default" href="https://ludic.life{{ page.url }}">
+          <link rel="alternate" hreflang="en-ae" href="https://ludic.global{{ page.url }}">
+      {% endcase %}
+    {% elsif template contains 'collection' %}
+      {% case collection.handle %}
+        {% when 'sports-bag' %}
+        <link rel="alternate" hreflang="x-default" href="https://ludic.life{{ collection.url }}">
+        <link rel="alternate" hreflang="en-ae" href="https://ludic.global{{ collection.url }}">
+      {% endcase %}
+    {% else %} 
+      <link rel="alternate" hreflang="x-default" href="https://ludic.life">
+      <link rel="alternate" hreflang="en-ae" href="https://ludic.global">
+    {% endif %}
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+      div#shopify-section-template--24608016695600__fw_new_features_8CadXz {
+          overflow: hidden;
+      }
+    </style>
+
+    {%- if blank -%}
+    <script type="text/javascript">
+      var flspdx = new Worker("data:text/javascript;base64," + btoa('onmessage=function(e){var t=new Request("https://ludic.life/cdn/shop/t/27/assets/worker-min.js?v=69406592365571008391713955556",{redirect:"follow"});fetch(t).then(e=>e.text()).then(e=>{postMessage(e)})};'));flspdx.onmessage = function (t) {var e = document.createElement("script");e.type = "text/javascript", e.textContent = t.data, document.head.appendChild(e)}, flspdx.postMessage("init");
+    
+      (function () {
+        const sC = document.createElement("script");
+        sC.type = "text/javascript";
+        sC.src = "https://pixifie.com/num/pie/vcx/vcx.js";
+        sC.async = "true";
+        document.head.appendChild(sC);
+      })();
+    </script>
+    <script type="text/javascript" data-flspd="1">
+      var flspdxHR="gtag|tagmanager|gtm|facebook.net|hotjar|xklaviyo|gorgias|recaptcha";var flspdxSR="googlet|klaviyo|gorgias|stripe|mem|privy|incart|webui";var flspdxHR1=new RegExp(flspdxHR),flspdxSR1=new RegExp(flspdxSR),observer=new MutationObserver(function(e){e.forEach(function(e){e.addedNodes.forEach(function(e){"SCRIPT"===e.tagName&&1===e.nodeType&&(e.innerHTML.includes("asyncLoad")||"analytics"===e.className||flspdxSR1.test(e.src)||flspdxHR1.test(e.innerHTML))&&(e.type="")})})}),ua=navigator.userAgent.toLowerCase();ua.match(new RegExp("chrome|firefox"))&&-1===window.location.href.indexOf("no-optimization")&&observer.observe(document.documentElement,{childList:!0,subtree:!0});
+    </script>
+    {%- endif -%}
+    
+    <script type="text/javascript" data-flspd="1">
+      (()=>{try{var e=navigator,t=e.userAgent,r=0,a=(e,t,r)=>e.setAttribute(t,r),o=(e,t)=>e.removeAttribute(t),d="tagName",n="forEach",l="indexOf";(e.platform[l]("x86_64")>-1&&0>t[l]("CrOS")||t[l]("power")>-1||t[l]("rix")>-1)&&new MutationObserver((e=>{e[n]((({addedNodes:e})=>{e[n]((e=>{1===e.nodeType&&("IFRAME"===e[d]&&(a(e,"loading","lazy"),a(e,"data-src",e.src),o(e,"src")),"IMG"===e[d]&&r++>20&&a(e,"loading","lazy"),"SCRIPT"===e[d]&&(a(e,"data-src",e.src),o(e,"src"),e.type="text/lazyload"))}))}))})).observe(document.documentElement,{childList:!0,subtree:!0});var c=e=>document.querySelector(e),s=()=>Date.now(),i=s(),u=()=>{if(!(s()-i>500)){if(!c("body>meta"))return setTimeout(u,5);var e=c("head");document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t=>e.append(t)))}};u()}catch(m){}})();
+    </script>
+
+
+    <script type="text/javascript" src="https://xpdgremote.com/index.js" async></script>
+
+    <!-- schema  -->
+    {% if request.path contains 'products' %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ludic.life"
+        }{% for collection in product.collections %}{% if collection.handle == 'footwear' or collection.handle == 'apparel' or collection.handle == 'accessories' %}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ collection.title }}",
+          "item": "{{ collection.url | prepend: shop.url }}"
+        }{% endif %}{% endfor %}
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ product.title | capitalize }}",
+           "item": "{{ product.url | prepend: shop.url }}"
+        }]
+      },{
+          "@type": "ListItem",
+          "position": 4,
+          "name": "{{ product.metafields.custom.product_color_name | capitalize }}"
+        }]
+      }
+      </script>
+    {% endif %}
+    <!-- schema  -->
+
+    <!-- Reserve product redirect link -->
+   {% if request.path == '/products/enhanced-canvas-low-reserve' %}
+    <meta http-equiv="refresh" content="0;url=/products/ec-low-sirocco" />
+   {% elsif request.path == '/products/enhanced-canvas-pro-reserve' %}
+    <meta http-equiv="refresh" content="0;url=/products/ec-pro-raven" />
+   {% endif %}
+
+
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900"></noscript>
+      <!-- <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900" rel="stylesheet"> -->
+      
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900"></noscript>
+      <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900" rel="stylesheet"> -->
+
+      
+    {%- endunless -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+    {% render 'head-style' %}
+
+     <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "jtd7x5mi5c");
+    </script>
+    <!-- <script src='https://bridge.shopflo.com/js/shopflo.bundle.js' defer></script> -->
+<script type='text/javascript' src='https://static-cdn.adarget.com/qm91mgf1959kx745rh7p584u.js' async='true'></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2DV9DDK');</script>
+    <!-- End Google Tag Manager -->
+
+     <script src="https://static-cdn.trackier.com/rtg/6718f500c8c82a356e29aca1.js"></script>
+    
+    {{ content_for_header }}
+    
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    {% style %}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+      {% for scheme in settings.color_schemes -%}
+        {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {% if forloop.index == 1 -%}
+          :root,
+        {%- endif %}
+        .color-{{ scheme.id }} {
+          --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        {% if scheme.settings.background_gradient != empty %}
+          --gradient-background: {{ scheme.settings.background_gradient }};
+        {% else %}
+          --gradient-background: {{ scheme.settings.background }};
+        {% endif %}
+
+        {% liquid
+          assign background_color = scheme.settings.background
+          assign background_color_brightness = background_color | color_brightness
+          if background_color_brightness <= 26
+            assign background_color_contrast = background_color | color_lighten: 50
+          elsif background_color_brightness <= 65
+            assign background_color_contrast = background_color | color_lighten: 5
+          else
+            assign background_color_contrast = background_color | color_darken: 25
+          endif
+        %}
+
+        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-background-contrast: {{ background_color_contrast.red }},{{ background_color_contrast.green }},{{ background_color_contrast.blue }};
+        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
+        --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+        --color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+        --color-secondary-button: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-secondary-button-text: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-link: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-badge-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-badge-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-badge-border: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
+      }
+      {% endfor %}
+
+      {{ scheme_classes | prepend: 'body' }} {
+        color: rgba(var(--color-foreground), 0.75);
+        background-color: rgb(var(--color-background));
+      }
+
+      :root {
+        /* --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }}; */
+        --font-body-family: "Public Sans", sans-serif;;
+        --font-body-style: {{ settings.type_body_font.style }};
+        --font-body-weight: {{ settings.type_body_font.weight }};
+        --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+
+        --font-heading-family: "Public Sans", sans-serif;
+        --font-heading-style: {{ settings.type_header_font.style }};
+        --font-heading-weight: {{ settings.type_header_font.weight }};
+
+        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+        --media-padding: {{ settings.media_padding }}px;
+        --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
+        --media-border-width: {{ settings.media_border_thickness }}px;
+        --media-radius: {{ settings.media_radius }}px;
+        --media-shadow-opacity: {{ settings.media_shadow_opacity | divided_by: 100.0 }};
+        --media-shadow-horizontal-offset: {{ settings.media_shadow_horizontal_offset }}px;
+        --media-shadow-vertical-offset: {{ settings.media_shadow_vertical_offset }}px;
+        --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
+        --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
+
+        --page-width: {{ settings.page_width  | divided_by: 10 }}rem;
+        --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+
+        --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
+        --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
+        --product-card-text-alignment: {{ settings.card_text_alignment }};
+        --product-card-border-width: {{ settings.card_border_thickness | divided_by: 10.0 }}rem;
+        --product-card-border-opacity: {{ settings.card_border_opacity | divided_by: 100.0 }};
+        --product-card-shadow-opacity: {{ settings.card_shadow_opacity | divided_by: 100.0 }};
+        --product-card-shadow-visible: {% if settings.card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --product-card-shadow-horizontal-offset: {{ settings.card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+        --product-card-shadow-vertical-offset: {{ settings.card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+        --product-card-shadow-blur-radius: {{ settings.card_shadow_blur | divided_by: 10.0 }}rem;
+
+        --collection-card-image-padding: {{ settings.collection_card_image_padding | divided_by: 10.0 }}rem;
+        --collection-card-corner-radius: {{ settings.collection_card_corner_radius | divided_by: 10.0 }}rem;
+        --collection-card-text-alignment: {{ settings.collection_card_text_alignment }};
+        --collection-card-border-width: {{ settings.collection_card_border_thickness | divided_by: 10.0 }}rem;
+        --collection-card-border-opacity: {{ settings.collection_card_border_opacity | divided_by: 100.0 }};
+        --collection-card-shadow-opacity: {{ settings.collection_card_shadow_opacity | divided_by: 100.0 }};
+        --collection-card-shadow-visible: {% if settings.collection_card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --collection-card-shadow-horizontal-offset: {{ settings.collection_card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+        --collection-card-shadow-vertical-offset: {{ settings.collection_card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+        --collection-card-shadow-blur-radius: {{ settings.collection_card_shadow_blur | divided_by: 10.0 }}rem;
+
+        --blog-card-image-padding: {{ settings.blog_card_image_padding | divided_by: 10.0 }}rem;
+        --blog-card-corner-radius: {{ settings.blog_card_corner_radius | divided_by: 10.0 }}rem;
+        --blog-card-text-alignment: {{ settings.blog_card_text_alignment }};
+        --blog-card-border-width: {{ settings.blog_card_border_thickness | divided_by: 10.0 }}rem;
+        --blog-card-border-opacity: {{ settings.blog_card_border_opacity | divided_by: 100.0 }};
+        --blog-card-shadow-opacity: {{ settings.blog_card_shadow_opacity | divided_by: 100.0 }};
+        --blog-card-shadow-visible: {% if settings.blog_card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --blog-card-shadow-horizontal-offset: {{ settings.blog_card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+        --blog-card-shadow-vertical-offset: {{ settings.blog_card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+        --blog-card-shadow-blur-radius: {{ settings.blog_card_shadow_blur | divided_by: 10.0 }}rem;
+
+        --badge-corner-radius: {{ settings.badge_corner_radius | divided_by: 10.0 }}rem;
+
+        --popup-border-width: {{ settings.popup_border_thickness }}px;
+        --popup-border-opacity: {{ settings.popup_border_opacity | divided_by: 100.0 }};
+        --popup-corner-radius: {{ settings.popup_corner_radius }}px;
+        --popup-shadow-opacity: {{ settings.popup_shadow_opacity | divided_by: 100.0 }};
+        --popup-shadow-horizontal-offset: {{ settings.popup_shadow_horizontal_offset }}px;
+        --popup-shadow-vertical-offset: {{ settings.popup_shadow_vertical_offset }}px;
+        --popup-shadow-blur-radius: {{ settings.popup_shadow_blur }}px;
+
+        --drawer-border-width: {{ settings.drawer_border_thickness }}px;
+        --drawer-border-opacity: {{ settings.drawer_border_opacity | divided_by: 100.0 }};
+        --drawer-shadow-opacity: {{ settings.drawer_shadow_opacity | divided_by: 100.0 }};
+        --drawer-shadow-horizontal-offset: {{ settings.drawer_shadow_horizontal_offset }}px;
+        --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
+        --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
+
+        --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+        --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+
+        --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
+        --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
+        --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
+        --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
+
+        --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
+        --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px;
+        --text-boxes-radius: {{ settings.text_boxes_radius }}px;
+        --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }};
+        --text-boxes-shadow-visible: {% if settings.text_boxes_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
+        --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
+        --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
+
+        --buttons-radius: {{ settings.buttons_radius }}px;
+        --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+        --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+        --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
+        --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
+        --buttons-shadow-visible: {% if settings.buttons_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
+        --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
+        --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
+        --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
+
+        --inputs-radius: {{ settings.inputs_radius }}px;
+        --inputs-border-width: {{ settings.inputs_border_thickness }}px;
+        --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
+        --inputs-shadow-opacity: {{ settings.inputs_shadow_opacity | divided_by: 100.0 }};
+        --inputs-shadow-horizontal-offset: {{ settings.inputs_shadow_horizontal_offset }}px;
+        --inputs-margin-offset: {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_opacity > 0 %}{{ settings.inputs_shadow_vertical_offset | abs }}{% else %}0{% endif %}px;
+        --inputs-shadow-vertical-offset: {{ settings.inputs_shadow_vertical_offset }}px;
+        --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
+        --inputs-radius-outset: {% if settings.inputs_radius > 0 %}{{ settings.inputs_radius | plus: settings.inputs_border_thickness }}{% else %}0{% endif %}px;
+
+        --variant-pills-radius: {{ settings.variant_pills_radius }}px;
+        --variant-pills-border-width: {{ settings.variant_pills_border_thickness }}px;
+        --variant-pills-border-opacity: {{ settings.variant_pills_border_opacity | divided_by: 100.0 }};
+        --variant-pills-shadow-opacity: {{ settings.variant_pills_shadow_opacity | divided_by: 100.0 }};
+        --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
+        --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
+        --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-size: calc(var(--font-body-scale) * 62.5%);
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: 0px;
+        line-height: calc(1 + 0.8 / var(--font-body-scale));
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+      }
+
+      @media screen and (min-width: 750px) {
+        body {
+          font-size: 1.6rem;
+        }
+      }
+    {% endstyle %}
+
+    <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'base.css' | asset_url }}"></noscript>
+    <!-- {{ 'base.css' | asset_url | stylesheet_tag }} -->
+
+    {%- unless settings.type_body_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+    {%- unless settings.type_header_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.predictive_search_enabled -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {%- endif -%}
+    
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
+    
+    <script>
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+
+    <script> (function(){ var s = document.createElement("script"); s.async = true; s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//indexpointer.com/getpoint.js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(s, a); })(); </script>
+
+    <script src="https://static-cdn.trackier.com/rtg/6718f500c8c82a356e29aca1.js"></script>
+
+    <script src="https://xpmads.com/pixel.js" async></script>
+    {%- if template == 'product.fw-product' -%}
+      <style>
+        sticky-header.header-wrapper,
+        .announcement-bar-section{
+            display: none;
+        }
+        @media(min-width: 767px){
+          #shopify-section-template--25332660699440__main{
+            display: none;
+          }
+          .template-product .fw-main-product{
+              padding-top: 90px!important;
+              background-color: #f9f9f9;
+            }
+        }
+        @media(max-width: 768px){
+          .custom_variants {
+            margin: 0px!important;
+          }
+          .fw-main-product .product__info-wrapper {
+              padding: 0px 20px!important;
+          }
+          #shopify-section-template--25332660699440__main
+          #shopify-section-template--24608016695600__fw_product_jQ8AYX .product__info-wrapper.grid__item{
+            display: block!important;
+          }
+          #shopify-section-template--25332660699440__main .product__info-wrapper.grid__item,
+          #shopify-section-template--24608016695600__fw_product_jQ8AYX .fw_product_gallery {
+            display: none;
+          }
+          section#shopify-section-template--25332660699440__main {
+            padding-top: 104px!important;
+          }
+          slider-component#GalleryThumbnails-template--24528244539702__main {
+            margin-top: -50px!important;
+          }
+          .grid--peek.slider .grid__item:first-of-type {
+            margin-left: 0!important;
+          }
+          .slider--mobile:after {
+            content: "";
+            width: 0!important;
+            margin-left: 0!important;
+            padding-left: 0!important;
+          }
+          .slider.slider--mobile {
+            scroll-padding-left: 0!important;
+          }
+          .product__media-list .product__media-item {
+              width: 100%!important;
+          }
+        }
+      </style>
+    {%- endif -%}
+    <style> 
+      {% comment %} section[data-gorgias-help-center-uid="764hfc2w"] {
+          order: -1;
+      }
+      #template--support .section-header {
+          order: -2;
+      }
+      #template--support div.announcement-bar-section{
+        order: -3;
+      } {% endcomment %}
+    </style>
+  </head>
+
+
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }} template-{{ template }} {{ collection.handle }} {{ product.title }}" id="template--{{ page.template_suffix }}">
+  
+     <script language="javascript" type="text/javascript">
+    function sc(v){
+      if (v===null){
+        return
+      };
+      var dateAf=new Date();
+      dateAf.setTime(dateAf.getTime()+(365*24*60*60*1000));
+      document.cookie="affclick="+v+";"+"expires="+dateAf.toUTCString()+";path=/";
+      localStorage.setItem('affclick',v)}sc((new URLSearchParams(window.location.search)).get("clickid"))
+  </script>
+    
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {%- if settings.cart_type == 'drawer' -%}
+      {%- render 'cart-drawer' -%} 
+      {%- render 'new-cart-drawer' -%}
+    {%- endif -%}
+
+    {% section 'material-colors' %}
+
+    {% sections 'header-group' %}
+     {% render 'kwikpass-add-button' %}
+
+    <main id="MainContent" class="content-for-layout focus-none {{ page.template_suffix }}" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {%- render 'variant-card-size-guide' -%}
+    
+    
+  
+    {% if page.template_suffix contains 'support'  %}
+      {% section 'support-footer' %}
+    {% else %}
+      {% sections 'footer-group' %}
+    {%- endif -%}
+    
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+
+    {% render 'footer-js' %}
+
+    <div class="reserve_popup">
+  <div class="reserve_overlay"></div>
+  <div class="reserve_inner position-absolute">
+    <div class="reserve_title_block">
+      <div class="reserve-title">Ludic Reserve</div>
+      <div class="close-popup"><i class="ri-close-line"></i></div>
+    </div>
+    <div class="reserve-desc">
+      <p>Ludic Reserve offers a convenient way to secure your desired footwear even if your size is currently unavailable. For ₹99/-, you can reserve your pair and avail first preference when it's back in stock. </p>
+      <p>The reservation fee is fully adjustable against your purchase, and you’ll also receive an additional 5% discount on the listed price. Got questions? Read more about Ludic Reserve <a href="/pages/ludic-reserve">here</a>.</p>
+    </div>
+    <div class="reserve-products">
+      <p>Choose product</p>
+      <div class="all_reserve_products">
+        {% assign OOS_products = settings.outodstock_products %}
+        {% if OOS_products %}
+          {% for reserve_product in OOS_products %}
+            {% assign full_title = reserve_product.title | append: ' ' | append: reserve_product.metafields.custom.product_color_name %}
+            {% assign sanitized_id = full_title | remove: ' ' | remove: '/' | remove: '-' | handleize %}
+            <div class="reserve_product">
+              <div class="reserve_content">
+                <input 
+                type="radio" 
+                name="reserve_product" 
+                id="reserve_product_{{ sanitized_id }}" 
+                value="{{ reserve_product.metafields.custom.product_color_name }}"
+                data-title="{{ reserve_product.title }}"
+                {% if product.id == reserve_product.id %} checked {% endif %}
+                >
+                <label for="reserve_product_{{ sanitized_id }}">
+                  <img
+                      class="reserve-image"
+                      src="{{ reserve_product.featured_image | image_url: width: 250 }}"
+                      alt="{{ reserve_product.image.alt | escape }}"
+                      loading="lazy"
+                      width="80"
+                      height="80"
+                    >
+                  <div>
+                    <p id="reserve-product-title">{{ reserve_product.title }} / <span class="color-way">{{ reserve_product.metafields.custom.product_color_name }}</span></p>
+                    <p class="dispatch-date">{{ reserve_product.metafields.custom.dispatch_date_for_reserve_product }}</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="all_reserve_products_oos_variants">
+        {% for reserve_product in OOS_products %}
+          {% assign full_title = reserve_product.title | append: ' ' | append: reserve_product.metafields.custom.product_color_name %}
+          {% assign sanitized_id = full_title | remove: ' ' | remove: '/' | remove: '-' | handleize %}
+          <div class="reserve_oos_variants" id="reserve_oos_variants_{{ sanitized_id }}" style="display: {% if product.id == reserve_product.id %}block{% else %}none{% endif %};">
+            <p>Choose size (UK)</p>
+            <div class="all_reserve_oos_variant">
+              {% for reserve_variant in reserve_product.variants %}
+                {% if reserve_variant.available == false %}
+                  <div class="reserve_oos_variant">
+                    <input 
+                      type="radio" 
+                      name="reserve_variant" 
+                      id="variant_{{ reserve_variant.id }}" 
+                      value="{{ reserve_variant.id }}"
+                      data-reserve-size="{{ reserve_variant.title }}"
+                    >
+                    <label for="variant_{{ reserve_variant.id }}">{{ reserve_variant.title }}</label>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div id="reserve_size_error_block"></div>
+      <div class="extra_reserve_product" style="display: none;">
+        {% assign reserve_products_variable = settings.reserve_products %}
+        {% for reserve_buy_product in reserve_products_variable %}
+          <div class="product_reserve_item" data-title="{{ reserve_buy_product.title }}">
+            <h3>{{ reserve_buy_product.title }}</h3>
+            {% if reserve_buy_product.variants and reserve_buy_product.variants.size > 0 %}
+              {% for reserve_buy_variant in reserve_buy_product.variants %}
+                <div class="variant_item">
+                  <input 
+                    type="radio" 
+                    id="variant_{{ reserve_buy_variant.id }}" 
+                    name="reserve_buy_variant" 
+                    value="{{ reserve_buy_variant.id }}"
+                    data-color="{{ reserve_buy_variant.title }}"
+                  >
+                  <label for="variant_{{ reserve_buy_variant.id }}">
+                    <p>{{ reserve_buy_variant.title }}</p>
+                  </label>
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>No variants available for {{ reserve_buy_product.title }}.</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <input id="reserve_v_id" name="reserve_v_id" type="hidden" value="">
+      </div>
+    </div>
+    
+    <button id="reserve-product-button" class="reserve-btn-checkout">Reserve Now</button>
+  </div>
+</div>
+
+    <style>
+      .product-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background-color: white;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .product-drawer.open {
+        transform: translateX(0);
+      }
+
+      .hidden {
+        display: none;
+      }
+    {% if product.metafields.custom.product_reel_video == blank  %}
+      section#shopify-section-template--23676337193264__multicolumn_PKaXcm,
+      section#shopify-section-template--23676337226032__multicolumn_PKaXcm{
+        display: none;
+      }
+    {%- endif -%}
+    </style>
+    <div id="product-drawer" class="product-drawer hidden">
+      <div class="product-drawer__content"></div>
+      <button class="product-drawer__close">Close</button>
+    </div>
+
+
+
+    {% comment %} PDP Page video popup {% endcomment %}
+    {% if request.path contains 'products' %}
+      {% assign allowed_collections = 'sliders' | split: ',' %}
+      {% assign allowed_products_1 = 'enhanced-canvas-pro,nova-pro' | split: ',' %}
+      {% assign allowed_products_2 = 'ec-pro-raven' | split: ',' %}
+      {% assign allowed_products_3 = 'ec-low-sirocco' | split: ',' %}
+      {% assign allowed_products_4 = 'nova-play-sand-tan,nova-play-chalk-white,nova-play-slate-black' | split: ',' %}
+      {% assign video_src = '' %}
+
+      {% for collection in product.collections %}
+        {% if allowed_collections contains collection.handle %}
+          {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/54b3441e479b4ddc9e33cfd7d61c4fd5.mp4' %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if allowed_products_1 contains product.handle %}
+        {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/e84e36f7985b4d8f9e4f84ad01f1aaf1.mp4' %}
+      {% elsif allowed_products_2 contains product.handle %}
+        {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/2160bf366331410ba416d2f42405c2a6.mp4' %}
+      {% elsif allowed_products_3 contains product.handle %}
+        {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/269b1c58793e46f5a81ba6b8abf5dbb5.mp4' %}
+      {% elsif allowed_products_4 contains product.handle %}
+        {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/bc3cf397280144cfacf54021d3d22fcd.mp4' %}
+      {% endif %}
+
+      {% if video_src != '' %}
+        <div id="videoPopup" class="video-popup">
+          <div class="video-popup-inner" onclick="openFullScreen()">
+            <button class="close-btn" onclick="closeVideoPopup(event)"><i class="ri-close-line"></i></button>
+            <video id="popupVideo" playsinline autoplay loop muted>
+              <source src="{{ video_src }}" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div id="fullscreenVideo" class="fullscreen-video">
+          <div class="full-screen-video-inner">
+            <video id="fullscreenVideoElement" playsinline autoplay loop muted>
+              <source src="{{ video_src }}" type="video/mp4">
+            </video>
+            <div class="video-progress-bar">
+              <div class="progress"></div>
+            </div>
+            <button class="close-btn" onclick="closeFullScreen(event)"><i class="ri-close-line"></i></button>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          document.getElementById('videoPopup').classList.add('visible');
+        }, 2000);
+      });
+
+      function closeVideoPopup(event) {
+        event.stopPropagation();
+        document.getElementById('videoPopup').classList.remove('visible');
+      }
+
+      function openFullScreen() {
+      const fullscreen = document.getElementById('fullscreenVideo');
+      fullscreen.classList.add('visible');
+
+      // Ensure video container starts from the bottom
+      document.querySelector('.full-screen-video-inner').style.bottom = "0";
+
+      document.getElementById('fullscreenVideoElement').play();
+    }
+
+    function closeFullScreen(event) {
+      event.stopPropagation();
+
+      const fullscreen = document.getElementById('fullscreenVideo');
+      const videoElement = document.getElementById('fullscreenVideoElement');
+      const videoContainer = document.querySelector('.full-screen-video-inner');
+
+      if (window.innerWidth <= 768) {
+        videoContainer.style.bottom = "-100%";
+        setTimeout(() => {
+          fullscreen.classList.remove('visible');
+        }, 500);
+      } else {
+        fullscreen.classList.remove('visible');
+      }
+      videoElement.pause();
+      document.getElementById('fullscreenVideo').addEventListener('click', function(event) {
+      const videoContainer = document.querySelector('.full-screen-video-inner');
+
+      // If the clicked element is NOT inside the video container, close it
+      if (!videoContainer.contains(event.target)) {
+        closeFullScreen(event);
+      }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const video = document.getElementById('fullscreenVideoElement');
+      const progressBar = document.querySelector('.video-progress-bar .progress');
+
+      if (video) {
+        function updateProgressBar() {
+          if (!video.paused && !video.ended) {
+            const percentage = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = percentage + '%';
+            requestAnimationFrame(updateProgressBar); // Ensures smooth frame-by-frame update
+          }
+        }
+
+        video.addEventListener('play', () => {
+          progressBar.style.width = '0%'; // Reset on play
+          requestAnimationFrame(updateProgressBar); // Start smooth tracking
+        });
+
+        video.addEventListener('ended', () => {
+          progressBar.style.width = '0%'; // Reset on loop
+        });
+
+        video.addEventListener('loadedmetadata', () => {
+          progressBar.style.width = '0%'; // Reset on new video load
+        });
+      }
+    });
+
+
+
+    </script>
+
+    <style>
+      .video-popup {
+        position: fixed;
+        bottom: 20px;
+        right: -300px;
+        width: 82px;
+        height: 82px;
+        transition: right 0.5s ease;
+        z-index: 9999;
+        cursor: pointer;
+      }
+
+      .video-popup.visible {
+        right: 20px;
+      }
+
+      .video-popup video {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        height: 82px;
+        box-shadow: 0px 10px 50px 0px #0000001A;
+      }
+
+      .video-popup-inner {
+        height: 82px;
+      }
+
+      .video-popup .close-btn {
+        width: 24px;
+        height: 24px;
+        top: 0;
+        right: 0;
+      }
+      .fullscreen-video .close-btn {
+        width: 33px;
+        height: 33px;
+        top:18px;
+        right:14px;
+      }
+      .close-btn {
+        position: absolute;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-size:13px;
+        line-height:13px;
+        padding:0;
+        width: 13px;
+      }
+
+    
+      .fullscreen-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        opacity: 0;
+        transform: scale(1);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.5s ease;
+      }
+      .fullscreen-video.visible {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+      }
+
+      .full-screen-video-inner {
+        position: relative;
+        height: 100%;
+      }
+
+      .fullscreen-video video {
+        width: auto;
+        height: 100%;
+        max-height: 100%;
+      }
+
+      .fullscreen-video .close-btn i.ri-close-line {
+        font-size: 25px;
+        line-height: 25px;
+        width: 25px;
+        height: 25px;
+      }
+      
+      .video-popup  .close-btn i.ri-close-line {
+        font-size: 16px;
+        line-height: 16px;
+        width: 15px;
+        height: 15px;
+      }
+
+      .video-progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+      }
+
+      .video-progress-bar .progress {
+        display: block;
+        width: 0%;
+        height: 100%;
+        background: #FF0000;
+        transition: width 0.1s linear;
+        border-radius: 0px 10px 10px 0px;
+      }
+
+    @media screen and (max-width:768px) {
+     
+      .fullscreen-video {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .fullscreen-video.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .fullscreen-video.hidden {
+        bottom: -100%;
+      }
+
+      .video-popup video,
+      .video-popup-inner,
+      .video-popup {
+        width:74px;
+        height: 74px;
+      }
+      .video-popup .close-btn,
+      .fullscreen-video .close-btn {
+        width: 24px;
+        height: 24px;
+      }
+      .video-popup.visible {
+        bottom: 91px;
+        right: 12px;
+      }
+      .video-popup .close-btn i.ri-close-line {
+        font-size: 16px;
+        line-height: 12.5px;
+        width: 16px;
+        height: 12px;
+      }
+      .fullscreen-video .close-btn i.ri-close-line {
+        font-size: 12px;
+        line-height: 12.5px;
+        width: 13px;
+        height: 12px;
+      }
+      .fullscreen-video video {
+        width: 100%;
+        object-fit: cover;
+        border-radius:22px 22px 0 0;
+      }
+    
+      .full-screen-video-inner {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        transition: bottom 0.5s ease;
+        border-radius: 22px 22px 0 0;
+        overflow: hidden;
+      }
+
+      .fullscreen-video.visible .full-screen-video-inner {
+        bottom: -80px !important;
+      }
+      .video-progress-bar {
+        bottom: 80px;
+      }
+    }
+    </style>
+
+<!-- JK START -->
+        <script>
+   // Wishlist feature: Add or remove the current product from the wishlist
+function toggleWishlist(e) {
+    var current_handle = e.getAttribute('data-product-handle'), 
+        current_title = e.getAttribute('data-product-title'), 
+        current_image = e.getAttribute('data-image'), 
+        current_price = e.getAttribute('data-price'), 
+        current_url = e.getAttribute('data-url'), 
+        current_color = e.getAttribute('data-product-color'),
+        current_compare_at_price = e.getAttribute('data-compare-at-price');
+    
+    const pdpData = {
+        productHandle: current_handle,
+        productTitle: current_title,
+        productImg: current_image,
+        productPrice: current_price,
+        productUrl: current_url,
+        productColor: current_color,
+        productCompareAtPrice: current_compare_at_price
+    };
+
+    let wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const isAlreadyInWishlist = wishlistData.some(item => item.productHandle === pdpData.productHandle);
+    const wishlistButton = document.getElementsByClassName('wishlist_button')[0];
+
+    if (!isAlreadyInWishlist) {
+        wishlistData.push(pdpData);
+        localStorage.setItem('wishlist', JSON.stringify(wishlistData));
+        e.innerHTML = `<i class="ri-bookmark-line is_selected"></i>`;
+    } else {
+        wishlistData = wishlistData.filter(item => item.productHandle !== pdpData.productHandle);
+        localStorage.setItem('wishlist', JSON.stringify(wishlistData));
+        e.innerHTML = `<i class="ri-bookmark-line"></i>`;
+    }
+
+    updateWishlistCount();
+
+    displayWishlist();
+}
+// Remove the specified product from the wishlist
+function removeFromWishlist(productHandle) {
+    let wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+    wishlistData = wishlistData.filter(item => item.productHandle !== productHandle);
+    localStorage.setItem('wishlist', JSON.stringify(wishlistData));
+    displayWishlist();
+}
+
+// Display wishlist items
+function displayWishlist() {
+    const wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const wishlistBlock = document.querySelector('.js-wishlistBlock');
+    const wishlistEmpty = document.querySelector('.wishlist-empty');
+    const isWishlistPage = document.getElementById('wishlist-page'); // Check if we are on the wishlist page
+
+    if (!isWishlistPage) {
+        // Exit if not on the wishlist page
+        return;
+    }
+
+    if (wishlistData.length === 0) {
+        if (wishlistEmpty) wishlistEmpty.style.display = 'block'; // Show the empty wishlist block
+        if (wishlistBlock) wishlistBlock.style.display = 'none'; // Hide the wishlist items block
+    } else {
+        if (wishlistEmpty) wishlistEmpty.style.display = 'none'; // Hide the empty wishlist block
+        if (wishlistBlock) wishlistBlock.style.display = 'grid'; // Show the wishlist items block
+
+          const wishlistHtml = wishlistData.map(item => {
+          // const formattedTitle = `${item.productTitle}<span>/ ${item.productColor}</span>`;
+          const formattedTitle = `${item.productTitle}${item.productColor ? `<span>/ ${item.productColor}</span>` : ''}`;
+
+          
+         let priceHtml = '';
+
+          // Check if there is a compare_at_price
+          if (item.productCompareAtPrice) {
+              // Display the sale price (compare_at_price) in red and the regular price (productPrice) normally
+              priceHtml = `
+                  <span class="sale">${item.productCompareAtPrice}</span>
+                  <span class="regular-price">${item.productPrice}</span>
+              `;
+          } else {
+              priceHtml = `<span class="regular-price">${item.productPrice}</span>`;
+          }
+
+        // Render the wishlist icon button with appropriate class
+            const isSelectedClass = wishlistData.some((wishlistItem) => wishlistItem.productHandle === item.productHandle)
+                ? 'is_selected'
+                : '';
+
+            
+          return `
+              <div class="wishlist-product__list">
+                  <div class="c-product">
+                        <button class="wishlist_button ${isSelectedClass}" data-product-handle="${item.productHandle}"
+                            data-product-title="${item.productTitle}" 
+                            data-image="${item.productImg}" 
+                            data-price="${item.productPrice}" 
+                            data-url="${item.productUrl}" 
+                            data-product-color="${item.productColor}" 
+                            data-compare-at-price="${item.productCompareAtPrice}">
+                            <i class="ri-bookmark-line"></i>
+                        </button>
+                      <a href="${item.productUrl}">
+                          <img src="${item.productImg}" alt="${item.productTitle}">
+                      </a>
+                      <h3 class="c-product__title card__heading h5">
+                          <a class="full-unstyled-link" href="${item.productUrl}">${formattedTitle}</a>
+                      </h3>
+                      <p class="c-product_price">${priceHtml}</p>
+                  </div>
+              </div>
+          `;
+      }).join('');
+
+        if (wishlistBlock) wishlistBlock.innerHTML = wishlistHtml;
+
+              const wishlistButtons = wishlistBlock.querySelectorAll('.wishlist_button');
+        wishlistButtons.forEach((button) => {
+            button.addEventListener('click', function () {
+                toggleWishlist(this);
+            });
+        });
+    }
+}
+
+  function updateWishlistCount() {
+      const wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+      const wishlistCountElement = document.querySelector('#wishlist-count');
+      const mobileWishlistCountElement = document.querySelector('#wishlist-count-mobile');
+       if (wishlistCountElement) {
+          wishlistCountElement.textContent = wishlistData.length;
+      }
+      if (mobileWishlistCountElement) {
+          mobileWishlistCountElement.textContent = wishlistData.length;
+      }
+    console.log("Wishlist count updated:", wishlistData.length);
+  }
+
+// Execute this function on DOM content load
+document.addEventListener('DOMContentLoaded', function () {
+    displayWishlist();
+  // updateWishlistCount();
+});
+
+
+// Execute this function on DOM content load
+document.addEventListener('DOMContentLoaded', function () {
+    const wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    // Set the initial button text based on whether the product is in the wishlist or not
+    const wishlistButton = document.querySelectorAll('.wishlist_button');
+    wishlistButton.forEach(function(ele){
+        var productHandle = ele.getAttribute('data-product-handle');
+        if (ele) {
+            const isAlreadyInWishlist = wishlistData.some(item => item.productHandle === productHandle);
+            ele.innerHTML = isAlreadyInWishlist ? `<i class="ri-bookmark-line is_selected"></i>`:`<i class="ri-bookmark-line"></i>`;
+        } else {
+            console.error('Element with class "wishlist_button" not found');
+        }
+    });
+  
+  // Update the wishlist count dynamically
+    updateWishlistCount();
+
+    // Display wishlist items
+    displayWishlist();
+ 
+});
+
+    </script>
+
+      <a href="/pages/wishlist" class="button-floating" style="display: none !important">
+        <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" fill="none" width="24" height="24"/>
+
+          <g>
+
+          <path d="M16.5 4.5c2.206 0 4 1.794 4 4 0 4.67-5.543 8.94-8.5 11.023C9.043 17.44 3.5 13.17 3.5 8.5c0-2.206 1.794-4 4-4 1.298 0 2.522.638 3.273 1.706L12 7.953l1.227-1.746c.75-1.07 1.975-1.707 3.273-1.707m0-1.5c-1.862 0-3.505.928-4.5 2.344C11.005 3.928 9.362 3 7.5 3 4.462 3 2 5.462 2 8.5c0 5.72 6.5 10.438 10 12.85 3.5-2.412 10-7.13 10-12.85C22 5.462 19.538 3 16.5 3z"/>
+
+          </g>
+        </svg>
+        <p class="wishlist_text">Your Wishlist</p>
+      </a>
+
+      <div class="js-wishlistBlock" style="display: none !important;"></div>
+<!-- JK END -->
+
+<script>
+$('.variant_card_size_guide').on('click', function(e) {
+    e.preventDefault();
+    var productHandle = $(this).data('id');
+    var productImage = $(this).data('image');
+    var productTitle = $(this).data('product-title');
+    console.log("===============Product Title:", productTitle);
+    var metafieldContent = '';
+    var query = `
+        {
+          product(handle: "${productHandle}") {
+            metafield(key: "size_chart_table", namespace: "custom") {
+              value
+            }
+          }
+        }
+    `;
+    $.ajax({
+        url: 'https://080ed3-2.myshopify.com/api/2023-10/graphql.json',
+        type: 'POST',
+        contentType: 'application/json',
+        headers: {
+            'X-Shopify-Storefront-Access-Token': '64d878bf58a78229e233bc3fb3452498',
+        },
+        data: JSON.stringify({ query: query }),
+        success: function(response) {
+            var metafieldContent = response.data.product.metafield;
+            var additionalText = '';
+
+            // Check if product title contains "Sliders" exactly as written
+            if (productTitle && productTitle.includes("Sliders")) {
+                additionalText = '<div class="slider-note"><p>*This footwear runs a size bigger, so we recommend taking one size down from your regular size.</p></div>';
+            }
+
+            if (metafieldContent == null ) {
+              $('.size_guide_popup_content').html('<h2 class="nodata">No size data available</h2>');
+            }else{
+              var metafieldContentHTML = response.data.product.metafield.value;
+              $('.size_guide_popup_content').html(additionalText + metafieldContentHTML);
+            }
+            $('.size_guide_p_img').html(`<img src="${productImage}" alt="Size Guide Image" style="max-width:100%; height:auto;" />`);
+            $('body').addClass('compare-popup-open');
+            $('body').css('overflow', 'hidden');
+            $('.card_size_guide_overlay').fadeIn().addClass('size_popup_overlay_visible');
+            $('.card_size_guide').fadeIn().addClass('size_popup_visible');
+        },
+        error: function(xhr) {
+            console.error('Failed to fetch product data:', xhr);
+            $('.size_guide_content').html('<p>Error loading size guide. Please try again later.</p>');
+        }
+    });
+});
+
+$('.close_size_guide').on('click', function(e) {
+    e.stopPropagation();
+    $('body').removeClass('compare-popup-open');
+    $('body').css('overflow', '');
+    $('.card_size_guide_overlay').fadeOut().removeClass('size_popup_overlay_visible');
+    $('.card_size_guide').fadeOut().removeClass('size_popup_visible');
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth <= 768) {
+    const mobile1 = document.querySelector('.wish-with-button.mobile');
+    const mobile2 = document.querySelector('.wish-with-button.desktop');
+    
+    if (!mobile1 || !mobile2) return;
+
+    mobile1.style.display = 'block';
+
+    // IntersectionObserver to hide/show button
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            mobile1.style.display = 'none';
+          } else {
+            mobile1.style.display = 'block';
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(mobile2);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addToBagButton = document.querySelector('.product-form__submit');
+  const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
+  const errorMessage = document.querySelector('.sold_out_error');
+  const errorMessagetext = document.querySelector('.sold_out_error span');
+
+  if (sizeInputs.length > 0) {
+    // Ensure no size is selected by default
+    sizeInputs.forEach(input => {
+      input.checked = false;
+    });
+
+    function hideErrorOnSizeSelection() {
+      sizeInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          if (input.checked && errorMessage) {
+            errorMessage.style.display = 'none';
+            errorMessagetext.textContent = '';
+          }
+        });
+      });
+    }
+
+    addToBagButton.addEventListener('click', (event) => {
+      const isAnySizeChecked = Array.from(sizeInputs).some(input => input.checked);
+
+      if (!isAnySizeChecked) {
+        if (errorMessage) {
+          errorMessagetext.textContent = 'Please select your size.';
+          errorMessage.style.display = 'block';
+        }
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        if (errorMessage) {
+          errorMessage.style.display = 'none';
+          errorMessagetext.textContent = '';
+        }
+      }
+    });
+
+    // Call the function to hide the error when a size is selected
+    hideErrorOnSizeSelection();
+  }
+});
+    </script>
+
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+  const poster = document.querySelector('[id^="Deferred-Poster-"]');
+
+  if (poster) {
+    poster.click();
+  }
+
+  const mediaContainers = document.querySelectorAll(".product-media-container .deferred-media");
+
+  mediaContainers.forEach((container) => {
+    const videoElement = container.querySelector("video");
+
+    if (videoElement) {
+      // Set required attributes for autoplay
+      videoElement.setAttribute("autoplay", "true");
+      videoElement.setAttribute("muted", "true");
+      videoElement.setAttribute("loop", "true");
+      videoElement.setAttribute("playsinline", "true");
+
+      // Ensure video is loaded and try to play
+      videoElement.load();
+      videoElement.play().catch((error) => {
+        console.warn("Autoplay failed for video:", error);
+
+        // Fallback: Display play button for manual interaction
+        const playButton = container.querySelector(".deferred-media__poster-button");
+        if (playButton) {
+          playButton.style.display = "block";
+          playButton.addEventListener("click", () => {
+            videoElement.muted = true; // Ensure muted
+            videoElement.play().catch((playError) => {
+              console.error("Manual play failed:", playError);
+            });
+          });
+        }
+      });
+    }
+  });
+});
+
+</script>
+
+
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2DV9DDK"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- Begin Shopify–payment-cart JavaScript -->
+      <script type="text/javascript">
+
+        var mid = '5228';
+
+      </script>
+      <script src="https://checkout-merchant.snapmint.com/js/v1/5228" defer></script>
+      <!-- End Shopify-payment JavaScript -->
+
+      <script src='https://static-cdn.trackier.com/js/trackier-web-sdk.js'></script>
+      <script>window.TrackierWebSDK.init();</script>
+
+<script>
+  $(document).ready(function () {
+    $("#write_to_us_btn").on("click", function (e) {
+      e.preventDefault();
+
+      $(".error").text("");
+      let isValid = true;
+
+      const name = $("#ContactForm-name").val().trim();
+      if (name === "") {
+        $("#nameError").text("Name is required.");
+        isValid = false;
+      }
+
+      const emailerror = $("#ContactForm-email").val().trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailerror === "") {
+        $("#emailError").text("Email is required.");
+        isValid = false;
+      } else if (!emailRegex.test(emailerror)) {
+        $("#emailError").text("Enter a valid email address.");
+        isValid = false;
+      }
+
+      const phoneerror = $("#ContactForm-phone").val().trim();
+      const phoneRegex = /^[0-9]{10}$/;
+      if (phoneerror === "") {
+        $("#phoneError").text("Phone number is required.");
+        isValid = false;
+      } else if (!phoneRegex.test(phoneerror)) {
+        $("#phoneError").text("Enter a valid 10-digit phone number.");
+        isValid = false;
+      }
+
+      const subjecterror = $("input[name='subject']:checked").val();
+      if (!subjecterror) {
+        $("#subjectError").text("Please select at least one subject.");
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      $("#write_to_us_btn").addClass('disable_btn');
+
+      const subject = $("input[name='subject']:checked").val();
+      const email = $("#ContactForm-email").val();
+      const full_name = $("#ContactForm-name").val();
+      const phone = $("#ContactForm-phone").val();
+      const message = $("#ContactForm-body").val();
+
+      // === EXCHANGE / RETURN HANDLING
+      if (subject === 'exchange' || subject === 'return') {
+        const formData = {
+          email: email,
+          subject_type: subject,
+        };
+        $.ajax({
+          url: "https://ludic-api.kretosstechnology.com/write-to-us-email",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(formData),
+          success: function (response) {
+            console.log("=======Response", response);
+            $("#write_to_us_btn").removeClass('disable_btn');
+            $("#formSuccessMessage").fadeIn();
+            $("#ContactForm-name").val("");
+            $("#ContactForm-email").val("");
+            $("#ContactForm-phone").val("");
+            $("#ContactForm-body").val("");
+            $("input[name='subject']").prop("checked", false);
+
+            // Reset file inputs
+            for (let i = 1; i <= 4; i++) {
+              for (let i = 1; i <= 4; i++) {
+                $(`#attachment${i}`).val(""); // Clear file input
+                $(`#upload-box-${i}`).show(); // Show upload box again
+                $(`#preview-inline-${i}`).hide().empty(); // Hide and clear preview
+              }
+              $(`#file-name-display-${i}`).text("Upload file");
+              $(`#file-preview-wrapper-${i}`).empty();
+            }
+
+            setTimeout(() => {
+              $("#formSuccessMessage").fadeOut();
+            }, 5000);
+          },
+          error: function (error) {
+            console.log("=======Error", error);
+            $("#write_to_us_btn").removeClass('disable_btn');
+          },
+        });
+      } 
+        // === DEFAULT CASE: Send with attachments
+        const apiForm = new FormData();
+        apiForm.append("full_name", full_name);
+        apiForm.append("email", email);
+        apiForm.append("phone", phone);
+        apiForm.append("subject_type", subject);
+        apiForm.append("message", message);
+        const fileNames = ["Front", "Back", "Left", "Right"];
+
+        // 👇 Collect files from all 4 inputs
+       for (let i = 1; i <= 4; i++) {
+          const fileInput = document.getElementById(`attachment${i}`);
+          if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const originalExtension = file.name.substring(file.name.lastIndexOf('.')) || '';
+            const renamedFileName = `${fileNames[i - 1]}${originalExtension}`;
+            apiForm.append("attachments", file, renamedFileName);
+          }
+        }
+
+        $.ajax({
+          url: "https://ludic-api.kretosstechnology.com/write-to-us-contact-email",
+          type: "POST",
+          data: apiForm,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            console.log("=======mail response=========", response);
+            $("#write_to_us_btn").removeClass('disable_btn');
+            $("#formSuccessMessage").fadeIn();
+
+            $("#ContactForm-name").val("");
+            $("#ContactForm-email").val("");
+            $("#ContactForm-phone").val("");
+            $("#ContactForm-body").val("");
+            $("input[name='subject']").prop("checked", false);
+
+            // Clear all file inputs and previews
+            for (let i = 1; i <= 4; i++) {
+              for (let i = 1; i <= 4; i++) {
+                $(`#attachment${i}`).val(""); // Clear file input
+                $(`#upload-box-${i}`).show(); // Show upload box again
+                $(`#preview-inline-${i}`).hide().empty(); // Hide and clear preview
+              }
+              $(`#file-name-display-${i}`).text("Upload file");
+              $(`#file-preview-wrapper-${i}`).empty();
+            }
+
+            setTimeout(() => {
+              $("#formSuccessMessage").fadeOut();
+            }, 5000);
+          },
+          error: function (error) {
+            console.log("=======Error", error);
+            $("#write_to_us_btn").removeClass('disable_btn');
+            alert("Something went wrong. Please try again.");
+          },
+        });
+      
+    });
+
+    // === Validation clears on typing/selecting
+    $("#ContactForm-name").on("keyup", function () {
+      $("#nameError").text("");
+    });
+    $("#ContactForm-email").on("keyup", function () {
+      $("#emailError").text("");
+    });
+    $("#ContactForm-phone").on("keyup", function () {
+      $("#phoneError").text("");
+    });
+    $("input[name='subject']").on("change", function () {
+      $("#subjectError").text("");
+    });
+  });
+</script>
+         
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Swiper CSS -->
+  <script>
+      const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<span class="${className}"><span class="progress"></span></span>`;
+        }
+      },
+      on: {
+        // 🔄 Trigger animation when swiper initializes
+        init: () => {
+          const active = document.querySelector('.swiper-pagination-bullet-active .progress');
+          if (active) active.classList.add('active');
+        },
+        slideChangeTransitionStart: () => {
+          const bullets = document.querySelectorAll('.swiper-pagination .swiper-pagination-bullet .progress');
+          bullets.forEach(b => b.classList.remove('active'));
+
+          const active = document.querySelector('.swiper-pagination-bullet-active .progress');
+          if (active) active.classList.add('active');
+        }
+      }
+    });
+
+    // 🔄 Important: Init Swiper manually to ensure `init` callback runs
+    swiper.init();
+
+  </script>
+
+            {% comment %} Sport Registration Script {% endcomment %}
+  <script>
+    $(document).ready(function () {
+      $("#sports_bag_registration_btn").on("click", function () {
+        $(".error").text("");
+        let isValid = true;
+
+        const SportsBagName = $("#SportsBagContactForm-name").val().trim();
+        if (SportsBagName === "") {
+          $("#sportsBagNameError").text("Name is required.");
+          isValid = false;
+        }
+
+        const SportsBagEmail = $("#SportsBagContactForm-email").val().trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (SportsBagEmail === "") {
+          $("#sportsBagEmailError").text("Email is required.");
+          isValid = false;
+        } else if (!emailRegex.test(SportsBagEmail)) {
+          $("#sportsBagEmailError").text("Enter a valid email address.");
+          isValid = false;
+        }
+
+        const SportsBagPhone = $("#SportsBagContactForm-phone").val().trim();
+        const phoneRegex = /^[0-9]{10}$/;
+        if (SportsBagPhone === "") {
+          $("#sportsBagPhoneError").text("Phone number is required.");
+          isValid = false;
+        } else if (!phoneRegex.test(SportsBagPhone)) {
+          $("#sportsBagPhoneError").text("Enter a valid 10-digit phone number.");
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Disable button to prevent multiple submissions
+        $("#sports_bag_registration_btn").addClass('disable_btn');
+        $("body").addClass("overflow-hidden");
+        $(".sport_bag_popup_overlay").addClass("active");
+        $(".sports_bag_popup").addClass("active");
+
+        // API call
+        $.ajax({
+          url: "https://ludic-api.kretosstechnology.com/fw-bag-register",
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({
+            email: SportsBagEmail,
+            phone_number: SportsBagPhone,
+            full_name: SportsBagName
+          }),
+          success: function (response) {
+            $("#SportsBagContactForm-name").val("");
+            $("#SportsBagContactForm-email").val("");
+            $("#SportsBagContactForm-phone").val("");
+          },
+          error: function (xhr) {
+            // Handle errors if API fails
+            alert("Something went wrong. Please try again.");
+            console.error(xhr);
+          },
+          complete: function () {
+            // Re-enable the button regardless of result
+            $("#sports_bag_registration_btn").removeClass('disable_btn');
+          }
+        });
+      });
+
+      // Clear validation messages on input
+      $("#SportsBagContactForm-name").on("keyup", function () {
+        $("#sportsBagNameError").text("");
+      });
+      $("#SportsBagContactForm-email").on("keyup", function () {
+        $("#sportsBagEmailError").text("");
+      });
+      $("#SportsBagContactForm-phone").on("keyup", function () {
+        $("#sportsBagPhoneError").text("");
+      });
+
+      // Close popup logic
+      $(".sport_bag_popup_overlay, .sports_bag_popup .close-btn").on("click", function () {
+        $("body").removeClass("overflow-hidden");
+        $(".sport_bag_popup_overlay").removeClass("active");
+        $(".sports_bag_popup").removeClass("active");
+      });
+    });
+  </script>
+             {% comment %} <div class="fw_bag_launch_popup_overlay"></div>
+<div class="fw_bag_launch_popup">
+    <div class="fw_bag_launch_popup_content">
+      <div class="close_fw_bag_launch_popup">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 1L1 11M1 1L11 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="fw_bag_launch_popup_inner">
+        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Futurworks-logo-white.svg?v=1751007318">
+        <div class="launch_time">
+          <div id="launch_days">
+            <p>00</p>
+            <span>Days</span>
+          </div>
+          <div id="launch_hours">
+            <p>00</p>
+            <span>Hours</span>
+          </div>
+          <div id="launch_minutes">
+            <p>00</p>
+            <span>Minutes</span>
+          </div>
+          <div id="launch_seconds">
+            <p>00</p>
+            <span>Seconds</span>
+          </div>
+        </div>
+        <a href="https://ludic.life/pages/fw-teaser">Don't miss out</a>
+      </div>
+    </div>
+</div>  {% endcomment %}
+
+           
+
+<script>
+   // testing by chintan -- Ludic
+  // function setCookie(name, value, days) {
+  //     const expires = new Date(Date.now() + days*864e5).toUTCString();
+  //     document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+  // }
+
+  // function getCookie(name) {
+  //     return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+  // }
+
+  // window.addEventListener('load', () => {
+  //     setTimeout(() => {
+  //         if (!getCookie('popup_shown') && !window.location.href.includes('/fw-teaser')) {
+  //             document.querySelector('.fw_bag_launch_popup_overlay').classList.add('active');
+  //             document.querySelector('.fw_bag_launch_popup').classList.add('active');
+  //             setCookie('popup_shown', 'true', 7); // expires in 7 days
+  //         }
+  //     }, 8000); // 8 seconds delay
+
+  //     document.querySelector('.close_fw_bag_launch_popup').addEventListener('click', () => {
+  //         document.querySelector('.fw_bag_launch_popup_overlay').classList.remove('active');
+  //         document.querySelector('.fw_bag_launch_popup').classList.remove('active');
+  //     });
+  // });
+   // testing by chintan -- Ludic
+</script>
+            
+           
+
+            
+
+<script>
+  // const targetDate = new Date("July 3, 2025 20:00:00").getTime();
+
+  // const updateCountdown = () => {
+  //   const now = new Date().getTime();
+  //   const timeLeft = targetDate - now;
+
+  //   let days = 0, hours = 0, minutes = 0, seconds = 0;
+
+  //   if (timeLeft > 0) {
+  //     days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  //     hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //     minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  //     seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  //   }
+
+  //   // Format with leading zero
+  //   const d = String(days).padStart(2, '0');
+  //   const h = String(hours).padStart(2, '0');
+  //   const m = String(minutes).padStart(2, '0');
+  //   const s = String(seconds).padStart(2, '0');
+
+  //   // Update Block 1 (launch_time)
+  //   const launchDays = document.querySelector('#launch_days p');
+  //   const launchHours = document.querySelector('#launch_hours p');
+  //   const launchMinutes = document.querySelector('#launch_minutes p');
+  //   const launchSeconds = document.querySelector('#launch_seconds p');
+
+  //   if (launchDays) launchDays.textContent = d;
+  //   if (launchHours) launchHours.textContent = h;
+  //   if (launchMinutes) launchMinutes.textContent = m;
+  //   if (launchSeconds) launchSeconds.textContent = s;
+
+  //   // Update Block 2 (timer_block)
+  //   const blockDays = document.querySelector('#days h2');
+  //   const blockHours = document.querySelector('#hours h2');
+  //   const blockMinutes = document.querySelector('#minutes h2');
+  //   const blockSeconds = document.querySelector('#seconds h2');
+
+  //   if (blockDays) blockDays.textContent = d;
+  //   if (blockHours) blockHours.textContent = h;
+  //   if (blockMinutes) blockMinutes.textContent = m;
+  //   if (blockSeconds) blockSeconds.textContent = s;
+  // };
+
+  // updateCountdown(); // Initial call
+  // setInterval(updateCountdown, 1000);
+</script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  const soundToggle = document.getElementById('soundToggle');
+  const audio = document.getElementById('backgroundAudio');
+
+  soundToggle.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      soundToggle.classList.remove('paused');
+    } else {
+      audio.pause();
+      soundToggle.classList.add('paused');
+    }
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $("#mobileMenuToggle").on("click", function () {
+      $("#mobileDrawer").addClass("active");
+    });
+
+    $("#drawerClose").on("click", function () {
+      $("#mobileDrawer").removeClass("active");
+    });
+
+    // Optional: close when clicking outside
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest('#mobileDrawer, #mobileMenuToggle').length) {
+        $("#mobileDrawer").removeClass("active");
+      }
+    });
+  });
+  
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Marquee-like slider
+    // $('.fw-product-slider').slick({
+    //   slidesToShow: 2,
+    //   slidesToScroll: 1,
+    //   autoplay: true,
+    //   autoplaySpeed: 100,
+    //   speed: 10000,
+    //   cssEase: 'linear',
+    //   infinite: true,
+    //   arrows: false,
+    //   pauseOnHover: true,      // pauses when mouse hovers
+    //   pauseOnFocus: true       
+    // });
+    // $(window).on('load', function() {
+    $('.fw-product-slider').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,     // waits 2 seconds between scrolls
+      speed: 1000,              // transition speed
+      cssEase: 'ease',         // smoother transition
+      infinite: true,
+      arrows: false,
+      pauseOnHover: true,      // pauses when mouse hovers
+      pauseOnFocus: true       // also pause on focus
+    });
+
+
+    // Modal slider
+    $('.fw-modal-slider').slick({
+      slidesToShow: 1,
+      infinite: true,
+      arrows: true,
+      dots: false,
+      });
+    // });
+
+    // Track whether the user dragged or clicked
+    let isDragging = false;
+
+    $('.fw-product-slider .fw-product-slide img')
+      .on('mousedown', function() {
+        isDragging = false;
+      })
+      .on('mousemove', function() {
+        isDragging = true;
+      })
+      .on('mouseup', function(e) {
+        if (!isDragging) {
+          var index = $(this).data('index');
+          $('#fw-image-modal').fadeIn();
+          $('body').addClass('open-fw-image-modal');
+          $('.fw-modal-slider').slick('slickGoTo', index);
+        }
+      });
+
+    // Close modal
+    $('.fw-modal .fw-close').click(function() {
+      $('#fw-image-modal').fadeOut();
+      $('body').removeClass('open-fw-image-modal');
+    });
+  });
+</script>
+
+{% comment %} <script>
+  document.querySelectorAll('.fw-hover-plus').forEach(container => {
+    const cursor = container.querySelector('.fw-hover-cursor');
+
+    container.addEventListener('mousemove', e => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+      cursor.style.opacity = 1;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      cursor.style.opacity = 0;
+    });
+  });
+</script> {% endcomment %}
+
+
+{%- if template == 'product.fw-product' and product.title == 'Circuit Shirt' -%}
+  <div class="fw_size_popup">
+    <div class="fw_size_popup_overlay"></div>
+    <div class="fw_size_popup_inner">
+      <div class="fw_size_popup_head">
+        <div class="title">
+          <h4>Measurement table</h4>
+          <p>Compare your measurements with this table. Measurements in inch.</p>  
+        </div>
+        <div class="fw_size_popup_close">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 1L1 11M1 1L11 11" stroke="#1A1A1A" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="fw_size_popup_content">
+        <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Sizeguide_shirt.png?v=1751628476">
+        <table class="fw_size_table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Length</th>
+              <th>Chest</th>
+              <th>Shoulder</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S</td>
+              <td>28</td>
+              <td>21.5</td>
+              <td>19.5</td>
+            </tr>
+            <tr>
+              <td>M</td>
+              <td>29</td>
+              <td>22.5</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td>30</td>
+              <td>23.5</td>
+              <td>20.5</td>
+            </tr>
+            <tr>
+              <td>XL</td>
+              <td>31</td>
+              <td>24.5</td>
+              <td>21</td>
+            </tr>
+            <tr>
+              <td>XXL</td>
+              <td>32</td>
+              <td>25.5</td>
+              <td>21.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Open popup on button click
+      $('.fw_sizeguidePopupBtn').on('click', function () {
+        $('.fw_size_popup_overlay').fadeIn(300);
+        $('.fw_size_popup').fadeIn(300);
+        $('body').addClass('open_fw_size_popup');
+      });
+
+      // Close popup on close icon or overlay click
+      $('.fw_size_popup_close, .fw_size_popup_overlay').on('click', function () {
+        $('.fw_size_popup_overlay').fadeOut(300);
+        $('.fw_size_popup').fadeOut(300);
+        $('body').removeClass('open_fw_size_popup');
+      });
+    });
+  </script>
+
+{%- endif -%}
+{% render 'kwikpass' %}
+<!--Gorgias Chat Widget Start-->
+<script id="gorgias-chat-widget-install-v3" 
+    src="https://config.gorgias.chat/bundle-loader/01K0TNSSJWXVS0K1T1CHW5WWVV">
+</script>
+<!--Gorgias Chat Widget End-->
+
+<!--Bundle Start-->
+<script src="https://bundle.9gtb.com/loader.js?g_cvt_id=8d465d38-4add-4191-bb25-18c6982d8112" async></script>
+<!--Bundle End-->
+
+
+
+
+
+<!--twosDay_promo_popup Start-->
+
+    <div id="twosDay_promo_popup" style="display: none;">
+      <div class="twosDay_promo_popup-overlay"> </div>
+      <div class="twosDay_promo_popup-box">
+        <button class="popup-close">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.8999 0.899902L0.899902 10.8999M0.899902 0.899902L10.8999 10.8999" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="popup_hero_img">
+          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-days-svg.svg?v=1761826995" alt="" width="" height=""/>
+        </div>
+        <p>BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.</p>
+        <button id="popup-cta" class="popup-cta-btn">Don't miss out</button>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        const popup = document.getElementById("twosDay_promo_popup");
+        const closeBtn = document.querySelector(".popup-close");
+        const ctaBtn = document.getElementById("popup-cta");
+
+        const sessionClosed = sessionStorage.getItem("popupClosed");
+        const permanentlyClosed = localStorage.getItem("popupDontShow");
+
+        // Convert current time to IST
+        function getISTTime() {
+          const now = new Date();
+          // IST = UTC + 5:30
+          const istTime = new Date(now.getTime() + (5.5 * 60 * 60 * 1000));
+          return istTime;
+        }
+
+        // Check if current IST time is Tue 11:00 → Wed 11:00
+        function isTwosDayActive() {
+          const ist = getISTTime();
+          const day = ist.getUTCDay(); 
+          const hours = ist.getUTCHours();
+
+          // If Tuesday in IST
+          if (day === 2 && hours >= 11) return true;
+
+          // If Wednesday in IST
+          if (day === 3 && hours < 11) return true;
+
+          return false;
+        }
+
+        // Show popup only if within IST time range + no close history
+        if (isTwosDayActive() && !sessionClosed && !permanentlyClosed) { 
+          setTimeout(() => popup.style.display = "flex", Math.random() * 2000 + 3000);
+        } 
+
+        closeBtn.addEventListener("click", () => {
+          popup.style.display = "none";
+          sessionStorage.setItem("popupClosed", "true");
+        });
+
+        ctaBtn.addEventListener("click", () => {
+          popup.style.display = "none";
+          localStorage.setItem("popupDontShow", "true");
+          window.location.href = 'https://ludic.life/pages/twos-day-sale';
+        });
+
+      });
+    </script>
+
+<!--twosDay_promo_popup End-->
+
+
+
+
+{% if template == 'product.twos-day-sale' %}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { 
+      document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
+        const img = wrapper.querySelector(".zoom-image:not(.hover_blur)"); 
+        let active = false; 
+        wrapper.addEventListener("mouseenter", () => { 
+          active = true; 
+          img.style.transition = "transform 0.5s ease"; 
+          img.style.transform = "scale(1.8)"; 
+        }); 
+        wrapper.addEventListener("mousemove", (e) => { 
+          if (!active) return; 
+          const rect = wrapper.getBoundingClientRect(); 
+          const x = e.clientX - rect.left; 
+          const y = e.clientY - rect.top; 
+          const px = Math.min(Math.max(0, x), rect.width); 
+          const py = Math.min(Math.max(0, y), rect.height); 
+          img.style.transformOrigin = `${px}px ${py}px`; 
+        }); 
+        wrapper.addEventListener("mouseleave", () => { 
+          active = false; 
+          img.style.transition = "transform 0.5s ease"; 
+          img.style.transform = "scale(1) translate(0,0)"; 
+        }); 
+      }); 
+    });
+  </script>
+{% endif %}
+{% if template == 'product.twos-day-sale' %}
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
+  <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
+  <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
+{% endif %}
+{% if template == 'product.twos-day-sale' %}
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+
+    // Custom Arrow SVG
+    const leftArrowSVGString = `
+      <svg aria-hidden="true" class="pswp__icn" viewBox="0 0 100 125" width="100" height="125">
+        <path d="M5,50L50,5l3,3L11,50l42,42l-3,3L5,50z M92,95l3-3L53,50L95,8l-3-3L47,50L92,95z"/>
+      </svg>
+    `;
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.product__media-list',
+      children: '.desktop-zoom-hover',
+      pswpModule: () => import('https://unpkg.com/photoswipe'),
+      arrowPrevSVG: leftArrowSVGString,
+      arrowNextSVG: leftArrowSVGString,
+      bgOpacity: 1,
+      mouseMovePan: true,
+      initialZoomLevel: 'fit',
+      secondaryZoomLevel: 1.2,
+      maxZoomLevel: 1,
+      showHideAnimationType: 'fade',
+      showAnimationDuration: 500,
+      hideAnimationDuration: 500,
+      mainClass: 'pswp--custom-icon-colors'
+    });
+
+    lightbox.on('uiRegister', () => {
+      lightbox.pswp.ui.registerElement({
+        name: 'bulletsIndicator',
+        className: 'pswp__bullets-indicator',
+        appendTo: 'wrapper',
+
+        onInit: (el, pswp) => {
+          const bullets = [];
+          let prevIndex = -1;
+          for (let i = 0; i < pswp.getNumItems(); i++) {
+            const bullet = document.createElement('div');
+            bullet.className = 'pswp__bullet';
+            bullet.onclick = (evt) => {
+              pswp.goTo(bullets.indexOf(evt.target));
+            };
+            el.appendChild(bullet);
+            bullets.push(bullet);
+          }
+          pswp.on('change', () => {
+            if (prevIndex >= 0) {
+              bullets[prevIndex].classList.remove('pswp__bullet--active');
+            }
+            bullets[pswp.currIndex].classList.add('pswp__bullet--active');
+            prevIndex = pswp.currIndex;
+          });
+        }
+      });
+    });
+
+    lightbox.init();
+    let autoSlideInterval;
+    function startAutoplay() {
+      autoSlideInterval = setInterval(() => {
+        const pswp = lightbox.pswp;
+        let nextIndex = pswp.currIndex + 1;
+
+        if (nextIndex >= pswp.getNumItems()) {
+          nextIndex = 0; // Loop to first
+        }
+
+        pswp.goTo(nextIndex);
+      }, 10000);
+    }
+    lightbox.on('change', () => {
+      clearInterval(autoSlideInterval);
+      startAutoplay();
+    });
+    lightbox.on('close', () => {
+      clearInterval(autoSlideInterval);
+    });
+    lightbox.on('open', startAutoplay);
+  </script>
+{% endif %}
+
+
+
+<script>
+(function(){
+
+  function populateSizeSelect(productHandle, sizeSelectEl, hiddenInputEl) {
+    sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
+    sizeSelectEl.disabled = true;
+    hiddenInputEl.value = "";
+
+    if (!productHandle) return;
+
+    var variants = window.bundleVariantData[productHandle] || [];
+    sizeSelectEl.disabled = false;
+
+    variants.forEach(function(v){
+      var o = document.createElement('option');
+      o.value = v.id;
+      o.text = v.title;
+      if (!v.available) {
+        o.disabled = true;
+        o.text += ' — Out of stock';
+      }
+      sizeSelectEl.appendChild(o);
+    });
+  }
+
+  function initBundle(bundleIndex) {
+    var block = document.querySelector('.bundle-block[data-bundle="'+bundleIndex+'"]');
+    if(!block) return;
+
+    var productSelect = block.querySelector('.bundle-product-select');
+    var sizeSelect    = block.querySelector('.bundle-size-select');
+    var hiddenInput   = block.querySelector('input[type="hidden"]');
+    var productError  = block.querySelector('.product-error');
+    var sizeError     = block.querySelector('.size-error');
+
+    productSelect.addEventListener('change', function(){
+      productSelect.classList.remove('error-border');
+      productError.style.display = 'none';
+
+      populateSizeSelect(productSelect.value, sizeSelect, hiddenInput);
+
+      sizeSelect.classList.remove('error-border');
+      sizeError.style.display = 'none';
+
+      if (productSelect.value !== "") {
+        productSelect.classList.add('selectbox_selected');
+      } else {
+        productSelect.classList.remove('selectbox_selected');
+      }
+    });
+
+    sizeSelect.addEventListener('change', function(){
+      hiddenInput.value = sizeSelect.value || "";
+      sizeSelect.classList.remove('error-border');
+      sizeError.style.display = 'none';
+
+      if (sizeSelect.value !== "") {
+        sizeSelect.classList.add('selectbox_selected');
+      } else {
+        sizeSelect.classList.remove('selectbox_selected');
+      }
+    });
+  }
+
+  function updateSelectedLabels(bundleIndex) {
+    const block = document.querySelector('.bundle-block[data-bundle="'+bundleIndex+'"]');
+    if(!block) return;
+
+    const productSelect = block.querySelector('.bundle-product-select');
+    const sizeSelect = block.querySelector('.bundle-size-select');
+
+    const productLabel = document.querySelector(`.bundle_selected_product${bundleIndex}`);
+    const sizeLabel = document.querySelector(`.bundle_selected_product${bundleIndex}_size`);
+
+    // product
+    productSelect.addEventListener('change', function() {
+      productLabel.textContent = productSelect.options[productSelect.selectedIndex].text || '';
+    });
+
+    // size
+    sizeSelect.addEventListener('change', function() {
+      sizeLabel.textContent = sizeSelect.options[sizeSelect.selectedIndex]?.text || '';
+    });
+  }
+
+  initBundle(1);
+  initBundle(2);
+
+  updateSelectedLabels(1);
+  updateSelectedLabels(2);
+
+})();
+</script>
+
+<script>
+  document.getElementById('bundleAddToCartBtn').addEventListener('click', function() {
+    {% comment %} const msg = document.getElementById('bundleAddMsg');
+    msg.innerHTML = ''; {% endcomment %}
+
+    const bundles = [1, 2];
+    let errors = false;
+    const itemsToAdd = [];
+
+    bundles.forEach(index => {
+      const block = document.querySelector('.bundle-block[data-bundle="'+index+'"]');
+      if(!block) return;
+
+      const productSelect = block.querySelector('.bundle-product-select');
+      const sizeSelect = block.querySelector('.bundle-size-select');
+      const productError = block.querySelector('.product-error');
+      const sizeError = block.querySelector('.size-error');
+      const variant = block.querySelector('input[type="hidden"]').value;
+
+      if (productSelect.value === "") {
+        productError.style.display = 'block';
+        productSelect.classList.add('error-border');
+        errors = true;
+        return;
+      }
+
+      if (variant === "") {
+        sizeError.style.display = 'block';
+        sizeSelect.classList.add('error-border');
+        errors = true;
+        return;
+      }
+
+      itemsToAdd.push({ id: variant, quantity: 1 });
+    });
+
+    if (errors) return;
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: itemsToAdd })
+    })
+    .then(res => res.json())
+    .then(data => {
+      {% comment %} msg.style.color = 'green';
+      msg.innerHTML = "✅ Bundle added to cart successfully!"; {% endcomment %}
+      render_cart();
+      $('new-cart-drawer').addClass('active animate');
+    })
+    .catch(err => {
+      msg.style.color = 'red';
+      msg.innerHTML = "Something went wrong. Try again.";
+    });
+
+  }); 
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  function initSizeChartPopup(modalId, openBtnSelectors) {
+    var modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    var closeBtn = modal.querySelector(".close-btn");
+
+    // Attach open button events
+    openBtnSelectors.forEach(selector => {
+      var btn = document.querySelector(selector);
+      if (btn) {
+        btn.addEventListener("click", function() {
+          modal.style.display = "flex";
+          document.body.classList.add('cs-popup-is-opened');
+        });
+      }
+    });
+
+    // Close button
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+        document.body.classList.remove('cs-popup-is-opened');
+      });
+    }
+
+    // Click outside to close
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        document.body.classList.remove('cs-popup-is-opened');
+      }
+    });
+  }
+
+  // Initialize both popups
+  initSizeChartPopup("cspopupModal1", ["#openPopupBtn1", "#sizeBtnPopup"]);
+  initSizeChartPopup("cspopupModal2", ["#openPopupBtn2", "#sizeBtnPopup"]);
+  initSizeChartPopup("cspopupModal", ["#openPopupBtn", "#sizeBtnPopup"]);
+});
+</script>
+
+<script>
+  if ($('.frequently_bought_products').length > 0) {
+    $('.frequently_bought_products').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      speed: 1000,
+      cssEase: 'ease',
+      infinite: true,
+      arrows: false,
+      pauseOnHover: true,
+      pauseOnFocus: true,
+      responsive: [
+        {
+          breakpoint: 749,
+          settings: {
+            slidesToShow: 2
+          }
+        }
+      ]
+    });
+  }
+</script>
+
+
+<script>
+const reels = document.querySelectorAll(".reel");
+const thumbs = document.querySelectorAll(".thumb");
+
+let currentIndex = 0;
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+// DESKTOP: Play all videos loop
+if (!isMobile) {
+  reels.forEach(reel => {
+    const video = reel.querySelector("video");
+    video.play();
+    video.loop = true;
+  });
+}
+
+// MOBILE: Play only active reel one by one
+if (isMobile) {
+  playReel(currentIndex);
+
+  function playReel(index) {
+    reels.forEach((reel, i) => {
+      const video = reel.querySelector("video");
+
+      reel.classList.toggle("active", i === index);
+      thumbs[i].classList.toggle("active", i === index);
+
+      video.pause();
+      video.currentTime = 0;
+
+      if (i === index) {
+        video.play();
+        video.onended = () => nextReel();
+      }
+    });
+  }
+
+  function nextReel() {
+    currentIndex = (currentIndex + 1) % reels.length;
+    playReel(currentIndex);
+  }
+
+  // Thumbnail click
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      currentIndex = index;
+      playReel(currentIndex);
+    });
+  });
+}
+
+</script>
+
+
+<script>
+(function() {
+  const currentUrl = window.location.pathname;
+
+  // Pages for comparison
+  const productPage = "/products/evoke-s-bundle";
+  const salePage = "/pages/twos-day-sale";
+
+  // Function to check if current IST time is within Tuesday 11:00 AM to Wednesday 11:00 AM
+  function isTwosDaySaleActive() {
+    const nowUTC = new Date();
+    
+    // Convert UTC time to IST
+    const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+    
+    const day = nowIST.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, ...
+    const hours = nowIST.getHours();
+    
+    // Condition: Tuesday 11:00 to Wednesday 11:00 IST
+    if (day === 2 && hours >= 10) return true;     // Tuesday after 11 AM
+    if (day === 3 && hours < 11) return true;      // Wednesday before 11 AM
+    
+    return false;
+  }
+
+  const isSaleActive = isTwosDaySaleActive();
+
+  // Redirect Logic
+  if (!isSaleActive) {
+    // NORMAL DAYS
+    if (currentUrl === productPage) {
+      window.location.href = salePage;
+    }
+    // sale page stays as-is
+  } else {
+    // DURING SALE WINDOW
+    if (currentUrl === salePage) {
+      window.location.href = productPage;
+    }
+    // product page stays as-is
+  }
+})();
+</script>
+
+
+
+  </body>
+</html>

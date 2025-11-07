@@ -1,0 +1,73 @@
+<h1>hello</h1>
+
+{% schema %}
+  {
+    "name": "Teaser",
+    "settings": [
+      {
+        "type": "video",
+        "id": "video_url",
+        "label": "Video URL"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Comfort aisa, ki ab kya bataaiyen*"
+      },
+      {
+        "type": "text",
+        "id": "caption",
+        "label": "Caption",
+        "default": "Comfort soo good, you’re lost for words."
+      }, 
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Ludic Slides"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Built with our rugged CloudFrame™ material and a recovery EVA footbed for a cloud-like comfort and all-day support. They’re designed to promote muscle recovery and deliver an unwinding experience. Game-changers? You bet."
+      },
+      {
+        "type": "text",
+        "id": "hidden_price",
+        "label": "Hidden Price",
+        "default": "1XXX"
+      },
+      {
+        "type": "number",
+        "id": "timer_days",
+        "label": "Timer Duration in Days",
+        "default": 1
+      },
+      {
+        "type": "number",
+        "id": "timer_hours",
+        "label": "Timer Duration in Hours",
+        "default": 12
+      },
+      {
+        "type": "number",
+        "id": "timer_minutes",
+        "label": "Timer Duration in Minutes",
+        "default": 0
+      },
+      {
+        "type": "number",
+        "id": "timer_seconds",
+        "label": "Timer Duration in Seconds",
+        "default": 0
+      }
+    ],
+    "presets": [
+      {
+        "name": "Teaser"
+      }
+    ]
+  }
+{% endschema %}

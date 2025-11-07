@@ -1,0 +1,60 @@
+<div class="mob_meta_sroll_text meta_sroll_text">
+  <div class="container">
+    <div class="meta_sroll_text_wrap">
+      <div class="meta_sroll_left">
+
+        {% assign current_img = '' %}
+        {% for meta_img  in product.metafields.custom.scroll_image.value limit: 1  %}
+          {% assign current_img = meta_img %}
+        {% endfor %}
+        
+        {% for meta_text in product.metafields.custom.scroll_text.value  %}
+        {% assign index = forloop.index %}
+     
+        {% assign meta_img_split = current_img | split: '||' %}
+        {% if product.metafields.custom.scroll_text.value.size == 3 %}
+          {% assign meta_img_split = meta_img_split | slice: 1, 3 %} <!-- Start from 2nd image if there are 3 questions -->
+        {% endif %}
+        {% for meta_img in meta_img_split %}
+          {% if index == forloop.index %}
+            <div class="image">
+              <img src="{{ meta_img }}">
+            </div>
+          {% endif %}
+        {% endfor %}
+          
+        {% assign meta_a_q = meta_text | split: "||" %}
+        {% assign meta_question = meta_a_q[0] %}
+        {% assign meta_answer = meta_a_q[1] %}
+        <div class="meta_scroll_text{% if forloop.first %} is_selected{% endif %}" id="ind_{{ forloop.index }}">
+          <div class="meta_scroll_text_number">
+            0{{ forloop.index }}
+          </div>
+          <div class="meta_scroll_text_block">
+            <div class="meta_text_up">
+              {{ meta_question }}
+            </div>
+            <div class="meta_text_down">
+              {{ meta_answer }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mobile Meta scroll text",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Mobile Meta scroll text"
+    }
+  ]
+}
+{% endschema %}

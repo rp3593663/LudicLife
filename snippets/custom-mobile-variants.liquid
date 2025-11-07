@@ -1,0 +1,44 @@
+<div class="custom-mobile-overlay"></div>
+<div class="custom-mobile-variants">
+  {%- for option in product.options_with_values -%}
+      {% if option.name == 'Select your size (in UK)' or option.name == 'Size' or option.name == 'Select your size' %}
+        <div class="custom_variants-mobile">
+        {% assign opt_index = forloop.index0 %}
+        {%- liquid
+          assign swatch_count = option.values | map: 'swatch' | compact | size
+          assign picker_type = block.settings.picker_type
+  
+          if swatch_count > 0 and block.settings.swatch_shape != 'none'
+            if block.settings.picker_type == 'dropdown'
+              assign picker_type = 'swatch_dropdown'
+            else
+              assign picker_type = 'swatch'
+            endif
+          endif
+        -%}
+          <fieldset class="js product-form__input product-form__input--pill hngh{% if option.name == 'Select your size (in UK)' or option.name == 'Size' %} size_variant{% endif %}">
+            {% if option.name == "Select your size (in UK)" or option.name == "Size" or option.name == 'Select your size' %}
+              {%- liquid
+                assign ne_product_form_id = 'product-form-' | append: section.id
+              -%}
+              <div class="default_variant_uk is_tab_active" data-con='uk'>
+                {% render 'product-variants-custom',
+                  product: product,
+                  option: option,
+                  block: block,
+                  picker_type: picker_type,
+                  option_index: opt_index,
+                  change_option_name: true,
+                  mobile_menu: true
+                %}
+              </div>
+            {% endif %}
+          </fieldset>
+          <!-- <div class="custom-variant-label">Size Guide</div>
+          {% if product.metafields.custom.information != blank %}            
+            <div class="meta_pro_information medium-hide">{{ product.metafields.custom.information | metafield_tag }}</div>
+          {% endif %}
+        </div> -->
+        {% endif %}
+  {%- endfor -%}
+</div>

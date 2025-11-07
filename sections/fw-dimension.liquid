@@ -1,0 +1,121 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-video {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-video {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-video {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-video {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+  .image-compare-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .image-compare-left,
+  .image-compare-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .image-compare-right-wrapper {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  .image-compare-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: black;
+    z-index: 10;
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-dimension">
+  <div class="{{ container }}">
+    <div class="image-compare-wrapper" id="compare-wrapper-{{ section.id }}">
+      <iframe frameborder="0" class="juxtapose desktop" width="100%" height="700" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=302ef014-572b-11f0-bb24-0936e1cb08fb"></iframe>
+      <iframe frameborder="0" class="juxtapose mobile" width="100%" height="300" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=37a0b610-572c-11f0-bb24-0936e1cb08fb"></iframe>
+      {% comment %} <img
+        src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875693.png?v=1751367546"
+        class="image-compare-left"
+        alt="Before"
+      />
+      <div class="image-compare-right-wrapper" id="right-wrapper-{{ section.id }}">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875699.png?v=1751367546"
+          class="image-compare-right"
+          alt="After"
+        />
+      </div>
+      <div class="image-compare-divider" id="divider-{{ section.id }}"></div> {% endcomment %}
+    </div>
+  </div>
+</section>
+
+{% comment %} <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const wrapper = document.getElementById("compare-wrapper-{{ section.id }}");
+    const rightWrapper = document.getElementById("right-wrapper-{{ section.id }}");
+    const divider = document.getElementById("divider-{{ section.id }}");
+
+    function updateSlider(x) {
+      const rect = wrapper.getBoundingClientRect();
+      let position = x - rect.left;
+      position = Math.max(0, Math.min(position, rect.width));
+
+      rightWrapper.style.width = position + "px";
+      divider.style.left = position + "px";
+    }
+
+    wrapper.addEventListener("mousemove", (e) => {
+      updateSlider(e.clientX);
+    });
+
+    wrapper.addEventListener("touchmove", (e) => {
+      if (e.touches.length > 0) {
+        updateSlider(e.touches[0].clientX);
+      }
+    });
+
+    // Initialize at 50%
+    updateSlider(wrapper.offsetWidth / 2);
+  });
+</script> {% endcomment %}

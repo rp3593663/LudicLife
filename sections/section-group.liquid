@@ -1,0 +1,548 @@
+{% liquid
+  assign sid = section.id 
+  assign layout_des = section.settings.layout_des
+%}
+
+<section id="laber_{{sid}}">
+  
+  <div class="{%if layout_des%}full-width{% else %}page-width{%endif%} main-section-group">
+      <div class="title-banner img-content">
+        <span class="caption">{{ section.settings.cap }}</span>
+          <div class="subbanner-heading">
+            {{ section.settings.heading }}
+            <div class="subtext">
+              <div class="subbanner-subheading">
+                {{ section.settings.subheading }}
+              </div>
+                {% if section.settings.button_label != blank %}
+                  <div class="text-button">
+                    <a href="{{  section.settings.button_link }}" class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+                    >
+                      {{ section.settings.button_label }}
+                    </a>
+                  </div>
+                {% endif %}
+            </div>
+          </div>
+      </div>
+    <div class="row">
+      	{%- for block in section.blocks -%}  
+            {% case block.settings.col %}
+              {% when '16%' %}
+                  {%- assign block_width = 'col-lg-2 col-md-2 col-12' -%}
+              {% when '25%' %}
+                  {%- assign block_width = 'col-lg-3 col-md-3 col-12' -%}
+              {% when '33%' %}
+                  {%- assign block_width = 'col-lg-4 col-md-4 col-12' -%}
+              {% when '42%' %}
+                  {%- assign block_width = 'col-lg-5 col-md-5 col-12' -%}
+              {% when '50%' %}
+                  {%- assign block_width = 'col-lg-6 col-md-6 col-12' -%}
+              {% when '58%' %}
+                  {%- assign block_width = 'col-lg-7 col-md-7 col-12' -%}
+              {% when '66%' %}
+                  {%- assign block_width = 'col-lg-8 col-md-8 col-12' -%}
+              {% when '75%' %}
+                  {%- assign block_width = 'col-lg-9 col-md-9 col-12' -%}
+              {% when '100%' %}
+                  {%- assign block_width = 'col-12' -%}
+          {% endcase %}
+          {%- case block.type -%}
+            {%- when 'menu' -%}
+            {% assign image = block.settings.bg_coll %}
+            {% assign border = block.settings.border %}
+            {% assign hidden_mobile = block.settings.hidden_mobile %} 
+            <div id="bk_{{ block.id }}" class="image-block alo-block-item sm:mb-20 {% if hidden_mobile %}hide-mobile{% endif %} {{ block_width }}" {{ block.shopify_attributes }}>
+                    <div class="banner_static relative" >
+                        <div class="image_static images-card">
+                          {% if image != blank %} 
+                             <img srcset="{{ image | image_url: width: 850 }} 1x, {{ image | image_url: width: 1100 }} 2x"
+            src="{{ image | image_url: width: 850 }}"
+            alt="{{ image.alt | escape }}"
+            width="850"
+            height="{{ 850 | divided_by: image.aspect_ratio | ceil }}"
+          />
+                            <!-- {% render 'responsive-image', image: image, border: border, image_class: 'w-full h-full',url: url_banner %} -->
+                          {% else %}
+                            <div class="image-card__img">
+                                {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}  
+                                {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover' }}
+                            </div>
+                          {% endif %}
+                        </div>
+                        <div class="image-content-bottom">
+                            <div class="sub-collection">
+                            {% if block.settings.title != blank %}<div class="title alo-color {{ block.settings.text_size }}" style="--alo-color:{{ block.settings.cl_heading }};--alo-text-transform:{{ block.settings.text_transform }};"><span>{{ block.settings.title }}</span></div>{% endif %}
+                            {%- assign menu = block.settings.menu -%}
+                              {%- if menu != blank -%}
+                                <ul class="menu">
+                                  {%- for link in linklists[menu].links -%}
+                                   <li class="menu-item">
+                                     <a class="alo-color alo-color-hover" style="--alo-color:{{ block.settings.cl_link }};--alo-color-hover:{{ block.settings.cl_link_hover }};" href="{{ link.url }}">{{ link.title | split: '[' | first }}
+                                     {% if link.object.all_products_count %}
+                                    	 <span class="n_products">({{ link.object.all_products_count }})</span>
+                                     {%endif%}
+                                     </a>
+                                  	</li>
+                                   {%- endfor -%}
+                                </ul>
+                                {% elsif block.settings.custom_text != blank %}
+                                <div class="custom_list">
+                                  {{ block.settings.custom_text }}
+                                </div>
+                                {%- endif -%}
+                            {%- if  block.settings.btn != blank -%}
+                                <a  class="view-all alo-color alo-color-hover" href="{{ block.settings.btn_link |default:"#" }}" target="{{block.settings.open_link}}" style="--alo-color:{{ block.settings.cl_btn }};--alo-color-hover:{{ block.settings.cl_btn_hover }};"
+                                   {{ block.shopify_attributes }}>{{block.settings.btn}}
+                                </a>
+                            {%- endif -%}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+           {%- when 'collection' -%}
+            <div class="product-block">
+              <div class="product-inner">
+                {% render 'card-product-with-variant',
+                select_product: block.settings.select_product,
+                custom_text: block.settings.custom_text
+              %}
+              </div>
+            </div>
+           {%- endcase -%}
+           
+        {%- endfor -%}
+    </div>
+  </div>
+</section>
+<!-- {%- render 'section_style' -%} -->
+{%- schema -%}
+  {
+    "name": "Section group",
+    "class": "cms_section type_section_group product_section",
+	"max_blocks": 3,
+    "settings": [   
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },     
+      {	
+      "type": "checkbox",
+      "id": "layout_des",
+      "label": "Full Width",
+      "default": false
+      }, 
+       {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#fff"
+     	 },
+       {
+      "type": "header",
+      "content": "== Margin",
+"info":"Margin top, margin bottom. If you not use to blank"
+    },
+ 	        {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+    },
+    {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+    },
+   {
+      "type": "header",
+      "content": "== Design Mobile Options"
+    },
+    {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin"
+    },
+    {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding"
+    },
+    {
+       "type": "text",
+       "id": "cap",
+       "label": "Caption",
+       "default": "Shop Now"
+    },
+    {
+       "type": "richtext",
+       "id": "heading",
+       "default": "<p><b>Breaker</b><br>Brute gsh</p>",
+       "label": "Heading"
+    },
+    {
+       "type": "richtext",
+       "id": "subheading",
+       "default": "<p>$130.00</p>",
+       "label": "Text"
+    },
+    {
+       "type": "text",
+       "id": "button_label",
+       "label": "Button Label",
+       "default": "Shop Now"
+    },
+    {
+       "type": "url",
+       "id": "button_link",
+       "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "t:sections.featured-collection.settings.view_all_style.label",
+      "options": [
+        {
+          "value": "link",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__1.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__2.label"
+        },
+        {
+          "value": "solid",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__3.label"
+        }
+      ],
+      "default": "solid"
+    }
+    ],
+	"blocks": [
+      {
+        "type": "menu",
+        "name": "Menu collection",
+        "limit": 1,
+        "settings": [
+          {
+          "type": "checkbox",
+          "id": "hidden_mobile",
+          "label": "Hidden on mobile",
+          "default": true
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "color",
+            "id": "cl_heading",
+            "label": "Color Heading",
+            "default": "#fff"
+          },
+          {
+            "type": "select",
+            "id": "text_size",
+            "default": "medium",
+            "options": [
+              {
+                "value": "small",
+                "label": "small"
+             },
+             {
+                "value": "medium",
+                "label": "Medium"
+             },
+             {
+                "value": "large",
+                "label": "Large"
+              }
+            ],
+            "label": "Text size"
+          },
+          {
+            "type": "select",
+            "id": "text_transform",
+            "default": "none",
+            "options": [
+             {
+                "value": "none",
+                "label": "None"
+             },
+             {
+                "value": "capitalize",
+                "label": "Capitalize"
+             },
+             {
+                "value": "lowercase",
+                "label": "Lowercase"
+             },
+             {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Text transform:"
+          },
+          {
+          "type": "image_picker",
+          "id": "bg_coll",
+          "label": "Background Image"
+          },
+          
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Add menu"
+          },
+          {
+            "type": "textarea",
+            "label": "custom_text",
+            "id": "custom_text"
+          },
+          {
+            "type": "color",
+            "id": "cl_link",
+            "label": "Color Link",
+            "default": "#fff"
+          },
+          {
+            "type": "color",
+            "id": "cl_link_hover",
+            "label": "Color Link (hover)",
+            "default": "#fff"
+          },
+          {
+              "type": "text",
+              "id": "btn",
+              "label": "Button",
+              "default": "View All Categories",
+               "info": "Note: If you hide this link, you can leave it blank"
+            },
+            {
+              "type": "url",
+              "id": "btn_link",
+              "label": "Button link"
+            },
+            {
+              "type": "color",
+              "id": "cl_btn",
+              "label": "Button color",
+              "default": "#222"
+            },
+            {
+              "type": "color",
+              "id": "cl_btn_hover",
+              "label": "Button color hover",
+              "default": "#222"
+            },
+           {
+              "type": "select",
+              "id": "open_link",
+              "options": [
+                {
+                  "value": "_self",
+                  "label": "Current window (_self)"
+                },
+               {
+                  "value": "_blank",
+                  "label": "New window (_blank)"
+                }
+              ],
+              "label": "Open link in",
+              "default": "_blank"
+            },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "25%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        }
+        ]
+      },
+      {
+        "type": "collection",
+        "name": "Collection Products",
+        "limit": 2,
+        "settings": [
+          {
+            "type": "product",
+            "label": "Select Product",
+            "id": "select_product"
+          },
+          {
+            "type": "text",
+            "label": "Custom text",
+            "id": "custom_text"
+          }   
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Section group",
+        "category": "Collections",
+		"blocks": [
+          {"type": "menu"},
+		  {"type": "collection"}
+        ]
+      }
+    ]
+  }
+{% endschema %}
+{% stylesheet %}
+  .main-section-group .image_static img {
+      width: 100%;
+      display: block;
+      height: auto;
+  }
+  .main-section-group .image-block {
+      max-width: calc(50% - 8px);
+  }
+  .main-section-group .image-block .image-content-bottom .custom_list,
+  .product-block .product-inner .product-title p{
+      font-size: 12px;
+      color: #1A1A1A;
+      line-height: 14px;
+      margin-top: 18px;
+      font-weight: 700;
+  }
+  .main-section-group .product-block {
+      max-width: calc(25% + 4px);
+      width: 100%;
+      padding-left: 16px;
+  }
+  .product-block .product-inner .slider-main-img span {
+      display: none;
+  }
+  .product-block .product-img-slider .slick-dots {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0;
+      margin: 5px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+  }
+  .product-block .product-img-slider .slick-dots button {
+      font-size: 0;
+      background: transparent;
+      width: 32px;
+      height: 4px;
+      border-radius: 8px;
+      border: 1px solid #C7C8CA;
+      margin: 0px 4px;
+  }
+  .product-block .product-img-slider .slick-dots .slick-active button{
+    background: #C7C8CA;
+  }
+  .product-block .product-box-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+  .product-block .product-box-info .color-option li {
+      font-size: 0;
+      width: 12px !important;
+      height: 12px;
+      border-radius: 50px;
+      position: relative;
+      margin: 0 4px;
+  }
+  .product-block .product-box-info .color-option .slick-track {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100% !important;
+      transform: none !important;
+      cursor: pointer;
+  }
+  .product-block .product-box-info .color-option .slick-list {
+      overflow: visible;
+      margin: 8px 0px 5px 5px;
+  }
+  .product-block .product-box-info .color-option li::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid transparent;
+    top: -2px;
+    left: -2px;
+    border-radius: 50px;
+  }
+  .product-block .product-box-info .color-option li.slick-current::before {
+    border-color: #1A1A1A;
+  }
+  @media(max-width:1199.98px){
+    .product-block .product-box-info .color-option .slick-list{
+      margin: 0px 0px 5px;
+    }
+  }
+  @media(max-width:991.98px){
+    .product-block .product-img-slider .slick-dots button{
+        width: 25px;
+        margin: 0 2px;
+    }
+  }
+  @media(max-width:767.98px){
+    .main-section-group .image-block{
+      max-width:100%;
+    }
+    .main-section-group .image-block .image-content-bottom .custom_list,
+    .product-block .product-inner .product-title p{
+        font-size: 10px;
+        line-height: 12px;
+        margin-top: 9px;
+    }
+    .main-section-group .product-block {
+      max-width: calc(50% - 4px);
+      padding-left: 0;
+    }
+    .main-section-group .row {
+        justify-content: space-between;
+    }
+  }
+{% endstylesheet %}

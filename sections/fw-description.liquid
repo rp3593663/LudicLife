@@ -1,0 +1,97 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-description {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-description {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-description {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-description {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-description">
+  <div class="{{ container }}">
+    <section class="fw_desc">
+      <div class="fw_logo_with_desc">
+       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Futurworks-logo.svg?v=1751007453" alt="Futurworks Logo">
+       <div class="desc">
+         <p>This is the future from the past.</p>
+         <p>Grounded in sharp lines and the kind of design that feels like a glitch in time. A realm of essentials where function proves to be better with a little unexpectedness. Unseen but familiarly weird. Worked, not hustled. Smartly efficient, not lazy. Built fiercely intelligent.</p>
+         <p> Step into Futurworks. Bringing mindful products for mindless pursuits.</p>
+       </div>
+        <a href="https://ludic.life/collections/futurworks" class="fw_logo_with_btn">Enter The World</a>
+      </div>
+    </section>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Fw Description",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fw Description",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

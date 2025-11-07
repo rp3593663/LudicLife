@@ -1,0 +1,62 @@
+<div class="new_meta_faq">
+  <div class="container">
+    <div class="new_meta_faq_inner">
+      <div class="new_meta_faq_left">
+        <h3 class="hadding">FAQ’s</h3>
+        {% # FAQ name %}
+        {% for meta_faq in product.metafields.custom.faq.value %}
+          {% assign meta_a_q = meta_faq | split: "||" %}
+          {% assign meta_question = meta_a_q[0] %}
+          {% assign meta_answer = meta_a_q[1] %}
+          
+          <div class="meta_question" data-faq-index="{{ forloop.index }}" id="faq_section_2">
+            <div class="faq_main {% if forloop.first %}active{% endif %}" >
+              <div class="meta_question_text">
+                {{ meta_question }}
+              </div>
+              <div class="meta_question_icon">
+                <span class="meta_question_icon_pluse">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none"> 
+                    <path d="M4 12H20M12 4V20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> 
+                  </svg>
+                </span>
+                <span class="meta_question_icon_minus">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="800px" height="800px" viewBox="0 0 459.313 459.314" xml:space="preserve"> 
+                    <g> 
+                      <path d="M459.313,229.648c0,22.201-17.992,40.199-40.205,40.199H40.181c-11.094,0-21.14-4.498-28.416-11.774   C4.495,250.808,0,240.76,0,229.66c-0.006-22.204,17.992-40.199,40.202-40.193h378.936   C441.333,189.472,459.308,207.456,459.313,229.648z"/> 
+                    </g> 
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="meta_answer"> 
+              {{ meta_answer }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="new_meta_faq_right">
+        <div class="new_meta_faq_img">
+          {{ product.metafields.custom.faq_image | metafield_tag }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                        
+{% schema %}
+{
+  "name": "Meta FAQ",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Meta FAQ"
+    }
+  ]
+}
+{% endschema %}
+
+

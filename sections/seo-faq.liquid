@@ -1,0 +1,91 @@
+{% if request.path contains 'collections' and collection.metafields.custom.faqs_for_seo != blank %}
+  <section id="seo-section">
+    {% assign faqs = collection.metafields.custom.faqs_for_seo.value %}
+    {% for faq in faqs %}
+      <p><span>{{ faq.questions }}</span> <span>+</span></p>
+     {{ faq.answer | metafield_tag | replace: '<h1', '<p' | replace: '</h1>', '</p>' | replace: '<h2', '<p' | replace: '</h2>', '</p>' | replace: '<h3', '<p' | replace: '</h3>', '</p>' | replace: '<h4', '<p' | replace: '</h4>', '</p>' | replace: '<h5', '<p' | replace: '</h5>', '</p>' | replace: '<h6', '<p' | replace: '</h6>', '</p>' }} 
+    {% endfor %}
+  </section>
+{% endif %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("#seo-section p:first-child").forEach(function(item) {
+      item.addEventListener("click", function() {
+        const content = item.nextElementSibling;
+        // const icon = item.querySelector("p");
+        const icon = item.querySelector("span:last-child");
+        
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          icon.textContent = "+";
+        } else {
+          content.style.display = "block";
+          icon.textContent = "−";
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  #seo-section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto 30px;
+  }
+  #seo-section .metafield-rich_text_field {
+    color: #ffffff;
+    margin-top: 10px;
+    display: none;
+  }
+  #seo-section p {
+    cursor: pointer;
+    font-size: 12px;
+    line-height:16px;
+    margin-bottom: 10px;
+  }
+  #seo-section p:first-child{
+     display:flex;
+     justify-content: space-between;
+     margin-bottom:0;
+  }
+  #seo-section span {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  #seo-section span:first-child{
+    display:block; 
+    font-size: 16px;
+    line-height: 20px; 
+    margin: 0;
+  }
+  @media screen and (max-width: 768px) {
+     #seo-section {
+      max-width: calc(100% - 8px);
+      margin: 0 auto 8px;
+    }
+    #seo-section p {
+      font-size: 10px;
+    }
+    #seo-section span:first-child{
+      font-size: 12px;
+      line-height:16px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "SEO FAQs",
+    "settings": [],
+    "presets": [
+      {
+        "name": "SEO FAQs"
+      }
+    ]
+  }
+{% endschema %}

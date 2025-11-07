@@ -1,0 +1,610 @@
+{%- if section.settings.layout == 'default_container' -%}
+	{%- assign container = 'container' -%}
+{%- endif -%}
+{%- if section.settings.layout == 'full-width' -%}
+	{%- assign container = 'prestige-full-width' -%}
+{%- endif -%}
+{%- if section.settings.layout == 'custom_box_width' -%}
+	{%- assign container = 'full-container' -%}
+{%- endif -%}
+
+{%- assign max_width = '' -%}
+{%- if section.settings.layout == 'custom_box_width' and section.settings.max_width != blank -%}
+	{%- assign width_container = section.settings.max_width | plus: 0 -%}
+	{%- capture max_width -%}style="max-width: {{ section.settings.max_width }};"{%- endcapture -%}
+{%- endif -%}
+
+{%- assign bg_color = '' -%}
+{%- if section.settings.bg_color != blank and section.settings.background == 'bg_color_option' -%}
+	{%- capture bg_color -%}
+		style="background-color: {{ section.settings.bg_color}};"
+	{%- endcapture -%}
+{%- endif -%}
+{%- if section.settings.bg_img != blank and section.settings.background == 'bg_img_option' -%}
+	{%- capture bg_color -%}
+		style="background-image: url('{{ section.settings.bg_img | img_url: 'master' }}');
+           background-position: {{ section.settings.background_position }};
+           background-size: {{ section.settings.background_size }};"
+	{%- endcapture -%}
+{%- endif -%}
+
+{% assign padding 	= section.settings.padding | split: "|" %}
+{% assign margin 	= section.settings.margin | split: "|" %}
+{% assign heading = section.settings.section_heading | escape %}
+{% assign heading_color = section.settings.heading_color | escape %}
+{% assign subheading = section.settings.section_subheading | escape %}
+{% assign subheading_color = section.settings.subheading_color | escape %}
+{% assign column-xxl = section.settings.column_xxl %}
+{% assign column-xl = section.settings.column_xl %}
+{% assign column-lg = section.settings.column_lg %}
+{% assign column-md = section.settings.column_md %}
+{% assign column-sm = section.settings.column_sm %}
+{% assign column-xs = section.settings.column_xs %}
+
+{%- assign slider_show_responsive = '' -%}
+{%- if section.settings.show_slider -%}
+{%- capture slider_show_responsive -%}
+prestige-load-slick-mobile
+{%- endcapture -%}
+{%- endif -%}
+
+{% capture column_grid %}
+{% if column-xxl == 5 %} col-xxl-2-5{% else %} col-xxl-{{ 12 | divided_by: column-xxl }}{% endif %}
+{% if column-xl == 5 %} col-xl-2-5{% else %} col-xl-{{ 12 | divided_by: column-xl }}{% endif %}
+{% if column-lg == 5 %} col-lg-2-5{% else %} col-lg-{{ 12 | divided_by: column-lg }}{% endif %}
+{% if column-md == 5 %} col-md-2-5{% else %} col-md-{{ 12 | divided_by: column-md }}{% endif %}
+{% if column-sm == 5 %} col-sm-2-5{% else %} col-sm-{{ 12 | divided_by: column-sm }}{% endif %}
+{% if column-xs == 5 %} col-2-5{% else %} col-{{ 12 | divided_by: column-xs }}{% endif %}
+{% endcapture %}
+
+{%- style -%}
+
+		#shopify-section-{{ section.id }} .prestige-subtitle{
+      color: {{ subheading_color }};
+  		text-align:{{ section.settings.heading_align }};
+    }
+  	#shopify-section-{{ section.id }} h2.prestige-title{
+      color: {{ heading_color }};
+  		text-align:{{ section.settings.heading_align }};
+    }
+  	#shopify-section-{{ section.id }} .prestige-section-title img{
+  		{%- if section.settings.show_separator -%}
+  			display: block;
+  			{%- if section.settings.heading_align == 'center' -%} margin: auto; {%- endif -%}
+  			{%- if section.settings.heading_align == 'right' -%} margin-left: auto; {%- endif -%}
+  			{%- if section.settings.heading_align == 'left' -%} margin-right: auto; {%- endif -%}
+  			margin-top: 8px;
+  		{%- endif -%}
+    }
+
+  {%- if margin[0] != blank or padding[0] != blank -%}
+		#shopify-section-{{ section.id }} .section-counter{
+			{%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+			{%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+		}
+	{%- endif -%}
+	
+	@media (max-width:1199px){
+			{%- if margin[1] != blank or padding[1] != blank -%}
+				#shopify-section-{{ section.id }} .section-counter{
+					{%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+					{%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+				}
+			{%- endif -%}
+		}
+
+		@media (max-width:991px){
+			{%- if margin[2] != blank or padding[2] != blank -%}
+				#shopify-section-{{ section.id }} .section-counter{
+					{%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+					{%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+				}
+			{%- endif -%}
+		}
+
+		@media (max-width:767px){
+			{%- if margin[3] != blank or padding[3] != blank -%}
+				#shopify-section-{{ section.id }} .section-counter{
+					{%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+					{%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+				}
+			{%- endif -%}
+		}
+
+{%- endstyle -%}
+{% assign product_handles = "" %}
+<ul>
+  <table>
+{% comment %} Get Particular product varaint ID {% endcomment %}
+	{% assign product = all_products["leather"] %}
+
+	{% if product %}
+	{% for variant in product.variants %}
+		<p>{{ product.title }} ======= {{ variant.id }}</p>
+	{% endfor %}
+	{% else %}
+	<p>Product not found.</p>
+	{% endif %}
+{% comment %} Get Particular product varaint ID {% endcomment %}
+
+    <ul>
+  <table>
+    {% for product in collections.fragrances.products %}
+      {% comment %} Debug: Output product titles to check if products exist {% endcomment %}
+     {% comment %} <p>Product: {{ product.title }}</p>{% endcomment %}
+
+      {% if product.available %}
+        <th>Product Title</th>
+        <th>Product ID</th>
+        <th>Varaint ID</th>
+        <th>Varaint SKU</th>
+        <th>Inventory ID</th>
+        <th>Inventory Quantity</th>
+        {% for variant in product.variants %}
+          <tr>
+            <td style="padding: 5px 20px">
+              {{ product.title }} - {{ variant.title }} - {{ product.metafields.custom.product_color_name }}
+            </td>
+            <td style="padding: 5px 20px">
+              {{ product.id }}
+            </td>
+            <td style="padding: 5px 20px">
+              {{ variant.id }}
+            </td>
+            <td style="padding: 5px 20px">
+              {{ variant.sku }}
+            </td>
+            <td style="padding: 5px 20px">
+              {{ variant.inventory_item_id }}
+            </td>
+            <td style="padding: 5px 20px">
+              {{ variant.inventory_quantity }}
+            </td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <p>{{ product.title }} is not available.</p>
+      {% endif %}
+    {% else %}
+      <p>No products found in this collection.</p>
+    {% endfor %}
+  </table>
+</ul>
+
+  </table>
+</ul>
+
+
+
+{% schema %}
+{
+"name": "Counters",
+"settings": [
+  {
+			"type": "select",
+			"id": "layout",
+			"options": [
+				{
+					"value": "full-width",
+					"label": "Full Width"
+				},
+				{
+					"value": "custom_box_width",
+					"label": "Custom Box Width"
+				},
+        {
+					"value": "default_container",
+					"label": "Default Container"
+				}
+			],
+			"label": "Layout",
+			"default": "default_container"
+	},
+  {
+			"type": "text",
+			"id": "max_width",
+			"label": "Custom container width",
+			"info": "Default: 1320px"
+	},
+  {
+			"type": "select",
+			"id": "background",
+			"options": [
+				{
+					"value": "bg_img_option",
+					"label": "Image"
+				},
+				{
+					"value": "bg_color_option",
+					"label": "Color"
+				}
+			],
+			"label": "Background",
+			"default": "bg_color_option"
+	},
+  {
+		  "type": "checkbox",
+		  "id": "show_bg_box",
+		  "label": "Background apply to box width",
+		  "default": false
+	},
+  {
+			"type": "color",
+			"id": "bg_color",
+			"label": "Background color",
+			"default": "#FFFFFF"
+	},
+  {
+			"type": "image_picker",
+			"id": "bg_img",
+			"label": "Background Image"
+	},
+  {
+			"type": "select",
+			"id": "background_position",
+			"options": [
+				{
+					"value": "left top",
+					"label": "Left Top"
+				},
+        {
+					"value": "left center",
+					"label": "Left Center"
+				},
+        {
+					"value": "left bottom",
+					"label": "Left Bottom"
+				},
+        {
+					"value": "right top",
+					"label": "Right Top"
+				},
+        {
+					"value": "right center",
+					"label": "Right Center"
+				},
+        {
+					"value": "right bottom",
+					"label": "Right Bottom"
+				},
+        {
+					"value": "center top",
+					"label": "Center Top"
+				},
+        {
+					"value": "center center",
+					"label": "Center Center"
+				},
+				{
+					"value": "center bottom",
+					"label": "Center Bottom"
+				}
+			],
+			"label": "Background Position",
+			"default": "center center"
+	},
+  {
+			"type": "select",
+			"id": "background_size",
+			"options": [
+				{
+					"value": "cover",
+					"label": "Cover"
+				},
+        {
+					"value": "contain",
+					"label": "Contain"
+				},
+        {
+					"value": "auto",
+					"label": "Auto"
+				}
+			],
+			"label": "Background Size",
+			"default": "cover"
+	},
+  {
+			"type": "text",
+			"id": "padding",
+			"label": "Padding",
+			"default": "50px 0px 50px 0px",
+			"placeholder": "top right bottom right",
+			"info":"Screen: desktop | 1200px | 991px | 767px"
+	},
+  {
+			"type": "text",
+			"id": "margin",
+			"label": "Margin",
+			"default": "0px 0px 0px 0px",
+			"placeholder": "top right bottom right",
+			"info":"Screen: desktop | 1200px | 991px | 767px"
+	},
+  {
+			"type": "header",
+			"content": "=== General Settings"
+	},
+	{
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Connect With Clients"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#607D33"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_separator",
+      "label": "Show Separator",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "seperator_img",
+      "label": "Separator Image"
+    },
+    {
+      "type": "text",
+      "id": "seperator_img_width",
+      "label": "Separator Image Width",
+      "default": "204px"
+    },
+    {
+      "type": "text",
+      "id": "seperator_img_height",
+      "label": "Separator Image Height",
+      "default": "37px"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Sub Heading",
+      "default": "Company Facts"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Sub Heading color",
+      "default": "#222222"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+  {
+			"type": "header",
+			"content": "=== Column Settings"
+	},
+  {
+			"type": "range",
+			"id": "column_xxl",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Number of Columns",
+			"default": 5,
+			"info": "Largest Desktop ( >1440px )"
+		},
+		{
+			"type": "range",
+			"id": "column_xl",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Number of Columns",
+			"default": 5,
+			"info": "Desktop ( 1200px to 1440px )"
+		},
+		{
+			"type": "range",
+			"id": "column_lg",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Number of Columns",
+			"default": 5,
+			"info": "Laptop ( 992px to 1199px )"
+		},
+		{
+			"type": "range",
+			"id": "column_md",
+			"min": 1,
+			"max": 4,
+			"step": 1,
+			"label": "Number of Columns",
+			"default": 3,
+			"info": "iPad ( 768px to 991px )"
+		},
+		{
+			"type": "range",
+			"id": "column_sm",
+			"min": 1,
+			"max": 4,
+			"step": 1,
+			"label": "Number of Columns",
+			"default": 1,
+			"info": "iPad mini ( 480px to 767px )"
+		},
+    {
+			"type": "range",
+			"id": "column_xs",
+			"min": 1,
+			"max": 5,
+			"step": 1,
+			"label": "Number of Columns",
+			"default": 1,
+			"info": "Mobile ( 480px or less than )"
+		},
+    {
+		  "type": "checkbox",
+		  "id": "show_slider",
+		  "label": "Show Slide in Mobile",
+		  "default": true
+	  }
+],
+"blocks": [
+    {
+      "type": "counter",
+      "name": "Counter Box",
+      "settings":[
+        {
+					"type": "header",
+					"content": "== image"
+				},
+				{
+					"type": "select",
+					"id": "image_type",
+					"label": "Type Image",
+					"options": [
+						{
+							"value": "svg",
+							"label": "Html svg"
+						},
+						{
+							"value": "image",
+							"label": "Image"
+						}
+					],
+					"default": "svg"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "html",
+					"id": "svg",
+					"label": "Html svg"
+				},
+        {
+					"type": "header",
+					"content": "== content"
+				},
+        {
+          "type": "number",
+          "id": "counter_number",
+          "label": "Counter Number",
+          "default": 150
+        },
+				{
+          "type": "text",
+          "id": "counter_postfix",
+          "label": "Counter PostFix",
+          "default": "+"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Happy Customers"
+        },
+        {
+					"type": "header",
+					"content": "== Border"
+				},
+        {
+					"type": "checkbox",
+					"id": "show_img_border",
+					"label": "Image Border",
+					"default": true
+				},
+        {
+					"type": "text",
+					"id": "border_width",
+					"label": "Border width",
+					"default": "2px"
+				},
+				{
+					"type": "text",
+					"id": "border_radius",
+					"label": "Border Radius",
+					"default": "80px"
+				},
+        {
+					"type": "header",
+					"content": "== Color"
+				},
+        {
+					"type": "color",
+					"id": "svg_img_color",
+					"label": "Color for svg",
+					"default": "#607D33"
+				},
+        {
+					"type": "color",
+					"id": "img_bg",
+					"label": "Image background",
+					"default": "#FFFFFF"
+				},
+        {
+					"type": "color",
+					"id": "image_border_color",
+					"label": "Image border color",
+					"default": "#607D33"
+				},
+        {
+					"type": "color",
+					"id": "counter_number_color",
+					"label": "Counter number color",
+					"default": "#607D33"
+				},
+        {
+					"type": "color",
+					"id": "counter_title_color",
+					"label": "Title color",
+					"default": "#222222"
+				},
+        {
+					"type": "header",
+					"content": "== Hover Color"
+				},
+        {
+					"type": "color",
+					"id": "hover_svg_img_color",
+					"label": "Color for svg Hover",
+					"default": "#FFFFFF"
+				},
+        {
+					"type": "color",
+					"id": "hover_img_bg",
+					"label": "Image hover background",
+					"default": "#607D33"
+				},
+        {
+					"type": "color",
+					"id": "hover_image_border_color",
+					"label": "Image Border Hover Color",
+					"default": "#607D33"
+				}
+      ]
+    }
+  ],
+"presets": [
+{
+"name": "Counters"
+}
+]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}

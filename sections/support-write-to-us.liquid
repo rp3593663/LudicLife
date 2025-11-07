@@ -1,0 +1,395 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--support-writetous {
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }};{%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }};{%- endif -%}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--support-writetous {
+      {%- if padding[1] != blank -%} padding: {{ padding[1] }};{%- endif -%}
+      {%- if margin[1] != blank -%} margin: {{ margin[1] }};{%- endif -%}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--support-writetous {
+      {%- if padding[2] != blank -%} padding: {{ padding[2] }};{%- endif -%}
+      {%- if margin[2] != blank -%} margin: {{ margin[2] }};{%- endif -%}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--support-writetous {
+      {%- if padding[3] != blank -%} padding: {{ padding[3] }};{%- endif -%}
+      {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} support_inner section--support-writetous">
+  <div class="{{ container }}">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section_heading">
+        <div class="section_title">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.enable_breacrumb -%}
+      {% render 'breadcrumb' %}
+    {%- endif -%}
+
+    <div class="section_content">
+      <div class="support_inner_block">
+        {% render 'support-inner-sidemenu' %}
+        <div class="support_inner_content">
+          <p class="page_title">{{ page.title }}</p>
+          <div class="write_to_us_block">
+             <form method="POST" action="javascript:void(0);" class="contact_form_class" >
+              <div class="field">
+                <label class="label" for="ContactForm-name">{{ 'templates.write_to_us.form.name' | t }}<span aria-hidden="true" class="asterisk">*</span></label>
+                <input
+                  class="input_field"
+                  autocomplete="name"
+                  type="text"
+                  id="ContactForm-name"
+                  name="{{ 'templates.write_to_us.form.name' | t }}"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  aria-required="true"
+                  placeholder="Enter full name"
+                >
+                <span class="error" id="nameError"></span>
+              </div>
+              <div class="field field--with-error">
+                <label class="label" for="ContactForm-email">{{- 'templates.write_to_us.form.email' | t }}
+                  <span aria-hidden="true" class="asterisk">*</span>
+                </label>
+                <input
+                  autocomplete="email"
+                  type="email"
+                  id="ContactForm-email"
+                  class="input_field"
+                  name="email"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  aria-required="true"
+                  placeholder="Enter email address"
+                >
+                <span class="error" id="emailError"></span>
+              </div>
+              <div class="field">
+                <label class="label" for="ContactForm-phone">{{ 'templates.write_to_us.form.phone' | t }}
+                <span aria-hidden="true" class="asterisk">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="ContactForm-phone"
+                  class="input_field"
+                  autocomplete="tel"
+                  name="{{ 'templates.write_to_us.form.phone' | t }}"
+                  pattern="[0-9\-]*"
+                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                  placeholder="Enter mobile number"
+                >
+                <span class="error" id="phoneError"></span>
+              </div>
+              <div class="field">
+                <label class="label" for="ContactForm-body">
+                {{- 'templates.write_to_us.form.subject' | t -}}<span aria-hidden="true" class="asterisk">*</span>
+                </label>
+                <div class="radio-group" aria-labelledby="ContactForm-subject">
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="Product Inquiry" id="product-inquiry" >
+                    <label class="radio-label" for="product-inquiry">Product Inquiry</label>
+                  </p>
+                   <p class="radio-block">
+                    <input type="radio" name="subject" value="Ludic Reserve" id="ludic-reserve" >
+                    <label class="radio-label" for="ludic-reserve">Ludic Reserve</label>
+                  </p>
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="Collaboration" id="collaboration" >
+                    <label class="radio-label" for="collaboration">Collaboration</label>
+                  </p>
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="Feedback" id="feedback" >
+                    <label class="radio-label" for="feedback">Feedback</label>
+                  </p>
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="Order / Shipping" id="order-shipping" >
+                    <label class="radio-label" for="order-shipping">Order / Shipping</label>
+                  </p>
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="exchange" id="exchange" >
+                    <label class="radio-label" for="exchange">Exchange</label>
+                  </p>
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="return" id="return" >
+                    <label class="radio-label" for="return"> Returns</label>
+                  </p>
+                  <p class="radio-block">
+                    <input type="radio" name="subject" value="Other" id="other">
+                    <label class="radio-label" for="other">Other</label>
+                  </p>
+                </div>
+                <span class="error" id="subjectError"></span>
+              </div>
+              <div class="field">
+                <label class="label" for="ContactForm-body">
+                {{- 'templates.write_to_us.form.comment' | t -}}
+                </label>
+                <textarea
+                  rows="10"
+                  id="ContactForm-body"
+                  class="text-area input_field"
+                  name="{{ 'templates.write_to_us.form.comment' | t }}"
+                  placeholder="Enter your message"
+                >
+                  {{- form.body -}}
+                </textarea>
+              </div>
+
+              <div class="field attachment_field">
+                <label class="label">
+                  Attachment
+                </label>
+                <div class="all_attachments_field">
+                  <div class="field_attachment">              
+                    <label class="label">Front view</label>
+                    <div class="custom-upload-wrapper">
+                      <label for="attachment1" class="custom-upload-box" id="upload-box-1">
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.5 9V11.6667C13.5 12.0203 13.3829 12.3594 13.1746 12.6095C12.9662 12.8595 12.6836 13 12.3889 13H4.61111C4.31643 13 4.03381 12.8595 3.82544 12.6095C3.61706 12.3594 3.5 12.0203 3.5 11.6667V9" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M11.5 5L8.5 2L5.5 5" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M8.5 2V10" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="file-name-display-1">Upload Photos or Video</span>
+                        <input type="file" id="attachment1" name="attachments" accept="image/*,video/*" hidden>
+                      </label>
+                      <div class="preview-inline" id="preview-inline-1" style="display: none;"></div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field_attachment">
+                    <label class="label">Back view</label>
+                    <div class="custom-upload-wrapper">
+                      <label for="attachment2" class="custom-upload-box" id="upload-box-2">
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.5 9V11.6667C13.5 12.0203 13.3829 12.3594 13.1746 12.6095C12.9662 12.8595 12.6836 13 12.3889 13H4.61111C4.31643 13 4.03381 12.8595 3.82544 12.6095C3.61706 12.3594 3.5 12.0203 3.5 11.6667V9" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M11.5 5L8.5 2L5.5 5" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M8.5 2V10" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="file-name-display-2">Upload Photos or Video</span>
+                        <input type="file" id="attachment2" name="attachments" accept="image/*,video/*" hidden>
+                      </label>
+                      <div class="preview-inline" id="preview-inline-2" style="display: none;"></div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field_attachment">
+                    <label class="label">Left view</label>
+                    <div class="custom-upload-wrapper">
+                      <label for="attachment3" class="custom-upload-box" id="upload-box-3">
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.5 9V11.6667C13.5 12.0203 13.3829 12.3594 13.1746 12.6095C12.9662 12.8595 12.6836 13 12.3889 13H4.61111C4.31643 13 4.03381 12.8595 3.82544 12.6095C3.61706 12.3594 3.5 12.0203 3.5 11.6667V9" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M11.5 5L8.5 2L5.5 5" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M8.5 2V10" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="file-name-display-3">Upload Photos or Video</span>
+                        <input type="file" id="attachment3" name="attachments" accept="image/*,video/*" hidden>
+                      </label>
+                      <div class="preview-inline" id="preview-inline-3" style="display: none;"></div>
+                    </div>
+                  </div>
+
+                  <div class="field_attachment">
+                    <label class="label">Right view</label>
+                    <div class="custom-upload-wrapper">
+                      <label for="attachment4" class="custom-upload-box" id="upload-box-4">
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.5 9V11.6667C13.5 12.0203 13.3829 12.3594 13.1746 12.6095C12.9662 12.8595 12.6836 13 12.3889 13H4.61111C4.31643 13 4.03381 12.8595 3.82544 12.6095C3.61706 12.3594 3.5 12.0203 3.5 11.6667V9" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M11.5 5L8.5 2L5.5 5" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M8.5 2V10" stroke="#939598" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="file-name-display-4">Upload Photos or Video</span>
+                        <input type="file" id="attachment4" name="attachments" accept="image/*,video/*" hidden>
+                      </label>
+                      <div class="preview-inline" id="preview-inline-4" style="display: none;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="contact__button">
+                <button type="button" class="button" id="write_to_us_btn">
+                  {{ 'templates.write_to_us.form.send' | t }}
+                </button>
+              </div>
+
+
+              <h2 id="formSuccessMessage" style="display: none;" class="form-status form-status-list form__message form_success" tabindex="-1" autofocus>
+                {% render 'icon-success' %}
+                {{ 'templates.write_to_us.form.post_success' | t }}
+              </h2>
+              {%- if form.posted_successfully? -%}
+                <h2 id="formSuccessMessage" class="form-status form-status-list form__message form_success" tabindex="-1" autofocus>
+                  {% render 'icon-success' %}
+                  {{ 'templates.write_to_us.form.post_success' | t }}
+                </h2>
+              {%- elsif form.errors -%}
+                <div class="form-status form__message form_error">
+                  <h2 role="alert" tabindex="-1" autofocus>
+                    {% render 'icon-error' %}
+                    {{ 'templates.write_to_us.form.error_heading' | t }}
+                  </h2>
+                  <ul class="form-status-list caption-large" role="list">
+                    <li>
+                      <a href="#ContactForm-email" class="link">
+                        {{ form.errors.translated_fields.email | capitalize }}
+                        {{ form.errors.messages.email }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              {%- endif -%}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  function setupPreview(inputId, nameDisplayId, previewWrapperId, uploadBoxId) {
+    const input = document.getElementById(inputId);
+    const nameDisplay = document.getElementById(nameDisplayId);
+    const previewWrapper = document.getElementById(previewWrapperId);
+    const uploadBox = document.getElementById(uploadBoxId);
+
+    input.addEventListener('change', function () {
+      const file = input.files[0];
+      if (!file) return;
+
+      const url = URL.createObjectURL(file);
+      previewWrapper.innerHTML = ''; // Clear previous preview
+      previewWrapper.style.display = 'flex';
+      uploadBox.style.display = 'none'; // Hide upload box
+
+      let media;
+      if (file.type.startsWith('image/')) {
+        media = document.createElement('img');
+        media.src = url;
+      } else if (file.type.startsWith('video/')) {
+        media = document.createElement('video');
+        media.src = url;
+        media.muted = true;
+        media.playsInline = true;
+        media.autoplay = true;
+        media.loop = true;
+      }
+
+      media.classList.add('preview-image');
+
+      const removeBtn = document.createElement('span');
+      removeBtn.className = 'remove-icon';
+      removeBtn.innerHTML = `
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#2D2D2D"/>
+        <path d="M5.5 2.5L2.5 5.5M2.5 2.5L5.5 5.5" stroke="white" stroke-width="0.625" stroke-linecap="round"/>
+      </svg>`;
+      removeBtn.onclick = () => {
+        input.value = '';
+        previewWrapper.style.display = 'none';
+        uploadBox.style.display = 'flex';
+      };
+
+      previewWrapper.appendChild(media);
+      previewWrapper.appendChild(removeBtn);
+    });
+  }
+
+  // Initialize previews
+  setupPreview('attachment1', 'file-name-display-1', 'preview-inline-1', 'upload-box-1');
+  setupPreview('attachment2', 'file-name-display-2', 'preview-inline-2', 'upload-box-2');
+  setupPreview('attachment3', 'file-name-display-3', 'preview-inline-3', 'upload-box-3');
+  setupPreview('attachment4', 'file-name-display-4', 'preview-inline-4', 'upload-box-4');
+</script>
+
+{% schema %}
+{
+  "name": "Support Write Us",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        },
+        {
+          "value": "box_width",
+          "label": "Box Width"
+        }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "placeholder": "top right bottom right",
+      "info": "Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "placeholder": "top right bottom right",
+      "info": "Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "header",
+      "content": "=== General Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_breacrumb",
+      "label": "Enable Breadcrumb",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Write Us",
+      "category": "section"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

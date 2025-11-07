@@ -1,0 +1,146 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+{% assign feature_items = product.metafields.custom.product_view_data.value %}
+{% assign first_item = null %}
+{% for item in feature_items limit:1 %}
+  {% assign first_item = item %}
+{% endfor %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-features {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-features {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-features {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-features {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-features">
+  <div class="{{ container }}">
+    <p class="fw_features_title">Features</p>
+
+    {% if feature_items != blank and first_item %}
+      <div class="fw-features-main">
+        <div class="fw-features-main-left">
+          <img
+            src="{{ first_item.image | image_url }}"
+            alt="{{ first_item.view_name }}"
+            class="fw-feature-top"
+            id="fw-feature-image"
+          >
+          <div class="fw-features-dimensions" id="fw-feature-buttons">
+            {% for item in feature_items %}
+              <button {% if forloop.first %}class="active"{% endif %} data-key="{{ item.view_name | handleize }}">
+                {{ item.view_name }}
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="fw-features-main-right">
+          <p id="fw-feature-text">{{ first_item.title }}</p>
+        </div>
+      </div>
+    {% else %}
+      <p>No feature data found in product metafield <code>custom.product_view_data</code>.</p>
+    {% endif %}
+  </div>
+
+  {% if feature_items != blank %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('#fw-feature-buttons button');
+        const image = document.getElementById('fw-feature-image');
+        const text = document.getElementById('fw-feature-text');
+
+        const featureData = {
+          {% for item in feature_items %}
+            "{{ item.view_name | handleize }}": {
+              image: "{{ item.image | image_url }}",
+              text: "{{ item.title }}"
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        };
+
+        buttons.forEach(button => {
+          button.addEventListener('click', function () {
+            const key = this.dataset.key;
+            buttons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            image.src = featureData[key].image;
+            text.textContent = featureData[key].text;
+          });
+        });
+      });
+    </script>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Fw Features",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fw Features",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+<div class="csk-custom-slider {{section.settings.custom_class}}">
+  <div class="slider">
+    <div class="slide-track">
+      {% for block in section.blocks %}
+        {% if block.settings.slide_image != blank %}
+          <div class="slide">
+            <img src="{{ block.settings.slide_image | image_url }}" alt="Slide Image">
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% for block in section.blocks %}
+        {% if block.settings.slide_image != blank %}
+          <div class="slide">
+            <img src="{{ block.settings.slide_image | image_url }}" alt="Slide Image">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<style>
+
+.slider {
+  overflow: hidden;
+}
+.slider .slide-track {
+  display: flex;
+  width: calc(250px * 14);
+  gap: 14.38px;
+}
+.slider .slide img {
+    border-radius: 14.38px;
+      width: 280px;
+      height: 354px;
+      object-fit: cover;
+}
+
+@media screen and (max-width:768px){
+    .slider .slide img {
+        border-radius: 8px;
+        width: 156px;
+        height: 197px;
+    }
+}
+.home-page-custom-csk-slider .slide img {
+    width: 180px;
+    height: 227px;
+  }
+  .home-page-custom-csk-slider .slider .slide img{
+    border-radius: 6px;
+  }
+</style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var slider = document.querySelector('.slide-track');
+    var container = document.querySelector('.slider');
+    var speed = 1;
+    var paused = false;
+
+    function animate() {
+      if (!paused) {
+        var current = parseFloat(slider.dataset.current) || 0;
+        current += speed;
+        if (current >= slider.scrollWidth / 2) {
+          current = 0;
+        }
+        slider.dataset.current = current;
+        slider.style.transform = 'translateX(-' + current + 'px)';
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+
+</script>
+
+{% schema %}
+{
+  "name": "CSK Custom Slider",
+  "settings": [
+    {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"  
+      }
+    ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CSK Custom Slider",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

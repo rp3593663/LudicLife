@@ -1,0 +1,277 @@
+<style>
+  .breadcrumbs {
+    margin: 0 ;
+  }
+
+  .breadcrumbs__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumbs__item {
+    display: inline-block;
+  }
+
+  .breadcrumbs__item:not(:last-child):after {
+    content: ' / ';
+    display: inline-block;
+    margin: 0 5px 0 2px;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  .breadcrumbs__link {
+    text-decoration: underline;
+  }
+
+  .breadcrumbs__link[aria-current="page"] {
+    color: inherit;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  .breadcrumbs__link[aria-current="page"]:hover,
+  .breadcrumbs__link[aria-current="page"]:focus {
+    text-decoration: underline;
+  }
+  .breadcrumbs__link {
+    text-decoration: none;
+}
+
+  .breadcrumb-main-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+  .desktop_breadcum {
+    display:block;
+  }
+
+
+  .collection-breadcrumb a{
+    color: #1A1A1A;
+    text-decoration: none;
+  }
+  @media screen and (max-width:767px){
+    .breadcrumbs__link,
+    .breadcrumb-main-section .active,
+    .collection-breadcrumb a{
+      font-size: 8px;
+      line-height: 10px;
+    }
+    .collection-breadcrumb{
+      line-height: 8px;
+    }
+    .support .desktop_breadcum,
+    .support-write-to-us .desktop_breadcum{
+    display:block;
+    }
+  }
+</style>
+
+{%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+{%- assign t = template | split: '.' | first -%}
+<nav class="breadcrumbs {% if template == 'product' %}product-nav{% endif %}" role="navigation" aria-label="breadcrumbs">
+<!-- <ol class="breadcrumbs__list">
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="/">Home</a>
+    </li>
+
+    {%- case t -%}
+      {%- when 'page' -%}
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+        </li>
+      {%- when 'product' -%}
+        <script>
+          // Get collection URL and title from session storage
+          var collectionURL = sessionStorage.getItem('lastCollectionURL');
+          var collectionTitle = sessionStorage.getItem('lastCollectionTitle');
+          if (collectionURL && collectionTitle) {
+            document.write(
+              `<li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="${collectionURL}">${collectionTitle}</a>
+              </li>`
+            );
+          }
+        </script>
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+        </li>
+      {%- when 'collection' and collection.handle -%}
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+        </li>
+      {%- when 'blog' -%}
+        {%- if current_tags -%}
+          <li class="breadcrumbs__item">
+            {{ blog.title | link_to: blog.url }}
+          </li>
+          <li class="breadcrumbs__item">
+            {%- capture tag_url -%}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
+            <a class="breadcrumbs__link" href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + " }}</a>
+          </li>
+        {%- else -%}
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
+          </li>
+        {%- endif -%}
+      {%- when 'article' -%}
+        <li class="breadcrumbs__item">
+          {{ blog.title | link_to: blog.url }}
+        </li>
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+        </li>
+      {%- else -%}
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+        </li>
+    {%- endcase -%}
+  </ol> -->
+<style>#shopify-section-{{ section.id }} .active{font-weight:800}.active:hover{text-decoration: underline;}#shopify-section-{{ section.id }} .full-unstyled-link{text-transform:capitalize;color:#1A1A1A;}</style>
+<div class="breadcrumb-main-section">
+  <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} breadcrumbs-main" style="display:flex;flex-wrap:wrap;column-gap:5px;margin-top:0px;font-size: 10px;line-height:14.3px;letter-spacing: -0.36px;">
+    <a class="full-unstyled-link breadcrumbs__link home-link desktop_breadcum" href="/" title="Home">Home</a>
+    {% if template contains 'page' %}
+      {% if template contains 'support-' and template contains 'page' %}
+        <span aria-hidden="true">/</span>
+        <a href="{{ pages.support.url }}" class="full-unstyled-link breadcrumbs__link home-link">support</a>
+        <span aria-hidden="true">/</span>
+        <span class="current">{{ page.title | capitalize }}</span>
+      {% else %}
+        <span aria-hidden="true">/</span>
+        <span class="current">{{ page.title | capitalize }}</span>
+      {% endif %}
+    {% elsif template contains 'product' %}
+        {%  if collection.url %} 
+          <span aria-hidden="true">/</span>
+          <a class="full-unstyled-link breadcrumbs__link ghnjhm" href="{{ collection.url }}">{{ collection.title | capitalize }}</a>
+        {% else %}
+          {% for collection in product.collections %} 
+            {% if collection.handle == 'footwear' or collection.handle == 'apparel' or collection.handle =='accessories' %}
+              <span aria-hidden="true" class="desktop_breadcum">/</span>
+              <a class="full-unstyled-link breadcrumbs__link desktop_breadcum" href="{{ collection.url }}">{{ collection.title | capitalize }}</a>
+              {% break %}
+            {% endif %}  
+          {% endfor %}
+        {% endif %}
+      <span aria-hidden="true" class="desktop_breadcum">/</span>
+      {% if product.metafields.custom.product_color_name == blank %}
+        <span class="active" style="text-transform:capitalize">
+          <a class="full-unstyled-link breadcrumbs__link lkllklkl" href="{{ collection.url }}">{{ product.metafields.custom.product_name_breadcrumb | capitalize }}</a> 
+        </span>
+      {% else %}
+        <a class="full-unstyled-link breadcrumbs__link sfvdfvf" href="{{ collection.url }}">{{ product.metafields.custom.product_name_breadcrumb | capitalize }}</a>
+      {% endif %}
+      {% if product.metafields.custom.product_color_name != blank %}<span aria-hidden="true">/</span>{% endif %}
+      <span class="active" style="text-transform:capitalize">{{ product.metafields.custom.product_color_name | capitalize }}</span>
+    {% elsif template contains 'collection' and collection.handle %}
+      <span aria-hidden="true">/</span>
+      {% if current_tags %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+        <a class="full-unstyled-link breadcrumbs__link" href="{{ url }}">{{ collection.title | capitalize }}</a>
+        <span aria-hidden="true">/</span>
+        <span>{{ current_tags | join: " + " | capitalize }}</span>
+      {% else %}
+
+      {% if collection.handle == 'sliders' or collection.handle == 'nova' or collection.handle == 'eclipse' or collection.handle == 'enhanced-canvas' or collection.handle == 'sneakers' or collection.handle == 'enhanced-canvas-pro' or collection.handle == 'enchanced-canvas-low' %}
+        <span class="collection-breadcrumb"><a href="/collections/footwear" class="">Footwear</a></span>
+        <span>/</span>
+      {% endif %}
+      {% if collection.handle == 'enhanced-canvas' or collection.handle == 'nova' or collection.handle == 'eclipse' %}
+        <span class="collection-breadcrumb"><a href="/collections/sneakers" class="">Sneakers</a></span>
+        <span>/</span> 
+      {% endif %}
+      {% if collection.handle == 'core-polo' or collection.handle == 'core-hoodies' or collection.handle == 'core-joggers' or collection.handle == 'core-t' or collection.handle == 'chroma-t' or collection.handle == 'evoke-s' or collection.handle == 't-shirt' or collection.handle == 'hoodie' or collection.handle == 'sweatshirt' or collection.handle == 'joggers' %}
+        <span class="collection-breadcrumb"><a href="/collections/apparel" class="">Apparel</a></span>
+        <span>/</span>
+      {% endif %}
+      {% if collection.handle == 'fragrance' or collection.handle == 'combo' %}
+        <span class="collection-breadcrumb"><a href="/collections/accessories" class="">Accessories</a></span>
+        <span>/</span>
+      {% endif %}
+
+        <span class="active">{{ collection.title | capitalize }}</span>
+        
+      {% endif %}
+      
+    {% elsif template == 'blog' %}
+      <span aria-hidden="true">/</span>
+      {% if current_tags %}
+        <a href="full-unstyled-link breadcrumbs__link" href="{{ blog.url }}">{{ blog.title | capitalize }}</a>
+        <span aria-hidden="true">/</span>
+        <span>{{ current_tags | join: " + " | capitalize }}</span>
+      {% else %}
+        <span class="active">{{ blog.title | capitalize }}</span>
+      {% endif %}
+    {% elsif template == 'article' %}
+      <span aria-hidden="true">/</span>
+      <a href="full-unstyled-link breadcrumbs__link" href="{{ blog.url }}">{{ blog.title | capitalize }}</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ article.title | capitalize }}</span>
+    {% else %}
+     <span aria-hidden="true">/</span>
+     <span class="active">{{ page_title | capitalize }}</span>
+    {% endif %}
+
+  </div> 
+    {% comment %} <div class="custom-variant-count vgfbfgb" id="variantCountBlock">
+      <span class="custom-color" style="background:{{ product.metafields.custom.hexa_code.value }}"></span>
+     {% assign paired_products = product.metafields.custom.pair_with_product.value %}
+      {% if paired_products.count > 1 %}
+        + {{ paired_products.count | minus:1 }}
+      {% endif %}
+    </div> {% endcomment %}
+  </div>
+   {% if template == 'product' %}
+    {% for variant in product.variants limit: 1 %}
+      {% for option in product.options_with_values %}
+        {% if option.name == 'Choose color variant' or option.name == 'Color' %}
+          {% assign variant_color = option.values[0] %}
+          {% assign total_color = option.values.size %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %}
+     <div class="custom-variant-count vgfbfgb">
+        <span class="custom-color" style="background:{{ product.metafields.custom.hexa_code.value }}"></span>
+       {% assign paired_products = product.metafields.custom.pair_with_product.value %}
+        {% if paired_products.count > 1 %}
+          + {{ paired_products.count | minus:1 }}
+        {% endif %}
+      </div> {% endcomment %}
+      <!-- <div class="variant_card_content variant-info d-lg-none d-md-none">
+          {% if variant_color != blank %}
+            {% assign file_image = variant_color | handle | append: '.png' %}
+            {% assign file_image_url = file_image | file_url %}
+            <span class="var_color_info">{% if file_image_url contains '?v' %}<img src="{{ file_image | file_url }}">{% endif %}+{{ total_color }}</span>
+          {% endif %}
+      </div> -->
+    {% endfor %}
+  {% endif %}
+
+</nav>
+{%- endunless -%}
+{% comment %} <script>
+  document.querySelector('.var_color_info').addEventListener('click', function() {
+    document.querySelector('.product__info-wrapper').classList.toggle('show-variant');  // Toggle class
+});
+</script> {% endcomment %}
+
+<script>
+  // Save the last visited collection URL and title to session storage
+if (window.location.pathname.includes('/collections/')) {
+  const collectionLink = window.location.pathname;
+  const collectionTitle = document.querySelector('h1.page-title') ? document.querySelector('h1.page-title').innerText : '';
+
+  if (collectionTitle) {
+    sessionStorage.setItem('lastCollectionURL', collectionLink);
+    sessionStorage.setItem('lastCollectionTitle', collectionTitle);
+  }
+}
+
+</script>

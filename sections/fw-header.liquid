@@ -1,0 +1,180 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-header {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-header {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-header {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-header {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-header">
+  <div class="{{ container }}">
+    <div class="sports_registration_header_inner">
+      <div class="left_content">
+        <a href="{{ shop.url }}" class="header_button">
+          <img 
+            src="{{ section.settings.left_logo | image_url }}" 
+            alt="Ludic Star">
+        </a>
+        <div class="header_button">
+          <a href="{{ shop.url }}/collections/futurworks" class=""><img 
+            src="{{ section.settings.middle_logo | image_url }}" 
+            alt="Futurworks Logo"></a>
+        </div>
+      </div>
+      <div class="middle_content">
+        {% if section.settings.middle_menu %}
+          <ul class="middle-menu">
+            {% for link in linklists[section.settings.middle_menu].links %}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="right_content">
+        <div class="sound-toggle paused" id="soundToggle">
+          <div class="wave">
+            <span style="--h: 10px;"></span>
+            <span style="--h: 12px;"></span>
+            <span style="--h: 6px;"></span>
+            <span style="--h: 14px;"></span>
+            <span style="--h: 17px;"></span>
+            <span style="--h: 10px;"></span>
+            <span style="--h: 17px;"></span>
+            <span style="--h: 8px;"></span>
+            <span style="--h: 15px;"></span>
+            <span style="--h: 10px;"></span>
+            <span style="--h: 12px;"></span>
+            <span style="--h: 6px;"></span>
+            <span style="--h: 14px;"></span>
+            <span style="--h: 5px;"></span>
+            <span style="--h: 8px;"></span>
+          </div>
+        </div>
+        <audio id="backgroundAudio" src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/FW-audio.wav?v=1751546546" loop></audio>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+          <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.9" y="1.56" width="14.2" height="1.2" fill="white" stroke="white" stroke-width="0.2"/>
+            <rect x="0.9" y="5.88" width="14.2" height="1.2" fill="white" stroke="white" stroke-width="0.2"/>
+            <rect x="0.9" y="10.21" width="14.2" height="1.2" fill="white" stroke="white" stroke-width="0.2"/>
+          </svg>
+        </div>
+        <a href="#" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble1">
+          Bag ({{ cart.item_count }})
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+<div id="mobileDrawer" class="mobile-drawer">
+  <div class="mobile-drawer-inner">
+    <button class="drawer-close" id="drawerClose">&times;</button>
+    <ul class="mobile-menu-list">
+      {% for link in linklists[section.settings.middle_menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+
+
+</section>
+
+{% schema %}
+{
+  "name": "Fw Header",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_logo",
+      "label": "Left Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "middle_logo",
+      "label": "Middle Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "middle_menu",
+      "label": "Middle Menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_logo",
+      "label": "Right Side Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fw Header",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

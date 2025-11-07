@@ -1,0 +1,17 @@
+.related-products {
+  display: block;
+}
+
+.related-products__heading {
+    margin: 0 0 32px;
+    font-size: 16px;
+    line-height: 22.9px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+@media screen and (max-width:768px){
+  .related-products__heading {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

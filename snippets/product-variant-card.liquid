@@ -1,0 +1,199 @@
+{%- assign product_url = variant.product.url |  within: collection -%}
+{%- assign featured_image = variant.featured_media.preview_image %}
+{%- if product.variants[0].featured_image.src -%}
+	{%- assign image = product.variants[0].featured_image.src -%}
+{%- else -%}
+	{%- assign image = product.images.last -%}
+{%- endif -%}
+
+<div class="product-variant-card">
+  <div class="variant_card_media hover_transform_effect">
+    <a class="product-variant-card__image-link" href="{{ product_url | append: '?variant=' | append: variant.id }}">
+      <div class="product-variant-card__image">
+        {%  assign v_title =  variant.title | split: '/' | first | rstrip %} 
+        {% assign image_count = 0 %}
+        {% for media in variant.product.media %}
+            {% if image_count < 2 and media.alt == v_title %}
+                {% assign image_count = image_count | plus: 1 %}
+                {% if image_count == 1 %}
+                  <img srcset="
+                    {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
+                    {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                    {{ media | image_url }} {{ media.width }}w"
+                    src="{{ media | image_url: width: 533 }}"
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                    alt="{{ media.alt | escape }}"
+                    class="motion-reduce product-variant-card__img-first"
+                    {% unless lazy_load == false %}
+                      loading="lazy"
+                    {% endunless %}
+                    width="{{ media.width }}"
+                    height="{{ media.height }}"
+                  >
+                {% else %}
+                  <img srcset="
+                    {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
+                    {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                    {{ media | image_url }} {{ media.width }}w"
+                    src="{{ media | image_url: width: 533 }}"
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                    alt="{{ media.alt | escape }}"
+                    class="motion-reduce product-variant-card__img-hidden variant"
+                    {% unless lazy_load == false %}
+                      loading="lazy"
+                    {% endunless %}
+                    width="{{ media.width }}"
+                    height="{{ media.height }}"
+                  >
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+      </div>
+    </a>
+    
+    {% comment %} <div class="variant_card_wishlist wishlist_button " onclick="toggleWishlist(this)" data-image="{{ variant.featured_image | img_url: '' }}" data-price="{{ variant.price | money | remove_first: '' }}" data-sale-price="{{ variant.compare_at_price | money | remove_first: '' }}" data-url="{{ variant.url }}" data-product-title="{{ product.title }}-{{ v_title }}">
+      <i class="ri-bookmark-line"></i>
+    </div> {% endcomment %}
+    <div class="variant_card_size">
+      <i class="ri-add-circle-fill"></i>
+    </div>
+    {% #JK %}
+    {% assign variant_size = false %}
+    {% assign variant_color = '' %}
+    {% assign total_color = 0 %}
+    {% for option in product.options_with_values %}
+        {% if option.name == 'Select your size' or option.name == 'Select your size (in UK)' %}
+          {% assign variant_size = true %}
+        {% endif %}
+      {% if option.name == 'Choose color variant' or option.name == 'Color' %}
+          {% assign variant_color = option.values[0] %}
+          {% assign total_color = option.values.size %}
+        {% endif %}
+    {% endfor %}
+    <div class="variant_list">
+      {% if variant_size == true %}
+        {%- for option in product.options_with_values -%}
+          {%- assign opt = option.name -%}
+          {%- assign opt_index = forloop.index0 -%}
+
+          {%- if opt == 'Select your size' -%}
+            {%- assign values = '' -%}
+                {% assign selected_color = variant.option1 %} 
+                {% for variant in product.variants %}
+                  {% assign value = variant.options[opt_index] %}
+                  {% if variant.option1 == selected_color and variant.available %}
+                    {% unless values contains value %}
+                      {% assign values = values | join: ',' %}
+                      {% assign values = values | append: ',' | append: value %}
+                      {% assign values = values | split: ',' %}
+                      <div class="variant_item">
+                        <button class="card_variant" data-id="{{ variant.id }}">{{ value }}</button>
+                      </div>
+                    {% endunless %}
+                  {% endif %}
+                {% endfor %}
+
+          {% elsif opt == 'Select your size (in UK)' %}
+            {%- assign size_ids = '' -%}
+            {%- assign has_sizes = false -%}
+          
+            {% for variant in product.variants %}
+              {% if variant.title contains variant_name %}
+                {% assign color_option = variant.option1 %} 
+                {% for inner_variant in product.variants %}
+                  {% if inner_variant.option1 == color_option and inner_variant.title contains variant_name %}
+                    {% assign us_size = inner_variant.metafields.custom.us_variant %}
+                    {% assign eu_size = inner_variant.metafields.custom.eu_variant %}
+          
+                    {% if us_size != blank or eu_size != blank %}
+                      {% assign has_sizes = true %}
+                      {% assign size_display = '<strong>' | append: us_size | append: '</strong>' %}
+                      {% if eu_size != blank %}
+                        {% assign size_display = size_display | append: ' (' | append: eu_size | append: ')' %}
+                      {% endif %}
+          
+                      {% unless size_ids contains size_display %}
+                        {% assign size_ids = size_ids | append: size_display | append: ':' | append: inner_variant.id | append: ',' %}
+                      {% endunless %}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          
+            {%- if has_sizes -%}
+              {%- assign size_array = size_ids | split: ',' -%}
+              {% for size_info in size_array %}
+                {% assign size_parts = size_info | split: ':' %}
+                {% assign size = size_parts[0] %}
+                {% assign variant_id = size_parts[1] %}
+          
+                {% if size != blank %}
+                  <div class="variant_item">
+                    <button class="card_variant" data-id="{{ variant_id }}">{{ size }}</button>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {%- else -%}
+              {%- assign values = '' -%}
+              {% assign selected_color = variant.option1 %} 
+              {% for variant in product.variants %}
+                {% assign value = variant.options[opt_index] %}
+                {% if variant.option1 == selected_color and variant.available %} 
+                  {% unless values contains value %}
+                    {% assign values = values | join: ',' %}
+                    {% assign values = values | append: ',' | append: value %}
+                    {% assign values = values | split: ',' %}
+                    <div class="variant_item">
+                      <button class="card_variant" data-id="{{ variant.id }}">{{ value }}</button>
+                    </div>
+                  {% endunless %}
+                {% endif %}
+              {% endfor %}
+            {%- endif -%}
+          {% endif %}
+            
+          {%- if opt == 'Select your size' or opt == 'Select your size (in UK)' -%}
+            <div class="variant_item">
+              <button class="variant_card_size_guide" data-image="{{ product.featured_image | image_url:width:600 }}" data-id="{{ product.handle }}">Size Guide</button>
+            </div>
+          {% endif %}
+            
+        {%- endfor -%}
+      {% else %}
+        <div class="variant_item one_size">
+          <button class="card_variant" data-id="{{ product.selected_or_first_available_variant.id }}">ONE SIZE ONLY</button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="variant_card_content">
+     <div class="custom-variant-color">
+    <a href="{{ product_url | append: '?variant=' | append: variant.id }}" class="variant_card_url">
+      {{ variant.product.title }} / <strong>{{ variant.title | split: '/' | first }}</strong>      
+      {% if variant_color != blank %}
+       {% assign file_image = variant_color | handle | append: '.png' %}
+        {% assign file_image_url = file_image | file_url %}
+          <span class="var_color_info">{% if file_image_url contains '?v' %}<img src="{{ file_image | file_url }}">{% endif %}+{{ total_color }}<span class="mobile_only"> colorways</span></span>
+      {% endif %}
+    </a>
+     <div class="custom-variant-count">
+        <span class="custom-color" style="background:{{ product.metafields.custom.hexa_code.value }}"></span>
+       {% assign paired_products = product.metafields.custom.pair_with_product.value %}
+        {% if paired_products.count > 1 %}
+          + {{ paired_products.count | minus:1 }} Colorways
+        {% endif %}
+      </div>
+     </div>
+
+    {% render 'price', product: variant, price_class: '', show_compare_at_price: true %}
+  </div>
+</div>

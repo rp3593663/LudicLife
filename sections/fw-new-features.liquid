@@ -1,0 +1,419 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+{% assign feature_items = product.metafields.custom.product_view_data.value %}
+{% assign feature_count = 0 %}
+{% for i in feature_items %}
+  {% assign feature_count = feature_count | plus: 1 %}
+{% endfor %}
+
+{% assign first_item = null %}
+{% for item in feature_items limit:1 %}
+  {% assign first_item = item %}
+{% endfor %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-new-features {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-new-features {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-new-features {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-new-features {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+.section--fw-new-features .invisible {
+  visibility: hidden;
+}
+
+.section--fw-new-features .h-screen {
+  min-height: 100vh;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  max-height:100dvh;
+}
+@media (min-width: 1024px) {
+  .flex-container {
+    flex-direction: row;
+  }
+}
+
+/* IMAGE CONTAINER FIX */
+.section--fw-new-features .images-container {
+  flex: 1;
+  position: relative;
+  height: 100vh; /* prevent clipping by filling viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section--fw-new-features .images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section--fw-new-features .images > div {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow:hidden;
+}
+
+.section--fw-new-features .images img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.section--fw-new-features .point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: black;
+  border: 4px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section--fw-new-features .features-text {
+  flex: 1;
+  padding: 2rem;
+}
+.section--fw-new-features .features-text p {
+  max-width: 500px;
+}
+
+.section--fw-new-features .links {
+  margin: 1rem;
+  text-align: center;
+}
+.section--fw-new-features .links a {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  border-radius: 20px;
+  background: transparent;
+}
+.section--fw-new-features .links a.text-white {
+  color: white;
+}
+.section--fw-new-features .links button.bg-glass-black {
+    background: rgb(0 0 0) !important;
+}
+.features-highlight {
+    position: relative;
+}
+@media screen and (max-width:768px){
+  .section--fw-new-features .features-text {
+    width: 100%;
+    flex:unset;
+    bottom: 0px;
+  }
+  .section--fw-new-features .images-container{
+    height:100%;
+  }
+  /* .section--fw-new-features .images > div{
+    max-height:100dvh;
+  } */
+
+  .section--fw-new-features .images{
+    top:50px;
+   }
+}
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-new-features">
+  <div class="{{ container }}">
+    
+  <div class="features-highlight invisible" data-feature-count="{{ feature_count }}">       
+        <div class="flex-container fw-features-main">
+             <p class="fw_features_title">Features</p>
+            <div class="images-container fw-features-main-left">
+                <div class="images">
+                     {% for item in feature_items %}
+                        <div data-image="{{ forloop.index }}">
+                            <img src="{{ item.image | image_url }}" alt="{{ item.view_name }}">
+                        </div>
+                    {% endfor %}
+                    <span class="point" data-point></span>
+                </div>
+                <div class="links fw-features-dimensions" id="fw-feature-buttons">
+                    {% for item in feature_items %}
+                        <button href="" data-link data-key="{{ item.view_name | handleize }}">
+                        {{ item.view_name }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE - FEATURES -->
+            <div class="features-text">
+                {% for item in feature_items %}
+                    <p
+                        data-feature="{{ forloop.index }}"
+                        data-point-x="{{ item.product_dot_x }}"
+                        data-point-y="{{ item.product_dot_y }}"
+                    >
+                        {{ item.title }}
+                    </p>
+                {% endfor %}  
+            </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+const node = document.querySelector('.features-highlight');
+var featureCount = parseInt(node.dataset.featureCount, 10);
+
+if (!node) {
+  console.warn('features-highlight node not found');
+} else {
+ document.addEventListener("DOMContentLoaded", function () {
+  // If only 1 or less → show normally, no sticky/pin
+  if (featureCount === 1) {
+    document.querySelectorAll('.features-highlight').forEach(function (el) {
+      el.classList.remove('invisible');
+    });
+
+    // ✅ Also set the pointer dynamically for the single feature
+    const firstFeature = node.querySelector('[data-feature]');
+    const point = node.querySelector('[data-point]');
+    const links = node.querySelectorAll('[data-link]');
+
+    if (firstFeature) {
+      if (point) {
+        gsap.set(point, {
+          top: `${firstFeature.dataset.pointX}%`,
+          left: `${firstFeature.dataset.pointY}%`,
+        });
+      }
+      links.forEach((link, idx) => {
+        link.classList.toggle('text-white', idx === 0);
+        link.classList.toggle('bg-glass-black', idx === 0);
+      });
+    }
+  }
+});
+
+
+if (featureCount !== 1) {
+  const images = Array.from(node.querySelectorAll('[data-image]'));
+  const links = Array.from(node.querySelectorAll('[data-link]'));
+  const features = Array.from(node.querySelectorAll('[data-feature]'));
+  const point = node.querySelector('[data-point]');
+  const featuresText = node.querySelector('.features-text');
+
+  if (featuresText) {
+    featuresText.style.position = 'relative';
+    featuresText.style.minHeight = '260px';
+  }
+
+  features.forEach((f) => {
+    f.style.position = 'absolute';
+    f.style.top = '50%';
+    f.style.left = '50%';
+    f.style.transform = 'translate(-50%, -50%)';
+    f.style.width = '100%';
+    f.style.margin = 0;
+    f.style.pointerEvents = 'auto';
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: node,
+      start: 'center center',
+      end: () => `+=${features.length * 950  + window.innerHeight * 2 }`,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+      snap: {
+        snapTo: 'labels',
+        duration: { min: 0.25, max: 0.5 },
+      },
+    },
+    defaults: { ease: 'none' },
+  });
+
+  if (images.length) {
+    tl.set(images[0], { opacity: 1, x: 0, scale: 1 });
+    if (images.length > 1) tl.set(images.slice(1), { opacity: 0, x: '-85%', scale: 0.85 });
+  }
+
+  tl.set(features, { opacity: 0, y: '2rem' });
+
+  const firstFeature = features[0];
+  if (firstFeature) {
+    tl.set(firstFeature, { opacity: 1, y: 0 });
+    if (point) {
+      gsap.set(point, {
+        top: `${firstFeature.dataset.pointX}%`,
+        left: `${firstFeature.dataset.pointY}%`,
+      });
+    }
+    links.forEach((link, idx) => {
+      link.classList.toggle('text-white', idx === 0);
+      link.classList.toggle('bg-glass-black', idx === 0);
+    });
+  }
+
+  images.forEach((image, i) => {
+    const imageFeatures = node.querySelectorAll(`[data-feature="${image.dataset.image}"]`);
+
+    tl.to(
+      image,
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        onComplete: () => {
+          links.forEach((link, idx) => {
+            link.classList.toggle('text-white', idx === i);
+            link.classList.toggle('bg-glass-black', idx === i);
+          });
+        },
+      },
+      i === 0 ? 0 : '<'
+    );
+    tl.addLabel(`image.${i}`);
+
+    imageFeatures.forEach((feature, j) => {
+      tl.to(feature, { opacity: 1, y: 0 }, j === 0 ? '<' : undefined);
+
+      tl.to(
+        point,
+        {
+          top: `${feature.dataset.pointX}%`,
+          left: `${feature.dataset.pointY}%`,
+          duration: 0.35,
+          ease: 'power2.out',
+        },
+        '<'
+      );
+
+      tl.addLabel(`feature.${i}.${j}`);
+
+      if (i + 1 !== images.length || j + 1 !== imageFeatures.length) {
+        tl.to(feature, { opacity: 0, y: '-2rem' });
+      }
+    });
+
+    if (i + 1 !== images.length) {
+      tl.to(image, {
+        opacity: 0,
+        x: '85%',
+        scale: 0.85,
+        onReverseComplete: () => {
+          links.forEach((link, idx) => {
+            link.classList.toggle('text-white', idx === i);
+            link.classList.toggle('bg-glass-black', idx === i);
+          });
+        },
+      });
+    }
+  });
+
+  links.forEach((link, i) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      gsap.to(window, {
+        scrollTo: {
+          y: tl.scrollTrigger.labelToScroll(`image.${i}`) + 1,
+          autoKill: false,
+        },
+        duration: 1,
+      });
+    });
+  });
+
+   node.classList.remove('invisible');
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Fw New Features",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fw New Features",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

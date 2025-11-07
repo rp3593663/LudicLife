@@ -1,0 +1,414 @@
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+ <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+
+  body {
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+  }
+.video-scroll-wrapper {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px;
+     }   
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-image: url(https://cdn.shopify.com/s/files/1/0885/3834/9878/files/bg_new.png?v=1751266742);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  .video-scroll-wrapper {
+    height: 400dvh;
+    position: relative;
+    z-index: 1;
+    /* background-image: url(https://cdn.shopify.com/s/files/1/0885/3834/9878/files/bg_new.png?v=1751266742);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+  }
+
+  .video-section {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-section > div {
+    max-width: 715px;
+    max-height: 608px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  p.v_title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0px;
+  }
+
+  .video-section > div iframe{
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+  }
+
+  .launch-section {
+    background-color: white;
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+  }
+
+  .launch-heading {
+    color: #000;
+    margin-bottom: 30px;
+    font-family: Public Sans;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 48px;
+    letter-spacing: -1.8px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .launch-heading .highlight {
+    color: #E60013;
+  }
+
+ .launch-form {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 12px 16px;
+    width: 100%;
+    max-width: 312px;
+    background: white;
+    margin: 0px auto 10px;
+    border: 0.97px solid #949598;
+}
+.player .vp-video-wrapper object, .player .vp-video-wrapper video {
+    border-radius: 28px!important;
+}
+
+  .launch-form input[type="email"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+  }
+
+  .launch-form button {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0pc;
+    background: unset;
+    border: unset;
+  }
+
+  .launch-form button img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .launch-privacy {
+    font-size: 9px;
+    color: #949598;
+  }
+
+  .launch-privacy a {
+    color: #666;
+    text-decoration: underline;
+  }
+
+  .launch-video {
+    width: 100%;
+    /* max-width: 800px; */
+    
+    border: none;
+    /* border-radius: 12px; */
+    overflow: hidden;
+    /* margin-top: 4rem; */
+  }
+
+  .launch-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .launch-video video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
+.launch_info{
+  margin: 137px auto 60px;
+}
+.dot-nav {
+    position: fixed;
+    right: 22px;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1;
+    background: #1A1A1A;
+    opacity: 34%;
+    backdrop-filter: blur(52.76521682739258px);
+    padding: 19px 9px 14px;
+    border-radius: 100px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    height: 23px;
+  }
+@media(max-width:767px){
+  .dot-nav {
+      right: 14px;
+      bottom: 2%;
+    }
+
+    .launch-video video {
+        margin-bottom: -5px;
+    }
+
+  .background-image {
+    background-image: url(https://cdn.shopify.com/s/files/1/0885/3834/9878/files/bg_new_mobile.png?v=1751270671);
+  }
+
+   .video-scroll-wrapper {
+      margin: -65px 0px 10px;
+      height: 300dvh;
+    }
+
+    .launch-section {
+      height: auto;
+    }
+
+    .launch_info {
+      margin: 110px auto 60px;
+    }
+  
+   .video-section > div iframe {
+    max-width: calc(360px - 32px);
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    aspect-ratio: 353/285;
+  }
+  .video-section > div {
+    gap: 8px;
+}
+p.v_title {
+    font-size: 12px;
+    line-height: 12px;
+}
+.launch-heading {
+    margin-bottom: 28px;
+    font-size: 26px;
+    line-height: 13px;
+}
+.launch-form {
+    border-radius: 6px;
+    padding: 8px 10px;
+    max-width: 210px;
+    margin: 0px auto 6px;
+}
+.launch-form input[type="email"] {
+    font-size: 8px;
+}
+.launch-privacy {
+    font-size: 6px;
+}
+}
+</style>
+
+<div class="background-image"> </div>
+
+<!-- Videos scroll section -->
+<div class="video-scroll-wrapper">
+  <section class="video-section">
+    <div style="position:absolute;">
+      <iframe src="https://player.vimeo.com/video/1097102437?h=ecbed148cc&badge=0&autopause=0&autoplay=0&muted=1&player_id=0&app_id=58479/embed&loop=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0" ></iframe>
+      <p class="v_title">The Sport Bag</p>
+    </div>
+  </section>
+  <section class="video-section">
+    <div style="position:absolute;">
+      <iframe src="https://player.vimeo.com/video/1097102386?h=662f5fa8a0&badge=0&autopause=0&autoplay=0&muted=1&loop=1&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" frameborder="0" title="FW_CircuitShirt_"></iframe>
+      <p class="v_title">Circuit Shirt</p>
+    </div>
+  </section>
+  <section class="video-section">
+    <div style="position:absolute;">
+      <iframe src="https://player.vimeo.com/video/1097102300?h=93d4cc92dc&badge=0&autopause=0&autoplay=0&muted=1&loop=1&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" frameborder="0"  title="FW_MESHCAP_"></iframe>
+      <p class="v_title">Mesh Cap</p>
+    </div>
+  </section>
+  <section class="launch-section">
+    <div class="launch_info">
+      <div class="launch-heading">Launching on <span class="highlight">July 03</span></div>
+      <form class="launch-form">
+        <input type="email" placeholder="Enter email address" required>
+        <button type="submit">
+          <svg width="16" height="16" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.60108 7.91694V5.5523L11.7211 8.70516L8.60108 11.858V9.49338H5.48106V7.91694H8.60108ZM8.60108 0.822998C12.9067 0.822998 16.4011 4.35421 16.4011 8.70516C16.4011 13.0561 12.9067 16.5873 8.60108 16.5873C4.29545 16.5873 0.801025 13.0561 0.801025 8.70516C0.801025 4.35421 4.29545 0.822998 8.60108 0.822998ZM8.60108 15.0109C12.0487 15.0109 14.8411 12.1891 14.8411 8.70516C14.8411 5.22124 12.0487 2.39943 8.60108 2.39943C5.15346 2.39943 2.36104 5.22124 2.36104 8.70516C2.36104 12.1891 5.15346 15.0109 8.60108 15.0109Z" fill="#1A1A1A"/>
+          </svg>
+        </button>
+      </form>
+      <div class="launch-privacy">
+        By signing up, you agree to Ludic’s
+        <a href="/policies/privacy-policy">Privacy and Cookie Policy</a>.
+      </div>
+    </div>
+    <div class="launch-video">
+      <video width="100%" muted autoplay loop playsinline preload="auto">
+        <source src="https://cdn.shopify.com/videos/c/o/v/87e68b9a0de7465f945232fe1e79a64c.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+  <div class="dot-nav">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".video-scroll-wrapper .video-section");
+    const dots = document.querySelectorAll(".dot");
+    const players = [];
+    const videoWrapper = document.querySelector('.video-scroll-wrapper');
+    const launchSection = document.querySelector('.launch-section');
+
+    // Initialize Vimeo players
+    sections.forEach(section => {
+      const iframe = section.querySelector("iframe");
+      const player = new Vimeo.Player(iframe);
+      players.push(player);
+    });
+
+    let isScrolling = false;
+
+    function scrollToSection(index) {
+      let top = 0;
+      if (index === 0) top = videoWrapper.offsetTop;
+      else if (index === 1) top = videoWrapper.offsetTop + window.innerHeight * 1;
+      else if (index === 2) top = videoWrapper.offsetTop + window.innerHeight * 2;
+      window.scrollTo({ top, behavior: "smooth" });
+      isScrolling = true;
+      setTimeout(() => {
+        isScrolling = false;
+        updateActiveSection();
+      }, 100);
+    }
+
+    function updateActiveSection() {
+      if (isScrolling) return;
+      let activeIndex = 0;
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= -1 && rect.top <= window.innerHeight / 2) {
+          activeIndex = index;
+        }
+      });
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[activeIndex].classList.add("active");
+      players.forEach((player, index) => {
+        const title = sections[index].querySelector(".v_title");
+        if (index === activeIndex) {
+          player.play().catch(() => { });
+          if (title) title.style.opacity = "1";
+        } else {
+          player.pause().catch(() => { });
+          if (title) title.style.opacity = "0";
+        }
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const index = parseInt(dot.dataset.index, 10);
+        scrollToSection(index);
+      });
+    });
+
+    window.addEventListener("scroll", updateActiveSection);
+    window.addEventListener("resize", updateActiveSection);
+
+    updateActiveSection();
+
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Sports Interest",
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "Sports Interest",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

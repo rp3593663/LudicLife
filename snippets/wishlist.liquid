@@ -1,0 +1,166 @@
+<style>
+  /* Style for product display can be added based on your design requirements */
+
+.wishlist .recently-title h2 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 32px;
+    margin-top: 36px;
+}
+  .c-product .c-product img{
+      cursor: pointer;
+      margin-bottom: 20px;
+  }
+
+  .c-product img {
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: all .5s ease;
+  }
+
+  .c-product img:hover {
+      transform: scale(1.03);
+  }
+
+  .c-product h3.c-product__title {
+      margin-top: 10px;
+      position: relative;
+  }
+  .c-product__title a.full-unstyled-link {
+    color: #1a1a1a;
+    text-decoration: unset;
+    font-size: 12px;
+    line-height: 15px;
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 400;
+}
+  .c-product__title a.full-unstyled-link span {
+    font-weight: 700;
+}
+  /* .c-product__title a.full-unstyled-link span:before {
+    content: "/";
+    margin-right: 4px;
+} */
+  p.c-product_price {
+    /* color: #e60013; */
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+  .c-product_price span.sale {
+    color: #e60013;
+    text-decoration: line-through;
+    margin-right: 8px;
+}
+
+    @media only screen and (min-width: 750px) {
+      .js-wishlistBlock {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          column-gap: var(--grid-desktop-horizontal-spacing);
+          margin-bottom: 32px;
+      }
+  }
+
+  
+  .wishlist-text {
+    width: 100%;
+    max-width: 470px;
+    padding-top: 50px;
+  }
+
+  .wishlist-text p {
+    font-size: 24px;
+    line-height: 32px;
+    color: #939598;
+    margin-bottom: 32px;
+    font-weight: 700;
+  }
+  .wishlist-text a {
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    text-decoration: none;
+    background: #E60013;
+    padding: 13px 21px;
+    display: inline-block;
+    border-radius: 4px;
+  }
+
+  .c-product {
+    position: relative;
+  }
+
+  .c-product .wishlist_button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+  }
+  .c-product .wishlist_button.is_selected{
+    color: #e60013;
+  }
+  
+
+  @media screen and (max-width:767px){
+    .wishlist .recently-title h2 {
+    margin-top: 20px;
+    }
+    .js-wishlistBlock {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 32px;
+      column-gap: 8px;
+      margin-bottom: 56px;
+    }
+    .c-product__title a.full-unstyled-link {
+      font-size: 10px;
+      line-height: 14px;
+      margin-bottom: 4px;
+    }
+   p.c-product_price {
+      margin-bottom: 0;
+      font-size:10px;
+      line-height:14px;
+    }
+    .c-product h3.c-product__title {
+      margin-top: 8px;
+    }
+    .wishlist-text p {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .wishlist-text {
+        padding-top: 0;
+        margin-bottom: 32px;
+    }
+    .wishlist-text p {
+        margin-bottom: 24px;
+    }
+    .c-product .wishlist_button.is_selected{
+      padding:0;
+    }
+  }
+
+</style>
+<div id="wishlist-page">
+<div class="recently-title">
+  <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in"><b>Wishlist</b></h2>
+</div>
+<div>
+  <div class="wishlist-empty">
+   <div class="wishlist-text">
+     <p>Your wishlist is bare, not a thing in sight,<br> No products to love, no treasures to bite.</p>
+     <a href="/collections/footwear">Add Products</a>
+   </div>
+  </div>
+  <div class="js-wishlistBlock">
+    <!-- Wishlist items will be displayed here -->
+  </div>
+</div>
+</div>

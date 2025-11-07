@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sports_bag_interest_registration_header_GhK4tC": {
+      "type": "sports-bag-interest-registration-header",
+      "name": "Sports Interest Header",
+      "settings": {
+        "layout": "box_width",
+        "bg_color": "rgba(0,0,0,0)",
+        "padding": "22px 0px 19px 0px | | | 24px 0px 22px",
+        "margin": "0px 0px 0px 0px| | |0px 0px",
+        "left_logo": "shopify://shop_images/white-logo-svg.svg",
+        "middle_logo": "shopify://shop_images/Futurworks-logo-white.svg",
+        "right_logo": "shopify://shop_images/bag-registration-star1.svg"
+      }
+    },
+    "sports_bag_interest_registration_nfgifF": {
+      "type": "sports-bag-interest-registration",
+      "name": "Sports Interest",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "sports_bag_interest_registration_header_GhK4tC",
+    "sports_bag_interest_registration_nfgifF"
+  ]
+}

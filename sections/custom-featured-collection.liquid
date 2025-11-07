@@ -1,0 +1,203 @@
+{%- if section.settings.layout == 'box_width' -%}
+	{%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding 	= section.settings.padding | split: "|" %}
+{% assign margin 	= section.settings.margin | split: "|" %}
+
+{%- style -%}
+
+  #shopify-section-{{ section.id }} .section--custom-featured-products{
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+  }
+
+  @media (max-width:1199px){
+      #shopify-section-{{ section.id }} .section--custom-featured-products{
+        {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+        {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+			}
+    }
+
+  @media (max-width:991px){
+      #shopify-section-{{ section.id }} .section--custom-featured-products{
+        {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+        {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+			}
+  }
+
+  @media (max-width:767px){
+      #shopify-section-{{ section.id }} .section--custom-featured-products{
+        {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+        {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+			}
+    }
+
+
+    {%- if section.settings.section_heading == blank -%}
+    .section--custom-featured-products .section_heading {
+      justify-content: end;
+    }
+
+    @media screen and (max-width: 767px) {
+      .section--custom-featured-products .section_heading {
+          margin-bottom: 0px;
+          margin-top: 0px;
+      }
+      .section_heading .view_all_btn {
+          margin-bottom: 17px;
+      }
+    }
+  {% endif %}
+{%- endstyle -%}
+
+
+<section class="ludic-section ludic-section-{{ section.id }} section--custom-featured-products">
+  <div class="{{ container }}">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section_heading">
+        <div class="section_title">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+        {%- if section.settings.enable_view_all and section.settings.enable_view_url != blank -%}
+          <div class="view_all_btn">
+            <a href="{{ section.settings.enable_view_url }}">
+              View All
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+      {% else %}
+    <div class="section_heading">
+      {%- if section.settings.section_heading != blank -%}
+      <div class="section_title">
+        <h2>{{ section.settings.section_heading }}</h2>
+      </div>
+      {% endif %}
+      {%- if section.settings.enable_view_all and section.settings.enable_view_url != blank -%}
+        <div class="view_all_btn">
+          <a href="{{ section.settings.enable_view_url }}">
+            View All
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+    <div class="section_content">
+      <div class="custom-featured-products" 
+      data-column-desktop="{{ section.settings.column_lg }}">
+        {%- for block in section.blocks -%}
+          {%- assign product = block.settings.product -%}
+          <div class="featured-carousel__slide">
+            {% include 'product-new-card' %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+  "name": "Custom Featured Products",
+  "settings": [
+    {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full-width",
+            "label": "Full Width"
+          },
+          {
+            "value": "box_width",
+            "label": "Box Width"
+          }
+        ],
+        "label": "Layout",
+        "default": "box_width"
+    },
+    {
+        "type": "text",
+        "id": "padding",
+        "label": "Padding",
+        "default": "0px 0px 0px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "text",
+        "id": "margin",
+        "label": "Margin",
+        "default": "80px 0px | | | 36px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "header",
+        "content": "=== General Settings"
+    },
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Heading",
+        "default": "Products"
+    },
+    {
+      "type": "header",
+      "content": "=== General Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_view_all",
+      "label": "Enable View All Button",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "enable_view_url",
+      "label": "View All Button URL"
+    },
+    {
+        "type": "header",
+        "content": "=== Carousel Setting"
+    },
+    {
+      "type": "range",
+      "id": "column_lg",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Number of Columns in Desktop",
+      "default": 3
+    }
+  ],
+  "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "variant_name",
+            "type": "text",
+            "label": "Variant Name"
+          }
+        ]
+      }
+    ],
+  "presets": [
+  {
+  "name": "Custom Featured Products",
+  "category": "product"
+  }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

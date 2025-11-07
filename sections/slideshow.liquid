@@ -1,0 +1,1217 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      #Slider-{{ section.id }}::before,
+      #Slider-{{ section.id }} .media::before,
+      #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        /* padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%; */
+        content: '';
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      #Slider-{{ section.id }}::before,
+      #Slider-{{ section.id }} .media::before {
+        padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+
+    a.banner-url {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 2 !Important;
+      display: block;
+    }
+    /* @media screen and (max-width:767px){
+      a.banner-url {
+        pointer-events: none;
+      }
+    } */
+  {%- endstyle -%}
+{%- endif -%}
+
+<slideshow-component
+  class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} container-fluid{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
+  role="region"
+  aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
+  aria-label="{{ section.settings.accessibility_info | escape }}"
+>
+  {%- if section.settings.auto_rotate and section.blocks.size > 1 -%}
+    <div class="slideshow__controls container slideshow__controls--top slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        {% render 'icon-caret' %}
+      </button>
+      <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
+        {%- if section.settings.slider_visual == 'counter' -%}
+          <span class="slider-counter--current">1</span>
+          <span aria-hidden="true"> / </span>
+          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+          <span class="slider-counter--total">{{ section.blocks.size }}</span>
+        {%- else -%}
+          <div class="slideshow__control-wrapper">
+            {%- for block in section.blocks -%}
+              <button
+                class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
+                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                aria-controls="Slider-{{ section.id }}"
+              >
+                {%- if section.settings.slider_visual == 'numbers' -%}
+                  {{ forloop.index -}}
+                {%- else -%}
+                  <span class="dot"></span>
+                {%- endif -%}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        {% render 'icon-caret' %}
+      </button>
+
+      {%- if section.settings.auto_rotate -%}
+        <button
+          type="button"
+          class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
+          aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
+        >
+          {%- render 'icon-pause' -%}
+          {%- render 'icon-play' -%}
+        </button>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div
+    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    id="Slider-{{ section.id }}"
+    aria-live="polite"
+    aria-atomic="true"
+    data-autoplay="{{ section.settings.auto_rotate }}"
+    data-speed="{{ section.settings.change_slides_speed }}"
+  >
+    {%- for block in section.blocks -%}
+      <style>
+        #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+        }
+      </style>
+      <div
+        class="slideshow__slide grid__item grid--1-col slider__slide slide-{{ forloop.index }}"
+        id="Slide-{{ section.id }}-{{ forloop.index }}"
+        {{ block.shopify_attributes }}
+        role="group"
+        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
+        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+        tabindex="-1"
+      >
+    
+      <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+
+      {% if forloop.index == 4 %}
+        <!-- First slide with pointers -->
+        <div class="pointer-container desktop_only_pointers">
+
+          <!-- Pointer 1 -->
+          <div class="product-pointer Pointer-1" style="top: 45%; left: 44.5%;">
+            <span class="pointer-dot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+              </svg>
+            </span>
+            
+            <div class="pointer-tooltip">
+              <a href="/products/weekend-shirt-watermelon" class="">
+                <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875955.png?v=1755081090">
+                <div class="pointer-content">
+                  <p class="pointer-title">Weekend Shirt / <b>Watermelon</b></p>
+                  <p class="pointer-description">Prestige has sense of humor. Do you? Spot asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                </div>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                  <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Pointer 2 -->
+          <div class="product-pointer Pointer-2" style="top: 31%; left: 58%;">
+            <span class="pointer-dot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+              </svg>
+            </span>
+            <div class="pointer-tooltip">
+              <a href="/products/weekend-shirt-canary-melon">
+              <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875954.png?v=1755081090" >
+              <div class="pointer-content">
+                <p class="pointer-title">Weekend Shirt / <b>Canary Melon</b></p>
+                <p class="pointer-description">Welcome to the Brunch Club. Spot the asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+              </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                 <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Pointer 3 -->
+          <div class="product-pointer Pointer-3" style="top: 39%; left: 87%;">
+            <span class="pointer-dot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+              </svg>
+            </span>
+            <div class="pointer-tooltip">
+              <a href="/products/weekend-shirt-lychee">
+                <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875541_6.png?v=1755081089">
+                <div class="pointer-content">
+                  <p class="pointer-title">Weekend Shirt / <b>Lychee</b></p>
+                  <p class="pointer-description">Ready for the play? Let’s go. Spot the asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                  <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Pointer 4 -->
+          <div class="product-pointer Pointer-4" style="top: 61%; left: 73%;">
+            <span class="pointer-dot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+              </svg>
+            </span>
+            <div class="pointer-tooltip">
+              <a href="/products/weekend-shirt-chiku">
+                <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875953.png?v=1755081090">
+                <div class="pointer-content">
+                  <p class="pointer-title">Weekend Shirt / <b>Chiku</b></p>
+                  <p class="pointer-description">Are you game? Pick the court. Spot the asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                  <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pointer-container mobile_only_pointers">
+           <!-- Pointer 2 -->
+            <div class="product-pointer Pointer-2">
+              <span class="pointer-dot">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                  <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+                </svg>
+              </span>
+              <div class="pointer-tooltip">
+                <a href="/products/weekend-shirt-canary-melon">
+                  <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875954.png?v=1755081090" >
+                  <div class="pointer-content">
+                    <p class="pointer-title">Weekend Shirt / <b>Canary Melon</b></p>
+                    <p class="pointer-description">Welcome to the Brunch Club. Spot the asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                  <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          
+          <!-- Pointer 4 -->
+          <div class="product-pointer Pointer-4">
+            <span class="pointer-dot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+              </svg>
+            </span>
+            <div class="pointer-tooltip">
+              <a href="/products/weekend-shirt-chiku">
+                <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875953.png?v=1755081090">
+                <div class="pointer-content">
+                  <p class="pointer-title">Weekend Shirt / <b>Chiku</b></p>
+                  <p class="pointer-description">Are you game? Pick the court. Spot the asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                  <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if forloop.index == 4 %}
+         <div class="pointer-container mobile_only_pointers">
+            <!-- Pointer 1 -->
+            <div class="product-pointer Pointer-1">
+              <span class="pointer-dot">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                  <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+                </svg>
+              </span>
+              
+              <div class="pointer-tooltip">
+                <a href="/products/weekend-shirt-watermelon">
+                  <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875955.png?v=1755081090">
+                  <div class="pointer-content">
+                    <p class="pointer-title">Weekend Shirt / <b>Watermelon</b></p>
+                    <p class="pointer-description">Prestige has sense of humor. Do you? Spot asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                    <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+           <!-- Pointer 3 -->
+          <div class="product-pointer Pointer-3">
+              <span class="pointer-dot">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="7" fill="#E60013" fill-opacity="0.3"/>
+                  <circle cx="7.00002" cy="6.99999" r="2.33333" fill="#E60013"/>
+                </svg>
+              </span>
+              <div class="pointer-tooltip">
+                <a href="/products/weekend-shirt-lychee">
+                  <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_1618875541_6.png?v=1755081089">
+                  <div class="pointer-content">
+                    <p class="pointer-title">Weekend Shirt / <b>Lychee</b></p>
+                    <p class="pointer-description">Ready for the play? Let’s go. Spot the asterisk embroidery on the sleeves, alongside that relaxed fit.</p>
+                  </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                      <path d="M1.07251 1L4.07251 4.5L1.07251 8" stroke="#1F1F1F" stroke-width="1.14286" stroke-linecap="round"/>
+                    </svg>
+                  </a>
+              </div>
+          </div>
+          </div>
+      {% endif %}
+
+
+
+
+        {%- if block.settings.image != blank -%}
+            {%- liquid
+              assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
+              if section.settings.image_behavior == 'ambient'
+                assign sizes = '120vw'
+                assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+              else
+                assign sizes = '100vw'
+                assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+              endif
+              assign fetch_priority = 'auto'
+              if section.index == 1
+                assign fetch_priority = 'high'
+              endif
+            -%}
+      
+          <!-- Image for desktop -->
+          {%- if block.settings.image and block.settings.mobile_image %}
+            <!-- Preload Desktop Image to Improve LCP -->
+            <link rel="preload" as="image" href="{{ block.settings.image | image_url: width: 3840 }}" fetchpriority="high">
+
+            <picture>
+              <!-- Mobile Image with srcset for Multiple Resolutions -->
+              <source 
+                media="(max-width: 767px)" 
+                srcset="
+                  {{ block.settings.mobile_image | image_url: width: 375 }} 375w,
+                  {{ block.settings.mobile_image | image_url: width: 550 }} 550w,
+                  {{ block.settings.mobile_image | image_url: width: 750 }} 750w"
+                sizes="100vw"
+              >
+
+              <!-- Desktop Image with srcset for Multiple Resolutions -->
+              <img 
+                src="{{ block.settings.image | image_url: width: 3840 }}" 
+                srcset="
+                  {{ block.settings.image | image_url: width: 750 }} 750w,
+                  {{ block.settings.image | image_url: width: 1100 }} 1100w,
+                  {{ block.settings.image | image_url: width: 1500 }} 1500w,
+                  {{ block.settings.image | image_url: width: 2000 }} 2000w,
+                  {{ block.settings.image | image_url: width: 3000 }} 3000w,
+                  {{ block.settings.image | image_url: width: 3840 }} 3840w"
+                sizes="100vw"
+                alt="{{ block.settings.image.alt | escape }}" 
+                width="1920" 
+                height="1080" 
+                fetchpriority="high"
+              >
+            </picture>
+          {%- else -%}
+            <!-- Preload Fallback Desktop Image to Improve LCP -->
+            <link rel="preload" as="image" href="{{ block.settings.image | image_url: width: 3840 }}" fetchpriority="high">
+
+            <!-- Fallback Image with srcset for Multiple Resolutions -->
+            <img 
+              src="{{ block.settings.image | image_url: width: 3840 }}" 
+              srcset="
+                {{ block.settings.image | image_url: width: 750 }} 750w,
+                {{ block.settings.image | image_url: width: 1100 }} 1100w,
+                {{ block.settings.image | image_url: width: 1500 }} 1500w,
+                {{ block.settings.image | image_url: width: 2000 }} 2000w,
+                {{ block.settings.image | image_url: width: 3000 }} 3000w,
+                {{ block.settings.image | image_url: width: 3840 }} 3840w"
+              sizes="100vw"
+              alt="{{ block.settings.image.alt | escape }}" 
+              width="1920" 
+              height="1080" 
+              loading="lazy" 
+              fetchpriority="high"
+            >
+          {%- endif -%}
+        {%  elsif  block.settings.desktop_video != blank  %}
+          <a href="{{ block.settings.banner_url }}" class="banner-url">
+          <div class="banner-video-desktop">
+            {{ block.settings.desktop_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+            </div>
+            </a>
+          <div class="banner-video-mobile">
+            {% if block.settings.mobile_video != blank %}
+              {{ block.settings.mobile_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+            {% endif %}
+          </div>
+        {%- else -%}
+          {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
+          {%- if placeholder_slide == 1 -%}
+            {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- else -%}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+  
+
+
+        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} container{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
+
+          <a href="{{ block.settings.banner_url }}" class="banner-url"></a>
+
+            {% if block.settings.varaint_product_id != blank %}
+              <div class="variant-product-wrapper variantWrapper">
+                <div class="variant-product">
+                  <div class="variant-product-inner">
+                    {% for product in block.settings.varaint_product_id %}
+                      <div class="variant-item{% unless forloop.first %} collapsing{% endunless %}"{% if forloop.first %} style="max-width: 0; overflow: hidden;"{% endif %}>
+                        <a href="{{ product.url }}">
+                          <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                        </a>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="variant-toggle">+</div>
+              </div>
+            {% endif %}
+
+
+          <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
+            {%- if block.settings.heading != blank -%}
+              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+                {{ block.settings.heading }}
+              </h2>
+            {%- endif -%}
+            
+            {%- if block.settings.subheading != blank -%}
+              <div class="banner__text rte desktop_subheading" {{ block.shopify_attributes }}>
+                {{ block.settings.subheading }}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.mobile_subheading != blank -%}
+              <div class="banner__text rte mobile_subheading" {{ block.shopify_attributes }}>
+                {{ block.settings.mobile_subheading }}
+              </div>
+              {%- elsif block.settings.subheading != blank -%}
+                <div class="banner__text rte desktop_subheading_mobile" {{ block.shopify_attributes }}>
+                  {{ block.settings.subheading }}
+                </div>
+            {%- endif -%}
+
+            {%- if block.settings.button_label != blank -%}
+              <div class="banner__buttons">
+                <a
+                  {% if block.settings.link %}
+                    href="{{ block.settings.link }}"
+                  {% else %}
+                    role="link" aria-disabled="true"
+                  {% endif %}
+                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                >
+                  {{- block.settings.button_label | escape -}}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
+    <div class="slideshow__controls container slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        {% render 'icon-caret' %}
+      </button>
+      <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
+        {%- if section.settings.slider_visual == 'counter' -%}
+          <span class="slider-counter--current">1</span>
+          <span aria-hidden="true"> / </span>
+          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+          <span class="slider-counter--total">{{ section.blocks.size }}</span>
+        {%- else -%}
+          <div class="slideshow__control-wrapper">
+            {%- for block in section.blocks -%}
+              <button
+                class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
+                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                aria-controls="Slider-{{ section.id }}"
+              >
+                {%- if section.settings.slider_visual == 'numbers' -%}
+                  {{ forloop.index -}}
+                {%- else -%}
+                  <span class="dot"></span>
+                {%- endif -%}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        {% render 'icon-caret' %}
+      </button>
+
+      {%- if section.settings.auto_rotate -%}
+        <button
+          type="button"
+          class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
+          aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
+        >
+          {%- render 'icon-pause' -%}
+          {%- render 'icon-play' -%}
+        </button>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</slideshow-component>
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+
+
+<style>
+
+.product-pointer {
+  position: absolute;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.pointer-tooltip {
+  position: absolute;
+  top: 30px;
+  left: -140px;
+  background: #F9F9F9;
+  padding: 0px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 5;
+  align-items: center;
+  display: flex;
+  border-radius:4px;
+}
+
+.pointer-tooltip img {
+  width: 100%;
+  height: auto;
+  max-width: 64px;
+  /* padding: 10px; */
+}
+
+.pointer-content{
+  padding: 12px;
+  border-left: 0.8px solid var(--secondary-pewter, #C7C8CA);
+  border-right: 0.8px solid var(--secondary-pewter, #C7C8CA);
+}
+
+.pointer-tooltip .pointer-title {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: -0.36px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+.pointer-description {
+  color: #000;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 11.44px; /* 143% */
+  letter-spacing: -0.24px;
+  margin: 0;  
+}
+
+.pointer-tooltip a {
+  display: flex;
+  align-items: center;
+  text-decoration:none;
+}
+.pointer-tooltip svg {
+  margin: 0 10px;
+  width:10px;
+}
+/* .tooltip-arrow {
+  padding: 0 10px;
+} */
+
+.product-pointer.active .pointer-tooltip,
+.product-pointer:hover .pointer-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Pointer-1.active .pointer-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.desktop_subheading{
+  display: block;
+}
+.desktop_subheading span{
+  font-weight:700;
+}
+.mobile_subheading,
+.desktop_subheading_mobile{
+  display: none !important;
+} 
+.mobile_only_pointers{
+  display: none !important;
+}
+#Slide-template--24036143038768__slideshow_f88WAr-3 .banner__box {
+  display: none !important;
+}
+.banner-video-desktop{
+  display: block;
+  cursor: pointer;
+}
+
+.banner-video-desktop video,
+.banner-video-mobile video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner-video-mobile{
+  display: none !important;
+}
+
+@media (max-width: 749px) {
+  .desktop_subheading {
+    display: none;
+  }
+  .pointer-tooltip {
+    width: 212px;
+  }
+  .mobile_subheading,
+  .desktop_subheading_mobile {
+    display: block !important;
+  }
+  .mobile_only_pointers{
+    display: block !important;
+  }
+  .desktop_only_pointers{
+    display: none !important;
+  }
+  .pointer-tooltip .pointer-title{
+    font-size:8px;
+    line-height: 12px;
+    letter-spacing: -0.18px;
+    margin-bottom: 3px;
+  }
+  .pointer-description {
+    font-size: 6px;
+    line-height: 8px; /* 143% */
+    letter-spacing: -0.18px;
+  }
+  .mobile_only_pointers .Pointer-2{
+     top: 51%; 
+     left: 34%;
+  }
+  .mobile_only_pointers .Pointer-4{
+    top: 70%; 
+    left: 61%;
+  }
+  .mobile_only_pointers .Pointer-1{
+    top: 51%; 
+    left: 28%;
+  }
+  .mobile_only_pointers .Pointer-3{
+    top: 65%; 
+    left: 65%;
+  }
+  #Slide-template--24036143038768__slideshow_f88WAr-3 .banner__box {
+    display: block !important;
+  }
+  .Pointer-2 .pointer-tooltip {
+    left: -90px;
+  }
+  .Pointer-4 .pointer-tooltip {
+    left: -90px;
+  }
+  .Pointer-3 .pointer-tooltip {
+    left: -100px;
+  }
+  .Pointer-1 .pointer-tooltip {
+    left: -90px;
+  }
+  .pointer-dot svg {
+    width: 17px;
+    height: 17px;
+  }
+  .pointer-tooltip img {
+    max-width: 42px;
+  }
+  .pointer-content {
+    padding: 6px;
+  }
+  .pointer-tooltip svg {
+    margin: 0 6px;
+    width: 8px;
+  }
+  .mobile_only_pointers .Pointer-2.active .pointer-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .banner-video-mobile{
+    display: block !important;
+  }
+  .banner-video-desktop{
+    display: none !important;
+}
+
+}
+
+</style>
+
+<script>
+
+  document.querySelectorAll('.product-pointer').forEach(pointer => {
+  let hideTimeout;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const delay = isMobile ? 1000 : 500;
+
+  pointer.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    pointer.classList.add('active');
+  });
+
+  pointer.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+      pointer.classList.remove('active');
+    }, delay); // 500ms delay
+  });
+
+  const tooltip = pointer.querySelector('.pointer-tooltip');
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    pointer.classList.add('active');
+  });
+  tooltip.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+      pointer.classList.remove('active');
+    }, delay);
+  });
+});
+
+// --- Show intro tooltip for first visible pointer ---
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const storageKey = isMobile ? 'pointerIntroShownMobile' : 'pointerIntroShownDesktop';
+
+  if (sessionStorage.getItem(storageKey)) return;
+
+  // Collect target pointers
+  let targetPointers = [];
+  if (isMobile) {
+    targetPointers = document.querySelectorAll('.Pointer-2');
+  } else {
+    const p1 = document.querySelector('.Pointer-1');
+    if (p1) targetPointers = [p1];
+  }
+
+  if (!targetPointers.length) return;
+
+  // Force open all
+  targetPointers.forEach(ptr => ptr.classList.add('active'));
+
+  // Keep open for 1.5s then close
+  setTimeout(() => {
+    targetPointers.forEach(ptr => ptr.classList.remove('active'));
+    sessionStorage.setItem(storageKey, 'true');
+  }, 1500);
+});
+
+// window.addEventListener('DOMContentLoaded', () => {
+//   const isMobile = window.matchMedia("(max-width: 768px)").matches;
+//   const storageKey = isMobile ? 'pointerIntroShownMobile' : 'pointerIntroShownDesktop';
+
+//   if (sessionStorage.getItem(storageKey)) return;
+
+//   const targetPointer = document.querySelector(isMobile ? '.Pointer-2' : '.Pointer-1');
+//   if (!targetPointer) return;
+
+//   const tooltip = targetPointer.querySelector('.pointer-tooltip');
+
+//   if (isMobile) {
+//     // Force tooltip visible directly (not relying on click)
+//     if (tooltip) {
+//       tooltip.style.opacity = '1';
+//       tooltip.style.visibility = 'visible';
+//       tooltip.style.transition = 'none';
+//     }
+//     targetPointer.classList.add('active');
+
+//     setTimeout(() => {
+//       targetPointer.classList.remove('active');
+//       if (tooltip) {
+//         tooltip.style.opacity = '';
+//         tooltip.style.visibility = '';
+//         tooltip.style.transition = '';
+//       }
+//       sessionStorage.setItem(storageKey, 'true');
+//     }, 1500);
+
+//   } else {
+//     // Desktop: same logic
+//     if (tooltip) {
+//       tooltip.style.opacity = '1';
+//       tooltip.style.visibility = 'visible';
+//       tooltip.style.transition = 'none';
+//     }
+//     targetPointer.classList.add('active');
+
+//     setTimeout(() => {
+//       targetPointer.classList.remove('active');
+//       if (tooltip) {
+//         tooltip.style.opacity = '';
+//         tooltip.style.visibility = '';
+//         tooltip.style.transition = '';
+//       }
+//       sessionStorage.setItem(storageKey, 'true');
+//     }, 1500);
+//   }
+// });
+
+
+</script>
+
+
+
+{% schema %}
+{
+  "name": "t:sections.slideshow.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full_bleed",
+          "label": "t:sections.slideshow.settings.layout.options__1.label"
+        },
+        {
+          "value": "grid",
+          "label": "t:sections.slideshow.settings.layout.options__2.label"
+        }
+      ],
+      "default": "full_bleed",
+      "label": "t:sections.slideshow.settings.layout.label"
+    },
+    {
+      "type": "select",
+      "id": "slide_height",
+      "options": [
+        {
+          "value": "adapt_image",
+          "label": "t:sections.slideshow.settings.slide_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.slideshow.settings.slide_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.slideshow.settings.slide_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.slideshow.settings.slide_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.slideshow.settings.slide_height.label"
+    },
+    {
+      "type": "select",
+      "id": "slider_visual",
+      "options": [
+        {
+          "value": "dots",
+          "label": "t:sections.slideshow.settings.slider_visual.options__2.label"
+        },
+        {
+          "value": "counter",
+          "label": "t:sections.slideshow.settings.slider_visual.options__1.label"
+        },
+        {
+          "value": "numbers",
+          "label": "t:sections.slideshow.settings.slider_visual.options__3.label"
+        }
+      ],
+      "default": "counter",
+      "label": "t:sections.slideshow.settings.slider_visual.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.slideshow.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 2,
+      "unit": "s",
+      "label": "t:sections.slideshow.settings.change_slides_speed.label",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.animation.content"
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.animation.image_behavior.options__1.label"
+        },
+        {
+          "value": "ambient",
+          "label": "t:sections.all.animation.image_behavior.options__2.label"
+        }
+      ],
+      "default": "none",
+      "label": "t:sections.all.animation.image_behavior.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.slideshow.settings.mobile.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_below",
+      "label": "t:sections.slideshow.settings.show_text_below.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.slideshow.settings.accessibility.content"
+    },
+    {
+      "type": "text",
+      "id": "accessibility_info",
+      "label": "t:sections.slideshow.settings.accessibility.label",
+      "info": "t:sections.slideshow.settings.accessibility.info",
+      "default": "t:sections.slideshow.settings.accessibility.default"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.slideshow.blocks.slide.name",
+      "limit": 15,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type":"video",
+          "id":"desktop_video",
+          "label":"Desktop Video"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile Video"
+        },
+        {
+          "type": "url",
+          "id": "banner_url",
+          "label": "Banner URL"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.slideshow.blocks.slide.settings.heading.default",
+          "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "default": "t:sections.slideshow.blocks.slide.settings.subheading.default",
+          "label": "t:sections.slideshow.blocks.slide.settings.subheading.label"
+        },
+        {
+          "type": "textarea",
+          "id": "mobile_subheading",
+          "label": "Mobile Subheading"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "t:sections.slideshow.blocks.slide.settings.button_label.default",
+          "label": "t:sections.slideshow.blocks.slide.settings.button_label.label",
+          "info": "t:sections.slideshow.blocks.slide.settings.button_label.info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "label": "t:sections.slideshow.blocks.slide.settings.secondary_style.label",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "box_align",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__1.label"
+            },
+            {
+              "value": "top-center",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__2.label"
+            },
+            {
+              "value": "top-right",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__3.label"
+            },
+            {
+              "value": "middle-left",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__4.label"
+            },
+            {
+              "value": "middle-center",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__5.label"
+            },
+            {
+              "value": "middle-right",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__6.label"
+            },
+            {
+              "value": "bottom-left",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__7.label"
+            },
+            {
+              "value": "bottom-center",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__8.label"
+            },
+            {
+              "value": "bottom-right",
+              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__9.label"
+            }
+          ],
+          "default": "middle-center",
+          "label": "t:sections.slideshow.blocks.slide.settings.box_align.label",
+          "info": "t:sections.slideshow.blocks.slide.settings.box_align.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_text_box",
+          "label": "t:sections.slideshow.blocks.slide.settings.show_text_box.label",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_3.label"
+            }
+          ],
+          "default": "center",
+          "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.label"
+        },
+        {
+          "type": "range",
+          "id": "image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "t:sections.slideshow.blocks.slide.settings.image_overlay_opacity.label",
+          "default": 0
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-1"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.slideshow.settings.mobile.content"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_mobile",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.options__3.label"
+            }
+          ],
+          "default": "center",
+          "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.label"
+        },
+        {
+          "type": "product_list",
+          "id": "varaint_product_id",
+          "label": "Varaint Products",
+          "info": "Show varaint on the banner"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.slideshow.presets.name",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

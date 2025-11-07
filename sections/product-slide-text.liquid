@@ -1,0 +1,377 @@
+<!-- sections/sticky-text-with-products.liquid -->
+<section class="sticky-text-products">
+  <div class="container">
+    <div class="sticky-text desktop_text_content">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link }}" class="btn-red">{{ section.settings.button_text }}</a>
+      {% endif %}
+    </div>
+
+    <div class="products-side">
+      <div class="main-image">
+        {% if section.settings.main_image %}
+          <img src="{{ section.settings.main_image | image_url }}" alt="" class="image-one active-image">
+        {% endif %}
+        {% if section.settings.scroll_image %}
+          <img src="{{ section.settings.scroll_image | image_url }}" 
+              alt="" 
+              class="image-two" 
+              style="opacity:0; position:absolute; top:0; left:0; width:100%;">
+        {% endif %}
+      </div>
+      <div class="sticky-text mobile_text_content">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.text }}</p>
+        {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="btn-red">{{ section.settings.button_text }}</a>
+        {% endif %}
+     </div>
+      <div class="products-list">
+        {% for block in section.blocks %}
+          {% if block.settings.product != blank %}
+            {% assign product = all_products[block.settings.product] %}
+            <div class="product-item">
+              <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+              </a>
+              <p><a href="{{ product.url }}">{{ product.metafields.custom.product_name_breadcrumb }} {% if product.metafields.custom.product_color_name != blank %}/{% endif %} <strong>{{ product.metafields.custom.product_color_name }}</strong> </a></p>
+                <div class="custom-variant-count">
+                  <span class="custom-color" style="background:{{ product.metafields.custom.hexa_code.value }}"></span>
+              {% assign paired_products = product.metafields.custom.pair_with_product.value %}
+                  {% if paired_products.count > 1 %}
+                  + {{ paired_products.count | minus:1 }}<span class="mobile_only"> Colorways</span></span>
+                  {% endif %}
+              </div>
+              <p class="price">₹ {{ product.price | money_without_currency |  remove: '.00'  }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>  
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+.sticky-text-products {
+  padding: 60px 0;
+}
+.sticky-text-products .container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.sticky-text {
+  position: sticky;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  align-self: flex-end;
+  padding-bottom: 20px;
+}
+.sticky-text h2 {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.392px;
+  letter-spacing: -1.2px;
+  margin-bottom: 8px;
+}
+.sticky-text p {
+  margin: 20px 0;
+  color: #000;
+  text-align: justify;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17.16px;
+  letter-spacing: -0.36px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+.sticky-text .btn-red {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 2.912px;
+  background: #E60013;
+  color: #FFF;
+  font-family: "Public Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 10.92px;
+  padding: 12.012px 31.482px 11.988px 30.518px;
+  float: inline-end;
+}
+.sticky-text .btn-red:hover {
+  color: #FFF;
+}
+.products-side {
+  display: flex;
+  flex-direction: row-reverse;
+  flex: 2;
+  gap: 20px;
+}
+.main-image {
+  position: relative;
+}
+.main-image img {
+  width: 100%;
+  max-width: 1194px;
+  height: auto;
+  margin-bottom: 0px;
+  transition: opacity 0.5s ease-in-out;
+}
+.main-image img.fade-out {
+  opacity: 0;
+}
+.product-item {
+  margin-bottom: 24px;
+}
+.product-item:last-child{
+  margin-bottom: 0px;
+}
+.product-item p {
+  color: #1A1A1A;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: -0.3px;
+  margin: 0;
+  margin-top: 8px;
+}
+.product-item p a{
+  text-decoration: none;
+  color: #1A1A1A;
+}
+.product-item img {
+  width: 100%;
+  height: auto;
+  max-width: 271px;
+}
+.mobile_text_content{
+  display: none;
+}
+.products-list .custom-variant-count ,
+.products-list .price{
+    display: none;
+}
+@media screen and (max-width:768px) {
+  .sticky-text-products .container{
+    flex-wrap: wrap;
+  }
+  .sticky-text {
+    position: unset;
+    top: 0;
+  }
+  .products-side {
+    flex-direction: column;
+  }
+  .products-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8px;
+    row-gap: 32px;
+  }
+  .mobile_text_content{
+    display: block;
+  }
+  .desktop_text_content{
+    display: none;
+  }
+  .sticky-text h2 {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+    margin-bottom: 6px;
+  }
+  .products-side {
+    gap: 12px;
+  }
+  .sticky-text p {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .sticky-text {
+    padding-bottom: 8px;
+  }
+  .sticky-text .btn-red{
+    display: none;
+  }
+  .products-list .price {
+    display: block;
+    margin-top: 0;
+  }
+  .products-list .custom-variant-count{
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    gap: 3px;
+  }
+  .product-item {
+    margin-bottom: 0;
+  }
+  .sticky-text-products {
+    padding: 20px 0;
+  }
+}
+
+</style>
+
+{% comment %} image chnage stop for a scroll then change image on mobile and normal scroll in desktop {% endcomment %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const section = document.querySelector('.sticky-text-products');
+  const imgOne = section.querySelector('.image-one');
+  const imgTwo = section.querySelector('.image-two');
+
+  let isPaused = false;
+  let currentImage = 1;
+  const stopOffset = 280;
+  let lastScrollY = window.scrollY;
+  let lastTriggerDirection = null; // "up" or "down"
+
+  window.addEventListener("scroll", function () {
+    const rect = section.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2 + stopOffset;
+    const sectionCenter = rect.top + rect.height / 2;
+
+    if (window.innerWidth > 768) {
+      // DESKTOP → Normal image change without pause
+      if (sectionCenter <= viewportCenter) {
+        imgOne.style.opacity = "0";
+        imgTwo.style.opacity = "1";
+      } else {
+        imgOne.style.opacity = "1";
+        imgTwo.style.opacity = "0";
+      }
+      return;
+    }
+
+    // MOBILE → Keep the pause logic
+    if (isPaused) return;
+
+    const scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
+    lastScrollY = window.scrollY;
+
+    if (scrollDirection === "down" && sectionCenter <= viewportCenter && lastTriggerDirection !== "down") {
+      triggerPauseAndSwap("down");
+    }
+    else if (scrollDirection === "up" && sectionCenter >= viewportCenter && lastTriggerDirection !== "up") {
+      triggerPauseAndSwap("up");
+    }
+
+    function triggerPauseAndSwap(direction) {
+      isPaused = true;
+      lastTriggerDirection = direction;
+
+      const exactY = window.scrollY + rect.top + rect.height / 2 - viewportCenter;
+      window.scrollTo({ top: exactY, behavior: "instant" });
+
+      if (direction === "down") {
+        imgOne.style.opacity = "0";
+        imgTwo.style.opacity = "1";
+        currentImage = 2;
+      } else {
+        imgOne.style.opacity = "1";
+        imgTwo.style.opacity = "0";
+        currentImage = 1;
+      }
+
+      setTimeout(() => {
+        isPaused = false;
+      }, 600);
+    }
+  }, { passive: false });
+});
+</script>
+
+
+{% comment %} Image chnage on page scroll desktop mobile {% endcomment %}
+<script>
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   const section = document.querySelector('.sticky-text-products');
+  //   const imgOne = section.querySelector('.image-one');
+  //   const imgTwo = section.querySelector('.image-two');
+
+  //   window.addEventListener('scroll', function() {
+  //     const rect = section.getBoundingClientRect();
+  //     const sectionHeight = rect.height;
+  //     const halfwayPoint = sectionHeight / 2;
+
+  //     // Distance scrolled inside the section
+  //     const scrolledInSection = window.innerHeight - rect.top;
+
+  //     if (scrolledInSection > halfwayPoint) {
+  //       // Fade to second image
+  //       imgOne.style.opacity = '0';
+  //       imgTwo.style.opacity = '1';
+  //     } else {
+  //       // Fade back to first image
+  //       imgOne.style.opacity = '1';
+  //       imgTwo.style.opacity = '0';
+  //     }
+  //   });
+  // });
+</script>
+
+
+{% schema %}
+{
+  "name": "Sticky Text with Products",
+  "settings": [
+    { 
+      "type": "text", 
+      "id": "heading", 
+      "label": "Heading", 
+      "default": "Oxford Build. Fun Infused." 
+    },
+    { 
+      "type": "textarea", 
+      "id": "text", 
+      "label": "Text", 
+      "default": "Your description here" 
+    },
+    { 
+      "type": "image_picker", 
+      "id": "main_image", 
+      "label": "Main Image" 
+    },
+    { 
+      "type": "image_picker", 
+      "id": "scroll_image", 
+      "label": "Scroll Image" 
+    },
+    { 
+      "type": "text", 
+      "id": "button_text", 
+      "label": "Button Text", 
+      "default": "Discover" 
+    },
+    { 
+      "type": "url", 
+      "id": "button_link", 
+      "label": "Button Link" 
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Select product" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Sticky Text with Products", "category": "Custom" }
+  ]
+}
+{% endschema %}
+

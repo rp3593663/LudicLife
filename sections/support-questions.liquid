@@ -1,0 +1,314 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--support-quesions {
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }};{%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }};{%- endif -%}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--support-quesions {
+      {%- if padding[1] != blank -%} padding: {{ padding[1] }};{%- endif -%}
+      {%- if margin[1] != blank -%} margin: {{ margin[1] }};{%- endif -%}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--support-quesions {
+      {%- if padding[2] != blank -%} padding: {{ padding[2] }};{%- endif -%}
+      {%- if margin[2] != blank -%} margin: {{ margin[2] }};{%- endif -%}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--support-quesions {
+      {%- if padding[3] != blank -%} padding: {{ padding[3] }};{%- endif -%}
+      {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+    }
+  }
+  .support_inner .desktop_breadcum,
+  .support .desktop_breadcum{
+    display: block;
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} support_inner section--support-quesions">
+  <div class="{{ container }}">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section_heading">
+        <div class="section_title">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.enable_breacrumb -%}
+      {% render 'breadcrumb' %}
+    {%- endif -%}
+
+    <div class="section_content">
+      <div class="support_inner_block">
+        {% render 'support-inner-sidemenu' %}
+        <div class="support_inner_content">
+          <p class="page_title">{{ page.title }}</p>
+          <div class="question_block">
+            <div class="questions">
+              {%- assign first_question = true -%}
+              {%- for block in section.blocks -%}
+                {%- if forloop.index == 1 -%}
+                  <div class="question" id="main-question" data-id="{{ block.id }}">
+                    <p class="que">{{ block.settings.question }}</p>
+                    <div class="ans">{{ block.settings.answer }}</div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+              {% if request.path contains 'return-policy' %}
+                <div class="exchange-return-custom-class">
+                  <a href="https://ludic.clickpost.in/en/returns" target="_blank" class="exchange-return-custom">Return/Exchange</a>
+                </div>
+             {% endif %}
+            </div>
+
+            {%- if section.blocks.size > 1 -%}
+            <div class="similar_articles">
+              <p class="title">Similar Questions</p>
+              <ul class="s_article">
+                {%- for block in section.blocks -%}
+                  {%- if forloop.index != 1 -%}
+                    <li id="similar-{{ block.id }}">
+                      <a href="javascript:void(0);" class="similar_links" data-id="{{ block.id }}" data-question="{{ block.settings.question }}" data-answer="{{ block.settings.answer }}">
+                        {{ block.settings.question }}
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const mainQuestion = document.getElementById("main-question");
+  const questionText = mainQuestion.querySelector(".que");
+  const answerText = mainQuestion.querySelector(".ans");
+  const similarArticlesList = document.querySelector(".s_article");
+
+  // Function to format the question for the URL (removes special characters, replaces spaces with hyphens)
+  function formatQuestionForUrl(question) {
+    return question
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '')  // Remove special characters except spaces
+      .replace(/\s+/g, '-')     // Replace spaces with hyphens
+      .trim();                 // Remove leading/trailing spaces
+  }
+
+  // Function to attach listeners to similar links
+  function attachLinkListeners() {
+    const similarLinks = document.querySelectorAll(".similar_links");
+    similarLinks.forEach(link => {
+      link.addEventListener("click", function () {
+        const currentQuestion = questionText.textContent;
+        const currentAnswer = answerText.innerHTML; // Use innerHTML to preserve HTML content
+        const currentId = mainQuestion.dataset.id;
+
+        // Clear the current question and answer
+        questionText.textContent = '';
+        answerText.innerHTML = '';
+
+        // Update the main question and answer with the clicked one
+        questionText.textContent = this.dataset.question;
+        answerText.innerHTML = this.dataset.answer; // Set as HTML content
+
+        // Update the main question's ID
+        mainQuestion.dataset.id = this.dataset.id;
+
+        // Add the previous question back to the list of similar articles
+        const newListItem = document.createElement("li");
+        newListItem.id = `similar-${currentId}`;
+        // newListItem.innerHTML = `
+        //   <a href="javascript:void(0);" class="similar_links" data-id="${currentId}" data-question="${currentQuestion}" data-answer="${currentAnswer}">
+        //     ${currentQuestion}
+        //   </a>
+        // `;
+        const newLink = document.createElement("a");
+        newLink.href = "javascript:void(0);";
+        newLink.classList.add("similar_links");
+        newLink.dataset.id = currentId;
+        newLink.dataset.question = currentQuestion;
+        newLink.dataset.answer = currentAnswer; // Keep the answer in data attribute
+        newLink.textContent = currentQuestion; // Only display the question text
+        newListItem.appendChild(newLink);
+
+        similarArticlesList.appendChild(newListItem);
+
+        // Remove the clicked question from the list
+        const clickedListItem = document.getElementById(`similar-${this.dataset.id}`);
+        if (clickedListItem) {
+          clickedListItem.remove();
+        }
+
+        // Update the URL with the selected question (formatted)
+        const formattedQuestion = formatQuestionForUrl(this.dataset.question);
+        const newUrl = `${window.location.origin}${window.location.pathname}#${formattedQuestion}`;
+        window.history.pushState({ path: newUrl }, "", newUrl);
+
+        // Reattach event listeners to the updated list
+        attachLinkListeners();
+      });
+    });
+  }
+
+  // Function to check the URL and display the question from the hash (if any)
+  function displayQuestionFromUrl() {
+    const urlHash = window.location.hash.substring(1); // Get the part after the '#'
+    if (urlHash) {
+      const formattedQuestion = urlHash.replace(/-/g, ' '); // Replace hyphens with spaces
+      const matchingLink = [...document.querySelectorAll(".similar_links")].find(link =>
+        formatQuestionForUrl(link.dataset.question) === formattedQuestion
+      );
+
+      if (matchingLink) {
+        questionText.textContent = matchingLink.dataset.question;
+        answerText.innerHTML = matchingLink.dataset.answer; // Display as HTML content
+        mainQuestion.dataset.id = matchingLink.dataset.id;
+
+        // Remove the matched question from similar articles list
+        const matchedListItem = document.getElementById(`similar-${matchingLink.dataset.id}`);
+        if (matchedListItem) {
+          matchedListItem.remove();
+        }
+      }
+    }
+  }
+
+  // Get the ID of the first question and update the URL when the page loads
+  const defaultQuestionId = mainQuestion.dataset.id; // ID of the first question
+  const defaultQuestionText = questionText.textContent;
+  
+  // Check if the question has an ID (if not, avoid appending the # to the URL)
+  if (defaultQuestionId && defaultQuestionText) {
+    // Format the question for the URL
+    const formattedQuestion = formatQuestionForUrl(defaultQuestionText);
+
+    // Create the new URL with the default question ID
+    const newUrl = `${window.location.origin}${window.location.pathname}#${formattedQuestion}`;
+    
+    // Push the new URL to the browser's history
+    window.history.pushState({ path: newUrl }, "", newUrl);
+
+    // Log the default question ID and URL
+    console.log('Default question displayed:', defaultQuestionText);
+    console.log('URL with default question ID:', newUrl);
+  } else {
+    // Log that the question doesn't have a valid ID and don't update the URL with #.
+    console.log('No valid ID found for the default question.');
+  }
+
+  // Initial setup
+  attachLinkListeners();
+  displayQuestionFromUrl();
+});
+
+
+
+</script>
+
+{% schema %}
+{
+  "name": "Support Questions",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        },
+        {
+          "value": "box_width",
+          "label": "Box Width"
+        }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "placeholder": "top right bottom right",
+      "info": "Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "placeholder": "top right bottom right",
+      "info": "Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "header",
+      "content": "=== General Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_breacrumb",
+      "label": "Enable Breadcrumb",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "similar_articles",
+      "label": "Menu Similar Articles"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "questions",
+      "name": "Question-Answer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Questions",
+      "category": "section"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

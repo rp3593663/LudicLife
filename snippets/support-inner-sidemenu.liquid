@@ -1,0 +1,12 @@
+{% assign sideMenu = 'support-inner-sidebar-menu' %}
+<div class="support_sidemenu">
+  <ul>
+    {% for link in linklists[sideMenu].links %}
+      <li>
+        <a href="{{ link.url }}" class="side_link">
+          {{ link.title }}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>

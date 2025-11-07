@@ -1,0 +1,187 @@
+<div class="csk-main-section section-{{ section.id }}">
+    <div class="container">
+        <div class="csk-ludic-container">
+            {% if section.settings.super_kings_logo != blank %}
+              <div class="logo-section">
+                <img src="{{ section.settings.super_kings_logo | image_url }}" width="200" height="82" alt="Super Kings Logo" />
+              </div>
+            {% endif %}
+
+            {% if section.settings.description != blank %}
+              <p class="description">{{ section.settings.description }}</p>
+            {% endif %}
+
+            {% if section.settings.description_2 != blank %}
+              <p class="description">{{ section.settings.description_2 }}</p>
+            {% endif %}
+
+            {% if section.settings.mobile_description != blank %}
+              <p class="description_mobile">{{ section.settings.mobile_description }}</p>
+            {% endif %}
+
+            {% if section.settings.mobile_description_2 != blank %}
+              <p class="description_mobile"> {{ section.settings.mobile_description_2 }}</p>
+            {% endif %}
+
+            {% if section.settings.mobile_description_3 != blank %}
+              <p class="description_mobile">{{ section.settings.mobile_description_3 }}</p>
+            {% endif %}
+
+            {% if section.settings.etc_link != blank and section.settings.show_solid_button == false %}
+              <a href="{{ section.settings.etc_link_url }}" class="description">{{ section.settings.etc_link }}</a>
+              {% else %}
+              <a href="{{ section.settings.etc_link_url }}" class="description_fill">{{ section.settings.etc_link }}</a>
+            {% endif %}
+          </div>
+    </div>
+</div>
+
+{% style %}
+  .section-{{ section.id }} .csk-ludic-container {
+    text-align: center;
+    padding:{{ section.settings.padding }};
+    width: 100%;
+    max-width: {{ section.settings.max_width }};
+    margin: 0 auto;
+ }
+  .logo-section {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .description {
+    margin: 20px 0;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400; 
+    color:#1A1A1A;
+  }
+  .description a{
+    color:#1A1A1A;
+  }
+  .description_mobile{
+    display:none;
+  }
+  a.description:hover {
+    color: #1a1a1a;
+  } 
+  {% if section.settings.show_solid_button == true %}
+  a.description_fill {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    background: #E60013;
+    color: #fff;
+    padding: 13px 31px;
+    border-radius: 4px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+  {% endif %}
+   @media screen and (max-width:768px){
+    .description_mobile {
+        display: block;
+        font-size: 10px;
+        line-height: 14px;
+        margin: 20px 0;
+    }
+    .description{
+        display:none;
+    }
+    a.description {
+      display: block;
+    }
+    .description {
+        font-size: 10px;
+        line-height: 14px;
+    }
+    .section-{{ section.id }} .csk-ludic-container {
+        padding: {{ section.settings.mobile_padding }};
+    }
+    .logo-section {
+        max-width: 140px;
+    }
+   }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "CSK Custom Text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Box Size",
+      "default": "645px"
+    },
+    {
+      "type": "text",
+      "id":"padding",
+      "label": "Box Padding",
+      "default": "56px 0"
+    },
+    {
+      "type": "text",
+      "id":"mobile_padding",
+      "label": "Mobile Box Padding",
+      "default": "45px 18px"
+    },
+    {
+        "type": "image_picker",
+        "id": "super_kings_logo",
+        "label": "Super Kings Logo"
+    },
+    {
+        "type": "text",
+        "id": "description",
+        "label": "Description"
+    },
+    {
+        "type": "text",
+        "id": "description_2",
+        "label": "Description 2"
+    },
+    {
+        "type": "text",
+        "id": "mobile_description",
+        "label": "Mobile Description"
+    },
+    {
+        "type": "text",
+        "id": "mobile_description_2",
+        "label": "Mbile Description 2"
+    },
+    {
+        "type": "text",
+        "id": "mobile_description_3",
+        "label": "Mbile Description 3"
+    },
+    {
+        "type": "text",
+        "id": "etc_link",
+        "label": "Etc Text"
+    },
+    {
+        "type": "url",
+        "id": "etc_link_url",
+        "label": "Etc Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_solid_button",
+      "label": "Show Solid Button",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "CSK Custom Text"
+    }
+  ]
+}
+{% endschema %}

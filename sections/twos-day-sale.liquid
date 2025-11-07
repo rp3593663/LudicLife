@@ -1,0 +1,375 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="section_twos_sale_day_hero">
+  
+    <div class="twos_sale_day_hero content-container section-{{ section.id }}-padding">
+       {% if section.settings.desktop_video != blank %}
+          <video src="{{ section.settings.desktop_video }}" muted autoplay loop playsinline class="desktop_video twos_sale_day_video"></video>
+        {% endif %}
+
+        {% if section.settings.mobile_video != blank %}
+          <video src="{{ section.settings.mobile_video }}" muted autoplay loop playsinline class="mobile_video twos_sale_day_video"></video>
+        {% endif %}
+      <div class="twos_sale_day_content">
+        {% if section.settings.heading_image != blank %}
+          <img src="{{ section.settings.heading_image | img_url: 'master' }}" alt="twos_day_sale">
+        {% endif %}
+
+        {% if section.settings.sale_info != blank %}
+          <p class="sale_info">{{ section.settings.sale_info }}</p>
+        {% endif %}
+
+        {% if section.settings.sale_span != blank %}
+          <span class="sale_span">{{ section.settings.sale_span }}</span>
+        {% endif %}
+
+        {% if section.settings.counter_info != blank %}
+          <p class="counter_info">{{ section.settings.counter_info }}</p>
+        {% endif %}
+
+        <div id="weekly-sale-widget">
+          <div id="countdown-area">
+            <div id="countdown">
+              <div class="count_info"><small>DAYS</small><span id="days">00</span></div>
+              <div class="count_colan">:</div>
+              <div class="count_info"><small>HOURS</small><span id="hours">00</span></div>
+              <div class="count_colan">:</div>
+              <div class="count_info"><small>MINUTES</small><span id="minutes">00</span></div>
+              <div class="count_colan">:</div>
+              <div class="count_info"><small>SECONDS</small><span id="seconds">00</span></div>
+            </div>
+
+            <button id="setReminderBtn">Set a reminder</button>
+          </div>
+
+           <div id="live-message" style="display:none; font-size:20px; font-weight:700; color:#111; margin-top:6px;">
+            🎉 Sale is Live Now! 🎉
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+<script>
+(function () {
+  // ---------- CONFIG ----------
+  const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
+  const SALE_START_HOUR = 11;   // 11:00 IST
+  const SALE_END_HOUR = 11;     // Wed 11:00 IST (sale end)
+  const TZ = 'Asia/Kolkata';
+  const EVENT_TITLE = 'Weekly bundle offers from Ludic, every Tuesday.';
+  const EVENT_LOCATION = 'https://ludic.life';
+  const EVENT_DESCRIPTION = 'https://ludic.life/pages/twos-day-sale';
+  const EVENT_DURATION_MINUTES = 60 * 24; // 24 hours
+  const LOCALSTORAGE_PREFIX = 'weekly_sale_reminder_'; // + YYYY-MM-DD (Tuesday)
+  const RRULE = 'RRULE:FREQ=WEEKLY;BYDAY=TU';
+  const DAY_MS = 24 * 60 * 60 * 1000;
+
+  // ---------- Utilities ----------
+  // Get IST components using Intl (reliable)
+  function getIstParts(date = new Date()) {
+    const fmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: TZ,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      weekday: 'short',
+      hour12: false
+    });
+    const parts = fmt.formatToParts(date);
+    const obj = {};
+    parts.forEach(p => { if (p.type && p.type !== 'literal') obj[p.type] = p.value; });
+
+    // weekday short -> number map
+    const wkMap = { 'Sun': 0, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6 };
+    return {
+      year: Number(obj.year),
+      month: Number(obj.month),
+      day: Number(obj.day),
+      hour: Number(obj.hour),
+      minute: Number(obj.minute),
+      second: Number(obj.second),
+      weekdayNum: wkMap[obj.weekday] // 0..6
+    };
+  }
+
+  // Build an ISO string for IST (with +05:30) then new Date(iso) gives correct moment
+  function buildIstIso(year, month, day, hour = 0, minute = 0, second = 0) {
+    const mm = String(month).padStart(2, '0');
+    const dd = String(day).padStart(2, '0');
+    const hh = String(hour).padStart(2, '0');
+    const min = String(minute).padStart(2, '0');
+    const ss = String(second).padStart(2, '0');
+    return `${year}-${mm}-${dd}T${hh}:${min}:${ss}+05:30`;
+  }
+
+  // Return a Date object (UTC instant) corresponding to next (or this) Tuesday 11:00 IST based on current IST
+  function getNextTuesday11IST(now = new Date()) {
+    const p = getIstParts(now);
+    let delta = (SALE_START_WEEKDAY - p.weekdayNum + 7) % 7;
+
+    // If today is Tuesday and time >= 11:00, choose next week's Tuesday
+    if (delta === 0) {
+      if (p.hour > SALE_START_HOUR || (p.hour === SALE_START_HOUR && (p.minute >= 0))) {
+        delta = 7;
+      } else {
+        delta = 0;
+      }
+    }
+
+    // Build today's midnight IST (as Date obj), then add delta days and 11 hours
+    const todayMidnightIso = buildIstIso(p.year, p.month, p.day, 0, 0, 0);
+    const todayMidnightUtc = new Date(todayMidnightIso);
+    const targetUtcMs = todayMidnightUtc.getTime() + delta * DAY_MS + SALE_START_HOUR * 3600000;
+    return new Date(targetUtcMs);
+  }
+
+  // Return Date objects for this week's Tuesday 11:00 IST and the following Wednesday 11:00 IST
+  function getThisTuesdayAndWednesday11(now = new Date()) {
+    const p = getIstParts(now);
+    const deltaToTue = (SALE_START_WEEKDAY - p.weekdayNum + 7) % 7;
+    const todayMidnightUtc = new Date(buildIstIso(p.year, p.month, p.day, 0, 0, 0));
+    const thisTue11Utc = new Date(todayMidnightUtc.getTime() + deltaToTue * DAY_MS + SALE_START_HOUR * 3600000);
+    const thisWed11Utc = new Date(thisTue11Utc.getTime() + DAY_MS); // tuesday + 1 day
+    return { thisTue11Utc, thisWed11Utc };
+  }
+
+  // Is sale live (Tue 11:00 <= now < Wed 11:00) — uses IST-correct instants
+  function isSaleLiveNow(now = new Date()) {
+    const { thisTue11Utc, thisWed11Utc } = getThisTuesdayAndWednesday11(now);
+    const nowUtc = new Date(buildIstIso(getIstParts(now).year, getIstParts(now).month, getIstParts(now).day, getIstParts(now).hour, getIstParts(now).minute, getIstParts(now).second));
+    return nowUtc.getTime() >= thisTue11Utc.getTime() && nowUtc.getTime() < thisWed11Utc.getTime();
+  }
+
+  // Build Google Calendar URL (with RRULE)
+  function buildGoogleCalendarUrl(dateObj, title, description, location, durationMinutes, rrule) {
+    const start = dateObj.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const endDate = new Date(dateObj.getTime() + durationMinutes * 60000);
+    const end = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: title,
+      dates: `${start}/${end}`,
+      details: description,
+      location: location
+    });
+    if (rrule) params.append('recur', rrule);
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }
+
+  // ---------- DOM ----------
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+  const setBtn = document.getElementById('setReminderBtn');
+
+  // ---------- Reminder storage helpers ----------
+  function markReminderAdded(targetDateKey) {
+    try {
+      localStorage.setItem(LOCALSTORAGE_PREFIX + targetDateKey, '1');
+    } catch (e) { /* ignore */ }
+    {% comment %} setBtn.disabled = true;
+    setBtn.style.opacity = '0.6';
+    setBtn.style.cursor = 'default';
+    setBtn.innerText = 'Reminder Added ✅'; {% endcomment %}
+  }
+  function isReminderAdded(targetDateKey) {
+    try {
+      return !!localStorage.getItem(LOCALSTORAGE_PREFIX + targetDateKey);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // ---------- Main update loop ----------
+  let timerInterval = null;
+
+  function setCountdownToZeros() {
+    daysEl.innerText = '00';
+    hoursEl.innerText = '00';
+    minutesEl.innerText = '00';
+    secondsEl.innerText = '00';
+  }
+
+  function refresh() {
+    const now = new Date(); // current real-time instant
+    // If sale live window -> per your request, show 00 and keep showing 00 until Wed 11:00
+    if (isSaleLiveNow(now)) {
+      // Keep countdown visible but frozen at 00:00:00
+      setCountdownToZeros();
+      // During this frozen period, we still want the reminder button state to be based on the next Tuesday date key.
+      // The "target" for storage purposes remains the Tuesday that just started the sale (this week's Tue)
+      const p = getIstParts(now);
+      // compute that Tuesday's Y-M-D (the Tue that started the sale)
+      const { thisTue11Utc } = getThisTuesdayAndWednesday11(now);
+      // Build IST Y-M-D for that Tuesday from the UTC instant (convert back to IST parts)
+      const tParts = getIstParts(thisTue11Utc);
+      const targetKey = `${String(tParts.year)}-${String(tParts.month).padStart(2,'0')}-${String(tParts.day).padStart(2,'0')}`;
+      {% comment %} if (isReminderAdded(targetKey)) {
+        //markReminderAdded(targetKey);
+      } else {
+        setBtn.disabled = false;
+        setBtn.style.opacity = '1';
+        setBtn.style.cursor = 'pointer';
+        setBtn.innerText = 'Set a reminder';
+      } {% endcomment %}
+      return;
+    }
+
+    // Not in frozen live window -> show countdown to next Tuesday 11:00 IST
+    const nextTue11 = getNextTuesday11IST(now); // Date object (UTC instant)
+    const nowMs = Date.now();
+    const distance = nextTue11.getTime() - nowMs;
+
+    // Compute target key (YYYY-MM-DD of target Tuesday in IST)
+    const tParts = getIstParts(nextTue11);
+    const targetKey = `${String(tParts.year)}-${String(tParts.month).padStart(2,'0')}-${String(tParts.day).padStart(2,'0')}`;
+
+    // Button state
+    if (isReminderAdded(targetKey)) {
+      //markReminderAdded(targetKey);
+    } else {
+      setBtn.disabled = false;
+      setBtn.style.opacity = '1';
+      setBtn.style.cursor = 'pointer';
+      setBtn.innerText = 'Set a reminder';
+    }
+
+    if (distance <= 0) {
+      // Edge: shouldn't happen (we handled sale-live above), but set zeros defensively
+      setCountdownToZeros();
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    daysEl.innerText = String(days).padStart(2, '0');
+    hoursEl.innerText = String(hours).padStart(2, '0');
+    minutesEl.innerText = String(minutes).padStart(2, '0');
+    secondsEl.innerText = String(seconds).padStart(2, '0');
+
+    // Attach click handler for reminder button (open google calendar + persist)
+    setBtn.onclick = function () {
+      // re-check if already added
+      {% comment %} if (isReminderAdded(targetKey)) {
+       // markReminderAdded(targetKey);
+        return;
+      } {% endcomment %}
+      const gUrl = buildGoogleCalendarUrl(
+        nextTue11,
+        EVENT_TITLE,
+        EVENT_DESCRIPTION,
+        EVENT_LOCATION,
+        EVENT_DURATION_MINUTES,
+        RRULE
+      );
+      // user-initiated open
+      window.open(gUrl, '_blank');
+      markReminderAdded(targetKey);
+    };
+  }
+
+  // Initialize
+  refresh();
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(refresh, 1000);
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Twos Day Sale",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "url",
+      "id": "desktop_video",
+      "label": "Desktop Video URL",
+      "info": "Add a .mp4 video link for desktop"
+    },
+    {
+      "type": "url",
+      "id": "mobile_video",
+      "label": "Mobile Video URL",
+      "info": "Add a .mp4 video link for mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading Image"
+    },
+    {
+      "type": "text",
+      "id": "sale_info",
+      "label": "Sale Info",
+      "default": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH, 11AM. For 24 hours."
+    },
+    {
+      "type": "text",
+      "id": "sale_span",
+      "label": "Sub Text",
+      "default": "No teasers. No hints. Just two Ludic products in the spotlight."
+    },
+    {
+      "type": "text",
+      "id": "counter_info",
+      "label": "Counter Info",
+      "default": "What's showing up next Tuesday?"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Twos Day Sale"
+    }
+  ]
+}
+{% endschema %}

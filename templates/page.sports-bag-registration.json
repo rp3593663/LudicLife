@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sports_bag_registration_header_FhrTYW": {
+      "type": "sports-bag-registration-header",
+      "name": "Sports Bag Header",
+      "settings": {
+        "layout": "box_width",
+        "bg_color": "",
+        "padding": "22px 0px 19px 0px | | | 24px 0px 22px",
+        "margin": "",
+        "left_logo": "shopify://shop_images/ludic_logo.svg",
+        "middle_logo": "shopify://shop_images/Futurworks-logo-white.svg",
+        "right_logo": "shopify://shop_images/bag-registration-star1.svg"
+      }
+    },
+    "sports_bag_registration_UTW7jB": {
+      "type": "sports-bag-registration",
+      "name": "Sports Registration",
+      "settings": {
+        "layout": "box_width",
+        "bg_color": "",
+        "padding": "0px 0px 0px 0px",
+        "margin": "71px 0px 44px | | | 76px 0px 25px",
+        "bag_image": "shopify://shop_images/Sports-Bag-GIF.gif",
+        "logo_image": "shopify://shop_images/Futurworks-logo.svg",
+        "logo_caption": "Mindful products for mindless pursuits.",
+        "main_heading": "It's that Sport Bag.",
+        "main_description": "Where the \"limit\" is rhetorical.<br> Self-aware. Abundant. Alive by design.",
+        "units_limited": "Limited to <span>500 units</span>",
+        "units_note": "First come, first serve.",
+        "cta_text": "Register your interest",
+        "countdown_target": "2025-07-03 12:00:00"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sports_bag_registration_header_FhrTYW",
+    "sports_bag_registration_UTW7jB"
+  ]
+}

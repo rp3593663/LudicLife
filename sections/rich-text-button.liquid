@@ -1,0 +1,121 @@
+{%- if section.settings.layout == 'box_width' -%}
+	{%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding 	= section.settings.padding | split: "|" %}
+{% assign margin 	= section.settings.margin | split: "|" %}
+
+{%- style -%}
+
+  #shopify-section-{{ section.id }} .section--rich-text-button{
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+  }
+
+  @media (max-width:1199px){
+      #shopify-section-{{ section.id }} .section--rich-text-button{
+        {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+        {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+			}
+    }
+
+  @media (max-width:991px){
+      #shopify-section-{{ section.id }} .section--rich-text-button{
+        {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+        {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+			}
+  }
+
+  @media (max-width:767px){
+      #shopify-section-{{ section.id }} .section--rich-text-button{
+        {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+        {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+			}
+    }
+
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--rich-text-button">
+  <div class="{{ container }}">
+    <div class="container_box">
+      <div class="info">
+        <h1>{{ section.settings.title }}</h1>
+        {%- if section.settings.btn_url != blank and section.settings.btn_text != blank -%}
+          <a href="{{ section.settings.btn_url }}" class="rich_text_btn">
+            {{ section.settings.btn_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+  "name": "Rich Text With Button",
+  "settings": [
+    {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full-width",
+            "label": "Full Width"
+          },
+          {
+            "value": "box_width",
+            "label": "Box Width"
+          }
+        ],
+        "label": "Layout",
+        "default": "box_width"
+    },
+    {
+        "type": "text",
+        "id": "padding",
+        "label": "Padding",
+        "default": "0px 0px 0px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "text",
+        "id": "margin",
+        "label": "Margin",
+        "default": "80px 0px | | | 36px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "header",
+        "content": "=== General Settings"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "We're building a footwear - first lifestyle brand."
+    },
+    {
+        "type": "textarea",
+        "id": "btn_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button URL"
+    }
+  ],
+  "presets": [
+  {
+  "name": "Rich Text With Button",
+  "category": "collection"
+  }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,68 @@
+<div class="meta_sroll_text">
+  <div class="container">
+    <div class="meta_sroll_text_wrap">
+      <div class="meta_sroll_left">
+        {% for meta_text in product.metafields.custom.scroll_text.value %}
+        {% assign meta_a_q = meta_text | split: "||" %}
+        {% assign meta_question = meta_a_q[0] %}
+        {% assign meta_answer = meta_a_q[1] %}
+        <div class="meta_scroll_text{% if forloop.first %} is_selected{% endif %}" id="ind_{{ forloop.index }}">
+          <div class="meta_scroll_text_number">
+            0{{ forloop.index }}
+          </div>
+          <div class="meta_scroll_text_block">
+            <div class="meta_text_up">
+              {{ meta_question }}
+            </div>
+            <div class="meta_text_down">
+              {{ meta_answer }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="meta_sroll_right">
+        {% for meta_img  in product.metafields.custom.scroll_image.value %}
+          {% assign meta_image = meta_img | split: '||'  %}
+          <div class="meta_sroll_right_item" data-index="ind_{{ forloop.index }}">
+            <div class="meta_image_main">
+              <div class="image">
+                <img src="{{ meta_image[0] }}">
+              </div>
+            </div>
+            <div class="meta_image_thumb">
+              <div class="meta_image_thumb_inner">
+                <div class="image">
+                  <img src="{{ meta_image[1] }}">
+                </div>
+              </div>
+              <div class="meta_image_thumb_inner">
+                <div class="image">
+                  <img src="{{ meta_image[2] }}">
+                </div>
+              </div>
+              <div class="meta_image_thumb_inner">
+                <div class="image">
+                  <img src="{{ meta_image[3] }}">
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Meta scroll text",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Meta scroll text"
+    }
+  ]
+}
+{% endschema %}

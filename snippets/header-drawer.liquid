@@ -1,0 +1,782 @@
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+
+  Usage:
+  {% render 'header-drawer' %}
+{% endcomment %}
+{% if request.path != '/pages/footwear-slider-teaser' %}
+<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
+      <span>
+        {% comment %} {% render 'icon-hamburger' %} {% endcomment %}
+        <!-- {% render 'icon-close' %} -->
+        <button id="menuToggle" class="hamburger" aria-label="Toggle menu">
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+        <!-- Menu Content -->
+        <div id="menu" class="menu">
+          <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+            <div class="menu-drawer__inner-container">
+              <div class="menu-drawer-icon-logo">
+                {% comment %} <div class="menu-colse-icon">
+                  {% render 'icon-close' %}
+                </div> {% endcomment %}
+                <div class="menu-drawer-logo">
+                  <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+                    {%- if settings.logo != blank -%}
+                    <div class="header__heading-logo-wrapper">
+                      {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+                      {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+                      {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width
+                      }}px{% endcapture %}
+                      {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{
+                      settings.logo_width | times: 2 }}{% endcapture %}
+                      {{
+                      settings.logo
+                      | image_url: width: 600
+                      | image_tag:
+                      class: 'header__heading-logo motion-reduce',
+                      widths: widths,
+                      height: logo_height,
+                      width: settings.logo_width,
+                      alt: logo_alt,
+                      sizes: sizes,
+                      preload: true
+                      }}
+                    </div>
+                    {%- else -%}
+                    <span class="h2">{{ shop.name }}</span>
+                    {%- endif -%}
+                  </a>
+                </div>
+              </div>
+              <div class="menu-drawer__navigation-container">
+                <div class="custom-mobile-menu">
+                  <div class="custom-mobile-menu-inner">
+                    <div class="custom-sub-collections">
+                      {% for block in section.blocks %}
+                        <a href="{{ block.settings.sub_collection_url }}">
+                          <img src="{{ block.settings.sub_collection_image |  img_url: 'master' }}" alt="">
+                          {{ block.settings.sub_collection_name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="menu-tabs">
+                      <div class="menu-tab-inner">
+                        {% for link in linklists[section.settings.menu].links %}
+                          {% assign has_matching_collection = false %}
+      
+                          {% for collection in section.settings.footwear_collection %}
+                            {% if link.handle == 'footwear' %}
+                              {% assign has_matching_collection = true %}
+                            {% endif %}
+                          {% endfor %}
+      
+                          {% for collection in section.settings.apparel_collection %}
+                            {% if link.handle == 'apparel' %}
+                              {% assign has_matching_collection = true %}
+                            {% endif %}
+                          {% endfor %}
+      
+                          {% for product in section.settings.other_collection %}
+                            {% if link.handle == 'accessories' %}
+                              {% assign has_matching_collection = true %}
+                            {% endif %}
+                          {% endfor %}
+
+                           {% for product in section.settings.futurworks_collection %}
+                            {% if link.handle == 'futurworks' %}
+                              {% assign has_matching_collection = true %}
+                            {% endif %}
+                          {% endfor %}
+      
+                          <a class="menu-tab" 
+                            data-menu-id="{{ link.handle }}" 
+                            data-title="{{ link.title }}"
+                            href="{% if has_matching_collection %}#{% else %}{{ link.url }}{% endif %}" 
+                            {% if has_matching_collection %}data-url="{{ link.url }}"{% endif %}
+                          >
+                            {{ link.title }}
+                            <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg></span>
+                          </a>
+                        {% endfor %}
+                      </div>
+                    </div>
+      
+                    <div class="custom-menu-bottom">
+                      <div class="links-mobile">
+                        <div class="menu-links">
+                          <a href="https://ludic.life/pages/top-questions">FAQ</a>
+                          <a href="https://ludic.clickpost.in/en" target="_blank">Track Order</a>
+                          <a href="https://ludic.life/pages/care-materials">Care & Material</a>
+                          </div>
+                          <div class="menu-social-links">
+                            <a href="https://www.instagram.com/ludic.life/" target="_blank">Instagram</a>
+                            <a href="https://www.youtube.com/@LudicLife" target="_blank">Youtube</a>
+                          </div>
+                        </div>
+                      <div class="menu-logos">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo3.svg?v=1741687748" class="ludic-logo1">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo1.svg?v=1741687749" class="ludic-logo3">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo4.svg?v=1741687747" class="ludic-logo2">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo2.svg?v=1741687749" class="ludic-logo4">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo5.svg?v=1741687748" class="ludic-logo5">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+          <div id="submenu-drawer" class="submenu-drawer">
+            <button class="back-button"><span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M8.75 3.5L5.25 7L8.75 10.5" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></span><span class="back-button-text"></span> </button>
+            <div class="submenu-content">
+              <a href="" class="view-all-inner-button">View All  <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></span>
+              </a>
+                <!-- Each collection group -->
+                <div class="menu-collection" data-collection="footwear">
+                  <!-- Your footwear blocks -->
+                    {% if section.settings.footwear_collection != blank %}
+                  <ul>
+                    {% for collection in section.settings.footwear_collection %}
+                      {% assign has_new_product = false %}
+                      {% for product in collection.products %}
+                        {% if product.metafields.custom.new_product == true %}
+                          {% assign has_new_product = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    <a href="{{ collection.url }}">
+                      {% if has_new_product %}
+                        <div class="new-product-dot"></div>
+                      {% endif %}
+                      <li>
+                        <img src="{{ collection.image | img_url:'master' }}">
+                        <div>
+                          <p class="custom-menu-collection-title">{{ collection.title }}</p>
+                          <p class="custom-menu-collection-subtitle">
+                            {{ collection.metafields.custom.menu_sub_text }}
+                          </p>
+                        </div>
+                      </li>
+                      <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                  
+                </div>
+                
+                <div class="menu-collection" data-collection="apparel">
+                  <!-- Your Apparel blocks -->
+                    {% if section.settings.apparel_collection != blank %}
+                  <ul>
+                   
+                    {% for collection in section.settings.apparel_collection %}
+                      {% assign has_new_product = false %}
+                      {% for product in collection.products %}
+                        {% if product.metafields.custom.new_product == true %}
+                          {% assign has_new_product = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    <a href="{{ collection.url }}">
+                      {% if has_new_product %}
+                        <div class="new-product-dot"></div>
+                      {% endif %}
+                      <li>
+                        <img src="{{ collection.image | img_url:'master' }}">
+                        <div>
+                          <p class="custom-menu-collection-title">{{ collection.title }}</p>
+                          <p class="custom-menu-collection-subtitle">
+                            {{ collection.metafields.custom.menu_sub_text }}
+                          </p>
+                        </div>
+                      </li>
+                      <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+
+                    {% if forloop.index == 1 %}
+                       <a href="/products/circuit-shirt">
+                          <li>
+                            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_149.png?v=1753256009">
+                            <div>
+                              <p class="custom-menu-collection-title">Circuit Shirt</p>
+                              <p class="custom-menu-collection-subtitle">3 Colors • Cotton Canvas • Relaxed Fit</p>
+                            </div>
+                          </li>
+                          <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        </a>
+                    {% endif %}
+                    
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                </div>
+                
+                <div class="menu-collection" data-collection="accessories">
+                  <!-- Your Accessories blocks -->
+                    {% if section.settings.other_collection != blank %}
+                  <ul>
+                    <a href="/products/socks-pack-of-8">
+                      <li>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/menu_socks.png?v=1762431161">
+                        <div>
+                          <p class="custom-menu-collection-title">Socks - Pack of 8</p>
+                          <p class="custom-menu-collection-subtitle">Crew Length • Cotton Based • Free Size</p>
+                        </div>
+                      </li>
+                      <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    {% for product in section.settings.other_collection %}
+                      {% assign has_new_product = false %}
+                      {% for product in collection.products %}
+                        {% if product.metafields.custom.new_product == true %}
+                          {% assign has_new_product = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    <a href="{{ product.url }}">
+                      {% if has_new_product %}
+                        <div class="new-product-dot"></div>
+                      {% endif %}
+                      <li>
+                        <img src="{{ product.metafields.custom.menu_image | img_url:'master' }}">
+                        <div>
+                          <p class="custom-menu-collection-title">{{ product.metafields.custom.menu_product_title }}</p>
+                          <p class="custom-menu-collection-subtitle">
+                            {{ product.metafields.custom.menu_subtext }}
+                          </p>
+                        </div>
+                      </li>
+                      <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    {% endfor %}
+                    <a href="/collections/csk-fragrance">
+                      <li>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_149-10.png?v=1753166640">
+                        <div>
+                          <p class="custom-menu-collection-title">CSK Capsule</p>
+                          <p class="custom-menu-collection-subtitle">Women • Woody • 100ml</p>
+                        </div>
+                      </li>
+                       <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    <a href="/collections/red-by-ludic">
+                      <li>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_149-11.png?v=1753166641">
+                        <div>
+                          <p class="custom-menu-collection-title">Red by Ludic</p>
+                          <p class="custom-menu-collection-subtitle">Men • Fresh Aqua • 100 ml</p>
+                        </div>
+                      </li>
+                       <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                  </ul>
+                  {% endif %}
+                </div>
+                
+                <div class="menu-collection" data-collection="futurworks">
+                  <!-- Your Futurworks blocks -->
+                    {% if section.settings.futurworks_collection != blank %}
+                  <ul>
+                    {% for product in section.settings.futurworks_collection %}
+                      {% assign has_new_product = false %}
+                      {% for product in collection.products %}
+                        {% if product.metafields.custom.new_product == true %}
+                          {% assign has_new_product = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    <a href="{{ product.url }}">
+                      {% if has_new_product %}
+                        <div class="new-product-dot"></div>
+                      {% endif %}
+                      <li>
+                        <img src="{{ product.metafields.custom.menu_image | img_url:'master' }}">
+                        <div>
+                          <p class="custom-menu-collection-title">{{ product.metafields.custom.menu_product_title }}</p>
+                          <p class="custom-menu-collection-subtitle">
+                            {{ product.metafields.custom.menu_subtext }}
+                          </p>
+                        </div>
+                      </li>
+                      <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                </div>
+            </div>
+            <div class="custom-menu-bottom">
+              <div class="links-mobile">
+                <div class="menu-links">
+                  <a href="https://ludic.life/pages/top-questions">FAQ</a>
+                  <a href="https://ludic.clickpost.in/en" target="_blank">Track Order</a>
+                  <a href="https://ludic.life/pages/care-materials">Care & Material</a>
+                  </div>
+                  <div class="menu-social-links">
+                    <a href="https://www.instagram.com/ludic.life/" target="_blank">Instagram</a>
+                    <a href="https://www.youtube.com/@LudicLife" target="_blank">Youtube</a>
+                  </div>
+                </div>
+              <div class="menu-logos">
+                <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo3.svg?v=1741687748" class="ludic-logo1">
+                <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo1.svg?v=1741687749" class="ludic-logo3">
+                <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo4.svg?v=1741687747" class="ludic-logo2">
+                <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo2.svg?v=1741687749" class="ludic-logo4">
+                <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/logo5.svg?v=1741687748" class="ludic-logo5">
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </summary>
+  </details>
+</header-drawer>
+{% endif %}
+
+
+<style>
+  /* Hamburger Button */
+  .hamburger {
+    position: relative;
+    width: 14px;
+    height: 13px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* gap: 2px; */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    padding:0;
+  }
+
+  .line {
+    display: block;
+    width: 100%;
+    height: 1px !Important;
+    background: black;
+    transition: transform 0.5s ease, opacity 0.5s ease, right 0.5s ease;
+    position: relative;
+  }
+
+  /* Open State: Hamburger to Cross Animation */
+  .hamburger.open .top {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .hamburger.open .middle {
+    right: -50px;
+    opacity: 0;
+  }
+
+  .hamburger.open .bottom {
+    transform: translateY(-3.6px) rotate(-45deg);
+  }
+
+  /* Reset Middle Line on Close */
+  .hamburger:not(.open) .middle {
+    right: 0;
+    opacity: 1;
+  }
+
+  /* Menu Styling */
+  .menu {
+    position: fixed;
+    top: 36px;
+    left: -120%;
+    width: 100%;
+    height: 100dvh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.5s ease;
+    z-index: 99;
+    overflow:hidden;
+  }
+
+  .scrolled-past-header .menu{
+    top:0px;
+  }
+
+  .menu.open {
+    left: 0;
+    overflow:hidden;
+    top:40px;
+  }
+  .scrolled-past-header .menu.open{
+    top: 0px;
+  }
+
+  a.menu-tab {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: -0.36px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 20px;
+  } 
+
+  a.menu-tab:nth-child(2){
+    padding: 20px 20px 12px;
+  }
+  a.menu-tab:nth-child(3) {
+    padding: 12px 20px 12px;
+  }
+   a.menu-tab:nth-child(4) {
+    padding: 12px 20px 20px;
+  }
+
+  a.menu-tab:first-child,
+  a.menu-tab:last-child  {
+    border-bottom: 1px solid #EAEAEA;
+    border-top: 1px solid #EAEAEA;
+  }
+
+  .links-mobile .menu-links a,
+  .links-mobile .menu-social-links a {
+    color: var(--secondary-steel, #949598);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .links-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  .custom-sub-collections {
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    /* overflow: scroll; */
+    border-top: 1px solid #EAEAEA;
+    /* min-height: 136px; */
+    justify-content: space-between;
+    text-align: center;
+  }
+  .custom-sub-collections img {
+    width: 100%;
+    max-width: 76px;
+    min-width: 76px;
+    height: 76px;
+    object-fit: cover;
+    margin-bottom: 6px;
+  }
+  .custom-sub-collections a {
+    display: inline-flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--secondary-steel, #949598);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 8px;
+    letter-spacing: -0.24px;
+  }
+  .main-menu-tabs {
+    display: block;
+  }
+
+  .inner-menu {
+    display: none;
+  }
+
+  .menu-collection {
+    display: none;
+  }
+
+  .inner-menu.active {
+    display: block;
+  }
+
+  .main-menu-tabs.hidden {
+    display: none;
+  }
+
+  .submenu-drawer {
+    position: fixed;
+    top: 47px;
+    right: -100%;
+    width: 100%;
+    height: calc(100dvh - 82px);
+    /* height: 100dvh; */
+    background: white;
+    z-index: 100;
+    transition: right 0.4s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .submenu-drawer.active {
+    right: 0;
+  }
+
+  .menu-collection.active {
+    display: block;
+  }
+
+  button.back-button {
+    border: none;
+    background: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+    color: #000;
+    font-family: "Public Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: -0.36px;
+    padding: 12px 15px;
+    /* border-top: 1px solid #EAEAEA; */
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .menu-collection a{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 0;
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .menu-collection ul{
+    padding: 0;
+  }
+  .menu-collection a li{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .menu-collection a img {
+    width: 100%;
+    max-width: 102px;
+    height: 72px;
+    object-fit: cover;
+    border-right: 1px solid #EAEAEA;
+    background: #F9F9F9;
+    margin-right: 15px;
+  }
+  p.custom-menu-collection-title {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: -0.6px;
+    margin-bottom: 6px;
+  }
+  p.custom-menu-collection-subtitle {
+    color: #000;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 8px;
+    letter-spacing: -0.24px;
+    margin: 0;
+  }
+
+  a.view-all-inner-button {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 18px 20px;
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: -0.36px;
+    
+  }
+   .custom-mobile-menu-inner [data-menu-id='ludic-life'],
+   .custom-mobile-menu-inner [data-menu-id='payday-sale'] {
+    color: #e60013;
+  }
+  .custom-mobile-menu{
+    height: calc(100dvh - 82px);
+  }
+   .custom-menu-bottom {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .custom-mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+</style>
+
+<script>
+
+const menuTabs = document.querySelectorAll('.menu-tab');
+const submenuDrawer = document.getElementById('submenu-drawer');
+const submenuContent = submenuDrawer.querySelector('.submenu-content');
+const backButton = submenuDrawer.querySelector('.back-button');
+const backButtonText = document.querySelector('.back-button-text');
+
+  menuTabs.forEach(tab => {
+    tab.addEventListener('click', function(e) {
+      const title = this.getAttribute('data-title');
+      backButtonText.textContent = title;
+      const viewAllBtn = document.querySelector('.view-all-inner-button');
+      const newUrl = this.dataset.url;
+      if (newUrl) viewAllBtn.href = newUrl;
+    });
+  });
+
+  menuTabs.forEach(tab => {
+  tab.addEventListener('click', function(e) {
+    const menuId = this.getAttribute('data-menu-id');
+    const hasSubmenu = submenuContent.querySelector(`.menu-collection[data-collection="${menuId}"]`);
+
+    if (hasSubmenu) {
+      // It has a submenu → open submenu
+      e.preventDefault();
+
+      // Update back button title
+      const title = this.getAttribute('data-title');
+      backButtonText.textContent = title;
+
+      // Show correct submenu
+      submenuContent.querySelectorAll('.menu-collection').forEach(col => {
+        col.classList.remove('active');
+      });
+      hasSubmenu.classList.add('active');
+
+      // Open submenu drawer
+      submenuDrawer.classList.add('active');
+
+      // Also update View All link
+      const viewAllBtn = document.querySelector('.view-all-inner-button');
+      const newUrl = this.dataset.url;
+      if (newUrl) viewAllBtn.href = newUrl;
+
+    } else {
+      // No submenu → normal link → allow default
+      // Do nothing, let browser follow the link
+    }
+  });
+});
+
+
+backButton.addEventListener('click', function() {
+  submenuDrawer.classList.remove('active');
+});
+
+
+
+//   // Toggle Menu and Animation
+  const menuToggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
+  const body = document.body;
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    menu.classList.toggle('open');
+    body.classList.add('new-menu-open');
+    if (!menu.classList.contains('open')) {
+    body.classList.remove('overflow-hidden-tablet');
+    body.classList.remove('new-menu-open');
+  }
+  });
+  
+
+
+  // Close Menu on Outside Click
+document.addEventListener('DOMContentLoaded', function () {
+  const menuTabs = document.querySelectorAll('.menu-tab');
+  const collectionBlocks = document.querySelectorAll('.custom-menu-collection');
+  const menuDetails = document.querySelector('details-disclosure details');
+
+  if (menuTabs.length > 0) {
+    const firstTab = menuTabs[0];
+    firstTab.classList.add('active-tab');
+    const firstMenuId = firstTab.getAttribute('data-menu-id');
+    collectionBlocks.forEach((block) => {
+      block.style.display = block.getAttribute('data-menu-id') === firstMenuId ? 'block' : 'none';
+    });
+  }
+
+  menuTabs.forEach((tab) => {
+    tab.addEventListener('click', function (event) {
+      const menuId = this.getAttribute('data-menu-id');
+      const dataUrl = this.dataset.url;
+      const isActive = this.classList.contains('active-tab');
+
+      const matchingBlock = Array.from(collectionBlocks).find(
+        (block) => block.getAttribute('data-menu-id') === menuId
+      );
+
+      if (matchingBlock) {
+        if (isActive && dataUrl) {
+          // Redirect on second click if already active
+          window.location.href = dataUrl;
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        menuTabs.forEach((t) => t.classList.remove('active-tab'));
+        this.classList.add('active-tab');
+
+        collectionBlocks.forEach((block) => (block.style.display = 'none'));
+        matchingBlock.style.display = 'block';
+
+        if (menuDetails && !menuDetails.hasAttribute('open')) {
+          menuDetails.setAttribute('open', 'true');
+        }
+      } else {
+        // Allow normal redirection for tabs without a matching block
+        if (this.getAttribute('href') !== '#') return;
+      }
+    });
+  });
+
+  if (menuDetails) {
+    menuDetails.addEventListener('click', (event) => event.stopPropagation());
+    document.addEventListener('click', (event) => {
+      if (!menuDetails.contains(event.target)) {
+        menuDetails.removeAttribute('open');
+      }
+    });
+  }
+});
+</script>

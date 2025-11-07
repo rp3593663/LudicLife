@@ -1,0 +1,201 @@
+<div class="new_meta_faq">
+  <div class="container">
+    <div class="new_meta_faq_inner">
+      <div class="new_meta_faq_left">
+        {% # FAQ name %}
+        {% for meta_faq in product.metafields.custom.new_faq.value %}
+          {% assign meta_a_q = meta_faq | split: "||" %}
+          {% assign meta_question = meta_a_q[0] %}
+          {% assign meta_answer = meta_a_q[1] %}
+          
+          {% if meta_question == 'Lace Calendar' %}
+             <div class="meta_question special-design" data-faq-index="{{ forloop.index }}" id="faq_section_1" >
+              <div class="faq_main {% if forloop.first %}active{% endif %}">
+                <div class="meta_question_text">{{ meta_question }}</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none"> 
+                      <path d="M4 12H20M12 4V20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> 
+                    </svg>
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="800px" height="800px" viewBox="0 0 459.313 459.314" xml:space="preserve"> 
+                      <g> 
+                        <path d="M459.313,229.648c0,22.201-17.992,40.199-40.205,40.199H40.181c-11.094,0-21.14-4.498-28.416-11.774   C4.495,250.808,0,240.76,0,229.66c-0.006-22.204,17.992-40.199,40.202-40.193h378.936   C441.333,189.472,459.308,207.456,459.313,229.648z"/> 
+                      </g> 
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                <div class="lace-calender-main">
+                  <div class="lace-calender-innder">
+                    <div class="day-list" id="dayList">
+                      <div class="day" data-index="0"><div class="circle" style="background:#85C3E8;"><span class="mobile-day">M</span></div><span class="desktop-day">Monday</span></div>
+                      <div class="day" data-index="1"><div class="circle" style="background:#A09390;"><span class="mobile-day">T</span></div> <span class="desktop-day">Tuesday</span></div>
+                      <div class="day" data-index="2"><div class="circle" style="background:#DCA18E;"><span class="mobile-day">W</span></div> <span class="desktop-day">Wednesday</span></div>
+                      <div class="day" data-index="3"><div class="circle" style="background:#948F8D;"><span class="mobile-day">T</span></div> <span class="desktop-day">Thursday</span></div>
+                      <div class="day" data-index="4"><div class="circle" style="background:#D4BA97;"><span class="mobile-day">F</span></div> <span class="desktop-day">Friday</span></div>
+                      <div class="day" data-index="5"><div class="circle" style="background:linear-gradient(180deg, #EB2C7C 7.73%, #E84F3C 48.15%, #FFDD2A 119.54%);"><span class="mobile-day">S</span></div> <span class="desktop-day">Saturday</span></div>
+                      <div class="day" data-index="6"><div class="circle" style="background:#8BC640;"><span class="mobile-day">S</span></div> <span class="desktop-day">Sunday</span></div>
+                    </div>
+
+                    <div class="image-viewer" id="imageViewer">
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_bookleDDDDt.png?v=1748861134" class="active" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-01.png?v=1748861136" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-02.png?v=1748861135" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-03.png?v=1748861135" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-04.png?v=1748861135" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-05.png?v=1748861135" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-06.png?v=1748861135" />
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Calander_booklet-07.png?v=1748861135" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% else %}
+          <div class="meta_question" data-faq-index="{{ forloop.index }}" id="faq_section_1" >
+            <div class="faq_main {% if forloop.first %}active{% endif %}" >
+              <div class="meta_question_text">
+                {{ meta_question }}
+              </div>
+              <div class="meta_question_icon">
+                <span class="meta_question_icon_pluse">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none"> 
+                    <path d="M4 12H20M12 4V20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> 
+                  </svg>
+                </span>
+                <span class="meta_question_icon_minus">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="800px" height="800px" viewBox="0 0 459.313 459.314" xml:space="preserve"> 
+                    <g> 
+                      <path d="M459.313,229.648c0,22.201-17.992,40.199-40.205,40.199H40.181c-11.094,0-21.14-4.498-28.416-11.774   C4.495,250.808,0,240.76,0,229.66c-0.006-22.204,17.992-40.199,40.202-40.193h378.936   C441.333,189.472,459.308,207.456,459.313,229.648z"/> 
+                    </g> 
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="meta_answer">
+              {{ meta_answer }}
+            </div>
+          </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="new_meta_faq_right">
+        <div class="new_meta_faq_img">
+          {{ product.metafields.custom.new_faq_image | metafield_tag }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .blinking {
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+  .image-viewer img { 
+    display: none; 
+  }
+  .image-viewer img.active {
+     display: block; 
+  }
+
+  .lace-calender-innder {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .special-design .meta_answer.open {
+    padding-top: 25px !important;
+  }
+  .circle {
+    display: block !important;
+    width: 32px;
+    height: 32px;
+    background: #E9E9E9;
+    border-radius: 50px;
+    transition: background 0.5s ease-in-out;
+  }
+  .day {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      line-height: 100%;
+      font-weight: 500;
+      gap: 23px;
+      margin-bottom: 16px;
+      cursor: pointer;
+  }
+  .mobile-day{
+    display:none;
+  }
+
+  @media screen and (max-width:767px) {
+    .mobile-day {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 600;
+      transition: top 0.4s ease;
+      font-size: 10px;
+      color: #000;
+      margin-top: 8px;
+    }
+    .desktop-day{
+      display:none;
+    } 
+    .lace-calender-innder {
+      flex-wrap: wrap;
+    }
+    .day-list {
+      width: 100%;
+      display: flex;
+      /* gap: 24px; */
+      justify-content: space-between;
+    }
+    .day {
+      margin: 0;
+    }
+    .circle {
+      width: 28px;
+      height: 28px;
+      position: relative;
+    }
+    .circle.active .mobile-day {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
+    .image-viewer{
+      margin-top: 25px;
+    }
+  }
+</style>
+
+
+
+
+{% schema %}
+{
+  "name": "Meta FAQ 1",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Meta FAQ 1"
+    }
+  ]
+}
+{% endschema %}
+
+

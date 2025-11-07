@@ -1,0 +1,250 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+    #shopify-section-{{ section.id }} .section--custom-page{
+      {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+      {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+        background: {{ section.settings.bg_color }};
+    }
+
+    #shopify-section-{{ section.id }} .custom-pages {
+        display: grid;
+        grid-template-columns: repeat({{ section.settings.desktop_column }}, 1fr);
+        column-gap: {{ section.settings.column_gap }}px;
+        row-gap: {{ section.settings.row_gap }}px;
+    }
+
+    @media (max-width:1199px){
+        #shopify-section-{{ section.id }} .section--custom-page{
+          {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+          {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+  			}
+      }
+
+    @media (max-width:991px){
+        #shopify-section-{{ section.id }} .section--custom-page{
+          {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+          {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+  			}
+    }
+
+    @media (max-width:767px){
+        #shopify-section-{{ section.id }} .section--custom-page{
+          {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+          {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+  		}
+        #shopify-section-{{ section.id }} .custom-pages {
+            grid-template-columns: repeat({{ section.settings.mobile_column }}, 1fr);
+            column-gap: 8px;
+            row-gap: 8px;
+        }
+      }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--custom-page">
+  <div class="{{ container }}">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section_heading">
+        <div class="section_title">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      </div>
+    {%- endif -%}
+    
+    {%- if section.settings.enable_breacrumb -%}
+        {% render 'breadcrumb' %}
+    {%- endif -%}
+    
+    {% assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680' %}
+    <div class="section_content">
+      <div class="custom-pages">
+        {%- for block in section.blocks -%}
+          <div class="page_block">
+            <div class="custom_img">
+              {%- if block.settings.custom_img != blank -%}
+                <a href="{{ block.settings.page_url }}">
+                    {%- if block.settings.custom_img != blank and block.settings.custom_img_mobile == blank -%}
+                        {{
+                            block.settings.custom_img
+                            | image_url: width: 3840
+                            | image_tag:
+                            width: block.settings.custom_img.width,
+                            height: image_height_2,
+                            class: 'd-block',
+                            widths: widths
+                        }}
+                    {%- else -%}
+                        {{
+                            block.settings.custom_img
+                            | image_url: width: 3840
+                            | image_tag:
+                            width: block.settings.custom_img.width,
+                            height: image_height_2,
+                            class: 'd-none d-md-block',
+                            widths: widths
+                        }}
+                    {%- endif -%}
+                    {%- if block.settings.custom_img_mobile != blank -%}
+                        {{
+                            block.settings.custom_img_mobile
+                            | image_url: width: 3840
+                            | image_tag:
+                            width: block.settings.custom_img_mobile.width,
+                            height: image_height_2,
+                            class: 'd-block d-md-none',
+                            widths: widths
+                        }}
+                    {%- endif -%}
+                    </a>
+              {%- else -%}
+                <img class="" src="https://placehold.jp/800x290.png" alt="new_launch_img">
+              {%- endif -%}
+            </div>
+            <div class="custom_info">
+              <a href="{{ block.settings.page_url }}"><p>{{ block.settings.page_name }}</p></a>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Pages Grid",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        },
+        {
+          "value": "box_width",
+          "label": "Box Width"
+        }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "placeholder": "top right bottom right",
+      "info": "Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "placeholder": "top right bottom right",
+      "info": "Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "header",
+      "content": "=== General Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_breacrumb",
+      "label": "Enable Breadcrumb",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "desktop_column",
+      "label": "Desktop Column",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_column",
+      "label": "Mobile Column",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column Gap",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Row Gap",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Custom Pages Grid",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_img",
+          "label": "Custom Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_img_mobile",
+          "label": "Custom Image(For Responsive)"
+        },
+        {
+          "type": "textarea",
+          "id": "page_name",
+          "label": "Page Name"
+        },
+        {
+          "type": "url",
+          "id": "page_url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Pages Grid",
+      "category": "page"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

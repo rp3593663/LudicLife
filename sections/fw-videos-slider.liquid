@@ -1,0 +1,146 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .section--fw-video-slider {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .section--fw-video-slider {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .section--fw-video-slider {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section--fw-video-slider {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--fw-video-slider">
+  <div class="{{ container }}">
+    <div class="fw_slider_tab">
+      {% assign videos = 'https://cdn.shopify.com/videos/c/o/v/85a58e91fa364d26ba0208c382402bfc.mp4,https://cdn.shopify.com/videos/c/o/v/85a58e91fa364d26ba0208c382402bfc.mp4,https://cdn.shopify.com/videos/c/o/v/85a58e91fa364d26ba0208c382402bfc.mp4'
+        | split: ','
+      %}
+      {% for video in videos %}
+        <section class="video-section">
+          <div>
+            {% comment %} <video muted playsinline preload="auto">
+              <source src="{{ video }}" type="video/mp4">
+            </video> {% endcomment %}
+            <p class="v_play_btn" data-src="{{ video }}">Video</p>
+            <p class="v_title">Sport bag in early 90s</p>
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="videoModal" class="video-modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <video id="modalVideo" controls autoplay>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const playButtons = document.querySelectorAll('.v_play_btn');
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalSource = modalVideo.querySelector('source');
+    const closeModal = document.querySelector('.close-modal');
+
+    playButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const videoSrc = btn.getAttribute('data-src');
+        modalSource.setAttribute('src', videoSrc);
+        modalVideo.load();
+        modal.classList.remove('hidden');
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modalVideo.pause();
+      modalSource.setAttribute('src', '');
+    });
+
+    // Optional: Close when clicking outside modal
+    document.querySelector('.modal-overlay').addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modalVideo.pause();
+      modalSource.setAttribute('src', '');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Fw Video Slider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fw Video Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

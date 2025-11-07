@@ -1,0 +1,330 @@
+<div class="arc-slider-wrapper {{ section.settings.custom_class }}">
+  <div class="arc-slider-track" id="arcSlider-{{ section.id }}">
+    {% for block in section.blocks %}
+      {% if block.settings.slide_image %}
+        <div class="arc-image-wrapper">
+          <a href="/products/{{ block.settings.slide_product | product_url }}">  
+            <img
+            src="{{ block.settings.slide_image | image_url: width: 400 }}"
+            alt="Arc Image"
+            class="arc-image"
+            >
+            <div class="arc-image-content">
+              <p class="slide-product-name">{{ block.settings.slide_product.metafields.custom.product_name_breadcrumb }} / <span class="slide-product-color">{{ block.settings.slide_product.metafields.custom.product_color_name }}</span></p>
+              <p class="slide-product-price">₹ {{ block.settings.slide_product.price | money_without_currency |  remove: '.00'  }}</p>
+              
+              </div>
+            </a>
+          </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="slider-text-main">
+    <div class="slider-text-wrapper">
+      <div class="slider-text-content">
+        <h2>This here is it. Just slide in.</h2>
+        <p>Cloud-like comfort & solid support in Ludic proprietary CloudFrame<sup>™</sup></p>
+        <a href="/collections/sliders" class="slide-text-button">Discover</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+/* .arc-slider-wrapper:after {
+    content: '';
+    position: relative;
+    background: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Ludic_Grid_1.svg?v=1744975392) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+} */
+.arc-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  /* margin: 70px 0; */
+  margin: 0;
+}
+.arc-image-wrapper {
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  width: 200px;
+  height: 200px;
+  margin-top: 50px;
+}
+
+.arc-image-wrapper a{
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.arc-image {
+  position: absolute;
+  width: 200px !important;
+  height: 180px;
+  object-fit: contain;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.1s;
+}
+
+.slider-text-main{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  margin-bottom: 75px;
+}
+
+.arc-image-content {
+    position: absolute;
+    bottom: -20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+p.slide-product-name ,
+p.slide-product-price{
+  font-size: 12px;
+  color: #1a1a1a;
+  line-height: 12px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 7px;
+}
+.slide-product-color{
+  font-weight: 700;
+}
+
+.arc-image-content{
+  display: none;
+}
+.arc-image-wrapper:hover .arc-image-content {
+  display: block;
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.slider-text-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34.3px;
+    letter-spacing: -0.2px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.slider-text-content p {
+    font-size: 16px;
+    line-height: 22.9px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: -0.48px;
+}
+
+a.slide-text-button {
+    font-size: 9px;
+    line-height: 14.4px;
+    background: #E60013;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 40px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+@media screen and (max-width:767px) {
+  .slider-text-content h2 {
+      font-size: 10px;
+      line-height: 12px;
+  }
+  .slider-text-content p {
+      font-size: 8px;
+      line-height: 11px;
+      margin-bottom: 15px;
+  }
+  a.slide-text-button {
+      font-size: 8px;
+      line-height: 11px;
+      padding: 6px 13px;
+  }
+  .slider-text-main {
+    margin-bottom: 25px;
+  }
+  .arc-slider-wrapper {
+      height: 260px;
+      /* margin: 25px 0; */
+      margin: 0;
+      /* padding: 20px; */
+      padding: 0px;
+  }
+  .arc-image-wrapper a {
+      width: 100px;
+      height: 100px;
+  }
+  .arc-image-wrapper {
+      width: 100px;
+      height: 100px;
+      margin-top: 0;
+  }
+  .arc-image-wrapper img{
+      width: 100px !important;
+      height: 100px;
+  }
+  p.slide-product-name, p.slide-product-price {
+      font-size: 8px;
+      line-height: 11px;
+      margin-bottom: 3px;
+  }
+  /* .arc-slider-wrapper:after{
+    background: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/grid_mobile.svg?v=1745214208) center center;
+  } */
+}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("arcSlider-{{ section.id }}");
+  const wrappers = Array.from(container.querySelectorAll('.arc-image-wrapper'));
+  // const visibleCount = 5;
+  const isMobile = window.innerWidth <= 768;
+  const visibleCount = isMobile ? 3 : 5;
+  const speed = isMobile ? 0.6 : 1;      // slower on mobile
+  const radius = isMobile ? 50 : 150;
+  const containerWidth = container.offsetWidth || window.innerWidth;
+  const spacing = containerWidth / visibleCount;
+  const buffer = spacing; // For looping
+  const totalImagesNeeded = visibleCount * 3;
+
+  while (wrappers.length < totalImagesNeeded) {
+    const clones = wrappers.map(wrapper => {
+      const clone = wrapper.cloneNode(true);
+      container.appendChild(clone);
+      return clone;
+    });
+    wrappers.push(...clones);
+  }
+
+  const imgData = wrappers.map((wrapper, i) => {
+    const img = wrapper.querySelector('img');
+    img.style.width = `${spacing}px`;
+    img.style.position = 'absolute';
+    img.style.transition = 'transform 0.2s ease-out';
+    img.style.willChange = 'transform';
+    wrapper.style.position = 'absolute';
+    wrapper.style.opacity = 1;
+    wrapper.style.pointerEvents = 'auto';
+    return {
+      wrapper,
+      img,
+      x: i * spacing
+    };
+  });
+
+  let isPaused = false;
+
+  // Pause only on image hover
+  imgData.forEach(data => {
+    data.wrapper.addEventListener('mouseenter', () => isPaused = true);
+    data.wrapper.addEventListener('mouseleave', () => isPaused = false);
+  });
+
+  function animate() {
+    if (!isPaused) {
+      const centerOffset = spacing / 2;
+
+      imgData.forEach((data) => {
+        data.x -= speed;
+
+        // Recycle if completely out of screen to the left
+        if (data.x < -buffer) {
+          const maxX = Math.max(...imgData.map(d => d.x));
+          data.x = maxX + spacing;
+        }
+
+        const screenX = data.x;
+        const progress = screenX / containerWidth;
+        const angle = Math.PI * progress;
+        const y = radius - Math.sin(angle) * radius;
+
+        data.wrapper.style.transform = `translate(${screenX - centerOffset}px, ${y}px)`;
+        data.wrapper.style.opacity = 1; // Always visible
+        data.wrapper.style.pointerEvents = 'auto';
+      });
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Custom Slider Carousal",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "product",
+          "id": "slide_product",
+          "label": "Slide Product",
+          "info": "Select a product to link the image to."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Slider Carousal",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

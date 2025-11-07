@@ -1,0 +1,192 @@
+<div class="page-width">
+  <div class="title-wrapper row">
+    <div class="col-lg-6 col-md-6 col-12">
+      <span class="sub-title">{{ section.settings.sub_title }}</span>
+      <a href="{{ section.settings.link }}" class="insta-title">{% render 'icon-instagram' %}<h2>{{ section.settings.title }}</h2></a>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12">
+      <h4 class="hashtag">{{ section.settings.hashtag }}</h4>
+    </div>
+  </div>
+  <div class="insta-feed-inner row">
+    <div class="insta-feed-left">
+      <div>{{ section.settings.description }}</div>
+    </div>
+    <div class="insta-feed-right">
+      {% for block in section.blocks %}
+         {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'insta-feed-image' }}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="text-button only-mobile-btn">
+    <a href="{{ section.settings.link }}" class="button button--secondary">View All</a>
+  </div>
+</div>
+
+<style>
+  .col-lg-6 {
+    max-width: 50%;
+    width: 100%;
+  }
+  .insta-feed-left {
+    max-width: 27%;
+    width: 100%;
+  }
+  .insta-feed-right {
+    max-width: 73%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .insta-feed-left {
+    padding-right: 65px;
+  }
+  .insta-feed-image {
+    height: auto;
+    width: calc(33.33% - 16px);
+    margin: 8px;
+    border-radius: 8px;
+  }
+  .insta-title {
+    display: flex;
+    color: #1A1A1A;
+  }
+  .insta-title h2{
+    font-size: 56px;
+    font-weight: bold;
+    margin: 0 0 0 20px;
+  }
+  .insta-title svg {
+      width: 48px;
+  }
+  .sub-title {
+    font-size: 12px;
+    color: #E60013;
+    font-weight: 700;
+  }
+  .hashtag {
+    text-align: right;
+    color: #E60013;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 50px;
+  }
+  .insta-feed-left p {
+    color: #939598;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  @media(max-width:1199.98px){
+    .insta-title h2{
+      font-size: 38px;
+    }
+    .insta-feed-left p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  @media(max-width:991.98px){
+    .insta-feed-left {
+      padding-right: 20px;
+    }
+    .insta-title h2{
+      font-size: 32px;
+    }
+  }
+  @media(max-width:767.98px){
+    .insta-feed .title-wrapper .col-lg-6:nth-child(2) {
+        display: none;
+    }
+    .insta-feed .title-wrapper .col-lg-6,
+    .insta-feed .insta-feed-inner .insta-feed-left,
+    .insta-feed .insta-feed-inner .insta-feed-right{
+        max-width: 100%;
+    }
+    .insta-feed .title-wrapper {
+        margin-bottom: 0;
+    }
+    .insta-feed .insta-feed-inner .insta-feed-left p {
+        font-size: 10px;
+        line-height: 14px;
+        max-width: 200px;
+        width: 100%;
+    }
+    .insta-feed .insta-feed-inner .insta-feed-right {
+        justify-content: space-between;
+    }
+    .insta-feed-image {
+        height: auto;
+        width: calc(50% - 4px);
+        margin: 0px 0px 8px;
+        border-radius: 4px;
+    }
+    .insta-feed-image:nth-child(n+5) {
+        display: none;
+    }
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Instagram Feed",
+  "tag": "section",
+  "class": "img-content insta-feed",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Sub Title",
+      "id": "sub_title",
+      "default": "FROM THE GRAM"
+    },
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title",
+      "default": "ludic.life"
+    },
+    {
+      "type": "url",
+      "label": "Link",
+      "id": "link"
+    },
+    {
+      "type": "text",
+      "label": "Hashtag",
+      "id": "hashtag",
+      "default": "#JoinLudicLife"
+    },
+    {
+      "type": "richtext",
+      "label": "Description",
+      "id": "description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Feed"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
