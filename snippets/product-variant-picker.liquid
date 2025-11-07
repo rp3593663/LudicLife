@@ -151,7 +151,7 @@
         </div>
       {% endif %}
 
-      <div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content active {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
+      <div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
         {% if template != 'product.accessories' %}
         <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
         {% else %}
