@@ -703,7 +703,7 @@
 
 {% comment %} Active toggle tab shows first and remains active if pages changes or reloads {% endcomment %}
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+{% comment %} document.addEventListener('DOMContentLoaded', function () {
   const tabsContainer = document.querySelector('.sliders-tab');
   if (!tabsContainer) return;
 
@@ -752,6 +752,6 @@ document.addEventListener('DOMContentLoaded', function () {
       activateTab(this.dataset.tab, true);
     });
   });
-});
+}); {% endcomment %}
 </script>
 
