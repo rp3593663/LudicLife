@@ -8093,11 +8093,12 @@ body.Sliders .custom-variant-product p {
     margin-bottom: 12px;
 }
 .custom-variant-product p span{
-    font-weight:bold;
+    font-weight: 650;
 }
 
-.custom-variant-product {
-    margin-bottom: 32px;
+.custom-variant-product,
+body.Sliders .custom-variant-product {
+    margin-bottom: 28px;
 }
 
 body.Sliders .custom-variant-product{
