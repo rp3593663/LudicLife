@@ -253,120 +253,35 @@
                   </div>
                 {% endif %}
 
+                {%- when 'twos_day_sale_bundle' -%}
+                  {% if template == 'product.twos-day-sale' %}
+                    <div class="twos_day_bundle">
+                      <h6 class="twos_day_bundle_offer">Buy 1 Get 1</h6>
+                      {% assign bundle_1 = product.metafields.custom.product_1_bundle.value %}
+                      {% assign bundle_2 = product.metafields.custom.product_2_bundle.value %}
 
+                      <div class="bundle-select-wrapper">
 
-                {% if template == 'product.twos-day-sale' %}
-                  <div class="twos_day_bundle">
-                    <h6 class="twos_day_bundle_offer">Buy 1 Get 1</h6>
-                    {% assign bundle_1 = product.metafields.custom.product_1_bundle.value %}
-                    {% assign bundle_2 = product.metafields.custom.product_2_bundle.value %}
-
-                    <div class="bundle-select-wrapper">
-
-                      {% if bundle_1 %}
-                        <div class="bundle-block" data-bundle="1">
-                          <label>Product 1</label>
-                          
-                          <div class="bundle_select_boxs">
-                            <div class="product_size_selection">
-
-                              {% for product_item in bundle_1 %}
-                                {% assign bundle_1_product_title = product_item.title %}
-                                {% assign bundle_1_product_img = product_item.featured_image %}
-                                {% assign size_chart1_table = product_item.metafields.custom.size_chart_table %}
-                                {% assign size_chart1_img = product_item.metafields.custom.size_chart_table_image %}
-                                {% break %}
-                              {% endfor %}
-                              <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p>
-
-                              <div class="bundle-p-select">
-                                <select id="bundle_1_select" class="bundle-product-select">
-                                  <option value="">Select Color</option>
-                                  {% for product_item in bundle_1 %}
-                                    {% assign handle = product_item.handle | default: product_item %}
-                                    {% assign p = all_products[handle] %}
-                                    {% if p %}
-                                      <option value="{{ p.handle }}">{{ p.metafields.custom.product_color_name }}</option>
-                                    {% endif %}
-                                  {% endfor %}
-                                </select>
-                              </div>
-                              <div class="error-msg product-error" style="display:none;">Please select a color.</div>
-
-                              <div id="cspopupModal1" class="csmodal">
-                                <div class="csmodal-content">
-                                  <div style="" class="csmodal-heading">
-                                    <span class="size-guide-label"><b>Size Guide</b></span>
-                                    <span class="close-btn">&times;</span>
-                                  </div>
-                                  <div class="cs-modal-inner-content">
-                                    {% if size_chart1_img != blank %}
-                                      <img
-                                      src="{{ size_chart1_img | image_url:width:600 }}"
-                                      srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
-                                      loading="lazy"
-                                      alt="{{ bundle_1_product_title }}"
-                                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                      width=""
-                                      height=""
-                                    >
-                                    {% else %}
-                                    <img
-                                      src="{{ bundle_1_product_img | image_url:width:600 }}"
-                                      srcset="{{ bundle_1_product_img | image_url:width:400 }} 1x, {{ bundle_1_product_img | image_url:width:800 }} 2x"
-                                      loading="lazy"
-                                      alt="{{ bundle_1_product_title }}"
-                                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                      width=""
-                                      height=""
-                                    >
-                                    {% endif %}
-                                    <div class="cs-table">
-                                      {{ size_chart1_table }}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="product_size_selection">
-                              <div class="size_selection_label">
-                                <p class="label_selected">Size / <span class="bundle_selected_product1_size"></span></p>
-                                <div id="openPopupBtn1" class="bundle_size_btn">Size Guide</div>
-                              </div>
-                              <div class="bundle-p-select">
-                                <select id="bundle_1_size_select" class="bundle-size-select" disabled>
-                                  <option value="">Select Size</option>
-                                </select>
-                              </div>
-                              <div class="error-msg size-error" style="display:none;">Please select a size.</div>
-                            </div>
-
-                          </div>
-                          <input type="hidden" id="bundle_1_chosen_variant" value="">
-                        </div>
-                      {% endif %}
-
-                      {% if bundle_2 %}
-                        <div class="bundle-block" data-bundle="2">
-                          <label>Product 2</label>
-
+                        {% if bundle_1 %}
+                          <div class="bundle-block" data-bundle="1">
+                            <label>Product 1</label>
+                            
                             <div class="bundle_select_boxs">
                               <div class="product_size_selection">
 
-                                {% for product_item in bundle_2 %}
-                                  {% assign bundle_2_product_title = product_item.title %}
-                                  {% assign bundle_2_product_img = product_item.featured_image %}
-                                  {% assign size_chart2_table = product_item.metafields.custom.size_chart_table %}
-                                  {% assign size_chart2_img = product_item.metafields.custom.size_chart_table_image %}
+                                {% for product_item in bundle_1 %}
+                                  {% assign bundle_1_product_title = product_item.title %}
+                                  {% assign bundle_1_product_img = product_item.featured_image %}
+                                  {% assign size_chart1_table = product_item.metafields.custom.size_chart_table %}
+                                  {% assign size_chart1_img = product_item.metafields.custom.size_chart_table_image %}
                                   {% break %}
                                 {% endfor %}
-                                <p class="label_selected">{{ bundle_2_product_title }} / <span class="bundle_selected_product2"></span></p>
+                                <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p>
 
                                 <div class="bundle-p-select">
-                                  <select id="bundle_2_select" class="bundle-product-select">
+                                  <select id="bundle_1_select" class="bundle-product-select">
                                     <option value="">Select Color</option>
-                                    {% for product_item in bundle_2 %}
+                                    {% for product_item in bundle_1 %}
                                       {% assign handle = product_item.handle | default: product_item %}
                                       {% assign p = all_products[handle] %}
                                       {% if p %}
@@ -377,36 +292,36 @@
                                 </div>
                                 <div class="error-msg product-error" style="display:none;">Please select a color.</div>
 
-                                <div id="cspopupModal2" class="csmodal">
+                                <div id="cspopupModal1" class="csmodal">
                                   <div class="csmodal-content">
                                     <div style="" class="csmodal-heading">
                                       <span class="size-guide-label"><b>Size Guide</b></span>
                                       <span class="close-btn">&times;</span>
                                     </div>
                                     <div class="cs-modal-inner-content">
-                                      {% if size_chart2_img != blank %}
+                                      {% if size_chart1_img != blank %}
                                         <img
-                                        src="{{ size_chart2_img | image_url:width:600 }}"
-                                        srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
+                                        src="{{ size_chart1_img | image_url:width:600 }}"
+                                        srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
                                         loading="lazy"
-                                        alt="{{ bundle_2_product_title }}"
+                                        alt="{{ bundle_1_product_title }}"
                                         style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
                                         width=""
                                         height=""
                                       >
                                       {% else %}
                                       <img
-                                        src="{{ bundle_2_product_img | image_url:width:600 }}"
-                                        srcset="{{ bundle_2_product_img | image_url:width:400 }} 1x, {{ bundle_2_product_img | image_url:width:800 }} 2x"
+                                        src="{{ bundle_1_product_img | image_url:width:600 }}"
+                                        srcset="{{ bundle_1_product_img | image_url:width:400 }} 1x, {{ bundle_1_product_img | image_url:width:800 }} 2x"
                                         loading="lazy"
-                                        alt="{{ bundle_2_product_title }}"
+                                        alt="{{ bundle_1_product_title }}"
                                         style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
                                         width=""
                                         height=""
                                       >
                                       {% endif %}
                                       <div class="cs-table">
-                                        {{ size_chart2_table }}
+                                        {{ size_chart1_table }}
                                       </div>
                                     </div>
                                   </div>
@@ -415,69 +330,156 @@
 
                               <div class="product_size_selection">
                                 <div class="size_selection_label">
-                                  <p class="label_selected">Size / <span class="bundle_selected_product2_size"></span></p>
-                                  <div id="openPopupBtn2" class="bundle_size_btn">Size Guide</div>
+                                  <p class="label_selected">Size / <span class="bundle_selected_product1_size"></span></p>
+                                  <div id="openPopupBtn1" class="bundle_size_btn">Size Guide</div>
                                 </div>
                                 <div class="bundle-p-select">
-                                  <select id="bundle_2_size_select" class="bundle-size-select" disabled>
+                                  <select id="bundle_1_size_select" class="bundle-size-select" disabled>
                                     <option value="">Select Size</option>
                                   </select>
                                 </div>
                                 <div class="error-msg size-error" style="display:none;">Please select a size.</div>
                               </div>
+
                             </div>
-                          <input type="hidden" id="bundle_2_chosen_variant" value="">
-                        </div>
-                      {% endif %}
+                            <input type="hidden" id="bundle_1_chosen_variant" value="">
+                          </div>
+                        {% endif %}
 
+                        {% if bundle_2 %}
+                          <div class="bundle-block" data-bundle="2">
+                            <label>Product 2</label>
+
+                              <div class="bundle_select_boxs">
+                                <div class="product_size_selection">
+
+                                  {% for product_item in bundle_2 %}
+                                    {% assign bundle_2_product_title = product_item.title %}
+                                    {% assign bundle_2_product_img = product_item.featured_image %}
+                                    {% assign size_chart2_table = product_item.metafields.custom.size_chart_table %}
+                                    {% assign size_chart2_img = product_item.metafields.custom.size_chart_table_image %}
+                                    {% break %}
+                                  {% endfor %}
+                                  <p class="label_selected">{{ bundle_2_product_title }} / <span class="bundle_selected_product2"></span></p>
+
+                                  <div class="bundle-p-select">
+                                    <select id="bundle_2_select" class="bundle-product-select">
+                                      <option value="">Select Color</option>
+                                      {% for product_item in bundle_2 %}
+                                        {% assign handle = product_item.handle | default: product_item %}
+                                        {% assign p = all_products[handle] %}
+                                        {% if p %}
+                                          <option value="{{ p.handle }}">{{ p.metafields.custom.product_color_name }}</option>
+                                        {% endif %}
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                                  <div class="error-msg product-error" style="display:none;">Please select a color.</div>
+
+                                  <div id="cspopupModal2" class="csmodal">
+                                    <div class="csmodal-content">
+                                      <div style="" class="csmodal-heading">
+                                        <span class="size-guide-label"><b>Size Guide</b></span>
+                                        <span class="close-btn">&times;</span>
+                                      </div>
+                                      <div class="cs-modal-inner-content">
+                                        {% if size_chart2_img != blank %}
+                                          <img
+                                          src="{{ size_chart2_img | image_url:width:600 }}"
+                                          srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
+                                          loading="lazy"
+                                          alt="{{ bundle_2_product_title }}"
+                                          style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                          width=""
+                                          height=""
+                                        >
+                                        {% else %}
+                                        <img
+                                          src="{{ bundle_2_product_img | image_url:width:600 }}"
+                                          srcset="{{ bundle_2_product_img | image_url:width:400 }} 1x, {{ bundle_2_product_img | image_url:width:800 }} 2x"
+                                          loading="lazy"
+                                          alt="{{ bundle_2_product_title }}"
+                                          style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                          width=""
+                                          height=""
+                                        >
+                                        {% endif %}
+                                        <div class="cs-table">
+                                          {{ size_chart2_table }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="product_size_selection">
+                                  <div class="size_selection_label">
+                                    <p class="label_selected">Size / <span class="bundle_selected_product2_size"></span></p>
+                                    <div id="openPopupBtn2" class="bundle_size_btn">Size Guide</div>
+                                  </div>
+                                  <div class="bundle-p-select">
+                                    <select id="bundle_2_size_select" class="bundle-size-select" disabled>
+                                      <option value="">Select Size</option>
+                                    </select>
+                                  </div>
+                                  <div class="error-msg size-error" style="display:none;">Please select a size.</div>
+                                </div>
+                              </div>
+                            <input type="hidden" id="bundle_2_chosen_variant" value="">
+                          </div>
+                        {% endif %}
+
+                      </div>
+                      <button id="bundleAddToCartBtn" class="bundle-add-btn">
+                        <span class="text-wrap">
+                          <span class="text default">
+                            Add to Bag
+                          </span>
+                          <span class="text hover">
+                            Add to Bag
+                          </span>
+                        </span>
+                      </button>
+                      {% comment %} <div id="bundleAddMsg" style="margin-top:10px; font-size:14px;"></div> {% endcomment %}
+                      <script>
+                        window.bundleVariantData = {};
+                        {% if bundle_1 %}
+                          {% for product_item in bundle_1 %}
+                            {% assign handle = product_item.handle | default: product_item %}
+                            {% assign p = all_products[handle] %}
+                            {% if p %}
+                              window.bundleVariantData["{{ p.handle }}"] = [
+                                {% for v in p.variants %}
+                                  { id: {{ v.id }}, title: {{ v.title | json }}, available: {{ v.available | json }} }
+                                  {% unless forloop.last %},{% endunless %}
+                                {% endfor %}
+                              ];
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+
+                        {% if bundle_2 %}
+                          {% for product_item in bundle_2 %}
+                            {% assign handle = product_item.handle | default: product_item %}
+                            {% assign p = all_products[handle] %}
+                            {% if p and window.bundleVariantData[p.handle] == nil %}
+                              window.bundleVariantData["{{ p.handle }}"] = [
+                                {% for v in p.variants %}
+                                  { id: {{ v.id }}, title: {{ v.title | json }}, available: {{ v.available | json }} }
+                                  {% unless forloop.last %},{% endunless %}
+                                {% endfor %}
+                              ];
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      </script>
                     </div>
-                    <button id="bundleAddToCartBtn" class="bundle-add-btn">
-                      <span class="text-wrap">
-                        <span class="text default">
-                          Add to Bag
-                        </span>
-                        <span class="text hover">
-                          Add to Bag
-                        </span>
-                      </span>
-                    </button>
-                    {% comment %} <div id="bundleAddMsg" style="margin-top:10px; font-size:14px;"></div> {% endcomment %}
-                    <script>
-                      window.bundleVariantData = {};
-                      {% if bundle_1 %}
-                        {% for product_item in bundle_1 %}
-                          {% assign handle = product_item.handle | default: product_item %}
-                          {% assign p = all_products[handle] %}
-                          {% if p %}
-                            window.bundleVariantData["{{ p.handle }}"] = [
-                              {% for v in p.variants %}
-                                { id: {{ v.id }}, title: {{ v.title | json }}, available: {{ v.available | json }} }
-                                {% unless forloop.last %},{% endunless %}
-                              {% endfor %}
-                            ];
-                          {% endif %}
-                        {% endfor %}
-                      {% endif %}
+                  {%- endif -%}
 
-                      {% if bundle_2 %}
-                        {% for product_item in bundle_2 %}
-                          {% assign handle = product_item.handle | default: product_item %}
-                          {% assign p = all_products[handle] %}
-                          {% if p and window.bundleVariantData[p.handle] == nil %}
-                            window.bundleVariantData["{{ p.handle }}"] = [
-                              {% for v in p.variants %}
-                                { id: {{ v.id }}, title: {{ v.title | json }}, available: {{ v.available | json }} }
-                                {% unless forloop.last %},{% endunless %}
-                              {% endfor %}
-                            ];
-                          {% endif %}
-                        {% endfor %}
-                      {% endif %}
-                    </script>
-                  </div>
-                {%- endif -%}
+                
 
-                {% if template == 'product.twos-day-sale' %}
+                {%- when 'custom_icon_with_text' -%}
+                  {% if template == 'product.twos-day-sale' %}
                   <div class="custom_icon_with_text">
                     <div class="custom_icon_text exciting_offer">
                       <div class="dot_icon green">
@@ -492,10 +494,26 @@
                       Return not available
                     </div>
                   </div>
+                {%- else -%}
+                  <div class="custom_icon_with_text">
+                    <div class="custom_icon_text size_suggestion">
+                      <div class="size_suggestion_icon">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/size_icon_slider.svg?v=1761809024" alt="size_suggestion_icon">
+                      </div>
+                      We suggest one size down
+                    </div>
+                    <div class="custom_icon_text exciting_offer" id="open_offer_tab">
+                      <div class="dot_icon green">
+                        <span class="dot"></span>
+                      </div>
+                      Exciting Offers +
+                    </div>
+                  </div>
                 {%- endif -%}
 
-                {% if template == 'product.twos-day-sale' %}
-                  <div class="features_with_icon">
+                {%- when 'product_fetures_with_icon' -%}
+                <div class="features_with_icon">
+                  <div class="features_with_icon_blocks">
                     <div class="feature_block">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/svg_freeShipping.svg?v=1761904569" alt="shipping_icon">
                       Free Shipping
@@ -508,10 +526,51 @@
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/svg_Lock.svg?v=1761904569" alt="lock_icon">
                       Secure payment
                     </div>
+                    {% if template != 'product.twos-day-sale' %}
+                      <div class="feature_block">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/free.svg?v=1762153633" alt="lock_icon">
+                        Freebies for you
+                      </div>
+                    {%- endif -%}
                   </div>
-                {%- endif -%}
+                  {% if request.path contains 'products' %}
+                    {% assign allowed_collections = 'sliders' | split: ',' %}
+                    {% assign allowed_products_1 = 'enhanced-canvas-pro,nova-pro' | split: ',' %}
+                    {% assign allowed_products_2 = 'ec-pro-raven' | split: ',' %}
+                    {% assign allowed_products_3 = 'ec-low-sirocco' | split: ',' %}
+                    {% assign allowed_products_4 = 'nova-play-sand-tan,nova-play-chalk-white,nova-play-slate-black' | split: ',' %}
+                    {% assign video_src = '' %}
 
-                {% if template == 'product.twos-day-sale' %}
+                    {% for collection in product.collections %}
+                      {% if allowed_collections contains collection.handle %}
+                        {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/54b3441e479b4ddc9e33cfd7d61c4fd5.mp4' %}
+                      {% endif %}
+                    {% endfor %}
+                    
+                    {% if allowed_products_1 contains product.handle %}
+                      {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/e84e36f7985b4d8f9e4f84ad01f1aaf1.mp4' %}
+                    {% elsif allowed_products_2 contains product.handle %}
+                      {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/2160bf366331410ba416d2f42405c2a6.mp4' %}
+                    {% elsif allowed_products_3 contains product.handle %}
+                      {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/269b1c58793e46f5a81ba6b8abf5dbb5.mp4' %}
+                    {% elsif allowed_products_4 contains product.handle %}
+                      {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/bc3cf397280144cfacf54021d3d22fcd.mp4' %}
+                    {% endif %}
+
+                    {% if video_src != '' %}
+                      <div id="videoPopup" class="video-popup">
+                        <div class="video-popup-inner" onclick="openFullScreen()">
+                          {% comment %} <button class="close-btn" onclick="closeVideoPopup(event)"><i class="ri-close-line"></i></button> {% endcomment %}
+                          <video id="popupVideo" playsinline autoplay loop muted>
+                            <source src="{{ video_src }}" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+
+                {%- when 'product_detail_accordion' -%}
                   <div class="new_meta_faq twos_day_faqs">
                     <div class="new_meta_faq_inner">
                       <div class="new_meta_faq_left">
@@ -548,88 +607,94 @@
                       </div> 
                     </div>
                   </div>
-                {%- endif -%}
 
-                {% if template == 'product.twos-day-sale' %}
-                  <div class="frequently_bought_together_block">
-                    <h3 class="title">Frequently bought together</h3>
-                    {% assign bought_products = product.metafields.ludic.pair_with_products_for_simple_product.value %}
-                    <div class="frequently_bought_products">
-                      {% for bought_product in bought_products %}
-                        <div class="product-variant-card">
-                          {%- assign product_url = bought_product.url -%}
-                            {%- assign featured_image = bought_product.featured_media.preview_image %}
-                            {%- if bought_product.featured_image.src -%}
-                              {%- assign image = bought_product.featured_image.src -%}
-                            {%- else -%}
-                              {%- assign image = bought_product.images.last -%}
-                          {%- endif -%}
-                          <div class="variant_card_media hover_transform_effect">
-                            <a class="product-variant-card__image-link" href="{{ product_url }}">
-                              <div class="product-variant-card__image">
-                                {% if bought_product.metafields.custom.new_product == true %} 
-                                  <div class="new-product-dot"></div> 
-                                {% endif %}
-                                {% assign image_count = 0 %}
-                                {% for media in bought_product.media %}
-                                    {% if image_count < 2 %}
-                                        {% assign image_count = image_count | plus: 1 %}
-                                        {% if image_count == 1 %}
-                                          <img srcset="
-                                            {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
-                                            {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
-                                            {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
-                                            {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
-                                            {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
-                                            {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                                            {{ media | image_url }} {{ media.width }}w"
-                                            src="{{ media | image_url: width: 533 }}"
-                                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                                            alt="{{ media.alt | escape }}"
-                                            class="motion-reduce product-variant-card__img-first"
-                                            {% unless lazy_load == false %}
-                                              loading="lazy"
-                                            {% endunless %}
-                                            width="{{ media.width }}"
-                                            height="{{ media.height }}"
-                                          >
-                                        {% else %}
-                                          <img srcset="
-                                            {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
-                                            {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
-                                            {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
-                                            {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
-                                            {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
-                                            {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                                            {{ media | image_url }} {{ media.width }}w"
-                                            src="{{ media | image_url: width: 533 }}"
-                                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                                            alt="{{ media.alt | escape }}"
-                                            class="motion-reduce product-variant-card__img-hidden variant"
-                                            {% unless lazy_load == false %}
-                                              loading="lazy"
-                                            {% endunless %}
-                                            width="{{ media.width }}"
-                                            height="{{ media.height }}"
-                                          >
-                                        {% endif %}
-                                    {% endif %}
-                                {% endfor %}
-                              </div>
-                            </a>
-                            <div class="variant_card_content">
-                              <div class="custom-variant-color">
-                                <a href="{{ product_url }}" class="variant_card_url">
-                                  {{ bought_product.metafields.custom.product_name_breadcrumb }} {% if bought_product.metafields.custom.product_color_name != blank %}/{% endif %} <strong>{{ bought_product.metafields.custom.product_color_name }}</strong>  
-                                </a>
+                {%- when 'buy_it_with' -%}
+                  {% if product.metafields.ludic.pair_with_products_for_simple_product.value != blank %}
+                    <div class="frequently_bought_together_block">
+                      <h3 class="title">
+                        {% if template == 'product.twos-day-sale' %}
+                          Frequently bought together
+                        {%- else -%}
+                          Buy it with
+                        {%- endif -%}
+                      </h3>
+                      {% assign bought_products = product.metafields.ludic.pair_with_products_for_simple_product.value %}
+                      <div class="frequently_bought_products">
+                        {% for bought_product in bought_products %}
+                          <div class="product-variant-card">
+                            {%- assign product_url = bought_product.url -%}
+                              {%- assign featured_image = bought_product.featured_media.preview_image %}
+                              {%- if bought_product.featured_image.src -%}
+                                {%- assign image = bought_product.featured_image.src -%}
+                              {%- else -%}
+                                {%- assign image = bought_product.images.last -%}
+                            {%- endif -%}
+                            <div class="variant_card_media hover_transform_effect">
+                              <a class="product-variant-card__image-link" href="{{ product_url }}">
+                                <div class="product-variant-card__image">
+                                  {% if bought_product.metafields.custom.new_product == true %} 
+                                    <div class="new-product-dot"></div> 
+                                  {% endif %}
+                                  {% assign image_count = 0 %}
+                                  {% for media in bought_product.media %}
+                                      {% if image_count < 2 %}
+                                          {% assign image_count = image_count | plus: 1 %}
+                                          {% if image_count == 1 %}
+                                            <img srcset="
+                                              {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
+                                              {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                                              {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
+                                              {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                                              {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
+                                              {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                              {{ media | image_url }} {{ media.width }}w"
+                                              src="{{ media | image_url: width: 533 }}"
+                                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                              alt="{{ media.alt | escape }}"
+                                              class="motion-reduce product-variant-card__img-first"
+                                              {% unless lazy_load == false %}
+                                                loading="lazy"
+                                              {% endunless %}
+                                              width="{{ media.width }}"
+                                              height="{{ media.height }}"
+                                            >
+                                          {% else %}
+                                            <img srcset="
+                                              {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
+                                              {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                                              {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
+                                              {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                                              {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
+                                              {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                              {{ media | image_url }} {{ media.width }}w"
+                                              src="{{ media | image_url: width: 533 }}"
+                                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                              alt="{{ media.alt | escape }}"
+                                              class="motion-reduce product-variant-card__img-hidden variant"
+                                              {% unless lazy_load == false %}
+                                                loading="lazy"
+                                              {% endunless %}
+                                              width="{{ media.width }}"
+                                              height="{{ media.height }}"
+                                            >
+                                          {% endif %}
+                                      {% endif %}
+                                  {% endfor %}
+                                </div>
+                              </a>
+                              <div class="variant_card_content">
+                                <div class="custom-variant-color">
+                                  <a href="{{ product_url }}" class="variant_card_url">
+                                    {{ bought_product.metafields.custom.product_name_breadcrumb }} {% if bought_product.metafields.custom.product_color_name != blank %}/{% endif %} <strong>{{ bought_product.metafields.custom.product_color_name }}</strong>  
+                                  </a>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      {% endfor %}
+                        {% endfor %}
+                      </div>
                     </div>
-                  </div>
-                {%- endif -%}
+                  {%- endif -%}
 
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
