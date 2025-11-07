@@ -2552,7 +2552,7 @@ main.sports-bag-registration{
      .fw-product-slide{
       img{
         width: 100%;
-        max-width: 595px;
+        max-width: calc(100vh - 90px);
         cursor: crosshair;
         border-radius: 0px;
       }
