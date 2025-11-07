@@ -168,7 +168,7 @@
                   <div class="tax-text">(Incl. of all taxes)</div>
                 </div>
 
-                {% if product.title contains 'Sliders' %}
+                {% comment %} {% if product.title contains 'Sliders' %}
                   <div class="coupon-container">
                     <span class="offer">
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -187,7 +187,8 @@
                         </svg>
                     </span>
                   </div>  
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
+
                 {% comment %}
                 {% if request.path contains 'nova-pro' %}
                   <div class="coupon-container">
@@ -213,26 +214,41 @@
 
 
 
-                {% if product.metafields.custom.short_description != blank %}
-                  <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
-                {% endif %}
-                {% if template == 'product.twos-day-sale' %}
-                  <div class="product__specifications">
-                    <div class="specification">
-                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      320 GSM
+                {%- when 'short_description' -%}
+                  {% if product.metafields.custom.short_description != blank %}
+                    <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
+                  {% endif %}
+
+
+                {%- when 'product_specification' -%}
+                  {% if product.metafields.custom.product_specification and product.metafields.custom.product_specification.value.size > 0 %}
+                    <div class="product__specifications">
+                      {% for item in product.metafields.custom.product_specification.value %}
+                        <div class="specification">
+                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="spec icon">
+                          {{ item }}
+                        </div>
+                      {% endfor %}
                     </div>
-                    <div class="specification">
-                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      100% Cotton
-                    </div>
-                    <div class="specification">
-                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      Fleece Line
-                    </div>
-                    <div class="specification">
-                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      Ribbed Collar & Hem
+                  {% endif %}
+
+                {%- when 'model_gender_block' -%}
+                {% if template == 'product.apparels' %}
+                  <div class="product__model_gender">
+                    <p class="product__model_label">Model / <span class="selected_value"></span></p>
+                    <div class="product__model_gender_radio">
+                      <label for="male">
+                        <input type="radio" id="male" name="model" value="Male" checked>
+                        <div class="model_img">
+                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/male.svg?v=1761731699" alt="male">
+                        </div>
+                      </label>
+                      <label for="female">
+                        <input type="radio" id="female" name="model" value="Female">
+                        <div class="model_img">
+                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/female.svg?v=1761731700" alt="female">
+                        </div>
+                      </label>
                     </div>
                   </div>
                 {% endif %}
