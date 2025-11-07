@@ -10,24 +10,24 @@
       color: #000;
     }
       {%- if template == 'product.fw-product' -%}
-      @media(min-width: 767px){
-        #shopify-section-{{ section.id }}{
-          display: none;
+        @media(min-width: 767px){
+          #shopify-section-{{ section.id }}{
+            display: none;
+          }
         }
-      }
       {%- endif -%}
-     {%- if template == 'product.fw-product' -%}
-      @media(max-width: 768px){
-        #shopify-section-{{ section.id }}{
-          display: block!important;
+      {%- if template == 'product.fw-product' -%}
+        @media(max-width: 768px){
+          #shopify-section-{{ section.id }}{
+            display: block!important;
+          }
+          #shopify-section-{{ section.id }} .product__info-wrapper.grid__item {
+            display: none;
+          }
+          #shopify-section-{{ section.id }} {
+            padding-top: 104px!important;
+          }
         }
-        #shopify-section-{{ section.id }} .product__info-wrapper.grid__item {
-          display: none;
-        }
-        #shopify-section-{{ section.id }} {
-          padding-top: 104px!important;
-        }
-      }
       {%- endif -%}
   </style>
   {% unless product.has_only_default_variant %}
