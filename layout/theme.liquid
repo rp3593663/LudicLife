@@ -1263,11 +1263,14 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(mainBtn);
   }
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   const addToBagButton = document.querySelector('.product-form__submit');
   const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
   const errorMessage = document.querySelector('.sold_out_error');
   const errorMessagetext = document.querySelector('.sold_out_error span');
+  const selectedSizeBox = document.querySelector('.selected_size');
+  const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
 
   if (sizeInputs.length > 0) {
     // Ensure no size is selected by default
@@ -1275,12 +1278,39 @@ document.addEventListener('DOMContentLoaded', () => {
       input.checked = false;
     });
 
-    function hideErrorOnSizeSelection() {
+    {% comment %} function hideErrorOnSizeSelection() {
       sizeInputs.forEach(input => {
         input.addEventListener('change', () => {
           if (input.checked && errorMessage) {
             errorMessage.style.display = 'none';
             errorMessagetext.textContent = '';
+          }
+        });
+      });
+    } {% endcomment %}
+    function handleSizeSelection() {
+      sizeInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          if (input.checked) {
+            const selectedSize = input.value;
+            // Hide error
+            if (errorMessage) {
+              errorMessage.style.display = 'none';
+              errorMessagetext.textContent = '';
+            }
+
+            // ✅ Set selected size text
+            if (selectedSizeBox) {
+              selectedSizeBox.innerHTML = ` <span>${input.value}</span>`;
+            }
+
+             sizeSpecSpans.forEach(span => {
+              if (span.dataset.variantTitle === selectedSize) {
+                span.style.display = 'block';
+              } else {
+                span.style.display = 'none';
+              }
+            });
           }
         });
       });
@@ -1305,7 +1335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Call the function to hide the error when a size is selected
-    hideErrorOnSizeSelection();
+    handleSizeSelection();
   }
 });
     </script>
