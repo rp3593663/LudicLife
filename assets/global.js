@@ -1452,17 +1452,17 @@ $(document).on('click', '.product-form__input .size_var', function(){
       input.dataset.val = input.value;
       const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
       input.addEventListener('change', () => {
-          if (input.checked) {
-            const selectedSize = input.value;
-             sizeSpecSpans.forEach(span => {
-              if (span.dataset.variantTitle === selectedSize) {
-                span.style.display = 'block';
-              } else {
-                span.style.display = 'none';
-              }
-            });
-          }
-        });
+        if (input.checked) {
+          const selectedSize = input.value;
+            sizeSpecSpans.forEach(span => {
+            if (span.dataset.variantTitle === selectedSize) {
+              span.style.display = 'block';
+            } else {
+              span.style.display = 'none';
+            }
+          });
+        }
+      });
     });
   }
 
