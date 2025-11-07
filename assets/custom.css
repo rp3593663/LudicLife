@@ -1841,6 +1841,10 @@ button#setReminderBtn {
     letter-spacing: -0.4px!important;
     vertical-align: middle;
 }
+.size-chart-popup__size-box .meta_pro_information {
+    display: none;
+}
+
 
 @media (max-width: 991.98px) {
   body.template-page\.twos-day-sale  #MainContent {
