@@ -1844,7 +1844,10 @@ button#setReminderBtn {
 .size-chart-popup__size-box .meta_pro_information {
     display: none;
 }
-
+.template-product:not(.template-product\.fw-product) .size-chart-popup__size-box .custom_variants {
+    margin-bottom: 20px!important;
+    margin-top: 20px!important;
+}
 
 @media (max-width: 991.98px) {
   body.template-page\.twos-day-sale  #MainContent {
