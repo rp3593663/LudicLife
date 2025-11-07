@@ -2127,8 +2127,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
+{% if template == 'product.apparels' %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function filterImages(selected) {
+        const slides = document.querySelectorAll('.product__media-item');
+        slides.forEach(slide => {
+          const img = slide.querySelector('img');
+          if (!img || !img.alt || img.alt.trim() === "") {
+            slide.style.display = "";
+            return;
+          }
+          const beforePipe = img.alt.split("|")[0].trim();
+          if (beforePipe.toLowerCase() === selected.toLowerCase()) {
+            slide.style.display = "";
+          } else {
+            slide.style.display = "none";
+          }
+        });
+      }
 
-{% if template == 'product.twos-day-sale' %}
+      const radios = document.querySelectorAll('input[name="model"]');
+      radios.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+          filterImages(e.target.value);
+          document.querySelector(".selected_value").textContent = e.target.value;
+        });
+      });
+
+      const defaultModel = "Male";
+      filterImages(defaultModel);
+      document.querySelector(".selected_value").textContent = defaultModel;
+    });
+  </script>
+{% endif %}
+{% if template != 'product.fw-product' %}
   <script>
     document.addEventListener("DOMContentLoaded", () => { 
       document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
@@ -2157,12 +2190,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   </script>
 {% endif %}
-{% if template == 'product.twos-day-sale' %}
+{% if template != 'product.fw-product' %}
   <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
   <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
   <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
 {% endif %}
-{% if template == 'product.twos-day-sale' %}
+{% if template != 'product.fw-product' %}
   <script type="module">
     import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
 
@@ -2243,6 +2276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.on('open', startAutoplay);
   </script>
 {% endif %}
+
 
 
 
