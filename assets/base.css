@@ -7023,9 +7023,9 @@ variant-selects fieldset input:checked + label.custom_var_image .image {
 }
 .product-form__input .size_var.is_selected {
   text-decoration: underline;
-  text-decoration-thickness: 1.8px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  opacity: 1;
+  color: #000000!important;
 }
 variant-selects fieldset.product-form__input:not(:last-child) {
   margin-bottom: 32px;
@@ -7069,7 +7069,7 @@ product-form form .product-form__submit.button:disabled,
   margin-top:12px !important;
 }
 .size_variant .form__label {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .new_meta_faq {
