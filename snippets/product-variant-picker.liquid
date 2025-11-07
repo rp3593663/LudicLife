@@ -202,15 +202,24 @@
             <div class="varaint-size-header" style="display:flex;justify-content:space-between">
             <!-- <legend class="form__label">{{ option.name }}{% if option.name == 'Choose color variant' %} / {% endif %}<span class="variant_title"{%- if option.name != 'Choose color variant' -%} style="display: none;"{% endif %}>{{ option.selected_value }}</span>{%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}<span class="size_var is_selected" data-icon="uk">UK</span><span class="size_var" data-icon="eu">EU</span><span class="size_var" data-icon="us">US</span>{% endif %}</legend> -->
             <legend class="form__label">
-              {%- if option.name == 'Choose color variant' -%}{{ option.name | replace: 'Choose color variant', 'Colour' }}{% elsif option.name == 'Select your size (in UK)' or option.name == 'Size' or option.name == 'Select your size' %}Size{% else %}{{ option.name }}{% endif %}
+              {%- if option.name == 'Choose color variant' -%}
+                {{ option.name | replace: 'Choose color variant', 'Colour' }}
+              {% elsif option.name == 'Select your size (in UK)' or option.name == 'Size' or option.name == 'Select your size' %}   
+                Size /<span class="selected_size"></span>
+              {% else %}
+                {{ option.name }}
+              {% endif %}
               {% if option.name == 'Choose color variant' %} / {% endif %}
               <span class="variant_title"
               {%- if option.name != 'Choose color variant' -%} style="display: none;"{% endif %}>{{ option.selected_value }}</span>
-              {%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}
+            </legend>
+            {%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}
+              <div class="size_tab_head">
                 <span class="size_var is_selected" data-icon="uk">UK</span>
                 <span class="size_var" data-icon="eu">EU</span>
-                <span class="size_var" data-icon="us">US</span>{% endif %}
-            </legend>
+                <span class="size_var" data-icon="us">US</span>
+              </div>
+            {% endif %}
             <div id="openPopupBtn" style="min-width:90px;cursor:pointer;font-size:12px;line-height:17.1px;letter-spacing: -0.36px;color:#939598;font-weight: bold;text-align:end;">Size Guide</div>
               {%- if template == 'product.fw-product' and product.title == 'Circuit Shirt' -%}
                 <div class="fw_sizeguidePopupBtn"
