@@ -101,10 +101,46 @@
         "padding_bottom": 0
       }
     },
+    "product_extra_description_7HFcLH": {
+      "type": "product-extra-description",
+      "name": "Product Description",
+      "settings": {
+        "padding_top": 122,
+        "padding_bottom": 122
+      }
+    },
+    "product_usp_exXjan": {
+      "type": "product-usp",
+      "name": "Product USPs",
+      "settings": {
+        "heading": "Video",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "product_reels_6j69tD": {
+      "type": "product-reels",
+      "name": "Product Reels",
+      "settings": {
+        "heading": "#LudicEdits",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    },
+    "product_shop_the_look_tiDhiW": {
+      "type": "product-shop-the-look",
+      "name": "Product Shop The Look",
+      "settings": {
+        "heading": "Shop the look",
+        "description": "Rooted in movement and transformation, our products are designed to flow with the rhythms of life. Embracing change, they offer versatility and adaptability, ensuring effortless transitions through shifting seasons and environments.",
+        "padding_top": 0,
+        "padding_bottom": 112
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "Always more",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -181,6 +217,10 @@
   },
   "order": [
     "main",
+    "product_extra_description_7HFcLH",
+    "product_usp_exXjan",
+    "product_reels_6j69tD",
+    "product_shop_the_look_tiDhiW",
     "related-products",
     "multicolumn_MJtHkx"
   ]
