@@ -1450,6 +1450,19 @@ $(document).on('click', '.product-form__input .size_var', function(){
   function updateRadioDataVals() {
     document.querySelectorAll('.popup-active input[type="radio"]').forEach(input => {
       input.dataset.val = input.value;
+      const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+      input.addEventListener('change', () => {
+          if (input.checked) {
+            const selectedSize = input.value;
+             sizeSpecSpans.forEach(span => {
+              if (span.dataset.variantTitle === selectedSize) {
+                span.style.display = 'block';
+              } else {
+                span.style.display = 'none';
+              }
+            });
+          }
+        });
     });
   }
 
