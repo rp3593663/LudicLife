@@ -1352,7 +1352,7 @@
         "@media screen and (max-width: 768px) {.festival-banner-desktop {display: none; } .festival-banner-mobile {display: block; }}"
       ],
       "settings": {
-        "custom_liquid": "<a href=\"https://ludic.life/pages/twos-day-sale\">\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-twos-day-banner.png?v=1762775270\">\n</a>",
+        "custom_liquid": "<a href=\"https://ludic.life/pages/twos-day-sale\">\n<img class=\"festival-banner-desktop\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-twos-day-banner.png?v=1762775270\">\n<img class=\"festival-banner-mobile\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-twos-day-banner.png?v=1762775271\">\n</a>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
