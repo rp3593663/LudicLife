@@ -1141,7 +1141,8 @@ body.size-chart-popup-pdp #MainContent{
   .instructuions_steps {
     gap: 12px;
   }
-  .measurement_step {
+  .measurement_step,
+  .note_text {
     gap: 6px;
   }
   .measurement_step h6,
