@@ -827,14 +827,14 @@ body.cs-popup-is-opened .csmodal-content{
   line-height:15px;
 }
 .cs-table td{
-  font-weight:700;
+  font-weight: 700;
 }
 .cs-table th{
   font-weight: 500;
 }
 
 .cs-table {
-  padding: 0 31.5px;
+  padding: 0px;
 }
 .cs-modal-inner-content{
   overflow: auto;
