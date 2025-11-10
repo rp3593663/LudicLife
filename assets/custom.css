@@ -929,7 +929,8 @@ body.size-chart-popup-pdp #MainContent{
     line-height: 16px;
     letter-spacing: -0.8px;
 }
-.csmodal-subheading {
+.csmodal-subheading,
+.size_guide_subheading {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
