@@ -1673,14 +1673,15 @@ button.size-chart-update-btn {
 }
 .size-chart-size-box-update-btn a {
   font-size: 12px;
-  line-height: 20px;
+  line-height: 10px;
   font-weight: 600;
-  margin: 0;
-  color: #949598 !important;
-  margin-top: 10px;
+  margin: 16px 0 0;
+  color: #949598!important;
   width: 100%;
   display: block;
   text-align: center;
+  letter-spacing: -0.36px;
+  text-decoration: unset;
 }
 .size-chart-size-box-sizes variant-selects, .size-chart-size-box-sizes .custom-variant-product {
   display: none;
