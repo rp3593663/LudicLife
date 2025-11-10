@@ -804,7 +804,7 @@ button.pswp__button.pswp__button--zoom {
 }
 .csmodal-content {
   background-color: #fff;
-  padding: 0px;
+  padding: 32px;
   border-radius: 0px;
   width: 494px;
   max-width: 100%;
