@@ -1345,9 +1345,7 @@
     "custom_liquid_zicrMU": {
       "type": "custom-liquid",
       "custom_css": [
-        ".festival-custom-main-section {padding: 0;}",
-        ".festival-custom-images {width: 100%;}",
-        ".festival-banner-desktop {width: 100%; display: block;}",
+        ".festival-banner-desktop {display: block;}",
         ".festival-banner-mobile {display: none;}",
         "@media screen and (max-width: 768px) {.festival-banner-desktop {display: none; } .festival-banner-mobile {display: block; }}"
       ],
