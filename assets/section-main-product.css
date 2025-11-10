@@ -1607,8 +1607,8 @@ h2.size-chart-popup__title {
 .size-chart-popup__body {
   display: flex;
   text-align: center;
-  gap: 10px;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 .size-chart-popup__body div {
   background: #F0F0F0;
