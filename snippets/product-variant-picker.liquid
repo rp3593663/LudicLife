@@ -564,6 +564,11 @@
               <span class="size-guide-label"><b>Size Guide</b></span>
               <span class="close-btn">&times;</span>
             </div>
+            {% if product.collections contains 'sneakers' %}
+              <div class="custom-message">
+                This product is part of our premium Sneakers Collection!
+              </div>
+            {% endif %}
             <div class="csmodal-subheading">
               A new comfort to slide into every day. The CloudFrame™ material delivers unwinding comfort.
             </div>
