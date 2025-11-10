@@ -912,12 +912,13 @@ body.size-chart-popup-pdp #MainContent{
     vertical-align: middle;
     text-align: left;
     color: #1A1A1A;
+    margin-bottom: 20px;
 }
 .slider_size_info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin: 20px 0px 12px;
+    margin: 0px 0px 12px;
 }
 .slider_size_info > div {
     background: #F8F8F8;
