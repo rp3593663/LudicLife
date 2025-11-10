@@ -620,19 +620,9 @@
                 >
                 {% endif %}
               {% endif %}
-                <div class="cs-table">
-                  {% if request.path contains 'sliders' %}
-                  <div class="slider-note">
-                    <p>*This footwear runs a size bigger, so we recommend taking one size down from you regular size.</p>
-                  </div>
-                  {% endif %}
-                  {% if request.path contains 'weekend-shirt' %}
-                  <div class="slider-note">
-                    <p>*This shirt runs a size bigger, so we recommend taking one size down from you regular size.</p>
-                  </div>
-                  {% endif %}
-                  {{ product.metafields.custom.size_chart_table }}
-                </div>
+              <div class="cs-table">
+                {{ product.metafields.custom.size_chart_table }}
+              </div>
             </div>
           </div>
         </div>
