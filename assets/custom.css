@@ -868,7 +868,8 @@ button.pswp__button.pswp__button--zoom {
 body.cs-popup-is-opened .csmodal-content{
   transform: translateX(0);
 }
-.cs-table th, .cs-table td{
+.cs-table th, 
+.cs-table td{
   padding: 13px 10px;
   font-size: 12px;
   line-height: 22px;
@@ -880,7 +881,9 @@ body.cs-popup-is-opened .csmodal-content{
 .cs-table th{
   font-weight: 700;
 }
-
+.cs-table table{
+  width: 100%;
+}
 .cs-table {
   padding: 0px;
 }
