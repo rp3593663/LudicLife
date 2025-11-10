@@ -900,8 +900,8 @@ body.size-chart-popup-pdp #MainContent{
 
 .csmodal-heading{
   display:flex;
-  justiy-content:space-between;
-  padding:20px;
+  justify-content:space-between;
+  padding: 0px;
 }
 
 @media screen and (max-width:768px){
