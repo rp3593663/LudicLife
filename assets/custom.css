@@ -923,6 +923,11 @@ body.size-chart-popup-pdp #MainContent{
     padding: 12px 10px 20px;
     border-radius: 4px;
 }
+.slider_size_info img {
+    height: 87px;
+    width: auto;
+    margin-bottom: 12px;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
