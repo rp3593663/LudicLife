@@ -1074,6 +1074,10 @@ body.size-chart-popup-pdp #MainContent{
     margin: 0px;
 }
 @media screen and (max-width:749px){
+  .csmodal {
+    justify-content: center;
+    align-items: end;
+  } 
   .csmodal-content,
   .size_guide_popup_inner {
     width: 100%;
