@@ -813,21 +813,24 @@ button.pswp__button.pswp__button--zoom {
   z-index: 9999;
 }
 .card_size_guide_overlay.size_popup_overlay_visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  .card_size_guide_overlay {
-    position: fixed !important;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: unset !important;
-    top: 0 !important;
-    background: #000000a3;
-    transition: all 0.1s ease-in;
-    opacity: 0;
-    visibility: hidden;
-  }
+  opacity: 1;
+  visibility: visible;
+}
+.card_size_guide_overlay {
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: unset !important;
+  top: 0 !important;
+  background: #000000a3;
+  transition: all 0.1s ease-in;
+  opacity: 0;
+  visibility: hidden;
+}
+.size_popup_visible .size_guide_popup_inner {
+  transform: translateX(0%);
+}
 .card_size_guide.size_popup_visible {
   opacity: 1;
   visibility: visible;
