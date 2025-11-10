@@ -949,6 +949,14 @@ body.size-chart-popup-pdp #MainContent{
     padding: 13px;
     border-radius: 6px;
 }
+.slider-instructuions h4 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.8px;
+    text-align: left;
+    margin-bottom: 20px;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
