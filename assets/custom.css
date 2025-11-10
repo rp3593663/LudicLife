@@ -973,6 +973,15 @@ body.size-chart-popup-pdp #MainContent{
     letter-spacing: -0.8px;
     vertical-align: middle;
 }
+.sizechart_note p {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    vertical-align: middle;
+}
 .slider-instructuions h4 {
     font-weight: 700;
     font-size: 16px;
