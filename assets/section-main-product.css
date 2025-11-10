@@ -1657,7 +1657,7 @@ h2.size-chart-popup__title {
   cursor: pointer;
 }
 .size-chart-popup__size-box .default_variant_uk {
-    gap: 10px 13.08px;
+    gap: 10px 15px;
 }
 button.size-chart-update-btn {
   border: none;
