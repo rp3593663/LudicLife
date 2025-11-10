@@ -888,6 +888,7 @@ body.cs-popup-is-opened .csmodal-content{
 }
 .cs-table {
   padding: 0px;
+   margin-top: 20px;
 }
 /* .cs-modal-inner-content {
   overflow-y: auto;
@@ -901,6 +902,9 @@ body.cs-popup-is-opened .csmodal-content{
     width: 100%;
     height: 304px;
     aspect-ratio: unset!important;
+}
+.cs-modal-inner-content,
+.size_guide_p_img{
     margin-bottom: 20px;
 }
 .size_guide_popup_content h2.nodata {
