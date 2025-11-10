@@ -1157,7 +1157,7 @@ $('.variant_card_size_guide').on('click', function(e) {
     var query = `
         {
           product(handle: "${productHandle}") {
-            metafield(key: "size_chart_table", namespace: "custom") {
+            metafield_size_chart: metafield(key: "size_chart_table", namespace: "custom") {
               value
             }
             metafield_size_subheading: metafield(key: "size_chart_subheading", namespace: "custom") {
