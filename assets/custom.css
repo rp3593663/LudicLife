@@ -1088,6 +1088,12 @@ body.size-chart-popup-pdp #MainContent{
     line-height: 12.73px;
     letter-spacing: -0.7px;
   }
+  .csmodal-heading .close-btn, .size_guide_header .close_size_guide {
+    top: 27px;
+    right: 25px;
+    width: 8px!important;
+    height: 8px!important;
+  }
 }
 
 
