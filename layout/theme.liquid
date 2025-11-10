@@ -1176,9 +1176,9 @@ $('.variant_card_size_guide').on('click', function(e) {
             var additionalText = '';
 
             // Check if product title contains "Sliders" exactly as written
-            if (productTitle && productTitle.includes("Sliders")) {
+            {% comment %} if (productTitle && productTitle.includes("Sliders")) {
                 additionalText = '<div class="slider-note"><p>*This footwear runs a size bigger, so we recommend taking one size down from your regular size.</p></div>';
-            }
+            } {% endcomment %}
 
             if (metafieldContent == null ) {
               $('.size_guide_popup_content').html('<h2 class="nodata">No size data available</h2>');
