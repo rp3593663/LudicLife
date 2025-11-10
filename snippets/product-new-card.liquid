@@ -154,7 +154,7 @@
             
           {%- if opt == 'Select your size' or opt == 'Select your size (in UK)' -%}
             <div class="variant_item">
-              <button class="variant_card_size_guide" data-image="{{ product.metafields.custom.size_chart_table_image | image_url }}" data-id="{{ product.handle }}" data-product-title="{{ product.title }}-{{ v_title }}">Size Guide</button>
+              <button class="variant_card_size_guide" data-image="{{ product.metafields.custom.size_chart_table_image | image_url:width:600 }}" data-id="{{ product.handle }}" data-product-title="{{ product.title }}-{{ v_title }}">Size Guide</button>
             </div>
           {% endif %}
             
