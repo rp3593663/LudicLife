@@ -1578,8 +1578,8 @@ body.Sliders .custom_variants {
 }
 .size-chart-popup__content {
   width: 100%;
-  max-width: 408px;
-  padding: 35px;
+  max-width: 360px;
+  padding: 28px;
   position: fixed;
   top: 50%;
   left: 50%;
