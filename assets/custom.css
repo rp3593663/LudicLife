@@ -888,7 +888,7 @@ body.cs-popup-is-opened .csmodal-content{
 }
 .cs-table {
   padding: 0px;
-   margin-top: 20px;
+  margin-top: 12px;
 }
 .cs-modal-inner-content::-webkit-scrollbar {
   width: 0px;
