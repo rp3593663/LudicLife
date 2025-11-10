@@ -893,7 +893,7 @@ body.cs-popup-is-opened .csmodal-content{
 .cs-modal-inner-content::-webkit-scrollbar {
   width: 0px;
 }
-.cs-modal-inner-content img,
+.cs-modal-inner-content img.size_img,
 .size_guide_p_img img{
     width: 100%;
     height: 304px;
