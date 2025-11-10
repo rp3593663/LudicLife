@@ -564,18 +564,38 @@
               <span class="size-guide-label"><b>Size Guide</b></span>
               <span class="close-btn">&times;</span>
             </div>
-            {% if product.collections contains 'Footwear' %}
-              <div class="custom-message">
-                This product is part of our premium Sneakers Collection!
-              </div>
-            {% endif %}
-            {% if product.collections contains collections['footwear'] %}
-  <p>Special text for sneakers products.</p>
-{% endif %}
+            
 
             <div class="csmodal-subheading">
               A new comfort to slide into every day. The CloudFrame™ material delivers unwinding comfort.
             </div>
+            {% if product.collections contains collections['footwear'] %}
+              {% if product.collections contains collections['footwear'] %}
+                  <p>Special text for sneakers products.</p>
+              {% else %}
+                {% if product.metafields.custom.size_chart_table_image != blank %}
+                  <img
+                  src="{{ product.metafields.custom.size_chart_table_image | image_url:width:600 }}"
+                  srcset="{{ product.metafields.custom.size_chart_table_image | image_url:width:400 }} 1x, {{ product.metafields.custom.size_chart_table_image | image_url:width:800 }} 2x"
+                  loading="lazy"
+                  alt="{{ product.title }}"
+                  style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                  width=""
+                  height=""
+                >
+                {% else %}
+                  <img
+                    src="{{ product.featured_image | image_url:width:600 }}"
+                    srcset="{{ product.featured_image | image_url:width:400 }} 1x, {{ product.featured_image | image_url:width:800 }} 2x"
+                    loading="lazy"
+                    alt="{{ product.title }}"
+                    style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                    width=""
+                    height=""
+                  >
+                {% endif %}
+              {% endif %}
+            {% endif %}
             <div class="cs-modal-inner-content">
               {% if product.metafields.custom.size_chart_table_image != blank %}
                 <img
