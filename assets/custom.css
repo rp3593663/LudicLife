@@ -964,6 +964,11 @@ body.size-chart-popup-pdp #MainContent{
     gap: 16px;
     text-align: left;
 }
+.measurement_step {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
