@@ -1115,6 +1115,12 @@ body.size-chart-popup-pdp #MainContent{
     height: 69px;
     margin-bottom: 7px;
   }
+  .slider_size_info p {
+    font-size: 9px;
+    line-height: 13px;
+    letter-spacing: -0.27px;
+    gap: 0px;
+  }
 }
 
 
