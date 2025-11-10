@@ -1157,6 +1157,9 @@ body.size-chart-popup-pdp #MainContent{
     width: 12px;
     height: 12px;
   }
+  .sizechart_note {
+    gap: 4px;
+  }
 }
 
 
