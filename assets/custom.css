@@ -913,7 +913,11 @@ body.size-chart-popup-pdp #MainContent{
     text-align: left;
     color: #1A1A1A;
 }
-
+.slider_size_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
