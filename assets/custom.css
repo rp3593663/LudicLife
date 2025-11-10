@@ -944,11 +944,12 @@ body.size-chart-popup-pdp #MainContent{
 .slider_size_info p span{ 
     color: #E60013;
 }
-.slider-instructuions {
+.slider-instructuions,
+.sizechart_note {
     background: #F8F8F8;
     padding: 13px;
     border-radius: 6px;
-    margin: 20px 0px;
+    margin: 20px 0px 0px;
 }
 .slider-instructuions h4 {
     font-weight: 700;
