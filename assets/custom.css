@@ -1151,7 +1151,8 @@ body.size-chart-popup-pdp #MainContent{
     line-height: 12px;
     letter-spacing: -.27px;
   }
-  .cs-modal-inner-content img, .size_guide_p_img img {
+  .cs-modal-inner-content img.size_img,
+  .size_guide_p_img img {
     height: 242px;
   }
   .sizechart_note img {
