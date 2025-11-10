@@ -445,26 +445,41 @@
                                         {{ size_chart2_subheading }}
                                       </div>
                                       <div class="cs-modal-inner-content">
-                                        {% if size_chart2_img != blank %}
-                                          <img
-                                          src="{{ size_chart2_img | image_url:width:600 }}"
-                                          srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
-                                          loading="lazy"
-                                          alt="{{ bundle_2_product_title }}"
-                                          style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                          width=""
-                                          height=""
-                                        >
+                                        {% if bundle_2_product_title contains "Sliders" %}
+                                          <div class="slider_size_info">
+                                            <div>
+                                              <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                                              <p>Regular or Narrow feet?<span>go one size down</span></p>
+                                            </div>
+                                            <div>
+                                              <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                                              <p>Wide foot?<span>stick to your usual size.</span></p>
+                                            </div>
+                                          </div>
                                         {% else %}
-                                        <img
-                                          src="{{ bundle_2_product_img | image_url:width:600 }}"
-                                          srcset="{{ bundle_2_product_img | image_url:width:400 }} 1x, {{ bundle_2_product_img | image_url:width:800 }} 2x"
-                                          loading="lazy"
-                                          alt="{{ bundle_2_product_title }}"
-                                          style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                          width=""
-                                          height=""
-                                        >
+                                          {% if size_chart2_img != blank %}
+                                            <div class="size_img">
+                                              <img
+                                              src="{{ size_chart2_img | image_url:width:600 }}"
+                                              srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
+                                              loading="lazy"
+                                              alt="{{ bundle_2_product_title }}"
+                                              style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                              width=""
+                                              height="">
+                                            </div>
+                                          {% else %}
+                                            <div class="size_img">
+                                              <img
+                                                src="{{ bundle_2_product_img | image_url:width:600 }}"
+                                                srcset="{{ bundle_2_product_img | image_url:width:400 }} 1x, {{ bundle_2_product_img | image_url:width:800 }} 2x"
+                                                loading="lazy"
+                                                alt="{{ bundle_2_product_title }}"
+                                                style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                                width=""
+                                                height="">
+                                            </div>
+                                          {% endif %}
                                         {% endif %}
                                         <div class="cs-table">
                                           {{ size_chart2_table }}
