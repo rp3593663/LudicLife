@@ -1612,8 +1612,8 @@ h2.size-chart-popup__title {
 }
 .size-chart-popup__body div {
   background: #F0F0F0;
-  padding: 8px 13px;
-  border-radius: 5px;
+  padding: 9px 12px 10px;
+  border-radius: 4px;
   width: 100%;
 }
 .size-chart-popup__body img {
