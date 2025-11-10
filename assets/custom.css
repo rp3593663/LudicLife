@@ -1094,6 +1094,12 @@ body.size-chart-popup-pdp #MainContent{
     width: 8px!important;
     height: 8px!important;
   }
+  .csmodal-subheading, .size_guide_subheading {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -.3px;
+    margin-bottom: 15px;
+  }
 }
 
 
