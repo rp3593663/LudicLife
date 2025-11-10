@@ -817,6 +817,21 @@ button.pswp__button.pswp__button--zoom {
   transform: translateX(100%);
   box-shadow: rgb(255 255 255 / 10%) -5px 0px 20px 0px;
 }
+.size_guide_popup_inner {
+    max-width: 100%;
+    width: 494px;
+    z-index: 2;
+    height: 100%;
+    padding: 32px;
+    background: #fff;
+    border-radius: 0px;
+    position: relative;
+    position: absolute;
+    right: 0;
+    transition: transform 0.25s ease-in;
+    transform: translateX(100%);
+    overflow-y: auto;
+  }
 body.cs-popup-is-opened .csmodal-content{
   transform: translateX(0);
 }
