@@ -1078,6 +1078,7 @@ body.size-chart-popup-pdp #MainContent{
   .size_guide_popup_inner {
     width: 100%;
     max-width: 393px;
+    padding: 25px;
   }
 }
 
