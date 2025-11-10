@@ -800,7 +800,7 @@ button.pswp__button.pswp__button--zoom {
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   justify-content: end;
   align-items: center;
-  margin: 0;
+  margin: 0!important;
 }
 .csmodal-content {
   background-color: #fff;
