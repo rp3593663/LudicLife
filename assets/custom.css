@@ -961,6 +961,10 @@ body.size-chart-popup-pdp #MainContent{
   width: 16px;
   height: 16px;
 }
+.note_text {
+    display: grid;
+    gap: 8px;
+}
 .slider-instructuions h4 {
     font-weight: 700;
     font-size: 16px;
