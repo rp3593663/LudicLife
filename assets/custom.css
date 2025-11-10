@@ -847,10 +847,7 @@ body.cs-popup-is-opened .csmodal-content{
   width:416px;
   height:328px;
 }
-/* For WebKit browsers (Chrome, Safari, Edge) */
-.cs-modal-inner-content::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
+
 
 /* Track of the scrollbar */
 .cs-modal-inner-content::-webkit-scrollbar-track {
