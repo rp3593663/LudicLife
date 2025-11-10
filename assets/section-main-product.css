@@ -1641,7 +1641,8 @@ h2.size-chart-popup__title {
   margin-bottom: 17px;
 }
 .size-chart-size-box-heading h4 {
-  font-size: 15px;
+  font-size: 12px;
+  letter-spacing: -0.6px;
   line-height: 100%;
   font-weight: 700;
   margin: 0;
