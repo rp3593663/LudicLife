@@ -914,7 +914,8 @@ body.size-chart-popup-pdp #MainContent{
     border-bottom: 1px solid #F0F0F0;
 }
 
-.csmodal-heading{
+.csmodal-heading,
+.size_guide_header{
   display:flex;
   justify-content:space-between;
   padding: 0px;
