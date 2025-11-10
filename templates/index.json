@@ -1344,16 +1344,13 @@
     },
     "custom_liquid_zicrMU": {
       "type": "custom-liquid",
-      "disabled": true,
       "custom_css": [
-        ".festival-custom-main-section {padding: 0;}",
-        ".festival-custom-images {width: 100%;}",
-        ".festival-banner-desktop {width: 100%; display: block;}",
+        ".festival-banner-desktop {display: block;}",
         ".festival-banner-mobile {display: none;}",
         "@media screen and (max-width: 768px) {.festival-banner-desktop {display: none; } .festival-banner-mobile {display: block; }}"
       ],
       "settings": {
-        "custom_liquid": "<div class=\"festival-custom-main-section\">\n<div class=\"container\">\n<a href=\"/collections/footwear\">\n<div class=\"festival-custom-images\">\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_1618876115.png?v=1759231428\" class=\"festival-banner-desktop\">\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_1618876116.png?v=1759231429\" class=\"festival-banner-mobile\">\n</div>\n</a>\n</div>\n</div>",
+        "custom_liquid": "<div class=\"container\"><a href=\"https://ludic.life/pages/twos-day-sale\">\n<img class=\"festival-banner-desktop\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-twos-day-banner.png?v=1762775270\">\n<img class=\"festival-banner-mobile\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-twos-day-banner.png?v=1762775271\">\n</a></div>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
