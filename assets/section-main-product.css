@@ -1763,10 +1763,6 @@ button.size-chart-update-btn {
 
 
 @media screen and (max-width: 749px) {
-  button.size-chart-update-btn,
-  .size-chart-size-box-update-btn a{
-    font-size: 10px;
-  }
   .size-chart-popup__content {
     max-width: 100%;
     padding: 30px 20px;
