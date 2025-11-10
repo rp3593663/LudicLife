@@ -950,6 +950,7 @@ body.size-chart-popup-pdp #MainContent{
     background: #F8F8F8;
     padding: 12px 10px 20px;
     border-radius: 4px;
+    text-align: center;
 }
 .slider_size_info img {
     height: 87px;
