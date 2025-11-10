@@ -877,7 +877,7 @@ body.cs-popup-is-opened .csmodal-content{
 }
 body.cs-popup-is-opened,
 body.size-chart-popup-pdp{
-  overflow: hidden;
+  overflow: hidden!important;
 }
 /* body.size-chart-popup-pdp{
   overflow: hidden;
