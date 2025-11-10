@@ -886,12 +886,13 @@ body.cs-popup-is-opened #MainContent,
 body.size-chart-popup-pdp #MainContent{
   z-index: 3;
 }
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
+.csmodal-heading .close-btn {
+    top: 35px;
+    right: 32px;
+    width: 10px!important;
+    height: 10px!important;
+    background: unset!important;
+    color: #000!important;
 }
 .cs-modal-inner-content .cs-table tr {
     border-bottom: 1px solid #C7C8CA;
