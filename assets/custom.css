@@ -1080,6 +1080,9 @@ body.size-chart-popup-pdp #MainContent{
     max-width: 393px;
     padding: 25px;
   }
+  .csmodal-heading, .size_guide_header {
+    margin-bottom: 6px;
+  }
 }
 
 
