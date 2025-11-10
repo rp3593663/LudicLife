@@ -883,6 +883,7 @@ body.cs-popup-is-opened .csmodal-content{
 }
 .cs-table table{
   width: 100%;
+  text-align: center;
 }
 .cs-table {
   padding: 0px;
@@ -935,7 +936,7 @@ body.size-chart-popup-pdp #MainContent{
     background: unset!important;
     color: #000!important;
 }
-.cs-modal-inner-content .cs-table tr {
+.cs-table tr {
     border-bottom: 1px solid #F0F0F0;
 }
 
