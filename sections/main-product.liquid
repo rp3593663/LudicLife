@@ -321,27 +321,28 @@
                                             <p>Wide foot?<span>stick to your usual size.</span></p>
                                           </div>
                                         </div>
-                                      {% endif %}
-                                      {% if size_chart1_img != blank %}
-                                        <img
-                                        src="{{ size_chart1_img | image_url:width:600 }}"
-                                        srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
-                                        loading="lazy"
-                                        alt="{{ bundle_1_product_title }}"
-                                        style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                        width=""
-                                        height=""
-                                      >
                                       {% else %}
-                                      <img
-                                        src="{{ bundle_1_product_img | image_url:width:600 }}"
-                                        srcset="{{ bundle_1_product_img | image_url:width:400 }} 1x, {{ bundle_1_product_img | image_url:width:800 }} 2x"
-                                        loading="lazy"
-                                        alt="{{ bundle_1_product_title }}"
-                                        style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                        width=""
-                                        height=""
-                                      >
+                                        {% if size_chart1_img != blank %}
+                                          <img
+                                          src="{{ size_chart1_img | image_url:width:600 }}"
+                                          srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
+                                          loading="lazy"
+                                          alt="{{ bundle_1_product_title }}"
+                                          style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                          width=""
+                                          height=""
+                                        >
+                                        {% else %}
+                                        <img
+                                          src="{{ bundle_1_product_img | image_url:width:600 }}"
+                                          srcset="{{ bundle_1_product_img | image_url:width:400 }} 1x, {{ bundle_1_product_img | image_url:width:800 }} 2x"
+                                          loading="lazy"
+                                          alt="{{ bundle_1_product_title }}"
+                                          style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                          width=""
+                                          height=""
+                                        >
+                                        {% endif %}
                                       {% endif %}
                                       <div class="cs-table">
                                         {{ size_chart1_table }}
