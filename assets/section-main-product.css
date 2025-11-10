@@ -1771,11 +1771,6 @@ button.size-chart-update-btn {
     left: 50%;
     transform: translateX(-50%);
   }
-  h2.size-chart-popup__title {
-    font-size: 22px;
-    line-height: 26px;
-    margin-bottom: 8px;
-  }
   .size-chart-popup__header p {
     font-size: 12px;
     line-height: 16px;
