@@ -1648,8 +1648,9 @@ h2.size-chart-popup__title {
   margin: 0;
 }
 .size-chart-size-box-heading p {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 100%;
+  letter-spacing: -0.3px;
   font-weight: 600;
   color: #949598;
   margin: 0;
