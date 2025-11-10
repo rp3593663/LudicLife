@@ -918,6 +918,11 @@ body.size-chart-popup-pdp #MainContent{
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
+.slider_size_info > div {
+    background: #F8F8F8;
+    padding: 12px 10px 20px;
+    border-radius: 4px;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
