@@ -902,6 +902,7 @@ body.size-chart-popup-pdp #MainContent{
   display:flex;
   justify-content:space-between;
   padding: 0px;
+  margin-bottom: 8px;
 }
 
 @media screen and (max-width:768px){
