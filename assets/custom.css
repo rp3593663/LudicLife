@@ -1083,6 +1083,11 @@ body.size-chart-popup-pdp #MainContent{
   .csmodal-heading, .size_guide_header {
     margin-bottom: 6px;
   }
+  .size-guide-label, .size_guide_header {
+    font-size: 14px;
+    line-height: 12.73px;
+    letter-spacing: -0.7px;
+  }
 }
 
 
