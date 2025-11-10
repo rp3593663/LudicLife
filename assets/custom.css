@@ -837,7 +837,7 @@ body.cs-popup-is-opened .csmodal-content{
   padding: 0px;
 }
 .cs-modal-inner-content{
-  overflow: auto;
+  overflow-y: auto;
   height: calc(100% - 60px);
 }
 .cs-modal-inner-content img{
@@ -1032,8 +1032,8 @@ body.size-chart-popup-pdp #MainContent{
     padding-top:52px;
   } */
   .cs-modal-inner-content img{
-  width:360px;
-  height:284px;
+    width:360px;
+    height:284px;
   }
   .cs-table th{
     padding: 21px 10px !important;
