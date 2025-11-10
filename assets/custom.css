@@ -917,6 +917,7 @@ body.size-chart-popup-pdp #MainContent{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+    margin: 20px 0px 12px;
 }
 .slider_size_info > div {
     background: #F8F8F8;
