@@ -1590,10 +1590,11 @@ body.Sliders .custom_variants {
   display: none;
 }
 h2.size-chart-popup__title {
-  font-size: 28px;
-  line-height: 33px;
+  font-size: 22px;
+  line-height: 22px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  letter-spacing: -1.1px;
 }
 .size-chart-popup__header p {
   font-size: 12px;
