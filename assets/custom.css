@@ -982,8 +982,8 @@ body.size-chart-popup-pdp #MainContent{
 }
 .slider_size_info p {
     font-weight: 600;
-    font-size: 10.79px;
-    line-height: 13.49px;
+    font-size: 10px;
+    line-height: 13px;
     letter-spacing: -0.3px;
     text-align: center;
     vertical-align: middle;
@@ -1085,7 +1085,7 @@ body.size-chart-popup-pdp #MainContent{
   }
   .size-guide-label, .size_guide_header {
     font-size: 14px;
-    line-height: 12.73px;
+    line-height: 12px;
     letter-spacing: -0.7px;
   }
   .csmodal-heading .close-btn, .size_guide_header .close_size_guide {
