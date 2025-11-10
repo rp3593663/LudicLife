@@ -1182,6 +1182,8 @@ $('.variant_card_size_guide').on('click', function(e) {
 
             $('.card_size_guide .sizechart_note').html(' <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176"><div class="note_text"> <h6>Not sure about the fit?</h6> <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p> </div>');
 
+
+            console.log("--------", metafieldContent);
             if (metafieldContent == null ) {
               $('.size_guide_popup_content').html('<h2 class="nodata">No size data available</h2>');
             }else{
