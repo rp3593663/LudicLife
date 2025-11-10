@@ -1100,6 +1100,14 @@ body.size-chart-popup-pdp #MainContent{
     letter-spacing: -.3px;
     margin-bottom: 15px;
   }
+  .slider_size_info {
+    gap: 9px;
+    margin: 0 0 9px;
+  }
+  .slider_size_info>div {
+    padding: 9px 10px 12px;
+    border-radius: 3px;
+  }
 }
 
 
