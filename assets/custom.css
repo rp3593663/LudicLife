@@ -1144,6 +1144,11 @@ body.size-chart-popup-pdp #MainContent{
   .measurement_step {
     gap: 6px;
   }
+  .measurement_step h6 {
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: -.27px;
+  }
 }
 
 
