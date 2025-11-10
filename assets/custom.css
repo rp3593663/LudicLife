@@ -899,6 +899,7 @@ body.cs-popup-is-opened .csmodal-content{
     height: 304px;
     aspect-ratio: unset!important;
 }
+.size_img,
 .size_guide_p_img {
     margin-bottom: 20px;
 }
@@ -1153,6 +1154,14 @@ body.size-chart-popup-pdp #MainContent{
   }
   .size_img img,
   .size_guide_p_img img {
+    height: 242px;
+  }
+  .size_img,
+  .size_guide_p_img {
+      margin-bottom: 15px;
+  }
+  .size_img,
+  .size_guide_p_img {
     height: 242px;
   }
   .sizechart_note img {
