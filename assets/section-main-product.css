@@ -1770,6 +1770,7 @@ button.size-chart-update-btn {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 22px 22px 0px 0px;
   }
 }
 .custom-product-slider .swiper-pagination-bullet {
