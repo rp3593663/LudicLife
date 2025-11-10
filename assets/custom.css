@@ -922,6 +922,13 @@ body.size-chart-popup-pdp #MainContent{
   padding: 0px;
   margin-bottom: 8px;
 }
+.size-guide-label,
+.size_guide_header {
+    font-weight: 650;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.8px;
+}
 .csmodal-subheading {
     font-weight: 400;
     font-size: 12px;
