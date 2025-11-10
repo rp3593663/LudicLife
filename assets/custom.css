@@ -792,7 +792,7 @@ button.pswp__button.pswp__button--zoom {
 .csmodal {
   display: none; /* Hidden by default */
   position: fixed;
-  z-index: 5;
+  z-index: 99;
   top: 0;
   left: 0;
   width: 100%;
