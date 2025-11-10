@@ -868,8 +868,8 @@ body.cs-popup-is-opened .csmodal-content{
 }
 
 .cs-table th {
-  background-color: #1A1A1A;
-  color: #fff;
+  background-color: #F8F8F8;
+  color: #232323;
   border-right:0px solid #C7C8CA;
 }
 .cs-table th:last-child{
