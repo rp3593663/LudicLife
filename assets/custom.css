@@ -982,6 +982,9 @@ body.size-chart-popup-pdp #MainContent{
     text-align: justify;
     vertical-align: middle;
 }
+.sizechart_note p a{
+  color: #1A1A1A;
+}
 .slider-instructuions h4 {
     font-weight: 700;
     font-size: 16px;
