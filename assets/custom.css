@@ -928,6 +928,21 @@ body.size-chart-popup-pdp #MainContent{
     width: auto;
     margin-bottom: 12px;
 }
+.slider_size_info p {
+    font-weight: 600;
+    font-size: 10.79px;
+    line-height: 13.49px;
+    letter-spacing: -0.3px;
+    text-align: center;
+    vertical-align: middle;
+    color: #1a1a1a;
+    display: grid;
+    margin: 0px;
+    gap: 2px;
+}
+.slider_size_info p span{ 
+    color: #E60013;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
