@@ -43,6 +43,13 @@
             "swatch_shape": "circle"
           }
         },
+        "buy_buttons_i4B7gj": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
         "custom_icon_with_text_bCF3YE": {
           "type": "custom_icon_with_text",
           "settings": {}
@@ -67,6 +74,7 @@
         "short_description_zBkWcx",
         "product_specification_47fawB",
         "variant_picker",
+        "buy_buttons_i4B7gj",
         "custom_icon_with_text_bCF3YE",
         "product_fetures_with_icon_NrQimq",
         "product_detail_accordion_EGedQQ",
