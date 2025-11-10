@@ -904,6 +904,15 @@ body.size-chart-popup-pdp #MainContent{
   padding: 0px;
   margin-bottom: 8px;
 }
+.csmodal-subheading {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    vertical-align: middle;
+    text-align: left;
+    color: #1A1A1A;
+}
 
 @media screen and (max-width:768px){
   .csmodal-content {
