@@ -849,6 +849,7 @@ button.pswp__button.pswp__button--zoom {
   transition: all 0.5s cubic-bezier(0.4, 0, 1, 1);
   transform: translateX(100%);
   box-shadow: rgb(255 255 255 / 10%) -5px 0px 20px 0px;
+  overflow-y: auto;
 }
 .size_guide_popup_inner {
     max-width: 100%;
