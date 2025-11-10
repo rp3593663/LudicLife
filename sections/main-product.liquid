@@ -307,7 +307,21 @@
                                     <div class="csmodal-subheading">
                                       {{ size_chart1_subheading }}
                                     </div>
+                                    
                                     <div class="cs-modal-inner-content">
+
+                                      {% if bundle_1_product_title contains "Sliders" %}
+                                        <div class="slider_size_info">
+                                          <div>
+                                            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                                            <p>Regular or Narrow feet?<span>go one size down</span></p>
+                                          </div>
+                                          <div>
+                                            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                                            <p>Wide foot?<span>stick to your usual size.</span></p>
+                                          </div>
+                                        </div>
+                                      {% endif %}
                                       {% if size_chart1_img != blank %}
                                         <img
                                         src="{{ size_chart1_img | image_url:width:600 }}"
