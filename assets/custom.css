@@ -902,7 +902,8 @@ body.cs-popup-is-opened #MainContent,
 body.size-chart-popup-pdp #MainContent{
   z-index: 3;
 }
-.csmodal-heading .close-btn {
+.csmodal-heading .close-btn,
+.size_guide_header .close_size_guide {
     top: 35px;
     right: 32px;
     width: 10px!important;
