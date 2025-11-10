@@ -823,7 +823,8 @@ body.cs-popup-is-opened .csmodal-content{
 .cs-table th, .cs-table td{
   padding: 13px 10px;
   font-size: 12px;
-  line-height:15px;
+  line-height: 22px;
+  letter-spacing: -0.6px;
 }
 .cs-table td{
   font-weight: 400;
