@@ -449,27 +449,7 @@
                       </div>
                     </div>
                 {% else %}
-                  {% if product.metafields.custom.size_chart_table_image != blank %}
-                    <img
-                    src="{{ product.metafields.custom.size_chart_table_image | image_url:width:600 }}"
-                    srcset="{{ product.metafields.custom.size_chart_table_image | image_url:width:400 }} 1x, {{ product.metafields.custom.size_chart_table_image | image_url:width:800 }} 2x"
-                    loading="lazy"
-                    alt="{{ product.title }}"
-                    style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                    width=""
-                    height=""
-                  >
-                  {% else %}
-                    <img
-                      src="{{ product.featured_image | image_url:width:600 }}"
-                      srcset="{{ product.featured_image | image_url:width:400 }} 1x, {{ product.featured_image | image_url:width:800 }} 2x"
-                      loading="lazy"
-                      alt="{{ product.title }}"
-                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                      width=""
-                      height=""
-                    >
-                  {% endif %}
+                  
                 {% endif %}
               {% else %}
                 {% if product.metafields.custom.size_chart_table_image != blank %}
