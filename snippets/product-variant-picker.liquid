@@ -577,7 +577,16 @@
             <div class="cs-modal-inner-content">
               {% if product.collections contains collections['footwear'] %}
                 {% if product.collections contains collections['slider'] %}
-                    <p>Special text for sneakers products.</p>
+                    <div class="slider_size_info">
+                      <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                        <p>Wide foot?<span>Stick to your usual size</span></p>
+                      </div>
+                      <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                        <p>Narrow or Regular feet?<span>Go one size down</span></p>
+                      </div>
+                    </div>
                 {% else %}
                   {% if product.metafields.custom.size_chart_table_image != blank %}
                     <img
