@@ -1161,6 +1161,11 @@ body.size-chart-popup-pdp #MainContent{
   .sizechart_note {
     gap: 4px;
   }
+  .sizechart_note h6 {
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -.6px;
+  }
 }
 
 
