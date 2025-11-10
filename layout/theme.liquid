@@ -1190,16 +1190,13 @@ $('.variant_card_size_guide').on('click', function(e) {
             }else{
               $('.size_guide_popup_content').html(metafieldContentHTML);
             }
-            alert('1');
             if (metafieldsubheadingText == null ) {
               $('.size_guide_subheading').html('');
             }else{
               $('.size_guide_subheading').html(metafieldsubheadingText);
             }
             
-alert('2');
             $('.size_guide_p_img').html(`<img src="${productImage}" alt="Size Guide Image" style="max-width:100%; height:auto;" />`);
-            alert('3');
             $('body').addClass('compare-popup-open');
             $('body').css('overflow', 'hidden');
             $('.card_size_guide_overlay').fadeIn().addClass('size_popup_overlay_visible');
