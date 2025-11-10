@@ -899,7 +899,6 @@ body.cs-popup-is-opened .csmodal-content{
     height: 304px;
     aspect-ratio: unset!important;
 }
-.cs-modal-inner-content,
 .size_guide_p_img{
     margin-bottom: 20px;
 }
@@ -1146,7 +1145,8 @@ body.size-chart-popup-pdp #MainContent{
     gap: 6px;
   }
   .measurement_step h6,
-  .measurement_step p {
+  .measurement_step p,
+  .sizechart_note p {
     font-size: 9px;
     line-height: 12px;
     letter-spacing: -.27px;
