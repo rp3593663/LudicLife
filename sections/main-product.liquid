@@ -274,6 +274,8 @@
                                   {% assign bundle_1_product_img = product_item.featured_image %}
                                   {% assign size_chart1_table = product_item.metafields.custom.size_chart_table %}
                                   {% assign size_chart1_img = product_item.metafields.custom.size_chart_table_image %}
+                                  {% assign size_chart1_subheading = product_item.metafields.custom.size_chart_subheading %}
+
                                   {% break %}
                                 {% endfor %}
                                 <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p>
@@ -301,6 +303,9 @@
                                           <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
                                         </svg>
                                       </span>
+                                    </div>
+                                    <div class="csmodal-subheading">
+                                      {{ size_chart1_subheading }}
                                     </div>
                                     <div class="cs-modal-inner-content">
                                       {% if size_chart1_img != blank %}
