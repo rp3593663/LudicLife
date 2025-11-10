@@ -802,8 +802,7 @@ button.pswp__button.pswp__button--zoom {
   align-items: center;
   margin: 0!important;
 }
-.csmodal-content,
-.size_guide_popup_inner {
+.csmodal-content {
   background-color: #fff;
   padding: 32px;
   border-radius: 0px;
