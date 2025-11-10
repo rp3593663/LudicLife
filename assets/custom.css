@@ -978,6 +978,14 @@ body.size-chart-popup-pdp #MainContent{
     white-space: nowrap;
     margin: 0px;
 }
+.measurement_step p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    margin: 0px;
+}
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
