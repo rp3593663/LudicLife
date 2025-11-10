@@ -888,10 +888,10 @@ body.cs-popup-is-opened .csmodal-content{
 .cs-table {
   padding: 0px;
 }
-.cs-modal-inner-content {
+/* .cs-modal-inner-content {
   overflow-y: auto;
   height: calc(100% - 74px);
-}
+} */
 .cs-modal-inner-content::-webkit-scrollbar {
   width: 0px;
 }
