@@ -1784,3 +1784,6 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product .short_description {
     margin: 0px 0 8px;
 }
+.reworked-main-product .short_description .metafield-rich_text_field {
+    line-height: 15.74px;
+}
