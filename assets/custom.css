@@ -1912,9 +1912,8 @@ a#HeaderMenu-twos-day-sale {
   gap: 10px;
 }
 .reworked_faq_left .faq_main {
-    font-family: Public Sans;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 650;
     font-size: 14px;
     line-height: 16px;
     letter-spacing: -0.7px;
