@@ -2164,4 +2164,7 @@ a#HeaderMenu-twos-day-sale {
   #faq_questions_list {
     gap: 8px;
   }
+  .reworked-main-product .splide__slide img {
+    max-width: 50vh;
+  }
 }
