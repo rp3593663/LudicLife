@@ -1923,6 +1923,7 @@ a#HeaderMenu-twos-day-sale {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #FFF;
 }
 .reworked_faq_left .meta_question_icon{
   font-size: 16px;
