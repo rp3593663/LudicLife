@@ -2051,6 +2051,10 @@ a#HeaderMenu-twos-day-sale {
     padding-top: 24px!important;
     padding-bottom: 2px!important;
   }
+  .reworked_pdp_grid {
+    padding-top: 60px!important;
+    padding-bottom: 48px!important;
+  }
   .reworked_product_bundle {
     grid-template-columns: 1fr 1fr;
     gap: 60px 40px;
