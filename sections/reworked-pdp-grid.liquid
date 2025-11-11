@@ -13,101 +13,10 @@
   }
 {%- endstyle -%}
 
-<section id="section_product_reels">
-    <div class="product_reels content-container section-{{ section.id }}-padding">
+<section id="section_reworked_pdp_grid">
+    <div class="reworked_pdp_grid content-container section-{{ section.id }}-padding">
         <div class="container">
-            {%- unless section.settings.heading == blank -%}
-                <h2 class="reels_title">{{ section.settings.heading }}</h2>
-            {%- endunless -%}
-            <div class="reels-container">
-                {% if product.metafields.custom.product_reel_video %}
-                    <div class="reel active">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-                {% if product.metafields.custom.product_reel_video_2 %}
-                    <div class="reel">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video_2 | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                         {{ product.metafields.custom.product_reel_video_2.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-                {% if product.metafields.custom.product_reel_video_3 %}
-                    <div class="reel">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video_3 | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video_3.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-                {% if product.metafields.custom.product_reel_video_4 %}
-                    <div class="reel">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video_4 | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video_4.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-
-            </div>
-            <div class="reel-thumbnails">
-                {% if product.metafields.custom.product_reel_video %}
-                    <div class="thumb active">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-
-                {% if product.metafields.custom.product_reel_video_2 %}
-                    <div class="thumb">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video_2 | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video_2.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-
-                {% if product.metafields.custom.product_reel_video_3 %}
-                    <div class="thumb">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video_3 | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video_3.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-
-                {% if product.metafields.custom.product_reel_video_4 %}
-                    <div class="thumb">
-                        {% comment %} <video 
-                        src="{{ product.metafields.custom.product_reel_video_4 | file_url }}" 
-                        muted 
-                        playsinline>
-                        </video> {% endcomment %}
-                        {{ product.metafields.custom.product_reel_video_4.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-                    </div>
-                {% endif %}
-
-            </div>
+           
         </div>
     </div>
 </section>
