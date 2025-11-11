@@ -48,6 +48,14 @@
         "padding_bottom": 70
       }
     },
+    "reworked_pdp_grid_kiUXci": {
+      "type": "reworked-pdp-grid",
+      "name": "Reworked PDP grid",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -148,6 +156,7 @@
   },
   "order": [
     "reworked_pdp_36JkbV",
+    "reworked_pdp_grid_kiUXci",
     "main",
     "related-products"
   ]
