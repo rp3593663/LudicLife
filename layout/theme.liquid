@@ -1838,7 +1838,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('.template-product\.fw-product .fw-product-slider').slick({
+    $('.fw-product-slider').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
       autoplay: true,
@@ -1859,7 +1859,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     let isDragging = false;
 
-    $('.template-product\.fw-product .fw-product-slider .fw-product-slide img')
+    $('.fw-product-slider .fw-product-slide img')
       .on('mousedown', function() {
         isDragging = false;
       })
