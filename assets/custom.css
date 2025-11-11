@@ -2042,4 +2042,7 @@ a#HeaderMenu-twos-day-sale {
     line-height: 18px;
     letter-spacing: -.45px;
   }
+  .reworked-main-product .product__info-wrapper {
+    right: 50px;
+  }
 }
