@@ -2125,7 +2125,8 @@ a#HeaderMenu-twos-day-sale {
   .reworked_product_title_info {
     margin-bottom: 12px;
   }
-  .reworked_product_title_info a.product__title h2 {
+  .reworked_product_title_info a.product__title h2,
+  .template-product .reworked-main-product .price-item.price-item--regular {
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -.7px;
