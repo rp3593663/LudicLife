@@ -2093,4 +2093,10 @@ a#HeaderMenu-twos-day-sale {
     padding: 0px;
     border: unset;
   }
+  .reworked-main-product .custom-variant-product p {
+    font-size: 9px;
+    line-height: 9px;
+    margin-bottom: 12px;
+    letter-spacing: -0.27px;
+  }
 }
