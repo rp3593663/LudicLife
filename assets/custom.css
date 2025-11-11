@@ -2111,4 +2111,7 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .custom-variant-image a.selected {
       border-radius: 3px;
   }
+  .reworked-main-product .custom-variant-product{
+    margin-bottom: 16px!important;
+  }
 }
