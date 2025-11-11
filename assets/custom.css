@@ -1852,6 +1852,8 @@ a#HeaderMenu-twos-day-sale {
     gap: 132px;
 }
 .reworked_block {
+    margin: auto;
+    text-align: center;
     position: relative;
 }
 .name_block {
