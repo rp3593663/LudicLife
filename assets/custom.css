@@ -1771,7 +1771,8 @@ a#HeaderMenu-twos-day-sale {
     margin-bottom: 0;
 }
 .reworked-main-product .price--large, 
-.reworked-main-product .price__regular {
+.reworked-main-product .price__regular,
+.reworked-product_price div {
     line-height: 16px!important;
 }
 .reworked-main-product .price-item.price-item--regular {
