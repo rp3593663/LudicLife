@@ -2009,4 +2009,12 @@ a#HeaderMenu-twos-day-sale {
     left: -38px;
     top: -12px;
   }
+  .name_block>div {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -.45px;
+  }
+  .name_block>div img {
+    width: 12px;
+  }
 }
