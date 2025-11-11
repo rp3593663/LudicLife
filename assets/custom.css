@@ -2170,4 +2170,10 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .fw_product_gallery {
     margin-bottom: 25px;
   }
+  .reworked-main-product .fw-modal .fw-modal-slider img {
+    margin: 0 auto;
+    height: auto;
+    width: 100%!important;
+    text-align: center;
+}
 }
