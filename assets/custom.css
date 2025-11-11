@@ -1801,3 +1801,8 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product .custom_variants {
     margin: 0!important;
 }
+.reworked-main-product .custom-variant-product p {
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 14px;
+}
