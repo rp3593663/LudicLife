@@ -64,28 +64,9 @@
 
       <div class="reworked_faq_left">
         <div id="faq_questions_list">
-          {% for faq in faq_items %}
-            {% assign this_url = faq.image | file_url %}
-      {% assign is_mp4 = false %}
-      {% assign is_webm = false %}
-      {% if this_url contains '.mp4' %}
-        {% assign is_mp4 = true %}
-      {% endif %}
-      {% if this_url contains '.webm' %}
-        {% assign is_webm = true %}
-      {% endif %}
-      {% assign is_video = false %}
-      {% if is_mp4 or is_webm %}
-        {% assign is_video = true %}
-      {% endif %}
-            <div
-              class="meta_question {% if forloop.first %}active{% endif %}"
-              data-index="{{ forloop.index0 }}"
-              data-media="{{ this_url }}"
-              data-type="{{ is_video | json }}"
-            >
+            <div class="meta_question active" data-index="0">
               <div class="faq_main">
-                <div class="meta_question_text">{{ faq.title }}</div>
+                <div class="meta_question_text">bbb</div>
                 <div class="meta_question_icon">
                   <span class="meta_question_icon_pluse">
                     +
@@ -96,10 +77,41 @@
                 </div>
               </div>
               <div class="meta_answer">
-                {{ faq.details | metafield_tag }}
+                aaa
               </div>
             </div>
-          {% endfor %}
+            <div class="meta_question active" data-index="1">
+              <div class="faq_main">
+                <div class="meta_question_text">bbb</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                aaa
+              </div>
+            </div>
+            <div class="meta_question active" data-index="2">
+              <div class="faq_main">
+                <div class="meta_question_text">bbb</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                aaa
+              </div>
+            </div>
         </div>
       </div>
     </div>
