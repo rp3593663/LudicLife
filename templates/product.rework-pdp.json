@@ -11,6 +11,15 @@
   "sections": {
     "reworked_pdp_36JkbV": {
       "type": "reworked-pdp",
+      "blocks": {
+        "title_bmzQRh": {
+          "type": "title",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_bmzQRh"
+      ],
       "name": "Reworked Main Product",
       "settings": {
         "enable_sticky_info": true,
