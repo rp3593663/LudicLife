@@ -45,7 +45,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\n  A distinct build of canvas wired functionally with a <span>3-folded patch pocket,</span> a diagonal phone pocket, a sneaky pocket hidden inside on the right, and a 2-panelled back.</div></div>",
+        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\n  A distinct build of canvas wired functionally with a <span>3-folded patch pocket,</span> a diagonal phone pocket, primary branding <span>silicon patch at the rear,</span> and a 2-panelled back.</div></div>",
         "color_scheme": "",
         "padding_top": 96,
         "padding_bottom": 96
