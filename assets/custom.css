@@ -1900,7 +1900,7 @@ a#HeaderMenu-twos-day-sale {
 
 .reworked_faq_inner {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.28fr 0.72fr;
     gap: 58px;
 }
 .reworked_faq_img {
@@ -1927,6 +1927,7 @@ a#HeaderMenu-twos-day-sale {
 }
 .reworked_faq_left .meta_question_icon{
   font-size: 16px;
+  font-weight: 600;
 }
 .reworked_faq_left span.meta_question_icon_minus {
   display: none;
