@@ -2117,4 +2117,9 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product  .custom_main_btn {
     margin-top: 0px!important;
   }
+  .reworked-main-product button.product-form__submit {
+    height: 47px;
+    font-size: 12.65px;
+    line-height: 12.65px;
+  }
 }
