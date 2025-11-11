@@ -1750,3 +1750,17 @@ a#HeaderMenu-twos-day-sale {
     justify-content: space-between;
     margin-bottom: 14px;
 }
+.reworked_product_title_info a.product__title {
+    margin: 0px;
+    color: #1a1a1a;
+    text-decoration: unset;
+}
+.reworked_product_title_info a.product__title h2{
+    margin: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16.61px;
+    letter-spacing: -0.8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
