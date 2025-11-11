@@ -1862,6 +1862,11 @@ a#HeaderMenu-twos-day-sale {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: rotate(-35deg);
+    position: absolute;
+    width: 100%;
+    left: -58px;
+    top: -20px;
 }
 .name_block > div img {
     width: 15px;
