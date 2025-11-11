@@ -1887,3 +1887,7 @@ a#HeaderMenu-twos-day-sale {
     align-items: center;
     justify-content: center;
 }
+.image_block img {
+    width: 62%;
+    height: auto;
+}
