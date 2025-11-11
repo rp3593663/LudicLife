@@ -2089,5 +2089,7 @@ a#HeaderMenu-twos-day-sale {
   }
   .reworked-main-product .short_description {
     order: unset;
+    padding: 0px;
+    border: unset;
   }
 }
