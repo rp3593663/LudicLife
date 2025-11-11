@@ -1810,6 +1810,11 @@ a#HeaderMenu-twos-day-sale {
     width: 100%!important;
     gap: 12px!important;
 }
+.custom-variant-image img {
+    width: 51px;
+    height: 51px;
+    border-radius: 4px;
+}
 .reworked-main-product .custom-variant-image a.selected {
     border: 1px solid #1A1A1A;
     border-radius: 4px;
