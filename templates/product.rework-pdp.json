@@ -18,10 +18,18 @@
             "picker_type": "button",
             "swatch_shape": "circle"
           }
+        },
+        "buy_buttons_Mn7Kf6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
         }
       },
       "block_order": [
-        "variant_picker_JWnzgb"
+        "variant_picker_JWnzgb",
+        "buy_buttons_Mn7Kf6"
       ],
       "name": "Reworked Main Product",
       "settings": {
