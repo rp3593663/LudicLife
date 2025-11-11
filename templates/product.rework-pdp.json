@@ -73,7 +73,7 @@
         "layout": "full-width",
         "bg_color": "rgba(0,0,0,0)",
         "padding": "0px",
-        "margin": "0px 0px 0px 0px| | |36px 0px"
+        "margin": "0px 0px 0px 0px | | |  42px 0px"
       }
     },
     "main": {
