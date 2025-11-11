@@ -2053,7 +2053,7 @@ a#HeaderMenu-twos-day-sale {
   }
   .reworked_product_bundle {
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 40px;
   }
   .image_block {
     max-width: 125px;
@@ -2069,5 +2069,9 @@ a#HeaderMenu-twos-day-sale {
     font-size: 10px;
     line-height: 13.18px;
     letter-spacing: -.27px;
+  }
+  .name_block>div img {
+    width: 8px;
+    height: auto;
   }
 }
