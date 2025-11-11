@@ -2167,4 +2167,7 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .splide__slide img {
     max-width: 50vh;
   }
+  .reworked-main-product .fw_product_gallery {
+    margin-bottom: 25px;
+  }
 }
