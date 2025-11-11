@@ -11,6 +11,18 @@
   "sections": {
     "reworked_pdp_36JkbV": {
       "type": "reworked-pdp",
+      "blocks": {
+        "variant_picker_JWnzgb": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "variant_picker_JWnzgb"
+      ],
       "name": "Reworked Main Product",
       "settings": {
         "enable_sticky_info": true,
