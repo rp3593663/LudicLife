@@ -53,7 +53,7 @@
       "name": "Reworked PDP grid",
       "settings": {
         "padding_top": 84,
-        "padding_bottom": 0
+        "padding_bottom": 100
       }
     },
     "main": {
