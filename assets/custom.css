@@ -1900,7 +1900,7 @@ a#HeaderMenu-twos-day-sale {
 
 .reworked_faq_inner {
     display: grid;
-    grid-template-columns: 1.28fr 0.72fr;
+    grid-template-columns: 1.27fr 0.73fr;
     gap: 58px;
 }
 .reworked_faq_img {
