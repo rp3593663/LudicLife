@@ -2031,8 +2031,8 @@ a#HeaderMenu-twos-day-sale {
     grid-template-columns: 1fr 1fr;
   }
   .name_block {
-    max-width: 100px;
-    height: 32px;
+    max-width: 120px;
+    height: 39px;
     width: 100%;
     left: -38px;
     top: -12px;
