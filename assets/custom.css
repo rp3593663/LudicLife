@@ -1781,3 +1781,6 @@ a#HeaderMenu-twos-day-sale {
     line-height: 16.61px!important;
     letter-spacing: -0.8px;
 }
+.reworked-main-product .short_description {
+    margin: 0px 0 8px;
+}
