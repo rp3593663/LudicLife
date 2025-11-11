@@ -70,6 +70,7 @@
         "description",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -85,96 +86,6 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "new_meta_faq_UFxmRx": {
-      "type": "new-meta-faq",
-      "settings": {}
-    },
-    "meta_scroll_text_fVKHbC": {
-      "type": "Meta-scroll-text",
-      "settings": {}
-    },
-    "moblie_meta_scroll_text_fMWJnR": {
-      "type": "moblie-meta-scroll-text",
-      "settings": {}
-    },
-    "multicolumn_PKaXcm": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_TcqQ6E": {
-          "type": "column",
-          "settings": {
-            "video": "{{ product.metafields.custom.product_reel_video.value }}",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_PCEaUT": {
-          "type": "column",
-          "settings": {
-            "video": "{{ product.metafields.custom.product_reel_video_2.value }}",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_p68mep": {
-          "type": "column",
-          "settings": {
-            "video": "{{ product.metafields.custom.product_reel_video_3.value }}",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_qXH7tC": {
-          "type": "column",
-          "settings": {
-            "video": "{{ product.metafields.custom.product_reel_video_4.value }}",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_TcqQ6E",
-        "column_PCEaUT",
-        "column_p68mep",
-        "column_qXH7tC"
-      ],
-      "custom_css": [
-        ".multicolumn-card__image-wrapper {margin: 0;}",
-        ".title {font-size: 16px; font-weight: 700; line-height: 20px;}",
-        ".title-wrapper-with-link {margin-bottom: 3.2rem;}",
-        ".multicolumn-list__item {margin-bottom: 0;}",
-        "@media only screen and (max-width: 768px) {.title-wrapper-with-link {margin-bottom: 16px; }}"
-      ],
-      "settings": {
-        "title": "#LudicEdit",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 40,
-        "padding_bottom": 60
-      }
-    },
-    "meta_faq_xdMkgW": {
-      "type": "meta-faq",
-      "settings": {}
     },
     "related-products": {
       "type": "related-products",
@@ -195,185 +106,29 @@
         "padding_bottom": 28
       }
     },
-    "collection_list_xLiTqt": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_adBCDw": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "footwear",
-            "img": "shopify://shop_images/7.png",
-            "custom_title": "Shop Enhanced Canvas"
-          }
-        },
-        "featured_collection_qhQVrr": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "footwear",
-            "img": "shopify://shop_images/8.png",
-            "custom_title": "Shop Eclipse"
-          }
-        },
-        "featured_collection_qFQgBF": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "footwear",
-            "img": "shopify://shop_images/9.png",
-            "custom_title": "Shop Nova"
-          }
-        },
-        "featured_collection_ff3Mga": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "all-products",
-            "img": "shopify://shop_images/10.png",
-            "custom_title": "Shop Apparel"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_adBCDw",
-        "featured_collection_qhQVrr",
-        "featured_collection_qFQgBF",
-        "featured_collection_ff3Mga"
-      ],
-      "disabled": true,
+    "reworked_pdp_36JkbV": {
+      "type": "reworked-pdp",
+      "name": "Reworked Main Product",
       "settings": {
-        "padding": "80px 0px 0px 0px | | | 36px 0px 0px 0px",
-        "margin": "40px 0px 0px 0px | | | 0px 0px 56px",
-        "title": "",
-        "heading_size": "h1",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
+        "enable_sticky_info": true,
         "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "custom_class": "category-list-main category-mobile-list"
-      }
-    },
-    "collection_list_DaUP9U": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_gYz64N": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "footwear",
-            "img": "shopify://shop_images/Desktop_Banner_4.jpg",
-            "img_mobile": "shopify://shop_images/Desktop_Banner_4.jpg",
-            "custom_title": "Shop Sneakers"
-          }
-        },
-        "featured_collection_bFT8z9": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "apparel",
-            "img": "shopify://shop_images/i1.png",
-            "img_mobile": "shopify://shop_images/10.png",
-            "custom_title": "Shop Apparels"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_gYz64N",
-        "featured_collection_bFT8z9"
-      ],
-      "settings": {
-        "padding": "80px 0px 0px 0px | | | 36px 0px 0px 0px",
-        "margin": "40px 0px 0px 0px | | | 0px 0px 56px",
-        "title": "",
-        "heading_size": "h1",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "custom_class": "category-list-main"
-      }
-    },
-    "custom_liquid_p4pKxV": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".festival-banner-desktop {display: block;}",
-        ".festival-banner-mobile {display: none;}",
-        "@media screen and (max-width: 768px) {.festival-banner-desktop {display: none; } .festival-banner-mobile {display: block; }}"
-      ],
-      "settings": {
-        "custom_liquid": "<div class=\"container\"><a href=\"https://ludic.life/pages/twos-day-sale\">\n<img class=\"festival-banner-desktop\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-twos-day-banner.png?v=1762775270\">\n<img class=\"festival-banner-mobile\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-twos-day-banner.png?v=1762775271\">\n</a></div>",
-        "color_scheme": "",
-        "padding_top": 52,
-        "padding_bottom": 52
-      }
-    },
-    "multicolumn_MJtHkx": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_Kywzyw": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Fast & secure delivery</strong>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_pYb7zP": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Free shipping across India <br> (COD available)</strong>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_jWX6L3": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>7-day easy returns</strong>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_Kywzyw",
-        "column_pYb7zP",
-        "column_jWX6L3"
-      ],
-      "custom_css": [
-        ".multicolumn-card__image-wrapper {width: 28px; height: 32px;}"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 28
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
+    "reworked_pdp_36JkbV",
     "main",
-    "new_meta_faq_UFxmRx",
-    "meta_scroll_text_fVKHbC",
-    "moblie_meta_scroll_text_fMWJnR",
-    "multicolumn_PKaXcm",
-    "meta_faq_xdMkgW",
-    "related-products",
-    "collection_list_xLiTqt",
-    "collection_list_DaUP9U",
-    "custom_liquid_p4pKxV",
-    "multicolumn_MJtHkx"
+    "related-products"
   ]
 }
