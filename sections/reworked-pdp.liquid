@@ -123,6 +123,22 @@
 
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section id="ProductInfo-{{ section.id }}" class="product__info-container {% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}">
+
+            <div class="reworked_product_title_info">
+              <a href="{{ product.url }}" class="product__title">
+                <h2 class="h1">
+                  {{ product.title | escape }}
+                </h2>
+              </a>
+              <div class="reworked-product_price">
+                {%- render 'price',
+                  product: product,
+                  use_variant: true,
+                  show_badges: true,
+                  price_class: 'price--large'
+                -%}
+              </div>
+            </div>
         
             {% if product.metafields.custom.short_description != blank %}
                 <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
