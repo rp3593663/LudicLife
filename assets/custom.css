@@ -1908,26 +1908,31 @@ a#HeaderMenu-twos-day-sale {
     overflow: hidden;
 }
 #faq_questions_list{
-   display: grid;
-      gap: 10px;
+  display: grid;
+  gap: 10px;
 }
 .faq_main {
-          font-family: Public Sans;
-          cursor: pointer;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 16px;
-          letter-spacing: -0.7px;
-          vertical-align: middle;
-          padding: 20px 2px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+    font-family: Public Sans;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.7px;
+    vertical-align: middle;
+    padding: 20px 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .meta_question_icon{
-            font-size: 16px;
-        
-          }
-          span.meta_question_icon_minus {
-          display: none;
-        }
+  font-size: 16px;
+}
+span.meta_question_icon_minus {
+  display: none;
+}
+.meta_question.active .meta_question_icon_minus {
+   display: block!important;
+}
+.meta_question.active .meta_question_icon_pluse{
+  display: none;
+}
