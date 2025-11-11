@@ -2078,4 +2078,13 @@ a#HeaderMenu-twos-day-sale {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .reworked-main-product .product__info-wrapper{
+    padding: 28px 41px 28px 36px !important;
+    position: relative;
+    z-index: 2;
+    right: unset;
+    max-width: 376px;
+    width: 100%;
+    margin: auto;
+  }
 }
