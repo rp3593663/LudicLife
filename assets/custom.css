@@ -1744,3 +1744,9 @@ a#HeaderMenu-twos-day-sale {
     max-width: 445px;
     width: 100%;
 }
+.reworked_product_title_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
