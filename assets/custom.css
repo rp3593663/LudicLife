@@ -2059,4 +2059,10 @@ a#HeaderMenu-twos-day-sale {
     max-width: 125px;
     height: 90px;
   }
+  .name_block {
+    max-width: 83px;
+    height: 26px;
+    left: -30px;
+    top: -10px;
+  }
 }
