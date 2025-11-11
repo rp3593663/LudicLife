@@ -70,7 +70,7 @@
       "type": "fw-full-image",
       "name": "Fw Full Image",
       "settings": {
-        "layout": "box_width",
+        "layout": "full-width",
         "bg_color": "rgba(0,0,0,0)",
         "padding": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
         "margin": "0px 0px 0px 0px| | |36px 0px"
