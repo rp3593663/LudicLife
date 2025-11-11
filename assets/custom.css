@@ -1952,3 +1952,9 @@ a#HeaderMenu-twos-day-sale {
     gap: 8px;
     margin-top: 12px;
 }
+.fits_box {
+    background: #F9F9F9;
+    border-radius: 6px;
+    aspect-ratio: 1/1.1;
+    padding: 10px;
+}
