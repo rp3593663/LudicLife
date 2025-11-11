@@ -1841,3 +1841,13 @@ a#HeaderMenu-twos-day-sale {
     letter-spacing: 0;
     text-transform: uppercase;
 }
+
+
+
+.reworked_product_bundle {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 132px;
+}
