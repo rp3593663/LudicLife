@@ -1697,3 +1697,15 @@ a#HeaderMenu-twos-day-sale {
     row-gap: 8px;
   }
 }
+
+
+
+
+
+
+.template-product.template-product\.rework-pdp{
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_body_bg.svg?v=1762841346);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
