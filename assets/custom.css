@@ -1768,7 +1768,7 @@ a#HeaderMenu-twos-day-sale {
     text-transform: uppercase;
 }
 .reworked-main-product .price .badge, .reworked-main-product .price__container {
-    margin-bottom: 0;
+    margin-bottom: 0!important;
 }
 .reworked-main-product .price--large, 
 .reworked-main-product .price__regular,
