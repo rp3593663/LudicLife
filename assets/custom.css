@@ -1798,3 +1798,6 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product .specification img {
     width: 10px;
 }
+.reworked-main-product .custom_variants {
+    margin: 0!important;
+}
