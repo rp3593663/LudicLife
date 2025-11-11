@@ -1719,3 +1719,18 @@ a#HeaderMenu-twos-day-sale {
   cursor: crosshair;
   border-radius: 0;
 }
+.reworked-main-product .fw-modal .fw-modal-slider .slick-list .slick-track {
+    height: 100%!important;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reworked-main-product .fw-modal .fw-modal-slider img {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    width: auto!important;
+    text-align: center;
+}
