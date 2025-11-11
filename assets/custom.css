@@ -1795,3 +1795,6 @@ a#HeaderMenu-twos-day-sale {
     gap: 4px;
     line-height: 14.23px;
 }
+.reworked-main-product .specification img {
+    width: 10px;
+}
