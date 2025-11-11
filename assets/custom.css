@@ -1775,7 +1775,7 @@ a#HeaderMenu-twos-day-sale {
 .reworked-product_price div {
     line-height: 16px!important;
 }
-.reworked-main-product .price-item.price-item--regular {
+.template-product .reworked-main-product .price-item.price-item--regular {
     color: #1a1a1a;
     font-weight: 700;
     font-size: 16px;
