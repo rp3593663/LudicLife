@@ -1970,3 +1970,22 @@ a#HeaderMenu-twos-day-sale {
     display: grid;
     gap: 4px;
 }
+.fits_info h5 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    vertical-align: middle;
+    color: #10100F;
+    margin: 0px;
+}
+.fits_info p {
+    color: #10100F;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+    letter-spacing: -0.24px;
+    text-align: justify;
+    vertical-align: middle;
+}
