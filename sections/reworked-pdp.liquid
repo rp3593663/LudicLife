@@ -102,17 +102,17 @@
         <div id="splide" class="splide">
           <div class="splide__track">
             <div class="splide__list">
-              {% for image in product.images %}
+              {% for image in product.images offset:1 %}
                 <div class="splide__slide fw-product-slide fw-hover-plus">
-                  <img 
+                    <img 
                     src="{{ image | image_url }}" 
                     alt="{{ image.alt | escape }}" 
                     data-index="{{ forloop.index0 }}"
                     data-full="{{ image | image_url }}" 
                     class="slider-image"
-                  />
+                    />
                 </div>
-              {% endfor %}
+                {% endfor %}
             </div>
           </div>
         </div>
