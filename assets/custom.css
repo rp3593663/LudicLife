@@ -2074,4 +2074,8 @@ a#HeaderMenu-twos-day-sale {
     width: 8px;
     height: auto;
   }
+  .reworked_faq_inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
