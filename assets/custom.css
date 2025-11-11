@@ -2122,4 +2122,12 @@ a#HeaderMenu-twos-day-sale {
     font-size: 12.65px;
     line-height: 12.65px;
   }
+  .reworked_product_title_info {
+    margin-bottom: 12px;
+  }
+  .reworked_product_title_info a.product__title h2 {
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -.7px;
+  }
 }
