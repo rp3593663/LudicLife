@@ -1710,6 +1710,6 @@ a#HeaderMenu-twos-day-sale {
   background-repeat: no-repeat;
 }
 .product.reworked-main-product {
-    background: unset;
+    background: unset!important;
     border-radius: 0px;
 }
