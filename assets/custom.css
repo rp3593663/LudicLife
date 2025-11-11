@@ -1755,6 +1755,9 @@ a#HeaderMenu-twos-day-sale {
     color: #1a1a1a;
     text-decoration: unset;
 }
+.reworked-main-product .product__info-container {
+    max-width: 100%;
+}
 .reworked_product_title_info a.product__title h2{
     margin: 0px;
     font-weight: 700;
