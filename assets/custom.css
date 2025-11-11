@@ -1998,3 +1998,15 @@ a#HeaderMenu-twos-day-sale {
       gap: 70px;
   }
 }
+@media only screen and (max-width: 1023px) and (min-width: 992px)  {
+  .reworked_product_bundle {
+      gap: 50px;
+  }
+  .name_block {
+    max-width: 100px;
+    height: 32px;
+    width: 100%;
+    left: -38px;
+    top: -12px;
+  }
+}
