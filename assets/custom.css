@@ -1830,3 +1830,14 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product .custom-variant-product {
     margin-bottom: 20px;
 }
+.reworked-main-product button.product-form__submit {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/add_cart_bg.png?v=1762846143);
+    background-color: unset!important;
+    background-size: cover;
+    height: 56px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
