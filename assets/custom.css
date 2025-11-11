@@ -1907,3 +1907,27 @@ a#HeaderMenu-twos-day-sale {
     border-radius: 14px;
     overflow: hidden;
 }
+#faq_questions_list{
+   display: grid;
+      gap: 10px;
+}
+.faq_main {
+          font-family: Public Sans;
+          cursor: pointer;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: -0.7px;
+          vertical-align: middle;
+          padding: 20px 2px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+}
+.meta_question_icon{
+            font-size: 16px;
+        
+          }
+          span.meta_question_icon_minus {
+          display: none;
+        }
