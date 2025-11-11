@@ -2030,4 +2030,16 @@ a#HeaderMenu-twos-day-sale {
     gap: 50px;
     grid-template-columns: 1fr 1fr;
   }
+  .name_block {
+    max-width: 100px;
+    height: 32px;
+    width: 100%;
+    left: -38px;
+    top: -12px;
+  }
+  .name_block>div {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -.45px;
+  }
 }
