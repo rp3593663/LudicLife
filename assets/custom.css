@@ -1741,4 +1741,6 @@ a#HeaderMenu-twos-day-sale {
     position: absolute;
     bottom: 0px;
     right: 90px;
+    max-width: 445px;
+    width: 100%;
 }
