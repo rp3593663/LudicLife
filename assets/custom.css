@@ -1858,3 +1858,14 @@ a#HeaderMenu-twos-day-sale {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked3.svg?v=1762847514);
     background-size: cover;
 }
+.name_block > div {
+    display: flex;
+    align-items: center;
+    font-family: Public Sans;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.12px;
+    letter-spacing: -0.45px;
+    text-align: justify;
+    vertical-align: middle;
+}
