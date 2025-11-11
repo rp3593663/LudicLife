@@ -1791,3 +1791,7 @@ a#HeaderMenu-twos-day-sale {
     gap: 14px;
     margin: 0px 0 20px!important;
 }
+.reworked-main-product .specification {
+    gap: 4px;
+    line-height: 14.23px;
+}
