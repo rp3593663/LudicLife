@@ -1837,7 +1837,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-  $(document).ready(function() {
+  {% comment %} $(document).ready(function() {
     $('.fw-product-slider').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
@@ -1880,7 +1880,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $('#fw-image-modal').fadeOut();
       $('body').removeClass('open-fw-image-modal');
     });
-  });
+  }); {% endcomment %}
 </script>
 
 
