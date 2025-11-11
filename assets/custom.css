@@ -1854,3 +1854,7 @@ a#HeaderMenu-twos-day-sale {
 .reworked_block {
     position: relative;
 }
+.name_block {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked3.svg?v=1762847514);
+    background-size: cover;
+}
