@@ -2114,4 +2114,7 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .custom-variant-product{
     margin-bottom: 16px!important;
   }
+  .reworked-main-product  .custom_main_btn {
+    margin-top: 0px!important;
+  }
 }
