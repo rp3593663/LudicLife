@@ -144,20 +144,14 @@
                 <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
             {% endif %}
 
-            {% if template == 'product.twos-day-sale' %}
+            {% if product.metafields.custom.product_specification and product.metafields.custom.product_specification.value.size > 0 %}
                 <div class="product__specifications">
+                    {% for item in product.metafields.custom.product_specification.value %}
                     <div class="specification">
-                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                        Cotton Canvas
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="spec icon">
+                        {{ item }}
                     </div>
-                    <div class="specification">
-                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                        Relaxed Fit
-                    </div>
-                    <div class="specification">
-                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                        3-way Pockets
-                    </div>
+                    {% endfor %}
                 </div>
             {% endif %}
        
