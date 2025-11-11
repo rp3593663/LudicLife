@@ -1966,3 +1966,7 @@ a#HeaderMenu-twos-day-sale {
     right: 15px;
     bottom: 11px;
 }
+.fits_info {
+    display: grid;
+    gap: 4px;
+}
