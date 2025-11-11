@@ -1903,3 +1903,7 @@ a#HeaderMenu-twos-day-sale {
     grid-template-columns: 2fr 1fr;
     gap: 58px;
 }
+.reworked_faq_img {
+    border-radius: 14px;
+    overflow: hidden;
+}
