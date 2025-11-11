@@ -12,28 +12,6 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
-        "slide_xwDNcy": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/30-OFF-Button-Down.png",
-            "mobile_image": "shopify://shop_images/30-OFF-Button-Down-Mobile.png",
-            "banner_url": "shopify://collections/weekend-shirt-circuit-shirt",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "mobile_subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
-        },
         "slide_xbMa3M": {
           "type": "slide",
           "settings": {
@@ -46,6 +24,28 @@
             "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
             "button_label": "Discover",
             "link": "shopify://pages/twos-day-sale",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_xwDNcy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/30-OFF-Button-Down.png",
+            "mobile_image": "shopify://shop_images/30-OFF-Button-Down-Mobile.png",
+            "banner_url": "shopify://collections/weekend-shirt-circuit-shirt",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "",
+            "link": "",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -206,8 +206,8 @@
         }
       },
       "block_order": [
-        "slide_xwDNcy",
         "slide_xbMa3M",
+        "slide_xwDNcy",
         "slide_iBgjiF",
         "slide_E6BA8B",
         "slide_4KEdxV",
