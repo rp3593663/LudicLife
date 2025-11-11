@@ -80,7 +80,7 @@
                 aaa
               </div>
             </div>
-            <div class="meta_question active" data-index="1">
+            <div class="meta_question" data-index="1">
               <div class="faq_main">
                 <div class="meta_question_text">bbb</div>
                 <div class="meta_question_icon">
@@ -96,7 +96,7 @@
                 aaa
               </div>
             </div>
-            <div class="meta_question active" data-index="2">
+            <div class="meta_question" data-index="2">
               <div class="faq_main">
                 <div class="meta_question_text">bbb</div>
                 <div class="meta_question_icon">
@@ -137,7 +137,6 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
   const faqItems = document.querySelectorAll('.meta_question');
-  const imgTag = document.querySelector('.reworked_faq_img img');
 
   faqItems.forEach((item) => {
     item.addEventListener('click', () => {
