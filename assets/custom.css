@@ -1936,3 +1936,11 @@ span.meta_question_icon_minus {
 .meta_question.active .meta_question_icon_pluse{
   display: none;
 }
+.meta_answer {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.36px;
+  text-align: justify;
+  vertical-align: middle;
+}
