@@ -2055,4 +2055,8 @@ a#HeaderMenu-twos-day-sale {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
   }
+  .image_block {
+    max-width: 125px;
+    height: 90px;
+  }
 }
