@@ -1896,3 +1896,10 @@ a#HeaderMenu-twos-day-sale {
     width: 62%;
     height: auto;
 }
+
+
+.reworked_faq_inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 58px;
+}
