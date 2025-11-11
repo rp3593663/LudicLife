@@ -62,8 +62,8 @@
       "settings": {
         "layout": "box_width",
         "bg_color": "rgba(0,0,0,0)",
-        "padding": "8px 0px 68px 0px | | | 8px 0px 20px 0px",
-        "margin": "0px 0px 0px 0px| | |36px 0px"
+        "padding": "8px 0px 68px 0px | | | 0px",
+        "margin": ""
       }
     },
     "fw_full_image_jdhUic": {
