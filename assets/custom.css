@@ -2150,4 +2150,10 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .specification {
     line-height: 12px;
   }
+  .reworked_faq_left .faq_main {
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.6px;
+    padding: 15px 0;
+  }
 }
