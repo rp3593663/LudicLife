@@ -1946,3 +1946,9 @@ a#HeaderMenu-twos-day-sale {
   vertical-align: middle;
   color: #fff;
 }
+.fits_blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+}
