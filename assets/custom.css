@@ -1857,6 +1857,11 @@ a#HeaderMenu-twos-day-sale {
 .name_block {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked3.svg?v=1762847514);
     background-size: cover;
+    max-width: 140px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .name_block > div img {
     width: 15px;
