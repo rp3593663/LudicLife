@@ -1957,4 +1957,12 @@ a#HeaderMenu-twos-day-sale {
     border-radius: 6px;
     aspect-ratio: 1/1.1;
     padding: 10px;
+    position: relative;
+}
+.fits_box img {
+    height: 94px;
+    width: auto;
+    position: absolute;
+    right: 15px;
+    bottom: 11px;
 }
