@@ -1989,3 +1989,10 @@ a#HeaderMenu-twos-day-sale {
     text-align: justify;
     vertical-align: middle;
 }
+
+
+@media only screen and (max-width: 1199px) and (min-width: 1024px)  {
+  .reworked_product_bundle {
+      gap: 70px;
+  }
+}
