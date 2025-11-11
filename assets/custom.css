@@ -1736,12 +1736,12 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product .product__info-wrapper {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923);
     background-size: cover;
-    padding: 32px 40px 38px 40px!important;
+    padding: 33px 52px 32px 40px !important;
     background-position: center;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     right: 90px;
-    max-width: 445px;
+    max-width: 446px;
     width: 100%;
 }
 .reworked_product_title_info {
