@@ -1,0 +1,230 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .reworked_faq {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .reworked_faq {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .reworked_faq {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .reworked_faq {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+{% assign faq_items = product.metafields.custom.accordion_with_image.value %}
+{% assign first_faq = faq_items.first %}
+{% assign media_url = first_faq.image | file_url %}
+{% assign is_mp4 = false %}
+{% assign is_webm = false %}
+{% if media_url contains '.mp4' %}
+  {% assign is_mp4 = true %}
+{% endif %}
+{% if media_url contains '.webm' %}
+  {% assign is_webm = true %}
+{% endif %}
+{% assign is_video = false %}
+{% if is_mp4 or is_webm %}
+  {% assign is_video = true %}
+{% endif %}
+
+<section class="ludic-section reworked_faq ludic-section-{{ section.id }}">
+  <div class="{{ container }}">
+
+    <div class="reworked_faq_inner">
+      <div class="reworked_faq_right">
+        <div class="reworked_faq_img">
+          
+        </div>
+      </div>
+
+      <div class="reworked_faq_left">
+        <div id="faq_questions_list">
+          {% for faq in faq_items %}
+            {% assign this_url = faq.image | file_url %}
+      {% assign is_mp4 = false %}
+      {% assign is_webm = false %}
+      {% if this_url contains '.mp4' %}
+        {% assign is_mp4 = true %}
+      {% endif %}
+      {% if this_url contains '.webm' %}
+        {% assign is_webm = true %}
+      {% endif %}
+      {% assign is_video = false %}
+      {% if is_mp4 or is_webm %}
+        {% assign is_video = true %}
+      {% endif %}
+            <div
+              class="meta_question {% if forloop.first %}active{% endif %}"
+              data-index="{{ forloop.index0 }}"
+              data-media="{{ this_url }}"
+              data-type="{{ is_video | json }}"
+            >
+              <div class="faq_main">
+                <div class="meta_question_text">{{ faq.title }}</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                {{ faq.details | metafield_tag }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% style %}
+  .reworked_faq .meta_answer {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease;
+  }
+  .reworked_faq .meta_question:not(.active) .meta_answer {
+    height: 0;
+    overflow: hidden;
+  }
+  .reworked_faq .meta_question.active .meta_answer {
+    height: auto;
+  }
+{% endstyle %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const faqItems = document.querySelectorAll('.meta_question');
+  const videoPlayer = document.getElementById('faq_video_player');
+  const videoSource = videoPlayer.querySelector('source');
+  const imgTag = document.querySelector('.reworked_faq_img img');
+
+  faqItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      // Reset all items
+      faqItems.forEach((el) => {
+        el.classList.remove('active');
+        const answer = el.querySelector('.meta_answer');
+
+        // Reset to current height to enable transition
+        answer.style.height = answer.scrollHeight + 'px';
+
+        // Force reflow
+        void answer.offsetHeight;
+
+        // Collapse
+        answer.style.height = '0px';
+      });
+
+      // Activate clicked item
+      item.classList.add('active');
+      const answer = item.querySelector('.meta_answer');
+
+      // Expand
+      answer.style.height = answer.scrollHeight + 'px';
+
+      // After transition, clear the height so it becomes auto (for responsive layout)
+      answer.addEventListener('transitionend', function handler() {
+        answer.style.height = 'auto';
+        answer.removeEventListener('transitionend', handler);
+      });
+
+      // Switch media
+      const mediaUrl = item.dataset.media;
+      const isVideo = item.dataset.type === 'true';
+
+      if (isVideo) {
+        imgTag.style.display = 'none';
+        videoPlayer.style.display = 'block';
+        if (videoSource.src !== mediaUrl) {
+          videoSource.src = mediaUrl;
+          videoPlayer.load();
+        }
+      } else {
+        videoPlayer.style.display = 'none';
+        imgTag.style.display = 'block';
+        imgTag.src = mediaUrl;
+      }
+    });
+  });
+
+  // Trigger default open
+  const firstItem = document.querySelector('.meta_question.active');
+  if (firstItem) firstItem.click();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Reworked FAQ",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Reworked FAQ"
+    }
+  ]
+}
+{% endschema %}
