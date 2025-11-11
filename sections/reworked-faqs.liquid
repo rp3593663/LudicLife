@@ -137,8 +137,6 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
   const faqItems = document.querySelectorAll('.meta_question');
-  const videoPlayer = document.getElementById('faq_video_player');
-  const videoSource = videoPlayer.querySelector('source');
   const imgTag = document.querySelector('.reworked_faq_img img');
 
   faqItems.forEach((item) => {
@@ -171,22 +169,6 @@
         answer.removeEventListener('transitionend', handler);
       });
 
-      // Switch media
-      const mediaUrl = item.dataset.media;
-      const isVideo = item.dataset.type === 'true';
-
-      if (isVideo) {
-        imgTag.style.display = 'none';
-        videoPlayer.style.display = 'block';
-        if (videoSource.src !== mediaUrl) {
-          videoSource.src = mediaUrl;
-          videoPlayer.load();
-        }
-      } else {
-        videoPlayer.style.display = 'none';
-        imgTag.style.display = 'block';
-        imgTag.src = mediaUrl;
-      }
     });
   });
 
