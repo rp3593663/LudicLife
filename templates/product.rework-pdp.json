@@ -56,6 +56,16 @@
         "padding_bottom": 100
       }
     },
+    "reworked_faqs_aQqamK": {
+      "type": "reworked-faqs",
+      "name": "Reworked FAQ",
+      "settings": {
+        "layout": "box_width",
+        "bg_color": "#ffffff",
+        "padding": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+        "margin": "0px 0px 0px 0px| | |36px 0px"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -157,6 +167,7 @@
   "order": [
     "reworked_pdp_36JkbV",
     "reworked_pdp_grid_kiUXci",
+    "reworked_faqs_aQqamK",
     "main",
     "related-products"
   ]
