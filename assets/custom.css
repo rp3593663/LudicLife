@@ -1911,7 +1911,7 @@ a#HeaderMenu-twos-day-sale {
   display: grid;
   gap: 10px;
 }
-.faq_main {
+.reworked_faq_left .faq_main {
     font-family: Public Sans;
     cursor: pointer;
     font-weight: 700;
@@ -1924,19 +1924,19 @@ a#HeaderMenu-twos-day-sale {
     align-items: center;
     justify-content: space-between;
 }
-.meta_question_icon{
+.reworked_faq_left .meta_question_icon{
   font-size: 16px;
 }
-span.meta_question_icon_minus {
+.reworked_faq_left span.meta_question_icon_minus {
   display: none;
 }
-.meta_question.active .meta_question_icon_minus {
+.reworked_faq_left .meta_question.active .meta_question_icon_minus {
    display: block!important;
 }
-.meta_question.active .meta_question_icon_pluse{
+.reworked_faq_left .meta_question.active .meta_question_icon_pluse{
   display: none;
 }
-.meta_answer {
+.reworked_faq_left .meta_answer {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
