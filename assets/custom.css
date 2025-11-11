@@ -1883,4 +1883,7 @@ a#HeaderMenu-twos-day-sale {
     background-size: cover;
     max-width: 210px;
     height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
