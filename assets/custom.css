@@ -1498,6 +1498,9 @@ button#setReminderBtn {
 .template-page\.twos-day-sale .shopify-section-group-footer-group{
   display: none;
 }
+a#HeaderMenu-twos-day-sale {
+    color: #e60013;
+}
 @media (max-width: 991.98px) {
   body.template-page\.twos-day-sale  #MainContent {
       margin-top: 0px!important;
