@@ -2134,4 +2134,9 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .price--large, .reworked-main-product .price__regular, .reworked-product_price div {
     line-height: 14px!important;
   }
+  .reworked-main-product .short_description .metafield-rich_text_field {
+    line-height: 13.27px;
+    font-size: 9.95px;
+    letter-spacing: -.27px;
+  }
 }
