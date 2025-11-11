@@ -1826,3 +1826,6 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product product-form.product-form {
     margin: 0px!important;
 }
+.reworked-main-product .custom-variant-product {
+    margin-bottom: 20px;
+}
