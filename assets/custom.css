@@ -1709,3 +1709,7 @@ a#HeaderMenu-twos-day-sale {
   background-position: center;
   background-repeat: no-repeat;
 }
+.product.reworked-main-product {
+    background: unset;
+    border-radius: 0px;
+}
