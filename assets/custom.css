@@ -1835,7 +1835,7 @@ a#HeaderMenu-twos-day-sale {
     background-color: unset!important;
     background-size: cover;
     height: 56px;
-    font-weight: 700;
+    font-weight: 600!important;
     font-size: 15px;
     line-height: 15px;
     letter-spacing: 0;
