@@ -1806,3 +1806,7 @@ a#HeaderMenu-twos-day-sale {
     line-height: 12px;
     margin-bottom: 14px;
 }
+.reworked-main-product .custom-variant-image {
+    width: 100%!important;
+    gap: 12px!important;
+}
