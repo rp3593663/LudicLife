@@ -1956,6 +1956,8 @@ a#HeaderMenu-twos-day-sale {
   text-align: justify;
   vertical-align: middle;
   color: #fff;
+  display: grid;
+  gap: 4px;
 }
 .fits_blocks {
     display: grid;
