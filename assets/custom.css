@@ -1963,7 +1963,7 @@ a#HeaderMenu-twos-day-sale {
     gap: 8px;
 }
 .fits_box {
-    background: #F9F9F9;
+    background: #f9f9f9ba;
     border-radius: 6px;
     aspect-ratio: 1/1.08;
     padding: 10px;
