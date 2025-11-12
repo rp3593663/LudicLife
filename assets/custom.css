@@ -1919,7 +1919,7 @@ a#HeaderMenu-twos-day-sale {
   display: grid;
   gap: 10px;
 }
-.reworked_faq_left .faq_main {
+.reworked_faq_right .faq_main {
     cursor: pointer;
     font-weight: 650;
     font-size: 14px;
@@ -1932,20 +1932,20 @@ a#HeaderMenu-twos-day-sale {
     justify-content: space-between;
     color: #FFF;
 }
-.reworked_faq_left .meta_question_icon{
+.reworked_faq_right .meta_question_icon{
   font-size: 16px;
   font-weight: 600;
 }
-.reworked_faq_left span.meta_question_icon_minus {
+.reworked_faq_right span.meta_question_icon_minus {
   display: none;
 }
-.reworked_faq_left .meta_question.active .meta_question_icon_minus {
+.reworked_faq_right .meta_question.active .meta_question_icon_minus {
    display: block!important;
 }
-.reworked_faq_left .meta_question.active .meta_question_icon_pluse{
+.reworked_faq_right .meta_question.active .meta_question_icon_pluse{
   display: none;
 }
-.reworked_faq_left .meta_answer {
+.reworked_faq_right .meta_answer {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
@@ -2169,13 +2169,13 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .specification {
     line-height: 12px;
   }
-  .reworked_faq_left .faq_main {
+  .reworked_faq_right .faq_main {
     font-size: 12px;
     line-height: 12px;
     letter-spacing: -0.6px;
     padding: 15px 0;
   }
-  .reworked_faq_left .meta_answer {
+  .reworked_faq_right .meta_answer {
     font-size: 10px;
     line-height: 14px;
     letter-spacing: -.3px;
