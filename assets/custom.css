@@ -2001,6 +2001,8 @@ a#HeaderMenu-twos-day-sale {
     letter-spacing: -0.24px;
     text-align: justify;
     vertical-align: middle;
+    display: grid;
+    gap: 4px;
 }
 
 
