@@ -2110,6 +2110,9 @@ a#HeaderMenu-twos-day-sale {
     padding: 0px;
     border: unset;
   }
+  .reworked-main-product .short_description .metafield-rich_text_field p {
+    margin-bottom: 4px;
+}
   .reworked-main-product .custom-variant-product p {
     font-size: 9px;
     line-height: 9px;
