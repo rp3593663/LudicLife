@@ -2050,7 +2050,7 @@ a#HeaderMenu-twos-day-sale {
   .template-product.template-product\.rework-pdp{
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile_bg_new.svg?v=1762925398);
   }
-  .reworked-main-product button.product-form__submit {
+  .reworked-main-product .wish-with-button.mobile button.product-form__submit {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/sticky_cart_btn_bg.png?v=1762925628);
   }
   .template-product.template-product\.rework-pdp product-info {
@@ -2131,7 +2131,7 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product button.product-form__submit {
     height: 47px;
     font-size: 12.65px;
-    line-height: 12.65px;
+    line-height: 13px;
   }
   .reworked_product_title_info {
     margin-bottom: 12px;
