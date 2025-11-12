@@ -1702,13 +1702,13 @@ a#HeaderMenu-twos-day-sale {
 
 
 
-
-.template-product.template-product\.rework-pdp{
+.template-product.template-product\.rework-pdp #MainContent{
   background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_body_bg.svg?v=1762841346);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .product.reworked-main-product {
     background: unset!important;
     border-radius: 0px;
