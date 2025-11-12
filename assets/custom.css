@@ -1858,8 +1858,6 @@ a#HeaderMenu-twos-day-sale {
     gap: 132px;
 }
 .reworked_block {
-    margin: auto;
-    text-align: center;
     position: relative;
 }
 .name_block {
@@ -2060,6 +2058,11 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media(max-width: 767px){
+  .reworked_block {
+    margin: auto;
+    text-align: center;
+    position: relative;
+  }
   .template-product.template-product\.rework-pdp{
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile_bg_new.svg?v=1762925398);
     background-attachment: fixed;
