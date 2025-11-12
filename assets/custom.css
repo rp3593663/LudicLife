@@ -1968,6 +1968,9 @@ a#HeaderMenu-twos-day-sale {
     aspect-ratio: 1/1.08;
     padding: 10px;
     position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.08;
+    overflow: hidden;
 }
 .fits_box img {
     width: 94px;
