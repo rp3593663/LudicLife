@@ -245,55 +245,65 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const faqItems = document.querySelectorAll('.meta_question');
-    const faqLeft = document.querySelector('.reworked_faq_right');
-    const faqRightImg = document.querySelector('.reworked_faq_img img');
+    const faqRight = document.querySelector('.reworked_faq_right');
+    const faqLeftImg = document.querySelector('.reworked_faq_left .reworked_faq_img img');
 
-    // Function to adjust image height dynamically
+    // ✅ Function to adjust image height dynamically
     function adjustImageHeight() {
-      if (faqLeft && faqRightImg) {
-        faqRightImg.style.height = faqLeft.offsetHeight + 'px';
+      if (faqRight && faqLeftImg) {
+        faqLeftImg.style.height = faqRight.offsetHeight + 'px';
       }
     }
 
-    // Run on load
+    // Run on page load
     adjustImageHeight();
 
     // Adjust on window resize
     window.addEventListener('resize', adjustImageHeight);
 
+    // Accordion toggle logic
     faqItems.forEach((item) => {
       item.addEventListener('click', () => {
-        // Reset all items
+        const isActive = item.classList.contains('active');
+
+        // Close all items first
         faqItems.forEach((el) => {
           el.classList.remove('active');
-          const answer = el.querySelector('.meta_answer');
-          answer.style.height = answer.scrollHeight + 'px';
-          void answer.offsetHeight;
-          answer.style.height = '0px';
+          const ans = el.querySelector('.meta_answer');
+          ans.style.height = '0px';
         });
 
-        // Activate clicked item
-        item.classList.add('active');
-        const answer = item.querySelector('.meta_answer');
-        answer.style.height = answer.scrollHeight + 'px';
-        answer.addEventListener('transitionend', function handler() {
-          answer.style.height = 'auto';
-          answer.removeEventListener('transitionend', handler);
+        // If item was not active, open it
+        if (!isActive) {
+          item.classList.add('active');
+          const ans = item.querySelector('.meta_answer');
+          ans.style.height = ans.scrollHeight + 'px';
 
-          // ✅ Adjust image height after transition completes
+          ans.addEventListener('transitionend', function handler() {
+            ans.style.height = 'auto';
+            ans.removeEventListener('transitionend', handler);
+            adjustImageHeight(); // ✅ readjust image after animation
+          });
+        } else {
+          // If same item closed
           adjustImageHeight();
-        });
+        }
       });
     });
 
-    // Trigger default open
+    // ✅ Trigger default open (first active)
     const firstItem = document.querySelector('.meta_question.active');
-    if (firstItem) firstItem.click();
+    if (firstItem) {
+      const ans = firstItem.querySelector('.meta_answer');
+      ans.style.height = ans.scrollHeight + 'px';
+      adjustImageHeight();
+    }
 
-    // Small delay after page load to ensure image height syncs correctly
+    // ✅ Recalculate once after full DOM paints
     setTimeout(adjustImageHeight, 500);
   });
 </script>
+
 
 
 
