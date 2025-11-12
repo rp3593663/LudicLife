@@ -2112,7 +2112,7 @@ a#HeaderMenu-twos-day-sale {
   }
   .reworked-main-product .short_description .metafield-rich_text_field p {
     margin-bottom: 4px;
-}
+  }
   .reworked-main-product .custom-variant-product p {
     font-size: 9px;
     line-height: 9px;
@@ -2143,7 +2143,7 @@ a#HeaderMenu-twos-day-sale {
     line-height: 13px;
   }
   .reworked_product_title_info {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .reworked_product_title_info a.product__title h2,
   .template-product .reworked-main-product .price-item.price-item--regular {
