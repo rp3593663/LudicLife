@@ -2086,6 +2086,7 @@ a#HeaderMenu-twos-day-sale {
     padding: 28px 41px 28px 36px !important;
     position: relative;
     z-index: 2;
+    bottom: unset;
     right: unset;
     max-width: 376px;
     width: 100%;
