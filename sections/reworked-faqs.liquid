@@ -250,8 +250,12 @@
 
 
     function adjustImageHeight() {
-      if (faqRight && faqLeftImg) {
+      // Run only if screen > 767px
+      if (window.innerWidth > 767 && faqRight && faqLeftImg) {
         faqLeftImg.style.height = faqRight.offsetHeight + 'px';
+      } else if (faqLeftImg) {
+        // Reset height on smaller screens
+        faqLeftImg.style.height = 'auto';
       }
     }
 
