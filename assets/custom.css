@@ -1961,7 +1961,6 @@ a#HeaderMenu-twos-day-sale {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    margin-top: 12px;
 }
 .fits_box {
     background: #F9F9F9;
