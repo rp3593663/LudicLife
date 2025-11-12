@@ -1976,8 +1976,8 @@ a#HeaderMenu-twos-day-sale {
     height: 94px;
     width: auto;
     position: absolute;
-    right: 0px;
-    bottom: 0px;
+    right: 15px;
+    bottom: 11px;
 }
 .fits_info {
     display: grid;
