@@ -1910,6 +1910,7 @@ a#HeaderMenu-twos-day-sale {
     display: grid;
     grid-template-columns: 1.27fr 0.73fr;
     gap: 58px;
+    align-items: flex-start;
 }
 .reworked_faq_img {
     border-radius: 14px;
