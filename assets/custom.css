@@ -1973,8 +1973,8 @@ a#HeaderMenu-twos-day-sale {
     position: relative;
 }
 .fits_box img {
-    height: 94px;
-    width: auto;
+    width: 94px;
+    height: auto;
     position: absolute;
     right: 15px;
     bottom: 11px;
