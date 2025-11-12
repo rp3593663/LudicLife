@@ -1748,7 +1748,7 @@ a#HeaderMenu-twos-day-sale {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 .reworked_product_title_info a.product__title {
     margin: 0px;
