@@ -198,46 +198,50 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-  const faqItems = document.querySelectorAll('.meta_question');
+    const faqItems = document.querySelectorAll('.meta_question');
 
-  faqItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      // Reset all items
-      faqItems.forEach((el) => {
-        el.classList.remove('active');
-        const answer = el.querySelector('.meta_answer');
+    faqItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        // Collapse all items except the clicked one
+        faqItems.forEach((el) => {
+          if (el !== item) {
+            el.classList.remove('active');
+            const answer = el.querySelector('.meta_answer');
+            answer.style.height = '0px';
+          }
+        });
 
-        // Reset to current height to enable transition
-        answer.style.height = answer.scrollHeight + 'px';
+        // Toggle clicked item
+        const isActive = item.classList.contains('active');
+        const answer = item.querySelector('.meta_answer');
 
-        // Force reflow
-        void answer.offsetHeight;
-
-        // Collapse
-        answer.style.height = '0px';
+        if (isActive) {
+          item.classList.remove('active');
+          answer.style.height = '0px';
+        } else {
+          item.classList.add('active');
+          answer.style.height = answer.scrollHeight + 'px';
+          answer.addEventListener('transitionend', function handler() {
+            answer.style.height = 'auto';
+            answer.removeEventListener('transitionend', handler);
+          });
+        }
       });
+    });
 
-      // Activate clicked item
-      item.classList.add('active');
-      const answer = item.querySelector('.meta_answer');
-
-      // Expand
-      answer.style.height = answer.scrollHeight + 'px';
-
-      // After transition, clear the height so it becomes auto (for responsive layout)
-      answer.addEventListener('transitionend', function handler() {
+    // ✅ Open first two by default
+    const defaultOpenIndexes = [0, 1];
+    defaultOpenIndexes.forEach((index) => {
+      const item = document.querySelector(`.meta_question[data-index="${index}"]`);
+      if (item) {
+        item.classList.add('active');
+        const answer = item.querySelector('.meta_answer');
         answer.style.height = 'auto';
-        answer.removeEventListener('transitionend', handler);
-      });
-
+      }
     });
   });
-
-  // Trigger default open
-  const firstItem = document.querySelector('.meta_question.active');
-  if (firstItem) firstItem.click();
-});
 </script>
+
 
 {% schema %}
 {
