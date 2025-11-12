@@ -2004,7 +2004,8 @@ a#HeaderMenu-twos-day-sale {
     text-align: justify;
     vertical-align: middle;
     display: grid;
-    gap: 4px;
+    gap: 10px;
+    margin-bottom: 0px;
 }
 
 
