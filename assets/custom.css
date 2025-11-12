@@ -1739,7 +1739,7 @@ a#HeaderMenu-twos-day-sale {
     padding: 33px 52px 32px 40px !important;
     background-position: center;
     position: absolute;
-    bottom: 0;
+    bottom: 24px;
     right: 90px;
     max-width: 446px;
     width: 100%;
