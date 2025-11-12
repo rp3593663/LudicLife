@@ -1916,6 +1916,10 @@ a#HeaderMenu-twos-day-sale {
     border-radius: 14px;
     overflow: hidden;
 }
+.reworked_faq_img img {
+    object-fit: cover;
+    object-position: center;
+}
 #faq_questions_list{
   display: grid;
   gap: 10px;
