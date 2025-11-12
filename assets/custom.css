@@ -2055,6 +2055,7 @@ a#HeaderMenu-twos-day-sale {
 @media(max-width: 767px){
   .template-product.template-product\.rework-pdp{
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile_bg_new.svg?v=1762925398);
+    background: fixed;
   }
   .reworked-main-product .wish-with-button.mobile button.product-form__submit {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/sticky_cart_btn_bg.png?v=1762925628);
