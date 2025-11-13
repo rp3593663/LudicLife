@@ -1826,7 +1826,6 @@ a#HeaderMenu-twos-day-sale {
     display: block!important;
     width: 32px;
     height: 32px;
-    border-radius: 4px;
 }
 .reworked-main-product .custom-variant-image {
     width: 100%!important;
@@ -1844,6 +1843,7 @@ a#HeaderMenu-twos-day-sale {
 .reworked-main-product .custom-variant-image a {
     border: 1px solid #E8E8E8;
     border-radius: 4px;
+    overflow: hidden;
 }
 .reworked-main-product product-form.product-form {
     margin: 0px!important;
