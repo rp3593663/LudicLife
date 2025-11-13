@@ -2019,6 +2019,7 @@ a#HeaderMenu-twos-day-sale {
 .reworked_slide .slideshow__text.banner__box {
     text-align: left!important;
     top: 0!important;
+    z-index: 2!important;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 1024px)  {
