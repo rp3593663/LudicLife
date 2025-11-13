@@ -8130,6 +8130,7 @@ span.custom-color {
     display: block;
     margin-right: 5px;
     border-radius: 2px;
+    border: solid 1px #dcdcdc;
 }
 .custom-variant-color {
     display: flex;
