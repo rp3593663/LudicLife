@@ -117,7 +117,7 @@
         }
       </style>
       <div
-        class="slideshow__slide grid__item grid--1-col slider__slide slide-{{ forloop.index }}"
+        class="slideshow__slide grid__item grid--1-col slider__slide slide-{{ forloop.index }} {{ block.settings.slide_custom_class }}"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"
