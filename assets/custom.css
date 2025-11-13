@@ -874,7 +874,10 @@ body.size-chart-popup-pdp #MainContent{
   }
 }
 
-
+.slide-1 .slideshow__text.banner__box {
+    text-align: left;
+    top: 0;
+}
 .slide-3 .variant-product-wrapper {
     right: 0;
     left: unset;
