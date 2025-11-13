@@ -2244,6 +2244,11 @@ a#HeaderMenu-twos-day-sale {
     gap: 9.95px!important;
   }
   .reworked-main-product .custom-variant-image img {
+    width: 43px;
+    height: 43px;
+    border-radius: 3px;
+  }
+  .reworked-main-product .custom-variant-image-color{
     width: 28px;
     height: 28px;
   }
