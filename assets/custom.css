@@ -2039,7 +2039,7 @@ a#HeaderMenu-twos-day-sale {
     font-size: 12px;
     line-height: 16px;
     letter-spacing: -0.36px;
-    text-align: left;
+    text-align: justify;
     color: #FFFFFF;
 }
 @media only screen and (max-width: 1199px) and (min-width: 1024px)  {
