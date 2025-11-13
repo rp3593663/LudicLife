@@ -2022,7 +2022,9 @@ a#HeaderMenu-twos-day-sale {
     z-index: 2!important;
 }
 .reworked_slide .slideshow__text.banner__box {
-    max-width: 374px;
+    max-width: 374px!important;
+    width: 100%!important;
+    min-width: unset!important;
 }
 .reworked_slide h2.banner__heading.inline-richtext.h1 {
     font-family: Reenie Beanie;
