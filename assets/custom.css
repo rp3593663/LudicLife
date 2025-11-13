@@ -2020,8 +2020,6 @@ a#HeaderMenu-twos-day-sale {
     text-align: left!important;
     top: 0!important;
     z-index: 2!important;
-}
-.reworked_slide .slideshow__text.banner__box {
     max-width: 374px!important;
     width: 100%!important;
     min-width: unset!important;
@@ -2124,7 +2122,8 @@ a#HeaderMenu-twos-day-sale {
     text-align: center!important;
     top: 84px!important;
     transform: translate(-50%, 0)!important;
-    z-index: 2!important;
+    padding: 0px !important;
+    max-width: 264px !important;
   }
   .fits_box img {
     width: 70px;
