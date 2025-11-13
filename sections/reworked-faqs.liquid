@@ -246,6 +246,13 @@
   </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.reworked_video video').forEach(video => {
+    video.removeAttribute('controls');
+  });
+});
+</script>
 
 {% style %}
   .reworked_faq .meta_answer {
