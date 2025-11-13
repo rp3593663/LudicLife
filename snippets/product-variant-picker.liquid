@@ -137,7 +137,7 @@
             {% if pair_product.handle == product.handle %}
               <a href="" class="selected">
                 {% if product.title == "Re : Worked Bundle" %}
-                  <div class="custom-variant-image-color" style="background-color:"></div>
+                  <div class="custom-variant-image-color" style="background-color:{{ pair_product.metafields.custom.hexa_code.value }}"></div>
                 {% else %}
                    <img src="{{ pair_product.featured_image | img_url:'master' }}">
                 {% endif %}
