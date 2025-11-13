@@ -2021,6 +2021,9 @@ a#HeaderMenu-twos-day-sale {
     top: 0!important;
     z-index: 2!important;
 }
+.reworked_slide .slideshow__text.banner__box {
+    max-width: 374px;
+}
 .reworked_slide h2.banner__heading.inline-richtext.h1 {
     font-family: Reenie Beanie;
     font-weight: 500;
