@@ -2118,6 +2118,11 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media(max-width: 767px){
+  .reworked_slide h2.banner__heading.inline-richtext.h1 {
+    font-size: 29.66px;
+    line-height: 24.71px;
+    letter-spacing: -1.45px;
+  }
   .reworked_slide .slideshow__text.banner__box {
     text-align: center!important;
     top: 84px!important;
