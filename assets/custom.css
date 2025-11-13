@@ -2021,6 +2021,15 @@ a#HeaderMenu-twos-day-sale {
     top: 0!important;
     z-index: 2!important;
 }
+.reworked_slide h2.banner__heading.inline-richtext.h1 {
+    font-family: Reenie Beanie;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 39.6px;
+    letter-spacing: -0.34px;
+    vertical-align: middle;
+    color: #FFFFFF;
+}
 
 @media only screen and (max-width: 1199px) and (min-width: 1024px)  {
   .reworked_product_bundle {
