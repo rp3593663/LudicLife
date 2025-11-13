@@ -1822,22 +1822,28 @@ a#HeaderMenu-twos-day-sale {
     line-height: 12px;
     margin-bottom: 14px;
 }
+.reworked-main-product .custom-variant-image-color {
+    display: block!important;
+    width: 32px;
+    height: 32px;
+}
 .reworked-main-product .custom-variant-image {
     width: 100%!important;
     gap: 12px!important;
 }
-.custom-variant-image img {
+.reworked-main-product .custom-variant-image img {
     width: 51px;
     height: 51px;
     border-radius: 4px;
 }
 .reworked-main-product .custom-variant-image a.selected {
-    border: 1px solid #1A1A1A;
+    border: 1px solid #B88348;
     border-radius: 4px;
 }
 .reworked-main-product .custom-variant-image a {
-    border: 1px solid #E8E8E8;
+    border: 1px solid #C7C8CA;
     border-radius: 4px;
+    overflow: hidden;
 }
 .reworked-main-product product-form.product-form {
     margin: 0px!important;
@@ -2237,10 +2243,14 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .custom-variant-image {
     gap: 9.95px!important;
   }
-  .custom-variant-image img {
+  .reworked-main-product .custom-variant-image img {
     width: 43px;
     height: 43px;
     border-radius: 3px;
+  }
+  .reworked-main-product .custom-variant-image-color{
+    width: 28px;
+    height: 28px;
   }
   .reworked-main-product .custom-variant-image a,
   .reworked-main-product .custom-variant-image a.selected {

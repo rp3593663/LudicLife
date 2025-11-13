@@ -288,6 +288,8 @@
                                   <span>{{ pro_color }} / {{ us_size }}</span>
                                 {% elsif item.title contains 'Mesh Cap' or item.title contains 'The Sport Bag' %}
                                     <span>{{ pro_color }} / Free Size</span>
+                                {% elsif item.title contains 'Re : Worked Bundle' %}
+                                  <span>{{ pro_color }}</span>
                                 {% else %}
                                   <span>{{ pro_color }} / UK {{ us_size }}</span>
                                 {% endif %}
