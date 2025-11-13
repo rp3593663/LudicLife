@@ -136,7 +136,7 @@
           {% for pair_product in product.metafields.custom.pair_with_product.value %}
             {% if pair_product.handle == product.handle %}
               <a href="" class="selected">
-                {% if pair_product.title == "Re : Worked Bundle" %}
+                {% if product.title == "Re : Worked Bundle" %}
                   <div class="custom-variant-image-color" style="background-color:{{ pair_product.metafields.custom.hexa_code.value }}"></div>
                 {% else %}
                    <img src="{{ pair_product.featured_image | img_url:'master' }}">
@@ -150,7 +150,11 @@
                     <div class="new-product-dot"></div> 
                   {% endif %}
                 {% endif %}
-                <img src="{{ pair_product.featured_image | img_url:'master' }}">
+                {% if product.title == "Re : Worked Bundle" %}
+                  <div class="custom-variant-image-color" style="background-color:{{ pair_product.metafields.custom.hexa_code.value }}"></div>
+                {% else %}
+                   <img src="{{ pair_product.featured_image | img_url:'master' }}">
+                {% endif %}
                 </a>
             {% endif %}
           {% endfor %}
