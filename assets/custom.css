@@ -2044,9 +2044,23 @@ a#HeaderMenu-twos-day-sale {
     text-align: justify;
     color: #FFFFFF;
 }
-.banner__buttons {
-    max-width: 45rem;
+.reworked_slide .banner__buttons {
     justify-content: left;
+}
+.reworked_slide a.button.button--primary {
+    padding: 0px;
+    width: 100px;
+    height: 29px;
+    border-radius: 0px;
+    font-family: Public Sans;
+    font-weight: 700;
+    font-size: 9.06px;
+    line-height: 100%;
+    letter-spacing: -0.27px;
+    text-align: center;
+    background-color: unset;
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/slider_btn_bg.png?v=1763032476);
+    background-size: cover;
 }
 
 
