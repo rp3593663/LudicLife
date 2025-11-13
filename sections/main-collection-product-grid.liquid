@@ -158,7 +158,7 @@
               {% assign block_index = 0 %}
               {% assign blocks = section.blocks | where: 'type', 'product_grid_slider' %}
 
-              {%- for product in collection.products reversed -%}
+              {%- for product in collection.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
