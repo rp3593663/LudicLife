@@ -2123,6 +2123,9 @@ a#HeaderMenu-twos-day-sale {
     line-height: 24.71px;
     letter-spacing: -1.45px;
   }
+  .reworked_slide .banner__buttons {
+    justify-content: center;
+  }
   .reworked_slide .banner__text.rte.mobile_subheading {
     font-family: Public Sans;
     font-weight: 400;
