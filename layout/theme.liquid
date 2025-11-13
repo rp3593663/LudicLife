@@ -50,7 +50,7 @@
       <link rel="alternate" hreflang="en-ae" href="https://ludic.global">
     {% endif %}
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
@@ -1838,20 +1838,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
   $(document).ready(function() {
-    // Marquee-like slider
-    // $('.fw-product-slider').slick({
-    //   slidesToShow: 2,
-    //   slidesToScroll: 1,
-    //   autoplay: true,
-    //   autoplaySpeed: 100,
-    //   speed: 10000,
-    //   cssEase: 'linear',
-    //   infinite: true,
-    //   arrows: false,
-    //   pauseOnHover: true,      // pauses when mouse hovers
-    //   pauseOnFocus: true       
-    // });
-    // $(window).on('load', function() {
     $('.fw-product-slider').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
@@ -1865,17 +1851,12 @@ document.addEventListener('DOMContentLoaded', () => {
       pauseOnFocus: true       // also pause on focus
     });
 
-
-    // Modal slider
     $('.fw-modal-slider').slick({
       slidesToShow: 1,
       infinite: true,
       arrows: true,
       dots: false,
       });
-    // });
-
-    // Track whether the user dragged or clicked
     let isDragging = false;
 
     $('.fw-product-slider .fw-product-slide img')
@@ -1902,25 +1883,67 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-{% comment %} <script>
-  document.querySelectorAll('.fw-hover-plus').forEach(container => {
-    const cursor = container.querySelector('.fw-hover-cursor');
 
-    container.addEventListener('mousemove', e => {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
-      cursor.style.left = `${x}px`;
-      cursor.style.top = `${y}px`;
-      cursor.style.opacity = 1;
+<script>
+// =========================== splide slide ==============================
+   document.addEventListener('DOMContentLoaded', function () {
+    const AutoScroll = window.splide.Extensions.AutoScroll;
+    const splide = new Splide('#splide', {
+        arrows: false,
+        autoWidth: true,
+        pagination: false,
+        autoScroll: true,
+        type: 'loop',
+        mediaQuery: 'min',
+        dragMinThreshold: 25,
+        autoScroll: {
+          speed: 2 / 3,
+          pauseOnHover: false,
+        },
+        reducedMotion: {
+          autoScroll: false,
+        },
+    }).mount({
+        AutoScroll,
     });
 
-    container.addEventListener('mouseleave', () => {
-      cursor.style.opacity = 0;
+     document.getElementById('splide').style.visibility = 'visible';
+      
+
+    // Modal popup functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.getElementById('closeModal');
+
+    document.querySelectorAll('.slider-image').forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            $('body').addClass('open-fw-image-modal');
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        $('body').removeClass('open-fw-image-modal');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            modalImg.src = '';
+            $('body').removeClass('open-fw-image-modal');
+        }
     });
   });
-</script> {% endcomment %}
+
+</script>
 
 
 {%- if template == 'product.fw-product' and product.title == 'Circuit Shirt' -%}

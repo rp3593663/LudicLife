@@ -12,9 +12,33 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_LE8H3A": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "reworked_slide",
+            "image": "shopify://shop_images/desktop_reworked_banner.png",
+            "mobile_image": "shopify://shop_images/mobile_reworked_banner.png",
+            "banner_url": "shopify://products/re-worked-bundle-black",
+            "heading": "Re:Worked Capsule",
+            "heading_size": "h1",
+            "subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
+            "mobile_subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
+            "button_label": "Discover Re:Worked",
+            "link": "shopify://products/re-worked-bundle-black",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": true,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_xwDNcy": {
           "type": "slide",
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
             "mobile_image": "shopify://shop_images/30-OFF-Button-Down-Mobile.png",
             "banner_url": "shopify://collections/weekend-shirt-circuit-shirt",
@@ -37,6 +61,7 @@
         "slide_xbMa3M": {
           "type": "slide",
           "settings": {
+            "slide_custom_class": "twosday_slide",
             "desktop_video": "shopify://files/videos/towsday-desktop.mp4",
             "mobile_video": "shopify://files/videos/towsday-mobile.mp4",
             "banner_url": "shopify://pages/twos-day-sale",
@@ -60,6 +85,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_163_3_319ecf36-3cac-4269-b7cb-33b803b7763d.png",
             "mobile_image": "shopify://shop_images/Frame_1618876129.png",
             "banner_url": "shopify://collections/footwear",
@@ -82,6 +108,7 @@
         "slide_E6BA8B": {
           "type": "slide",
           "settings": {
+            "slide_custom_class": "",
             "desktop_video": "shopify://files/videos/NEW WEB.mp4",
             "mobile_video": "shopify://files/videos/New Mob.mp4",
             "banner_url": "shopify://products/sliders-purple-pyaaz",
@@ -108,6 +135,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_163_1.png",
             "mobile_image": "shopify://shop_images/7777b24761b5bd4e4d4f17103fdfd2e959abdefa_1.png",
             "banner_url": "",
@@ -131,6 +159,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_1618875612_1.png",
             "mobile_image": "shopify://shop_images/4_2.png",
             "banner_url": "shopify://collections/nova-play",
@@ -158,6 +187,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/new-launch-slider.jpg",
             "mobile_image": "shopify://shop_images/new-launch-slider-mobile.jpg",
             "banner_url": "",
@@ -181,6 +211,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_163.png",
             "mobile_image": "shopify://shop_images/Mobile_Banner_from_Chintan_via_Slack_1.jpg",
             "banner_url": "shopify://products/nova-play-sand-tan",
@@ -206,6 +237,7 @@
         }
       },
       "block_order": [
+        "slide_LE8H3A",
         "slide_xwDNcy",
         "slide_xbMa3M",
         "slide_iBgjiF",
@@ -219,7 +251,7 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": true,
+        "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": false,

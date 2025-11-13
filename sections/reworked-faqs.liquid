@@ -1,0 +1,371 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'full-width' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: '|' %}
+{% assign margin = section.settings.margin | split: '|' %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .reworked_faq {
+    {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+    {% if margin[0] != blank %}margin: {{ margin[0] }};{% endif %}
+    background: {{ section.settings.bg_color }};
+  }
+
+  @media (max-width: 1199px) {
+    #shopify-section-{{ section.id }} .reworked_faq {
+      {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+      {% if margin[1] != blank %}margin: {{ margin[1] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .reworked_faq {
+      {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+      {% if margin[2] != blank %}margin: {{ margin[2] }};{% endif %}
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .reworked_faq {
+      {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+      {% if margin[3] != blank %}margin: {{ margin[3] }};{% endif %}
+    }
+  }
+{%- endstyle -%}
+
+{% assign faq_items = product.metafields.custom.accordion_with_image.value %}
+{% assign first_faq = faq_items.first %}
+{% assign media_url = first_faq.image | file_url %}
+{% assign is_mp4 = false %}
+{% assign is_webm = false %}
+{% if media_url contains '.mp4' %}
+  {% assign is_mp4 = true %}
+{% endif %}
+{% if media_url contains '.webm' %}
+  {% assign is_webm = true %}
+{% endif %}
+{% assign is_video = false %}
+{% if is_mp4 or is_webm %}
+  {% assign is_video = true %}
+{% endif %}
+
+<section class="ludic-section reworked_faq ludic-section-{{ section.id }}">
+  <div class="{{ container }}">
+
+    <div class="reworked_faq_inner">
+      <div class="reworked_faq_left">
+        <div class="reworked_faq_img">
+          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/description.gif?v=1762946682">
+        </div>
+      </div>
+
+      <div class="reworked_faq_right">
+        <div id="faq_questions_list">
+            <div class="meta_question active" data-index="0">
+              <div class="faq_main">
+                <div class="meta_question_text">Description</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                <span>Re-engineered products by bright minds from the house of ludic.</span>
+                <span>Every cut rethought. Every panel reassigned. What began as a shirt now returns as something entirely new – practical, considered, and Reworked.</span>
+                <span>Bucket Hat:  made from the diagonal pocket, upper shoulder, front left, and upper back.</span>
+                <span>Duffle Bag: features the patch pocket area and front top right.</span>
+                <span>Dopp Kit: built using the lower back, collars, and seams.</span>
+                <span>Coin Pouch: derived from the shoulder tops and sleeves.</span>
+                <span>Each piece carries a Woven Label integrated as a visible design element. It features a binary code crediting the designer, the Ludic logo, Re:Worked tagline, and Circuit graphic.</span>
+              </div>
+            </div>
+            <div class="meta_question" data-index="1">
+              <div class="faq_main">
+                <div class="meta_question_text">Re:Worked - From thought to creation</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                <span>Why Re:Worked? </span>
+                <span>Well, why not.</span>
+                <span>When a certain batch of our shirts didn't quite hit the mark, we could've called it quits. The fabric worked, the feel was right - but something just didn't click. They sat in our warehouse, queued for shredding. Until we realized: this isn't waste, it's potential waiting for a better idea.</span>
+                So, we reworked it. Literally.</span>
+                <span>We ran a post on Linkedin, looking out for a designer who would be dedicated to turning those shirts inside out. (We gave a permanent job after;) After an all-out exploration, from gears to accessories to decor, four new creations took shape: a dopp kit, a coin pouch, a cross-body duffle, and a bucket hat. All crafted entirely from the original shirts.</span>
+                <span>Every scrap found a new purpose. Nothing went to landfill. What started as a near-miss became a story of reinvention. That's what Re:Worked is all about: seeing what could've been scrapped as something worth recreating.</span>
+              </div>
+            </div>
+            <div class="meta_question" data-index="2">
+              <div class="faq_main">
+                <div class="meta_question_text">Dimension and Capacity - All That Fits</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                <div class="fits_blocks">
+                    <div class="fits_box">
+                        <div class="fits_info">
+                            <h5>In Dopp Kit</h5>
+                            <p>
+                              Make this your sock pouch, a travel kit, maybe an organiser for wires. Got spare cash? Stash it in here.
+                              <span>22" x 16" x 10" Cm</span>
+                            </p>
+                        </div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/drop_kit1.png?v=1762948620">
+                    </div>
+                    <div class="fits_box">
+                        <div class="fits_info">
+                            <h5>In a Duffel Bag</h5>
+                            <p>
+                              Fits the lowkey intentions - from the holy liquid to the green stuff, but yeah, the boring regulars too.
+                              <span>23" x 16" x 16" Cm</span>
+                            </p>
+                        </div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/bag-1.png?v=1762948620">
+                    </div>
+                    <div class="fits_box">
+                        <div class="fits_info">
+                            <h5>In Bucket Hat</h5>
+                            <p>
+                              Fits your head, of course. The pocket on top carries everything tiny - from ID cards to credit, gum to keys, and everything losable.
+                              <span>15"x 35" x 35" Cm</span>
+                            </p>
+                        </div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/hat1.png?v=1762948620">
+                    </div>
+                    <div class="fits_box">
+                        <div class="fits_info">
+                            <h5>In Coin Pouch</h5>
+                            <p>
+                              From धूपदान to Love Glove - here's a designated space for the questionable and essential. Sure, coins, buds, and all the tiny bits can fit in too
+                              <span>11" x 9" x 2" Cm</span>
+                            </p>
+                        </div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/coin_pouch1.png?v=1762949136">
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="meta_question" data-index="3">
+              <div class="faq_main">
+                <div class="meta_question_text">Build and design</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                <ul>
+                  <li>Built by dismantling and restructuring the panels.</li>
+                  <li>Made functional and style-led.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="meta_question" data-index="4">
+              <div class="faq_main">
+                <div class="meta_question_text">Material & Composition</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                <ul>
+                  <li>100% Cotton Canvas.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="meta_question" data-index="5">
+              <div class="faq_main">
+                <div class="meta_question_text">Delivery & Returns</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                We ship orders the same day! Most arrive within 4-5 business days across India, with a few locations taking just a day or two longer. <br/>
+                We offer hassle-free exchanges and returns within 7 days of delivery.
+              </div>
+            </div>
+            <div class="meta_question" data-index="6">
+              <div class="faq_main">
+                <div class="meta_question_text">Origin</div>
+                <div class="meta_question_icon">
+                  <span class="meta_question_icon_pluse">
+                    +
+                  </span>
+                  <span class="meta_question_icon_minus">
+                    -
+                  </span>
+                </div>
+              </div>
+              <div class="meta_answer">
+                Originates from India, proudly crafted with meticulous attention to detail and quality.
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% style %}
+  .reworked_faq .meta_answer {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease;
+  }
+  .reworked_faq .meta_question:not(.active) .meta_answer {
+    height: 0;
+    overflow: hidden;
+  }
+  .reworked_faq .meta_question.active .meta_answer {
+    height: auto;
+  }
+{% endstyle %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const faqItems = document.querySelectorAll('.meta_question');
+    const faqRight = document.querySelector('.reworked_faq_right');
+    const faqLeftImg = document.querySelector('.reworked_faq_left .reworked_faq_img img');
+
+
+    function adjustImageHeight() {
+      // Run only if screen > 767px
+      if (window.innerWidth > 767 && faqRight && faqLeftImg) {
+        faqLeftImg.style.height = faqRight.offsetHeight + 'px';
+      } else if (faqLeftImg) {
+        // Reset height on smaller screens
+        faqLeftImg.style.height = 'auto';
+      }
+    }
+
+    // Run on page load
+    adjustImageHeight();
+
+    // Adjust on window resize
+    window.addEventListener('resize', adjustImageHeight);
+
+    // Accordion toggle logic
+    faqItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all items first
+        faqItems.forEach((el) => {
+          el.classList.remove('active');
+          const ans = el.querySelector('.meta_answer');
+          ans.style.height = '0px';
+        });
+
+        // If item was not active, open it
+        if (!isActive) {
+          item.classList.add('active');
+          const ans = item.querySelector('.meta_answer');
+          ans.style.height = ans.scrollHeight + 'px';
+
+          ans.addEventListener('transitionend', function handler() {
+            ans.style.height = 'auto';
+            ans.removeEventListener('transitionend', handler);
+            adjustImageHeight(); // ✅ readjust image after animation
+          });
+        } else {
+          // If same item closed
+          adjustImageHeight();
+        }
+      });
+    });
+
+    // ✅ Trigger default open (first active)
+    const firstItem = document.querySelector('.meta_question.active');
+    if (firstItem) {
+      const ans = firstItem.querySelector('.meta_answer');
+      ans.style.height = ans.scrollHeight + 'px';
+      adjustImageHeight();
+    }
+
+    // ✅ Recalculate once after full DOM paints
+    setTimeout(adjustImageHeight, 500);
+  });
+</script>
+
+
+
+
+{% schema %}
+{
+  "name": "Reworked FAQ",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ],
+      "label": "Layout",
+      "default": "box_width"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "80px 0px 80px 0px|60px 0px 60px 0px|40px 0px 40px 0px|20px 0px 20px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "0px 0px 0px 0px| | |36px 0px",
+      "info": "Format: desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Reworked FAQ"
+    }
+  ]
+}
+{% endschema %}
