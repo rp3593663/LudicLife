@@ -1708,6 +1708,9 @@ a#HeaderMenu-twos-day-sale {
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 20px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* .template-product.template-product\.rework-pdp{
   background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_body_bg.svg?v=1762841346);
@@ -1953,6 +1956,9 @@ a#HeaderMenu-twos-day-sale {
 }
 .reworked_faq_right .meta_question.active .meta_question_icon_pluse{
   display: none;
+}
+.reworked_video {
+    margin: 22px auto 0px;
 }
 .reworked_faq_right .meta_answer {
   font-weight: 400;
