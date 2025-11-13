@@ -2043,6 +2043,8 @@ a#HeaderMenu-twos-day-sale {
     letter-spacing: -0.36px;
     text-align: justify;
     color: #FFFFFF;
+    margin: 0px;
+    padding: 5px 0px 20px;
 }
 .reworked_slide .banner__buttons {
     justify-content: left;
