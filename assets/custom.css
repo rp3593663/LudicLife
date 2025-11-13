@@ -2243,10 +2243,9 @@ a#HeaderMenu-twos-day-sale {
   .reworked-main-product .custom-variant-image {
     gap: 9.95px!important;
   }
-  .custom-variant-image img {
-    width: 43px;
-    height: 43px;
-    border-radius: 3px;
+  .reworked-main-product .custom-variant-image img {
+    width: 28px;
+    height: 28px;
   }
   .reworked-main-product .custom-variant-image a,
   .reworked-main-product .custom-variant-image a.selected {
