@@ -515,12 +515,12 @@ span.badge.price__badge-sale.color-scheme-4 {
     pointer-events: none;
     position: absolute;
   } */
-  .slide-3 .variant-product-wrapper {
+  .twosday_slide .variant-product-wrapper {
     right: unset;
     left: 7%;
   }
 
-  .slide-3 .variant-product-wrapper{
+  .twosday_slide .variant-product-wrapper{
     display: none;
   }
 }
@@ -874,27 +874,27 @@ body.size-chart-popup-pdp #MainContent{
   }
 }
 
-.slide-1 .slideshow__text.banner__box {
+.reworked_slide .slideshow__text.banner__box {
     text-align: left;
     top: 0;
 }
-.slide-3 .variant-product-wrapper {
+.twosday_slide .variant-product-wrapper {
     right: 0;
     left: unset;
 }
-.slide-3 .slideshow__text-wrapper.banner__content {
+.twosday_slide .slideshow__text-wrapper.banner__content {
     z-index: 2;
 }
-.slide-3 .banner__text.rte.desktop_subheading,
-.slide-3 .banner__text.rte.mobile_subheading {
+.twosday_slide .banner__text.rte.desktop_subheading,
+.twosday_slide .banner__text.rte.mobile_subheading {
     order: -1;
     margin: 0px;
 }
-.slide-3 .banner__text.rte.desktop_subheading img.slide1_svg {
+.twosday_slide .banner__text.rte.desktop_subheading img.slide1_svg {
     max-width: 550px;
     width: 100%;
 }
-.slide-3 h2.banner__heading.inline-richtext.h1 {
+.twosday_slide h2.banner__heading.inline-richtext.h1 {
     margin: 50px 0px;
     font-family: Public Sans;
     font-weight: 400;
@@ -906,7 +906,7 @@ body.size-chart-popup-pdp #MainContent{
     text-transform: uppercase;
     color: #E60013;
 }
-.slide-3 a.button.button--primary {
+.twosday_slide a.button.button--primary {
     border-radius: 35px;
     height: 33px;
     max-width: 112px;
@@ -918,16 +918,16 @@ body.size-chart-popup-pdp #MainContent{
     padding: 0px;
     width: 100%;
 }
-.slide-3 .slideshow__text.banner__box {
+.twosday_slide .slideshow__text.banner__box {
     top: unset!important;
     z-index: 2;
 }
-.slide-3 a.button.button--primary:hover:after,
-.slide-3 a.button.button--primary:hover:before{
+.twosday_slide a.button.button--primary:hover:after,
+.twosday_slide a.button.button--primary:hover:before{
   width: 112px;
 }
-.slide-3 a.button.button--primary:after,
-.slide-3 a.button.button--primary:before {
+.twosday_slide a.button.button--primary:after,
+.twosday_slide a.button.button--primary:before {
     content: "";
     border-radius: 35px;
     height: 33px;
@@ -939,10 +939,10 @@ body.size-chart-popup-pdp #MainContent{
     z-index: -1;
     transition: all 0.3s ease;
 }
-.slide-3 a.button.button--primary:after {
+.twosday_slide a.button.button--primary:after {
     transform: translate(-50%, -50%) rotate(60deg);
 }
-.slide-3 a.button.button--primary:before {
+.twosday_slide a.button.button--primary:before {
     transform: translate(-50%, -50%) rotate(-60deg);
 }
 
@@ -1666,18 +1666,18 @@ a#HeaderMenu-twos-day-sale {
   .thumb.active {
     opacity: 1;
   }
-  .slide-3 img.slide1_svg {
+  .twosday_slide img.slide1_svg {
     max-width: 285px;
     width: 100%;
   }
-  .slide-3 h2.banner__heading.inline-richtext.h1 {
+  .twosday_slide h2.banner__heading.inline-richtext.h1 {
     margin: 42px 0 60px;
     font-weight: 400;
     font-size: 9px;
     line-height: 22.73px;
     letter-spacing: -0.27px;
   }
-  .slide-3 a.button.button--primary {
+  .twosday_slide a.button.button--primary {
     height: 32px;
     max-width: 96px;
     font-size: 10px;
@@ -1687,8 +1687,8 @@ a#HeaderMenu-twos-day-sale {
     width: 100%;
     margin-top: 0px!important;
   }
-  .slide-3 a.button.button--primary:hover:after,
-  .slide-3 a.button.button--primary:hover:before{
+  .twosday_slide a.button.button--primary:hover:after,
+  .twosday_slide a.button.button--primary:hover:before{
     width: 96px;
   }
   a.button.button--primary:after,
