@@ -136,7 +136,10 @@
           {% for pair_product in product.metafields.custom.pair_with_product.value %}
             {% if pair_product.handle == product.handle %}
               <a href="" class="selected">
-                <img src="{{ pair_product.featured_image | img_url:'master' }}">
+                {% if pair_product.handle == product.handle %}
+                  <img src="{{ pair_product.featured_image | img_url:'master' }}">
+                {% else %}
+                {% endif %}
               </a>
             {% else %}
               <!-- Otherwise, link to the pair_product's URL -->
