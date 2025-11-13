@@ -2120,6 +2120,12 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media(max-width: 767px){
+  .reworked_slide .slideshow__text.banner__box {
+    text-align: center!important;
+    top: 84px!important;
+    transform: translate(-50%, 0)!important;
+    z-index: 2!important;
+  }
   .fits_box img {
     width: 70px;
     right: 5px;
