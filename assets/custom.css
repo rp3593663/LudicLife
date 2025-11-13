@@ -458,10 +458,7 @@ span.badge.price__badge-sale.color-scheme-4 {
 }
 
 
-.slide-2 .variant-product-wrapper {
-    right: 0;
-    left: unset;
-}
+
 
 /* .variant-product-wrapper.scrolled-out {
   position: absolute;
@@ -878,7 +875,10 @@ body.size-chart-popup-pdp #MainContent{
 }
 
 
-
+.slide-2 .variant-product-wrapper {
+    right: 0;
+    left: unset;
+}
 .slide-2 .slideshow__text-wrapper.banner__content {
     z-index: 2;
 }
