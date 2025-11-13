@@ -874,10 +874,7 @@ body.size-chart-popup-pdp #MainContent{
   }
 }
 
-.reworked_slide .slideshow__text.banner__box {
-    text-align: left;
-    top: 0;
-}
+
 .twosday_slide .variant-product-wrapper {
     right: 0;
     left: unset;
@@ -2017,6 +2014,12 @@ a#HeaderMenu-twos-day-sale {
     margin-bottom: 0px;
 }
 
+
+
+.reworked_slide .slideshow__text.banner__box {
+    text-align: left;
+    top: 0;
+}
 
 @media only screen and (max-width: 1199px) and (min-width: 1024px)  {
   .reworked_product_bundle {
