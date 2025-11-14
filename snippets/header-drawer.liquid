@@ -643,6 +643,13 @@
     .custom-mobile-menu-inner [data-menu-id='futurworks'] span{
       display: none;
     }
+    .custom-mobile-menu-inner [data-menu-id='futurworks']{
+      position: relative;
+    }
+    .custom-mobile-menu-inner [data-menu-id='futurworks']:after{
+      content: "TM";
+      position: absolute;
+    }
   }
   .custom-mobile-menu{
     height: calc(100dvh - 82px);
