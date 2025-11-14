@@ -643,6 +643,17 @@
     .custom-mobile-menu-inner [data-menu-id='futurworks'] span{
       display: none;
     }
+    .custom-mobile-menu-inner [data-menu-id='futurworks']{
+      position: relative;
+    }
+    .custom-mobile-menu-inner [data-menu-id='futurworks']:after {
+        content: "TM";
+        position: absolute;
+        top: 18px;
+        left: 82px;
+        font-size: 6px;
+        font-weight: 400;
+    }
   }
   .custom-mobile-menu{
     height: calc(100dvh - 82px);
