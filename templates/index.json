@@ -1474,25 +1474,25 @@
         "featured_collection_xq9zdH": {
           "type": "featured_collection",
           "settings": {
-            "collection": "eclipse",
-            "img": "shopify://shop_images/8_2587b75a-3403-4a53-962b-a4acc2e6b191.png",
-            "custom_title": "Shop Eclipse"
+            "collection": "nova-play",
+            "img": "shopify://shop_images/Item-1.png",
+            "custom_title": "Shop Nova Play"
           }
         },
         "featured_collection_iRVzFB": {
           "type": "featured_collection",
           "settings": {
-            "collection": "nova",
-            "img": "shopify://shop_images/9.png",
-            "custom_title": "Shop Nova"
+            "collection": "sports-bag",
+            "img": "shopify://shop_images/Item-2.png",
+            "custom_title": "Shop Sport Bag"
           }
         },
         "featured_collection_cMDJk3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "apparel",
-            "img": "shopify://shop_images/10.png",
-            "custom_title": "Shop Apparel"
+            "collection": "circuit-shirt",
+            "img": "shopify://shop_images/Item-3.png",
+            "custom_title": "Shop Circuit Shirt"
           }
         }
       },
