@@ -91,11 +91,11 @@
                             {% endif %}
                           {% endfor %}
 
-                           {% for product in section.settings.futurworks_collection %}
+                          {% comment %} {% for product in section.settings.futurworks_collection %}
                             {% if link.handle == 'futurworks' %}
                               {% assign has_matching_collection = true %}
                             {% endif %}
-                          {% endfor %}
+                          {% endfor %} {% endcomment %}
       
                           <a class="menu-tab" 
                             data-menu-id="{{ link.handle }}" 
@@ -298,7 +298,7 @@
                   {% endif %}
                 </div>
                 
-                <div class="menu-collection" data-collection="futurworks">
+                {% comment %} <div class="menu-collection" data-collection="futurworks">
                   <!-- Your Futurworks blocks -->
                     {% if section.settings.futurworks_collection != blank %}
                   <ul>
@@ -328,7 +328,7 @@
                     {% endfor %}
                   </ul>
                   {% endif %}
-                </div>
+                </div> {% endcomment %}
             </div>
             <div class="custom-menu-bottom">
               <div class="links-mobile">
@@ -490,6 +490,7 @@
     gap: 12px;
     /* overflow: scroll; */
     border-top: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
     /* min-height: 136px; */
     justify-content: space-between;
     text-align: center;
@@ -636,6 +637,12 @@
    .custom-mobile-menu-inner [data-menu-id='ludic-life'],
    .custom-mobile-menu-inner [data-menu-id='payday-sale'] {
     color: #e60013;
+  }
+  @media(max-width: 991px){
+    .custom-mobile-menu-inner [data-menu-id='ludic-life'] span,
+    .custom-mobile-menu-inner [data-menu-id='futurworks'] span{
+      display: none;
+    }
   }
   .custom-mobile-menu{
     height: calc(100dvh - 82px);
