@@ -1466,9 +1466,9 @@
         "featured_collection_R7hw6b": {
           "type": "featured_collection",
           "settings": {
-            "collection": "enhanced-canvas",
-            "img": "shopify://shop_images/7.png",
-            "custom_title": "Shop Enhanced Canvas"
+            "collection": "sliders",
+            "img": "shopify://shop_images/Item.png",
+            "custom_title": "Shop Sliders"
           }
         },
         "featured_collection_xq9zdH": {
