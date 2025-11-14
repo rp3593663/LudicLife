@@ -17,7 +17,7 @@
           "settings": {
             "slide_custom_class": "reworked_slide",
             "image": "shopify://shop_images/desktop_reworked_banner.png",
-            "mobile_image": "shopify://shop_images/mobile_reworked_banner.png",
+            "mobile_image": "shopify://shop_images/mobile_reworked_banner1.png",
             "banner_url": "shopify://products/re-worked-bundle-black",
             "heading": "Re:Worked Capsule",
             "heading_size": "h1",
