@@ -103,7 +103,7 @@
                             href="{% if has_matching_collection %}#{% else %}{{ link.url }}{% endif %}" 
                             {% if has_matching_collection %}data-url="{{ link.url }}"{% endif %}
                           >
-                            {{ link.title }}
+                            {{ link.title }}{% if link.title == 'Futurworks' %}<sup>™</sup>{% endif %}
                             <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg></span>
