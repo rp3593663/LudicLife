@@ -91,11 +91,11 @@
                             {% endif %}
                           {% endfor %}
 
-                           {% for product in section.settings.futurworks_collection %}
+                          {% comment %} {% for product in section.settings.futurworks_collection %}
                             {% if link.handle == 'futurworks' %}
                               {% assign has_matching_collection = true %}
                             {% endif %}
-                          {% endfor %}
+                          {% endfor %} {% endcomment %}
       
                           <a class="menu-tab" 
                             data-menu-id="{{ link.handle }}" 
