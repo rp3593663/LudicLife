@@ -385,6 +385,7 @@
                                   {% assign bundle_2_product_img = product_item.featured_image %}
                                   {% assign size_chart2_table = product_item.metafields.custom.size_chart_table %}
                                   {% assign size_chart2_img = product_item.metafields.custom.size_chart_table_image %}
+                                  {% assign size_chart2_subheading = product_item.metafields.custom.size_chart_subheading %}
                                   {% break %}
                                 {% endfor %}
                                 <p class="label_selected">{{ bundle_2_product_title }} / <span class="bundle_selected_product2"></span></p>
@@ -417,7 +418,17 @@
                                       {{ size_chart2_subheading }}
                                     </div>
                                     <div class="cs-modal-inner-content">
-                                      {% if size_chart2_img != blank %}
+                                      <div class="slider_size_info">
+                                        <div>
+                                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                                          <p>Regular or Narrow feet?<span>go one size down</span></p>
+                                        </div>
+                                        <div>
+                                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                                          <p>Wide foot?<span>stick to your usual size.</span></p>
+                                        </div>
+                                      </div>
+                                      {% comment %} {% if size_chart2_img != blank %}
                                         <img
                                         src="{{ size_chart2_img | image_url:width:600 }}"
                                         srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
@@ -437,9 +448,33 @@
                                         width=""
                                         height=""
                                       >
-                                      {% endif %}
+                                      {% endif %} {% endcomment %}
                                       <div class="cs-table">
                                         {{ size_chart2_table }}
+                                      </div>
+                                      <div class="slider-instructuions">
+                                        <h4>How to measure</h4>
+                                        <div class="instructuions_steps">
+                                          <div class="measurement_step">
+                                            <h6>Step 1 :</h6>
+                                            <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
+                                          </div>
+                                          <div class="measurement_step">
+                                            <h6>Step 2 :</h6>
+                                            <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
+                                          </div>
+                                          <div class="measurement_step">
+                                            <h6>Step 3 :</h6>
+                                            <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="sizechart_note">
+                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176">
+                                        <div class="note_text">
+                                          <h6>Not sure about the fit?</h6>
+                                          <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
