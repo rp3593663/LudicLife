@@ -218,7 +218,16 @@
                   <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
                 {% endif %}
 
-                
+                {% if product.metafields.custom.short_description != blank %}
+                  {% if template == 'product.twos-day-sale' %}
+                    <div class="short_description">
+                      <p>This is gonna be a different game. Slider and Slider 2.0 are in play today. CloudFrame<sup>TM</sup> comfort and 3x of that - both up for the bundling. Enjoy this TWOsday BOGO with our selected designs of choice.</p><p>Buy 2. At the price of the high-priced one.</p>
+                    </div>
+                  {% else %}
+                    <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
+                  {% endif %}
+                {% endif %}
+
                 {% if template == 'product.twos-day-sale' %}
                   <div class="product__specifications">
                     <div class="specification">
