@@ -217,6 +217,8 @@
                 {% if product.metafields.custom.short_description != blank %}
                   <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
                 {% endif %}
+
+                
                 {% if template == 'product.twos-day-sale' %}
                   <div class="product__specifications">
                     <div class="specification">
