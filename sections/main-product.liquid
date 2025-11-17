@@ -159,12 +159,13 @@
                   }
                 </style>
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="main-price-section ggg">
-                  {%- render 'price',
+                  {% comment %} {%- render 'price',
                     product: product,
                     use_variant: true,
                     show_badges: true,
                     price_class: 'price--large'
-                  -%}
+                  -%} {% endcomment %}
+                  <div class="combine-price"></div>
                   <div class="tax-text">(Incl. of all taxes)</div>
                 </div>
 
@@ -240,7 +241,7 @@
                     <h6 class="twos_day_bundle_offer">Buy 1 Get 1</h6>
                     {% assign bundle_1 = product.metafields.custom.product_1_bundle.value %}
                     {% assign bundle_2 = product.metafields.custom.product_2_bundle.value %}
-
+                    
                     <div class="bundle-select-wrapper">
 
                       {% if bundle_1 %}
@@ -255,6 +256,7 @@
                                 {% assign bundle_1_product_img = product_item.featured_image %}
                                 {% assign size_chart1_table = product_item.metafields.custom.size_chart_table %}
                                 {% assign size_chart1_img = product_item.metafields.custom.size_chart_table_image %}
+                                {% assign size_chart1_subheading = product_item.metafields.custom.size_chart_subheading %}
                                 {% break %}
                               {% endfor %}
                               <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p>
@@ -275,12 +277,32 @@
 
                               <div id="cspopupModal1" class="csmodal">
                                 <div class="csmodal-content">
+
                                   <div style="" class="csmodal-heading">
-                                    <span class="size-guide-label"><b>Size Guide</b></span>
-                                    <span class="close-btn">&times;</span>
+                                    <span class="size-guide-label">Size Guide</span>
+                                    <span class="close-btn">
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+                                      </svg>
+                                    </span>
                                   </div>
+                                  <div class="csmodal-subheading">
+                                    {{ size_chart1_subheading }}
+                                  </div>
+
                                   <div class="cs-modal-inner-content">
-                                    {% if size_chart1_img != blank %}
+
+                                    <div class="slider_size_info">
+                                      <div>
+                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                                        <p>Regular or Narrow feet?<span>go one size down</span></p>
+                                      </div>
+                                      <div>
+                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                                        <p>Wide foot?<span>stick to your usual size.</span></p>
+                                      </div>
+                                    </div>
+                                    {% comment %} {% if size_chart1_img != blank %}
                                       <img
                                       src="{{ size_chart1_img | image_url:width:600 }}"
                                       srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
@@ -300,9 +322,33 @@
                                       width=""
                                       height=""
                                     >
-                                    {% endif %}
+                                    {% endif %} {% endcomment %}
                                     <div class="cs-table">
                                       {{ size_chart1_table }}
+                                    </div>
+                                    <div class="slider-instructuions">
+                                      <h4>How to measure</h4>
+                                      <div class="instructuions_steps">
+                                        <div class="measurement_step">
+                                          <h6>Step 1 :</h6>
+                                          <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
+                                        </div>
+                                        <div class="measurement_step">
+                                          <h6>Step 2 :</h6>
+                                          <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
+                                        </div>
+                                        <div class="measurement_step">
+                                          <h6>Step 3 :</h6>
+                                          <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="sizechart_note">
+                                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176">
+                                      <div class="note_text">
+                                        <h6>Not sure about the fit?</h6>
+                                        <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -339,6 +385,7 @@
                                   {% assign bundle_2_product_img = product_item.featured_image %}
                                   {% assign size_chart2_table = product_item.metafields.custom.size_chart_table %}
                                   {% assign size_chart2_img = product_item.metafields.custom.size_chart_table_image %}
+                                  {% assign size_chart2_subheading = product_item.metafields.custom.size_chart_subheading %}
                                   {% break %}
                                 {% endfor %}
                                 <p class="label_selected">{{ bundle_2_product_title }} / <span class="bundle_selected_product2"></span></p>
@@ -360,11 +407,28 @@
                                 <div id="cspopupModal2" class="csmodal">
                                   <div class="csmodal-content">
                                     <div style="" class="csmodal-heading">
-                                      <span class="size-guide-label"><b>Size Guide</b></span>
-                                      <span class="close-btn">&times;</span>
+                                      <span class="size-guide-label">Size Guide</span>
+                                      <span class="close-btn">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                      </span>
+                                    </div>
+                                    <div class="csmodal-subheading">
+                                      {{ size_chart2_subheading }}
                                     </div>
                                     <div class="cs-modal-inner-content">
-                                      {% if size_chart2_img != blank %}
+                                      <div class="slider_size_info">
+                                        <div>
+                                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                                          <p>Regular or Narrow feet?<span>go one size down</span></p>
+                                        </div>
+                                        <div>
+                                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                                          <p>Wide foot?<span>stick to your usual size.</span></p>
+                                        </div>
+                                      </div>
+                                      {% comment %} {% if size_chart2_img != blank %}
                                         <img
                                         src="{{ size_chart2_img | image_url:width:600 }}"
                                         srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
@@ -384,9 +448,33 @@
                                         width=""
                                         height=""
                                       >
-                                      {% endif %}
+                                      {% endif %} {% endcomment %}
                                       <div class="cs-table">
                                         {{ size_chart2_table }}
+                                      </div>
+                                      <div class="slider-instructuions">
+                                        <h4>How to measure</h4>
+                                        <div class="instructuions_steps">
+                                          <div class="measurement_step">
+                                            <h6>Step 1 :</h6>
+                                            <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
+                                          </div>
+                                          <div class="measurement_step">
+                                            <h6>Step 2 :</h6>
+                                            <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
+                                          </div>
+                                          <div class="measurement_step">
+                                            <h6>Step 3 :</h6>
+                                            <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="sizechart_note">
+                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176">
+                                        <div class="note_text">
+                                          <h6>Not sure about the fit?</h6>
+                                          <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>

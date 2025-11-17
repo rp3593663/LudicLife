@@ -2326,12 +2326,52 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSelectedLabels(2);
 
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const priceBox = document.querySelector('.combine-price');
+  const select1 = document.getElementById('bundle_1_select');
+  const select2 = document.getElementById('bundle_2_select');
+
+  const premiumHandles = [
+    "sliders-purple-pyaaz",
+    "sliders-tandoor-black-2-0"
+  ];
+
+  function updateBundlePrice() {
+    const h1 = select1.value;
+    const h2 = select2.value;
+
+    // 🟡 DEFAULT PRICE when not selected
+    if (!h1 || !h2) {
+      priceBox.innerHTML = "₹1999";
+      return;
+    }
+
+    const isH1Premium = premiumHandles.includes(h1);
+    const isH2Premium = premiumHandles.includes(h2);
+
+    let price = 1499; // default when both NOT premium
+
+    // Any case where ONE or BOTH are premium → 1999
+    if (isH1Premium || isH2Premium) {
+      price = 1999;
+    }
+
+    priceBox.innerHTML = `₹${price}`;
+  }
+
+  updateBundlePrice(); // Show default 1999 on load
+
+  select1.addEventListener("change", updateBundlePrice);
+  select2.addEventListener("change", updateBundlePrice);
+
+});
+
 </script>
 
 <script>
   document.getElementById('bundleAddToCartBtn').addEventListener('click', function() {
-    {% comment %} const msg = document.getElementById('bundleAddMsg');
-    msg.innerHTML = ''; {% endcomment %}
 
     const bundles = [1, 2];
     let errors = false;
@@ -2373,8 +2413,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(res => res.json())
     .then(data => {
-      {% comment %} msg.style.color = 'green';
-      msg.innerHTML = "✅ Bundle added to cart successfully!"; {% endcomment %}
       render_cart();
       $('new-cart-drawer').addClass('active animate');
     })
@@ -2510,46 +2548,38 @@ if (isMobile) {
 
 
 <script>
-(function() {
-  const currentUrl = window.location.pathname;
+  (function() {
+    const currentUrl = window.location.pathname;
 
-  const productPage = "/products/circuit-shirt-bundle";
-  const salePage = "/pages/twos-day-sale";
-
-  // Function to check if current IST time is within Tuesday 11:00 AM to Wednesday 11:00 AM
-  function isTwosDaySaleActive() {
-    const nowUTC = new Date();
+    const productPage = "/products/slider-bundle";
+    const salePage = "/pages/twos-day-sale";
     
-    // Convert UTC time to IST
-    const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-    
-    const day = nowIST.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, ...
-    const hours = nowIST.getHours();
-    
-    // Condition: Tuesday 11:00 to Wednesday 11:00 IST
-    if (day === 2 && hours >= 10) return true;     // Tuesday after 11 AM
-    if (day === 3 && hours < 11) return true;      // Wednesday before 11 AM
-    
-    return false;
-  }
-
-  const isSaleActive = isTwosDaySaleActive();
-
-  // Redirect Logic
-  if (!isSaleActive) {
-    // NORMAL DAYS
-    if (currentUrl === productPage) {
-      window.location.href = salePage;
+    function isTwosDaySaleActive() {
+      const nowUTC = new Date();
+      
+      const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+      
+      const day = nowIST.getDay(); 
+      const hours = nowIST.getHours();
+      
+      if (day === 2 && hours >= 10) return true;     
+      if (day === 3 && hours < 11) return true;    
+      
+      return false;
     }
-    // sale page stays as-is
-  } else {
-    // DURING SALE WINDOW
-    if (currentUrl === salePage) {
-      window.location.href = productPage;
+
+    const isSaleActive = isTwosDaySaleActive();
+
+    if (!isSaleActive) {
+      if (currentUrl === productPage) {
+        window.location.href = salePage;
+      }
+    } else {
+      if (currentUrl === salePage) {
+        window.location.href = productPage;
+      }
     }
-    // product page stays as-is
-  }
-})(); 
+  })(); 
 </script>
 
 
