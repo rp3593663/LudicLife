@@ -966,7 +966,9 @@ body.size-chart-popup-pdp #MainContent{
     display: inline-block;
     float: right;
 }
-.template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item{
+.template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
+.template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price{
+{
     font-size: 24px;
     font-weight: 700;
     line-height: 100%!important;
