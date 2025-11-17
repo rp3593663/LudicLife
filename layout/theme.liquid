@@ -2553,20 +2553,17 @@ if (isMobile) {
 
   const productPage = "/products/circuit-shirt-bundle";
   const salePage = "/pages/twos-day-sale";
-
-  // Function to check if current IST time is within Tuesday 11:00 AM to Wednesday 11:00 AM
+  
   function isTwosDaySaleActive() {
     const nowUTC = new Date();
     
-    // Convert UTC time to IST
     const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
     
-    const day = nowIST.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, ...
+    const day = nowIST.getDay(); 
     const hours = nowIST.getHours();
     
-    // Condition: Tuesday 11:00 to Wednesday 11:00 IST
-    if (day === 2 && hours >= 10) return true;     // Tuesday after 11 AM
-    if (day === 3 && hours < 11) return true;      // Wednesday before 11 AM
+    if (day === 2 && hours >= 10) return true;     
+    if (day === 3 && hours < 11) return true;    
     
     return false;
   }
