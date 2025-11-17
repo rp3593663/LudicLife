@@ -1827,6 +1827,17 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media (max-width: 749px) {
+  .sale_end p {
+    font-size: 14px;
+    line-height: 11.25px;
+    letter-spacing: -0.42px;
+}
+.sale_end span {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -0.3px;
+}
   .template-product.template-product\.twos-day-sale .section-template--25337873334576__custom_liquid_egExCp-padding {
     padding-top: 68px;
     padding-bottom: 68px;
