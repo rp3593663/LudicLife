@@ -2326,6 +2326,46 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSelectedLabels(2);
 
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const priceBox = document.querySelector('.combine-price');
+  const select1 = document.getElementById('bundle_1_select');
+  const select2 = document.getElementById('bundle_2_select');
+
+  // Handles considered PREMIUM (→ price 1999)
+  const premiumHandles = [
+    "sliders-purple-pyaaz",
+    "sliders-tandoor-black-2-0"
+  ];
+
+  function updateBundlePrice() {
+    const h1 = select1.value;
+    const h2 = select2.value;
+
+    if (!h1 || !h2) {
+      priceBox.innerHTML = "";  
+      return;
+    }
+
+    const isH1Premium = premiumHandles.includes(h1);
+    const isH2Premium = premiumHandles.includes(h2);
+
+    let price = 1499; // default
+
+    // Any case where at least one is premium → 1999
+    if (isH1Premium || isH2Premium) {
+      price = 1999;
+    }
+
+    priceBox.innerHTML = `₹${price}`;
+  }
+
+  select1.addEventListener("change", updateBundlePrice);
+  select2.addEventListener("change", updateBundlePrice);
+
+});
+
 </script>
 
 <script>
