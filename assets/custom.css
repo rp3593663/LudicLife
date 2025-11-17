@@ -1349,6 +1349,13 @@ div.sale_end {
     align-items: center;
     gap: 2px;
 }
+.sale_end p {
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 11.25px;
+    letter-spacing: -0.9px;
+}
 .bundle-select-wrapper {
     display: grid;
     gap: 20px;
