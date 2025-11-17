@@ -1331,6 +1331,14 @@ h6.twos_day_bundle_offer img{
   width: 16px;
   height: auto;
 }
+.sale_ends h6 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.36px;
+  color: #939598;
+  margin: 20px 0px 10px;
+}
 .bundle-select-wrapper {
     display: grid;
     gap: 20px;
