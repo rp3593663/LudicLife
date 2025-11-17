@@ -214,9 +214,9 @@
 
 
 
-                {% comment %} {% if product.metafields.custom.short_description != blank %}
+                {% if product.metafields.custom.short_description != blank %}
                   <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
-                {% endif %} {% endcomment %}
+                {% endif %}
 
                 {% if product.metafields.custom.short_description != blank %}
                   {% if template == 'product.twos-day-sale' %}
