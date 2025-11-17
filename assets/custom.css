@@ -1339,6 +1339,11 @@ h6.twos_day_bundle_offer img{
   color: #939598;
   margin: 20px 0px 10px;
 }
+.sale_ends_date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 .bundle-select-wrapper {
     display: grid;
     gap: 20px;
