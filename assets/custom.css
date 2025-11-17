@@ -1346,15 +1346,23 @@ h6.twos_day_bundle_offer img{
 }
 div.sale_end {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 2px;
 }
 .sale_end p {
     margin-bottom: 0px;
     font-weight: 700;
     font-size: 18px;
-    line-height: 11.25px;
+    line-height: 16.25px;
     letter-spacing: -0.9px;
+}
+.sale_end span {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11.25px;
+    letter-spacing: -0.8px;
+    text-align: center;
+    vertical-align: middle;
 }
 .bundle-select-wrapper {
     display: grid;
