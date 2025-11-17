@@ -1827,9 +1827,12 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media (max-width: 749px) {
+  .sale_ends_date {
+    gap: 6px;
+}
   .sale_end p {
     font-size: 14px;
-    line-height: 11.25px;
+    line-height: 10.25px;
     letter-spacing: -0.42px;
 }
 .sale_end span {
