@@ -2330,8 +2330,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
   document.getElementById('bundleAddToCartBtn').addEventListener('click', function() {
-    {% comment %} const msg = document.getElementById('bundleAddMsg');
-    msg.innerHTML = ''; {% endcomment %}
 
     const bundles = [1, 2];
     let errors = false;
@@ -2373,8 +2371,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(res => res.json())
     .then(data => {
-      {% comment %} msg.style.color = 'green';
-      msg.innerHTML = "✅ Bundle added to cart successfully!"; {% endcomment %}
       render_cart();
       $('new-cart-drawer').addClass('active animate');
     })
