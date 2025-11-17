@@ -2548,38 +2548,38 @@ if (isMobile) {
 
 
 <script>
-(function() {
-  const currentUrl = window.location.pathname;
+  (function() {
+    const currentUrl = window.location.pathname;
 
-  const productPage = "/products/circuit-shirt-bundle";
-  const salePage = "/pages/twos-day-sale";
-  
-  function isTwosDaySaleActive() {
-    const nowUTC = new Date();
+    const productPage = "/products/circuit-shirt-bundle";
+    const salePage = "/pages/twos-day-sale";
     
-    const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-    
-    const day = nowIST.getDay(); 
-    const hours = nowIST.getHours();
-    
-    if (day === 2 && hours >= 10) return true;     
-    if (day === 3 && hours < 11) return true;    
-    
-    return false;
-  }
-
-  const isSaleActive = isTwosDaySaleActive();
-
-  if (!isSaleActive) {
-    if (currentUrl === productPage) {
-      window.location.href = salePage;
+    function isTwosDaySaleActive() {
+      const nowUTC = new Date();
+      
+      const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+      
+      const day = nowIST.getDay(); 
+      const hours = nowIST.getHours();
+      
+      if (day === 2 && hours >= 10) return true;     
+      if (day === 3 && hours < 11) return true;    
+      
+      return false;
     }
-  } else {
-    if (currentUrl === salePage) {
-      window.location.href = productPage;
+
+    const isSaleActive = isTwosDaySaleActive();
+
+    if (!isSaleActive) {
+      if (currentUrl === productPage) {
+        window.location.href = salePage;
+      }
+    } else {
+      if (currentUrl === salePage) {
+        window.location.href = productPage;
+      }
     }
-  }
-})(); 
+  })(); 
 </script>
 
 
