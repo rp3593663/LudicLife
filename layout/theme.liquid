@@ -2548,7 +2548,7 @@ if (isMobile) {
 
 
 <script>
-  (function() {
+  {% comment %} (function() {
     const currentUrl = window.location.pathname;
 
     const productPage = "/products/slider-bundle";
@@ -2579,7 +2579,7 @@ if (isMobile) {
         window.location.href = productPage;
       }
     }
-  })(); 
+  })();  {% endcomment %}
 </script>
 
 
