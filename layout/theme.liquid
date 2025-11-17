@@ -2548,7 +2548,7 @@ if (isMobile) {
 
 
 <script>
-{% comment %} (function() {
+(function() {
   const currentUrl = window.location.pathname;
 
   const productPage = "/products/circuit-shirt-bundle";
@@ -2573,21 +2573,16 @@ if (isMobile) {
 
   const isSaleActive = isTwosDaySaleActive();
 
-  // Redirect Logic
   if (!isSaleActive) {
-    // NORMAL DAYS
     if (currentUrl === productPage) {
       window.location.href = salePage;
     }
-    // sale page stays as-is
   } else {
-    // DURING SALE WINDOW
     if (currentUrl === salePage) {
       window.location.href = productPage;
     }
-    // product page stays as-is
   }
-})();  {% endcomment %}
+})(); 
 </script>
 
 
