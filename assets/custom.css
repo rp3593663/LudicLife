@@ -1024,6 +1024,16 @@ body.size-chart-popup-pdp #MainContent{
     font-weight: 700;
     letter-spacing: -0.8px;
 }
+.template-product.template-product\.twos-day-sale .csmodal-subheading {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    vertical-align: middle;
+    text-align: left;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+}
 .product_extra_content {
     max-width: 1126px;
     margin: auto;
