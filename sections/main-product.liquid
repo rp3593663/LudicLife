@@ -256,6 +256,7 @@
                                 {% assign bundle_1_product_img = product_item.featured_image %}
                                 {% assign size_chart1_table = product_item.metafields.custom.size_chart_table %}
                                 {% assign size_chart1_img = product_item.metafields.custom.size_chart_table_image %}
+                                {% assign size_chart1_subheading = product_item.metafields.custom.size_chart_subheading %}
                                 {% break %}
                               {% endfor %}
                               <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p>
@@ -276,7 +277,7 @@
 
                               <div id="cspopupModal1" class="csmodal">
                                 <div class="csmodal-content">
-                                  
+
                                   <div style="" class="csmodal-heading">
                                     <span class="size-guide-label">Size Guide</span>
                                     <span class="close-btn">
@@ -285,6 +286,10 @@
                                       </svg>
                                     </span>
                                   </div>
+                                  <div class="csmodal-subheading">
+                                    {{ size_chart1_subheading }}
+                                  </div>
+
                                   <div class="cs-modal-inner-content">
                                     {% if size_chart1_img != blank %}
                                       <img
