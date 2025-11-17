@@ -850,15 +850,122 @@ body.size-chart-popup-pdp #MainContent{
   justiy-content:space-between;
   padding:20px;
 }
+.slider_size_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0px 0px 12px;
+}
+.slider_size_info > div {
+    background: #F8F8F8;
+    padding: 12px 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+.slider_size_info img {
+    height: 87px;
+    width: auto;
+    margin-bottom: 12px;
+}
+.slider_size_info p {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: -0.3px;
+    text-align: center;
+    vertical-align: middle;
+    color: #1a1a1a;
+    display: grid;
+    margin: 0px;
+    gap: 2px;
+}
+.slider_size_info p span{ 
+    color: #E60013;
+}
+.slider-instructuions,
+.sizechart_note {
+    background: #F8F8F8;
+    padding: 13px;
+    border-radius: 6px;
+    margin: 20px 0px 0px;
+}
+.sizechart_note {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 6px;
+}
+.sizechart_note img{
+  width: 16px;
+  height: 16px;
+}
+.note_text {
+    display: grid;
+    gap: 8px;
+}
+.sizechart_note h6 {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.8px;
+    vertical-align: middle;
+}
+.sizechart_note p {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    vertical-align: middle;
+}
+.sizechart_note p a{
+  color: #1A1A1A;
+}
+.slider-instructuions h4 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.8px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.instructuions_steps {
+    display: grid;
+    align-items: center;
+    justify-content: left;
+    gap: 16px;
+    text-align: left;
+}
+.measurement_step {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.measurement_step h6 {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    white-space: nowrap;
+    margin: 0px;
+}
+.measurement_step p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    margin: 0px;
+}
 
 @media screen and (max-width:768px){
   .csmodal-content {
     width: 100%;
     max-width: 100%;
-}
-  /* .csmodal{
-    padding-top:52px;
-  } */
+  }
   .cs-modal-inner-content img{
   width:360px;
   height:284px;
