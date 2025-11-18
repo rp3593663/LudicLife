@@ -1238,6 +1238,12 @@ body.size-chart-popup-pdp #MainContent{
     color: #1a1a1a;
     letter-spacing: -0.9px;
 }
+.title_price_twos_day {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
 .template-product.template-product\.twos-day-sale .tax-text {
     font-size: 10px;
     color: #939598;

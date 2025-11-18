@@ -11,20 +11,6 @@
   "sections": {
     "main": {
       "type": "main-product",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "title",
-        "price"
-      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
