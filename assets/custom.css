@@ -1336,7 +1336,7 @@ h6.twos_day_bundle_offer {
   gap: 6px;
   background: #F9F9F9;
   padding: 15px 13px;
-
+  text-transform: uppercase;
 }
 h6.twos_day_bundle_offer img{
   width: 16px;
