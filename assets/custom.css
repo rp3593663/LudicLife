@@ -1931,7 +1931,8 @@ a#HeaderMenu-twos-day-sale {
     padding: 30px 16px 0px!important;
   }
   .template-product.template-product\.twos-day-sale .product__title h1,
-  .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item {
+  .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
+  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
     font-size: 18px;
     letter-spacing: -0.9px;
   }
