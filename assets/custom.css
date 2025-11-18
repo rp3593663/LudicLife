@@ -1839,6 +1839,9 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media (max-width: 749px) {
+  h6.twos_day_bundle_offer {
+    margin: 0 0 16px;
+}
   .sale_ends h6 {
     font-size: 10px;
     line-height: 10px;
