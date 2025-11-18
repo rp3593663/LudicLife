@@ -1236,6 +1236,7 @@ body.size-chart-popup-pdp #MainContent{
     font-weight: 700;
     line-height: 24px!important;
     color: #1a1a1a;
+    margin: 0px;
     letter-spacing: -0.9px;
 }
 .title_price_twos_day {
