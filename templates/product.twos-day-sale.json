@@ -15,10 +15,15 @@
         "title_YPKRmg": {
           "type": "title",
           "settings": {}
+        },
+        "price_NaH3zL": {
+          "type": "price",
+          "settings": {}
         }
       },
       "block_order": [
-        "title_YPKRmg"
+        "title_YPKRmg",
+        "price_NaH3zL"
       ],
       "settings": {
         "enable_sticky_info": true,
