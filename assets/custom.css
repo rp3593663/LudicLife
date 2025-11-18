@@ -1936,6 +1936,9 @@ a#HeaderMenu-twos-day-sale {
     font-size: 18px;
     letter-spacing: -0.9px;
   }
+  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
+    text-align: right;
+  }
   .template-product.template-product\.twos-day-sale .product__media-list {
     gap: 0px;
     scroll-padding-left: 0!important;
