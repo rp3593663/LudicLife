@@ -1239,6 +1239,9 @@ body.size-chart-popup-pdp #MainContent{
     margin: 0px;
     letter-spacing: -0.9px;
 }
+.combine-price{
+  text-align: right;
+}
 .title_price_twos_day {
     display: flex;
     align-items: flex-start;
@@ -1250,7 +1253,7 @@ body.size-chart-popup-pdp #MainContent{
     color: #939598;
     line-height: 14.3px !important;
     font-weight: 400;
-    margin-top: 6px;
+    margin-top: 2px;
     letter-spacing: -0.3px;
     text-align: end;
 }
