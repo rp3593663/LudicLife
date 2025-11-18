@@ -214,22 +214,39 @@
 
 
 
-                {% if product.metafields.custom.short_description != blank %}
+                {% comment %} {% if product.metafields.custom.short_description != blank %}
                   <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
+                {% endif %} {% endcomment %}
+
+                {% if product.metafields.custom.short_description != blank %}
+                  {% if template == 'product.twos-day-sale' %}
+                    <div class="short_description">
+                      <div class="metafield-rich_text_field">
+                        <p>This is gonna be a different game. Slider and Slider 2.0 are in play today. CloudFrame<sup>™</sup> comfort and 3x of that - both up for the bundling. Enjoy this TWOsday BOGO with our selected designs of choice.</p>
+                      </div>
+                    </div>
+                  {% else %}
+                    <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
+                  {% endif %}
                 {% endif %}
+
                 {% if template == 'product.twos-day-sale' %}
                   <div class="product__specifications">
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      Cotton Canvas
+                      <span>CloudFrame<sup>™</sup></span>
                     </div>
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      Relaxed Fit
+                      EVA Footbed
                     </div>
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      3-way Pockets
+                      Cloud Comfort
+                    </div>
+                    <div class="specification">
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
+                      Smart Casual
                     </div>
                   </div>
                 {% endif %}
@@ -238,7 +255,10 @@
 
                 {% if template == 'product.twos-day-sale' %}
                   <div class="twos_day_bundle">
-                    <h6 class="twos_day_bundle_offer">Buy 1 Get 1</h6>
+                    <h6 class="twos_day_bundle_offer">
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame.svg?v=1763440697">
+                      Buy 1 Get 1
+                    </h6>
                     {% assign bundle_1 = product.metafields.custom.product_1_bundle.value %}
                     {% assign bundle_2 = product.metafields.custom.product_2_bundle.value %}
                     
@@ -259,7 +279,8 @@
                                 {% assign size_chart1_subheading = product_item.metafields.custom.size_chart_subheading %}
                                 {% break %}
                               {% endfor %}
-                              <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p>
+                              {% comment %} <p class="label_selected">{{ bundle_1_product_title }} / <span class="bundle_selected_product1"></span></p> {% endcomment %}
+                              <p class="label_selected">Sliders / <span class="bundle_selected_product1"></span></p>
 
                               <div class="bundle-p-select">
                                 <select id="bundle_1_select" class="bundle-product-select">
@@ -388,7 +409,8 @@
                                   {% assign size_chart2_subheading = product_item.metafields.custom.size_chart_subheading %}
                                   {% break %}
                                 {% endfor %}
-                                <p class="label_selected">{{ bundle_2_product_title }} / <span class="bundle_selected_product2"></span></p>
+                                {% comment %} <p class="label_selected">{{ bundle_2_product_title }} / <span class="bundle_selected_product2"></span></p> {% endcomment %}
+                                <p class="label_selected">Sliders / <span class="bundle_selected_product2"></span></p>
 
                                 <div class="bundle-p-select">
                                   <select id="bundle_2_select" class="bundle-product-select">
@@ -499,6 +521,25 @@
                       {% endif %}
 
                     </div>
+
+                    <div class="sale_ends">
+                      <h6>Sale end in</h6>
+                      <div class="sale_ends_date">
+                        <div class="sale_end" id="days">
+                          <p>0</p><span>Days</span>
+                        </div>
+                        <div class="sale_end" id="hours">
+                          <p>0</p><span>Hours</span>
+                        </div>
+                        <div class="sale_end" id="minuts">
+                          <p>0</p><span>Minutes</span>
+                        </div>
+                        <div class="sale_end" id="seconds">
+                          <p>0</p><span>Seconds</span>
+                        </div>
+                      </div>
+                    </div>
+
                     <button id="bundleAddToCartBtn" class="bundle-add-btn">
                       <span class="text-wrap">
                         <span class="text default">

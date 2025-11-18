@@ -1314,12 +1314,55 @@ body.size-chart-popup-pdp #MainContent{
 h6.twos_day_bundle_offer {
   margin: 0px 0px 28px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 16px;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.42px;
   text-align: justify;
   vertical-align: middle;
   color: #E60013;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #F9F9F9;
+  padding: 15px 13px;
+
+}
+h6.twos_day_bundle_offer img{
+  width: 16px;
+  height: auto;
+}
+.sale_ends h6 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.36px;
+  color: #939598;
+  margin: 20px 0px 10px;
+}
+.sale_ends_date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+div.sale_end {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+.sale_end p {
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 16.25px;
+    letter-spacing: -0.9px;
+}
+.sale_end span {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11.25px;
+    letter-spacing: -0.8px;
+    text-align: center;
+    vertical-align: middle;
 }
 .bundle-select-wrapper {
     display: grid;
@@ -1784,6 +1827,25 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media (max-width: 749px) {
+  .sale_ends h6 {
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -.3px;
+}
+  .sale_ends_date {
+    gap: 6px;
+}
+  .sale_end p {
+    font-size: 14px;
+    line-height: 10.25px;
+    letter-spacing: -0.42px;
+}
+.sale_end span {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -0.3px;
+}
   .template-product.template-product\.twos-day-sale .section-template--25337873334576__custom_liquid_egExCp-padding {
     padding-top: 68px;
     padding-bottom: 68px;
@@ -1869,9 +1931,13 @@ a#HeaderMenu-twos-day-sale {
     padding: 30px 16px 0px!important;
   }
   .template-product.template-product\.twos-day-sale .product__title h1,
-  .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item {
+  .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
+  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
     font-size: 18px;
     letter-spacing: -0.9px;
+  }
+  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
+    text-align: right;
   }
   .template-product.template-product\.twos-day-sale .product__media-list {
     gap: 0px;

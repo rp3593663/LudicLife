@@ -2548,7 +2548,7 @@ if (isMobile) {
 
 
 <script>
-  (function() {
+ (function() {
     const currentUrl = window.location.pathname;
 
     const productPage = "/products/slider-2-0-bundle";
@@ -2579,7 +2579,45 @@ if (isMobile) {
         window.location.href = productPage;
       }
     }
-  })(); 
+  })();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Target: 19 Nov 2025 - 11:00 AM
+  const targetDate = new Date("November 19, 2025 11:00:00").getTime();
+
+  const daysEl = document.querySelector("#days p");
+  const hoursEl = document.querySelector("#hours p");
+  const minutesEl = document.querySelector("#minuts p");
+  const secondsEl = document.querySelector("#seconds p");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      daysEl.textContent = "0";
+      hoursEl.textContent = "0";
+      minutesEl.textContent = "0";
+      secondsEl.textContent = "0";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    daysEl.textContent = days;
+    hoursEl.textContent = hours < 10 ? "0" + hours : hours;
+    minutesEl.textContent = minutes < 10 ? "0" + minutes : minutes;
+    secondsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+});
 </script>
 
 
