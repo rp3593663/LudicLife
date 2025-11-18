@@ -1229,9 +1229,9 @@ body.size-chart-popup-pdp #MainContent{
     float: right;
 }
 .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
-.template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price
+.combine-price
 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 100%!important;
     color: #1a1a1a;
@@ -1932,11 +1932,11 @@ a#HeaderMenu-twos-day-sale {
   }
   .template-product.template-product\.twos-day-sale .product__title h1,
   .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
-  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
+  .combine-price {
     font-size: 18px;
     letter-spacing: -0.9px;
   }
-  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
+  .combine-price {
     text-align: right;
   }
   .template-product.template-product\.twos-day-sale .product__media-list {
