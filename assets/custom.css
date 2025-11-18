@@ -1228,21 +1228,32 @@ body.size-chart-popup-pdp #MainContent{
     display: inline-block;
     float: right;
 }
-.template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
-.template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price
+.template-product.template-product\.twos-day-sale .product__title h1,
+.template-product.template-product\.twos-day-sale .twos_day_title h3,
+.combine-price
 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 100%!important;
+    line-height: 24px!important;
     color: #1a1a1a;
-    letter-spacing: -1.2px;
+    margin: 0px;
+    letter-spacing: -0.9px;
+}
+.combine-price{
+  text-align: right;
+}
+.title_price_twos_day {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
 }
 .template-product.template-product\.twos-day-sale .tax-text {
     font-size: 10px;
     color: #939598;
     line-height: 14.3px !important;
     font-weight: 400;
-    margin-top: 6px;
+    margin-top: 2px;
     letter-spacing: -0.3px;
     text-align: end;
 }
@@ -1274,7 +1285,7 @@ body.size-chart-popup-pdp #MainContent{
     height: auto;
 }
 .template-product.template-product\.twos-day-sale .product__info-wrapper .short_description {
-    margin: 24px 0 0;
+    margin: 18px 0 0;
 }
 .template-product.template-product\.twos-day-sale .product__info-wrapper .short_description p {
     margin-bottom: 6px!important;
@@ -1312,7 +1323,7 @@ body.size-chart-popup-pdp #MainContent{
     margin: 28px 0px 14px;
 }
 h6.twos_day_bundle_offer {
-  margin: 0px 0px 28px;
+  margin: 0px 0px 18px;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
@@ -1325,7 +1336,7 @@ h6.twos_day_bundle_offer {
   gap: 6px;
   background: #F9F9F9;
   padding: 15px 13px;
-
+  text-transform: uppercase;
 }
 h6.twos_day_bundle_offer img{
   width: 16px;
@@ -1348,6 +1359,7 @@ div.sale_end {
     display: flex;
     align-items: flex-end;
     gap: 2px;
+    color: #E60013;
 }
 .sale_end p {
     margin-bottom: 0px;
@@ -1827,6 +1839,9 @@ a#HeaderMenu-twos-day-sale {
   }
 }
 @media (max-width: 749px) {
+  h6.twos_day_bundle_offer {
+    margin: 0 0 16px;
+}
   .sale_ends h6 {
     font-size: 10px;
     line-height: 10px;
@@ -1931,12 +1946,13 @@ a#HeaderMenu-twos-day-sale {
     padding: 30px 16px 0px!important;
   }
   .template-product.template-product\.twos-day-sale .product__title h1,
+  .template-product.template-product\.twos-day-sale .twos_day_title h3,
   .template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
-  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
+  .combine-price {
     font-size: 18px;
     letter-spacing: -0.9px;
   }
-  .template-product.template-product\.twos-day-sale .product__info-wrapper .combine-price {
+  .combine-price {
     text-align: right;
   }
   .template-product.template-product\.twos-day-sale .product__media-list {
