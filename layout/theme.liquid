@@ -2587,7 +2587,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Target: 19 Nov 2025 - 11:00 AM
   const targetDate = new Date("November 19, 2025 11:00:00").getTime();
 
-  const daysEl = document.querySelector("#days p");
+  {% comment %} const daysEl = document.querySelector("#days p"); {% endcomment %}
   const hoursEl = document.querySelector("#hours p");
   const minutesEl = document.querySelector("#minuts p");
   const secondsEl = document.querySelector("#seconds p");
@@ -2597,19 +2597,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      daysEl.textContent = "0";
+      {% comment %} daysEl.textContent = "0"; {% endcomment %}
       hoursEl.textContent = "0";
       minutesEl.textContent = "0";
       secondsEl.textContent = "0";
       return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    {% comment %} const days = Math.floor(diff / (1000 * 60 * 60 * 24)); {% endcomment %}
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    daysEl.textContent = days;
+    {% comment %} daysEl.textContent = days; {% endcomment %}
     hoursEl.textContent = hours < 10 ? "0" + hours : hours;
     minutesEl.textContent = minutes < 10 ? "0" + minutes : minutes;
     secondsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
