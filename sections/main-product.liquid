@@ -218,6 +218,13 @@
                   <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
                 {% endif %} {% endcomment %}
 
+                {% if template == 'product.twos-day-sale' %}
+                  <h6 class="twos_day_bundle_offer">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame.svg?v=1763440697">
+                    Buy 1 Get 1
+                  </h6>
+                {% endif %}
+
                 {% if product.metafields.custom.short_description != blank %}
                   {% if template == 'product.twos-day-sale' %}
                     <div class="short_description">
