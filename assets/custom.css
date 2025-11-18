@@ -1228,14 +1228,14 @@ body.size-chart-popup-pdp #MainContent{
     display: inline-block;
     float: right;
 }
-.template-product.template-product\.twos-day-sale .product__info-wrapper .price .price-item,
+.template-product.template-product\.twos-day-sale .twos_day_title h3,
 .combine-price
 {
     font-size: 18px;
     font-weight: 700;
     line-height: 100%!important;
     color: #1a1a1a;
-    letter-spacing: -0.54px;
+    letter-spacing: -0.9px;
 }
 .template-product.template-product\.twos-day-sale .tax-text {
     font-size: 10px;
