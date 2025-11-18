@@ -1359,6 +1359,7 @@ div.sale_end {
     display: flex;
     align-items: flex-end;
     gap: 2px;
+    color: #E60013;
 }
 .sale_end p {
     margin-bottom: 0px;
