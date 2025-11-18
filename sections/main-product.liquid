@@ -160,17 +160,18 @@
                     margin: 0;
                   }
                 </style>
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="main-price-section ggg">
-                 {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
-                  <div class="combine-price"></div>
-                  <div class="tax-text">(Incl. of all taxes)</div>
-                </div>
-
+                {% if template != 'product.twos-day-sale' %}
+                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="main-price-section ggg">
+                  {%- render 'price',
+                      product: product,
+                      use_variant: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                    <div class="combine-price"></div>
+                    <div class="tax-text">(Incl. of all taxes)</div>
+                  </div>
+                {%- endif -%}
                 {% if product.title contains 'Sliders' %}
                   <div class="coupon-container">
                     <span class="offer">
