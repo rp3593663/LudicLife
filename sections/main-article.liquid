@@ -277,9 +277,9 @@
   {% render 'related-blogs' %}
 </div>
 
-<script type="application/ld+json">
+{% comment %} <script type="application/ld+json">
   {{ article | structured_data }}
-</script>
+</script> {% endcomment %}
 
 {% schema %}
 {
