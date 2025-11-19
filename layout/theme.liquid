@@ -87,34 +87,34 @@
 
     <!-- schema  -->
     {% if request.path contains 'products' %}
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ludic.life"
-        }{% for collection in product.collections %}{% if collection.handle == 'footwear' or collection.handle == 'apparel' or collection.handle == 'accessories' %}
-        ,{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "{{ collection.title }}",
-          "item": "{{ collection.url | prepend: shop.url }}"
-        }{% endif %}{% endfor %}
-        ,{
-          "@type": "ListItem",
-          "position": 3,
-          "name": "{{ product.title | capitalize }}",
-           "item": "{{ product.url | prepend: shop.url }}"
-        }]
-      },{
-          "@type": "ListItem",
-          "position": 4,
-          "name": "{{ product.metafields.custom.product_color_name | capitalize }}"
-        }]
-      }
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ludic.life"
+          }{% for collection in product.collections %}{% if collection.handle == 'footwear' or collection.handle == 'apparel' or collection.handle == 'accessories' %}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{{ collection.title }}",
+            "item": "{{ collection.url | prepend: shop.url }}"
+          }{% endif %}{% endfor %}
+          ,{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ product.title | capitalize }}",
+            "item": "{{ product.url | prepend: shop.url }}"
+          }]
+        },{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "{{ product.metafields.custom.product_color_name | capitalize }}"
+          }]
+        }
       </script>
     {% endif %}
     <!-- schema  -->
