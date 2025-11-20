@@ -141,7 +141,7 @@
                 {% if template == 'product.twos-day-sale' %}
                   <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/pdp_twos_day_svg.svg?v=1761908913" class="pdp_twos_day_svg">
                 {%- endif -%}
-                {% if template != 'product.twos-day-sale' %}
+              
                   <div class="product__title" {{ block.shopify_attributes }}>
                     <h1>{{ product.title | escape }}</h1>
                     <a href="{{ product.url }}" class="product__title">
@@ -150,7 +150,7 @@
                       </h2>
                     </a>
                   </div>
-                {%- endif -%}
+           
               {%- when 'price' -%}
                 <style>
                   #price-{{ section.id }} *{
@@ -160,7 +160,7 @@
                     margin: 0;
                   }
                 </style>
-                {% if template != 'product.twos-day-sale' %}
+               
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="main-price-section ggg">
                   {%- render 'price',
                       product: product,
@@ -171,7 +171,7 @@
                     <div class="combine-price"></div>
                     <div class="tax-text">(Incl. of all taxes)</div>
                   </div>
-                {%- endif -%}
+     
                 {% if product.title contains 'Sliders' %}
                   <div class="coupon-container">
                     <span class="offer">
