@@ -1228,6 +1228,9 @@ body.size-chart-popup-pdp #MainContent{
     display: inline-block;
     float: right;
 }
+.template-product.template-product\.twos-day-sale .price.price--large.price--show-badge {
+    text-align: right;
+}
 .template-product.template-product\.twos-day-sale .product__title h1,
 .template-product.template-product\.twos-day-sale .twos_day_title h3,
 .combine-price
