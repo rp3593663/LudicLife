@@ -1401,7 +1401,7 @@ span.facet-checkbox__text {
   display: block;
 }
 .mobile_btn_filter{
-  display: none;
+  display: block;
 }
 .header_filter {
   display: flex;
