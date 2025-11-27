@@ -99,7 +99,7 @@ class FacetFiltersForm extends HTMLElement {
     container.innerHTML = count;
     container.classList.remove('loading');
     if (containerDesktop) {
-      containerDesktop.innerHTML = count;
+      containerDesktop.innerHTML = 'count';
       containerDesktop.classList.remove('loading');
     }
     const loadingSpinners = document.querySelectorAll(
