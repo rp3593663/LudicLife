@@ -468,7 +468,7 @@
             >
               <span class="mobile-facets__open-label button-label"> Filter </span>
             </span>
-            {% for filter in results.filters %}
+            {% comment %} {% for filter in results.filters %}
               <span
                 class="desktop_btn_filter mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}"
                 data-tab-index="{{ forloop.index0 }}"
@@ -477,7 +477,7 @@
                   {{ filter.label | escape }}
                 </span>
               </span>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
             {% comment %} <span tabindex="0" class="mobile-facets__close">{%- render 'icon-close' -%}</span> {% endcomment %}
           </summary>
           <facet-filters-form>
