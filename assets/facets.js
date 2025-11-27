@@ -191,13 +191,11 @@ class FacetFiltersForm extends HTMLElement {
 
   static renderActiveFacets(html) {
     const activeFacetElementSelectors = ['.active-facets-mobile', '.active-facets-desktop'];
-
     activeFacetElementSelectors.forEach((selector) => {
       const activeFacetsElement = html.querySelector(selector);
       if (!activeFacetsElement) return;
       document.querySelector(selector).innerHTML = activeFacetsElement.innerHTML;
     });
-
     FacetFiltersForm.toggleActiveFacets(false);
   }
 
