@@ -1408,6 +1408,13 @@ span.facet-checkbox__text {
     gap: 12px;
     width: 100%;
 }
+.collection-hero__description {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    max-width: 755px;
+}
 li.mobile-facets__item.list-menu__item.selected span.facet-checkbox__text {
   background: #c7c8ca;
 }
