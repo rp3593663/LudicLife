@@ -23,7 +23,7 @@
             "heading_size": "h1",
             "subheading": "Two offers. Extra rush.",
             "mobile_subheading": "It's Black Friday!",
-            "button_label": "Use code BF500 and SLIDERSBOGO",
+            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
             "link": "shopify://collections/sliders",
             "button_style_secondary": true,
             "box_align": "middle-center",
