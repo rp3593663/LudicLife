@@ -6931,11 +6931,11 @@ body.Sliders .product__info-wrapper .short_description{
 .product__info-wrapper .coupon-container {
     margin: 0;
     color: #000;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: 12px;
-    letter-spacing: -.5px;
+    letter-spacing: -.6px;
     border-radius: 2px;
     background: linear-gradient(90deg, #F0EFEF 0%, rgba(240, 239, 239, 0) 123.5%);
     display: inline-flex;
@@ -6946,9 +6946,9 @@ body.Sliders .product__info-wrapper .short_description{
 
 .coupon-container .coupon-code {
     color: #E60013;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.6px;
     /* background: linear-gradient(259.67deg, #FF9D00 15.76%, #E60113 91.39%); */
     /* -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -7349,7 +7349,7 @@ product-form form .product-form__submit.button:disabled,
 @media (max-width: 767.98px) {
   .product__info-wrapper .coupon-container{
     margin-top: 14px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .header .header__heading-logo-wrapper {
     max-width: 69px;
