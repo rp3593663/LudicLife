@@ -1404,9 +1404,9 @@ span.facet-checkbox__text {
   display: block;
 }
 .header_filter {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+    display: grid;
+    gap: 12px;
+    width: 100%;
 }
 li.mobile-facets__item.list-menu__item.selected span.facet-checkbox__text {
   background: #c7c8ca;
