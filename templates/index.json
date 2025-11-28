@@ -14,10 +14,9 @@
       "blocks": {
         "slide_FcnyT8": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "bf_slider",
-            "image": "shopify://shop_images/17.png",
+            "image": "shopify://shop_images/IMG_7870.png",
             "mobile_image": "shopify://shop_images/20.png",
             "banner_url": "shopify://collections/sliders",
             "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
@@ -276,7 +275,7 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": true,
+        "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": false,
