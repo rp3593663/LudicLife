@@ -1224,7 +1224,7 @@ body.size-chart-popup-pdp #MainContent{
     color: #FFF;
     margin-bottom: 20px;
 }
-.bf_slider.banner__buttons a.button {
+.bf_slider .banner__buttons a.button {
     background: transparent;
     padding: 0px;
     font-weight: 400;
@@ -1233,7 +1233,7 @@ body.size-chart-popup-pdp #MainContent{
     letter-spacing: -0.3px;
     text-align: center;
 }
-.bf_slider.banner__buttons a.button span{
+.bf_slider .banner__buttons a.button span{
     font-weight: 700;
 }
 
