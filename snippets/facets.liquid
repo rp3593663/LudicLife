@@ -458,7 +458,30 @@
       <div class="collection-hero__description">
         {{- collection.description -}}
       </div>
-      {% if collection.handle != 'accessories' and collection.handle != 'markdown' %}
+    </div>
+
+  {% if collection.handle != 'markdown' or collection.handle != 'fragrance' %}
+    {% if template == 'collection.apparels' %}
+        {% assign menu_handle = 'coll_menu2' %}
+    {% elsif template == 'collection.accessories' %}
+        {% assign menu_handle = 'coll_menu3' %}
+    {% elsif template == 'collection.weekend-shirt-circuit-shi' %}
+        {% assign menu_handle = 'coll_menu4' %}
+    {% else %}
+        {% assign menu_handle = 'coll_menu5' %}
+    {% endif %}
+   
+    {% if linklists[menu_handle].links %}
+        <ul class="collection_nav">
+          {% for link in linklists[menu_handle].links %}
+            <li>
+              <a href="{{ link.url }}" {% if link.active %} class="is_active" {% endif %}>{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if collection.handle != 'accessories' and collection.handle != 'markdown' %}
       <menu-drawer
         class="mobile-facets__wrapper{% if filter_type == 'horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}"
         data-breakpoint="mobile"
@@ -662,28 +685,6 @@
         </details>
       </menu-drawer>
       {% endif %}
-    </div>
-
-  {% if collection.handle != 'markdown' or collection.handle != 'fragrance' %}
-    {% if template == 'collection.apparels' %}
-        {% assign menu_handle = 'coll_menu2' %}
-    {% elsif template == 'collection.accessories' %}
-        {% assign menu_handle = 'coll_menu3' %}
-    {% elsif template == 'collection.weekend-shirt-circuit-shi' %}
-        {% assign menu_handle = 'coll_menu4' %}
-    {% else %}
-        {% assign menu_handle = 'coll_menu5' %}
-    {% endif %}
-   
-    {% if linklists[menu_handle].links %}
-        <ul class="collection_nav">
-          {% for link in linklists[menu_handle].links %}
-            <li>
-              <a href="{{ link.url }}" {% if link.active %} class="is_active" {% endif %}>{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-    {% endif %}
   {% endif %}
 
 
