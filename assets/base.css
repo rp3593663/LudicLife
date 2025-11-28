@@ -6959,8 +6959,8 @@ body.Sliders .product__info-wrapper .short_description{
 .fw-coupon-container .offer strong {
     font-weight: 500;
 }
-.coupon-container .offer strong span,
-.fw-coupon-container .offer strong span {
+.coupon-container .offer strong .coupon_highlight,
+.fw-coupon-container .offer strong .coupon_highlight {
     font-weight: 700;
     color: #E60013;
 }
