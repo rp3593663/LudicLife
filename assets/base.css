@@ -6935,9 +6935,9 @@ body.Sliders .product__info-wrapper .short_description{
     font-style: normal;
     font-weight: 500;
     line-height: 12px;
-    letter-spacing: -.36px;
+    letter-spacing: -.6px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #F0EFEF, #f0efef00 85.5%);
+    background: linear-gradient(90deg, #F0EFEF 0%, rgba(240, 239, 239, 0) 123.5%);
     display: inline-flex;
     padding: 10px 8px;
     align-items: center;
@@ -6948,18 +6948,32 @@ body.Sliders .product__info-wrapper .short_description{
     color: #E60013;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.6px;
     /* background: linear-gradient(259.67deg, #FF9D00 15.76%, #E60113 91.39%); */
     /* -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent; */
 }
-
+.coupon-container .offer strong,
+.fw-coupon-container .offer strong {
+    font-weight: 500;
+}
+.coupon-container .offer strong .coupon_highlight,
+.fw-coupon-container .offer strong .coupon_highlight {
+    font-weight: 700;
+    color: #E60013;
+}
+.coupon-container .offer strong span:not(.coupon_highlight),
+.fw-coupon-container .offer strong span:not(.coupon_highlight){
+    margin: 0px 2px;
+}
 
 span#copyIcon {
     display: flex;
     cursor: pointer;
+    line-height: 10px;
+    height: 10px;
 }
 .coupon-container  span.offer{
     display: flex;
@@ -7334,8 +7348,9 @@ product-form form .product-form__submit.button:disabled,
 
 @media (max-width: 767.98px) {
   .product__info-wrapper .coupon-container{
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 12px;
+    width: fit-content;
   }
   .header .header__heading-logo-wrapper {
     max-width: 69px;

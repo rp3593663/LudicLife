@@ -12,6 +12,30 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_FcnyT8": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "slide_custom_class": "bf_slider",
+            "image": "shopify://shop_images/17.png",
+            "mobile_image": "shopify://shop_images/20.png",
+            "banner_url": "shopify://collections/sliders",
+            "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
+            "heading_size": "h1",
+            "subheading": "Two offers. Extra rush.",
+            "mobile_subheading": "It's Black Friday!",
+            "button_label": "Use code BF500 and SLIDERSBOGO",
+            "link": "shopify://collections/sliders",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_LE8H3A": {
           "type": "slide",
           "settings": {
@@ -237,6 +261,7 @@
         }
       },
       "block_order": [
+        "slide_FcnyT8",
         "slide_LE8H3A",
         "slide_xbMa3M",
         "slide_xwDNcy",
