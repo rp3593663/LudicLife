@@ -6507,6 +6507,10 @@ new-cart-drawer .cart__ctas .button {
   color: #000;
   font-weight: bold;
 }
+.collection_nav li a img.menu_collection_logo {
+    width: 60px;
+    height: auto;
+}
 
 .multi-image-with-text {
   padding-top: 48px;
