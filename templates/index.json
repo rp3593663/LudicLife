@@ -37,6 +37,7 @@
         },
         "slide_LE8H3A": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "reworked_slide",
             "image": "shopify://shop_images/desktop_reworked_banner.png",
@@ -60,6 +61,7 @@
         },
         "slide_xbMa3M": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "twosday_slide",
             "desktop_video": "shopify://files/videos/Core-T-Bundle-Desktop.mp4",
@@ -83,6 +85,7 @@
         },
         "slide_xwDNcy": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
@@ -130,6 +133,7 @@
         },
         "slide_E6BA8B": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "desktop_video": "shopify://files/videos/NEW WEB.mp4",
