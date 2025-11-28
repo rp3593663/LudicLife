@@ -1238,7 +1238,7 @@ body.size-chart-popup-pdp #MainContent{
     margin: 0px 2px;
 }
 .bf_slider .slideshow__text-wrapper .slideshow__text.banner__box {
-    top: 110px!important;
+    top: 100px!important;
 }
 @media(max-width: 767px){
   .bf_slider .slideshow__text-wrapper .slideshow__text.banner__box {
