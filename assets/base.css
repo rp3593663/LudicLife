@@ -6955,7 +6955,9 @@ body.Sliders .product__info-wrapper .short_description{
     background-clip: text;
     color: transparent; */
 }
-
+.coupon-container .offer strong {
+    font-weight: 500;
+}
 
 span#copyIcon {
     display: flex;
