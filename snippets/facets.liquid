@@ -477,11 +477,6 @@
       {% assign collection_obj = link.object %}
       <li>
         <a href="{{ link.url }}" {% if link.active %}class="is_active"{% endif %}>
-          {{ link.title }}
-
-          {%- comment -%}
-            Check if menu link is a collection and metafield exists
-          {%- endcomment -%}
           {% if link.type == 'collection_link' and collection_obj.metafields.ludic.collection_logo %}
             <img 
               src="{{ collection_obj.metafields.ludic.collection_logo | file_url }}" 
@@ -489,6 +484,7 @@
               class="menu_collection_logo"
             >
           {% endif %}
+          {{ link.title }}
         </a>
       </li>
     {% endfor %}
