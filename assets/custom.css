@@ -1235,6 +1235,7 @@ body.size-chart-popup-pdp #MainContent{
 }
 .bf_slider .banner__buttons a.button span{
     font-weight: 700;
+    margin: 0px 2px;
 }
 
 .template-product.template-product\.twos-day-sale .product__title {
