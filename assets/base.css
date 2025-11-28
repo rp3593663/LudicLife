@@ -6498,6 +6498,7 @@ new-cart-drawer .cart__ctas .button {
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     font-size: 10px;
     font-weight: 600;
