@@ -14,17 +14,16 @@
       "blocks": {
         "slide_FcnyT8": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "bf_slider",
-            "image": "shopify://shop_images/17.png",
-            "mobile_image": "shopify://shop_images/20.png",
+            "image": "shopify://shop_images/IMG_7870.png",
+            "mobile_image": "shopify://shop_images/IMG_7871.png",
             "banner_url": "shopify://collections/sliders",
             "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
             "heading_size": "h1",
             "subheading": "Two offers. Extra rush.",
             "mobile_subheading": "It's Black Friday!",
-            "button_label": "Use code BF500 and SLIDERSBOGO",
+            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
             "link": "shopify://collections/sliders",
             "button_style_secondary": true,
             "box_align": "middle-center",
