@@ -1204,7 +1204,8 @@ body.size-chart-popup-pdp #MainContent{
 .twosday_slide a.button.button--primary:before {
     transform: translate(-50%, -50%) rotate(-60deg);
 }
-.bf_slider .banner__text.rte.desktop_subheading {
+.bf_slider .desktop_subheading,
+.bf_slider .mobile_subheading {
     order: -1;
     color: #fff;
     font-weight: 700;
