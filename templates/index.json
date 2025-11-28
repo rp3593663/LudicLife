@@ -14,6 +14,7 @@
       "blocks": {
         "slide_FcnyT8": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "bf_slider",
             "image": "shopify://shop_images/17.png",
@@ -23,7 +24,7 @@
             "heading_size": "h1",
             "subheading": "Two offers. Extra rush.",
             "mobile_subheading": "It's Black Friday!",
-            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
+            "button_label": "Use code BF500 and SLIDERSBOGO",
             "link": "shopify://collections/sliders",
             "button_style_secondary": true,
             "box_align": "middle-center",
@@ -275,7 +276,7 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": false,
