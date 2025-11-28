@@ -12,6 +12,50 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_FcnyT8": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "bf_slider",
+            "image": "shopify://shop_images/17.png",
+            "mobile_image": "shopify://shop_images/20.png",
+            "banner_url": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "mobile_subheading": "",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_fGwYrx": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "",
+            "banner_url": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "mobile_subheading": "",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_LE8H3A": {
           "type": "slide",
           "settings": {
@@ -237,6 +281,8 @@
         }
       },
       "block_order": [
+        "slide_FcnyT8",
+        "slide_fGwYrx",
         "slide_LE8H3A",
         "slide_xbMa3M",
         "slide_xwDNcy",
