@@ -6937,7 +6937,7 @@ body.Sliders .product__info-wrapper .short_description{
     line-height: 12px;
     letter-spacing: -.5px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #F0EFEF, #f0efef00 85.5%);
+    background: linear-gradient(90deg, #F0EFEF 0%, rgba(240, 239, 239, 0) 123.5%);
     display: inline-flex;
     padding: 10px 8px;
     align-items: center;
