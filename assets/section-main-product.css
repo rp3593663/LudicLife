@@ -290,7 +290,7 @@ a.product__text {
 @media screen and (min-width: 750px) {
   .product__info-container {
     /* max-width: 285px; */
-    max-width: 300px;
+    max-width: 264px;
   }
 
   .product__info-container .price--on-sale .price-item--regular {
