@@ -455,6 +455,9 @@
       <h1 class="collection-hero__title">
         {{- collection.title | escape -}}
       </h1>
+      <div class="collection-hero__description">
+        {{- collection.content -}}
+      </div>
       {% if collection.handle != 'accessories' and collection.handle != 'markdown' %}
       <menu-drawer
         class="mobile-facets__wrapper{% if filter_type == 'horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}"
