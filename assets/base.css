@@ -6442,9 +6442,11 @@ new-cart-drawer .cart__ctas .button {
   display: none;
 }
 .facets-container-drawer .main-col-name h1.collection-hero__title {
-  font-size: 16px;
-  line-height:22.9px;
-  letter-spacing: -0.8px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 100% !important;
+    letter-spacing: -1.1px;
+    vertical-align: middle;
 }
 .template-collection .card__content .card__information {
   margin-bottom: 0;
