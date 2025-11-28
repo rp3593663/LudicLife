@@ -6931,11 +6931,11 @@ body.Sliders .product__info-wrapper .short_description{
 .product__info-wrapper .coupon-container {
     margin: 0;
     color: #000;
-    font-size: 12px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
     line-height: 12px;
-    letter-spacing: -.36px;
+    letter-spacing: -.5px;
     border-radius: 2px;
     background: linear-gradient(90deg, #F0EFEF, #f0efef00 85.5%);
     display: inline-flex;
@@ -7335,7 +7335,7 @@ product-form form .product-form__submit.button:disabled,
 @media (max-width: 767.98px) {
   .product__info-wrapper .coupon-container{
     margin-top: 12px;
-    font-size: 12px;
+    font-size: 10px;
   }
   .header .header__heading-logo-wrapper {
     max-width: 69px;
