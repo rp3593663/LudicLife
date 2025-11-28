@@ -6504,6 +6504,7 @@ new-cart-drawer .cart__ctas .button {
     line-height: 12px;
     letter-spacing: -.3px;
     min-height: 52px;
+    min-width: 96px;
 }
 .collection_nav li a.is_active {
   border-color: #000;
