@@ -6958,6 +6958,10 @@ body.Sliders .product__info-wrapper .short_description{
 .coupon-container .offer strong {
     font-weight: 500;
 }
+.coupon-container .offer strong span {
+    font-weight: 700;
+    color: #E60013;
+}
 
 span#copyIcon {
     display: flex;
