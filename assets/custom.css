@@ -1214,7 +1214,15 @@ body.size-chart-popup-pdp #MainContent{
     text-align: center;
     margin: 0px 0px 8px 0px;
 }
-
+.bf_slider h2.banner__heading.inline-richtext.h1 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: -0.36px;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 20px;
+}
 
 
 
