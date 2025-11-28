@@ -1232,6 +1232,7 @@ body.size-chart-popup-pdp #MainContent{
     line-height: 100%;
     letter-spacing: -0.3px;
     text-align: center;
+    margin: 0px !important;
 }
 .bf_slider .banner__buttons a.button span{
     font-weight: 700;
