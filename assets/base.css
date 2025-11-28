@@ -6489,18 +6489,20 @@ new-cart-drawer .cart__ctas .button {
   display: inline-block;
 }
 .collection_nav li a {
-  text-decoration: none;
-  border: 1.5px solid #c7c8ca;
-  border-radius: 4px;
-  text-align: left;
-  letter-spacing: 0px;
-  color: #1a1a1a;
-  padding: 4px 12px;
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 14.3px;
-  letter-spacing: -0.36px;
+    text-decoration: none;
+    background: #F9F9F9;
+    border-radius: 4px;
+    text-align: left;
+    color: #1a1a1a;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: -.3px;
+    min-height: 52px;
 }
 .collection_nav li a.is_active {
   border-color: #000;
