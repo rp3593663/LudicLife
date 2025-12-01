@@ -1491,6 +1491,8 @@ price-range.facets__price {
   .collection_nav {
     margin: 16px 0 0;
     gap: 10px;
+    overflow-x: auto;
+    width: 100%;
   }
   .collection_nav li a {
     padding: 8px;
