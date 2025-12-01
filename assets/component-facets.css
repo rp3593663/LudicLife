@@ -1474,4 +1474,14 @@ price-range.facets__price {
   .tabbed-facets__tabs{
     justify-content: space-between;
   }
+  .header_filter {
+    gap: 10px;
+  }
+  .collection-hero__description {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -.36px;
+    max-width: 320px;
+  }
 }
