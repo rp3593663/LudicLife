@@ -586,11 +586,11 @@
                         selected="selected"
                       {% endif %}
                     >
-                      {{ option.name | escape }} {% if option.value == sort_by %}+{% endif %}
+                      {{ option.name | escape }}
                     </option>
                   {%- endfor -%}
                 </select>
-                
+                +
               </div>
             </div>
           </div>
