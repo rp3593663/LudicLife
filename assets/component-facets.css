@@ -1157,6 +1157,7 @@ h2.product-count__text.text-body {
     line-height: 18px;
     letter-spacing: 0;
     color: #939598!important;
+    margin-bottom: 0px;
 }
 
 #ProductCountDesktop.loading,
