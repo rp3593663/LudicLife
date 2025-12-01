@@ -1459,11 +1459,6 @@ price-range.facets__price {
   .mobile-facets__wrapper {
     margin-bottom: 0px;
   }
-  .header_filter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
   span.mobile-facets__open-label.button-label {
     padding: 0px;
     font-size: 10px;
