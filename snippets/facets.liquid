@@ -750,6 +750,23 @@
   {% comment %} Sort, product count and filter pills at the end when filter is type of Drawer for the correct tabbing order {% endcomment %}
   {%- if enable_sorting and filter_type == 'drawer' -%}
     <facet-filters-form class="facets small-hide medium-hide">
+      <div class="product-count light {% if filter_type == 'vertical' or filter_type == 'horizontal' or filter_type == 'drawer'  %}small-hide medium-hide{% endif %}" role="status">
+        <h2 class="product-count__text text-body">
+          <span id="ProductCount">
+            {%- if results.results_count -%}
+              {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+            {%- elsif results.products_count == results.all_products_count -%}
+              {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+            {%- else -%}
+              {{
+                'products.facets.product_count'
+                | t: product_count: results.products_count, count: results.all_products_count
+              }}
+            {%- endif -%}
+          </span>
+        </h2>
+        {%- render 'loading-spinner' -%}
+      </div>    
       <form id="FacetSortDrawerForm" class="facets__form">
         <div class="facet-filters sorting caption small-hide">
           <div class="facet-filters__field">
@@ -791,23 +808,7 @@
       </form>
     </facet-filters-form>
   {%- endif -%}
-  <div class="product-count light {% if filter_type == 'vertical' or filter_type == 'horizontal' or filter_type == 'drawer'  %}small-hide medium-hide{% endif %}" role="status">
-    <h2 class="product-count__text text-body">
-      <span id="ProductCount">
-        {%- if results.results_count -%}
-          {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
-        {%- elsif results.products_count == results.all_products_count -%}
-          {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
-        {%- else -%}
-          {{
-            'products.facets.product_count'
-            | t: product_count: results.products_count, count: results.all_products_count
-          }}
-        {%- endif -%}
-      </span>
-    </h2>
-    {%- render 'loading-spinner' -%}
-  </div>
+  
   {%- if filter_type == 'drawer' -%}
     <facet-filters-form class="facets facets-pill small-hide">
       <form id="FacetFiltersPillsForm" class="facets__form">
