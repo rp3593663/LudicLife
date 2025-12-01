@@ -177,7 +177,7 @@ select#SortBy, .sort_select {
   display: grid;
   gap: 0 3.5rem;
   grid-template-columns: 1fr max-content max-content;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .facets__wrapper {
