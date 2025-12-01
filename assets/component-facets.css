@@ -1501,4 +1501,8 @@ price-range.facets__price {
     min-height: 42px;
     min-width: 84px;
   }
+  .collection_nav li a img.menu_collection_logo {
+    width: 52px;
+    height: auto;
+  }
 }
