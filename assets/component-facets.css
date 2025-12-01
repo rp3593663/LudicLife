@@ -1511,4 +1511,7 @@ price-range.facets__price {
     overflow: hidden;
     margin-right: -16px;
   }
+  .filter_sorting_block {
+    margin-top: 10px;
+  }
 }
