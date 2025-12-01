@@ -174,10 +174,10 @@ select#SortBy, .sort_select {
 }
 
 .facets__form {
-  display: grid;
-  gap: 0 3.5rem;
-  grid-template-columns: 1fr max-content max-content;
-  margin-bottom: 0;
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
 }
 
 .facets__wrapper {
