@@ -1424,6 +1424,13 @@ price-range.facets__price {
   pointer-events: none;
   opacity: 0;
 }
+.filter_sorting_block {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+
 @media(max-width:768px){
   .mobile_btn_filter{
     display: block;
