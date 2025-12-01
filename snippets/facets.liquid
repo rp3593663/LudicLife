@@ -547,7 +547,7 @@
   {% comment %} Sort, product count and filter pills at the end when filter is type of Drawer for the correct tabbing order {% endcomment %}
   <div class="filter_sorting_block">
     {%- if enable_sorting and filter_type == 'drawer' -%}
-      <facet-filters-form class="facets small-hide medium-hide">
+      <facet-filters-form class="facets">
         <div class="product-count light {% if filter_type == 'vertical' or filter_type == 'horizontal' or filter_type == 'drawer'  %}small-hide medium-hide{% endif %}" role="status">
           <h2 class="product-count__text text-body">
             <span id="ProductCount">
