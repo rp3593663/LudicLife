@@ -64,7 +64,7 @@
 </section>
 
 <script>
-(function () {
+{% comment %} (function () {
   // ---------- CONFIG ----------
   const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
   const SALE_START_HOUR = 11;   // 11:00 IST
@@ -185,10 +185,6 @@
     try {
       localStorage.setItem(LOCALSTORAGE_PREFIX + targetDateKey, '1');
     } catch (e) { /* ignore */ }
-    {% comment %} setBtn.disabled = true;
-    setBtn.style.opacity = '0.6';
-    setBtn.style.cursor = 'default';
-    setBtn.innerText = 'Reminder Added ✅'; {% endcomment %}
   }
   function isReminderAdded(targetDateKey) {
     try {
@@ -209,55 +205,38 @@
   }
 
   function refresh() {
-    const now = new Date(); // current real-time instant
-    // If sale live window -> per your request, show 00 and keep showing 00 until Wed 11:00
+    const now = new Date(); 
     if (isSaleLiveNow(now)) {
-      // Keep countdown visible but frozen at 00:00:00
       setCountdownToZeros();
-      // During this frozen period, we still want the reminder button state to be based on the next Tuesday date key.
-      // The "target" for storage purposes remains the Tuesday that just started the sale (this week's Tue)
       const p = getIstParts(now);
-      // compute that Tuesday's Y-M-D (the Tue that started the sale)
       const { thisTue11Utc } = getThisTuesdayAndWednesday11(now);
-      // Build IST Y-M-D for that Tuesday from the UTC instant (convert back to IST parts)
       const tParts = getIstParts(thisTue11Utc);
       const targetKey = `${String(tParts.year)}-${String(tParts.month).padStart(2,'0')}-${String(tParts.day).padStart(2,'0')}`;
-      {% comment %} if (isReminderAdded(targetKey)) {
-        //markReminderAdded(targetKey);
-      } else {
-        setBtn.disabled = false;
-        setBtn.style.opacity = '1';
-        setBtn.style.cursor = 'pointer';
-        setBtn.innerText = 'Set a reminder';
-      } {% endcomment %}
       return;
     }
 
-    // Not in frozen live window -> show countdown to next Tuesday 11:00 IST
-    const nextTue11 = getNextTuesday11IST(now); // Date object (UTC instant)
+
+    const nextTue11 = getNextTuesday11IST(now); 
     const nowMs = Date.now();
     const distance = nextTue11.getTime() - nowMs;
 
-    // Compute target key (YYYY-MM-DD of target Tuesday in IST)
+    
     const tParts = getIstParts(nextTue11);
     const targetKey = `${String(tParts.year)}-${String(tParts.month).padStart(2,'0')}-${String(tParts.day).padStart(2,'0')}`;
 
-    // Button state
+    
     if (isReminderAdded(targetKey)) {
-      //markReminderAdded(targetKey);
+      
     } else {
       setBtn.disabled = false;
       setBtn.style.opacity = '1';
       setBtn.style.cursor = 'pointer';
       setBtn.innerText = 'Set a reminder';
     }
-
     if (distance <= 0) {
-      // Edge: shouldn't happen (we handled sale-live above), but set zeros defensively
       setCountdownToZeros();
       return;
     }
-
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((distance / (1000 * 60)) % 60);
@@ -268,13 +247,7 @@
     minutesEl.innerText = String(minutes).padStart(2, '0');
     secondsEl.innerText = String(seconds).padStart(2, '0');
 
-    // Attach click handler for reminder button (open google calendar + persist)
     setBtn.onclick = function () {
-      // re-check if already added
-      {% comment %} if (isReminderAdded(targetKey)) {
-       // markReminderAdded(targetKey);
-        return;
-      } {% endcomment %}
       const gUrl = buildGoogleCalendarUrl(
         nextTue11,
         EVENT_TITLE,
@@ -283,18 +256,16 @@
         EVENT_DURATION_MINUTES,
         RRULE
       );
-      // user-initiated open
       window.open(gUrl, '_blank');
       markReminderAdded(targetKey);
     };
   }
 
-  // Initialize
   refresh();
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(refresh, 1000);
 
-})();
+})(); {% endcomment %}
 </script>
 
 {% schema %}
