@@ -1148,10 +1148,12 @@ input.mobile-facets__checkbox.color_checkbox {
   text-align: left;
 }
 
-.product-count__text {
-  font-size: 1.4rem;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
-  margin: 0;
+h2.product-count__text.text-body {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #939598!important;
 }
 
 #ProductCountDesktop.loading,
