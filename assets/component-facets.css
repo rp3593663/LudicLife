@@ -62,7 +62,7 @@ select#SortBy, .sort_select {
     font-weight: 600;
     font-size: 10px;
     line-height: 18px;
-    letter-spacing: 0;
+    letter-spacing: -0.3px;
     vertical-align: middle;
     color: #1A1A1A;
     padding-left: 2px;
@@ -870,17 +870,18 @@ button.button.button--primary.apply_btn {
 }
 
 .mobile-facets__open span {
-  text-decoration: none;
-  border: 1.5px solid #c7c8ca;
-  border-radius: 4px;
-  text-align: left;
-  letter-spacing: -0.36px;
-  color: #1a1a1a;
-  padding: 4px 12px;
-  display: inline-block;
-  font-size: 10px;
-  line-height: 14.3px;
-  font-weight: 600;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 0;
+    color: #1a1a1a;
+    padding: 0px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: -0.3px;
+    text-align: right;
+    vertical-align: middle;
 }
 /* .mobile-facets__open:hover span {
     color: #fff;
