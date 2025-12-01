@@ -12,8 +12,32 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_FcnyT8": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "bf_slider",
+            "image": "shopify://shop_images/IMG_7870.png",
+            "mobile_image": "shopify://shop_images/IMG_7871.png",
+            "banner_url": "shopify://collections/sliders",
+            "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
+            "heading_size": "h1",
+            "subheading": "Two offers. Extra rush.",
+            "mobile_subheading": "It's Black Friday!",
+            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
+            "link": "shopify://collections/sliders",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_LE8H3A": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "reworked_slide",
             "image": "shopify://shop_images/desktop_reworked_banner.png",
@@ -37,6 +61,7 @@
         },
         "slide_xbMa3M": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "twosday_slide",
             "desktop_video": "shopify://files/videos/Core-T-Bundle-Desktop.mp4",
@@ -60,6 +85,7 @@
         },
         "slide_xwDNcy": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
@@ -107,6 +133,7 @@
         },
         "slide_E6BA8B": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "desktop_video": "shopify://files/videos/NEW WEB.mp4",
@@ -237,6 +264,7 @@
         }
       },
       "block_order": [
+        "slide_FcnyT8",
         "slide_LE8H3A",
         "slide_xbMa3M",
         "slide_xwDNcy",
