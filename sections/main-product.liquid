@@ -215,8 +215,8 @@
 
 
                 {%- when 'short_description' -%}
-                  {% if product.metafields.custom.short_description != blank %}
-                    <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
+                  {% if product.metafields.custom.new_pdp_short_description != blank %}
+                    <div class="short_description">{{ product.metafields.custom.new_pdp_short_description | metafield_tag }}</div>
                   {% endif %}
 
 
