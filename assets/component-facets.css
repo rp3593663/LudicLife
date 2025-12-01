@@ -1509,5 +1509,6 @@ price-range.facets__price {
   }
   .main-col-name {
     overflow: hidden;
+    margin-right: -16px;
   }
 }
