@@ -49,10 +49,13 @@
 }
 
 .facet-filters__label {
-  display: block;
-  color: rgba(var(--color-foreground), 0.85);
-  font-size: 1.4rem;
-  margin: 0 2px 0 0;
+    display: block;
+    margin: 0 2px 0px 0px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #1A1A1A!important;
 }
 
 .facet-filters__summary {
