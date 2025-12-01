@@ -64,7 +64,7 @@
 </section>
 
 <script>
-{% comment %} (function () {
+(function () {
   // ---------- CONFIG ----------
   const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
   const SALE_START_HOUR = 11;   // 11:00 IST
@@ -78,8 +78,6 @@
   const RRULE = 'RRULE:FREQ=WEEKLY;BYDAY=TU';
   const DAY_MS = 24 * 60 * 60 * 1000;
 
-  // ---------- Utilities ----------
-  // Get IST components using Intl (reliable)
   function getIstParts(date = new Date()) {
     const fmt = new Intl.DateTimeFormat('en-GB', {
       timeZone: TZ,
@@ -108,8 +106,6 @@
       weekdayNum: wkMap[obj.weekday] // 0..6
     };
   }
-
-  // Build an ISO string for IST (with +05:30) then new Date(iso) gives correct moment
   function buildIstIso(year, month, day, hour = 0, minute = 0, second = 0) {
     const mm = String(month).padStart(2, '0');
     const dd = String(day).padStart(2, '0');
@@ -118,8 +114,6 @@
     const ss = String(second).padStart(2, '0');
     return `${year}-${mm}-${dd}T${hh}:${min}:${ss}+05:30`;
   }
-
-  // Return a Date object (UTC instant) corresponding to next (or this) Tuesday 11:00 IST based on current IST
   function getNextTuesday11IST(now = new Date()) {
     const p = getIstParts(now);
     let delta = (SALE_START_WEEKDAY - p.weekdayNum + 7) % 7;
@@ -139,25 +133,22 @@
     const targetUtcMs = todayMidnightUtc.getTime() + delta * DAY_MS + SALE_START_HOUR * 3600000;
     return new Date(targetUtcMs);
   }
-
-  // Return Date objects for this week's Tuesday 11:00 IST and the following Wednesday 11:00 IST
   function getThisTuesdayAndWednesday11(now = new Date()) {
     const p = getIstParts(now);
     const deltaToTue = (SALE_START_WEEKDAY - p.weekdayNum + 7) % 7;
     const todayMidnightUtc = new Date(buildIstIso(p.year, p.month, p.day, 0, 0, 0));
     const thisTue11Utc = new Date(todayMidnightUtc.getTime() + deltaToTue * DAY_MS + SALE_START_HOUR * 3600000);
-    const thisWed11Utc = new Date(thisTue11Utc.getTime() + DAY_MS); // tuesday + 1 day
+    const thisWed11Utc = new Date(thisTue11Utc.getTime() + DAY_MS);
     return { thisTue11Utc, thisWed11Utc };
   }
 
-  // Is sale live (Tue 11:00 <= now < Wed 11:00) — uses IST-correct instants
+
   function isSaleLiveNow(now = new Date()) {
     const { thisTue11Utc, thisWed11Utc } = getThisTuesdayAndWednesday11(now);
     const nowUtc = new Date(buildIstIso(getIstParts(now).year, getIstParts(now).month, getIstParts(now).day, getIstParts(now).hour, getIstParts(now).minute, getIstParts(now).second));
     return nowUtc.getTime() >= thisTue11Utc.getTime() && nowUtc.getTime() < thisWed11Utc.getTime();
   }
 
-  // Build Google Calendar URL (with RRULE)
   function buildGoogleCalendarUrl(dateObj, title, description, location, durationMinutes, rrule) {
     const start = dateObj.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     const endDate = new Date(dateObj.getTime() + durationMinutes * 60000);
@@ -173,7 +164,6 @@
     return `https://calendar.google.com/calendar/render?${params.toString()}`;
   }
 
-  // ---------- DOM ----------
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
   const minutesEl = document.getElementById('minutes');
@@ -265,7 +255,7 @@
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(refresh, 1000);
 
-})(); {% endcomment %}
+})();
 </script>
 
 {% schema %}
