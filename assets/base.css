@@ -7171,9 +7171,9 @@ product-form form .product-form__submit.button:disabled,
   border-bottom: 0.5px solid #939598;
 }
 
-.template-product\.sneakers .new_meta_faq_left .meta_question:first-child {
+/* .template-product\.sneakers .new_meta_faq_left .meta_question:first-child {
     display: none;
-} 
+}  */
 
 .faq_main.active .meta_question_icon .meta_question_icon_pluse {
   display: none;
