@@ -1484,4 +1484,8 @@ price-range.facets__price {
     letter-spacing: -.3px;
     max-width: 320px;
   }
+  .facets-container-drawer .main-col-name h1.collection-hero__title {
+    font-size: 12px;
+    letter-spacing: -0.6px;
+  }
 }
