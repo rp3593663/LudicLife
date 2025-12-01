@@ -1479,9 +1479,9 @@ price-range.facets__price {
   }
   .collection-hero__description {
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -.36px;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -.3px;
     max-width: 320px;
   }
 }
