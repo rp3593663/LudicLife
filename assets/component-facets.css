@@ -1493,7 +1493,7 @@ price-range.facets__price {
     gap: 10px;
   }
   .collection_nav li a {
-    padding: 10px;
+    padding: 8px;
     gap: 10px;
     font-size: 7px;
     line-height: 7px;
@@ -1504,5 +1504,8 @@ price-range.facets__price {
   .collection_nav li a img.menu_collection_logo {
     width: 52px;
     height: auto;
+  }
+  .main-col-name {
+    overflow: hidden;
   }
 }
