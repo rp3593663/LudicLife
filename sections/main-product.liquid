@@ -677,7 +677,7 @@
                   <div class="new_meta_faq twos_day_faqs">
                     <div class="new_meta_faq_inner">
                       <div class="new_meta_faq_left">
-                        {% for meta_faq in product.metafields.custom.new_faq.value %}
+                        {% for meta_faq in product.metafields.custom.new_pdp_accordion.value %}
                           {% assign meta_a_q = meta_faq | split: "||" %}
                           {% assign meta_question = meta_a_q[0] %}
                           {% assign meta_answer = meta_a_q[1] %}
