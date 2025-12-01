@@ -1461,8 +1461,8 @@ price-range.facets__price {
   }
   span.mobile-facets__open-label.button-label {
     padding: 0px;
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 8px;
+    line-height: 8px;
     border: unset;
   }
   .mobile-facets__inner{
