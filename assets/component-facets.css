@@ -1488,4 +1488,8 @@ price-range.facets__price {
     font-size: 12px;
     letter-spacing: -0.6px;
   }
+  .collection_nav {
+    margin: 16px 0 0;
+    gap: 10px;
+  }
 }
