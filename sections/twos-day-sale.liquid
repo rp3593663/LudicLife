@@ -53,10 +53,6 @@
 
             <button id="setReminderBtn">Set a reminder</button>
           </div>
-
-           <div id="live-message" style="display:none; font-size:20px; font-weight:700; color:#111; margin-top:6px;">
-            🎉 Sale is Live Now! 🎉
-          </div>
         </div>
 
       </div>
@@ -64,6 +60,56 @@
 </section>
 
 <script>
+  function startCountdown() {
+    // Target date — 9 December 2025, 11:00 AM IST
+    const targetDate = new Date("December 9, 2025 11:00:00 GMT+0530").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, "0");
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    }, 1000);
+  }
+  startCountdown();
+  const EVENT_TITLE = "Weekly bundle offers from Ludic, every Tuesday.";
+  const EVENT_LOCATION = "https://ludic.life";
+  const EVENT_DESCRIPTION = "https://ludic.life/pages/twos-day-sale";
+  const EVENT_DURATION_MINUTES = 60 * 24; // 1 day event
+  document.getElementById("setReminderBtn").addEventListener("click", function () {
+    const startDateIst = new Date("December 9, 2025 11:00:00 GMT+0530");
+    const endDateIst = new Date(startDateIst.getTime() + EVENT_DURATION_MINUTES * 60000);
+    const formatGoogleDate = (date) => {
+      return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+    };
+    const start = formatGoogleDate(startDateIst);
+    const end = formatGoogleDate(endDateIst);
+    const googleCalendarUrl =
+      `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+      `&text=${encodeURIComponent(EVENT_TITLE)}` +
+      `&dates=${start}%2F${end}` +
+      `&details=${encodeURIComponent(EVENT_DESCRIPTION)}` +
+      `&location=${encodeURIComponent(EVENT_LOCATION)}`;
+    window.open(googleCalendarUrl, "_blank");
+  });
+</script>
+{% comment %} <script>
 (function () {
   // ---------- CONFIG ----------
   const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
@@ -256,7 +302,7 @@
   timerInterval = setInterval(refresh, 1000);
 
 })();
-</script>
+</script> {% endcomment %}
 
 {% schema %}
 {
