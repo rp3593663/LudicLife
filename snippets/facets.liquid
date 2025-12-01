@@ -571,7 +571,7 @@
               <h2 class="facet-filters__label caption-large text-body">
                 <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
               </h2>
-              <div class="select">
+              <div class="select sort_select">
                 {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
                 <select
                   name="sort_by"
