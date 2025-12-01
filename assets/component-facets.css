@@ -65,6 +65,7 @@ select#SortBy {
     letter-spacing: 0;
     vertical-align: middle;
     color: #1A1A1A;
+    padding-left: 2px;
 }
 
 .facet-filters__summary {
