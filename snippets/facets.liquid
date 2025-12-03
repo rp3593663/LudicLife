@@ -475,6 +475,11 @@
       <ul class="collection_nav">
         {% for link in linklists[menu_handle].links %}
           {% assign collection_obj = link.object %}
+          {% if template == 'collection.footwear' %}
+            <li>
+              <a>Footwear</a>
+            </li>
+          {% endif %}
           <li class="{% if link.active %}is_active_link{% endif %}">
             <a href="{{ link.url }}" {% if link.active %}class="is_active"{% endif %}>
               {% if link.type == 'collection_link' and collection_obj.metafields.ludic.collection_logo %}
