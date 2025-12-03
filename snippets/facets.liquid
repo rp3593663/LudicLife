@@ -473,20 +473,23 @@
    
     {% if linklists[menu_handle].links %}
       <ul class="collection_nav">
+
+        
+
+        {% if template == 'collection.apparels' %}
+            
+        {% elsif template == 'collection.accessories' %}
+            
+        {% elsif template == 'collection.weekend-shirt-circuit-shi' %}
+            
+        {% else %}
+            <li>
+              <a>Footwear</a>
+            </li>
+        {% endif %}
+
         {% for link in linklists[menu_handle].links %}
           {% assign collection_obj = link.object %}
-
-          {% if template == 'collection.apparels' %}
-              
-          {% elsif template == 'collection.accessories' %}
-              
-          {% elsif template == 'collection.weekend-shirt-circuit-shi' %}
-              
-          {% else %}
-              <li>
-                <a>Footwear</a>
-              </li>
-          {% endif %}
           <li class="{% if link.active %}is_active_link{% endif %}">
             <a href="{{ link.url }}" {% if link.active %}class="is_active"{% endif %}>
               {% if link.type == 'collection_link' and collection_obj.metafields.ludic.collection_logo %}
