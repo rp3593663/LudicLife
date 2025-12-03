@@ -474,10 +474,7 @@
     {% if linklists[menu_handle].links %}
       <ul class="collection_nav">
 
-        {% if template == 'collection.apparels' %}
-        {% elsif template == 'collection.accessories' %}
-        {% elsif template == 'collection.weekend-shirt-circuit-shi' %}
-        {% else %}
+        {% if collection.handle == 'footwear' %}
             <li>
               <a class="is_active">Footwear</a>
             </li>
