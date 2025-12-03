@@ -6508,6 +6508,9 @@ new-cart-drawer .cart__ctas .button {
     min-width: 96px;
     white-space: nowrap;
 }
+li.is_active_link {
+    order: -1;
+}
 .collection_nav li a.is_active {
   border-color: #000;
   color: #000;
