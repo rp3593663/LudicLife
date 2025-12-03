@@ -14,6 +14,7 @@
       "blocks": {
         "slide_FcnyT8": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "bf_slider",
             "image": "shopify://shop_images/IMG_7870.png",
@@ -37,7 +38,6 @@
         },
         "slide_LE8H3A": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "reworked_slide",
             "image": "shopify://shop_images/desktop_reworked_banner.png",
@@ -61,7 +61,6 @@
         },
         "slide_xbMa3M": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "twosday_slide",
             "desktop_video": "shopify://files/videos/Core-T-Bundle-Desktop.mp4",
@@ -85,7 +84,6 @@
         },
         "slide_xwDNcy": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
