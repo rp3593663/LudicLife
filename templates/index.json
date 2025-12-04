@@ -84,6 +84,7 @@
         },
         "slide_xwDNcy": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
