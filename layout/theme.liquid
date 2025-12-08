@@ -2249,27 +2249,53 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 (function(){
 
-  function populateSizeSelect(productHandle, sizeSelectEl, hiddenInputEl) {
-    sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
-    sizeSelectEl.disabled = true;
-    hiddenInputEl.value = "";
+ function populateSizeSelect(productHandle, sizeSelectEl, hiddenInputEl) {
 
-    if (!productHandle) return;
+  sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
+  sizeSelectEl.disabled = true;
+  hiddenInputEl.value = "";
 
-    var variants = window.bundleVariantData[productHandle] || [];
-    sizeSelectEl.disabled = false;
+  if (!productHandle) return;
 
-    variants.forEach(function(v){
-      var o = document.createElement('option');
-      o.value = v.id;
-      o.text = v.title;
-      if (!v.available) {
-        o.disabled = true;
-        o.text += ' — Out of stock';
-      }
-      sizeSelectEl.appendChild(o);
-    });
+  var variants = window.bundleVariantData[productHandle] || [];
+
+  // 👉 Check: only 1 variant + “Default Title”
+  if (variants.length === 1 && variants[0].title.toLowerCase() === "default title") {
+
+    // hide dropdown
+    sizeSelectEl.closest('.bundle-p-select').style.display = "none";
+
+    // auto-set variant ID
+    hiddenInputEl.value = variants[0].id;
+
+    // update label text
+    const sizeLabel = sizeSelectEl
+      .closest('.product_size_selection')
+      .querySelector('.bundle_selected_product' + (hiddenInputEl.id.includes('1') ? '1' : '2') + '_size');
+
+    if (sizeLabel) sizeLabel.textContent = "Default";
+
+    return; // stop, do NOT build dropdown
   }
+
+  // 👉 if normal size product → show dropdown
+  sizeSelectEl.closest('.bundle-p-select').style.display = "block";
+  sizeSelectEl.disabled = false;
+
+  // populate options normally
+  variants.forEach(function(v){
+    var o = document.createElement('option');
+    o.value = v.id;
+    o.text = v.title;
+
+    if (!v.available) {
+      o.disabled = true;
+      o.text += ' — Out of stock';
+    }
+    sizeSelectEl.appendChild(o);
+  });
+}
+
 
   function initBundle(bundleIndex) {
     var block = document.querySelector('.bundle-block[data-bundle="'+bundleIndex+'"]');
