@@ -2250,26 +2250,35 @@ document.addEventListener('DOMContentLoaded', () => {
 (function(){
 
   function populateSizeSelect(productHandle, sizeSelectEl, hiddenInputEl) {
-    sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
-    sizeSelectEl.disabled = true;
-    hiddenInputEl.value = "";
+  sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
+  sizeSelectEl.disabled = true;
+  hiddenInputEl.value = "";
 
-    if (!productHandle) return;
+  if (!productHandle) return;
 
-    var variants = window.bundleVariantData[productHandle] || [];
-    sizeSelectEl.disabled = false;
+  var variants = window.bundleVariantData[productHandle] || [];
+  sizeSelectEl.disabled = false;
 
-    variants.forEach(function(v){
-      var o = document.createElement('option');
-      o.value = v.id;
-      o.text = v.title;
-      if (!v.available) {
-        o.disabled = true;
-        o.text += ' — Out of stock';
-      }
-      sizeSelectEl.appendChild(o);
-    });
-  }
+  variants.forEach(function (v) {
+    var o = document.createElement('option');
+    o.value = v.id;
+
+    // Replace "Default Title" or "Default title"
+    var label = (v.title === "Default Title" || v.title === "Default title")
+      ? "Free size"
+      : v.title;
+
+    o.text = label;
+
+    if (!v.available) {
+      o.disabled = true;
+      o.text += ' — Out of stock';
+    }
+
+    sizeSelectEl.appendChild(o);
+  });
+}
+
 
   function initBundle(bundleIndex) {
     var block = document.querySelector('.bundle-block[data-bundle="'+bundleIndex+'"]');
