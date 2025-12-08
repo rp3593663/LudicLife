@@ -58,7 +58,7 @@
     </div>
 </section>
 
-<script>
+{% comment %} <script>
   function startCountdown() {
     // Target date — 9 December 2025, 11:00 AM IST
     const targetDate = new Date("December 9, 2025 11:00:00 GMT+0530").getTime();
@@ -107,8 +107,8 @@
       `&location=${encodeURIComponent(EVENT_LOCATION)}`;
     window.open(googleCalendarUrl, "_blank");
   });
-</script>
-{% comment %} <script>
+</script> {% endcomment %}
+<script>
 (function () {
   // ---------- CONFIG ----------
   const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
@@ -301,7 +301,7 @@
   timerInterval = setInterval(refresh, 1000);
 
 })();
-</script> {% endcomment %}
+</script> 
 
 {% schema %}
 {

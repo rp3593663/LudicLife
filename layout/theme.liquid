@@ -2072,7 +2072,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </div>
     <script>
-      {% comment %} document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
 
         const popup = document.getElementById("twosDay_promo_popup");
         const closeBtn = document.querySelector(".popup-close");
@@ -2120,7 +2120,7 @@ document.addEventListener('DOMContentLoaded', () => {
           window.location.href = 'https://ludic.life/pages/twos-day-sale';
         });
 
-      }); {% endcomment %}
+      });
     </script>
 
 <!--twosDay_promo_popup End-->
@@ -2250,26 +2250,35 @@ document.addEventListener('DOMContentLoaded', () => {
 (function(){
 
   function populateSizeSelect(productHandle, sizeSelectEl, hiddenInputEl) {
-    sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
-    sizeSelectEl.disabled = true;
-    hiddenInputEl.value = "";
+  sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
+  sizeSelectEl.disabled = true;
+  hiddenInputEl.value = "";
 
-    if (!productHandle) return;
+  if (!productHandle) return;
 
-    var variants = window.bundleVariantData[productHandle] || [];
-    sizeSelectEl.disabled = false;
+  var variants = window.bundleVariantData[productHandle] || [];
+  sizeSelectEl.disabled = false;
 
-    variants.forEach(function(v){
-      var o = document.createElement('option');
-      o.value = v.id;
-      o.text = v.title;
-      if (!v.available) {
-        o.disabled = true;
-        o.text += ' — Out of stock';
-      }
-      sizeSelectEl.appendChild(o);
-    });
-  }
+  variants.forEach(function (v) {
+    var o = document.createElement('option');
+    o.value = v.id;
+
+    // Replace "Default Title" or "Default title"
+    var label = (v.title === "Default Title" || v.title === "Default title")
+      ? "Free size"
+      : v.title;
+
+    o.text = label;
+
+    if (!v.available) {
+      o.disabled = true;
+      o.text += ' — Out of stock';
+    }
+
+    sizeSelectEl.appendChild(o);
+  });
+}
+
 
   function initBundle(bundleIndex) {
     var block = document.querySelector('.bundle-block[data-bundle="'+bundleIndex+'"]');
@@ -2563,7 +2572,7 @@ if (isMobile) {
   (function() {
     const currentUrl = window.location.pathname;
 
-    const productPage = "/products/core-t-bundle";
+    const productPage = "/products/weekend-shirt-socks-bundle";
     const salePage = "/pages/twos-day-sale";
     
     function isTwosDaySaleActive() {
@@ -2588,7 +2597,7 @@ if (isMobile) {
       }
     } else {
       if (currentUrl === salePage) {
-        window.location.href = salePage;
+        window.location.href = productPage;
       }
     }
   })();
