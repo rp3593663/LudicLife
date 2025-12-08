@@ -349,11 +349,27 @@
                                 <p class="label_selected">Size / <span class="bundle_selected_product1_size"></span></p>
                                 <div id="openPopupBtn1" class="bundle_size_btn">Size Guide</div>
                               </div>
-                              <div class="bundle-p-select">
+                              {% assign first_variant = bundle_1[0].variants | first %}
+
+{% if bundle_1[0].variants.size == 1 and first_variant.title == 'Default Title' %}
+  <!-- Only one variant and it's Default Title → Auto-set variant -->
+  <input type="hidden" id="bundle_1_size_select" value="Default Title">
+
+  <p class="label_selected">Size / <span class="bundle_selected_product1_size">Default</span></p>
+
+{% else %}
+  <div class="bundle-p-select">
+    <select id="bundle_1_size_select" class="bundle-size-select" disabled>
+      <option value="">Select Size</option>
+    </select>
+  </div>
+{% endif %}
+
+                              {% comment %} <div class="bundle-p-select">
                                 <select id="bundle_1_size_select" class="bundle-size-select" disabled>
                                   <option value="">Select Size</option>
                                 </select>
-                              </div>
+                              </div> {% endcomment %}
                               <div class="error-msg size-error" style="display:none;">Please select a size.</div>
                             </div>
 
