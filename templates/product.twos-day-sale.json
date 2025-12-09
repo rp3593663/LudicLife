@@ -45,7 +45,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nSoft, essential tee knitted with <span>organic cotton</span> in a regular fit, boasting a proprietary fabric blend, <span>180 GSM</span> weight, and an embroidered logo for a clean style.</div></div>",
+        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nA play that goes a long way with comfort infused in thoughtful fabric and functional build. Get comfortable in the <span>Relaxed Fit</span> of the weekend shirt, while you unwind in the softness of socks.</div></div>",
         "color_scheme": "",
         "padding_top": 96,
         "padding_bottom": 96
