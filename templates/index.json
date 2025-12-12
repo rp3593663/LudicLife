@@ -12,6 +12,29 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_xbMa3M": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "twosday_slide",
+            "desktop_video": "shopify://files/videos/Heavy Grain FX Horizontal_e69127b9-47bd-434e-8611-684be5f7fff0.mp4",
+            "mobile_video": "shopify://files/videos/Heavy Grain FX Vertical_060ad87d-7027-4088-9466-f1a59ebd3ba8.mp4",
+            "banner_url": "shopify://pages/twos-day-sale",
+            "heading": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.",
+            "heading_size": "h1",
+            "subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
+            "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
+            "button_label": "Discover",
+            "link": "shopify://pages/twos-day-sale",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_FcnyT8": {
           "type": "slide",
           "disabled": true,
@@ -27,29 +50,6 @@
             "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
             "link": "shopify://collections/sliders",
             "button_style_secondary": true,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
-        },
-        "slide_xbMa3M": {
-          "type": "slide",
-          "settings": {
-            "slide_custom_class": "twosday_slide",
-            "desktop_video": "shopify://files/videos/Heavy Grain FX Horizontal_e69127b9-47bd-434e-8611-684be5f7fff0.mp4",
-            "mobile_video": "shopify://files/videos/Heavy Grain FX Vertical_060ad87d-7027-4088-9466-f1a59ebd3ba8.mp4",
-            "banner_url": "shopify://pages/twos-day-sale",
-            "heading": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.",
-            "heading_size": "h1",
-            "subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
-            "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
-            "button_label": "Discover",
-            "link": "shopify://pages/twos-day-sale",
-            "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
             "text_alignment": "center",
@@ -263,8 +263,8 @@
         }
       },
       "block_order": [
-        "slide_FcnyT8",
         "slide_xbMa3M",
+        "slide_FcnyT8",
         "slide_LE8H3A",
         "slide_xwDNcy",
         "slide_iBgjiF",
