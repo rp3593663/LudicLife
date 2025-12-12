@@ -312,32 +312,45 @@
                                 <div class="csmodal-content">
                                   <div style="" class="csmodal-heading">
                                     <span class="size-guide-label">Size Guide</span>
-                                    <span class="close-btn">&times;</span>
+                                    <span class="close-btn">
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+                                      </svg>
+                                    </span>
                                   </div>
+                                   <div class="csmodal-subheading">
+                                      {{ size_chart1_subheading }}
+                                    </div>
                                   <div class="cs-modal-inner-content">
-                                    {% if size_chart1_img != blank %}
-                                      <img
-                                      src="{{ size_chart1_img | image_url:width:600 }}"
-                                      srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
-                                      loading="lazy"
-                                      alt="{{ bundle_1_product_title }}"
-                                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                      width=""
-                                      height=""
-                                    >
-                                    {% else %}
-                                    <img
-                                      src="{{ bundle_1_product_img | image_url:width:600 }}"
-                                      srcset="{{ bundle_1_product_img | image_url:width:400 }} 1x, {{ bundle_1_product_img | image_url:width:800 }} 2x"
-                                      loading="lazy"
-                                      alt="{{ bundle_1_product_title }}"
-                                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                                      width=""
-                                      height=""
-                                    >
-                                    {% endif %}
+                                    <div class="slider_size_info">
+                                      <div>
+                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                                        <p>Regular or Narrow feet?<span>go one size down</span></p>
+                                      </div>
+                                      <div>
+                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                                        <p>Wide foot?<span>stick to your usual size.</span></p>
+                                      </div>
+                                    </div>
                                     <div class="cs-table">
                                       {{ size_chart1_table }}
+                                    </div>
+                                    <div class="slider-instructuions">
+                                      <h4>How to measure</h4>
+                                      <div class="instructuions_steps">
+                                        <div class="measurement_step">
+                                          <h6>Step 1 :</h6>
+                                          <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
+                                        </div>
+                                        <div class="measurement_step">
+                                          <h6>Step 2 :</h6>
+                                          <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
+                                        </div>
+                                        <div class="measurement_step">
+                                          <h6>Step 3 :</h6>
+                                          <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
