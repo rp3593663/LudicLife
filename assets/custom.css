@@ -884,6 +884,7 @@ body.size-chart-popup-pdp #MainContent{
 }
 .cs-table tr {
     border-bottom: 1px solid #F0F0F0;
+    transition: all 0.3s ease;
 }
 
 .csmodal-heading,
