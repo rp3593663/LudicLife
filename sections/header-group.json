@@ -113,6 +113,9 @@
         "mega_menu_sub_collection_dK4fJX",
         "mega_menu_sub_collection_9HThpE"
       ],
+      "custom_css": [
+        "a.header__icon.header__icon--account {display: none;}"
+      ],
       "settings": {
         "logo_position": "top-left",
         "menu": "main-menu",
