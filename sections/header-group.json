@@ -113,6 +113,9 @@
         "mega_menu_sub_collection_dK4fJX",
         "mega_menu_sub_collection_9HThpE"
       ],
+      "custom_css": [
+        "a.header__icon.header__icon--account {display: none;}"
+      ],
       "settings": {
         "logo_position": "top-left",
         "menu": "main-menu",
@@ -123,7 +126,7 @@
         "menu_color_scheme": "scheme-4",
         "enable_country_selector": true,
         "enable_language_selector": true,
-        "enable_customer_avatar": true,
+        "enable_customer_avatar": false,
         "mobile_logo_position": "center",
         "futurworks_collection": [
           "the-sport-bag",
