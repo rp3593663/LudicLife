@@ -884,8 +884,15 @@ body.size-chart-popup-pdp #MainContent{
 }
 .cs-table tr {
     border-bottom: 1px solid #F0F0F0;
+    transition: all 0.3s ease;
 }
-
+.cs-table tbody tr:hover {
+    background: #e60013;
+}
+.cs-table tbody tr:hover td{
+    color: #FFF;
+    font-weight: 700;
+}
 .csmodal-heading,
 .size_guide_header{
   display:flex;
