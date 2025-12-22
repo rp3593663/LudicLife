@@ -115,12 +115,10 @@ if (!window.gsapLoaded) {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const section = document.querySelector(
-    "#shopify-section-{{ section.id }} .section--ds-moto-lottie"
-  );
+  const shopifySection = document.getElementById("shopify-section-{{ section.id }}");
   const lottiePlayer = document.getElementById("dsMotoLottie-{{ section.id }}");
 
-  if (!section || !lottiePlayer) return;
+  if (!shopifySection || !lottiePlayer) return;
 
   function initScrollLottie(lottieAnim) {
     gsap.registerPlugin(ScrollTrigger);
@@ -131,12 +129,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalFrames = lottieAnim.totalFrames;
 
     ScrollTrigger.create({
-      trigger: section,
-      start: "top top",           // ✅ start immediately
-      end: `+=${totalFrames}`,    // ✅ exact scroll = frames
+      trigger: shopifySection,     // ✅ pin real section
+      start: "top top",
+      end: `+=${totalFrames * 1.2}`, // smooth scroll length
       scrub: true,
       pin: true,
-      pinSpacing: false,          // ✅ no gap after animation
+      pinSpacing: true,            // ✅ REQUIRED
       anticipatePin: 1,
       onUpdate: self => {
         const frame = Math.round(self.progress * (totalFrames - 1));
@@ -144,20 +142,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // IMPORTANT: refresh after setup
     ScrollTrigger.refresh();
   }
 
-  // 🔥 WAIT FOR LOTTIE TO BE READY
+  // Wait for lottie JSON to load
   lottiePlayer.addEventListener("ready", () => {
-    const lottieAnim = lottiePlayer.getLottie();
-    if (lottieAnim) {
-      initScrollLottie(lottieAnim);
-    }
+    const anim = lottiePlayer.getLottie();
+    if (anim) initScrollLottie(anim);
   });
 
 });
 </script>
+
 
 
 {% schema %}
