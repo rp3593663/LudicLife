@@ -2768,19 +2768,6 @@ main#MainContent.ds-moto-ludic {
     text-align: center;
     color: #FFF;
 }
-@media(max-width: 767px){
-  .video_content {
-    gap: 20px;
-  }
-  .video_content h5 {
-    font-size: 22px;
-    line-height: 22px;
-  }
-  .video_content svg {
-    width: 15px;
-    height: 12px;
-  }
-}
 .ds_moto_head {
     display: grid;
     gap: 12px;
@@ -2880,4 +2867,21 @@ button.ds-submit-btn {
     color: #bb0000;
     font-weight: 600;
     margin-top: 20px;
+}
+@media(max-width: 767px){
+  .video_content {
+    gap: 20px;
+  }
+  .video_content h5 {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .video_content svg {
+    width: 15px;
+    height: 12px;
+  }
+  .ds_moto_head {
+    gap: 8px;
+    margin-bottom: 58px;
+  }
 }
