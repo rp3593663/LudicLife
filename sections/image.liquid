@@ -1,0 +1,87 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'container-fluid' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin  | split: "|" %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} .section--ds-moto-lottie{
+  {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+  {% if margin[0]  != blank %}margin: {{ margin[0] }};{% endif %}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
+    {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+    {% if margin[1]  != blank %}margin: {{ margin[1] }};{% endif %}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
+    {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+    {% if margin[2]  != blank %}margin: {{ margin[2] }};{% endif %}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
+    {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+    {% if margin[3]  != blank %}margin: {{ margin[3] }};{% endif %}
+  }
+}
+
+{%- endstyle -%}
+
+<section class="ludic-section section--ds-moto-lottie {{ section.settings.custom_class }}">
+  <div class="{{ container }}">
+
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "DS Moto Single Image",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Moto Single Image"
+    }
+  ]
+}
+{% endschema %}
