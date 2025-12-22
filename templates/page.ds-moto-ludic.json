@@ -17,20 +17,67 @@
         "padding_bottom": 28
       }
     },
-    "video_kVnCfJ": {
-      "type": "video",
-      "name": "t:sections.video.presets.name",
+    "slideshow_pEH7Yk": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_RmGQBM": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "",
+            "desktop_video": "shopify://files/videos/ds-moto-video.mp4",
+            "banner_url": "",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_CDQEbi": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "",
+            "banner_url": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "mobile_subheading": "",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        }
+      },
+      "block_order": [
+        "slide_RmGQBM",
+        "slide_CDQEbi"
+      ],
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video": "shopify://files/videos/ds-moto-video.mp4",
-        "video_url": "",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "ludic_moto_lottie_KrFfwT": {
@@ -46,7 +93,7 @@
   },
   "order": [
     "main",
-    "video_kVnCfJ",
+    "slideshow_pEH7Yk",
     "ludic_moto_lottie_KrFfwT"
   ]
 }
