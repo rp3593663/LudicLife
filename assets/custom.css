@@ -2896,4 +2896,7 @@ button.ds-submit-btn {
   .ds-field {
     gap: 14px;
   }
+  button.ds-submit-btn {
+    height: 48px;
+  }
 }
