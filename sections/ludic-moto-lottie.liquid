@@ -1,0 +1,284 @@
+{%- if section.settings.layout == 'box_width' -%}
+	{%- assign container = 'container' -%}
+{%- endif -%}
+{% assign padding 	= section.settings.padding | split: "|" %}
+{% assign margin 	= section.settings.margin | split: "|" %}
+
+{%- style -%}
+
+  #shopify-section-{{ section.id }} .section--custom-collection{
+    {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+    {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+  }
+
+  @media (max-width:1199px){
+      #shopify-section-{{ section.id }} .section--custom-collection{
+        {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+        {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+			}
+    }
+
+  @media (max-width:991px){
+      #shopify-section-{{ section.id }} .section--custom-collection{
+        {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+        {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+			}
+  }
+
+  @media (max-width:767px){
+      #shopify-section-{{ section.id }} .section--custom-collection{
+        {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+        {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+			}
+    }
+
+{%- endstyle -%}
+
+
+
+<section class="ludic-section ludic-section-{{ section.id }} section--custom-collection {{ section.settings.custom_class }}">
+  <div class="{{ container }}">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section_heading">
+        <div class="section_title">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      </div>
+    {%- endif -%}
+    {% assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680' %}
+    <div class="section_content">
+      <div class="custom-collections">
+        {%- for block in section.blocks -%}
+          <div class="collection_block">
+            <div class="custom_img">
+              {%- if block.settings.collection_img != blank -%}
+                <a href="{{ block.settings.collection_url }}">
+                  {{
+                    block.settings.collection_img
+                    | image_url: width: 3840
+                    | image_tag:
+                     width: block.settings.collection_img.width,
+                      height: block.settings.collection_img.height,
+                      class: 'd-none d-md-block',
+                      widths: widths
+                  }}
+                  {{
+                    block.settings.collection_img_mobile
+                    | image_url: width: 3840
+                    | image_tag:
+                      width: block.settings.collection_img_mobile.width,
+                      height: block.settings.collection_img_mobile.height,
+                      class: 'd-block d-md-none',
+                      widths: widths
+                  }}
+                </a>
+              {%- else -%}
+                <img class="" src="https://placehold.jp/836x418.png" alt="new_launch_img">
+              {%- endif -%}
+            </div>
+            <div class="custom_info">
+              <p>{{ block.settings.collection_info }}</p>
+            </div>
+            <div class="custom_link">
+              {% if block.settings.collection_link1 != blank %}
+                <a href="{{ block.settings.collection_link1 }}" class="custom_link">
+                  {{ block.settings.collection_title1 }}
+                </a>
+              {% endif %}
+              {% if block.settings.collection_link2 != blank %}
+                <a href="{{ block.settings.collection_link2 }}" class="custom_link">
+                  {{ block.settings.collection_title2 }}
+                </a>
+              {% endif %}
+              {% if block.settings.collection_link3 != blank %}
+                <a href="{{ block.settings.collection_link3 }}" class="custom_link">
+                  {{ block.settings.collection_title3 }}
+                </a>
+              {% endif %}
+              {% if block.settings.collection_link4 != blank %}
+                <a href="{{ block.settings.collection_link4 }}" class="custom_link">
+                  {{ block.settings.collection_title4 }}
+                </a>
+              {% endif %}
+              {% if block.settings.collection_link5 != blank %}
+                <a href="{{ block.settings.collection_link5 }}" class="custom_link">
+                  {{ block.settings.collection_title5 }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+
+  .slider-product-section .custom-collections { 
+    grid-template-columns: repeat(6,1fr) !important; 
+    column-gap: 12px !important;
+  }
+  .slider-product-section .section_heading .section_title h2 {
+    font-size: 32px; 
+    line-height: 39px; 
+    font-weight: 700; 
+  }
+  .slider-product-section .section_heading { 
+    justify-content: center; 
+    margin-bottom: 40px; 
+  }
+  .slider-product-section .section_content .custom-collections .custom_info p {
+    font-size: 12px; 
+    line-height: 15px; 
+    color: #939598; 
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .slider-product-section .slick-dots li {
+    width: 40px;
+    height: 4px;
+  }
+   .slider-product-section .slick-dots li button:before {
+    top: 0px;
+    width: 50px;
+    border: 2px solid #939598;
+    height: 0px;
+    content: '';
+  }
+
+  .slider-product-section .slick-dots li button {
+    width: 50px;
+    height: 2px;
+    padding:0;
+}
+  
+  @media screen and (max-width: 768px) {
+    .slider-product-section .section_heading .section_title h2 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .slider-product-section .section_content .custom-collections .custom_info p {
+      font-size: 10px;
+      line-height: 12px;
+    }
+    .slider-product-section .custom-collections {
+      display: flex !important;
+      overflow: scroll;
+      overflow-y: hidden;
+      padding-bottom: 20px;
+    }
+  
+    .slider-product-section .collection_block {
+      min-width: 145px;
+      box-sizing: border-box;
+      padding: 0 !important; 
+    }
+    .slider-product-section .section_heading {
+      margin-bottom: 20px !important;
+    }
+    .slider-product-section .custom-collections::-webkit-scrollbar {
+      height: 3px;
+    }
+    .slider-product-section .custom-collections::-webkit-scrollbar-track {
+        background: #93959829;
+    }
+    .slider-product-section .custom-collections::-webkit-scrollbar-thumb {
+        background: #939598;
+    }
+    .slider-product-section .section--custom-collection .section_content .custom-collections {
+      column-gap: 8px;
+    }
+  }
+  .custom-collections .slick-list {
+    padding-right: 15px;
+}
+
+.custom_link a {
+    color: #C7C8CA;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10.64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14.3px;
+    letter-spacing: -0.36px;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+  }
+  .custom_link a:hover{
+    color: #e60013;
+  }
+  .custom_link {
+      display: flex;
+      justify-content: center;
+      column-gap: 17px;
+      margin-top: 10px;
+  }
+@media screen and (max-width: 767px) {
+   .custom_link {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+}
+</style>
+
+{% schema %}
+  {
+  "name": "DS Moto Lottie",
+  "settings": [
+    {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full-width",
+            "label": "Full Width"
+          },
+          {
+            "value": "box_width",
+            "label": "Box Width"
+          }
+        ],
+        "label": "Layout",
+        "default": "box_width"
+    },
+    {
+        "type": "text",
+        "id": "padding",
+        "label": "Padding",
+        "default": "0px 0px 0px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "text",
+        "id": "margin",
+        "label": "Margin",
+        "default": "80px 0px | | | 36px 0px",
+        "placeholder": "top right bottom right",
+        "info":"Screen: desktop | 1200px | 991px | 767px"
+    },
+    {
+        "type": "header",
+        "content": "=== General Settings"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "presets": [
+  {
+  "name": "DS Moto Lottie"
+  }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}
