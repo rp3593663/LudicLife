@@ -2757,6 +2757,17 @@ main#MainContent.ds-moto-ludic {
     z-index: 4;
     width: 100%;
 }
+
+.video_content h5 {
+    margin-bottom: 0px;
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #FFF;
+}
 @media(max-width: 767px){
   .video_content {
     gap: 20px;
@@ -2769,16 +2780,6 @@ main#MainContent.ds-moto-ludic {
     width: 15px;
     height: 12px;
   }
-}
-.video_content h5 {
-    margin-bottom: 0px;
-    font-family: Druk Text Wide Trial;
-    font-weight: 700;
-    font-size: 27px;
-    line-height: 27px;
-    letter-spacing: 0px;
-    text-align: center;
-    color: #FFF;
 }
 .ds_moto_head {
     display: grid;
