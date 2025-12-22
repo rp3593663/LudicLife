@@ -34,18 +34,18 @@
   }
 }
 
-.gif-wrapper {
+.ds-moto-footer-video-wrapper {
     text-align: center;
     overflow: hidden;
 }
-.gif-wrapper img{
+.ds-moto-footer-video-wrapper video{
     max-width: 80%;
     height: auto;
     margin-bottom: -500px;
 }
 
 @media(max-width: 767px){
-    .gif-wrapper img {
+    .ds-moto-footer-video-wrapper video {
         max-width: 100%;
         height: auto;
         margin-bottom: -150px;
@@ -55,9 +55,13 @@
 
 <section class="ludic-section section--ds-moto-img {{ section.settings.custom_class }}">
   <div class="{{ container }}">
-    <div class="gif-wrapper" style="text-align: center;">
-      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/03.gif?v=1766396188"
-           alt="Animated GIF">
+    <div class="ds-moto-footer-video-wrapper" style="text-align: center;">
+      <div class="video-desktop">
+        {{ section.settings.video | video_tag: autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
+      </div>
+      <div class="video-mobile">
+        {{ section.settings.mobile_video | video_tag: image_size: '1100x', autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
+      </div>
     </div>
   </div>
 </section>
