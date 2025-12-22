@@ -2829,3 +2829,12 @@ button.ds-submit-btn {
     margin-top: 10px;
     margin-bottom: 16px;
 }
+.ds-privacy {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-align: justify;
+    vertical-align: middle;
+    color: #FFFFFF99;
+}
