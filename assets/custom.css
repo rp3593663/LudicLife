@@ -2884,4 +2884,8 @@ button.ds-submit-btn {
     gap: 8px;
     margin-bottom: 58px;
   }
+  .ds_moto_head h5 {
+    font-size: 26px;
+    line-height: 26px;
+  }
 }
