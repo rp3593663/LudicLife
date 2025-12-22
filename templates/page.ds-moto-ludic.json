@@ -34,11 +34,11 @@
         "padding_bottom": 0
       }
     },
-    "test_CP6BXW": {
+    "test_XJ7FpJ": {
       "type": "test",
-      "name": "DS Moto Lottie Scroll",
+      "name": "DS Scroll Scrub Lottie",
       "settings": {
-        "layout": "box_width",
+        "lottie_url": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json",
         "scroll_height": 300
       }
     },
@@ -88,7 +88,7 @@
   "order": [
     "main",
     "footer_video_ekEfCk",
-    "test_CP6BXW",
+    "test_XJ7FpJ",
     "ludic_moto_lottie_JnCePE",
     "ds_moto_img_text_QYcqAN",
     "ds_moto_newsletter_F9HFXa",
