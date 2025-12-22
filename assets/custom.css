@@ -2748,7 +2748,7 @@ main#MainContent.ds-moto-ludic {
 }
 .video_content {
     position: absolute;
-    bottom: 34px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
