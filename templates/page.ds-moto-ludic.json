@@ -30,17 +30,8 @@
         "description": "",
         "full_width": false,
         "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "test_XJ7FpJ": {
-      "type": "test",
-      "name": "DS Scroll Scrub Lottie",
-      "settings": {
-        "lottie_url_desktop": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-lottie.json?v=1766407422",
-        "lottie_url_mobile": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json?v=1766404097",
-        "scroll_height": 500
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "ds_moto_img_text_QYcqAN": {
@@ -63,27 +54,12 @@
         "margin": "0px",
         "custom_class": ""
       }
-    },
-    "ds_moto_video_QWiETb": {
-      "type": "ds-moto-video",
-      "name": "DS Moto Footer Video",
-      "settings": {
-        "layout": "box_width",
-        "enable_video_looping": true,
-        "video": "shopify://files/videos/footer_video.mp4",
-        "mobile_video": "shopify://files/videos/footer_video.mp4",
-        "padding": "0px 0px 0px 0px",
-        "margin": "0px",
-        "custom_class": ""
-      }
     }
   },
   "order": [
     "main",
     "ds_video_8qmYKY",
-    "test_XJ7FpJ",
     "ds_moto_img_text_QYcqAN",
-    "ds_moto_newsletter_F9HFXa",
-    "ds_moto_video_QWiETb"
+    "ds_moto_newsletter_F9HFXa"
   ]
 }
