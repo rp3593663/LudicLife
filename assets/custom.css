@@ -2761,6 +2761,10 @@ main#MainContent.ds-moto-ludic {
   .video_content {
     gap: 20px;
   }
+  .video_content h5 {
+    font-size: 22px;
+    line-height: 22px;
+  }
 }
 .video_content h5 {
     margin-bottom: 0px;
