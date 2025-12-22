@@ -57,6 +57,17 @@
 </section>
 
 <script>
+  var animation = bodymovin.loadAnimation({
+    container: document.getElementById('lottie-container'), // The DOM element
+    path: 'https://cdn.shopify.com/s/files/1/0823/6787/3328/files/track.json?v=1766381217', // The path to the JSON file
+    renderer: 'svg', // Options: 'svg', 'canvas', 'html'
+    loop: true, // Boolean: true or false
+    autoplay: true, // Boolean: true or false
+    name: "My Animation", // Optional name
+  });
+</script>
+
+{% comment %} <script>
 (function () {
 
   function loadLottie(callback) {
@@ -89,7 +100,7 @@
   });
 
 })();
-</script>
+</script> {% endcomment %}
 
 {% schema %}
 {
