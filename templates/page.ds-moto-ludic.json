@@ -34,13 +34,13 @@
         "padding_bottom": 0
       }
     },
-    "ludic_moto_lottie_wqTeKF": {
+    "ludic_moto_lottie_JnCePE": {
       "type": "ludic-moto-lottie",
-      "name": "DS Moto Lottie (Player)",
+      "name": "DS Moto Lottie",
       "settings": {
-        "layout": "full-width",
-        "padding": "0px",
-        "margin": "0px",
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "80px 0px | | | 36px 0px",
         "custom_class": ""
       }
     },
@@ -79,7 +79,7 @@
   "order": [
     "main",
     "footer_video_ekEfCk",
-    "ludic_moto_lottie_wqTeKF",
+    "ludic_moto_lottie_JnCePE",
     "ds_moto_img_text_QYcqAN",
     "ds_moto_newsletter_F9HFXa",
     "image_nECpeU"
