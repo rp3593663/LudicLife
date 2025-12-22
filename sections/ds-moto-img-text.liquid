@@ -82,6 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
   const section = document.querySelector("#ds-moto-{{ section.id }}");
+  const img1 = section.querySelector(".img-1");
+  const img2 = section.querySelector(".img-2");
+  const text = section.querySelector(".ds-moto-text");
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -91,19 +94,55 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  tl.fromTo(section.querySelector(".img-1"),
-    { y: -60, scale: 0.9, rotate: -8, opacity: 0 },
-    { y: 0, scale: 1, rotate: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+  tl.fromTo(img1,
+    {
+      x: -200,
+      y: -200,
+      scale: 0.8,
+      rotate: -15,
+      opacity: 0
+    },
+    {
+      x: 0,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out"
+    }
   )
-  .fromTo(section.querySelector(".img-2"),
-    { y: -40, scale: 0.9, rotate: 6, opacity: 0 },
-    { y: 0, scale: 1, rotate: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-    "-=0.5"
+  .fromTo(img2,
+    {
+      x: 200,
+      y: -200,
+      scale: 0.8,
+      rotate: 15,
+      opacity: 0
+    },
+    {
+      x: 0,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out"
+    },
+    "-=0.6"
   )
-  .fromTo(section.querySelector(".ds-moto-text"),
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-    "-=0.3"
+  .fromTo(text,
+    {
+      y: 40,
+      opacity: 0
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power3.out"
+    },
+    "-=0.4"
   );
 });
 </script>
