@@ -1,5 +1,6 @@
 {% comment %}
 DS Scroll Scrub Lottie
+Desktop + Mobile JSON support
 Uses lottie-web + scroll position mapping
 {% endcomment %}
 
@@ -47,10 +48,34 @@ if (!window.dsLottieWebLoaded) {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const wrapper = document.getElementById("ds-scroll-{{ section.id }}");
+  const wrapper   = document.getElementById("ds-scroll-{{ section.id }}");
   const container = document.getElementById("ds-lottie-{{ section.id }}");
 
   if (!wrapper || !container) return;
+
+  let anim = null;
+  let currentMode = null;
+
+  const desktopJSON = "{{ section.settings.lottie_url_desktop }}";
+  const mobileJSON  = "{{ section.settings.lottie_url_mobile }}";
+
+  function getMode() {
+    return window.matchMedia("(max-width: 767px)").matches
+      ? "mobile"
+      : "desktop";
+  }
+
+  function getJSON() {
+    return getMode() === "mobile" ? mobileJSON : desktopJSON;
+  }
+
+  function destroyAnim() {
+    if (anim) {
+      anim.destroy();
+      anim = null;
+      container.innerHTML = "";
+    }
+  }
 
   function initLottie() {
     if (!window.lottie) {
@@ -58,56 +83,24 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const anim = lottie.loadAnimation({
+    const mode = getMode();
+    if (mode === currentMode) return;
+
+    currentMode = mode;
+    destroyAnim();
+
+    anim = lottie.loadAnimation({
       container: container,
       renderer: "svg",
       loop: false,
       autoplay: false,
-      path: "{{ section.settings.lottie_url }}"
+      path: getJSON()
     });
 
     anim.addEventListener("DOMLoaded", () => {
-      window.addEventListener("scroll", () => {
-        const rect = wrapper.getBoundingClientRect();
-        const progress =
-          1 - rect.bottom / (window.innerHeight + rect.height);
-
-        const clamped = Math.min(Math.max(progress, 0), 1);
-        const frame = clamped * (anim.totalFrames - 1);
-
-        anim.goToAndStop(frame, true);
-      });
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
     });
   }
 
-  initLottie();
-});
-</script>
-
-{% schema %}
-{
-  "name": "DS Scroll Scrub Lottie",
-  "settings": [
-    {
-      "type": "text",
-      "id": "lottie_url",
-      "label": "Lottie JSON URL",
-      "default": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json"
-    },
-    {
-      "type": "range",
-      "id": "scroll_height",
-      "label": "Scroll Height (vh)",
-      "min": 100,
-      "max": 500,
-      "step": 50,
-      "default": 300
-    }
-  ],
-  "presets": [
-    {
-      "name": "DS Scroll Scrub Lottie"
-    }
-  ]
-}
-{% endschema %}
+  function o
