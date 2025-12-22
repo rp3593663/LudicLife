@@ -2757,6 +2757,11 @@ main#MainContent.ds-moto-ludic {
     z-index: 4;
     width: 100%;
 }
+@media(max-width: 767px){
+  .video_content {
+    gap: 20px;
+  }
+}
 .video_content h5 {
     margin-bottom: 0px;
     font-family: Druk Text Wide Trial;
