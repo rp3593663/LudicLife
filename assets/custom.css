@@ -2789,3 +2789,7 @@ main#MainContent.ds-moto-ludic {
     max-width: 576px;
     margin: auto;
 }
+.ds-field input {
+    background: unset;
+    border: unset;
+}
