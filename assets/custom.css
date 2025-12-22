@@ -2793,3 +2793,11 @@ main#MainContent.ds-moto-ludic {
     background: unset;
     border: unset;
 }
+.ds-field {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid #FFFFFF33;
+    margin-bottom: 24px;
+}
