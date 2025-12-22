@@ -2800,6 +2800,10 @@ main#MainContent.ds-moto-ludic {
     letter-spacing: -0.42px;
     color: #FFFFFF99;
 }
+.ds-field input:-internal-autofill-selected {
+    background-color: unset !important
+    color: #FFFFFF99 !important;
+}
 .ds-field {
     display: flex;
     gap: 25px;
