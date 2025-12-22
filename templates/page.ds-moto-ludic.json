@@ -63,6 +63,19 @@
         "margin": "0px",
         "custom_class": ""
       }
+    },
+    "ds_moto_footer_video_EgVVDR": {
+      "type": "ds-moto-footer-video",
+      "name": "DS Moto Footer Video",
+      "settings": {
+        "layout": "box_width",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/footer_video.mp4",
+        "mobile_video": "shopify://files/videos/footer_video.mp4",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0",
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -70,6 +83,7 @@
     "ds_video_8qmYKY",
     "ludic_moto_lottie_t66H6L",
     "ds_moto_img_text_QYcqAN",
-    "ds_moto_newsletter_F9HFXa"
+    "ds_moto_newsletter_F9HFXa",
+    "ds_moto_footer_video_EgVVDR"
   ]
 }
