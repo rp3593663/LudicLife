@@ -2764,3 +2764,13 @@ main#MainContent.ds-moto-ludic {
     gap: 12px;
     text-align: center;
 }
+.ds_moto_head h5 {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 36px;
+    letter-spacing: -0.96px;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    margin-bottom: 0px;
+}
