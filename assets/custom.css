@@ -2826,4 +2826,6 @@ button.ds-submit-btn {
     vertical-align: middle;
     color: #FFF;
     border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 16px;
 }
