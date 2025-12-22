@@ -2893,4 +2893,7 @@ button.ds-submit-btn {
     line-height: 15px;
     letter-spacing: -.36px;
   }
+  .ds-field {
+    gap: 14px;
+  }
 }
