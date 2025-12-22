@@ -129,15 +129,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalFrames = lottieAnim.totalFrames;
 
     ScrollTrigger.create({
-      trigger: shopifySection,     // ✅ pin real section
+      trigger: shopifySection,
       start: "top top",
-      end: `+=${totalFrames * 1.2}`, // smooth scroll length
-      scrub: true,
+      end: () => `+=${window.innerHeight * 3}`, // 🔥 SLOW animation
+      scrub: 0.6,                               // 🔥 smooth inertia
       pin: true,
-      pinSpacing: true,            // ✅ REQUIRED
+      pinSpacing: true,
       anticipatePin: 1,
       onUpdate: self => {
-        const frame = Math.round(self.progress * (totalFrames - 1));
+        const frame = Math.floor(self.progress * (totalFrames - 1));
         lottieAnim.goToAndStop(frame, true);
       }
     });
@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollTrigger.refresh();
   }
 
-  // Wait for lottie JSON to load
   lottiePlayer.addEventListener("ready", () => {
     const anim = lottiePlayer.getLottie();
     if (anim) initScrollLottie(anim);
@@ -153,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 
 
 
