@@ -134,17 +134,24 @@ document.addEventListener("DOMContentLoaded", function () {
     lottieAnim.loop = false;
 
     const totalFrames = lottieAnim.totalFrames;
+    const frameRate = lottieAnim.frameRate || 60;
+    const duration = totalFrames / frameRate;
 
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",              // 🔥 animation starts immediately
-      end: `+=${totalFrames}`,       // 🔥 1px scroll = 1 frame
-      scrub: true,
-      pin: true,
-      pinSpacing: false,             // 🔥 next section arrives instantly
-      anticipatePin: 1,
-      onUpdate: self => {
-        const frame = Math.floor(self.progress * totalFrames);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: `+=${duration * 1000}`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+      }
+    });
+
+    tl.to({}, {
+      duration: duration,
+      onUpdate: function () {
+        const frame = Math.floor(tl.progress() * totalFrames);
         lottieAnim.goToAndStop(frame, true);
       }
     });
@@ -153,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initStickyLottie();
 });
 </script>
-
 
 {% schema %}
 {
