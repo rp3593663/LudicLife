@@ -2740,3 +2740,12 @@ a#HeaderMenu-twos-day-sale {
 main#MainContent.ds-moto-ludic {
     margin-top: -74px;
 }
+.video_content {
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: grid;
+    gap: 24px;
+}
