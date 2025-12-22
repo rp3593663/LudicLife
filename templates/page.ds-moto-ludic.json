@@ -59,10 +59,21 @@
         "padding_bottom": 52,
         "custom_class": ""
       }
+    },
+    "ludic_moto_lottie_KrFfwT": {
+      "type": "ludic-moto-lottie",
+      "name": "DS Moto Lottie",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "80px 0px | | | 36px 0px",
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "main",
-    "rich_text_MRp98A"
+    "rich_text_MRp98A",
+    "ludic_moto_lottie_KrFfwT"
   ]
 }
