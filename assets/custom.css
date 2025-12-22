@@ -2755,6 +2755,7 @@ main#MainContent.ds-moto-ludic {
     display: grid;
     gap: 24px;
     z-index: 4;
+    width: 100%;
 }
 .video_content h5 {
     margin-bottom: 0px;
