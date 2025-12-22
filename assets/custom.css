@@ -2759,3 +2759,8 @@ main#MainContent.ds-moto-ludic {
     text-align: center;
     color: #FFF;
 }
+.ds_moto_head {
+    display: grid;
+    gap: 12px;
+    text-align: center;
+}
