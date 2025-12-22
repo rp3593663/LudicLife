@@ -53,12 +53,33 @@
         "margin": "80px 0px | | | 36px 0px",
         "custom_class": ""
       }
+    },
+    "image_banner_XR44Ma": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/03.gif",
+        "banner_clickable": false,
+        "banner_url": "",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
     }
   },
   "order": [
     "main",
     "footer_video_ekEfCk",
     "ds_moto_img_text_QYcqAN",
-    "ds_moto_newsletter_F9HFXa"
+    "ds_moto_newsletter_F9HFXa",
+    "image_banner_XR44Ma"
   ]
 }
