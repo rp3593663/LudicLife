@@ -8,6 +8,12 @@
 {% assign margin  = section.settings.margin  | split: "|" %}
 
 {%- style -%}
+
+.section--ds-moto-newsletter{
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/BG_LINES.svg?v=1766388068);
+    background-size: cover;
+    background-position: center;
+}
 #shopify-section-{{ section.id }} .section--ds-moto-newsletter{
   {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
   {% if margin[0]  != blank %}margin: {{ margin[0] }};{% endif %}
