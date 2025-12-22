@@ -38,7 +38,7 @@
       "name": "DS Moto Lottie (Player)",
       "settings": {
         "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
+        "padding": "100px 0px 0px 0px",
         "margin": "0px",
         "custom_class": ""
       }
