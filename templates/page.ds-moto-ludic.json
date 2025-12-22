@@ -43,17 +43,6 @@
         "scroll_height": 500
       }
     },
-    "ludic_moto_lottie_JnCePE": {
-      "type": "ludic-moto-lottie",
-      "disabled": true,
-      "name": "DS Moto Lottie",
-      "settings": {
-        "layout": "full-width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "0px",
-        "custom_class": "lottie_frame"
-      }
-    },
     "ds_moto_img_text_QYcqAN": {
       "type": "ds-moto-img-text",
       "name": "DS Moto Animated",
@@ -93,7 +82,6 @@
     "main",
     "footer_video_ekEfCk",
     "test_XJ7FpJ",
-    "ludic_moto_lottie_JnCePE",
     "ds_moto_img_text_QYcqAN",
     "ds_moto_newsletter_F9HFXa",
     "ds_moto_video_QWiETb"
