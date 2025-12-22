@@ -32,10 +32,22 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "ds_moto_img_text_QYcqAN": {
+      "type": "ds-moto-img-text",
+      "name": "DS Moto Animated",
+      "settings": {
+        "layout": "box_width",
+        "image_1": "shopify://shop_images/animate_img1.png",
+        "image_2": "shopify://shop_images/animate_img2.png",
+        "text": "<p>Family drives. Racing dreams. Late-night speed stories. The obsession stayed with us.<br/>Now it's taking shape.</p>",
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "main",
-    "footer_video_ekEfCk"
+    "footer_video_ekEfCk",
+    "ds_moto_img_text_QYcqAN"
   ]
 }
