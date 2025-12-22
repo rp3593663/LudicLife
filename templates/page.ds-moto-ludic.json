@@ -59,7 +59,7 @@
       "type": "ds-moto-newsletter",
       "name": "DS Moto Newsletter",
       "settings": {
-        "layout": "full-width",
+        "layout": "box_width",
         "padding": "0px 0px 0px 0px",
         "margin": "0px",
         "custom_class": ""
