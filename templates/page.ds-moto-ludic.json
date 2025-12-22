@@ -17,21 +17,21 @@
         "padding_bottom": 28
       }
     },
-    "footer_video_ekEfCk": {
-      "type": "footer-video",
-      "name": "Footer Video",
+    "ds_video_8qmYKY": {
+      "type": "ds-video",
+      "name": "DS Moto Video",
       "settings": {
-        "heading": "",
+        "heading": "Video",
         "heading_size": "h1",
         "enable_video_looping": true,
         "video": "shopify://files/videos/NEW DESKTOP.mp4",
         "mobile_video": "shopify://files/videos/MOBILE_53fd67d0-0072-4d52-a779-4ca8c87ca963.mp4",
-        "video_url": "",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
-        "full_width": true,
+        "full_width": false,
         "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "test_XJ7FpJ": {
@@ -80,7 +80,7 @@
   },
   "order": [
     "main",
-    "footer_video_ekEfCk",
+    "ds_video_8qmYKY",
     "test_XJ7FpJ",
     "ds_moto_img_text_QYcqAN",
     "ds_moto_newsletter_F9HFXa",
