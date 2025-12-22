@@ -43,17 +43,25 @@
     height: auto;
     margin-bottom: -500px;
 }
-
+.section-{{ section.id }} .video-mobile { 
+  display: none; 
+}
 @media(max-width: 767px){
     .ds-moto-footer-video-wrapper video {
         max-width: 100%;
         height: auto;
         margin-bottom: -150px;
     }
+    .section-{{ section.id }} .video-desktop {
+      display: none; 
+    }
+    .section-{{ section.id }} .video-mobile { 
+      display: block; 
+    }
 }
 {%- endstyle -%}
 
-<section class="ludic-section section--ds-moto-img {{ section.settings.custom_class }}">
+<section class="ludic-section section--ds-moto-footer-video {{ section.settings.custom_class }}">
   <div class="{{ container }}">
     <div class="ds-moto-footer-video-wrapper" style="text-align: center;">
       <div class="video-desktop">
