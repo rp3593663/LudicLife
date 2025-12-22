@@ -32,9 +32,11 @@
   }
 }
 
+/* IMPORTANT: height is required */
 .ds-moto-lottie{
   width: 100%;
   max-width: 700px;
+  height: 320px;
   margin: 0 auto;
 }
 {%- endstyle -%}
@@ -49,23 +51,24 @@
   </div>
 </section>
 
-{% javascript %}
+<script>
 (function () {
 
-  function loadScript(src, callback) {
-    if (document.querySelector('script[src="' + src + '"]')) {
+  function loadLottie(callback) {
+    if (window.lottie) {
       callback();
       return;
     }
-    var s = document.createElement('script');
-    s.src = src;
-    s.onload = callback;
-    document.head.appendChild(s);
+
+    var script = document.createElement("script");
+    script.src = "https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js";
+    script.onload = callback;
+    document.head.appendChild(script);
   }
 
   function initLottie() {
     var container = document.getElementById("ds-moto-lottie-{{ section.id }}");
-    if (!container || typeof lottie === "undefined") return;
+    if (!container) return;
 
     lottie.loadAnimation({
       container: container,
@@ -76,13 +79,12 @@
     });
   }
 
-  loadScript(
-    "https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js",
-    initLottie
-  );
+  document.addEventListener("DOMContentLoaded", function () {
+    loadLottie(initLottie);
+  });
 
 })();
-{% endjavascript %}
+</script>
 
 {% schema %}
 {
