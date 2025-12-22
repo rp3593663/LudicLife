@@ -2792,6 +2792,12 @@ main#MainContent.ds-moto-ludic {
 .ds-field input {
     background: unset;
     border: unset;
+    padding: 0px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.42px;
 }
 .ds-field {
     display: flex;
