@@ -2774,3 +2774,13 @@ main#MainContent.ds-moto-ludic {
     color: #FFF;
     margin-bottom: 0px;
 }
+.ds_moto_head p {
+    margin-bottom: 0px;
+    color: #979393;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+    text-align: center;
+    vertical-align: middle;
+}
