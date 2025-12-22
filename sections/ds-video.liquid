@@ -42,6 +42,26 @@
     width: 100%;
     object-fit: cover;
 }
+.video-section.section-{{ section.id }}-padding .video-mobile { 
+  display: none; 
+}
+.video-section.section-{{ section.id }}-padding .video-mobile a{
+  display: block;
+}
+.video-section.section-{{ section.id }}-padding .video-desktop video{
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  height: 100vh;
+}
+@media (max-width: 768px) {
+  .video-section.section-{{ section.id }}-padding .video-desktop {
+      display: none; 
+    }
+  .video-section.section-{{ section.id }}-padding .video-mobile { 
+    display: block; 
+  }
+}
 {%- endstyle -%}
 
 {%- liquid
@@ -91,26 +111,7 @@
 </div>
 
 <style>
-.video-mobile { 
-  display: none; 
-}
-.video-mobile a{
-  display: block;
-}
-.video-desktop video{
-  width: 100%;
-  object-fit: cover;
-  object-position: top;
-  height: 100vh;
-}
-  @media (max-width: 768px) {
-    .video-desktop {
-       display: none; 
-      }
-    .video-mobile { 
-      display: block; 
-    }
-  }
+
 </style>
 
 {% schema %}
