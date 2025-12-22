@@ -2749,3 +2749,13 @@ main#MainContent.ds-moto-ludic {
     display: grid;
     gap: 24px;
 }
+.video_content h5 {
+    margin-bottom: 0px;
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #FFF;
+}
