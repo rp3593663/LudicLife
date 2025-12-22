@@ -2843,3 +2843,15 @@ button.ds-submit-btn {
     align-items: center;
     gap: 6px;
 }
+p.form-success {
+    text-align: center;
+    color: #01bb00;
+    font-weight: 600;
+    margin-top: 20px;
+}
+p.form-error{
+    text-align: center;
+    color: #01bb00;
+    font-weight: 600;
+    margin-top: 20px;
+}
