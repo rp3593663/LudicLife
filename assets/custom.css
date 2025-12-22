@@ -2899,4 +2899,7 @@ button.ds-submit-btn {
   button.ds-submit-btn {
     height: 48px;
   }
+  .ds-privacy {
+    font-size: 11px;
+  }
 }
