@@ -60,6 +60,22 @@
         "custom_class": ""
       }
     },
+    "video_kVnCfJ": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/ds-moto-video.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "ludic_moto_lottie_KrFfwT": {
       "type": "ludic-moto-lottie",
       "name": "DS Moto Lottie",
@@ -74,6 +90,7 @@
   "order": [
     "main",
     "rich_text_MRp98A",
+    "video_kVnCfJ",
     "ludic_moto_lottie_KrFfwT"
   ]
 }
