@@ -109,18 +109,18 @@
                 <!-- Dynamic Instagram Tag -->
                 <input type="hidden" id="instaTag-{{ section.id }}" name="contact[tags]">
 
-                <!-- Privacy Checkbox -->
-                <div class="ds-privacy">
-                    <label>
-                    <input type="checkbox" name="privacy" checked required>
-                    By signing up, you agree to Ludic Privacy and Cookie Policy.
-                    </label>
-                </div>
-
                 <!-- Submit -->
                 <button type="submit" class="ds-submit-btn">
                     Submit
                 </button>
+
+                 <!-- Privacy Checkbox -->
+                <div class="ds-privacy">
+                    <label>
+                        <input type="checkbox" name="privacy" checked required>
+                        By signing up, you agree to Ludic Privacy and Cookie Policy.
+                    </label>
+                </div>
 
                 {%- if form.posted_successfully? -%}
                     <p class="form-success">Thanks for joining the waitlist!</p>
