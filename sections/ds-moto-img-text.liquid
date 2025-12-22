@@ -1,14 +1,13 @@
-{%- if section.settings.layout == 'box_width' -%}
-  {%- assign container = 'container' -%}
-{%- else -%}
-  {%- assign container = 'container-fluid' -%}
-{%- endif -%}
+{% comment %}
+DS Moto Animated Section
+Plays AFTER scroll-scrub lottie
+{% endcomment %}
 
 <section
   id="ds-moto-{{ section.id }}"
-  class="ludic-section ds-moto-animate {{ section.settings.custom_class }}"
+  class="ds-moto-animate {{ section.settings.custom_class }}"
 >
-  <div class="{{ container }}">
+  <div class="container">
     <div class="ds-moto-inner">
       <div class="ds-moto-images">
         <img
@@ -35,20 +34,18 @@
   background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/BG_LINES.svg?v=1766388068);
   background-size: cover;
   background-position: center;
-  padding: 100px 0;
   min-height: 100vh;
-  overflow: hidden;
+  padding: 100px 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .ds-moto-inner {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 100px;
 }
 
@@ -63,46 +60,28 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
-  transform-origin: center;
   opacity: 0;
-}
-
-.ds-moto-images .img-1 {
-  z-index: 2;
 }
 
 .ds-moto-images .img-2 {
   top: -10px;
   left: 52px;
-  z-index: 1;
 }
 
 .ds-moto-text {
   max-width: 600px;
+  text-align: center;
   color: #fff;
   opacity: 0;
-  font-family: Public Sans;
-  font-weight: 500;
   font-size: 28px;
   line-height: 38px;
-  letter-spacing: -1.4px;
-  text-align: center;
 }
 
 @media (max-width: 767px) {
-  #ds-moto-{{ section.id }} {
-    min-height: unset;
-  }
-
-  .ds-moto-inner {
-    gap: 48px;
-  }
-
+  .ds-moto-inner { gap: 48px; }
   .ds-moto-text {
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: -0.8px;
     max-width: 300px;
   }
 }
@@ -111,7 +90,6 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* GSAP must already exist globally */
   if (!window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
@@ -123,55 +101,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const img2 = section.querySelector(".img-2");
   const text = section.querySelector(".ds-moto-text");
 
-  const tl = gsap.timeline({
+  gsap.timeline({
     scrollTrigger: {
       trigger: section,
       start: "top 75%",
-      toggleActions: "play none none none",
       once: true
     }
-  });
-
-  tl.fromTo(
-    img1,
-    { x: -200, y: -200, scale: 0.8, opacity: 0 },
-    {
-      x: 0,
-      y: 0,
-      scale: 1,
-      opacity: 1,
-      duration: 1,
-      ease: "power3.out"
-    }
+  })
+  .fromTo(img1,
+    { x: -200, y: -200, opacity: 0 },
+    { x: 0, y: 0, opacity: 1, duration: 1, ease: "power3.out" }
   )
-  .fromTo(
-    img2,
-    { x: 200, y: -200, scale: 0.8, opacity: 0 },
-    {
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotate: 2,
-      opacity: 1,
-      duration: 1,
-      ease: "power3.out"
-    },
+  .fromTo(img2,
+    { x: 200, y: -200, opacity: 0 },
+    { x: 0, y: 0, rotate: 2, opacity: 1, duration: 1, ease: "power3.out" },
     "-=0.6"
   )
-  .fromTo(
-    text,
+  .fromTo(text,
     { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out"
-    },
+    { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
     "-=0.4"
   );
 
-  /* 🔥 CRITICAL: refresh after scroll-scrub Lottie */
-  setTimeout(function () {
+  /* Critical refresh after lottie section */
+  setTimeout(() => {
     ScrollTrigger.refresh();
   }, 300);
 
@@ -182,16 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
 {
   "name": "DS Moto Animated",
   "settings": [
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "default": "box_width",
-      "options": [
-        { "value": "full-width", "label": "Full Width" },
-        { "value": "box_width", "label": "Box Width" }
-      ]
-    },
     {
       "type": "image_picker",
       "id": "image_1",
@@ -205,8 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       "type": "richtext",
       "id": "text",
-      "label": "Text",
-      "default": "<p>Family drives. Racing dreams. Late-night speed stories. The obsession stayed with us.<br>Now it's taking shape.</p>"
+      "label": "Text"
     },
     {
       "type": "text",
