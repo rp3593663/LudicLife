@@ -2765,6 +2765,10 @@ main#MainContent.ds-moto-ludic {
     font-size: 22px;
     line-height: 22px;
   }
+  .video_content svg {
+    width: 15px;
+    height: 12px;
+  }
 }
 .video_content h5 {
     margin-bottom: 0px;
