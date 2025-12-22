@@ -1,64 +1,42 @@
-{%- if section.settings.layout == 'box_width' -%}
-  {%- assign container = 'container' -%}
-{%- else -%}
-  {%- assign container = 'container-fluid' -%}
-{%- endif -%}
+{% comment %}
+DS Scroll Scrub Lottie
+Desktop + Mobile JSON support
+Uses lottie-web + scroll position mapping
+{% endcomment %}
 
-{% assign padding = section.settings.padding | split: "|" %}
-{% assign margin  = section.settings.margin  | split: "|" %}
-
-{%- style -%}
-#shopify-section-{{ section.id }} .section--ds-moto-lottie{
-  {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
-  {% if margin[0]  != blank %}margin: {{ margin[0] }};{% endif %}
+<style>
+#shopify-section-{{ section.id }} .ds-scroll-wrapper {
+  height: {{ section.settings.scroll_height }}vh;
+  position: relative;
 }
 
-@media (max-width:1199px){
-  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-    {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
-    {% if margin[1]  != blank %}margin: {{ margin[1] }};{% endif %}
-  }
-}
-
-@media (max-width:991px){
-  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-    {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
-    {% if margin[2]  != blank %}margin: {{ margin[2] }};{% endif %}
-  }
-}
-
-@media (max-width:767px){
-  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-    {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
-    {% if margin[3]  != blank %}margin: {{ margin[3] }};{% endif %}
-  }
-}
-
-.ds-moto-lottie{
-  margin: 0 auto;
+#shopify-section-{{ section.id }} .ds-lottie-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
 }
 
-.ds-moto-lottie lottie-player{
+#shopify-section-{{ section.id }} .ds-lottie-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
-section.ludic-section.section--ds-moto-lottie.lottie_frame:before {
+.ds-scroll-wrapper{
+    position: relative;
+}
+.ds-lottie-sticky:before {
     background: linear-gradient(183.3deg, #1a1a1a  27.45%, rgba(26, 26, 26, 0) 92.18%);
-    height: 150px;
+    height: 200px;
     width: 100%;
     position: absolute;
-    top: 0px;
+    top: -60px;
     display: block;
     content: "";
     z-index: 5;
 }
-section.ludic-section.section--ds-moto-lottie.lottie_frame {
-    position: relative;
-}
-section.ludic-section.section--ds-moto-lottie.lottie_frame:after {
+.ds-lottie-sticky:after {
     background: linear-gradient(183.3deg,rgba(26, 26, 26, 0)  27.45%,  #1a1a1a 92.18%);
-    height: 150px;
+    height: 200px;
     width: 100%;
     position: absolute;
     bottom: 0px;
@@ -66,138 +44,140 @@ section.ludic-section.section--ds-moto-lottie.lottie_frame:after {
     content: "";
     z-index: 5;
 }
-{%- endstyle -%}
+</style>
 
-<section class="ludic-section section--ds-moto-lottie {{ section.settings.custom_class }}">
-  <div class="{{ container }}">
-    <div class="ds-moto-lottie">
-      <lottie-player
-        id="dsMotoLottie-{{ section.id }}"
-        src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json?v=1766404097"
-        background="transparent"
-        speed="1"
-        autoplay>
-      </lottie-player>
+<section class="ds-scroll-lottie-section">
+  <div id="ds-scroll-{{ section.id }}" class="ds-scroll-wrapper">
+    <div class="ds-lottie-sticky">
+      <div
+        id="ds-lottie-{{ section.id }}"
+        class="ds-lottie-container">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Load Lottie Player ONCE -->
+<!-- Load lottie-web ONCE -->
 <script>
-if (!window.lottiePlayerLoaded) {
-  window.lottiePlayerLoaded = true;
-  const script = document.createElement('script');
-  script.src = "https://unpkg.com/@lottiefiles/lottie-player@1.7.1/dist/lottie-player.js";
-  script.defer = true;
-  document.head.appendChild(script);
+if (!window.dsLottieWebLoaded) {
+  window.dsLottieWebLoaded = true;
+  const s = document.createElement("script");
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js";
+  s.defer = true;
+  document.head.appendChild(s);
 }
 </script>
 
-<!-- Load GSAP + ScrollTrigger ONCE -->
-<script>
-if (!window.gsapLoaded) {
-  window.gsapLoaded = true;
-
-  const gsapScript = document.createElement('script');
-  gsapScript.src = "https://unpkg.com/gsap@3/dist/gsap.min.js";
-  gsapScript.defer = true;
-
-  const stScript = document.createElement('script');
-  stScript.src = "https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js";
-  stScript.defer = true;
-
-  document.head.appendChild(gsapScript);
-  document.head.appendChild(stScript);
-}
-</script>
-
-<!-- Sticky until Lottie animation completes -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const section = document.querySelector(
-    "#shopify-section-{{ section.id }} .section--ds-moto-lottie"
-  );
-  const lottiePlayer = document.getElementById("dsMotoLottie-{{ section.id }}");
+  const wrapper   = document.getElementById("ds-scroll-{{ section.id }}");
+  const container = document.getElementById("ds-lottie-{{ section.id }}");
 
-  if (!section || !lottiePlayer) return;
+  if (!wrapper || !container) return;
 
-  function initStickyLottie() {
-    if (!window.gsap || !window.ScrollTrigger || !lottiePlayer.getLottie) {
-      setTimeout(initStickyLottie, 100);
+  let anim = null;
+  let currentMode = null;
+
+  const desktopJSON = "{{ section.settings.lottie_url_desktop }}";
+  const mobileJSON  = "{{ section.settings.lottie_url_mobile }}";
+
+  function getMode() {
+    return window.matchMedia("(max-width: 767px)").matches
+      ? "mobile"
+      : "desktop";
+  }
+
+  function getJSON() {
+    return getMode() === "mobile" ? mobileJSON : desktopJSON;
+  }
+
+  function destroyAnim() {
+    if (anim) {
+      anim.destroy();
+      anim = null;
+      container.innerHTML = "";
+    }
+  }
+
+  function initLottie() {
+    if (!window.lottie) {
+      requestAnimationFrame(initLottie);
       return;
     }
 
-    gsap.registerPlugin(ScrollTrigger);
+    const mode = getMode();
+    if (mode === currentMode) return;
 
-    const lottieAnim = lottiePlayer.getLottie();
-    lottieAnim.loop = false;
+    currentMode = mode;
+    destroyAnim();
 
-    const totalFrames = lottieAnim.totalFrames;
-    const frameRate = lottieAnim.frameRate || 60;
-    const duration = totalFrames / frameRate;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${duration * 1000}`,
-        scrub: true,
-        pin: true,
-        anticipatePin: 1
-      }
+    anim = lottie.loadAnimation({
+      container: container,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: getJSON()
     });
 
-    tl.to({}, {
-      duration: duration,
-      onUpdate: function () {
-        const frame = Math.floor(tl.progress() * totalFrames);
-        lottieAnim.goToAndStop(frame, true);
-      }
+    anim.addEventListener("DOMLoaded", () => {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
     });
   }
 
-  initStickyLottie();
+  function onScroll() {
+    if (!anim) return;
+
+    const rect = wrapper.getBoundingClientRect();
+    const progress =
+      1 - rect.bottom / (window.innerHeight + rect.height);
+
+    const clamped = Math.min(Math.max(progress, 0), 1);
+    const frame = clamped * (anim.totalFrames - 1);
+
+    anim.goToAndStop(frame, true);
+  }
+
+  // Init
+  initLottie();
+
+  // Re-init on breakpoint change
+  window.addEventListener("resize", () => {
+    clearTimeout(window.__dsLottieResize);
+    window.__dsLottieResize = setTimeout(initLottie, 200);
+  });
+
 });
 </script>
 
 {% schema %}
 {
-  "name": "DS Moto Lottie",
+  "name": "DS Scroll Scrub Lottie",
   "settings": [
     {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "default": "box_width",
-      "options": [
-        { "value": "full-width", "label": "Full Width" },
-        { "value": "box_width", "label": "Box Width" }
-      ]
+      "type": "text",
+      "id": "lottie_url_desktop",
+      "label": "Desktop Lottie JSON URL"
     },
     {
       "type": "text",
-      "id": "padding",
-      "label": "Padding",
-      "default": "0px 0px 0px 0px",
-      "info": "Desktop | 1200px | 991px | 767px"
+      "id": "lottie_url_mobile",
+      "label": "Mobile Lottie JSON URL"
     },
     {
-      "type": "text",
-      "id": "margin",
-      "label": "Margin",
-      "default": "80px 0px | | | 36px 0px",
-      "info": "Desktop | 1200px | 991px | 767px"
-    },
-    {
-      "type": "text",
-      "id": "custom_class",
-      "label": "Custom Class"
+      "type": "range",
+      "id": "scroll_height",
+      "label": "Scroll Height (vh)",
+      "min": 100,
+      "max": 500,
+      "step": 50,
+      "default": 300
     }
   ],
   "presets": [
     {
-      "name": "DS Moto Lottie"
+      "name": "DS Scroll Scrub Lottie"
     }
   ]
 }
