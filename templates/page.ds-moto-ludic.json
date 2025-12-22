@@ -34,8 +34,17 @@
         "padding_bottom": 0
       }
     },
+    "test_CP6BXW": {
+      "type": "test",
+      "name": "DS Moto Lottie Scroll",
+      "settings": {
+        "layout": "box_width",
+        "scroll_height": 300
+      }
+    },
     "ludic_moto_lottie_JnCePE": {
       "type": "ludic-moto-lottie",
+      "disabled": true,
       "name": "DS Moto Lottie",
       "settings": {
         "layout": "full-width",
@@ -79,6 +88,7 @@
   "order": [
     "main",
     "footer_video_ekEfCk",
+    "test_CP6BXW",
     "ludic_moto_lottie_JnCePE",
     "ds_moto_img_text_QYcqAN",
     "ds_moto_newsletter_F9HFXa",
