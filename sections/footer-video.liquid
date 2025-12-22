@@ -17,6 +17,16 @@
   .video-section.section-{{ section.id }}-padding {
       position: relative;
   }
+  .video-section.section-{{ section.id }}-padding:before {
+    background: linear-gradient(183.3deg, rgba(26, 26, 26, 0) 27.45%, #1A1A1A 92.18%);
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    content: "";
+    z-index: 5;
+}
   .video-section.section-{{ section.id }}-padding:after {
     content: "";
     background: #1A1A1A4D;
