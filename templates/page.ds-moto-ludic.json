@@ -28,7 +28,7 @@
         "mobile_video": "shopify://files/videos/ds-moto-video.mp4",
         "video_url": "",
         "description": "",
-        "full_width": false,
+        "full_width": true,
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
@@ -38,7 +38,7 @@
       "type": "ludic-moto-lottie",
       "name": "DS Moto Lottie (Player)",
       "settings": {
-        "layout": "box_width",
+        "layout": "full-width",
         "padding": "0px",
         "margin": "0px",
         "custom_class": ""
