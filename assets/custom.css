@@ -2888,4 +2888,9 @@ button.ds-submit-btn {
     font-size: 26px;
     line-height: 26px;
   }
+  .ds_moto_head p {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -.36px;
+  }
 }
