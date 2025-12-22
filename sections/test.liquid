@@ -1,103 +1,102 @@
-{%- if section.settings.layout == 'box_width' -%}
-  {%- assign container = 'container' -%}
-{%- else -%}
-  {%- assign container = 'container-fluid' -%}
-{%- endif -%}
+{% comment %}
+DS Scroll Scrub Lottie – Developer Correct Method
+Uses lottie-web + scroll position mapping
+{% endcomment %}
 
 {%- style -%}
-#shopify-section-{{ section.id }} .ds-lottie-scroll{
-  height: {{ section.settings.scroll_height }}vh; /* 🔥 SCROLL SPACE */
+#shopify-section-{{ section.id }} .ds-scroll-wrapper {
+  height: {{ section.settings.scroll_height }}vh;
   position: relative;
 }
 
-#shopify-section-{{ section.id }} .ds-lottie-sticky{
+#shopify-section-{{ section.id }} .ds-lottie-sticky {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow: hidden;
 }
 
-#shopify-section-{{ section.id }} lottie-player{
+#shopify-section-{{ section.id }} .ds-lottie-container {
   width: 100%;
   height: 100%;
 }
 {%- endstyle -%}
 
-<section class="ludic-section">
-  <div class="{{ container }}">
-    <div
-      id="ds-lottie-scroll-{{ section.id }}"
-      class="ds-lottie-scroll"
-    >
-      <div class="ds-lottie-sticky">
-        <lottie-player
-          id="dsMotoLottie-{{ section.id }}"
-          src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json?v=1766404097"
-          background="transparent"
-          speed="1">
-        </lottie-player>
-      </div>
+<section class="ds-scroll-lottie-section">
+  <div
+    id="ds-scroll-{{ section.id }}"
+    class="ds-scroll-wrapper"
+  >
+    <div class="ds-lottie-sticky">
+      <div
+        id="ds-lottie-{{ section.id }}"
+        class="ds-lottie-container"
+      ></div>
     </div>
   </div>
 </section>
 
-<!-- Lottie Player -->
+<!-- Load lottie-web ONCE -->
 <script>
-if (!window.lottiePlayerLoaded) {
-  window.lottiePlayerLoaded = true;
-  const s = document.createElement("script");
-  s.src = "https://unpkg.com/@lottiefiles/lottie-player@1.7.1/dist/lottie-player.js";
-  s.defer = true;
-  document.head.appendChild(s);
+if (!window.dsLottieWebLoaded) {
+  window.dsLottieWebLoaded = true;
+  const script = document.createElement("script");
+  script.src = "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js";
+  script.defer = true;
+  document.head.appendChild(script);
 }
 </script>
 
-<!-- Scroll → Lottie scrub -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const wrapper = document.getElementById(
-    "ds-lottie-scroll-{{ section.id }}"
-  );
-  const player = document.getElementById(
-    "dsMotoLottie-{{ section.id }}"
-  );
+  const wrapper = document.getElementById("ds-scroll-{{ section.id }}");
+  const container = document.getElementById("ds-lottie-{{ section.id }}");
 
-  if (!wrapper || !player) return;
+  if (!wrapper || !container) return;
 
-  player.addEventListener("ready", () => {
-    const anim = player.getLottie();
-    anim.loop = false;
-    anim.goToAndStop(0, true);
+  function initLottieScroll() {
+    if (!window.lottie) {
+      requestAnimationFrame(initLottieScroll);
+      return;
+    }
 
-    window.addEventListener("scroll", () => {
-      const rect = wrapper.getBoundingClientRect();
-      const progress =
-        1 - rect.bottom / (window.innerHeight + rect.height);
-
-      const clamped = Math.min(Math.max(progress, 0), 1);
-      const frame = clamped * (anim.totalFrames - 1);
-
-      anim.goToAndStop(frame, true);
+    const anim = lottie.loadAnimation({
+      container: container,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: "{{ section.settings.lottie_url }}"
     });
-  });
 
+    anim.addEventListener("DOMLoaded", () => {
+      window.addEventListener("scroll", () => {
+        const rect = wrapper.getBoundingClientRect();
+
+        const progress =
+          1 - rect.bottom / (window.innerHeight + rect.height);
+
+        const clamped = Math.min(Math.max(progress, 0), 1);
+        const frame = clamped * (anim.totalFrames - 1);
+
+        anim.goToAndStop(frame, true);
+      });
+    });
+  }
+
+  initLottieScroll();
 });
 </script>
 
 {% schema %}
 {
-  "name": "DS Moto Lottie Scroll",
+  "name": "DS Scroll Scrub Lottie",
   "settings": [
     {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "default": "box_width",
-      "options": [
-        { "value": "full-width", "label": "Full Width" },
-        { "value": "box_width", "label": "Box Width" }
-      ]
+      "type": "text",
+      "id": "lottie_url",
+      "label": "Lottie JSON URL",
+      "default": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json"
     },
     {
       "type": "range",
@@ -111,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ],
   "presets": [
     {
-      "name": "DS Moto Lottie Scroll"
+      "name": "DS Scroll Scrub Lottie"
     }
   ]
 }
