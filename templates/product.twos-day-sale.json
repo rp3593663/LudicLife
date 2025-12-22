@@ -45,7 +45,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nSlide into cloud-like comfort and all-day support with Ludic Sliders. Built with our <span>Rugged CloudFrame<sup>™</sup></span> material, a recovery EVA footbed, and <span>3x Softness</span> in 2.0, they’re designed to promote muscle recovery and deliver an unwinding experience.</div></div>",
+        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nLooks cool, stays <span>sturdy</span> with durable rubber soles, blending <span>style and comfort</span> with ease.</div></div>",
         "color_scheme": "",
         "padding_top": 96,
         "padding_bottom": 96
