@@ -2801,3 +2801,6 @@ main#MainContent.ds-moto-ludic {
     border-bottom: 1px solid #FFFFFF33;
     margin-bottom: 24px;
 }
+.ds-field svg {
+    min-width: 24px;
+}
