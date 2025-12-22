@@ -122,44 +122,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!section || !lottiePlayer) return;
 
-  function initStickyLottie() {
-    if (!window.gsap || !window.ScrollTrigger || !lottiePlayer.getLottie) {
-      setTimeout(initStickyLottie, 100);
-      return;
-    }
-
+  function initScrollLottie(lottieAnim) {
     gsap.registerPlugin(ScrollTrigger);
 
-    const lottieAnim = lottiePlayer.getLottie();
     lottieAnim.loop = false;
+    lottieAnim.goToAndStop(0, true);
 
     const totalFrames = lottieAnim.totalFrames;
-    const frameRate = lottieAnim.frameRate || 60;
-    const duration = totalFrames / frameRate;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${duration * 1000}`,
-        scrub: true,
-        pin: true,
-        anticipatePin: 1
-      }
-    });
-
-    tl.to({}, {
-      duration: duration,
-      onUpdate: function () {
-        const frame = Math.floor(tl.progress() * totalFrames);
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top top",           // ✅ start immediately
+      end: `+=${totalFrames}`,    // ✅ exact scroll = frames
+      scrub: true,
+      pin: true,
+      pinSpacing: false,          // ✅ no gap after animation
+      anticipatePin: 1,
+      onUpdate: self => {
+        const frame = Math.round(self.progress * (totalFrames - 1));
         lottieAnim.goToAndStop(frame, true);
       }
     });
+
+    // IMPORTANT: refresh after setup
+    ScrollTrigger.refresh();
   }
 
-  initStickyLottie();
+  // 🔥 WAIT FOR LOTTIE TO BE READY
+  lottiePlayer.addEventListener("ready", () => {
+    const lottieAnim = lottiePlayer.getLottie();
+    if (lottieAnim) {
+      initScrollLottie(lottieAnim);
+    }
+  });
+
 });
 </script>
+
 
 {% schema %}
 {
