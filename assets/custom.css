@@ -2734,3 +2734,6 @@ a#HeaderMenu-twos-day-sale {
 .template-page.template-page\.ds-moto-ludic .header-wrapper {
     background-color: #ffffff00 !important;
 }
+main#MainContent.ds-moto-ludic {
+    margin-top: -74px;
+}
