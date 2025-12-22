@@ -41,32 +41,10 @@
             "text_alignment_mobile": "center",
             "varaint_product_id": []
           }
-        },
-        "slide_CDQEbi": {
-          "type": "slide",
-          "settings": {
-            "slide_custom_class": "",
-            "banner_url": "",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "mobile_subheading": "",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
         }
       },
       "block_order": [
-        "slide_RmGQBM",
-        "slide_CDQEbi"
+        "slide_RmGQBM"
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
@@ -79,21 +57,10 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
-    },
-    "ludic_moto_lottie_KrFfwT": {
-      "type": "ludic-moto-lottie",
-      "name": "DS Moto Lottie",
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "80px 0px | | | 36px 0px",
-        "custom_class": ""
-      }
     }
   },
   "order": [
     "main",
-    "slideshow_pEH7Yk",
-    "ludic_moto_lottie_KrFfwT"
+    "slideshow_pEH7Yk"
   ]
 }
