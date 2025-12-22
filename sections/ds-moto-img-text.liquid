@@ -8,8 +8,8 @@
   <div class="{{ container }}">
     <div class="ds-moto-inner">
       <div class="ds-moto-images">
-        <img class="moto-img img-1" src="{{ section.settings.image_1 }}" alt="">
-        <img class="moto-img img-2" src="{{ section.settings.image_2 }}" alt="">
+        <img class="moto-img img-1" src="{{ section.settings.image_1 | image_url }}" alt="">
+        <img class="moto-img img-2" src="{{ section.settings.image_2  | image_url }}" alt="">
       </div>
 
       <div class="ds-moto-text">
