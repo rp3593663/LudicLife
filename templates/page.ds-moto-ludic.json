@@ -34,6 +34,15 @@
         "padding_bottom": 0
       }
     },
+    "ludic_moto_lottie_t66H6L": {
+      "type": "ludic-moto-lottie",
+      "name": "DS Scroll Scrub Lottie",
+      "settings": {
+        "lottie_url_desktop": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-lottie.json?v=1766407422",
+        "lottie_url_mobile": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json?v=1766404097",
+        "scroll_height": 500
+      }
+    },
     "ds_moto_img_text_QYcqAN": {
       "type": "ds-moto-img-text",
       "name": "DS Moto Animated",
@@ -59,6 +68,7 @@
   "order": [
     "main",
     "ds_video_8qmYKY",
+    "ludic_moto_lottie_t66H6L",
     "ds_moto_img_text_QYcqAN",
     "ds_moto_newsletter_F9HFXa"
   ]
