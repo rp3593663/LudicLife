@@ -2763,6 +2763,7 @@ main#MainContent.ds-moto-ludic {
     display: grid;
     gap: 12px;
     text-align: center;
+    margin-bottom: 70px;
 }
 .ds_moto_head h5 {
     font-weight: 600;
