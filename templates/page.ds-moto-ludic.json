@@ -73,7 +73,7 @@
         "video": "shopify://files/videos/footer_video.mp4",
         "mobile_video": "shopify://files/videos/footer_video.mp4",
         "padding": "0px 0px 0px 0px",
-        "margin": "0",
+        "margin": "0px",
         "custom_class": ""
       }
     }
