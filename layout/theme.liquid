@@ -1813,19 +1813,25 @@ document.addEventListener('DOMContentLoaded', () => {
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
   const soundToggle = document.getElementById('soundToggle');
   const audio = document.getElementById('backgroundAudio');
 
-  soundToggle.addEventListener('click', () => {
+  // ✅ Exit if elements do not exist on this page
+  if (!soundToggle || !audio) return;
+
+  soundToggle.addEventListener('click', function () {
     if (audio.paused) {
-      audio.play();
+      audio.play().catch(() => {}); // prevents autoplay errors
       soundToggle.classList.remove('paused');
     } else {
       audio.pause();
       soundToggle.classList.add('paused');
     }
   });
+});
 </script>
+
 
 <script>
   $(document).ready(function () {
