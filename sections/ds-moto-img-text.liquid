@@ -101,9 +101,14 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
+  if (!window.gsap || !window.ScrollTrigger) return;
+
   gsap.registerPlugin(ScrollTrigger);
 
-  const section = document.querySelector("#ds-moto-{{ section.id }}");
+  const section = document.getElementById("ds-moto-{{ section.id }}");
+  if (!section) return;
+
   const img1 = section.querySelector(".img-1");
   const img2 = section.querySelector(".img-2");
   const text = section.querySelector(".ds-moto-text");
@@ -111,63 +116,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
-      start: "top 75%",
-      toggleActions: "play none none none"
+      start: "top bottom-=100", // 🔥 KEY FIX
+      once: true
+      // markers: true // enable if you want to debug
     }
   });
 
   tl.fromTo(img1,
-    {
-      x: -200,
-      y: -200,
-      scale: 0.8,
-      rotate: 0,
-      opacity: 0
-    },
-    {
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotate: 0,
-      opacity: 1,
-      duration: 1,
-      ease: "power3.out"
-    }
+    { x: -200, y: -200, opacity: 0 },
+    { x: 0, y: 0, opacity: 1, duration: 1, ease: "power3.out" }
   )
   .fromTo(img2,
-    {
-      x: 200,
-      y: -200,
-      scale: 0.8,
-      rotate: 0,
-      opacity: 0
-    },
-    {
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotate: 2,
-      opacity: 1,
-      duration: 1,
-      ease: "power3.out"
-    },
+    { x: 200, y: -200, opacity: 0 },
+    { x: 0, y: 0, rotate: 2, opacity: 1, duration: 1, ease: "power3.out" },
     "-=0.6"
   )
   .fromTo(text,
-    {
-      y: 40,
-      opacity: 0
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out"
-    },
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
     "-=0.4"
   );
+
+  /* 🔥 FORCE recalculation AFTER scroll-scrub section */
+  setTimeout(() => {
+    ScrollTrigger.refresh(true);
+    window.dispatchEvent(new Event("scroll"));
+  }, 500);
+
 });
 </script>
+
+
 
 {% schema %}
 {
