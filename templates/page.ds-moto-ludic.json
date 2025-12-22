@@ -38,7 +38,8 @@
       "type": "test",
       "name": "DS Scroll Scrub Lottie",
       "settings": {
-        "lottie_url": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json",
+        "lottie_url_desktop": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-lottie.json?v=1766407422",
+        "lottie_url_mobile": "https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json?v=1766404097",
         "scroll_height": 500
       }
     },
