@@ -52,10 +52,10 @@
       {%- endunless -%}
     </div>
     <div class="video-desktop">
-      <a href="https://ludic.life/collections/sliders">{{ section.settings.video | video_tag: autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}</a>
+      {{ section.settings.video | video_tag: autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
     </div>
     <div class="video-mobile">
-      <a href="https://ludic.life/collections/sliders">{{ section.settings.mobile_video | video_tag: image_size: '1100x', autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}</a>
+      {{ section.settings.mobile_video | video_tag: image_size: '1100x', autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
     </div>
   </div>
 </div>
@@ -86,8 +86,6 @@
     object-fit: cover;
     }
   }
-
-
 </style>
 
 {% schema %}
