@@ -96,10 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   tl.fromTo(img1,
     {
-      x: -220,
-      y: -220,
+      x: -200,
+      y: -200,
       scale: 0.8,
-      rotate: -15,
+      rotate: 0,
       opacity: 0
     },
     {
@@ -110,15 +110,14 @@ document.addEventListener("DOMContentLoaded", function () {
       opacity: 1,
       duration: 1,
       ease: "power3.out"
-    },
-    0
+    }
   )
   .fromTo(img2,
     {
-      x: 220,
-      y: -220,
+      x: 200,
+      y: -200,
       scale: 0.8,
-      rotate: 15,
+      rotate: 0,
       opacity: 0
     },
     {
@@ -130,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 1,
       ease: "power3.out"
     },
-    0
+    "-=0.6"
   )
   .fromTo(text,
     {
@@ -140,10 +139,10 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       y: 0,
       opacity: 1,
-      duration: 1,
+      duration: 0.8,
       ease: "power3.out"
     },
-    0
+    "-=0.4"
   );
 });
 </script>
