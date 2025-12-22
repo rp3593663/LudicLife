@@ -76,7 +76,7 @@ section.ludic-section.section--ds-moto-lottie.lottie_frame:after {
         src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-lottie.json?v=1766404097"
         background="transparent"
         speed="1"
-        >
+        autoplay>
       </lottie-player>
     </div>
   </div>
@@ -115,46 +115,51 @@ if (!window.gsapLoaded) {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const shopifySection = document.getElementById("shopify-section-{{ section.id }}");
+  const section = document.querySelector(
+    "#shopify-section-{{ section.id }} .section--ds-moto-lottie"
+  );
   const lottiePlayer = document.getElementById("dsMotoLottie-{{ section.id }}");
 
-  if (!shopifySection || !lottiePlayer) return;
+  if (!section || !lottiePlayer) return;
 
-  function initScrollLottie(lottieAnim) {
+  function initStickyLottie() {
+    if (!window.gsap || !window.ScrollTrigger || !lottiePlayer.getLottie) {
+      setTimeout(initStickyLottie, 100);
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
+    const lottieAnim = lottiePlayer.getLottie();
     lottieAnim.loop = false;
-    lottieAnim.goToAndStop(0, true);
 
     const totalFrames = lottieAnim.totalFrames;
+    const frameRate = lottieAnim.frameRate || 60;
+    const duration = totalFrames / frameRate;
 
-    ScrollTrigger.create({
-      trigger: shopifySection,
-      start: "top top",
-      end: () => `+=${window.innerHeight * 3}`, // 🔥 SLOW animation
-      scrub: 0.6,                               // 🔥 smooth inertia
-      pin: true,
-      pinSpacing: true,
-      anticipatePin: 1,
-      onUpdate: self => {
-        const frame = Math.floor(self.progress * (totalFrames - 1));
-        lottieAnim.goToAndStop(frame, true);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: `+=${duration * 1000}`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
       }
     });
 
-    ScrollTrigger.refresh();
+    tl.to({}, {
+      duration: duration,
+      onUpdate: function () {
+        const frame = Math.floor(tl.progress() * totalFrames);
+        lottieAnim.goToAndStop(frame, true);
+      }
+    });
   }
 
-  lottiePlayer.addEventListener("ready", () => {
-    const anim = lottiePlayer.getLottie();
-    if (anim) initScrollLottie(anim);
-  });
-
+  initStickyLottie();
 });
 </script>
-
-
-
 
 {% schema %}
 {
