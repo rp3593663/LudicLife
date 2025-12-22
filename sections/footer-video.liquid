@@ -14,7 +14,7 @@
     }
   }
 
-  .video-section:after {
+  .video-section.section-{{ section.id }}-padding:after {
       content: "";
       background: #1A1A1A4D;
       backdrop-filter: blur(5px);
@@ -24,6 +24,15 @@
       width: 100%;
       height: 100%;
   }
+  .video-section.section-{{ section.id }}-padding :after {
+    content: "";
+    background: #1A1A1A4D;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 {%- endstyle -%}
 
 {%- liquid
