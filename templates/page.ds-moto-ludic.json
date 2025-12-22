@@ -38,7 +38,7 @@
       "type": "ludic-moto-lottie",
       "name": "DS Moto Lottie",
       "settings": {
-        "layout": "box_width",
+        "layout": "full-width",
         "padding": "0px 0px 0px 0px",
         "margin": "80px 0px | | | 36px 0px",
         "custom_class": ""
@@ -48,7 +48,7 @@
       "type": "ds-moto-img-text",
       "name": "DS Moto Animated",
       "settings": {
-        "layout": "box_width",
+        "layout": "full-width",
         "image_1": "shopify://shop_images/Group_1_88a2f417-bf71-4d1a-b854-dd53db9a58ad.png",
         "image_2": "shopify://shop_images/Group.png",
         "text": "<p>Family drives. Racing dreams. Late-night speed stories. The obsession stayed with us.<br/>Now it's taking shape.</p>",
