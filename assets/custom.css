@@ -2785,3 +2785,7 @@ main#MainContent.ds-moto-ludic {
     text-align: center;
     vertical-align: middle;
 }
+.ds_moto_newsletter_form {
+    max-width: 576px;
+    margin: auto;
+}
