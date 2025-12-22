@@ -25,6 +25,7 @@
         "heading_size": "h1",
         "enable_video_looping": true,
         "video": "shopify://files/videos/ds-moto-video.mp4",
+        "mobile_video": "shopify://files/videos/ds-moto-video.mp4",
         "video_url": "",
         "description": "",
         "full_width": false,
