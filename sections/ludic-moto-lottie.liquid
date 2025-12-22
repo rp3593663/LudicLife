@@ -1,88 +1,120 @@
 {%- if section.settings.layout == 'box_width' -%}
-	{%- assign container = 'container' -%}
+  {%- assign container = 'container' -%}
 {%- endif -%}
-{% assign padding 	= section.settings.padding | split: "|" %}
-{% assign margin 	= section.settings.margin | split: "|" %}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin  | split: "|" %}
 
 {%- style -%}
+#shopify-section-{{ section.id }} .section--ds-moto-lottie{
+  {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+  {%- if margin[0]  != blank -%} margin:  {{ margin[0] }};  {%- endif -%}
+}
 
+@media (max-width:1199px){
   #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-    {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
-    {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+    {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+    {%- if margin[1]  != blank -%} margin:  {{ margin[1] }};  {%- endif -%}
   }
+}
 
-  @media (max-width:1199px){
-      #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-        {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
-        {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
-			}
-    }
-
-  @media (max-width:991px){
-      #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-        {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
-        {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
-			}
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
+    {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+    {%- if margin[2]  != blank -%} margin:  {{ margin[2] }};  {%- endif -%}
   }
+}
 
-  @media (max-width:767px){
-      #shopify-section-{{ section.id }} .section--ds-moto-lottie{
-        {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
-        {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
-			}
-    }
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--ds-moto-lottie{
+    {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+    {%- if margin[3]  != blank -%} margin:  {{ margin[3] }};  {%- endif -%}
+  }
+}
 
+.ds-moto-lottie{
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
 {%- endstyle -%}
-
-
 
 <section class="ludic-section ludic-section-{{ section.id }} section--ds-moto-lottie {{ section.settings.custom_class }}">
   <div class="{{ container }}">
-   
+    <div
+      id="ds-moto-lottie-{{ section.id }}"
+      class="ds-moto-lottie"
+      data-lottie-url="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/track.json?v=1766381217">
+    </div>
   </div>
 </section>
 
+{% javascript %}
+(function () {
 
+  function loadScript(src, callback) {
+    if (document.querySelector('script[src="' + src + '"]')) {
+      callback();
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = src;
+    s.onload = callback;
+    document.head.appendChild(s);
+  }
+
+  function initLottie() {
+    var container = document.getElementById("ds-moto-lottie-{{ section.id }}");
+    if (!container || typeof lottie === "undefined") return;
+
+    lottie.loadAnimation({
+      container: container,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: container.dataset.lottieUrl
+    });
+  }
+
+  loadScript(
+    "https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js",
+    initLottie
+  );
+
+})();
+{% endjavascript %}
 
 {% schema %}
-  {
+{
   "name": "DS Moto Lottie",
   "settings": [
     {
-        "type": "select",
-        "id": "layout",
-        "options": [
-          {
-            "value": "full-width",
-            "label": "Full Width"
-          },
-          {
-            "value": "box_width",
-            "label": "Box Width"
-          }
-        ],
-        "label": "Layout",
-        "default": "box_width"
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
     },
     {
-        "type": "text",
-        "id": "padding",
-        "label": "Padding",
-        "default": "0px 0px 0px 0px",
-        "placeholder": "top right bottom right",
-        "info":"Screen: desktop | 1200px | 991px | 767px"
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
     },
     {
-        "type": "text",
-        "id": "margin",
-        "label": "Margin",
-        "default": "80px 0px | | | 36px 0px",
-        "placeholder": "top right bottom right",
-        "info":"Screen: desktop | 1200px | 991px | 767px"
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
     },
     {
-        "type": "header",
-        "content": "=== General Settings"
+      "type": "header",
+      "content": "General"
     },
     {
       "type": "text",
@@ -91,13 +123,9 @@
     }
   ],
   "presets": [
-  {
-  "name": "DS Moto Lottie"
-  }
+    {
+      "name": "DS Moto Lottie"
+    }
   ]
-  }
+}
 {% endschema %}
-{% stylesheet %}
-{% endstylesheet %}
-{% javascript %}
-{% endjavascript %}
