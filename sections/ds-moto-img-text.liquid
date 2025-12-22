@@ -1,8 +1,3 @@
-{% comment %}
-DS Moto Animated Section
-Plays AFTER scroll-scrub lottie
-{% endcomment %}
-
 <section
   id="ds-moto-{{ section.id }}"
   class="ds-moto-animate {{ section.settings.custom_class }}"
@@ -10,16 +5,8 @@ Plays AFTER scroll-scrub lottie
   <div class="container">
     <div class="ds-moto-inner">
       <div class="ds-moto-images">
-        <img
-          class="moto-img img-1"
-          src="{{ section.settings.image_1 | image_url }}"
-          alt=""
-        >
-        <img
-          class="moto-img img-2"
-          src="{{ section.settings.image_2 | image_url }}"
-          alt=""
-        >
+        <img class="moto-img img-1" src="{{ section.settings.image_1 | image_url }}">
+        <img class="moto-img img-2" src="{{ section.settings.image_2 | image_url }}">
       </div>
 
       <div class="ds-moto-text">
@@ -55,15 +42,13 @@ Plays AFTER scroll-scrub lottie
   height: 220px;
 }
 
-.ds-moto-images .moto-img {
+.moto-img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   opacity: 0;
 }
 
-.ds-moto-images .img-2 {
+.img-2 {
   top: -10px;
   left: 52px;
 }
@@ -79,11 +64,7 @@ Plays AFTER scroll-scrub lottie
 
 @media (max-width: 767px) {
   .ds-moto-inner { gap: 48px; }
-  .ds-moto-text {
-    font-size: 16px;
-    line-height: 24px;
-    max-width: 300px;
-  }
+  .ds-moto-text { font-size: 16px; line-height: 24px; }
 }
 </style>
 
@@ -101,14 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const img2 = section.querySelector(".img-2");
   const text = section.querySelector(".ds-moto-text");
 
-  gsap.timeline({
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
-      start: "top 75%",
+      start: "top bottom-=100", // 🔥 KEY FIX
       once: true
+      // markers: true // enable if you want to debug
     }
-  })
-  .fromTo(img1,
+  });
+
+  tl.fromTo(img1,
     { x: -200, y: -200, opacity: 0 },
     { x: 0, y: 0, opacity: 1, duration: 1, ease: "power3.out" }
   )
@@ -123,10 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "-=0.4"
   );
 
-  /* Critical refresh after lottie section */
+  /* 🔥 FORCE recalculation AFTER scroll-scrub section */
   setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 300);
+    ScrollTrigger.refresh(true);
+    window.dispatchEvent(new Event("scroll"));
+  }, 500);
 
 });
 </script>
@@ -135,31 +119,13 @@ document.addEventListener("DOMContentLoaded", function () {
 {
   "name": "DS Moto Animated",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image_1",
-      "label": "Image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Image 2"
-    },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text"
-    },
-    {
-      "type": "text",
-      "id": "custom_class",
-      "label": "Custom class"
-    }
+    { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+    { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" }
   ],
   "presets": [
-    {
-      "name": "DS Moto Animated"
-    }
+    { "name": "DS Moto Animated" }
   ]
 }
 {% endschema %}
