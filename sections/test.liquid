@@ -103,4 +103,59 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function o
+  function onScroll() {
+    if (!anim) return;
+
+    const rect = wrapper.getBoundingClientRect();
+    const progress =
+      1 - rect.bottom / (window.innerHeight + rect.height);
+
+    const clamped = Math.min(Math.max(progress, 0), 1);
+    const frame = clamped * (anim.totalFrames - 1);
+
+    anim.goToAndStop(frame, true);
+  }
+
+  // Init
+  initLottie();
+
+  // Re-init on breakpoint change
+  window.addEventListener("resize", () => {
+    clearTimeout(window.__dsLottieResize);
+    window.__dsLottieResize = setTimeout(initLottie, 200);
+  });
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "DS Scroll Scrub Lottie",
+  "settings": [
+    {
+      "type": "text",
+      "id": "lottie_url_desktop",
+      "label": "Desktop Lottie JSON URL"
+    },
+    {
+      "type": "text",
+      "id": "lottie_url_mobile",
+      "label": "Mobile Lottie JSON URL"
+    },
+    {
+      "type": "range",
+      "id": "scroll_height",
+      "label": "Scroll Height (vh)",
+      "min": 100,
+      "max": 500,
+      "step": 50,
+      "default": 300
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Scroll Scrub Lottie"
+    }
+  ]
+}
+{% endschema %}
