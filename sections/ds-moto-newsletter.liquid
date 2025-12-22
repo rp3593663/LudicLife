@@ -52,62 +52,65 @@
             <p>`Speed never killed anyone, Suddenly becoming stationery.</p>
         </div>
         <div class="ds_moto_newsletter_form">
-            {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                <input type="hidden" name="contact[tags]" value="newsletter">
-                <div class="newsletter-form__field-wrapper">
-                <div class="field">
+            {%- form 'customer', id: 'DSMotoNewsletter', class: 'ds-moto-form' -%}
+
+                <!-- Tags -->
+                <input type="hidden" name="contact[tags]" value="Ludic-Moto">
+
+                <!-- Full Name -->
+                <div class="ds-field">
+                    <label>Full name*</label>
+                    <input type="text" name="contact[name]" required placeholder="Enter full name">
+                </div>
+
+                <!-- Email -->
+                <div class="ds-field">
+                    <label>Email*</label>
+                    <input type="email" name="contact[email]" required placeholder="Enter email address">
+                </div>
+
+                <!-- Phone -->
+                <div class="ds-field">
+                    <label>Phone*</label>
+                    <input type="tel" name="contact[phone]" required placeholder="Enter phone number">
+                </div>
+
+                <!-- Instagram Username -->
+                <div class="ds-field">
+                    <label>Instagram username (optional)</label>
                     <input
-                    id="NewsletterForm--{{ section.id }}"
-                    type="email"
-                    name="contact[email]"
-                    class="field__input"
-                    value="{{ form.email }}"
-                    aria-required="true"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    autocomplete="email"
-                    {% if form.errors %}
-                        autofocus
-                        aria-invalid="true"
-                        aria-describedby="ContactFooter-error"
-                    {% elsif form.posted_successfully? %}
-                        aria-describedby="ContactFooter-success"
-                    {% endif %}
-                    placeholder="Enter email address"
-                    required
-                    >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                    Enter email address
+                    type="text"
+                    name="contact[note][instagram]"
+                    placeholder="@username"
+                    oninput="document.getElementById('instaTag-{{ section.id }}').value = this.value ? 'Instagram_' + this.value.replace('@','') : '';">
+                </div>
+
+                <!-- Dynamic Instagram Tag -->
+                <input type="hidden" id="instaTag-{{ section.id }}" name="contact[tags]">
+
+                <!-- Privacy Checkbox -->
+                <div class="ds-privacy">
+                    <label>
+                    <input type="checkbox" name="privacy" checked required>
+                    By signing up, you agree to Ludic Privacy and Cookie Policy.
                     </label>
-                    <button
-                    type="submit"
-                    class="newsletter-form__button field__button"
-                    name="commit"
-                    id="Subscribe"
-                    aria-label="{{ 'newsletter.button_label' | t }}"
-                    >
-                    {% render 'icon-arrow' %}
-                    </button>
                 </div>
-                {%- if form.errors -%}
-                    <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                    {%- render 'icon-error' -%}
-                    {{- form.errors.translated_fields.email | capitalize }}
-                    {{ form.errors.messages.email -}}
-                    </small>
-                {%- endif -%}
-                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="ds-submit-btn">
+                    Submit
+                </button>
+
                 {%- if form.posted_successfully? -%}
-                <h3
-                    class="newsletter-form__message newsletter-form__message--success form__message"
-                    id="ContactFooter-success"
-                    tabindex="-1"
-                    autofocus
-                >
-                    {{- 'newsletter.success' | t }}
-                </h3>
+                    <p class="form-success">Thanks for joining the waitlist!</p>
                 {%- endif -%}
+
+                {%- if form.errors -%}
+                    <p class="form-error">{{ form.errors | default_errors }}</p>
+                {%- endif -%}
+
             {%- endform -%}
+
         </div>
     </div>
   </div>
