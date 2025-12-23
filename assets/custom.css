@@ -2869,7 +2869,7 @@ button.ds-submit-btn {
 }
 .below_svg {
   display: inline-block;
-  animation: arrowBounce 1.5s infinite;
+  animation: arrowBounce 2s infinite;
 }
 
 @keyframes arrowBounce {
@@ -2879,7 +2879,7 @@ button.ds-submit-btn {
   }
   50% {
     transform: translateY(10px);
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 
