@@ -2860,7 +2860,7 @@ button.ds-submit-btn {
 }
 .ds-privacy a{
   color: #FFFFFF;
-  text-decoration: underline;
+  text-decoration: unset;
 }
 .ds-privacy label {
     display: flex;
