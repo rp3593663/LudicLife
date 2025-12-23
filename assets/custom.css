@@ -2858,6 +2858,10 @@ button.ds-submit-btn {
     vertical-align: middle;
     color: #FFFFFF99;
 }
+.ds-privacy a{
+  color: #FFFFFF;
+  text-decoration: underline;
+}
 .ds-privacy label {
     display: flex;
     align-items: center;
