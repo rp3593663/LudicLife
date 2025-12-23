@@ -2806,7 +2806,7 @@ main#MainContent.ds-moto-ludic {
     max-width: 576px;
     margin: auto;
 }
-.ds-field input {
+.ds-field input, .ds-field select {
     background: unset;
     border: unset;
     padding: 0px;
