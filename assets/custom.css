@@ -2729,7 +2729,9 @@ a#HeaderMenu-twos-day-sale {
 }
 
 
-
+.ls-moto-slider .banner__content {
+    z-index: 2;
+}
 .template-page.template-page\.ds-moto-ludic{
   background: #1a1a1a;
 }
