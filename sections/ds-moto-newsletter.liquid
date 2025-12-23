@@ -146,7 +146,12 @@
                 </div>
 
                 {%- if form.posted_successfully? -%}
-                    <p class="form-success">Thanks for joining the waitlist!</p>
+                    <p class="form-success">
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.2283 5.22827C10.2283 7.98967 7.98974 10.2283 5.22834 10.2283C2.46691 10.2283 0.228336 7.98967 0.228336 5.22827C0.228336 2.46685 2.46691 0.228271 5.22834 0.228271C7.98974 0.228271 10.2283 2.46685 10.2283 5.22827Z" fill="#6BBC3B" stroke="#6BBC3B" stroke-width="0.456675" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      Welcome. Get ready for the drive.
+                    </p>
                 {%- endif -%}
 
                 {%- if form.errors -%}
