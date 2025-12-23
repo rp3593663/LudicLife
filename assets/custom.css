@@ -2732,6 +2732,19 @@ a#HeaderMenu-twos-day-sale {
 .ls-moto-slider .banner__content {
     z-index: 2;
 }
+.ls-moto-slider .banner__buttons a.button {
+    color: #fff;
+    background: #e60013;
+    border-radius: 3px;
+    padding: 11px 35px;
+    letter-spacing: normal;
+    min-height: unset;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: -.6px;
+}
 .template-page.template-page\.ds-moto-ludic{
   background: #1a1a1a;
 }
