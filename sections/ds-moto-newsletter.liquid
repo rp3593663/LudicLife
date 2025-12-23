@@ -160,6 +160,23 @@
   </div>
 </section>
 <script>
+  // Age color toggle
+function updateAgeColor() {
+  if (ageSelect.value === '') {
+    ageSelect.classList.remove('is-selected');
+  } else {
+    ageSelect.classList.add('is-selected');
+  }
+}
+
+ageSelect.addEventListener('change', function () {
+  updateAgeColor();
+  checkFields();
+});
+
+// Initial state
+updateAgeColor();
+
 document.addEventListener('DOMContentLoaded', function () {
   const nameInput  = document.getElementById('ds-name');
   const emailInput = document.getElementById('ds-email');
