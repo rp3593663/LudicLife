@@ -2034,6 +2034,9 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        if (window.location.pathname === "/pages/ds-moto-ludic") {
+          return;
+        }
 
         const popup = document.getElementById("twosDay_promo_popup");
         const closeBtn = document.querySelector(".popup-close");

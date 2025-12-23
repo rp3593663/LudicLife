@@ -12,6 +12,29 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_Jdr8FX": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "ls-moto-slider",
+            "desktop_video": "shopify://files/videos/ls-moto-desktop-new.mp4",
+            "mobile_video": "shopify://files/videos/ls-moto-mobile.mp4",
+            "banner_url": "",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "Discover",
+            "link": "shopify://pages/ds-moto-ludic",
+            "button_style_secondary": false,
+            "box_align": "bottom-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_xbMa3M": {
           "type": "slide",
           "settings": {
@@ -262,6 +285,7 @@
         }
       },
       "block_order": [
+        "slide_Jdr8FX",
         "slide_xbMa3M",
         "slide_LE8H3A",
         "slide_FcnyT8",
@@ -278,7 +302,7 @@
         "slide_height": "adapt_image",
         "slider_visual": "dots",
         "auto_rotate": true,
-        "change_slides_speed": 5,
+        "change_slides_speed": 3,
         "image_behavior": "none",
         "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"

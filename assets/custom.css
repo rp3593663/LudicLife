@@ -2729,7 +2729,22 @@ a#HeaderMenu-twos-day-sale {
 }
 
 
-
+.ls-moto-slider .banner__content {
+    z-index: 2;
+}
+.ls-moto-slider .banner__buttons a.button {
+    color: #fff;
+    background: #e60013;
+    border-radius: 3px;
+    padding: 11px 35px;
+    letter-spacing: normal;
+    min-height: unset;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: -.6px;
+}
 .template-page.template-page\.ds-moto-ludic{
   background: #1a1a1a;
 }
@@ -2806,17 +2821,43 @@ main#MainContent.ds-moto-ludic {
     max-width: 576px;
     margin: auto;
 }
-.ds-field input {
+.ds-field input, .ds-field select {
     background: unset;
     border: unset;
     padding: 0px;
     font-family: Inter;
     font-weight: 400;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 22px;
     letter-spacing: -0.42px;
     color: #FFFFFF;
+    width: 100%;
 }
+.ds-field input::placeholder{
+   color: #FFFFFF99;
+}
+#ds-age {
+  color: #FFFFFF99;
+}
+#ds-age.is-selected {
+  color: #FFFFFF;
+}
+.ds-field select {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.ds-field select option {
+  background-color: #000;
+  color: #fff;
+}
+
+
 .ds-field input:-internal-autofill-selected {
     background-color: unset !important;
     color: #FFFFFF99 !important;
@@ -2868,16 +2909,29 @@ button.ds-submit-btn {
     gap: 6px;
 }
 #DSMotoNewsletter p.form-success {
-    text-align: center;
-    color: #01bb00;
+    color: #6BBC3B;
     font-weight: 600;
+    font-size: 14px;
     margin-top: 20px;
+    background: #434242;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-#DSMotoNewsletter p.form-error{
+#DSMotoNewsletter p.form-success svg {
+    width: 18px;
+    height: 18px;
+}
+#DSMotoNewsletter p.form-error,
+#DSMotoNewsletter .errors ul li{
     text-align: center;
     color: #bb0000;
     font-weight: 600;
     margin-top: 20px;
+}
+#DSMotoNewsletter .errors ul{
+  list-style-type: none;
 }
 .below_svg {
   display: inline-block;
@@ -2896,6 +2950,24 @@ button.ds-submit-btn {
 }
 
 @media(max-width: 767px){
+  .ls-moto-slider .banner__buttons a.button {
+    padding: 10px 30px;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -.5px;
+    margin: 0;
+}
+ .ls-moto-slider .banner__box {
+    top: 86%;
+}
+  #DSMotoNewsletter p.form-success {
+    font-size: 10px;
+    gap: 5px;
+  }
+  #DSMotoNewsletter p.form-success svg {
+    width: 12px;
+    height: 12px;
+  }
   .video_content {
     gap: 20px;
   }
