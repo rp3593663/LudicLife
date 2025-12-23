@@ -28,7 +28,7 @@
         "mobile_video": "shopify://files/videos/MOBILE_53fd67d0-0072-4d52-a779-4ca8c87ca963.mp4",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
-        "full_width": false,
+        "full_width": true,
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
@@ -68,7 +68,7 @@
       "type": "ds-moto-footer-video",
       "name": "DS Moto Footer Video",
       "settings": {
-        "layout": "box_width",
+        "layout": "full-width",
         "enable_video_looping": true,
         "video": "shopify://files/videos/footer_video.mp4",
         "mobile_video": "shopify://files/videos/footer_video.mp4",
