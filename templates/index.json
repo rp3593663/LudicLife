@@ -12,29 +12,6 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
-        "slide_LE8H3A": {
-          "type": "slide",
-          "settings": {
-            "slide_custom_class": "reworked_slide",
-            "image": "shopify://shop_images/desktop_reworked_banner.png",
-            "mobile_image": "shopify://shop_images/mobile_reworked_banner1.png",
-            "banner_url": "shopify://products/re-worked-bundle-black",
-            "heading": "Re:Worked Capsule",
-            "heading_size": "h1",
-            "subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
-            "mobile_subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
-            "button_label": "Discover Re:Worked",
-            "link": "shopify://products/re-worked-bundle-black",
-            "button_style_secondary": false,
-            "box_align": "middle-left",
-            "show_text_box": true,
-            "text_alignment": "left",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
-        },
         "slide_xbMa3M": {
           "type": "slide",
           "settings": {
@@ -52,6 +29,29 @@
             "box_align": "middle-center",
             "show_text_box": true,
             "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_LE8H3A": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "reworked_slide",
+            "image": "shopify://shop_images/desktop_reworked_banner.png",
+            "mobile_image": "shopify://shop_images/mobile_reworked_banner1.png",
+            "banner_url": "shopify://products/re-worked-bundle-black",
+            "heading": "Re:Worked Capsule",
+            "heading_size": "h1",
+            "subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
+            "mobile_subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
+            "button_label": "Discover Re:Worked",
+            "link": "shopify://products/re-worked-bundle-black",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": true,
+            "text_alignment": "left",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
             "text_alignment_mobile": "center",
@@ -262,8 +262,8 @@
         }
       },
       "block_order": [
-        "slide_LE8H3A",
         "slide_xbMa3M",
+        "slide_LE8H3A",
         "slide_FcnyT8",
         "slide_xwDNcy",
         "slide_iBgjiF",

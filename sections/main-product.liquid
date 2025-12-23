@@ -239,8 +239,8 @@
                   {% if template == 'product.twos-day-sale' %}
                     <div class="short_description">
                       <div class="metafield-rich_text_field">
-                        <p>This is gonna be a different game. Slider and Slider 2.0 are in play today. CloudFrame<sup>™</sup> comfort and 3x of that - both up for the bundling. Enjoy this TWOs day BOGO with our selected designs of choice.</p>
-                        <p>Buy 2. At the price of the high-priced one.</p>
+                        <p>This is the brighter side, bringing a celebration vibe -- bold-coded sneakers that are as comfortable as they are smart. Eclipse in a bundle of joy. These make for a great Christmas gift.</p>
+                        <p>Enjoy this TWOsday BOGO with our selected designs of choice.</p>
                       </div>
                     </div>
                   {% else %}
@@ -252,23 +252,22 @@
                   <div class="product__specifications">
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      <span>CloudFrame<sup>™</sup></span>
+                      Vegan Suede
                     </div>
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      EVA Footbed
+                      Durable Sole
                     </div>
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      Cloud Comfort
+                      Sculpted Insoles
                     </div>
                     <div class="specification">
                       <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" alt="askrisk">
-                      Smart Casual
+                      Bold Style
                     </div>
                   </div>
                 {% endif %}
-
 
 
                 {% if template == 'product.twos-day-sale' %}
@@ -313,52 +312,32 @@
                                 <div class="csmodal-content">
                                   <div style="" class="csmodal-heading">
                                     <span class="size-guide-label">Size Guide</span>
-                                    <span class="close-btn">
-                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
-                                      </svg>
-                                    </span>
-                                  </div>
-                                  <div class="csmodal-subheading">
-                                    {{ size_chart1_subheading }}
+                                    <span class="close-btn">&times;</span>
                                   </div>
                                   <div class="cs-modal-inner-content">
-                                    <div class="slider_size_info">
-                                      <div>
-                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
-                                        <p>Regular or Narrow feet?<span>go one size down</span></p>
-                                      </div>
-                                      <div>
-                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
-                                        <p>Wide foot?<span>stick to your usual size.</span></p>
-                                      </div>
-                                    </div>
+                                    {% if size_chart1_img != blank %}
+                                      <img
+                                      src="{{ size_chart1_img | image_url:width:600 }}"
+                                      srcset="{{ size_chart1_img | image_url:width:400 }} 1x, {{ size_chart1_img | image_url:width:800 }} 2x"
+                                      loading="lazy"
+                                      alt="{{ bundle_1_product_title }}"
+                                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                      width=""
+                                      height=""
+                                    >
+                                    {% else %}
+                                    <img
+                                      src="{{ bundle_1_product_img | image_url:width:600 }}"
+                                      srcset="{{ bundle_1_product_img | image_url:width:400 }} 1x, {{ bundle_1_product_img | image_url:width:800 }} 2x"
+                                      loading="lazy"
+                                      alt="{{ bundle_1_product_title }}"
+                                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                      width=""
+                                      height=""
+                                    >
+                                    {% endif %}
                                     <div class="cs-table">
                                       {{ size_chart1_table }}
-                                    </div>
-                                    <div class="slider-instructuions">
-                                      <h4>How to measure</h4>
-                                      <div class="instructuions_steps">
-                                        <div class="measurement_step">
-                                          <h6>Step 1 :</h6>
-                                          <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
-                                        </div>
-                                        <div class="measurement_step">
-                                          <h6>Step 2 :</h6>
-                                          <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
-                                        </div>
-                                        <div class="measurement_step">
-                                          <h6>Step 3 :</h6>
-                                          <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="sizechart_note">
-                                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176">
-                                      <div class="note_text">
-                                        <h6>Not sure about the fit?</h6>
-                                        <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p>
-                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -418,52 +397,32 @@
                                   <div class="csmodal-content">
                                     <div style="" class="csmodal-heading">
                                       <span class="size-guide-label">Size Guide</span>
-                                      <span class="close-btn">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
-                                        </svg>
-                                      </span>
+                                      <span class="close-btn">&times;</span>
                                     </div>
-                                    <div class="csmodal-subheading">
-                                      {{ size_chart2_subheading }}
-                                    </div>  
                                     <div class="cs-modal-inner-content">
-                                      <div class="slider_size_info">
-                                        <div>
-                                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
-                                          <p>Regular or Narrow feet?<span>go one size down</span></p>
-                                        </div>
-                                        <div>
-                                          <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
-                                          <p>Wide foot?<span>stick to your usual size.</span></p>
-                                        </div>
-                                      </div>
+                                      {% if size_chart2_img != blank %}
+                                        <img
+                                        src="{{ size_chart2_img | image_url:width:600 }}"
+                                        srcset="{{ size_chart2_img | image_url:width:400 }} 1x, {{ size_chart2_img | image_url:width:800 }} 2x"
+                                        loading="lazy"
+                                        alt="{{ bundle_2_product_title }}"
+                                        style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                        width=""
+                                        height=""
+                                      >
+                                      {% else %}
+                                      <img
+                                        src="{{ bundle_2_product_img | image_url:width:600 }}"
+                                        srcset="{{ bundle_2_product_img | image_url:width:400 }} 1x, {{ bundle_2_product_img | image_url:width:800 }} 2x"
+                                        loading="lazy"
+                                        alt="{{ bundle_2_product_title }}"
+                                        style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                                        width=""
+                                        height=""
+                                      >
+                                      {% endif %}
                                       <div class="cs-table">
                                         {{ size_chart2_table }}
-                                      </div>
-                                      <div class="slider-instructuions">
-                                        <h4>How to measure</h4>
-                                        <div class="instructuions_steps">
-                                          <div class="measurement_step">
-                                            <h6>Step 1 :</h6>
-                                            <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
-                                          </div>
-                                          <div class="measurement_step">
-                                            <h6>Step 2 :</h6>
-                                            <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
-                                          </div>
-                                          <div class="measurement_step">
-                                            <h6>Step 3 :</h6>
-                                            <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="sizechart_note">
-                                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176">
-                                        <div class="note_text">
-                                          <h6>Not sure about the fit?</h6>
-                                          <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p>
-                                        </div>
                                       </div>
                                     </div>
                                   </div>

@@ -59,7 +59,14 @@
       div#shopify-section-template--24608016695600__fw_new_features_8CadXz {
           overflow: hidden;
       }
+      @font-face {
+        font-family: 'Druk Text Wide Trial';
+        src: url('https://cdn.shopify.com/s/files/1/0823/6787/3328/files/DrukWide-BoldItalic-Trial.otf?v=1766385691') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+      }
     </style>
+
 
     {%- if blank -%}
     <script type="text/javascript">
@@ -1757,75 +1764,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
    // testing by chintan -- Ludic
 </script>
-            
-           
-
-            
+                       
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-  // const targetDate = new Date("July 3, 2025 20:00:00").getTime();
-
-  // const updateCountdown = () => {
-  //   const now = new Date().getTime();
-  //   const timeLeft = targetDate - now;
-
-  //   let days = 0, hours = 0, minutes = 0, seconds = 0;
-
-  //   if (timeLeft > 0) {
-  //     days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  //     hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  //     minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  //     seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-  //   }
-
-  //   // Format with leading zero
-  //   const d = String(days).padStart(2, '0');
-  //   const h = String(hours).padStart(2, '0');
-  //   const m = String(minutes).padStart(2, '0');
-  //   const s = String(seconds).padStart(2, '0');
-
-  //   // Update Block 1 (launch_time)
-  //   const launchDays = document.querySelector('#launch_days p');
-  //   const launchHours = document.querySelector('#launch_hours p');
-  //   const launchMinutes = document.querySelector('#launch_minutes p');
-  //   const launchSeconds = document.querySelector('#launch_seconds p');
-
-  //   if (launchDays) launchDays.textContent = d;
-  //   if (launchHours) launchHours.textContent = h;
-  //   if (launchMinutes) launchMinutes.textContent = m;
-  //   if (launchSeconds) launchSeconds.textContent = s;
-
-  //   // Update Block 2 (timer_block)
-  //   const blockDays = document.querySelector('#days h2');
-  //   const blockHours = document.querySelector('#hours h2');
-  //   const blockMinutes = document.querySelector('#minutes h2');
-  //   const blockSeconds = document.querySelector('#seconds h2');
-
-  //   if (blockDays) blockDays.textContent = d;
-  //   if (blockHours) blockHours.textContent = h;
-  //   if (blockMinutes) blockMinutes.textContent = m;
-  //   if (blockSeconds) blockSeconds.textContent = s;
-  // };
-
-  // updateCountdown(); // Initial call
-  // setInterval(updateCountdown, 1000);
-</script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
+document.addEventListener("DOMContentLoaded", function () {
   const soundToggle = document.getElementById('soundToggle');
   const audio = document.getElementById('backgroundAudio');
 
-  soundToggle.addEventListener('click', () => {
+  // ✅ Exit if elements do not exist on this page
+  if (!soundToggle || !audio) return;
+
+  soundToggle.addEventListener('click', function () {
     if (audio.paused) {
-      audio.play();
+      audio.play().catch(() => {}); // prevents autoplay errors
       soundToggle.classList.remove('paused');
     } else {
       audio.pause();
       soundToggle.classList.add('paused');
     }
   });
+});
 </script>
+
 
 <script>
   $(document).ready(function () {
@@ -2605,41 +2566,43 @@ if (isMobile) {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Target: 19 Nov 2025 - 11:00 AM
-  const targetDate = new Date("December 17, 2025 11:00:00").getTime();
+  // Target: 17 Dec 2025 - 11:00 AM
+  const targetDate = new Date("December 23, 2025 11:00:00").getTime();
 
-  {% comment %} const daysEl = document.querySelector("#days p"); {% endcomment %}
-  const hoursEl = document.querySelector("#hours p");
+  const hoursEl   = document.querySelector("#hours p");
   const minutesEl = document.querySelector("#minuts p");
   const secondsEl = document.querySelector("#seconds p");
 
+  // ✅ Exit if countdown block does not exist on this page
+  if (!hoursEl || !minutesEl || !secondsEl) {
+    return;
+  }
+
   function updateCountdown() {
-    const now = new Date().getTime();
+    const now = Date.now();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      {% comment %} daysEl.textContent = "0"; {% endcomment %}
-      hoursEl.textContent = "0";
-      minutesEl.textContent = "0";
-      secondsEl.textContent = "0";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
       return;
     }
 
-    {% comment %} const days = Math.floor(diff / (1000 * 60 * 60 * 24)); {% endcomment %}
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    {% comment %} daysEl.textContent = days; {% endcomment %}
-    hoursEl.textContent = hours < 10 ? "0" + hours : hours;
+    hoursEl.textContent   = hours < 10 ? "0" + hours : hours;
     minutesEl.textContent = minutes < 10 ? "0" + minutes : minutes;
     secondsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
   }
 
-  setInterval(updateCountdown, 1000);
   updateCountdown();
+  setInterval(updateCountdown, 1000);
 });
 </script>
+
 
 
 
