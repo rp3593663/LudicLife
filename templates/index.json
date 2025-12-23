@@ -16,7 +16,8 @@
           "type": "slide",
           "settings": {
             "slide_custom_class": "ls-moto-slider",
-            "desktop_video": "shopify://files/videos/ls-moto-desktop.mp4",
+            "desktop_video": "shopify://files/videos/ls-moto-desktop-new.mp4",
+            "mobile_video": "shopify://files/videos/ls-moto-mobile.mp4",
             "banner_url": "",
             "heading": "",
             "heading_size": "h1",
