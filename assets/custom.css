@@ -2873,11 +2873,15 @@ button.ds-submit-btn {
     font-weight: 600;
     margin-top: 20px;
 }
-#DSMotoNewsletter p.form-error{
+#DSMotoNewsletter p.form-error,
+#DSMotoNewsletter .errors ul li{
     text-align: center;
     color: #bb0000;
     font-weight: 600;
     margin-top: 20px;
+}
+#DSMotoNewsletter .errors ul{
+  list-style-type: none;
 }
 .below_svg {
   display: inline-block;
