@@ -2818,6 +2818,9 @@ main#MainContent.ds-moto-ludic {
     color: #FFFFFF;
     width: 100%;
 }
+.ds-field input::placeholder{
+   color: #FFFFFF99;
+}
 #ds-age {
   color: #FFFFFF99;
 }
