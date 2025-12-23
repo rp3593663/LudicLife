@@ -39,6 +39,15 @@
     {% if margin[3]  != blank %}margin: {{ margin[3] }};{% endif %}
   }
 }
+.ds-submit-btn.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ds-submit-btn.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 
 {%- endstyle -%}
@@ -132,6 +141,37 @@
     </div>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const nameInput  = document.getElementById('ds-name');
+  const emailInput = document.getElementById('ds-email');
+  const phoneInput = document.getElementById('ds-phone');
+  const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
+
+  function checkFields() {
+    const isFilled =
+      nameInput.value.trim() !== '' &&
+      emailInput.value.trim() !== '' &&
+      phoneInput.value.trim() !== '';
+
+    if (isFilled) {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-disabled');
+      submitBtn.classList.add('is-active'); // extra class when enabled
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-disabled');
+      submitBtn.classList.remove('is-active');
+    }
+  }
+
+  [nameInput, emailInput, phoneInput].forEach(input => {
+    input.addEventListener('input', checkFields);
+  });
+
+  checkFields(); // run once on load
+});
+</script>
 
 
 
