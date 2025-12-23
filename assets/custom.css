@@ -2816,6 +2816,7 @@ main#MainContent.ds-moto-ludic {
     line-height: 14px;
     letter-spacing: -0.42px;
     color: #FFFFFF;
+    width: 100%;
 }
 .ds-field input:-internal-autofill-selected {
     background-color: unset !important;
