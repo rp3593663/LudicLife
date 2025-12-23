@@ -2818,6 +2818,13 @@ main#MainContent.ds-moto-ludic {
     color: #FFFFFF;
     width: 100%;
 }
+#ds-age {
+  color: #FFFFFF99;
+  background-color: #000;
+}
+#ds-age.is-selected {
+  color: #FFFFFF;
+}
 .ds-field select {
   background-color: #1a1a1a;
   color: #fff;
