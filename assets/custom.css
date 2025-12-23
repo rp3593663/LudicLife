@@ -2959,7 +2959,10 @@ button.ds-submit-btn {
     margin: 0;
 }
  .ls-moto-slider .banner__box {
-    top: 86%;
+    top: 88%!important;
+}
+main#MainContent.ds-moto-ludic {
+    margin-top: -58px;
 }
   #DSMotoNewsletter p.form-success {
     font-size: 10px;
