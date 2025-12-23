@@ -60,7 +60,7 @@ section#shopify-section-{{ section.id }} {
 }
 a.floating_join_btn {
     position: fixed;
-    bottom: 0;
+    bottom: -60px; /* start hidden below screen */
     left: 50%;
     transform: translateX(-50%);
     z-index: 999999999;
@@ -69,12 +69,9 @@ a.floating_join_btn {
     font-size: 12px;
     line-height: 12px;
     letter-spacing: -0.6px;
-    text-align: center;
-    vertical-align: middle;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: unset;
     gap: 6px;
     color: #FFF;
     background: #1A1A1AAA;
@@ -84,7 +81,18 @@ a.floating_join_btn {
     border-radius: 8px;
     box-shadow: 0px -1px 1px 1px #0000004A inset;
     backdrop-filter: blur(4.25px);
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s ease;
 }
+
+a.floating_join_btn.show {
+    bottom: 16px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
 @media (max-width: 768px) {
   .video-section.section-{{ section.id }}-padding .video-desktop {
       display: none; 
