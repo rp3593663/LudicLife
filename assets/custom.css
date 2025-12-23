@@ -2737,6 +2737,11 @@ a#HeaderMenu-twos-day-sale {
 .template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main  {
     background-color: #ffffff00 !important;   
 }
+.template-page.template-page\.ds-moto-ludic .scrolled-past-header .header-wrapper,
+.template-page.template-page\.ds-moto-ludic .scrolled-past-header .shopify-section-header-sticky .header-main  {
+    background-color: #ffffff !important;   
+}
+
 .template-page.template-page\.ds-moto-ludic .section-header.shopify-section-group-header-group {
     z-index: 6;
 }
