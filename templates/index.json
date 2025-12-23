@@ -12,6 +12,28 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_Jdr8FX": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "ls-moto-slider",
+            "desktop_video": "shopify://files/videos/ls-moto-desktop.mp4",
+            "banner_url": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "mobile_subheading": "",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_xbMa3M": {
           "type": "slide",
           "settings": {
@@ -52,6 +74,27 @@
             "box_align": "middle-left",
             "show_text_box": true,
             "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_Kj4hBi": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "",
+            "banner_url": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "mobile_subheading": "",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
             "text_alignment_mobile": "center",
@@ -262,8 +305,10 @@
         }
       },
       "block_order": [
+        "slide_Jdr8FX",
         "slide_xbMa3M",
         "slide_LE8H3A",
+        "slide_Kj4hBi",
         "slide_FcnyT8",
         "slide_xwDNcy",
         "slide_iBgjiF",
