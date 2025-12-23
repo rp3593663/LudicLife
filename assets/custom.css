@@ -2951,17 +2951,11 @@ button.ds-submit-btn {
 
 @media(max-width: 767px){
   .ls-moto-slider .banner__buttons a.button {
-    color: #fff;
-    background: #e60013;
-    border-radius: 3px;
-    padding: 11px 35px;
-    letter-spacing: normal;
-    min-height: unset;
+    padding: 10px 30px;
     font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
     line-height: 10px;
     letter-spacing: -.5px;
+    margin: 0;
 }
  .ls-moto-slider .banner__box {
     top: 86%;
