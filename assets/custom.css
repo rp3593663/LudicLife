@@ -2921,8 +2921,8 @@ button.ds-submit-btn {
     gap: 8px;
 }
 #DSMotoNewsletter p.form-success svg {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
 }
 #DSMotoNewsletter p.form-error,
 #DSMotoNewsletter .errors ul li{
