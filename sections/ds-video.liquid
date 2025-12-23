@@ -165,22 +165,21 @@ a.floating_join_btn.show {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("floatingBtn");
-  const target = document.querySelector("#join_waitlist");
+  const target = document.getElementById("join_waitlist");
 
-  const showAfter = 150; // px scroll before showing button
-  const hideOffset = 150; // px before section top
+  const showAfter = 150; // show button after this scroll
 
   function onScroll() {
     const scrollY = window.scrollY;
-    const targetTop = target.offsetTop - hideOffset;
+    const targetTop = target.getBoundingClientRect().top;
 
-    // If we're near or inside the target section → hide
-    if (scrollY >= targetTop) {
+    // If section reaches viewport → hide button
+    if (targetTop <= 0) {
       btn.classList.remove("show");
       return;
     }
 
-    // Else show only after scrolling down a bit
+    // Otherwise show after scrolling down
     if (scrollY > showAfter) {
       btn.classList.add("show");
     } else {
@@ -189,16 +188,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.addEventListener("scroll", onScroll);
-  onScroll(); // run once on load
+  onScroll();
 
-  // Smooth scroll with 100px offset when clicking button
+  // Smooth scroll with 100px offset on click
   btn.addEventListener("click", function (e) {
     e.preventDefault();
-
     const y =
       target.getBoundingClientRect().top +
       window.pageYOffset -
-      hideOffset;
+      100;
 
     window.scrollTo({
       top: y,
@@ -207,6 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
 
 
 
