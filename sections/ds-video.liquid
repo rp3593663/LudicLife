@@ -167,20 +167,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("floatingBtn");
   const target = document.getElementById("join_waitlist");
 
-  const showAfter = 150; // show button after this scroll
+  const showAfter = 150;
+  let isInTarget = false;
+
+  // Observe when target section enters viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        isInTarget = entry.isIntersecting;
+        if (isInTarget) {
+          btn.classList.remove("show");
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.1
+    }
+  );
+
+  observer.observe(target);
 
   function onScroll() {
-    const scrollY = window.scrollY;
-    const targetTop = target.getBoundingClientRect().top;
-
-    // If section reaches viewport → hide button
-    if (targetTop <= 0) {
+    if (isInTarget) {
       btn.classList.remove("show");
       return;
     }
 
-    // Otherwise show after scrolling down
-    if (scrollY > showAfter) {
+    if (window.scrollY > showAfter) {
       btn.classList.add("show");
     } else {
       btn.classList.remove("show");
