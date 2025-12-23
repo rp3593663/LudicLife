@@ -61,8 +61,7 @@
         </div>
         <div class="ds_moto_newsletter_form">
             {%- form 'customer', id: 'DSMotoNewsletter', class: 'ds-moto-form' -%}
- <input type="hidden" name="form_type" value="create_customer">
-  <input type="hidden" name="utf8" value="✓">
+
                 <!-- Tags -->
                 <input type="hidden" name="contact[tags]" value="Ludic-Moto">
 
@@ -102,7 +101,7 @@
                         </clipPath>
                         </defs>
                     </svg>
-                    <input type="tel" id="ds-phone" name="customer[phone]" required placeholder="Enter phone number*" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10"/>
+                    <input type="tel" id="ds-phone" name="contact[note][Phone]" required placeholder="Enter phone number*" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10"/>
 
                 </div>
 
@@ -115,7 +114,7 @@
                     </svg>
                     <input
                     type="text"
-                    name="customer[note][instagram]"
+                    name="contact[note][instagram]"
                     placeholder="Instagram username"
                     oninput="document.getElementById('instaTag-{{ section.id }}').value = this.value ? 'Instagram_' + this.value : '';">
                 </div>
