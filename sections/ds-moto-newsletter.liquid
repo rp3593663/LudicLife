@@ -160,47 +160,35 @@
   </div>
 </section>
 <script>
-  // Age color toggle
-function updateAgeColor() {
-  if (ageSelect.value === '') {
-    ageSelect.classList.remove('is-selected');
-  } else {
-    ageSelect.classList.add('is-selected');
-  }
-}
-
-ageSelect.addEventListener('change', function () {
-  updateAgeColor();
-  checkFields();
-});
-
-// Initial state
-updateAgeColor();
-
 document.addEventListener('DOMContentLoaded', function () {
+
   const nameInput  = document.getElementById('ds-name');
   const emailInput = document.getElementById('ds-email');
   const phoneInput = document.getElementById('ds-phone');
-  const ageSelect = document.getElementById('ds-age');
+  const ageSelect  = document.getElementById('ds-age');
   const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
 
-  // Allow digits only in phone field
-  phoneInput.addEventListener('input', function () {
-    this.value = this.value.replace(/\D/g, '').slice(0, 10);
-    checkFields();
-  });
+  /* ---------- AGE COLOR TOGGLE ---------- */
+  function updateAgeColor() {
+    if (ageSelect.value === '') {
+      ageSelect.classList.remove('is-selected');
+    } else {
+      ageSelect.classList.add('is-selected');
+    }
+  }
 
+  /* ---------- PHONE VALIDATION ---------- */
   function isValidPhone(phone) {
     return /^[0-9]{10}$/.test(phone);
   }
 
+  /* ---------- FORM VALIDATION ---------- */
   function checkFields() {
     const isFilled =
       nameInput.value.trim() !== '' &&
       emailInput.value.trim() !== '' &&
       isValidPhone(phoneInput.value.trim()) &&
       ageSelect.value !== '';
-
 
     if (isFilled) {
       submitBtn.disabled = false;
@@ -213,13 +201,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  [nameInput, emailInput].forEach(input => {
-    input.addEventListener('input', checkFields);
+  /* ---------- EVENTS ---------- */
+
+  nameInput.addEventListener('input', checkFields);
+  emailInput.addEventListener('input', checkFields);
+
+  phoneInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    checkFields();
   });
 
+  ageSelect.addEventListener('change', function () {
+    updateAgeColor();
+    checkFields();
+  });
+
+  /* ---------- INITIAL STATE ---------- */
+  updateAgeColor();
   checkFields();
+
 });
 </script>
+
 
 
 
