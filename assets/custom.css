@@ -2734,8 +2734,16 @@ a#HeaderMenu-twos-day-sale {
   background: #1a1a1a;
 }
 .template-page.template-page\.ds-moto-ludic .header-wrapper,
-.template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main {
-    background-color: #ffffff00 !important;
+.template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main  {
+    background-color: #ffffff00 !important;   
+}
+.template-page.template-page\.ds-moto-ludic .scrolled-past-header .header-wrapper,
+.template-page.template-page\.ds-moto-ludic .scrolled-past-header .shopify-section-header-sticky .header-main  {
+    background-color: #ffffff !important;   
+}
+
+.template-page.template-page\.ds-moto-ludic .section-header.shopify-section-group-header-group {
+    z-index: 6;
 }
 .template-page.template-page\.ds-moto-ludic .container-fluid{
   padding: 0px!important
@@ -2849,6 +2857,10 @@ button.ds-submit-btn {
     text-align: justify;
     vertical-align: middle;
     color: #FFFFFF99;
+}
+.ds-privacy a{
+  color: #FFFFFF;
+  text-decoration: unset;
 }
 .ds-privacy label {
     display: flex;

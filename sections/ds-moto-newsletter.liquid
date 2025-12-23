@@ -52,7 +52,7 @@
 
 {%- endstyle -%}
 
-<section class="ludic-section section--ds-moto-newsletter {{ section.settings.custom_class }}">
+<section class="ludic-section section--ds-moto-newsletter {{ section.settings.custom_class }}" id="join_waitlist">
   <div class="{{ container }}">
     <div class="ds_moto_newsletter_inner">
         <div class="ds_moto_head">
@@ -67,18 +67,20 @@
 
                 <!-- Full Name -->
                 <div class="ds-field">
-                    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.2193 5.15989C14.3277 4.75881 14.2735 4.34688 14.0675 3.98916C13.8614 3.63144 13.5253 3.38211 13.1349 3.27371C12.7337 3.16531 12.3217 3.21951 11.9639 3.42548L8.68918 5.32249V1.55014C8.68918 0.693767 7.99519 0 7.13856 0H7.09521C6.27112 0.0216802 5.59883 0.704607 5.59883 1.5393V5.32249L2.32416 3.44715C1.96633 3.24119 1.54343 3.18699 1.16391 3.29539C0.762712 3.39295 0.437417 3.63144 0.220551 4.01084C-0.202339 4.74797 0.0470458 5.69106 0.784392 6.11382L4.04824 8L0.762717 9.89702C0.415731 10.103 0.155487 10.439 0.0470539 10.8293C-0.050536 11.2412 0.00367396 11.664 0.209697 12.0108C0.426564 12.3577 0.751847 12.607 1.14221 12.7154C1.54341 12.8238 1.96632 12.7696 2.3133 12.5637L5.59883 10.6667V14.4499C5.59883 15.3062 6.29278 16 7.13856 16C7.98434 16 8.67833 15.3062 8.67833 14.4499V10.6775L11.953 12.5637C12.3108 12.7696 12.7337 12.8238 13.1132 12.7154C13.5253 12.607 13.8506 12.3469 14.0566 12C14.2518 11.6531 14.306 11.2304 14.2084 10.8401C14.1 10.439 13.8506 10.1138 13.4928 9.89702L10.2181 7.98916L13.4819 6.10298C13.8397 5.89702 14.1 5.57182 14.2084 5.17073L14.2193 5.15989Z" fill="#F9F9F9"/>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 9.99992C11.841 9.99992 13.3333 8.50753 13.3333 6.66659C13.3333 4.82564 11.841 3.33325 10 3.33325C8.15905 3.33325 6.66667 4.82564 6.66667 6.66659C6.66667 8.50753 8.15905 9.99992 10 9.99992Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M3.33333 16.6667C3.33333 13.3334 6.25 11.6667 10 11.6667C13.75 11.6667 16.6667 13.3334 16.6667 16.6667" stroke="white" stroke-width="1.66667"/>
                     </svg>
-                    <input type="text" id="ds-name" name="contact[first_name]" required placeholder="Enter full name">
+                    <input type="text" id="ds-name" name="contact[first_name]" required placeholder="Enter full name*">
                 </div>
 
                 <!-- Email -->
                 <div class="ds-field">
-                    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.2193 5.15989C14.3277 4.75881 14.2735 4.34688 14.0675 3.98916C13.8614 3.63144 13.5253 3.38211 13.1349 3.27371C12.7337 3.16531 12.3217 3.21951 11.9639 3.42548L8.68918 5.32249V1.55014C8.68918 0.693767 7.99519 0 7.13856 0H7.09521C6.27112 0.0216802 5.59883 0.704607 5.59883 1.5393V5.32249L2.32416 3.44715C1.96633 3.24119 1.54343 3.18699 1.16391 3.29539C0.762712 3.39295 0.437417 3.63144 0.220551 4.01084C-0.202339 4.74797 0.0470458 5.69106 0.784392 6.11382L4.04824 8L0.762717 9.89702C0.415731 10.103 0.155487 10.439 0.0470539 10.8293C-0.050536 11.2412 0.00367396 11.664 0.209697 12.0108C0.426564 12.3577 0.751847 12.607 1.14221 12.7154C1.54341 12.8238 1.96632 12.7696 2.3133 12.5637L5.59883 10.6667V14.4499C5.59883 15.3062 6.29278 16 7.13856 16C7.98434 16 8.67833 15.3062 8.67833 14.4499V10.6775L11.953 12.5637C12.3108 12.7696 12.7337 12.8238 13.1132 12.7154C13.5253 12.607 13.8506 12.3469 14.0566 12C14.2518 11.6531 14.306 11.2304 14.2084 10.8401C14.1 10.439 13.8506 10.1138 13.4928 9.89702L10.2181 7.98916L13.4819 6.10298C13.8397 5.89702 14.1 5.57182 14.2084 5.17073L14.2193 5.15989Z" fill="#F9F9F9"/>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.8333 4.16675H4.16667C3.24619 4.16675 2.5 4.91294 2.5 5.83341V14.1667C2.5 15.0872 3.24619 15.8334 4.16667 15.8334H15.8333C16.7538 15.8334 17.5 15.0872 17.5 14.1667V5.83341C17.5 4.91294 16.7538 4.16675 15.8333 4.16675Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M2.5 5.83325L10 10.8333L17.5 5.83325" stroke="white" stroke-width="1.66667"/>
                     </svg>
-                    <input type="email" id="ds-email" name="contact[email]" required placeholder="Enter email address">
+                    <input type="email" id="ds-email" name="contact[email]" required placeholder="Enter email address*">
                 </div>
 
                 <!-- Phone -->
@@ -99,18 +101,21 @@
                         </clipPath>
                         </defs>
                     </svg>
-                    <input type="tel" id="ds-phone" name="contact[note][Phone]" required placeholder="Enter phone number">
+                    <input type="tel" id="ds-phone" name="contact[note][Phone]" required placeholder="Enter phone number*" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10"/>
+
                 </div>
 
                 <!-- Instagram Username -->
                 <div class="ds-field">
-                    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.2193 5.15989C14.3277 4.75881 14.2735 4.34688 14.0675 3.98916C13.8614 3.63144 13.5253 3.38211 13.1349 3.27371C12.7337 3.16531 12.3217 3.21951 11.9639 3.42548L8.68918 5.32249V1.55014C8.68918 0.693767 7.99519 0 7.13856 0H7.09521C6.27112 0.0216802 5.59883 0.704607 5.59883 1.5393V5.32249L2.32416 3.44715C1.96633 3.24119 1.54343 3.18699 1.16391 3.29539C0.762712 3.39295 0.437417 3.63144 0.220551 4.01084C-0.202339 4.74797 0.0470458 5.69106 0.784392 6.11382L4.04824 8L0.762717 9.89702C0.415731 10.103 0.155487 10.439 0.0470539 10.8293C-0.050536 11.2412 0.00367396 11.664 0.209697 12.0108C0.426564 12.3577 0.751847 12.607 1.14221 12.7154C1.54341 12.8238 1.96632 12.7696 2.3133 12.5637L5.59883 10.6667V14.4499C5.59883 15.3062 6.29278 16 7.13856 16C7.98434 16 8.67833 15.3062 8.67833 14.4499V10.6775L11.953 12.5637C12.3108 12.7696 12.7337 12.8238 13.1132 12.7154C13.5253 12.607 13.8506 12.3469 14.0566 12C14.2518 11.6531 14.306 11.2304 14.2084 10.8401C14.1 10.439 13.8506 10.1138 13.4928 9.89702L10.2181 7.98916L13.4819 6.10298C13.8397 5.89702 14.1 5.57182 14.2084 5.17073L14.2193 5.15989Z" fill="#F9F9F9"/>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.1667 1.66675H5.83333C3.53215 1.66675 1.66667 3.53223 1.66667 5.83341V14.1667C1.66667 16.4679 3.53215 18.3334 5.83333 18.3334H14.1667C16.4679 18.3334 18.3333 16.4679 18.3333 14.1667V5.83341C18.3333 3.53223 16.4679 1.66675 14.1667 1.66675Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M10 13.3334C11.841 13.3334 13.3333 11.841 13.3333 10.0001C13.3333 8.15913 11.841 6.66675 10 6.66675C8.15905 6.66675 6.66667 8.15913 6.66667 10.0001C6.66667 11.841 8.15905 13.3334 10 13.3334Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M14.5833 6.66675C15.2737 6.66675 15.8333 6.1071 15.8333 5.41675C15.8333 4.72639 15.2737 4.16675 14.5833 4.16675C13.893 4.16675 13.3333 4.72639 13.3333 5.41675C13.3333 6.1071 13.893 6.66675 14.5833 6.66675Z" fill="white"/>
                     </svg>
                     <input
                     type="text"
                     name="contact[note][instagram]"
-                    placeholder="Instagram username (optional)"
+                    placeholder="Instagram username"
                     oninput="document.getElementById('instaTag-{{ section.id }}').value = this.value ? 'Instagram_' + this.value : '';">
                 </div>
 
@@ -123,7 +128,7 @@
                 <div class="ds-privacy">
                     <label>
                         <input type="checkbox" name="customer[accepts_sms_marketing]" checked required>
-                        By signing up, you agree to Ludic Privacy and Cookie Policy.
+                        By signing up, you agree to<a href="https://ludic.life/pages/support?hcUrl=%2Fen-US%2Farticles%2Fprivacy-policy-317982">Ludic Privacy Poilicy</a>
                     </label>
                 </div>
 
@@ -148,16 +153,26 @@ document.addEventListener('DOMContentLoaded', function () {
   const phoneInput = document.getElementById('ds-phone');
   const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
 
+  // Allow digits only in phone field
+  phoneInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    checkFields();
+  });
+
+  function isValidPhone(phone) {
+    return /^[0-9]{10}$/.test(phone);
+  }
+
   function checkFields() {
     const isFilled =
       nameInput.value.trim() !== '' &&
       emailInput.value.trim() !== '' &&
-      phoneInput.value.trim() !== '';
+      isValidPhone(phoneInput.value.trim());
 
     if (isFilled) {
       submitBtn.disabled = false;
       submitBtn.classList.remove('is-disabled');
-      submitBtn.classList.add('is-active'); // extra class when enabled
+      submitBtn.classList.add('is-active');
     } else {
       submitBtn.disabled = true;
       submitBtn.classList.add('is-disabled');
@@ -165,13 +180,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  [nameInput, emailInput, phoneInput].forEach(input => {
+  [nameInput, emailInput].forEach(input => {
     input.addEventListener('input', checkFields);
   });
 
-  checkFields(); // run once on load
+  checkFields();
 });
 </script>
+
 
 
 
