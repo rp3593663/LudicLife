@@ -2818,6 +2818,22 @@ main#MainContent.ds-moto-ludic {
     color: #FFFFFF;
     width: 100%;
 }
+.ds-field select {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.ds-field select option {
+  background-color: #000;
+  color: #fff;
+}
+
+
 .ds-field input:-internal-autofill-selected {
     background-color: unset !important;
     color: #FFFFFF99 !important;
