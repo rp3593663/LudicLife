@@ -61,7 +61,8 @@
         </div>
         <div class="ds_moto_newsletter_form">
             {%- form 'customer', id: 'DSMotoNewsletter', class: 'ds-moto-form' -%}
-
+ <input type="hidden" name="form_type" value="create_customer">
+  <input type="hidden" name="utf8" value="✓">
                 <!-- Tags -->
                 <input type="hidden" name="contact[tags]" value="Ludic-Moto">
 
