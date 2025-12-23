@@ -2961,6 +2961,9 @@ button.ds-submit-btn {
  .ls-moto-slider .banner__box {
     top: 88%!important;
 }
+main#MainContent.ds-moto-ludic {
+    margin-top: -58px;
+}
   #DSMotoNewsletter p.form-success {
     font-size: 10px;
     letter-spacing: -0.5px;
