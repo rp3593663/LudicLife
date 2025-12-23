@@ -2939,6 +2939,10 @@ button.ds-submit-btn {
     font-size: 10px;
     gap: 5px;
   }
+  #DSMotoNewsletter p.form-success svg {
+    width: 12px;
+    height: 12px;
+  }
   .video_content {
     gap: 20px;
   }
