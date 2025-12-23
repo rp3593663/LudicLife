@@ -2911,7 +2911,8 @@ button.ds-submit-btn {
 #DSMotoNewsletter p.form-success {
     color: #6BBC3B;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
+    letter-spacing: -0.6px;
     margin-top: 20px;
     background: #434242;
     padding: 8px;
@@ -2962,6 +2963,7 @@ button.ds-submit-btn {
 }
   #DSMotoNewsletter p.form-success {
     font-size: 10px;
+    letter-spacing: -0.5px;
     gap: 5px;
   }
   #DSMotoNewsletter p.form-success svg {
