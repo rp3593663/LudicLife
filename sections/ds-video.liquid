@@ -165,17 +165,49 @@ a.floating_join_btn.show {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("floatingBtn");
-  const showAfter = 150; // px to scroll before showing
+  const target = document.querySelector("#join_waitlist");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > showAfter) {
+  const showAfter = 150; // px scroll before showing button
+  const hideOffset = 100; // px before section top
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const targetTop = target.offsetTop - hideOffset;
+
+    // If we're near or inside the target section → hide
+    if (scrollY >= targetTop) {
+      btn.classList.remove("show");
+      return;
+    }
+
+    // Else show only after scrolling down a bit
+    if (scrollY > showAfter) {
       btn.classList.add("show");
     } else {
       btn.classList.remove("show");
     }
+  }
+
+  window.addEventListener("scroll", onScroll);
+  onScroll(); // run once on load
+
+  // Smooth scroll with 100px offset when clicking button
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const y =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      hideOffset;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    });
   });
 });
 </script>
+
 
 
 {% schema %}
