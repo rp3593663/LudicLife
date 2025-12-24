@@ -133,7 +133,7 @@
                 </div>
 
                 <!-- Submit -->
-                <button type="button" class="ds-submit-btn is-disabled" disabled>
+                <button type="submit" class="ds-submit-btn is-disabled" disabled>
                     Submit
                 </button>
 
@@ -145,23 +145,26 @@
                     </label>
                 </div>
 
-            
-                <p class="form-success">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_346_31797)">
-                    <path d="M12.8345 7.00033C12.8345 10.222 10.2228 12.8337 7.00112 12.8337C3.77946 12.8337 1.16779 10.222 1.16779 7.00033C1.16779 3.77866 3.77946 1.16699 7.00112 1.16699C10.2228 1.16699 12.8345 3.77866 12.8345 7.00033Z" fill="#6BBC3B" stroke="#6BBC3B" stroke-width="0.532787" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M4.37494 7L6.12494 8.75L9.62494 5.25" stroke="white" stroke-width="1.15437" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_346_31797">
-                    <rect width="14" height="14" fill="white"/>
-                    </clipPath>
-                    </defs>
-                  </svg>
-                  Welcome. Get ready for the drive.
-                </p>
-                <p class="form-error">{{ form.errors | default_errors }}</p>
-              
+                {%- if form.posted_successfully? -%}
+                    <p class="form-success">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_346_31797)">
+                        <path d="M12.8345 7.00033C12.8345 10.222 10.2228 12.8337 7.00112 12.8337C3.77946 12.8337 1.16779 10.222 1.16779 7.00033C1.16779 3.77866 3.77946 1.16699 7.00112 1.16699C10.2228 1.16699 12.8345 3.77866 12.8345 7.00033Z" fill="#6BBC3B" stroke="#6BBC3B" stroke-width="0.532787" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.37494 7L6.12494 8.75L9.62494 5.25" stroke="white" stroke-width="1.15437" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_346_31797">
+                        <rect width="14" height="14" fill="white"/>
+                        </clipPath>
+                        </defs>
+                      </svg>
+                      Welcome. Get ready for the drive.
+                    </p>
+                {%- endif -%}
+
+                {%- if form.errors -%}
+                    <p class="form-error">{{ form.errors | default_errors }}</p>
+                {%- endif -%}
 
             {%- endform -%}
 
@@ -171,52 +174,85 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
 
-  const form = document.getElementById('DSMotoNewsletter');
-  const btn  = form.querySelector('.ds-submit-btn');
-  const success = form.querySelector('.form-success');
+  const form      = document.getElementById('DSMotoNewsletter');
+  const submitBtn = form.querySelector('.ds-submit-btn');
+  const successEl = form.querySelector('.form-success');
 
-  const name  = document.getElementById('ds-name');
-  const email = document.getElementById('ds-email');
-  const phone = document.getElementById('ds-phone');
-  const age   = document.getElementById('ds-age');
+  const nameInput  = document.getElementById('ds-name');
+  const emailInput = document.getElementById('ds-email');
+  const phoneInput = document.getElementById('ds-phone');
+  const ageSelect  = document.getElementById('ds-age');
 
-  function valid(){
-    return (
-      name.value.trim() &&
-      email.value.trim() &&
-      age.value &&
-      /^[0-9]{10}$/.test(phone.value)
-    );
+  /* ---------- AGE COLOR TOGGLE ---------- */
+  function updateAgeColor() {
+    ageSelect.classList.toggle('is-selected', ageSelect.value !== '');
   }
 
-  function toggle(){
-    const ok = valid();
-    btn.disabled = !ok;
-    btn.classList.toggle('is-active', ok);
-    btn.classList.toggle('is-disabled', !ok);
+  /* ---------- PHONE VALIDATION ---------- */
+  function isValidPhone(phone) {
+    return /^[0-9]{10}$/.test(phone);
   }
 
-  [name,email,phone].forEach(el => el.addEventListener('input', toggle));
-  age.addEventListener('change', toggle);
+  /* ---------- FORM VALIDATION ---------- */
+  function checkFields() {
+    const isFilled =
+      nameInput.value.trim() !== '' &&
+      emailInput.value.trim() !== '' &&
+      isValidPhone(phoneInput.value.trim()) &&
+      ageSelect.value !== '';
 
-  btn.addEventListener('click', function(){
-    btn.innerText = 'Joining…';
-    btn.disabled = true;
+    submitBtn.disabled = !isFilled;
+    submitBtn.classList.toggle('is-active', isFilled);
+    submitBtn.classList.toggle('is-disabled', !isFilled);
+  }
 
-    form.submit(); // ✅ REAL Shopify submit (no reload)
+  /* ---------- INPUT EVENTS ---------- */
+  nameInput.addEventListener('input', checkFields);
+  emailInput.addEventListener('input', checkFields);
 
-    setTimeout(() => {
-      form.reset();
-      btn.innerText = 'Submit';
-      success.style.display = 'block';
-    }, 800);
+  phoneInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    checkFields();
   });
+
+  ageSelect.addEventListener('change', function () {
+    updateAgeColor();
+    checkFields();
+  });
+
+  /* ---------- AJAX SUBMIT ---------- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    submitBtn.innerText = 'Joining...';
+    submitBtn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(() => {
+      form.reset();
+      submitBtn.style.display = 'none';
+      if (successEl) successEl.style.display = 'flex';
+    })
+    .catch(() => {
+      submitBtn.innerText = 'Try again';
+      submitBtn.disabled = false;
+    });
+  });
+
+  /* ---------- INITIAL ---------- */
+  updateAgeColor();
+  checkFields();
 
 });
 </script>
-
 
 
 
