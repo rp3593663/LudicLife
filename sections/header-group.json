@@ -17,9 +17,9 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "What's Your Drive? Join The Waitlist.",
+            "text": "What's Your Drive? <a href=\"https://ludic.life/pages/ds-moto-ludic\">Join The Waitlist.</a>",
             "mobile_text": "What's Your Drive? Join The Waitlist.",
-            "link": ""
+            "link": "shopify://pages/ds-moto-ludic"
           }
         }
       },
