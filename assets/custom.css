@@ -2972,9 +2972,9 @@ button.ds-submit-btn {
 .ls-moto-slider .banner__buttons{
   margin-top: 0px!important;
 }
-.desktop-text{
+.desktop-text, .mobile-text{
   white-space: nowrap;
-  animation: carSpeedText 4s infinite ease-in-out;
+  animation: carSpeedText 3s infinite ease-in-out;
 }
 @keyframes carSpeedText {
   0% {
