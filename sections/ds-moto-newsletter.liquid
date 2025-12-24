@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   ageSelect.addEventListener('change', checkFields);
+  if (successEl) successEl.style.display = 'none';
 
   /* ---------- AJAX SUBMIT (NO RELOAD) ---------- */
   submitBtn.addEventListener('click', function () {
