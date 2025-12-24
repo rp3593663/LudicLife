@@ -2949,7 +2949,17 @@ button.ds-submit-btn {
     opacity: 0.7;
   }
 }
-
+.ls-moto-slider h2.banner__heading {
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    margin-bottom: 18px;
+}
 @media(max-width: 767px){
   .ls-moto-slider .banner__buttons a.button {
     padding: 10px 30px;
