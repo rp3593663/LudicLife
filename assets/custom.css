@@ -2974,7 +2974,7 @@ button.ds-submit-btn {
 }
 .desktop-text{
   white-space: nowrap;
-  animation: carSpeedText 7s infinite ease-in-out;
+  animation: carSpeedText 2s infinite ease-in-out;
 }
 @keyframes carSpeedText {
   0% {
