@@ -60,7 +60,7 @@
             {% comment %} <p>Speed never killed anyone, Suddenly becoming stationery.</p> {% endcomment %}
         </div>
         <div class="ds_moto_newsletter_form">
-            {%- form 'contact', id: 'DSMotoNewsletter', class: 'ds-moto-form' -%}
+            {%- form 'customer', id: 'DSMotoNewsletter', class: 'ds-moto-form' -%}
 
                 <!-- Tags -->
                 <input type="hidden" name="contact[tags]" value="Ludic-Moto">
@@ -145,8 +145,8 @@
                     </label>
                 </div>
 
-            
-                    <p class="form-success" style="display: none">
+                {%- if form.posted_successfully? -%}
+                    <p class="form-success">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_346_31797)">
                         <path d="M12.8345 7.00033C12.8345 10.222 10.2228 12.8337 7.00112 12.8337C3.77946 12.8337 1.16779 10.222 1.16779 7.00033C1.16779 3.77866 3.77946 1.16699 7.00112 1.16699C10.2228 1.16699 12.8345 3.77866 12.8345 7.00033Z" fill="#6BBC3B" stroke="#6BBC3B" stroke-width="0.532787" stroke-linecap="round" stroke-linejoin="round"/>
@@ -160,7 +160,11 @@
                       </svg>
                       Welcome. Get ready for the drive.
                     </p>
+                {%- endif -%}
 
+                {%- if form.errors -%}
+                    <p class="form-error">{{ form.errors | default_errors }}</p>
+                {%- endif -%}
 
             {%- endform -%}
 
@@ -168,75 +172,69 @@
     </div>
   </div>
 </section>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-
-  const form      = document.getElementById('DSMotoNewsletter');
-  const submitBtn = form.querySelector('.ds-submit-btn');
-  const successEl = form.querySelector('.form-success');
 
   const nameInput  = document.getElementById('ds-name');
   const emailInput = document.getElementById('ds-email');
   const phoneInput = document.getElementById('ds-phone');
   const ageSelect  = document.getElementById('ds-age');
+  const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
 
-  /* ---------- VALIDATION ---------- */
+  /* ---------- AGE COLOR TOGGLE ---------- */
+  function updateAgeColor() {
+    if (ageSelect.value === '') {
+      ageSelect.classList.remove('is-selected');
+    } else {
+      ageSelect.classList.add('is-selected');
+    }
+  }
+
+  /* ---------- PHONE VALIDATION ---------- */
   function isValidPhone(phone) {
     return /^[0-9]{10}$/.test(phone);
   }
 
+  /* ---------- FORM VALIDATION ---------- */
   function checkFields() {
-    const valid =
-      nameInput.value.trim() &&
-      emailInput.value.trim() &&
+    const isFilled =
+      nameInput.value.trim() !== '' &&
+      emailInput.value.trim() !== '' &&
       isValidPhone(phoneInput.value.trim()) &&
-      ageSelect.value;
+      ageSelect.value !== '';
 
-    submitBtn.disabled = !valid;
-    submitBtn.classList.toggle('is-active', valid);
-    submitBtn.classList.toggle('is-disabled', !valid);
+    if (isFilled) {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-disabled');
+      submitBtn.classList.add('is-active');
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-disabled');
+      submitBtn.classList.remove('is-active');
+    }
   }
 
-  /* ---------- INPUT EVENTS ---------- */
-  [nameInput, emailInput].forEach(el =>
-    el.addEventListener('input', checkFields)
-  );
+  /* ---------- EVENTS ---------- */
+
+  nameInput.addEventListener('input', checkFields);
+  emailInput.addEventListener('input', checkFields);
 
   phoneInput.addEventListener('input', function () {
     this.value = this.value.replace(/\D/g, '').slice(0, 10);
     checkFields();
   });
 
-  ageSelect.addEventListener('change', checkFields);
-
-  /* ---------- AJAX SUBMIT (NO RELOAD) ---------- */
-  submitBtn.addEventListener('click', function () {
-
-    submitBtn.innerText = 'Joining...';
-    submitBtn.disabled = true;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(() => {
-      form.reset();
-      submitBtn.style.display = 'none';
-      if (successEl) successEl.style.display = 'flex';
-    })
-    .catch(() => {
-      submitBtn.innerText = 'Try again';
-      submitBtn.disabled = false;
-    });
+  ageSelect.addEventListener('change', function () {
+    updateAgeColor();
+    checkFields();
   });
 
+  /* ---------- INITIAL STATE ---------- */
+  updateAgeColor();
   checkFields();
+
 });
 </script>
-
-
 
 
 
