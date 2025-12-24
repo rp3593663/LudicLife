@@ -2090,6 +2090,52 @@ document.addEventListener("DOMContentLoaded", function () {
 <!--twosDay_promo_popup End-->
 
 
+<!--twosDay_promo_popup Start-->
+
+    <div id="ds_moto_popup" style="display: none;">
+      <div class="ds_moto_popup-overlay"> </div>
+      <div class="ds_moto_popup-box">
+        <button class="popup-close">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.8999 0.899902L0.899902 10.8999M0.899902 0.899902L10.8999 10.8999" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <h2>What's your drive?</h2>
+        <button id="popup-cta" class="popup-cta-btn">Don't miss out</button>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        const popup = document.getElementById("twosDay_promo_popup");
+        const closeBtn = document.querySelector(".popup-close");
+        const ctaBtn = document.getElementById("popup-cta");
+
+        const sessionClosed = sessionStorage.getItem("DsPopupClosed");
+        const permanentlyClosed = localStorage.getItem("DsPopupDontShow");
+
+        // Show popup only if within IST time range + no close history
+        if (!sessionClosed && !permanentlyClosed) { 
+          setTimeout(() => popup.style.display = "flex", Math.random() * 2000 + 3000);
+        } 
+
+        closeBtn.addEventListener("click", () => {
+          popup.style.display = "none";
+          sessionStorage.setItem("DsPopupClosed", "true");
+        });
+
+        ctaBtn.addEventListener("click", () => {
+          popup.style.display = "none";
+          localStorage.setItem("DsPopupDontShow", "true");
+          window.location.href = 'https://ludic.life/pages/ds-moto-ludic';
+        });
+
+      });
+    </script>
+
+<!--twosDay_promo_popup End-->
+
+
 
 
 {% if template == 'product.twos-day-sale' %}
