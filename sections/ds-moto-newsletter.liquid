@@ -176,19 +176,18 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
+  const form      = document.getElementById('DSMotoNewsletter');
+  const submitBtn = form.querySelector('.ds-submit-btn');
+  const successEl = form.querySelector('.form-success');
+
   const nameInput  = document.getElementById('ds-name');
   const emailInput = document.getElementById('ds-email');
   const phoneInput = document.getElementById('ds-phone');
   const ageSelect  = document.getElementById('ds-age');
-  const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
 
   /* ---------- AGE COLOR TOGGLE ---------- */
   function updateAgeColor() {
-    if (ageSelect.value === '') {
-      ageSelect.classList.remove('is-selected');
-    } else {
-      ageSelect.classList.add('is-selected');
-    }
+    ageSelect.classList.toggle('is-selected', ageSelect.value !== '');
   }
 
   /* ---------- PHONE VALIDATION ---------- */
@@ -204,19 +203,12 @@ document.addEventListener('DOMContentLoaded', function () {
       isValidPhone(phoneInput.value.trim()) &&
       ageSelect.value !== '';
 
-    if (isFilled) {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('is-disabled');
-      submitBtn.classList.add('is-active');
-    } else {
-      submitBtn.disabled = true;
-      submitBtn.classList.add('is-disabled');
-      submitBtn.classList.remove('is-active');
-    }
+    submitBtn.disabled = !isFilled;
+    submitBtn.classList.toggle('is-active', isFilled);
+    submitBtn.classList.toggle('is-disabled', !isFilled);
   }
 
-  /* ---------- EVENTS ---------- */
-
+  /* ---------- INPUT EVENTS ---------- */
   nameInput.addEventListener('input', checkFields);
   emailInput.addEventListener('input', checkFields);
 
@@ -230,12 +222,38 @@ document.addEventListener('DOMContentLoaded', function () {
     checkFields();
   });
 
-  /* ---------- INITIAL STATE ---------- */
+  /* ---------- AJAX SUBMIT ---------- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    submitBtn.innerText = 'Joining...';
+    submitBtn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(() => {
+      form.reset();
+      submitBtn.style.display = 'none';
+      if (successEl) successEl.style.display = 'flex';
+    })
+    .catch(() => {
+      submitBtn.innerText = 'Try again';
+      submitBtn.disabled = false;
+    });
+  });
+
+  /* ---------- INITIAL ---------- */
   updateAgeColor();
   checkFields();
 
 });
 </script>
+
 
 
 
