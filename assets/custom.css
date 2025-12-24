@@ -530,7 +530,8 @@ span.badge.price__badge-sale.color-scheme-4 {
 
 
 
-#twosDay_promo_popup {
+#twosDay_promo_popup,
+#ds_moto_popup {
   position: fixed; 
   top:0; 
   left:0; 
@@ -541,13 +542,15 @@ span.badge.price__badge-sale.color-scheme-4 {
   justify-content:center;
   z-index: 999999;
 }
-.twosDay_promo_popup-overlay {
+.twosDay_promo_popup-overlay,
+.ds_moto_popup-overlay {
   position:absolute;
   width:100%; 
   height:100%; 
   background:#000000a6;
 }
-.twosDay_promo_popup-box {
+.twosDay_promo_popup-box,
+.ds_moto_popup-box {
   position: relative;
   background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
   padding: 40px 32px 32px;
@@ -597,7 +600,8 @@ span.badge.price__badge-sale.color-scheme-4 {
   color: #1A1A1A;
 }
 @media(max-width: 767px){
-  .twosDay_promo_popup-box {
+  .twosDay_promo_popup-box,
+  .ds_moto_popup-box {
     padding: 28px 22px 22px;
     max-width: 294px;
     border-radius: 13px;
