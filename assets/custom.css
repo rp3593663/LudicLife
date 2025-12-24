@@ -2972,6 +2972,36 @@ button.ds-submit-btn {
 .ls-moto-slider .banner__buttons{
   margin-top: 0px!important;
 }
+.desktop-text{
+  white-space: nowrap;
+  animation: carSpeedText 7s infinite ease-in-out;
+}
+@keyframes carSpeedText {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  41% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  55% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 @media(max-width: 767px){
   .ls-moto-slider h2.banner__heading {
     font-size: 20px;
