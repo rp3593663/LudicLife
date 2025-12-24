@@ -2969,6 +2969,9 @@ button.ds-submit-btn {
     color: #FFF;
     margin-bottom: 18px;
 }
+.ls-moto-slider .banner__buttons{
+  margin-top: 0px!important;
+}
 @media(max-width: 767px){
   .ls-moto-slider h2.banner__heading {
     font-size: 20px;
