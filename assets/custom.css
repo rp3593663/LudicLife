@@ -2949,6 +2949,15 @@ button.ds-submit-btn {
     opacity: 0.7;
   }
 }
+.ls-moto-slider .slideshow__text.banner__box {
+    line-height: 15px;
+    font-size: 12px;
+    color: #1a1a1a;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    top: -30px;
+}
 .ls-moto-slider h2.banner__heading {
     font-family: Druk Text Wide Trial;
     font-weight: 700;
