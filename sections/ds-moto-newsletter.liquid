@@ -224,7 +224,8 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .then(() => {
       form.reset();
-      submitBtn.style.display = 'none';
+      {% comment %} submitBtn.style.display = 'none'; {% endcomment %}
+      submitBtn.innerText = 'Submit';
       if (successEl) successEl.style.display = 'flex';
     })
     .catch(() => {
