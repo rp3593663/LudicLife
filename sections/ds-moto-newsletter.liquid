@@ -185,9 +185,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const phoneInput = document.getElementById('ds-phone');
   const ageSelect  = document.getElementById('ds-age');
 
-
-  if (successEl) successEl.style.display = 'none';
-
   /* ---------- VALIDATION ---------- */
   function isValidPhone(phone) {
     return /^[0-9]{10}$/.test(phone);
@@ -216,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   ageSelect.addEventListener('change', checkFields);
+  if (successEl) successEl.style.display = 'none';
 
   /* ---------- AJAX SUBMIT (NO RELOAD) ---------- */
   submitBtn.addEventListener('click', function () {
@@ -231,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(() => {
       form.reset();
       //submitBtn.style.display = 'none';
-      submitBtn.innerText = 'Submit';
+      submitBtn.innerText = 'Joining...';
       if (successEl) successEl.style.display = 'flex';
       submitBtn.disabled = false;
     })
