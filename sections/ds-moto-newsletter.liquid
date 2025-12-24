@@ -171,71 +171,49 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function(){
 
-  const form      = document.getElementById('DSMotoNewsletter');
-  const submitBtn = form.querySelector('.ds-submit-btn');
-  const successEl = form.querySelector('.form-success');
+  const form = document.getElementById('DSMotoNewsletter');
+  const btn  = form.querySelector('.ds-submit-btn');
+  const success = form.querySelector('.form-success');
 
-  const nameInput  = document.getElementById('ds-name');
-  const emailInput = document.getElementById('ds-email');
-  const phoneInput = document.getElementById('ds-phone');
-  const ageSelect  = document.getElementById('ds-age');
+  const name  = document.getElementById('ds-name');
+  const email = document.getElementById('ds-email');
+  const phone = document.getElementById('ds-phone');
+  const age   = document.getElementById('ds-age');
 
-  /* ---------- VALIDATION ---------- */
-  function isValidPhone(phone) {
-    return /^[0-9]{10}$/.test(phone);
+  function valid(){
+    return (
+      name.value.trim() &&
+      email.value.trim() &&
+      age.value &&
+      /^[0-9]{10}$/.test(phone.value)
+    );
   }
 
-  function checkFields() {
-    const valid =
-      nameInput.value.trim() &&
-      emailInput.value.trim() &&
-      isValidPhone(phoneInput.value.trim()) &&
-      ageSelect.value;
-
-    submitBtn.disabled = !valid;
-    submitBtn.classList.toggle('is-active', valid);
-    submitBtn.classList.toggle('is-disabled', !valid);
+  function toggle(){
+    const ok = valid();
+    btn.disabled = !ok;
+    btn.classList.toggle('is-active', ok);
+    btn.classList.toggle('is-disabled', !ok);
   }
 
-  /* ---------- INPUT EVENTS ---------- */
-  [nameInput, emailInput].forEach(el =>
-    el.addEventListener('input', checkFields)
-  );
+  [name,email,phone].forEach(el => el.addEventListener('input', toggle));
+  age.addEventListener('change', toggle);
 
-  phoneInput.addEventListener('input', function () {
-    this.value = this.value.replace(/\D/g, '').slice(0, 10);
-    checkFields();
-  });
+  btn.addEventListener('click', function(){
+    btn.innerText = 'Joining…';
+    btn.disabled = true;
 
-  ageSelect.addEventListener('change', checkFields);
-  if (successEl) successEl.style.display = 'flex';
+    form.submit(); // ✅ REAL Shopify submit (no reload)
 
-  /* ---------- AJAX SUBMIT (NO RELOAD) ---------- */
-  submitBtn.addEventListener('click', function () {
-
-    submitBtn.innerText = 'Joining...';
-    submitBtn.disabled = true;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(() => {
+    setTimeout(() => {
       form.reset();
-      {% comment %} submitBtn.style.display = 'none'; {% endcomment %}
-      submitBtn.innerText = 'Submit';
-      if (successEl) successEl.style.display = 'flex';
-    })
-    .catch(() => {
-      submitBtn.innerText = 'Try again';
-      submitBtn.disabled = false;
-    });
+      btn.innerText = 'Submit';
+      success.style.display = 'block';
+    }, 800);
   });
 
-  checkFields();
 });
 </script>
 
