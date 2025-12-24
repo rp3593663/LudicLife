@@ -16,8 +16,8 @@
           "type": "slide",
           "settings": {
             "slide_custom_class": "ls-moto-slider",
-            "image": "shopify://shop_images/banner-1.png",
-            "mobile_image": "shopify://shop_images/Frame_1618875963.png",
+            "desktop_video": "shopify://files/videos/NEW DESKTOP.mp4",
+            "mobile_video": "shopify://files/videos/MOBILE_53fd67d0-0072-4d52-a779-4ca8c87ca963.mp4",
             "banner_url": "shopify://pages/ds-moto-ludic",
             "heading": "What's your drive?",
             "heading_size": "h1",
