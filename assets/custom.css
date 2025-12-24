@@ -579,7 +579,8 @@ span.badge.price__badge-sale.color-scheme-4 {
     vertical-align: middle;
 }
 
-.popup-close {
+.popup-close,
+.ds_popup-close {
   background:none; 
   border:none; 
   width: 10px;
@@ -644,7 +645,8 @@ span.badge.price__badge-sale.color-scheme-4 {
     line-height: 7.8px;
     letter-spacing: -0.7px;
   }
-  .popup-close {
+  .popup-close,
+  .ds_popup-close {
     width: 6px;
     height: 6px;
     top: 9px; 
