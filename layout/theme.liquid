@@ -2107,6 +2107,13 @@ document.addEventListener("DOMContentLoaded", function () {
     <script>
       document.addEventListener("DOMContentLoaded", function () {
 
+        if (window.location.pathname === "/pages/ds-moto-ludic") {
+          return;
+        }
+         if (window.location.pathname === "https://ludic.life/") {
+          return;
+        }
+
         const popup = document.getElementById("ds_moto_popup");
         const closeBtn = document.querySelector(".ds_popup-close");
         const ctaBtn = document.getElementById("ds_popup-cta");
