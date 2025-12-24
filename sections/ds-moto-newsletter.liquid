@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
       form.reset();
       //submitBtn.style.display = 'none';
       if (successEl) successEl.style.display = 'flex';
+      submitBtn.disabled = false;
     })
     .catch(() => {
       submitBtn.innerText = 'Try again';
