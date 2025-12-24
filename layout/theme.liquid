@@ -2107,6 +2107,18 @@ document.addEventListener("DOMContentLoaded", function () {
     <script>
       document.addEventListener("DOMContentLoaded", function () {
 
+       const path = window.location.pathname;
+
+  /* ❌ Pages where popup should NOT appear */
+  const blockedPaths = [
+    "/", // home
+    "/pages/ds-moto-ludic"
+  ];
+
+  if (blockedPaths.includes(path)) {
+    return;
+  }
+
         const popup = document.getElementById("ds_moto_popup");
         const closeBtn = document.querySelector(".ds_popup-close");
         const ctaBtn = document.getElementById("ds_popup-cta");
