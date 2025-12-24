@@ -2107,10 +2107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <script>
       document.addEventListener("DOMContentLoaded", function () {
 
-        if (window.location.pathname === "/pages/ds-moto-ludic") {
-          return;
-        }
-         if (window.location.pathname === "https://ludic.life/") {
+        if (path === "/" || path === "/pages/ds-moto-ludic") {
           return;
         }
 
