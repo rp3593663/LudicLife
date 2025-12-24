@@ -2948,6 +2948,7 @@ button.ds-submit-btn {
     display: flex;
     align-items: center;
     gap: 8px;
+    border-radius: 2px;
 }
 #DSMotoNewsletter p.form-success svg {
     width: 14px;
