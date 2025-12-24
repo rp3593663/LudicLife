@@ -2781,6 +2781,10 @@ a#HeaderMenu-twos-day-sale {
 .template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main  {
     background-color: #ffffff00 !important;   
 }
+.template-page.template-page\.ds-moto-ludic .header-wrapper:hover,
+.template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main:hover {
+    background-color: #FFFFFF!important;
+}
 .template-page.template-page\.ds-moto-ludic .scrolled-past-header .header-wrapper,
 .template-page.template-page\.ds-moto-ludic .scrolled-past-header .shopify-section-header-sticky .header-main  {
     background-color: #ffffff !important;   
