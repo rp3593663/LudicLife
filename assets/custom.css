@@ -552,7 +552,6 @@ span.badge.price__badge-sale.color-scheme-4 {
 .twosDay_promo_popup-box,
 .ds_moto_popup-box {
   position: relative;
-  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
   padding: 40px 32px 32px;
   max-width: 424px;
   width: 100%;
@@ -562,6 +561,13 @@ span.badge.price__badge-sale.color-scheme-4 {
   background-position: center;
   background-size: cover;
 }
+.twosDay_promo_popup-box {
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
+}
+.ds_moto_popup-box {
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/dsMoto_promo_popup_bg.png?v=1766557123);
+}
+
 .popup-close {
   background:none; 
   border:none; 
