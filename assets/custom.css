@@ -530,7 +530,8 @@ span.badge.price__badge-sale.color-scheme-4 {
 
 
 
-#twosDay_promo_popup {
+#twosDay_promo_popup,
+#ds_moto_popup {
   position: fixed; 
   top:0; 
   left:0; 
@@ -541,16 +542,17 @@ span.badge.price__badge-sale.color-scheme-4 {
   justify-content:center;
   z-index: 999999;
 }
-.twosDay_promo_popup-overlay {
+.twosDay_promo_popup-overlay,
+.ds_moto_popup-overlay {
   position:absolute;
   width:100%; 
   height:100%; 
   background:#000000a6;
 }
-.twosDay_promo_popup-box {
+.twosDay_promo_popup-box,
+.ds_moto_popup-box {
   position: relative;
-  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
-  padding: 40px 32px 32px;
+  padding: 40px 32px;
   max-width: 424px;
   width: 100%;
   border-radius: 20px;
@@ -559,7 +561,26 @@ span.badge.price__badge-sale.color-scheme-4 {
   background-position: center;
   background-size: cover;
 }
-.popup-close {
+.twosDay_promo_popup-box {
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
+}
+.ds_moto_popup-box {
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/dsMoto_promo_popup_bg.png?v=1766557123);
+}
+.ds_moto_popup-box h2 {
+    color: #FFF;
+    margin: 50px auto 65px;
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.popup-close,
+.ds_popup-close {
   background:none; 
   border:none; 
   width: 10px;
@@ -597,14 +618,21 @@ span.badge.price__badge-sale.color-scheme-4 {
   color: #1A1A1A;
 }
 @media(max-width: 767px){
-  .twosDay_promo_popup-box {
-    padding: 28px 22px 22px;
+  .twosDay_promo_popup-box,
+  .ds_moto_popup-box {
+    padding: 28px 22px;
     max-width: 294px;
     border-radius: 13px;
   }
   .popup_hero_img img {
       width: 185px;
   }
+  .ds_moto_popup-box h2 {
+    margin: 34px auto 46px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
   .twosDay_promo_popup-box p {
     margin: 20px auto;
     font-size: 5.86px;
@@ -617,7 +645,8 @@ span.badge.price__badge-sale.color-scheme-4 {
     line-height: 7.8px;
     letter-spacing: -0.7px;
   }
-  .popup-close {
+  .popup-close,
+  .ds_popup-close {
     width: 6px;
     height: 6px;
     top: 9px; 
@@ -2949,8 +2978,66 @@ button.ds-submit-btn {
     opacity: 0.7;
   }
 }
-
+.ls-moto-slider .slideshow__text.banner__box {
+    line-height: 15px;
+    font-size: 12px;
+    color: #1a1a1a;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    top: -30px;
+}
+.ls-moto-slider h2.banner__heading {
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    margin-bottom: 18px;
+}
+.ls-moto-slider .banner__buttons{
+  margin-top: 0px!important;
+}
+.announcement-bar__message .desktop-text, 
+.announcement-bar__message .mobile-text{
+  white-space: nowrap;
+  animation: carSpeedText 3s infinite ease-in-out;
+}
+@keyframes carSpeedText {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  41% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  55% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 @media(max-width: 767px){
+  .ls-moto-slider h2.banner__heading {
+    font-size: 20px;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
   .ls-moto-slider .banner__buttons a.button {
     padding: 10px 30px;
     font-size: 10px;
@@ -2959,7 +3046,7 @@ button.ds-submit-btn {
     margin: 0;
 }
  .ls-moto-slider .banner__box {
-    top: 88%!important;
+    top: 86%!important;
 }
 main#MainContent.ds-moto-ludic {
     margin-top: -58px;

@@ -62,9 +62,9 @@
                   <div class="announcement-bar__message h5">
                     <div class="desktop-text">{{ section.blocks.first.settings.text }}</div>
                     <div class="mobile-text">{{ section.blocks.first.settings.mobile_text }}</div>
-                    {%- if section.blocks.first.settings.link != blank -%}
+                    {% comment %} {%- if section.blocks.first.settings.link != blank -%}
                       {% render 'icon-arrow' %}
-                    {%- endif -%}
+                    {%- endif -%} {% endcomment %}
                   </div>
               {% endif %}
             {%- if section.blocks.first.settings.link != blank -%}
@@ -324,7 +324,7 @@ overflow:hidden !important;
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
         {
-          "type": "text",
+          "type": "html",
           "id": "text",
           "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
