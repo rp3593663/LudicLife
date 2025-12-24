@@ -619,13 +619,19 @@ span.badge.price__badge-sale.color-scheme-4 {
 @media(max-width: 767px){
   .twosDay_promo_popup-box,
   .ds_moto_popup-box {
-    padding: 28px 22px 22px;
+    padding: 28px 22px;
     max-width: 294px;
     border-radius: 13px;
   }
   .popup_hero_img img {
       width: 185px;
   }
+  .ds_moto_popup-box h2 {
+    margin: 34px auto 46px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
   .twosDay_promo_popup-box p {
     margin: 20px auto;
     font-size: 5.86px;
