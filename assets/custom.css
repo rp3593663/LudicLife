@@ -2970,6 +2970,11 @@ button.ds-submit-btn {
     margin-bottom: 18px;
 }
 @media(max-width: 767px){
+  .ls-moto-slider h2.banner__heading {
+    font-size: 20px;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
   .ls-moto-slider .banner__buttons a.button {
     padding: 10px 30px;
     font-size: 10px;
