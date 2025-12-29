@@ -749,12 +749,12 @@ button.pswp__button.pswp__button--zoom {
 }
 @media screen and (min-width: 990px) {
     .template-product.template-product\.twos-day-sale .product--medium:not(.product--no-media) .product__media-wrapper, .product--small:not(.product--no-media) .product__info-wrapper {
-        max-width: 66%;
-        width: calc(66% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: 50%;
+        width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
     }
     .template-product.template-product\.twos-day-sale .product--medium:not(.product--no-media) .product__info-wrapper, .product--small:not(.product--no-media) .product__media-wrapper {
-        max-width: 34%;
-        width: calc(34% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: 50%;
+        width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
     }
 }
 @media (min-width: 751px) {
