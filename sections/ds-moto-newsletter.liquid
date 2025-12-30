@@ -227,17 +227,19 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.classList.add('is-disabled');
     submitBtn.classList.remove('is-active');
 
-    fetch('https://ludic-api.kretosstechnology.com/write-to-us-email', {
+    fetch('https://Ludic-API.kretosstechnology.com/join-waitlist', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        name: nameInput.value,
-        email: emailInput.value,
-        phone: phoneInput.value,
-        age: ageSelect.value,
-        instagram: instaInput.value
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        note: `Age: ${ageSelect.value} | Instagram: ${instaInput.value ? '@' + instaInput.value : 'N/A'}`
       })
     })
+
     .then(res => res.json())
     .then(() => {
       document.getElementById('DSformSuccessMessage').style.display = 'block';
