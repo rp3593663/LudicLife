@@ -232,6 +232,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
   $("#ds_waitlist_submit").on("click", function (e) {
       e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-disabled');
+      submitBtn.classList.remove('is-active');
+
+       $.ajax({
+        url: "https://ludic-api.kretosstechnology.com/write-to-us-email",
+        type: "POST",
+        contentType: "application/json",
+        data: 
+        success: function (response) {
+          console.log("=======Response", response);
+          $("#write_to_us_btn").removeClass('disable_btn');
+          $("#formSuccessMessage").fadeIn();
+          $("#ds-age").val("");
+          $("#ds-email").val("");
+          $("#ds-name").val("");
+          $("#ds-phone").val("");
+          $("#ds-instagram").prop("checked", false);
+
+          // Reset file inputs
+          for (let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 4; i++) {
+              $(`#attachment${i}`).val(""); // Clear file input
+              $(`#upload-box-${i}`).show(); // Show upload box again
+              $(`#preview-inline-${i}`).hide().empty(); // Hide and clear preview
+            }
+            $(`#file-name-display-${i}`).text("Upload file");
+            $(`#file-preview-wrapper-${i}`).empty();
+          }
+
+          setTimeout(() => {
+            $("#formSuccessMessage").fadeOut();
+          }, 5000);
+        },
+        error: function (error) {
+          console.log("=======Error", error);
+          $("#write_to_us_btn").removeClass('disable_btn');
+        },
+      });
   });
 
 });
