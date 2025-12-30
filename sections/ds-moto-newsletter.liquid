@@ -124,6 +124,7 @@
                     </svg>
                     <input
                     type="text"
+                    id="ds-instagram"
                     name="contact[note][Instagram]"
                     placeholder="Instagram username"
                     oninput="document.getElementById('instaTag-{{ section.id }}').value = this.value ? 'Instagram_' + this.value : '';">
@@ -223,11 +224,11 @@ document.addEventListener('DOMContentLoaded', function () {
   updateAgeColor();
   checkFields();
 
-  const ds_age = $("input[name='subject']:checked").val();
-  const ds_email = $("#ContactForm-email").val();
-  const ds_full_name = $("#ContactForm-name").val();
-  const ds_phone = $("#ContactForm-phone").val();
-  const ds_instagram = $("#ContactForm-body").val();
+  const ds_age = $("#ds-age").val();
+  const ds_email = $("#ds-email").val();
+  const ds_full_name = $("#ds-name").val();
+  const ds_phone = $("#ds-phone").val();
+  const ds_instagram = $("#ds-instagram").val();
 
 });
 </script>
