@@ -250,6 +250,9 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(() => {
         document.getElementById('DSformSuccessMessage').style.display = 'none';
       }, 5000);
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-disabled');
+      submitBtn.classList.add('is-active');
     })
     .catch(err => {
       console.error(err);
