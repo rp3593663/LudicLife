@@ -31,7 +31,7 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "columns",
+        "gallery_layout": "stacked",
         "media_position": "left",
         "image_zoom": "none",
         "mobile_thumbnails": "show",
@@ -45,7 +45,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nLooks cool, stays <span>sturdy</span> with durable rubber soles, blending <span>style and comfort</span> with ease.</div></div>",
+        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nBuilt in <span>cotton-based</span> comfort-led knit, they're designed to <span>complement your Sliders,</span> and to <span>style with everything</span> you can think of.</div></div>",
         "color_scheme": "",
         "padding_top": 96,
         "padding_bottom": 96
