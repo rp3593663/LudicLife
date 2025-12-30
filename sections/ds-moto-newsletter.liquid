@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.disabled = true;
     submitBtn.classList.add('is-disabled');
     submitBtn.classList.remove('is-active');
+    submitBtn.textContent = 'Joining...';
 
     fetch('https://Ludic-API.kretosstechnology.com/join-waitlist', {
       method: 'POST',
