@@ -60,10 +60,7 @@
             {% comment %} <p>Speed never killed anyone, Suddenly becoming stationery.</p> {% endcomment %}
         </div>
         <div class="ds_moto_newsletter_form">
-            {%- form 'customer', id: 'DSMotoNewsletter', class: 'ds-moto-form' -%}
-
-                <!-- Tags -->
-                <input type="hidden" name="contact[tags]" value="Ludic-Moto">
+              <form id="DSMotoNewsletter" class="ds-moto-form">
 
                 <!-- Full Name -->
                 <div class="ds-field">
@@ -71,7 +68,7 @@
                       <path d="M10 9.99992C11.841 9.99992 13.3333 8.50753 13.3333 6.66659C13.3333 4.82564 11.841 3.33325 10 3.33325C8.15905 3.33325 6.66667 4.82564 6.66667 6.66659C6.66667 8.50753 8.15905 9.99992 10 9.99992Z" stroke="white" stroke-width="1.66667"/>
                       <path d="M3.33333 16.6667C3.33333 13.3334 6.25 11.6667 10 11.6667C13.75 11.6667 16.6667 13.3334 16.6667 16.6667" stroke="white" stroke-width="1.66667"/>
                     </svg>
-                    <input type="text" id="ds-name" name="contact[first_name]" required placeholder="Enter full name*">
+                    <input type="text" id="ds-name" name="ds_fullname" required placeholder="Enter full name*">
                 </div>
 
                 <!-- Email -->
@@ -80,7 +77,7 @@
                       <path d="M15.8333 4.16675H4.16667C3.24619 4.16675 2.5 4.91294 2.5 5.83341V14.1667C2.5 15.0872 3.24619 15.8334 4.16667 15.8334H15.8333C16.7538 15.8334 17.5 15.0872 17.5 14.1667V5.83341C17.5 4.91294 16.7538 4.16675 15.8333 4.16675Z" stroke="white" stroke-width="1.66667"/>
                       <path d="M2.5 5.83325L10 10.8333L17.5 5.83325" stroke="white" stroke-width="1.66667"/>
                     </svg>
-                    <input type="email" id="ds-email" name="contact[email]" required placeholder="Enter email address*">
+                    <input type="email" id="ds-email" name="ds_email" required placeholder="Enter email address*">
                 </div>
 
                 <!-- Age -->
@@ -88,7 +85,7 @@
                     <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7.09316 17.4844C7.88638 18.2776 8.87016 18.6689 10.0092 18.6689C11.1483 18.6689 12.1319 18.2776 12.9252 17.4844L13.5482 16.8604L14.1586 17.4805L14.1625 17.4844C14.9725 18.2944 15.9515 18.7158 17.0785 18.7158C17.5378 18.7158 17.98 18.6366 18.4066 18.4883V22.0684C18.4066 22.1888 18.3734 22.2549 18.3158 22.3125C18.2582 22.3701 18.1921 22.4033 18.0717 22.4033H1.92813C1.80786 22.4033 1.74252 22.37 1.68496 22.3125C1.62733 22.2549 1.59414 22.1888 1.59414 22.0684V18.4951C2.01544 18.6394 2.45798 18.7158 2.92227 18.7158C4.04911 18.7157 5.02739 18.2943 5.83731 17.4844L6.46523 16.8564L7.09316 17.4844ZM10.3715 8.61914V10.6533H16.2504C16.7976 10.6992 17.2749 10.9252 17.6928 11.3496L17.6967 11.3535C18.181 11.8379 18.4066 12.3782 18.4066 13.0127V14.5684C18.4066 14.9208 18.2851 15.2183 18.0063 15.4971C17.7288 15.7745 17.423 15.8964 17.0785 15.8965C16.721 15.8965 16.419 15.7741 16.1693 15.5244L14.0033 13.3594L13.5434 12.8994L13.0844 13.3594L10.9184 15.5244C10.671 15.7718 10.3702 15.8965 9.99063 15.8965C9.61101 15.8965 9.3093 15.7718 9.06191 15.5244L6.94863 13.3643L6.48965 12.8945L6.02481 13.3594L3.85879 15.5244C3.60792 15.7753 3.31478 15.8965 2.94961 15.8965C2.59743 15.8964 2.30055 15.7757 2.02188 15.4971C1.74431 15.2195 1.62148 14.913 1.62148 14.5684V13.0127C1.62148 12.3754 1.84906 11.8286 2.32754 11.3574L2.33145 11.3535C2.81584 10.8691 3.35609 10.6436 3.99063 10.6436H9.69375V8.61914H10.3715ZM11.1322 4.23145L11.142 4.24805L11.1518 4.2627C11.3153 4.51482 11.3754 4.7409 11.3754 4.9502C11.3753 5.30166 11.2534 5.61114 10.9691 5.91113C10.6948 6.19201 10.3834 6.32511 10.0004 6.3252C9.65673 6.3252 9.34847 6.20058 9.04434 5.89648C8.74017 5.59232 8.61563 5.28413 8.61563 4.94043C8.61567 4.74003 8.67984 4.51062 8.84609 4.24316L8.85195 4.2334L8.85684 4.22461L9.99746 2.24414L11.1322 4.23145Z" stroke="white" stroke-width="1.3"/>
                     </svg>
-                    <select id="ds-age" name="contact[note][Age]" required placeholder="dd">
+                    <select id="ds-age" name="ds_age" required placeholder="dd">
                       <option value="" disabled selected>Age*</option>
                       {% for age in (14..96) %}
                         <option value="{{ age }}">{{ age }}</option>
@@ -114,7 +111,7 @@
                         </clipPath>
                         </defs>
                     </svg>
-                    <input type="tel" id="ds-phone" name="contact[note][Phone]" required placeholder="Enter phone number*" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10"/>
+                    <input type="tel" id="ds-phone" name="ds_phone" required placeholder="Enter phone number*" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10"/>
 
                 </div>
 
@@ -127,13 +124,14 @@
                     </svg>
                     <input
                     type="text"
-                    name="contact[note][Instagram]"
+                    id="ds-instagram"
+                    name="ds_instagram"
                     placeholder="Instagram username"
                     oninput="document.getElementById('instaTag-{{ section.id }}').value = this.value ? 'Instagram_' + this.value : '';">
                 </div>
 
                 <!-- Submit -->
-                <button type="submit" class="ds-submit-btn is-disabled" disabled>
+                <button type="submit" id="ds_waitlist_submit" class="ds-submit-btn is-disabled" disabled>
                     Submit
                 </button>
 
@@ -145,8 +143,7 @@
                     </label>
                 </div>
 
-                {%- if form.posted_successfully? -%}
-                    <p class="form-success">
+                    <p class="form-success" id="DSformSuccessMessage" style="display: none;" >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_346_31797)">
                         <path d="M12.8345 7.00033C12.8345 10.222 10.2228 12.8337 7.00112 12.8337C3.77946 12.8337 1.16779 10.222 1.16779 7.00033C1.16779 3.77866 3.77946 1.16699 7.00112 1.16699C10.2228 1.16699 12.8345 3.77866 12.8345 7.00033Z" fill="#6BBC3B" stroke="#6BBC3B" stroke-width="0.532787" stroke-linecap="round" stroke-linejoin="round"/>
@@ -160,13 +157,8 @@
                       </svg>
                       Welcome. Get ready for the drive.
                     </p>
-                {%- endif -%}
 
-                {%- if form.errors -%}
-                    <p class="form-error">{{ form.errors | default_errors }}</p>
-                {%- endif -%}
-
-            {%- endform -%}
+              </form>
 
         </div>
     </div>
@@ -179,11 +171,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('ds-email');
   const phoneInput = document.getElementById('ds-phone');
   const ageSelect  = document.getElementById('ds-age');
+  const instaInput  = document.getElementById('ds-instagram');
   const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
 
   /* ---------- AGE COLOR TOGGLE ---------- */
   function updateAgeColor() {
-    if (ageSelect.value === '') {
+    if (!ageSelect.value) {
       ageSelect.classList.remove('is-selected');
     } else {
       ageSelect.classList.add('is-selected');
@@ -203,19 +196,12 @@ document.addEventListener('DOMContentLoaded', function () {
       isValidPhone(phoneInput.value.trim()) &&
       ageSelect.value !== '';
 
-    if (isFilled) {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('is-disabled');
-      submitBtn.classList.add('is-active');
-    } else {
-      submitBtn.disabled = true;
-      submitBtn.classList.add('is-disabled');
-      submitBtn.classList.remove('is-active');
-    }
+    submitBtn.disabled = !isFilled;
+    submitBtn.classList.toggle('is-disabled', !isFilled);
+    submitBtn.classList.toggle('is-active', isFilled);
   }
 
   /* ---------- EVENTS ---------- */
-
   nameInput.addEventListener('input', checkFields);
   emailInput.addEventListener('input', checkFields);
 
@@ -233,8 +219,52 @@ document.addEventListener('DOMContentLoaded', function () {
   updateAgeColor();
   checkFields();
 
+  /* ---------- SUBMIT ---------- */
+  document.getElementById('ds_waitlist_submit').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('is-disabled');
+    submitBtn.classList.remove('is-active');
+    submitBtn.textContent = 'Joining...';
+
+    fetch('https://Ludic-API.kretosstechnology.com/join-waitlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        note: `Age: ${ageSelect.value} | Instagram: ${instaInput.value ? '@' + instaInput.value : 'N/A'}`
+      })
+    })
+
+    .then(res => res.json())
+    .then(() => {
+      document.getElementById('DSformSuccessMessage').style.display = 'block';
+      document.getElementById('DSMotoNewsletter').reset();
+      updateAgeColor();
+      checkFields();
+
+      setTimeout(() => {
+        document.getElementById('DSformSuccessMessage').style.display = 'none';
+      }, 5000);
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-disabled');
+      submitBtn.classList.add('is-active');
+      submitBtn.textContent = 'Submit';
+    })
+    .catch(err => {
+      console.error(err);
+      checkFields();
+    });
+  });
+
 });
 </script>
+
 
 
 
