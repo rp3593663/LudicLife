@@ -171,11 +171,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('ds-email');
   const phoneInput = document.getElementById('ds-phone');
   const ageSelect  = document.getElementById('ds-age');
+  const instaInput  = document.getElementById('ds-instagram');
   const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
 
   /* ---------- AGE COLOR TOGGLE ---------- */
   function updateAgeColor() {
-    if (ageSelect.value === '') {
+    if (!ageSelect.value) {
       ageSelect.classList.remove('is-selected');
     } else {
       ageSelect.classList.add('is-selected');
@@ -195,19 +196,12 @@ document.addEventListener('DOMContentLoaded', function () {
       isValidPhone(phoneInput.value.trim()) &&
       ageSelect.value !== '';
 
-    if (isFilled) {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('is-disabled');
-      submitBtn.classList.add('is-active');
-    } else {
-      submitBtn.disabled = true;
-      submitBtn.classList.add('is-disabled');
-      submitBtn.classList.remove('is-active');
-    }
+    submitBtn.disabled = !isFilled;
+    submitBtn.classList.toggle('is-disabled', !isFilled);
+    submitBtn.classList.toggle('is-active', isFilled);
   }
 
   /* ---------- EVENTS ---------- */
-
   nameInput.addEventListener('input', checkFields);
   emailInput.addEventListener('input', checkFields);
 
@@ -221,50 +215,49 @@ document.addEventListener('DOMContentLoaded', function () {
     checkFields();
   });
 
+  /* ---------- INITIAL STATE ---------- */
   updateAgeColor();
   checkFields();
 
-  const ds_age = $("#ds-age").val();
-  const ds_email = $("#ds-email").val();
-  const ds_full_name = $("#ds-name").val();
-  const ds_phone = $("#ds-phone").val();
-  const ds_instagram = $("#ds-instagram").val();
+  /* ---------- SUBMIT ---------- */
+  document.getElementById('ds_waitlist_submit').addEventListener('click', function (e) {
+    e.preventDefault();
 
-  $("#ds_waitlist_submit").on("click", function (e) {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.classList.add('is-disabled');
-      submitBtn.classList.remove('is-active');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('is-disabled');
+    submitBtn.classList.remove('is-active');
 
-       $.ajax({
-        url: "https://ludic-api.kretosstechnology.com/write-to-us-email",
-        type: "POST",
-        contentType: "application/json",
-        data: 
-        success: function (response) {
-          console.log("=======Response", response);
-          $("#write_to_us_btn").removeClass('disable_btn');
-          $("#formSuccessMessage").fadeIn();
-          $("#ds-age").val("");
-          $("#ds-email").val("");
-          $("#ds-name").val("");
-          $("#ds-phone").val("");
-          $("#ds-instagram").prop("checked", false);
+    fetch('https://ludic-api.kretosstechnology.com/write-to-us-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: nameInput.value,
+        email: emailInput.value,
+        phone: phoneInput.value,
+        age: ageSelect.value,
+        instagram: instaInput.value
+      })
+    })
+    .then(res => res.json())
+    .then(() => {
+      document.getElementById('DSformSuccessMessage').style.display = 'block';
+      document.getElementById('DSMotoNewsletter').reset();
+      updateAgeColor();
+      checkFields();
 
-          
-          setTimeout(() => {
-            $("#DSformSuccessMessage").fadeOut();
-          }, 5000);
-        },
-        error: function (error) {
-          console.log("=======Error", error);
-          $("#write_to_us_btn").removeClass('disable_btn');
-        },
-      });
+      setTimeout(() => {
+        document.getElementById('DSformSuccessMessage').style.display = 'none';
+      }, 5000);
+    })
+    .catch(err => {
+      console.error(err);
+      checkFields();
+    });
   });
 
 });
 </script>
+
 
 
 
