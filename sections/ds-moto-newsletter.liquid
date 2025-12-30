@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.disabled = false;
       submitBtn.classList.remove('is-disabled');
       submitBtn.classList.add('is-active');
+      submitBtn.textContent = 'Submit';
     })
     .catch(err => {
       console.error(err);
