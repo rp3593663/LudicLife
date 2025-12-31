@@ -119,8 +119,7 @@
     vertical-align: middle;
     color: #FFF;
 }
-a.two_col_btn, 
-.ds_moto_shop_btn {
+a.two_col_btn {
     width: 100%;
     display: flex;
     align-items: center;
@@ -139,8 +138,7 @@ a.two_col_btn,
     text-transform: uppercase;
     transition: all 0.2s ease-in;
 }
-a.two_col_btn:hover,
-.ds_moto_shop_btn:hover{
+a.two_col_btn:hover{
     background: #FFFFFF;
     color: #1A1A1A;
 }
@@ -172,4 +170,27 @@ a.two_col_btn:hover,
     letter-spacing: -0.7px;
     text-align: justify;
     vertical-align: middle;
+}
+.ds_moto_shop_btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    text-decoration: unset;
+    border: 1px solid #1A1A1A;
+    border-radius: 4px;
+    color: #1A1A1A;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.6px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+}
+.ds_moto_shop_btn:hover{
+    background: #1A1A1A;
+    color: #FFFFFF;
 }
