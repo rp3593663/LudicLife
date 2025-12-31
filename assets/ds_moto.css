@@ -46,6 +46,7 @@
 .ds_moto_banner1 .slideshow__text.banner__box {
     top: 0!important;
     padding: 0px!important;
+    z-index: 3;
 }
 .ds_moto_banner1 h2.banner__heading.h1 {
     font-family: 'Druk Trial';
