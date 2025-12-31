@@ -84,3 +84,10 @@
     background: #FFFFFF;
     color: #1A1A1A;
 }
+
+
+
+.two_column_inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
