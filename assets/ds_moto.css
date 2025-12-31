@@ -47,3 +47,11 @@
     top: 0;
     padding: 0px!important;
 }
+h2.banner__heading.inline-richtext.h1 {
+    font-family: 'Druk Trial';
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 64px;
+    letter-spacing: 0;
+    color: #FFF;
+}
