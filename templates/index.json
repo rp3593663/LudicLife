@@ -617,6 +617,7 @@
         "image_erTfHB",
         "image_cBhJrt"
       ],
+      "disabled": true,
       "settings": {
         "custom_class": ""
       }
@@ -668,6 +669,7 @@
     },
     "image_with_product_ca4xDg": {
       "type": "image-with-product",
+      "disabled": true,
       "settings": {
         "custom_video": "shopify://files/videos/black.mp4",
         "heading": "Upgraded in all the right places.",
@@ -768,208 +770,14 @@
         "image_9kmCUc",
         "image_HG7KfA"
       ],
+      "disabled": true,
       "settings": {
         "custom_class": "home-page-custom-csk-slider"
       }
     },
-    "image_with_text_rVFJzN": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_NnJpMa": {
-          "type": "heading",
-          "settings": {
-            "heading": "Designed for Indian Feet.",
-            "heading_size": "h2"
-          }
-        },
-        "text_33Vyj4": {
-          "type": "text",
-          "settings": {
-            "text": "<p>  </p>",
-            "mobile_content": "<p>    </p>",
-            "text_style": "body"
-          }
-        },
-        "button_9DwYTG": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections/sliders",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_NnJpMa",
-        "text_33Vyj4",
-        "button_9DwYTG"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0859_2x_b6f4a781-0716-4d64-a11f-12c6538c8a35.jpg",
-        "mobile_image": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0859_c2b60031-e4ea-4315-89d5-5686c9b034d3.svg",
-        "container_width": "container",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "slider-text-image"
-      }
-    },
-    "custom_product_collection_x8iJaj": {
-      "type": "custom-product-collection",
-      "blocks": {
-        "product_hEankz": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-go-red",
-            "variant_name": ""
-          }
-        },
-        "product_n6WeYn": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-banana-chips",
-            "variant_name": ""
-          }
-        },
-        "product_Fxjtad": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-jamun-blue",
-            "variant_name": ""
-          }
-        },
-        "product_4m7mVn": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-kadak-brown",
-            "variant_name": ""
-          }
-        },
-        "product_PWirMK": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-sand-tan",
-            "variant_name": ""
-          }
-        },
-        "product_3YVmtn": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-chalk-white",
-            "variant_name": ""
-          }
-        },
-        "product_8nyMgW": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-slate-black",
-            "variant_name": ""
-          }
-        },
-        "product_CjCJ98": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-canary-melon",
-            "variant_name": ""
-          }
-        },
-        "product_8qnLLh": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-watermelon",
-            "variant_name": ""
-          }
-        },
-        "product_YDjzqx": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-lychee",
-            "variant_name": ""
-          }
-        },
-        "product_WbDhyq": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-chiku",
-            "variant_name": ""
-          }
-        },
-        "product_XBAYpG": {
-          "type": "product",
-          "settings": {
-            "product": "the-sport-bag",
-            "variant_name": ""
-          }
-        },
-        "product_mkzWkP": {
-          "type": "product",
-          "settings": {
-            "product": "the-sport-bag-1",
-            "variant_name": ""
-          }
-        },
-        "product_EVNWrb": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt",
-            "variant_name": ""
-          }
-        },
-        "product_wTegjN": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt-1",
-            "variant_name": ""
-          }
-        },
-        "product_AzWctN": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt-2",
-            "variant_name": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_hEankz",
-        "product_n6WeYn",
-        "product_Fxjtad",
-        "product_4m7mVn",
-        "product_PWirMK",
-        "product_3YVmtn",
-        "product_8nyMgW",
-        "product_CjCJ98",
-        "product_8qnLLh",
-        "product_YDjzqx",
-        "product_WbDhyq",
-        "product_XBAYpG",
-        "product_mkzWkP",
-        "product_EVNWrb",
-        "product_wTegjN",
-        "product_AzWctN"
-      ],
-      "name": "Custom Product Collection",
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "80px 0px | | | 36px 0px",
-        "section_heading": "",
-        "enable_view_all": true,
-        "enable_view_url": "",
-        "column_lg": 4
-      }
-    },
     "new_launch_discover_RAt4m6": {
       "type": "new-launch-discover",
+      "disabled": true,
       "settings": {
         "layout": "box_width",
         "padding": "90px 0px | | | 56px 0px 56px",
@@ -984,6 +792,7 @@
     },
     "custom_liquid_zicrMU": {
       "type": "custom-liquid",
+      "disabled": true,
       "custom_css": [
         ".festival-banner-desktop {display: block;}",
         ".festival-banner-mobile {display: none;}",
@@ -1042,6 +851,7 @@
         "collection_7ibaCd",
         "collection_AXpm6n"
       ],
+      "disabled": true,
       "custom_css": [
         ".custom_img a {pointer-events: none;}"
       ],
@@ -1055,6 +865,7 @@
     },
     "rich_text_button_c3FNFr": {
       "type": "rich-text-button",
+      "disabled": true,
       "custom_css": [
         "span.mobile-a {display: none;}",
         "@media screen and (max-width: 768px) {span.mobile-a {display: inline-block; } span.desktop-a {display: none; }}"
@@ -1110,6 +921,7 @@
         "featured_collection_iRVzFB",
         "featured_collection_cMDJk3"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "padding": "80px 0px 0px 0px | | | 56px 0px 0px 0px",
@@ -1196,8 +1008,6 @@
     "product_slide_text_qE4iJz",
     "image_with_product_ca4xDg",
     "csk_custom_slider_jx8U8h",
-    "image_with_text_rVFJzN",
-    "custom_product_collection_x8iJaj",
     "new_launch_discover_RAt4m6",
     "custom_liquid_zicrMU",
     "custom_collection_d4wD3n",
