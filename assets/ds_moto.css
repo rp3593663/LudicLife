@@ -19,11 +19,6 @@
 .ds_home_text .rich-text__buttons {
     margin-top: 32px;
 }
-.ds_home_text .rich-text__buttons a.button:hover{
-    background: #1A1A1A;
-    color: #FFF;
-}
-
 .ds_home_text .rich-text__buttons a.button {
     width: 178px;
     height: 34px;
@@ -42,4 +37,9 @@
     vertical-align: middle;
     text-transform: uppercase;
     min-height: unset;
+    transition: all 0.5s ease-in;
+}
+.ds_home_text .rich-text__buttons a.button:hover{
+    background: #1A1A1A;
+    color: #FFF;
 }
