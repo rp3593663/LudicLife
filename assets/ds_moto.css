@@ -91,3 +91,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.two_column_inner > * {
+    position: relative;
+}
