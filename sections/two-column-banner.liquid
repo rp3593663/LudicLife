@@ -41,7 +41,7 @@
       <div class="two_col_left">
         {% if section.settings.left_image != blank %}
           <img 
-            src="{{ section.settings.left_image }}"
+            src="{{ section.settings.left_image | image_url }}"
             alt="{{ section.settings.left_image_alt | escape }}"
             loading="lazy">
         {% endif %}
@@ -51,7 +51,7 @@
       <div class="two_col_right">
         {% if section.settings.right_image != blank %}
           <img 
-            src="{{ section.settings.right_image }}"
+            src="{{ section.settings.right_image | image_url }}"
             alt="{{ section.settings.right_image_alt | escape }}"
             loading="lazy">
         {% endif %}
