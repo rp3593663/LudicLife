@@ -348,7 +348,7 @@
           "type": "button",
           "settings": {
             "button_label": "Explore DS Moto",
-            "button_link": "",
+            "button_link": "shopify://pages/ds-moto-ludic",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
