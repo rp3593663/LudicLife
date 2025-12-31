@@ -109,3 +109,13 @@
     line-height: 30px;
     letter-spacing: -1.3px;
 }
+.two_col_content p {
+    margin: 6px 0px 18px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.42px;
+    vertical-align: middle;
+    color: #FFF;
+}
