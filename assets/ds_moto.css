@@ -44,7 +44,7 @@
     color: #FFF;
 }
 .ds_moto_banner1 .slideshow__text.banner__box {
-    top: 0;
+    top: 0!important;
     padding: 0px!important;
 }
 .ds_moto_banner1 h2.banner__heading.h1 {
