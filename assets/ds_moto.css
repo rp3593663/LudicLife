@@ -19,11 +19,18 @@
 .ds_home_text .rich-text__buttons {
     margin-top: 32px;
 }
+.ds_home_text .rich-text__buttons a.button:hover{
+    background: #1A1A1A;
+    color: #FFF;
+}
+
 .ds_home_text .rich-text__buttons a.button {
     width: 178px;
     height: 34px;
     border: 1px solid #1A1A1A!important;
     padding: 0px;
+    background: #FFF;
+    color: #1A1A1A;
     border-radius: 4px;
     opacity: 1;
     font-family: Public Sans;
