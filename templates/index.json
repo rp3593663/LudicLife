@@ -335,6 +335,42 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "rich_text_ey6YpV": {
+      "type": "rich-text",
+      "blocks": {
+        "text_RYfVeK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Born for motor-head for real-world movement. <br/>Low-profile and yet loud, this one’s for those who never outgrew the feeling. Premium suede, echoes from racetracks, ripples of the revs, and a build that never Box — this is a 360 obsession made in Ludic’s Low Profile Lifestyle Outsole.</p>"
+          }
+        },
+        "button_6rdfg8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_RYfVeK",
+        "button_6rdfg8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 38,
+        "custom_class": "ds_home_text"
+      }
+    },
     "video_y7EJPR": {
       "type": "video",
       "disabled": true,
@@ -874,7 +910,7 @@
         "layout": "box_width",
         "padding": "80px 0px 0px 0px | | | 32px 0px 0px",
         "margin": "80px 0px 0px | | | 0px 0px 0px",
-        "title": "We're building <span class=\"desktop-a\">a</span><br><span class=\"mobile-a\">a</span> footwear - first lifestyle brand.",
+        "title": "We're building aa footwear - first lifestyle brand.",
         "btn_text": "Know more",
         "btn_url": "shopify://pages/about"
       }
@@ -1000,6 +1036,7 @@
   },
   "order": [
     "slideshow_f88WAr",
+    "rich_text_ey6YpV",
     "video_y7EJPR",
     "csk_custom_text_Knc7fd",
     "fw_description_b4empb",
