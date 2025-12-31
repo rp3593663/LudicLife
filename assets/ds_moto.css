@@ -148,3 +148,11 @@ a.two_col_btn:hover{
     grid-template-columns: 450px 1fr;
     gap: 128px;
 }
+.ds_moto_content h4 {
+    font-family: 'Druk Trial';
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 30px;
+    letter-spacing: 0;
+    margin: 0px;
+}
