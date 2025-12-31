@@ -37,7 +37,7 @@
     vertical-align: middle;
     text-transform: uppercase;
     min-height: unset;
-    transition: all 0.5s ease-in;
+    transition: all 0.2s ease-in;
 }
 .ds_home_text .rich-text__buttons a.button:hover{
     background: #1A1A1A;
