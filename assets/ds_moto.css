@@ -47,7 +47,7 @@
     top: 0;
     padding: 0px!important;
 }
-h2.banner__heading.inline-richtext.h1 {
+.ds_moto_banner1 h2.banner__heading.h1 {
     font-family: 'Druk Trial';
     font-weight: 700;
     font-size: 64px;
@@ -55,4 +55,7 @@ h2.banner__heading.inline-richtext.h1 {
     letter-spacing: 0;
     color: #FFF;
     text-transform: uppercase;
+}
+.ds_moto_banner1 .banner__buttons {
+    margin-top: 32px!important;
 }
