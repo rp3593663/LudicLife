@@ -194,3 +194,8 @@ a.two_col_btn:hover{
     background: #1A1A1A;
     color: #FFFFFF;
 }
+.ds_moto_imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
