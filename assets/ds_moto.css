@@ -16,6 +16,9 @@
     line-height: 28px;
     letter-spacing: -0.72px;
 }
+.ds_home_text .rich-text__buttons {
+    margin-top: 32px;
+}
 .ds_home_text .rich-text__buttons a.button {
     width: 178px;
     height: 34px;
