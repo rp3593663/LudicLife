@@ -54,50 +54,91 @@
 </section>
 
 {% schema %}
-  {
-  "name": "Two Colum Banner",
+{
+  "name": "Two Column Banner",
   "settings": [
     {
-        "type": "select",
-        "id": "layout",
-        "options": [
-          {
-            "value": "full-width",
-            "label": "Full Width"
-          },
-          {
-            "value": "box_width",
-            "label": "Box Width"
-          }
-        ],
-        "label": "Layout",
-        "default": "box_width"
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
     },
     {
-        "type": "text",
-        "id": "padding",
-        "label": "Padding",
-        "default": "0px 0px 0px 0px",
-        "placeholder": "top right bottom right",
-        "info":"Screen: desktop | 1200px | 991px | 767px"
+      "type": "text",
+      "id": "left_image_alt",
+      "label": "Left Image Alt Text"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
     },
     {
-        "type": "text",
-        "id": "margin",
-        "label": "Margin",
-        "default": "80px 0px | | | 36px 0px",
-        "placeholder": "top right bottom right",
-        "info":"Screen: desktop | 1200px | 991px | 767px"
+      "type": "text",
+      "id": "right_image_alt",
+      "label": "Right Image Alt Text"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "New Tooling"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Low Profile Lifestyle Outsole made thin for a true feel of the pedal."
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore DS Moto"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
     }
   ],
   "presets": [
-  {
-  "name": "Two Colum Banner",
-  "category": "Custom"
-  }
+    {
+      "name": "Two Column Banner",
+      "category": "Custom"
+    }
   ]
-  }
+}
 {% endschema %}
+
 {% stylesheet %}
 {% endstylesheet %}
 {% javascript %}
