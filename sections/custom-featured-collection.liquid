@@ -66,8 +66,9 @@
           </div>
         {%- endif -%}
       </div>
-      {% else %}
-    {% comment %} <div class="section_heading">
+    {%- endif -%}
+      {% comment %} {% else %}
+    <div class="section_heading">
       {%- if section.settings.section_heading != blank -%}
       <div class="section_title">
         <h2>{{ section.settings.section_heading }}</h2>
@@ -80,8 +81,8 @@
           </a>
         </div>
       {%- endif -%}
-    </div> {% endcomment %}
-    {%- endif -%}
+    </div>
+    {%- endif -%} {% endcomment %}
     <div class="section_content">
       <div class="custom-featured-products" 
       data-column-desktop="{{ section.settings.column_lg }}">
