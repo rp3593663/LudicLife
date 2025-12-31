@@ -156,3 +156,18 @@ a.two_col_btn:hover{
     letter-spacing: 0;
     margin: 0px;
 }
+.ds_moto_content .description > * {
+    margin: 0px;
+}
+.ds_moto_content .description {
+    margin: 8px 0px 32px;
+    display: grid;
+    gap: 8px;
+    font-family: Public Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.7px;
+    text-align: justify;
+    vertical-align: middle;
+}
