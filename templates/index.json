@@ -420,23 +420,6 @@
         "column_lg": 4
       }
     },
-    "video_y7EJPR": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": true,
-        "video": "shopify://files/videos/NEW WEB.mp4",
-        "mobile_video": "shopify://files/videos/New Mob.mp4",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": true,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "csk_custom_text_Knc7fd": {
       "type": "csk-custom-text",
       "disabled": true,
@@ -1087,7 +1070,6 @@
     "slideshow_f88WAr",
     "rich_text_ey6YpV",
     "custom_featured_collection_hEdr4A",
-    "video_y7EJPR",
     "csk_custom_text_Knc7fd",
     "fw_description_b4empb",
     "image_scroller_cbFL7N",
