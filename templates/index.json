@@ -425,6 +425,14 @@
       "name": "Two Colum Banner",
       "settings": {
         "layout": "full-width",
+        "left_image": "shopify://shop_images/two_banner_img1.png",
+        "left_image_alt": "",
+        "right_image": "shopify://shop_images/two_banner_img2.png",
+        "right_image_alt": "",
+        "heading": "New Tooling",
+        "description": "Low Profile Lifestyle Outsole made thin for a true feel of the pedal.",
+        "button_text": "Explore DS Moto",
+        "button_link": "shopify://pages/ds-moto-ludic",
         "padding": "0px 0px 0px 0px",
         "margin": "60px 0px 120px | | | 60px 0px"
       }
