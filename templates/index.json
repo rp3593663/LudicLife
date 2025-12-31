@@ -371,6 +371,55 @@
         "custom_class": "ds_home_text"
       }
     },
+    "custom_featured_collection_hEdr4A": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_LFwNNn": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-tarmac-black",
+            "variant_name": ""
+          }
+        },
+        "product_pYyzBJ": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-martini-blue",
+            "variant_name": ""
+          }
+        },
+        "product_XmxtLf": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-jdm-orange",
+            "variant_name": ""
+          }
+        },
+        "product_4rgGBn": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-lemans-green",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_LFwNNn",
+        "product_pYyzBJ",
+        "product_XmxtLf",
+        "product_4rgGBn"
+      ],
+      "name": "Custom Featured Products",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0px",
+        "section_heading": "",
+        "enable_view_all": false,
+        "enable_view_url": "",
+        "column_lg": 4
+      }
+    },
     "featured_collection_K6Pfga": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -721,7 +770,6 @@
         "product_HMkLjp",
         "product_zihd4L"
       ],
-      "disabled": true,
       "name": "Sticky Text with Products",
       "settings": {
         "heading": "Oxford Build. Fun Infused.",
@@ -1066,6 +1114,7 @@
   "order": [
     "slideshow_f88WAr",
     "rich_text_ey6YpV",
+    "custom_featured_collection_hEdr4A",
     "featured_collection_K6Pfga",
     "video_y7EJPR",
     "csk_custom_text_Knc7fd",
