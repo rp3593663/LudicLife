@@ -59,7 +59,7 @@
 .ds_moto_banner1 .banner__buttons {
     margin-top: 32px!important;
 }
-.ds_moto_banner1 .banner__buttons a {
+.ds_moto_banner1 .banner__buttons a.button {
     width: 178px;
     height: 34px;
     border: 1px solid #FFFFFF !important;
@@ -79,7 +79,7 @@
     min-height: unset;
     transition: all 0.2s ease-in;
 }
-.ds_moto_banner1 .banner__buttons a:hover {
+.ds_moto_banner1 .banner__buttons a.button:hover {
     background: #FFFFFF;
     color: #1A1A1A;
     border: 1px solid #1A1A1A !important;
