@@ -54,4 +54,5 @@ h2.banner__heading.inline-richtext.h1 {
     line-height: 64px;
     letter-spacing: 0;
     color: #FFF;
+    text-transform: uppercase;
 }
