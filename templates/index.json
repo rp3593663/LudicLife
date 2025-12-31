@@ -15,7 +15,8 @@
         "slide_hikXef": {
           "type": "slide",
           "settings": {
-            "slide_custom_class": "",
+            "slide_custom_class": "ds_moto_banner1",
+            "image": "shopify://shop_images/DS_moto_banner1.png",
             "banner_url": "",
             "heading": "Image slide",
             "heading_size": "h1",
