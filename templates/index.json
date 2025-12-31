@@ -365,7 +365,7 @@
         "desktop_content_position": "left",
         "content_alignment": "left",
         "color_scheme": "",
-        "full_width": true,
+        "full_width": false,
         "padding_top": 56,
         "padding_bottom": 38,
         "custom_class": "ds_home_text"
