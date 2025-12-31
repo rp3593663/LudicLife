@@ -94,3 +94,9 @@
 .two_column_inner > * {
     position: relative;
 }
+.two_col_content {
+    max-width: 325px;
+    position: absolute;
+    top: 185px;
+    left: 35px;
+}
