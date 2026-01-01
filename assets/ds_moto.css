@@ -319,6 +319,11 @@ a.marquee_product_block {
     letter-spacing: -.36px;
 }
 
+
+.ds_moto_banner_inner {
+    position: relative;
+}
+
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
