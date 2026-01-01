@@ -554,7 +554,7 @@
       "type": "marquee_products",
       "name": "Marquee Products",
       "settings": {
-        "layout": "box_width",
+        "layout": "full-width",
         "padding": "0px 0px 0px 0px",
         "margin": "80px 0px | | | 36px 0px"
       }
