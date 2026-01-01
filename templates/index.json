@@ -451,6 +451,11 @@
       "name": "Sliders Slide",
       "settings": {
         "layout": "box_width",
+        "main_image": "shopify://shop_images/Background-KB.png",
+        "content_image": "shopify://shop_images/ludic_sliders_svg.svg",
+        "description": "<p>Always the one cloud that's under your feet. CloudFrame comfort, cloud-like wear, and an recovery EVA footbed that doesn't hold back on the support.<br/>Ludic Sliders for the play**.</p><p>Loved by 30,000 customers.</p>",
+        "button_text": "Shop Sliders",
+        "button_link": "shopify://collections/sliders",
         "padding": "0px 0px 0px 0px",
         "margin": "80px 0px | | | 36px 0px"
       }
