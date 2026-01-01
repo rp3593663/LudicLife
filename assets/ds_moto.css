@@ -441,6 +441,9 @@ body:not(.template-index) .newsletter-heading{
 .template-index .footer-menu.footer-img-wrapper {
     max-width: 32px;
 }
+.template-index .footer-menu.footer-img-wrapper .black_stars{
+    display: none;
+}
 
 
 @media (max-width: 1599.98px) {
