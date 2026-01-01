@@ -342,6 +342,16 @@ a.marquee_product_block {
     vertical-align: middle;
     color: #FFF;
 }
+.ds_moto_banner_btn {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #FFFFFF;
+    color: #FFF;
+}
+.ds_moto_banner_btn:hover{
+    background: #FFFFFF;
+    color: #1A1A1A;
+}
 
 @media (min-width: 576px) {
     .section--sliders-slide .container {
