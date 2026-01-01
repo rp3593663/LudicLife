@@ -77,8 +77,20 @@ document.addEventListener('DOMContentLoaded', function () {
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', function () {
         const newImage = this.dataset.mainImage;
-        if (!newImage) return;
-        mainImage.src = newImage;
+        if (!newImage || mainImage.src === newImage) return;
+
+        // Fade out
+        mainImage.classList.add('is-fading');
+
+        setTimeout(() => {
+          mainImage.src = newImage;
+
+          // Fade in after image load
+          mainImage.onload = () => {
+            mainImage.classList.remove('is-fading');
+          };
+        }, 200);
+
         thumbs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
       });
