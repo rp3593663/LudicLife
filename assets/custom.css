@@ -1390,8 +1390,7 @@ body.size-chart-popup-pdp #MainContent{
 .template-product:not(.template-product\.fw-product)  .product__info-container {
     max-width: unset!important;
 }
-.template-product:not(.template-product\.fw-product) .custom_variants,
-.template-product:not(.template-product\.rework-pdp) .custom_variants {
+.template-product:not(.template-product\.fw-product) .custom_variants {
     margin-bottom: 28px!important;
     margin-top: 28px!important;
 }
