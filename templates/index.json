@@ -520,6 +520,10 @@
             "main_image": "shopify://shop_images/Background-BC.png"
           }
         },
+        "slider_4ncQzB": {
+          "type": "slider",
+          "settings": {}
+        },
         "slider_Fi4j3K": {
           "type": "slider",
           "settings": {
@@ -536,6 +540,7 @@
         "slider_NHhrh4",
         "slider_xN3axh",
         "slider_X6hyew",
+        "slider_4ncQzB",
         "slider_Fi4j3K"
       ],
       "name": "Sliders Slide",
@@ -556,49 +561,57 @@
         "product_yxxMRC": {
           "type": "product",
           "settings": {
-            "product": "sliders-chaas-white"
+            "product": "sliders-chaas-white",
+            "custom_image": "shopify://shop_images/CW.png"
           }
         },
         "product_NkbpdT": {
           "type": "product",
           "settings": {
-            "product": "sliders-tandoor-black"
+            "product": "sliders-tandoor-black",
+            "custom_image": "shopify://shop_images/TB.png"
           }
         },
         "product_cQtq8c": {
           "type": "product",
           "settings": {
-            "product": "sliders-chutney-green"
+            "product": "sliders-chutney-green",
+            "custom_image": "shopify://shop_images/CG.png"
           }
         },
         "product_BJqhXT": {
           "type": "product",
           "settings": {
-            "product": "sliders-kadak-brown"
+            "product": "sliders-kadak-brown",
+            "custom_image": "shopify://shop_images/KB.png"
           }
         },
         "product_pnk9xi": {
           "type": "product",
           "settings": {
-            "product": "sliders-jamun-blue"
+            "product": "sliders-jamun-blue",
+            "custom_image": "shopify://shop_images/JB.png"
           }
         },
         "product_gXgPhc": {
           "type": "product",
           "settings": {
-            "product": "sliders-go-red"
+            "product": "sliders-go-red",
+            "custom_image": "shopify://shop_images/GR.png"
           }
         },
         "product_nW9GQH": {
           "type": "product",
           "settings": {
-            "product": "sliders-banana-chips"
+            "product": "sliders-banana-chips",
+            "custom_image": "shopify://shop_images/BC.png"
           }
         },
         "product_MXm4Vg": {
           "type": "product",
           "settings": {
-            "product": "sliders-purple-pyaaz"
+            "product": "sliders-purple-pyaaz",
+            "custom_image": "shopify://shop_images/PP.png"
           }
         }
       },
