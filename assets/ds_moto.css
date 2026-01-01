@@ -380,9 +380,14 @@ a.marquee_product_block {
     color: #1A1A1A;
 }
 
+
+
 .template-index footer.gradient {
     background: #FAFAFA;
     border: 1px solid #EDEDED;
+}
+.footer-block.grid__item.footer-brand-info--menu {
+    display: none;
 }
 
 @media (min-width: 576px) {
