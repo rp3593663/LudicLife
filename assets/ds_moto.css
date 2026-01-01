@@ -458,7 +458,16 @@ body:not(.template-index) footer-menu:last-child{
 }
 .template-index .footer-menu ul.footer-block__details-content {
     display: grid;
-    gap: 4px;
+    gap: 6px;
+}
+.template-index .footer-menu ul.footer-block__details-content a {
+    color: #1A1A1A!important;
+    font-family: Public Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17.1px;
+    letter-spacing: -0.36px;
+    vertical-align: middle;
 }
 
 
