@@ -2592,16 +2592,16 @@ button#setReminderBtn {
     letter-spacing: -0.8px;
 }
 .reworked-main-product .short_description {
-    margin: 0px 0 6px;
+    margin: 0px 0 6px!important;
 }
 .reworked-main-product .short_description .metafield-rich_text_field {
-    line-height: 15.74px;
+    line-height: 15.74px!important;
 }
 .reworked-main-product .short_description .metafield-rich_text_field p {
-    margin-bottom: 6px;
+    margin-bottom: 6px!important;
 }
 .reworked-main-product .short_description .metafield-rich_text_field p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0px!important;
 }
 .reworked-main-product .product__specifications {
     gap: 14px;
