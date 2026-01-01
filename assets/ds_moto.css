@@ -438,6 +438,9 @@ body:not(.template-index) .newsletter-heading{
 .template-index .footer__newsletter .newsletter-form__button svg path {
     fill: #C7C8CA;
 }
+.template-index .footer-menu.footer-img-wrapper {
+    max-width: 42px;
+}
 
 
 @media (max-width: 1599.98px) {
