@@ -86,6 +86,22 @@
 }
 
 
+.ds_moto_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: unset;
+    border-radius: 4px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.6px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+}
+
 
 .two_column_inner {
     display: grid;
@@ -121,22 +137,9 @@
 }
 a.two_col_btn {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 38px;
-    text-decoration: unset;
     border: 1px solid #FFFFFF;
-    border-radius: 4px;
     color: #FFF;
-    font-family: Inter;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -0.6px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: all 0.2s ease-in;
 }
 a.two_col_btn:hover{
     background: #FFFFFF;
