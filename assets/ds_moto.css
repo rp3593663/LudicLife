@@ -245,6 +245,10 @@ a.two_col_btn:hover{
     text-transform: uppercase;
     transition: all 0.2s ease-in;
 }
+.slider_shop_btn:hover{
+    background: #1A1A1A;
+    color: #FFFFFF;
+}
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
