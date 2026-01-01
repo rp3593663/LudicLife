@@ -290,7 +290,7 @@ a.product__text {
 @media screen and (min-width: 750px) {
   .product__info-container {
     /* max-width: 285px; */
-    max-width: 264px;
+    max-width: 300px;
   }
 
   .product__info-container .price--on-sale .price-item--regular {
@@ -586,7 +586,7 @@ a.product__text {
 
 @media screen and (min-width: 990px) {
   .product--stacked .product__media-item {
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: calc(100% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product:not(.product--columns) .product__media-list .product__media-item:first-child,

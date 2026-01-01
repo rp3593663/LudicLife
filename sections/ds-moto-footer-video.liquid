@@ -1,0 +1,139 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'container-fluid' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin  | split: "|" %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} .section--ds-moto-footer-video{
+  {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+  {% if margin[0]  != blank %}margin: {{ margin[0] }};{% endif %}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--ds-moto-footer-video{
+    {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+    {% if margin[1]  != blank %}margin: {{ margin[1] }};{% endif %}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--ds-moto-footer-video{
+    {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+    {% if margin[2]  != blank %}margin: {{ margin[2] }};{% endif %}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--ds-moto-footer-video{
+    {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+    {% if margin[3]  != blank %}margin: {{ margin[3] }};{% endif %}
+  }
+}
+
+.ds-moto-footer-video-wrapper {
+    text-align: center;
+    overflow: hidden;
+}
+.ds-moto-footer-video-wrapper video{
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+}
+#shopify-section-{{ section.id }} .video-desktop {
+      display: block; 
+      margin-bottom: -400px;
+    }
+ #shopify-section-{{ section.id }} .video-mobile { 
+  display: none; 
+}
+@media(max-width: 767px){
+    .ds-moto-footer-video-wrapper video {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: -150px;
+    }
+    #shopify-section-{{ section.id }} .video-desktop {
+      display: none; 
+    }
+    #shopify-section-{{ section.id }} .video-mobile { 
+      display: block; 
+    }
+}
+{%- endstyle -%}
+
+<section class="ludic-section section--ds-moto-footer-video {{ section.settings.custom_class }}">
+  <div class="{{ container }}">
+    <div class="ds-moto-footer-video-wrapper" style="text-align: center;">
+      <div class="video-desktop">
+        {{ section.settings.video | video_tag: autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
+      </div>
+      <div class="video-mobile">
+        {{ section.settings.mobile_video | video_tag: image_size: '1100x', autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "DS Moto Footer Video",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "t:sections.video.settings.enable_video_looping.label",
+      "default": false
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video.settings.video.label"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Moto Footer Video"
+    }
+  ]
+}
+{% endschema %}

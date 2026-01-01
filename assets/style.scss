@@ -2764,13 +2764,13 @@ body.open-fw-image-modal{
       .fw-coupon-container {
         display: none;
         color: #000;
-        font-size: 10px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 500;
-        letter-spacing: -0.3px;
+        letter-spacing: -0.6px;
         line-height: 12px;
         margin: 9px 0 0;
-        padding: 15px 8px;
+        padding: 10px 8px;
         gap: 3px;
         border-radius: 2px;
         background: linear-gradient(90deg, #F0EFEF 0%, rgba(240, 239, 239, 0.00) 123.5%);
@@ -2784,7 +2784,7 @@ body.open-fw-image-modal{
         }
         span#couponText {
           font-weight: 700;
-          letter-spacing: -0.6px;
+          letter-spacing: -0.5px;
           }
       }
       .fw_product_title_info {
@@ -2849,7 +2849,7 @@ body.open-fw-image-modal{
       line-height: 12px;
       margin: 9px 0 0;
       display: inline-flex;
-      padding: 15px 8px;
+      padding: 10px 8px;
       gap: 3px;
       border-radius: 8px;
       background: rgba(203, 203, 203, 0.70);
@@ -2864,9 +2864,9 @@ body.open-fw-image-modal{
       }
       span#couponText {
         color: #E60013;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 700;
-        letter-spacing: -0.6px;
+        letter-spacing: -0.5px;
         /*background: linear-gradient(259.67deg, #FF9D00 15.76%, #E60113 91.39%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

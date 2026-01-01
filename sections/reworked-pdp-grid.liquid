@@ -1,0 +1,109 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="section_reworked_pdp_grid">
+    <div class="reworked_pdp_grid content-container section-{{ section.id }}-padding">
+        <div class="container">
+           <div class="reworked_product_bundle">
+            <div class="reworked_block">
+                <div class="name_block">
+                    <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_askrisk.svg?v=1762848199">
+                        Duffel Bag
+                    </div>
+                </div>
+                <div class="image_block">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/bag-1.png?v=1762948620">
+                </div>
+            </div>
+            <div class="reworked_block">
+                <div class="name_block">
+                    <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_askrisk.svg?v=1762848199">
+                        Bucket  Hat
+                    </div>
+                </div>
+                <div class="image_block">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/hat1.png?v=1762948620">
+                </div>
+            </div>
+            <div class="reworked_block">
+                <div class="name_block">
+                    <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_askrisk.svg?v=1762848199">
+                        Dopp Kit
+                    </div>
+                </div>
+                <div class="image_block">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/drop_kit1.png?v=1762948620">
+                </div>
+            </div>
+            <div class="reworked_block">
+                <div class="name_block">
+                    <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_askrisk.svg?v=1762848199">
+                        Coin Pouch
+                    </div>
+                </div>
+                <div class="image_block">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/coin_pouch1.png?v=1762949136">
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reworked PDP grid",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reworked PDP grid"
+    }
+  ]
+}
+{% endschema %}

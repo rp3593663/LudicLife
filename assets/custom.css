@@ -459,10 +459,7 @@ span.badge.price__badge-sale.color-scheme-4 {
 }
 
 
-.slide-2 .variant-product-wrapper {
-    right: 0;
-    left: unset;
-}
+
 
 /* .variant-product-wrapper.scrolled-out {
   position: absolute;
@@ -519,12 +516,12 @@ span.badge.price__badge-sale.color-scheme-4 {
     pointer-events: none;
     position: absolute;
   } */
-  .slide-2 .variant-product-wrapper {
+  .twosday_slide .variant-product-wrapper {
     right: unset;
     left: 7%;
   }
 
-  .slide-3 .variant-product-wrapper{
+  .twosday_slide .variant-product-wrapper{
     display: none;
   }
 }
@@ -534,7 +531,8 @@ span.badge.price__badge-sale.color-scheme-4 {
 
 
 
-#twosDay_promo_popup {
+#twosDay_promo_popup,
+#ds_moto_popup {
   position: fixed; 
   top:0; 
   left:0; 
@@ -545,16 +543,17 @@ span.badge.price__badge-sale.color-scheme-4 {
   justify-content:center;
   z-index: 999999;
 }
-.twosDay_promo_popup-overlay {
+.twosDay_promo_popup-overlay,
+.ds_moto_popup-overlay {
   position:absolute;
   width:100%; 
   height:100%; 
   background:#000000a6;
 }
-.twosDay_promo_popup-box {
+.twosDay_promo_popup-box,
+.ds_moto_popup-box {
   position: relative;
-  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
-  padding: 40px 32px 32px;
+  padding: 40px 32px;
   max-width: 424px;
   width: 100%;
   border-radius: 20px;
@@ -563,7 +562,26 @@ span.badge.price__badge-sale.color-scheme-4 {
   background-position: center;
   background-size: cover;
 }
-.popup-close {
+.twosDay_promo_popup-box {
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/popup_img.png?v=1761828278);
+}
+.ds_moto_popup-box {
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/dsMoto_promo_popup_bg.png?v=1766557123);
+}
+.ds_moto_popup-box h2 {
+    color: #FFF;
+    margin: 50px auto 65px;
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.popup-close,
+.ds_popup-close {
   background:none; 
   border:none; 
   width: 10px;
@@ -601,14 +619,21 @@ span.badge.price__badge-sale.color-scheme-4 {
   color: #1A1A1A;
 }
 @media(max-width: 767px){
-  .twosDay_promo_popup-box {
-    padding: 28px 22px 22px;
+  .twosDay_promo_popup-box,
+  .ds_moto_popup-box {
+    padding: 28px 22px;
     max-width: 294px;
     border-radius: 13px;
   }
   .popup_hero_img img {
       width: 185px;
   }
+  .ds_moto_popup-box h2 {
+    margin: 34px auto 46px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
   .twosDay_promo_popup-box p {
     margin: 20px auto;
     font-size: 5.86px;
@@ -621,7 +646,8 @@ span.badge.price__badge-sale.color-scheme-4 {
     line-height: 7.8px;
     letter-spacing: -0.7px;
   }
-  .popup-close {
+  .popup-close,
+  .ds_popup-close {
     width: 6px;
     height: 6px;
     top: 9px; 
@@ -1189,20 +1215,23 @@ body.size-chart-popup-pdp #MainContent{
 }
 
 
-
-.slide-2 .slideshow__text-wrapper.banner__content {
+.twosday_slide .variant-product-wrapper {
+    right: 0;
+    left: unset;
+}
+.twosday_slide .slideshow__text-wrapper.banner__content {
     z-index: 2;
 }
-.slide-2 .banner__text.rte.desktop_subheading,
-.slide-2 .banner__text.rte.mobile_subheading {
+.twosday_slide .banner__text.rte.desktop_subheading,
+.twosday_slide .banner__text.rte.mobile_subheading {
     order: -1;
     margin: 0px;
 }
-.slide-2 .banner__text.rte.desktop_subheading img.slide1_svg {
+.twosday_slide .banner__text.rte.desktop_subheading img.slide1_svg {
     max-width: 550px;
     width: 100%;
 }
-.slide-2 h2.banner__heading.inline-richtext.h1 {
+.twosday_slide h2.banner__heading.inline-richtext.h1 {
     margin: 50px 0px;
     font-family: Public Sans;
     font-weight: 400;
@@ -1214,7 +1243,7 @@ body.size-chart-popup-pdp #MainContent{
     text-transform: uppercase;
     color: #E60013;
 }
-.slide-2 a.button.button--primary {
+.twosday_slide a.button.button--primary {
     border-radius: 35px;
     height: 33px;
     max-width: 112px;
@@ -1226,15 +1255,15 @@ body.size-chart-popup-pdp #MainContent{
     padding: 0px;
     width: 100%;
 }
-.slide-2 .slideshow__text.banner__box {
+.twosday_slide .slideshow__text.banner__box {
     top: unset!important;
 }
-.slide-2 a.button.button--primary:hover:after,
-.slide-2 a.button.button--primary:hover:before{
+.twosday_slide a.button.button--primary:hover:after,
+.twosday_slide a.button.button--primary:hover:before{
   width: 112px;
 }
-.slide-2 a.button.button--primary:after,
-.slide-2 a.button.button--primary:before {
+.twosday_slide a.button.button--primary:after,
+.twosday_slide a.button.button--primary:before {
     content: "";
     border-radius: 35px;
     height: 33px;
@@ -1246,11 +1275,54 @@ body.size-chart-popup-pdp #MainContent{
     z-index: -1;
     transition: all 0.3s ease;
 }
-.slide-2 a.button.button--primary:after {
+.twosday_slide a.button.button--primary:after {
     transform: translate(-50%, -50%) rotate(60deg);
 }
-.slide-2 a.button.button--primary:before {
+.twosday_slide a.button.button--primary:before {
     transform: translate(-50%, -50%) rotate(-60deg);
+}
+.bf_slider .desktop_subheading,
+.bf_slider .mobile_subheading {
+    order: -1;
+    font-weight: 700;
+    font-size: 24px!important;
+    line-height: 28px!important;
+    letter-spacing: -1.2px!important;
+    text-align: center;
+    margin: 0px 0px 8px 0px!important;
+}
+.bf_slider h2.banner__heading.inline-richtext.h1 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: -0.36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.bf_slider .banner__buttons a.button {
+    background: transparent;
+    padding: 0px;
+    color: #000!important;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: -0.3px;
+    text-align: center;
+    margin: 0px !important;
+}
+.bf_slider .banner__buttons a.button span{
+    font-weight: 700;
+    margin: 0px 2px;
+}
+.bf_slider .slideshow__text-wrapper .slideshow__text.banner__box {
+    top: 100px!important;
+}
+@media(max-width: 767px){
+  .bf_slider .slideshow__text-wrapper .slideshow__text.banner__box {
+    top: 50%!important;
+    transform: translate(-50%,-50%)!important;
+    padding-top: 0px!important;
+  }
 }
 
 
@@ -1285,7 +1357,17 @@ body.size-chart-popup-pdp #MainContent{
     font-weight: 650;
     line-height: 100%!important;
     color: #1a1a1a;
-    letter-spacing: -1.2px;
+    margin: 0px;
+    letter-spacing: -0.9px;
+}
+.combine-price{
+  text-align: right;
+}
+.title_price_twos_day {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
 }
 .template-product:not(.template-product\.fw-product) .short_description strong {
     font-weight: 650;
@@ -1295,7 +1377,7 @@ body.size-chart-popup-pdp #MainContent{
     color: #939598;
     line-height: 14.3px !important;
     font-weight: 400;
-    margin-top: 6px;
+    margin-top: 2px;
     letter-spacing: -0.3px;
     text-align: end;
 }
@@ -1436,7 +1518,7 @@ span.size_specification_value {;
     display: flex;
     align-items: center;
     gap: 6px;
-    font-weight: 600;
+    font-weight: 650;
     font-size: 10px;
     line-height: 10px;
     letter-spacing: -0.3px;
@@ -1499,7 +1581,7 @@ span.selected_value,
     letter-spacing: -.36px;
 }
 .template-product.template-product\.twos-day-sale .product__info-wrapper .short_description {
-    margin: 24px 0 0;
+    margin: 18px 0 0;
 }
 .template-product.template-product\.twos-day-sale .product__info-wrapper .short_description p {
     margin-bottom: 6px!important;
@@ -1510,6 +1592,16 @@ span.selected_value,
     line-height: 100%;
     font-weight: 700;
     letter-spacing: -0.8px;
+}
+.template-product.template-product\.twos-day-sale .csmodal-subheading {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    vertical-align: middle;
+    text-align: left;
+    color: #1A1A1A;
+    margin-bottom: 20px;
 }
 .product_extra_content {
     max-width: 1126px;
@@ -1533,14 +1625,58 @@ span.selected_value,
     margin: 28px 0px 14px;
 }
 h6.twos_day_bundle_offer {
-  margin: 0px 0px 28px;
+  margin: 28px 0px 18px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 16px;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.42px;
   text-align: justify;
   vertical-align: middle;
   color: #E60013;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #F9F9F9;
+  padding: 15px 13px;
+  text-transform: uppercase;
+}
+h6.twos_day_bundle_offer img{
+  width: 16px;
+  height: auto;
+}
+.sale_ends h6 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.36px;
+  color: #939598;
+  margin: 20px 0px 10px;
+}
+.sale_ends_date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+div.sale_end {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    color: #E60013;
+}
+.sale_end p {
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 16.25px;
+    letter-spacing: -0.9px;
+}
+.sale_end span {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11.25px;
+    letter-spacing: -0.8px;
+    text-align: center;
+    vertical-align: middle;
 }
 .bundle-select-wrapper {
     display: grid;
@@ -2333,14 +2469,14 @@ button#setReminderBtn {
     max-width: 285px;
     width: 100%;
   }
-  .slide-2 h2.banner__heading.inline-richtext.h1 {
+  .twosday_slide h2.banner__heading.inline-richtext.h1 {
     margin: 42px 0 60px;
     font-weight: 400;
     font-size: 9px;
     line-height: 22.73px;
     letter-spacing: -0.27px;
   }
-  .slide-2 a.button.button--primary {
+  .twosday_slide a.button.button--primary {
     height: 32px;
     max-width: 96px;
     font-size: 10px;
@@ -2350,8 +2486,8 @@ button#setReminderBtn {
     width: 100%;
     margin-top: 0px!important;
   }
-  .slide-2 a.button.button--primary:hover:after,
-  .slide-2 a.button.button--primary:hover:before{
+  .twosday_slide a.button.button--primary:hover:after,
+  .twosday_slide a.button.button--primary:hover:before{
     width: 96px;
   }
   a.button.button--primary:after,

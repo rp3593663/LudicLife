@@ -91,11 +91,11 @@
                             {% endif %}
                           {% endfor %}
 
-                           {% for product in section.settings.futurworks_collection %}
+                          {% comment %} {% for product in section.settings.futurworks_collection %}
                             {% if link.handle == 'futurworks' %}
                               {% assign has_matching_collection = true %}
                             {% endif %}
-                          {% endfor %}
+                          {% endfor %} {% endcomment %}
       
                           <a class="menu-tab" 
                             data-menu-id="{{ link.handle }}" 
@@ -230,6 +230,16 @@
                   <!-- Your Accessories blocks -->
                     {% if section.settings.other_collection != blank %}
                   <ul>
+                    <a href="/products/re-worked-bundle-black">
+                      <li>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/dddddddddd.png?v=1763035450">
+                        <div>
+                          <p class="custom-menu-collection-title">Re : Worked Bundle</p>
+                          <p class="custom-menu-collection-subtitle">Duffel Bag • Dopp Kit • Bucket Hat • Coin Pouch</p>
+                        </div>
+                      </li>
+                      <span class="arrow-menu"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5.49427 9.01415L8.48855 6.00844L5.48285 3.01416" stroke="#1A1A1A" stroke-width="1.11429" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
                     <a href="/products/socks-pack-of-8">
                       <li>
                         <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/menu_socks.png?v=1762431161">
@@ -288,7 +298,7 @@
                   {% endif %}
                 </div>
                 
-                <div class="menu-collection" data-collection="futurworks">
+                {% comment %} <div class="menu-collection" data-collection="futurworks">
                   <!-- Your Futurworks blocks -->
                     {% if section.settings.futurworks_collection != blank %}
                   <ul>
@@ -318,7 +328,7 @@
                     {% endfor %}
                   </ul>
                   {% endif %}
-                </div>
+                </div> {% endcomment %}
             </div>
             <div class="custom-menu-bottom">
               <div class="links-mobile">
@@ -439,20 +449,22 @@
     padding: 20px;
   } 
 
-  a.menu-tab:nth-child(2){
-    padding: 20px 20px 12px;
+  a.menu-tab:nth-child(1), a.menu-tab:nth-child(2), a.menu-tab:nth-child(3){
+    padding: 12px 20px 12px;
   }
-  a.menu-tab:nth-child(3) {
+  {% comment %} a.menu-tab:nth-child(3) {
     padding: 12px 20px 12px;
   }
    a.menu-tab:nth-child(4) {
     padding: 12px 20px 20px;
-  }
+  } {% endcomment %}
 
-  a.menu-tab:first-child,
-  a.menu-tab:last-child  {
+  a.menu-tab:nth-child(4){
     border-bottom: 1px solid #EAEAEA;
     border-top: 1px solid #EAEAEA;
+  }
+  a.menu-tab:last-child  {
+    border-bottom: 1px solid #EAEAEA;
   }
 
   .links-mobile .menu-links a,
@@ -478,6 +490,7 @@
     gap: 12px;
     /* overflow: scroll; */
     border-top: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
     /* min-height: 136px; */
     justify-content: space-between;
     text-align: center;
@@ -624,6 +637,23 @@
    .custom-mobile-menu-inner [data-menu-id='ludic-life'],
    .custom-mobile-menu-inner [data-menu-id='payday-sale'] {
     color: #e60013;
+  }
+  @media(max-width: 991px){
+    .custom-mobile-menu-inner [data-menu-id='ludic-life'] span,
+    .custom-mobile-menu-inner [data-menu-id='futurworks'] span{
+      display: none;
+    }
+    .custom-mobile-menu-inner [data-menu-id='futurworks']{
+      position: relative;
+    }
+    .custom-mobile-menu-inner [data-menu-id='futurworks']:after {
+        content: "TM";
+        position: absolute;
+        top: 18px;
+        left: 82px;
+        font-size: 6px;
+        font-weight: 400;
+    }
   }
   .custom-mobile-menu{
     height: calc(100dvh - 82px);

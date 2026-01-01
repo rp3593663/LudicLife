@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+<script src='https://d24sh1msnqkirc.cloudfront.net/shopflo.bundle.js' async></script>
+
     <!-- Gokwik theme code start -->
     <link rel="dns-prefetch" href="https://pdp.gokwik.co/">
     <link rel="dns-prefetch" href="https://api.gokwik.co">
@@ -50,14 +52,21 @@
       <link rel="alternate" hreflang="en-ae" href="https://ludic.global">
     {% endif %}
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
       div#shopify-section-template--24608016695600__fw_new_features_8CadXz {
           overflow: hidden;
       }
+      @font-face {
+        font-family: 'Druk Text Wide Trial';
+        src: url('https://cdn.shopify.com/s/files/1/0823/6787/3328/files/DrukWide-BoldItalic-Trial.otf?v=1766385691') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+      }
     </style>
+
 
     {%- if blank -%}
     <script type="text/javascript">
@@ -85,34 +94,34 @@
 
     <!-- schema  -->
     {% if request.path contains 'products' %}
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ludic.life"
-        }{% for collection in product.collections %}{% if collection.handle == 'footwear' or collection.handle == 'apparel' or collection.handle == 'accessories' %}
-        ,{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "{{ collection.title }}",
-          "item": "{{ collection.url | prepend: shop.url }}"
-        }{% endif %}{% endfor %}
-        ,{
-          "@type": "ListItem",
-          "position": 3,
-          "name": "{{ product.title | capitalize }}",
-           "item": "{{ product.url | prepend: shop.url }}"
-        }]
-      },{
-          "@type": "ListItem",
-          "position": 4,
-          "name": "{{ product.metafields.custom.product_color_name | capitalize }}"
-        }]
-      }
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ludic.life"
+          }{% for collection in product.collections %}{% if collection.handle == 'footwear' or collection.handle == 'apparel' or collection.handle == 'accessories' %}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{{ collection.title }}",
+            "item": "{{ collection.url | prepend: shop.url }}"
+          }{% endif %}{% endfor %}
+          ,{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ product.title | capitalize }}",
+            "item": "{{ product.url | prepend: shop.url }}"
+          }]
+        },{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "{{ product.metafields.custom.product_color_name | capitalize }}"
+          }]
+        }
       </script>
     {% endif %}
     <!-- schema  -->
@@ -541,6 +550,16 @@
     </ul>
 
     {% render 'footer-js' %}
+
+    <script> 
+      (function(){ 
+        var s = document.createElement("script"); 
+        s.async = true; 
+        s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//indexpointer.com/getpoint.js"; 
+        var a = document.getElementsByTagName("script")[0]; 
+        a.parentNode.insertBefore(s, a); 
+      })(); 
+    </script>
 
     <div class="reserve_popup">
   <div class="reserve_overlay"></div>
@@ -1570,7 +1589,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
     });
 
-    // === Validation clears on typing/selecting
     $("#ContactForm-name").on("keyup", function () {
       $("#nameError").text("");
     });
@@ -1773,75 +1791,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
    // testing by chintan -- Ludic
 </script>
-            
-           
-
-            
+                       
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-  // const targetDate = new Date("July 3, 2025 20:00:00").getTime();
-
-  // const updateCountdown = () => {
-  //   const now = new Date().getTime();
-  //   const timeLeft = targetDate - now;
-
-  //   let days = 0, hours = 0, minutes = 0, seconds = 0;
-
-  //   if (timeLeft > 0) {
-  //     days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  //     hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  //     minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  //     seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-  //   }
-
-  //   // Format with leading zero
-  //   const d = String(days).padStart(2, '0');
-  //   const h = String(hours).padStart(2, '0');
-  //   const m = String(minutes).padStart(2, '0');
-  //   const s = String(seconds).padStart(2, '0');
-
-  //   // Update Block 1 (launch_time)
-  //   const launchDays = document.querySelector('#launch_days p');
-  //   const launchHours = document.querySelector('#launch_hours p');
-  //   const launchMinutes = document.querySelector('#launch_minutes p');
-  //   const launchSeconds = document.querySelector('#launch_seconds p');
-
-  //   if (launchDays) launchDays.textContent = d;
-  //   if (launchHours) launchHours.textContent = h;
-  //   if (launchMinutes) launchMinutes.textContent = m;
-  //   if (launchSeconds) launchSeconds.textContent = s;
-
-  //   // Update Block 2 (timer_block)
-  //   const blockDays = document.querySelector('#days h2');
-  //   const blockHours = document.querySelector('#hours h2');
-  //   const blockMinutes = document.querySelector('#minutes h2');
-  //   const blockSeconds = document.querySelector('#seconds h2');
-
-  //   if (blockDays) blockDays.textContent = d;
-  //   if (blockHours) blockHours.textContent = h;
-  //   if (blockMinutes) blockMinutes.textContent = m;
-  //   if (blockSeconds) blockSeconds.textContent = s;
-  // };
-
-  // updateCountdown(); // Initial call
-  // setInterval(updateCountdown, 1000);
-</script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
+document.addEventListener("DOMContentLoaded", function () {
   const soundToggle = document.getElementById('soundToggle');
   const audio = document.getElementById('backgroundAudio');
 
-  soundToggle.addEventListener('click', () => {
+  // ✅ Exit if elements do not exist on this page
+  if (!soundToggle || !audio) return;
+
+  soundToggle.addEventListener('click', function () {
     if (audio.paused) {
-      audio.play();
+      audio.play().catch(() => {}); // prevents autoplay errors
       soundToggle.classList.remove('paused');
     } else {
       audio.pause();
       soundToggle.classList.add('paused');
     }
   });
+});
 </script>
+
 
 <script>
   $(document).ready(function () {
@@ -1866,20 +1838,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
   $(document).ready(function() {
-    // Marquee-like slider
-    // $('.fw-product-slider').slick({
-    //   slidesToShow: 2,
-    //   slidesToScroll: 1,
-    //   autoplay: true,
-    //   autoplaySpeed: 100,
-    //   speed: 10000,
-    //   cssEase: 'linear',
-    //   infinite: true,
-    //   arrows: false,
-    //   pauseOnHover: true,      // pauses when mouse hovers
-    //   pauseOnFocus: true       
-    // });
-    // $(window).on('load', function() {
     $('.fw-product-slider').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
@@ -1893,17 +1851,12 @@ document.addEventListener('DOMContentLoaded', () => {
       pauseOnFocus: true       // also pause on focus
     });
 
-
-    // Modal slider
     $('.fw-modal-slider').slick({
       slidesToShow: 1,
       infinite: true,
       arrows: true,
       dots: false,
       });
-    // });
-
-    // Track whether the user dragged or clicked
     let isDragging = false;
 
     $('.fw-product-slider .fw-product-slide img')
@@ -1930,25 +1883,67 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-{% comment %} <script>
-  document.querySelectorAll('.fw-hover-plus').forEach(container => {
-    const cursor = container.querySelector('.fw-hover-cursor');
 
-    container.addEventListener('mousemove', e => {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
-      cursor.style.left = `${x}px`;
-      cursor.style.top = `${y}px`;
-      cursor.style.opacity = 1;
+<script>
+// =========================== splide slide ==============================
+   document.addEventListener('DOMContentLoaded', function () {
+    const AutoScroll = window.splide.Extensions.AutoScroll;
+    const splide = new Splide('#splide', {
+        arrows: false,
+        autoWidth: true,
+        pagination: false,
+        autoScroll: true,
+        type: 'loop',
+        mediaQuery: 'min',
+        dragMinThreshold: 25,
+        autoScroll: {
+          speed: 2 / 3,
+          pauseOnHover: false,
+        },
+        reducedMotion: {
+          autoScroll: false,
+        },
+    }).mount({
+        AutoScroll,
     });
 
-    container.addEventListener('mouseleave', () => {
-      cursor.style.opacity = 0;
+     document.getElementById('splide').style.visibility = 'visible';
+      
+
+    // Modal popup functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.getElementById('closeModal');
+
+    document.querySelectorAll('.slider-image').forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            $('body').addClass('open-fw-image-modal');
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        $('body').removeClass('open-fw-image-modal');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            modalImg.src = '';
+            $('body').removeClass('open-fw-image-modal');
+        }
     });
   });
-</script> {% endcomment %}
+
+</script>
 
 
 {%- if template == 'product.fw-product' and product.title == 'Circuit Shirt' -%}
@@ -2064,8 +2059,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <button id="popup-cta" class="popup-cta-btn">Don't miss out</button>
       </div>
     </div>
-    <script>
+    {% comment %} <script>
       document.addEventListener("DOMContentLoaded", function () {
+        if (window.location.pathname === "/pages/ds-moto-ludic") {
+          return;
+        }
 
         const popup = document.getElementById("twosDay_promo_popup");
         const closeBtn = document.querySelector(".popup-close");
@@ -2114,7 +2112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
       });
-    </script>
+    </script> {% endcomment %}
 
 <!--twosDay_promo_popup End-->
 
@@ -2303,26 +2301,35 @@ document.addEventListener('DOMContentLoaded', () => {
 (function(){
 
   function populateSizeSelect(productHandle, sizeSelectEl, hiddenInputEl) {
-    sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
-    sizeSelectEl.disabled = true;
-    hiddenInputEl.value = "";
+  sizeSelectEl.innerHTML = '<option value="">Select Option</option>';
+  sizeSelectEl.disabled = true;
+  hiddenInputEl.value = "";
 
-    if (!productHandle) return;
+  if (!productHandle) return;
 
-    var variants = window.bundleVariantData[productHandle] || [];
-    sizeSelectEl.disabled = false;
+  var variants = window.bundleVariantData[productHandle] || [];
+  sizeSelectEl.disabled = false;
 
-    variants.forEach(function(v){
-      var o = document.createElement('option');
-      o.value = v.id;
-      o.text = v.title;
-      if (!v.available) {
-        o.disabled = true;
-        o.text += ' — Out of stock';
-      }
-      sizeSelectEl.appendChild(o);
-    });
-  }
+  variants.forEach(function (v) {
+    var o = document.createElement('option');
+    o.value = v.id;
+
+    // Replace "Default Title" or "Default title"
+    var label = (v.title === "Default Title" || v.title === "Default title")
+      ? "Free size"
+      : v.title;
+
+    o.text = label;
+
+    if (!v.available) {
+      o.disabled = true;
+      o.text += ' — Out of stock';
+    }
+
+    sizeSelectEl.appendChild(o);
+  });
+}
+
 
   function initBundle(bundleIndex) {
     var block = document.querySelector('.bundle-block[data-bundle="'+bundleIndex+'"]');
@@ -2391,12 +2398,52 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSelectedLabels(2);
 
 })();
+
+{% comment %} document.addEventListener("DOMContentLoaded", function () {
+
+  const priceBox = document.querySelector('.combine-price');
+  const select1 = document.getElementById('bundle_1_select');
+  const select2 = document.getElementById('bundle_2_select');
+
+  const premiumHandles = [
+    "sliders-purple-pyaaz",
+    "sliders-tandoor-black-2-0"
+  ];
+
+  function updateBundlePrice() {
+    const h1 = select1.value;
+    const h2 = select2.value;
+
+    // 🟡 DEFAULT PRICE when not selected
+    if (!h1 || !h2) {
+      priceBox.innerHTML = "₹1999";
+      return;
+    }
+
+    const isH1Premium = premiumHandles.includes(h1);
+    const isH2Premium = premiumHandles.includes(h2);
+
+    let price = 1499; // default when both NOT premium
+
+    // Any case where ONE or BOTH are premium → 1999
+    if (isH1Premium || isH2Premium) {
+      price = 1999;
+    }
+
+    priceBox.innerHTML = `₹${price}`;
+  }
+
+  updateBundlePrice(); // Show default 1999 on load
+
+  select1.addEventListener("change", updateBundlePrice);
+  select2.addEventListener("change", updateBundlePrice);
+
+}); {% endcomment %}
+
 </script>
 
 <script>
   document.getElementById('bundleAddToCartBtn').addEventListener('click', function() {
-    {% comment %} const msg = document.getElementById('bundleAddMsg');
-    msg.innerHTML = ''; {% endcomment %}
 
     const bundles = [1, 2];
     let errors = false;
@@ -2438,8 +2485,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(res => res.json())
     .then(data => {
-      {% comment %} msg.style.color = 'green';
-      msg.innerHTML = "✅ Bundle added to cart successfully!"; {% endcomment %}
       render_cart();
       $('new-cart-drawer').addClass('active animate');
     })
@@ -2595,44 +2640,73 @@ if (isMobile) {
 {% comment %} (function() {
   const currentUrl = window.location.pathname;
 
-  const productPage = "/products/circuit-shirt-bundle";
-  const salePage = "/pages/twos-day-sale";
+    const productPage = "/products/socks-bundle";
+    const salePage = "/pages/twos-day-sale";
+    
+    function isTwosDaySaleActive() {
+      const nowUTC = new Date();
+      
+      const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+      
+      const day = nowIST.getDay(); 
+      const hours = nowIST.getHours();
+      
+      if (day === 2 && hours >= 11) return true;     
+      if (day === 3 && hours < 11) return true;    
+      
+      return false;
+    }
 
-  // Function to check if current IST time is within Tuesday 11:00 AM to Wednesday 11:00 AM
-  function isTwosDaySaleActive() {
-    const nowUTC = new Date();
-    
-    // Convert UTC time to IST
-    const nowIST = new Date(nowUTC.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-    
-    const day = nowIST.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, ...
-    const hours = nowIST.getHours();
-    
-    // Condition: Tuesday 11:00 to Wednesday 11:00 IST
-    if (day === 2 && hours >= 10) return true;     // Tuesday after 11 AM
-    if (day === 3 && hours < 11) return true;      // Wednesday before 11 AM
-    
-    return false;
+    const isSaleActive = isTwosDaySaleActive();
+
+    if (!isSaleActive) {
+      if (currentUrl === productPage) {
+        window.location.href = salePage;
+      }
+    } else {
+      if (currentUrl === salePage) {
+        window.location.href = productPage;
+      }
+    }
+  })();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Target: 17 Dec 2025 - 11:00 AM
+  const targetDate = new Date("December 31, 2025 11:00:00").getTime();
+
+  const hoursEl   = document.querySelector("#hours p");
+  const minutesEl = document.querySelector("#minuts p");
+  const secondsEl = document.querySelector("#seconds p");
+
+  // ✅ Exit if countdown block does not exist on this page
+  if (!hoursEl || !minutesEl || !secondsEl) {
+    return;
   }
 
-  const isSaleActive = isTwosDaySaleActive();
+  function updateCountdown() {
+    const now = Date.now();
+    const diff = targetDate - now;
 
-  // Redirect Logic
-  if (!isSaleActive) {
-    // NORMAL DAYS
-    if (currentUrl === productPage) {
-      window.location.href = salePage;
+    if (diff <= 0) {
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+      return;
     }
-    // sale page stays as-is
-  } else {
-    // DURING SALE WINDOW
-    if (currentUrl === salePage) {
-      window.location.href = productPage;
-    }
-    // product page stays as-is
+
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    hoursEl.textContent   = hours < 10 ? "0" + hours : hours;
+    minutesEl.textContent = minutes < 10 ? "0" + minutes : minutes;
+    secondsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
   }
 })(); {% endcomment %}
 </script>
+
 
 
 

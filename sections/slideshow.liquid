@@ -23,13 +23,7 @@
       }
     }
 
-    a.banner-url {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 2 !Important;
-      display: block;
-    }
+    
     /* @media screen and (max-width:767px){
       a.banner-url {
         pointer-events: none;
@@ -117,7 +111,7 @@
         }
       </style>
       <div
-        class="slideshow__slide grid__item grid--1-col slider__slide slide-{{ forloop.index }}"
+        class="slideshow__slide grid__item grid--1-col slider__slide slide-{{ forloop.index }} {{ block.settings.slide_custom_class }}"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"
@@ -128,7 +122,7 @@
     
       <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
 
-      {% if forloop.index == 4 %}
+      {% if forloop.index == 6 %}
         <!-- First slide with pointers -->
         <div class="pointer-container desktop_only_pointers">
 
@@ -268,7 +262,7 @@
         </div>
       {% endif %}
 
-      {% if forloop.index == 4 %}
+      {% if forloop.index == 6 %}
          <div class="pointer-container mobile_only_pointers">
             <!-- Pointer 1 -->
             <div class="product-pointer Pointer-1">
@@ -467,7 +461,7 @@
                   {% endif %}
                   class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
                 >
-                  {{- block.settings.button_label | escape -}}
+                  {{- block.settings.button_label -}}
                 </a>
               </div>
             {%- endif -%}
@@ -992,6 +986,11 @@ window.addEventListener('DOMContentLoaded', () => {
       "name": "t:sections.slideshow.blocks.slide.name",
       "limit": 15,
       "settings": [
+        {
+          "type": "text",
+          "id": "slide_custom_class",
+          "label": "Slide Custom Class"
+        },
         {
           "type": "image_picker",
           "id": "image",

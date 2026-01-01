@@ -12,9 +12,103 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_Jdr8FX": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "ls-moto-slider",
+            "desktop_video": "shopify://files/videos/NEW DESKTOP.mp4",
+            "mobile_video": "shopify://files/videos/MOBILE_53fd67d0-0072-4d52-a779-4ca8c87ca963.mp4",
+            "banner_url": "shopify://pages/ds-moto-ludic",
+            "heading": "What's your drive?",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "Join Waitlist",
+            "link": "shopify://pages/ds-moto-ludic",
+            "button_style_secondary": false,
+            "box_align": "bottom-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_xbMa3M": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "twosday_slide",
+            "desktop_video": "shopify://files/videos/Heavy Grain FX Horizontal_e69127b9-47bd-434e-8611-684be5f7fff0.mp4",
+            "mobile_video": "shopify://files/videos/Heavy Grain FX Vertical_060ad87d-7027-4088-9466-f1a59ebd3ba8.mp4",
+            "banner_url": "shopify://pages/twos-day-sale",
+            "heading": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.",
+            "heading_size": "h1",
+            "subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
+            "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
+            "button_label": "Discover",
+            "link": "shopify://pages/twos-day-sale",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_LE8H3A": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "reworked_slide",
+            "image": "shopify://shop_images/desktop_reworked_banner.png",
+            "mobile_image": "shopify://shop_images/mobile_reworked_banner1.png",
+            "banner_url": "shopify://products/re-worked-bundle-black",
+            "heading": "Re:Worked Capsule",
+            "heading_size": "h1",
+            "subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
+            "mobile_subheading": "Re-engineered products by bright minds from the house of Ludic. Derived from rejection, made into a new story – four accessories from one shirt – Dopp Kit, Duffel Bag, Coin Pouch, and Bucket Hat. Pure reinvention representing the unthought version of your style.",
+            "button_label": "Discover Re:Worked",
+            "link": "shopify://products/re-worked-bundle-black",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": true,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_FcnyT8": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "slide_custom_class": "bf_slider",
+            "image": "shopify://shop_images/IMG_7870.png",
+            "mobile_image": "shopify://shop_images/IMG_7871.png",
+            "banner_url": "shopify://collections/sliders",
+            "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
+            "heading_size": "h1",
+            "subheading": "Two offers. Extra rush.",
+            "mobile_subheading": "It's Black Friday!",
+            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
+            "link": "shopify://collections/sliders",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_xwDNcy": {
           "type": "slide",
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
             "mobile_image": "shopify://shop_images/30-OFF-Button-Down-Mobile.png",
             "banner_url": "shopify://collections/weekend-shirt-circuit-shirt",
@@ -34,32 +128,11 @@
             "varaint_product_id": []
           }
         },
-        "slide_xbMa3M": {
-          "type": "slide",
-          "settings": {
-            "desktop_video": "shopify://files/videos/towsday-desktop.mp4",
-            "mobile_video": "shopify://files/videos/towsday-mobile.mp4",
-            "banner_url": "shopify://pages/twos-day-sale",
-            "heading": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.",
-            "heading_size": "h1",
-            "subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
-            "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
-            "button_label": "Discover",
-            "link": "shopify://pages/twos-day-sale",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
-        },
         "slide_iBgjiF": {
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_163_3_319ecf36-3cac-4269-b7cb-33b803b7763d.png",
             "mobile_image": "shopify://shop_images/Frame_1618876129.png",
             "banner_url": "shopify://collections/footwear",
@@ -81,7 +154,9 @@
         },
         "slide_E6BA8B": {
           "type": "slide",
+          "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "desktop_video": "shopify://files/videos/NEW WEB.mp4",
             "mobile_video": "shopify://files/videos/New Mob.mp4",
             "banner_url": "shopify://products/sliders-purple-pyaaz",
@@ -108,6 +183,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_163_1.png",
             "mobile_image": "shopify://shop_images/7777b24761b5bd4e4d4f17103fdfd2e959abdefa_1.png",
             "banner_url": "",
@@ -131,6 +207,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_1618875612_1.png",
             "mobile_image": "shopify://shop_images/4_2.png",
             "banner_url": "shopify://collections/nova-play",
@@ -158,6 +235,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/new-launch-slider.jpg",
             "mobile_image": "shopify://shop_images/new-launch-slider-mobile.jpg",
             "banner_url": "",
@@ -181,6 +259,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "slide_custom_class": "",
             "image": "shopify://shop_images/Frame_163.png",
             "mobile_image": "shopify://shop_images/Mobile_Banner_from_Chintan_via_Slack_1.jpg",
             "banner_url": "shopify://products/nova-play-sand-tan",
@@ -206,8 +285,11 @@
         }
       },
       "block_order": [
-        "slide_xwDNcy",
+        "slide_Jdr8FX",
         "slide_xbMa3M",
+        "slide_LE8H3A",
+        "slide_FcnyT8",
+        "slide_xwDNcy",
         "slide_iBgjiF",
         "slide_E6BA8B",
         "slide_4KEdxV",
@@ -220,7 +302,7 @@
         "slide_height": "adapt_image",
         "slider_visual": "dots",
         "auto_rotate": true,
-        "change_slides_speed": 5,
+        "change_slides_speed": 7,
         "image_behavior": "none",
         "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
@@ -1344,16 +1426,13 @@
     },
     "custom_liquid_zicrMU": {
       "type": "custom-liquid",
-      "disabled": true,
       "custom_css": [
-        ".festival-custom-main-section {padding: 0;}",
-        ".festival-custom-images {width: 100%;}",
-        ".festival-banner-desktop {width: 100%; display: block;}",
+        ".festival-banner-desktop {display: block;}",
         ".festival-banner-mobile {display: none;}",
         "@media screen and (max-width: 768px) {.festival-banner-desktop {display: none; } .festival-banner-mobile {display: block; }}"
       ],
       "settings": {
-        "custom_liquid": "<div class=\"festival-custom-main-section\">\n<div class=\"container\">\n<a href=\"/collections/footwear\">\n<div class=\"festival-custom-images\">\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_1618876115.png?v=1759231428\" class=\"festival-banner-desktop\">\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_1618876116.png?v=1759231429\" class=\"festival-banner-mobile\">\n</div>\n</a>\n</div>\n</div>",
+        "custom_liquid": "<div class=\"container\"><a href=\"https://ludic.life/pages/twos-day-sale\">\n<img class=\"festival-banner-desktop\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/desktop-twos-day-banner.png?v=1762775270\">\n<img class=\"festival-banner-mobile\" src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile-twos-day-banner.png?v=1762775271\">\n</a></div>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
@@ -1437,33 +1516,33 @@
         "featured_collection_R7hw6b": {
           "type": "featured_collection",
           "settings": {
-            "collection": "enhanced-canvas",
-            "img": "shopify://shop_images/7.png",
-            "custom_title": "Shop Enhanced Canvas"
+            "collection": "sliders",
+            "img": "shopify://shop_images/Item.png",
+            "custom_title": "Shop Sliders"
           }
         },
         "featured_collection_xq9zdH": {
           "type": "featured_collection",
           "settings": {
-            "collection": "eclipse",
-            "img": "shopify://shop_images/8_2587b75a-3403-4a53-962b-a4acc2e6b191.png",
-            "custom_title": "Shop Eclipse"
+            "collection": "nova-play",
+            "img": "shopify://shop_images/Item-1.png",
+            "custom_title": "Shop Nova Play"
           }
         },
         "featured_collection_iRVzFB": {
           "type": "featured_collection",
           "settings": {
-            "collection": "nova",
-            "img": "shopify://shop_images/9.png",
-            "custom_title": "Shop Nova"
+            "collection": "sports-bag",
+            "img": "shopify://shop_images/Item-2.png",
+            "custom_title": "Shop Sport Bag"
           }
         },
         "featured_collection_cMDJk3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "apparel",
-            "img": "shopify://shop_images/10.png",
-            "custom_title": "Shop Apparel"
+            "collection": "circuit-shirt",
+            "img": "shopify://shop_images/Item-3.png",
+            "custom_title": "Shop Circuit Shirt"
           }
         }
       },

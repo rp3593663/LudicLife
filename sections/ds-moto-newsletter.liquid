@@ -1,0 +1,313 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'container-fluid' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin  | split: "|" %}
+
+{%- style -%}
+
+.section--ds-moto-newsletter{
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/BG_LINES.svg?v=1766388068);
+    background-size: cover;
+    background-position: center;
+}
+#shopify-section-{{ section.id }} .section--ds-moto-newsletter{
+  {% if padding[0] != blank %}padding: {{ padding[0] }};{% endif %}
+  {% if margin[0]  != blank %}margin: {{ margin[0] }};{% endif %}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--ds-moto-newsletter{
+    {% if padding[1] != blank %}padding: {{ padding[1] }};{% endif %}
+    {% if margin[1]  != blank %}margin: {{ margin[1] }};{% endif %}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--ds-moto-newsletter{
+    {% if padding[2] != blank %}padding: {{ padding[2] }};{% endif %}
+    {% if margin[2]  != blank %}margin: {{ margin[2] }};{% endif %}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--ds-moto-newsletter{
+    {% if padding[3] != blank %}padding: {{ padding[3] }};{% endif %}
+    {% if margin[3]  != blank %}margin: {{ margin[3] }};{% endif %}
+  }
+}
+.ds-submit-btn.is-disabled {
+  pointer-events: none;
+  color: #848484;
+}
+
+.ds-submit-btn.is-active {
+  color: #FFFFFF;
+  pointer-events: auto;
+}
+
+
+{%- endstyle -%}
+
+<section class="ludic-section section--ds-moto-newsletter {{ section.settings.custom_class }}" id="join_waitlist">
+  <div class="{{ container }}">
+    <div class="ds_moto_newsletter_inner">
+        <div class="ds_moto_head">
+            <h5>Join the waitlist</h5>
+            {% comment %} <p>Speed never killed anyone, Suddenly becoming stationery.</p> {% endcomment %}
+        </div>
+        <div class="ds_moto_newsletter_form">
+              <form id="DSMotoNewsletter" class="ds-moto-form">
+
+                <!-- Full Name -->
+                <div class="ds-field">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 9.99992C11.841 9.99992 13.3333 8.50753 13.3333 6.66659C13.3333 4.82564 11.841 3.33325 10 3.33325C8.15905 3.33325 6.66667 4.82564 6.66667 6.66659C6.66667 8.50753 8.15905 9.99992 10 9.99992Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M3.33333 16.6667C3.33333 13.3334 6.25 11.6667 10 11.6667C13.75 11.6667 16.6667 13.3334 16.6667 16.6667" stroke="white" stroke-width="1.66667"/>
+                    </svg>
+                    <input type="text" id="ds-name" name="ds_fullname" required placeholder="Enter full name*">
+                </div>
+
+                <!-- Email -->
+                <div class="ds-field">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.8333 4.16675H4.16667C3.24619 4.16675 2.5 4.91294 2.5 5.83341V14.1667C2.5 15.0872 3.24619 15.8334 4.16667 15.8334H15.8333C16.7538 15.8334 17.5 15.0872 17.5 14.1667V5.83341C17.5 4.91294 16.7538 4.16675 15.8333 4.16675Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M2.5 5.83325L10 10.8333L17.5 5.83325" stroke="white" stroke-width="1.66667"/>
+                    </svg>
+                    <input type="email" id="ds-email" name="ds_email" required placeholder="Enter email address*">
+                </div>
+
+                <!-- Age -->
+                <div class="ds-field">
+                    <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.09316 17.4844C7.88638 18.2776 8.87016 18.6689 10.0092 18.6689C11.1483 18.6689 12.1319 18.2776 12.9252 17.4844L13.5482 16.8604L14.1586 17.4805L14.1625 17.4844C14.9725 18.2944 15.9515 18.7158 17.0785 18.7158C17.5378 18.7158 17.98 18.6366 18.4066 18.4883V22.0684C18.4066 22.1888 18.3734 22.2549 18.3158 22.3125C18.2582 22.3701 18.1921 22.4033 18.0717 22.4033H1.92813C1.80786 22.4033 1.74252 22.37 1.68496 22.3125C1.62733 22.2549 1.59414 22.1888 1.59414 22.0684V18.4951C2.01544 18.6394 2.45798 18.7158 2.92227 18.7158C4.04911 18.7157 5.02739 18.2943 5.83731 17.4844L6.46523 16.8564L7.09316 17.4844ZM10.3715 8.61914V10.6533H16.2504C16.7976 10.6992 17.2749 10.9252 17.6928 11.3496L17.6967 11.3535C18.181 11.8379 18.4066 12.3782 18.4066 13.0127V14.5684C18.4066 14.9208 18.2851 15.2183 18.0063 15.4971C17.7288 15.7745 17.423 15.8964 17.0785 15.8965C16.721 15.8965 16.419 15.7741 16.1693 15.5244L14.0033 13.3594L13.5434 12.8994L13.0844 13.3594L10.9184 15.5244C10.671 15.7718 10.3702 15.8965 9.99063 15.8965C9.61101 15.8965 9.3093 15.7718 9.06191 15.5244L6.94863 13.3643L6.48965 12.8945L6.02481 13.3594L3.85879 15.5244C3.60792 15.7753 3.31478 15.8965 2.94961 15.8965C2.59743 15.8964 2.30055 15.7757 2.02188 15.4971C1.74431 15.2195 1.62148 14.913 1.62148 14.5684V13.0127C1.62148 12.3754 1.84906 11.8286 2.32754 11.3574L2.33145 11.3535C2.81584 10.8691 3.35609 10.6436 3.99063 10.6436H9.69375V8.61914H10.3715ZM11.1322 4.23145L11.142 4.24805L11.1518 4.2627C11.3153 4.51482 11.3754 4.7409 11.3754 4.9502C11.3753 5.30166 11.2534 5.61114 10.9691 5.91113C10.6948 6.19201 10.3834 6.32511 10.0004 6.3252C9.65673 6.3252 9.34847 6.20058 9.04434 5.89648C8.74017 5.59232 8.61563 5.28413 8.61563 4.94043C8.61567 4.74003 8.67984 4.51062 8.84609 4.24316L8.85195 4.2334L8.85684 4.22461L9.99746 2.24414L11.1322 4.23145Z" stroke="white" stroke-width="1.3"/>
+                    </svg>
+                    <select id="ds-age" name="ds_age" required placeholder="dd">
+                      <option value="" disabled selected>Age*</option>
+                      {% for age in (14..96) %}
+                        <option value="{{ age }}">{{ age }}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Phone -->
+                <div class="ds-field">
+                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_189_20895)">
+                        <path d="M0 0H24V5.33333H0V0Z" fill="#FF9933"/>
+                        <path d="M0 5.33325H24V10.6666H0V5.33325Z" fill="white"/>
+                        <path d="M0 10.6667H24V16.0001H0V10.6667Z" fill="#138808"/>
+                        <path d="M12 9.5999C12.8837 9.5999 13.6 8.88356 13.6 7.9999C13.6 7.11625 12.8837 6.3999 12 6.3999C11.1164 6.3999 10.4 7.11625 10.4 7.9999C10.4 8.88356 11.1164 9.5999 12 9.5999Z" stroke="#000080" stroke-width="0.187135"/>
+                        <path d="M12 8.16009C12.0884 8.16009 12.16 8.08845 12.16 8.00009C12.16 7.91172 12.0884 7.84009 12 7.84009C11.9117 7.84009 11.84 7.91172 11.84 8.00009C11.84 8.08845 11.9117 8.16009 12 8.16009Z" fill="#000080"/>
+                        <path d="M12.4117 6.46365L11.5883 9.53649L12.4117 6.46365ZM12.4117 6.46365L11.5883 9.53649L12.4117 6.46365ZM12.7953 6.62252L11.2047 9.37761L12.7953 6.62252ZM13.1248 6.87529L10.8752 9.12484L13.1248 6.87529ZM13.3776 7.20475L10.6225 8.79539L13.3776 7.20475ZM13.5364 7.58837L10.4636 8.41176L13.5364 7.58837ZM13.5906 8.00007H10.4094H13.5906ZM13.5364 8.41176L10.4636 7.58837L13.5364 8.41176ZM13.3776 8.79539L10.6225 7.20475L13.3776 8.79539ZM13.1248 9.12484L10.8752 6.87529L13.1248 9.12484ZM12.7953 9.37761L11.2047 6.62252L12.7953 9.37761ZM12.4117 9.53649L11.5883 6.46365L12.4117 9.53649ZM12 9.59071V6.40942V9.59071ZM12.4117 6.46365L11.5883 9.53649L12.4117 6.46365ZM12.7953 6.62252L11.2047 9.37761L12.7953 6.62252ZM13.1248 6.87529L10.8752 9.12484L13.1248 6.87529ZM13.3776 7.20475L10.6225 8.79539L13.3776 7.20475ZM13.5364 7.58837L10.4636 8.41176L13.5364 7.58837ZM13.5906 8.00007H10.4094H13.5906ZM13.5364 8.41176L10.4636 7.58837L13.5364 8.41176ZM13.3776 8.79539L10.6225 7.20475L13.3776 8.79539ZM13.1248 9.12484L10.8752 6.87529L13.1248 9.12484ZM12.7953 9.37761L11.2047 6.62252L12.7953 9.37761ZM12.4117 9.53649L11.5883 6.46365L12.4117 9.53649Z" fill="black"/>
+                        <path d="M12.4117 6.46365L11.5883 9.53649M12.7953 6.62252L11.2047 9.37761M13.1248 6.87529L10.8752 9.12484M13.3776 7.20475L10.6225 8.79539M13.5364 7.58837L10.4636 8.41176M13.5906 8.00007H10.4094M13.5364 8.41176L10.4636 7.58837M13.3776 8.79539L10.6225 7.20475M13.1248 9.12484L10.8752 6.87529M12.7953 9.37761L11.2047 6.62252M12.4117 9.53649L11.5883 6.46365M12 9.59071V6.40942" stroke="#000080" stroke-width="0.0935673"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_189_20895">
+                        <rect width="24" height="16" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                    <input type="tel" id="ds-phone" name="ds_phone" required placeholder="Enter phone number*" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10"/>
+
+                </div>
+
+                <!-- Instagram Username -->
+                <div class="ds-field">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.1667 1.66675H5.83333C3.53215 1.66675 1.66667 3.53223 1.66667 5.83341V14.1667C1.66667 16.4679 3.53215 18.3334 5.83333 18.3334H14.1667C16.4679 18.3334 18.3333 16.4679 18.3333 14.1667V5.83341C18.3333 3.53223 16.4679 1.66675 14.1667 1.66675Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M10 13.3334C11.841 13.3334 13.3333 11.841 13.3333 10.0001C13.3333 8.15913 11.841 6.66675 10 6.66675C8.15905 6.66675 6.66667 8.15913 6.66667 10.0001C6.66667 11.841 8.15905 13.3334 10 13.3334Z" stroke="white" stroke-width="1.66667"/>
+                      <path d="M14.5833 6.66675C15.2737 6.66675 15.8333 6.1071 15.8333 5.41675C15.8333 4.72639 15.2737 4.16675 14.5833 4.16675C13.893 4.16675 13.3333 4.72639 13.3333 5.41675C13.3333 6.1071 13.893 6.66675 14.5833 6.66675Z" fill="white"/>
+                    </svg>
+                    <input
+                    type="text"
+                    id="ds-instagram"
+                    name="ds_instagram"
+                    placeholder="Instagram username"
+                    oninput="document.getElementById('instaTag-{{ section.id }}').value = this.value ? 'Instagram_' + this.value : '';">
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="ds_waitlist_submit" class="ds-submit-btn is-disabled" disabled>
+                    Submit
+                </button>
+
+                 <!-- Privacy Checkbox -->
+                <div class="ds-privacy">
+                    <label>
+                        <input type="checkbox" name="customer[accepts_sms_marketing]" checked required>
+                        By signing up, you agree to<a href="https://ludic.life/pages/support?hcUrl=%2Fen-US%2Farticles%2Fprivacy-policy-317982">Ludic Privacy Poilicy</a>
+                    </label>
+                </div>
+
+                    <p class="form-success" id="DSformSuccessMessage" style="display: none;" >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_346_31797)">
+                        <path d="M12.8345 7.00033C12.8345 10.222 10.2228 12.8337 7.00112 12.8337C3.77946 12.8337 1.16779 10.222 1.16779 7.00033C1.16779 3.77866 3.77946 1.16699 7.00112 1.16699C10.2228 1.16699 12.8345 3.77866 12.8345 7.00033Z" fill="#6BBC3B" stroke="#6BBC3B" stroke-width="0.532787" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.37494 7L6.12494 8.75L9.62494 5.25" stroke="white" stroke-width="1.15437" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_346_31797">
+                        <rect width="14" height="14" fill="white"/>
+                        </clipPath>
+                        </defs>
+                      </svg>
+                      Welcome. Get ready for the drive.
+                    </p>
+
+              </form>
+
+        </div>
+    </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const nameInput  = document.getElementById('ds-name');
+  const emailInput = document.getElementById('ds-email');
+  const phoneInput = document.getElementById('ds-phone');
+  const ageSelect  = document.getElementById('ds-age');
+  const instaInput  = document.getElementById('ds-instagram');
+  const submitBtn  = document.querySelector('#DSMotoNewsletter .ds-submit-btn');
+
+  /* ---------- AGE COLOR TOGGLE ---------- */
+  function updateAgeColor() {
+    if (!ageSelect.value) {
+      ageSelect.classList.remove('is-selected');
+    } else {
+      ageSelect.classList.add('is-selected');
+    }
+  }
+
+  /* ---------- PHONE VALIDATION ---------- */
+  function isValidPhone(phone) {
+    return /^[0-9]{10}$/.test(phone);
+  }
+
+  /* ---------- FORM VALIDATION ---------- */
+  function checkFields() {
+    const isFilled =
+      nameInput.value.trim() !== '' &&
+      emailInput.value.trim() !== '' &&
+      isValidPhone(phoneInput.value.trim()) &&
+      ageSelect.value !== '';
+
+    submitBtn.disabled = !isFilled;
+    submitBtn.classList.toggle('is-disabled', !isFilled);
+    submitBtn.classList.toggle('is-active', isFilled);
+  }
+
+  /* ---------- EVENTS ---------- */
+  nameInput.addEventListener('input', checkFields);
+  emailInput.addEventListener('input', checkFields);
+
+  phoneInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    checkFields();
+  });
+
+  ageSelect.addEventListener('change', function () {
+    updateAgeColor();
+    checkFields();
+  });
+
+  /* ---------- INITIAL STATE ---------- */
+  updateAgeColor();
+  checkFields();
+
+  /* ---------- SUBMIT ---------- */
+  document.getElementById('ds_waitlist_submit').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('is-disabled');
+    submitBtn.classList.remove('is-active');
+    submitBtn.textContent = 'Joining...';
+
+    fetch('https://Ludic-API.kretosstechnology.com/join-waitlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        note: `Age: ${ageSelect.value} | Instagram: ${instaInput.value ? '@' + instaInput.value : 'N/A'}`
+      })
+    })
+
+    .then(res => res.json())
+    .then(() => {
+      document.getElementById('DSformSuccessMessage').style.display = 'block';
+      document.getElementById('DSMotoNewsletter').reset();
+      updateAgeColor();
+      checkFields();
+
+      setTimeout(() => {
+        document.getElementById('DSformSuccessMessage').style.display = 'none';
+      }, 5000);
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-disabled');
+      submitBtn.classList.add('is-active');
+      submitBtn.textContent = 'Submit';
+    })
+    .catch(err => {
+      console.error(err);
+      checkFields();
+    });
+  });
+
+});
+</script>
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "DS Moto Newsletter",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Moto Newsletter"
+    }
+  ]
+}
+{% endschema %}
