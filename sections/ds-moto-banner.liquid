@@ -39,36 +39,9 @@
 }
 {%- endstyle -%}
 
-<section class="ludic-section ludic-section-{{ section.id }} section--marquee-products">
+<section class="ludic-section ludic-section-{{ section.id }} section--ds_moto_banner">
   <div class="{{ container }}">
-    <div class="products_marquee_wrapper">
-      <div class="products_marquee_inner product-marquee-track">
-        {% for i in (1..2) %}
-          {% for block in section.blocks %}
-            {% assign product = block.settings.product %}
-            {% if product != blank %}
-              <a href="{{ product.url }}" class="marquee_product_block">
-               <div class="marquee_product__img">
-                    {% if block.settings.custom_image != blank %}
-                        <img src="{{ block.settings.custom_image | image_url }}" alt="{{ product.title | escape }}" loading="lazy">
-                    {% elsif product.featured_image != blank %}
-                        <img src="{{ product.featured_image | image_url }}" alt="{{ product.title | escape }}" loading="lazy">
-                    {% endif %}
-                </div>
-                <div class="marquee_product__content">
-                  <div class="title">
-                    {{ product.metafields.custom.product_name_breadcrumb }} {% if product.metafields.custom.product_color_name != blank %}/{% endif %} <strong>{{ product.metafields.custom.product_color_name }}</strong>  
-                  </div>
-                  <div class="price">
-                    {{ product.price | money }}
-                  </div>
-                </div>
-              </a>
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-      </div>
-    </div>
+    
   </div>
 </section>
 
