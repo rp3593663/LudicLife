@@ -355,9 +355,8 @@ a.marquee_product_block {
 
 
 
-.home_features img.multicolumn-card__image {
-    width: 16px;
-    height: 16px;
+.home_features .media {
+    padding-bottom: 16%!important;
 }
 
 @media (min-width: 576px) {
