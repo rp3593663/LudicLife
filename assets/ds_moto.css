@@ -385,6 +385,7 @@ a.marquee_product_block {
 .template-index footer.gradient {
     background: #FAFAFA;
     border: 1px solid #EDEDED;
+    position: relative;
 }
 .template-index .footer-block.grid__item.footer-brand-info--menu {
     display: none;
