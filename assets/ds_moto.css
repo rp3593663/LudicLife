@@ -301,6 +301,9 @@ a.marquee_product_block {
     margin-right: 15px;
     letter-spacing: -.36px;
 }
+.marquee_product__content .title span{
+   font-weight: 700;
+}
 
 @media (min-width: 576px) {
     .section--sliders-slide .container {
