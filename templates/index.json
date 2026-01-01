@@ -550,6 +550,15 @@
         "margin": "120px 0px 52px | | | 60px 0px 32px"
       }
     },
+    "marquee_products_Ak4PAW": {
+      "type": "marquee_products",
+      "name": "Marquee Products",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "80px 0px | | | 36px 0px"
+      }
+    },
     "csk_custom_text_Knc7fd": {
       "type": "csk-custom-text",
       "disabled": true,
@@ -1203,6 +1212,7 @@
     "two_column_banner_7jdiFX",
     "ds_moto_images_text_UmdXGf",
     "home_sliders_slide_Ek6TLj",
+    "marquee_products_Ak4PAW",
     "csk_custom_text_Knc7fd",
     "fw_description_b4empb",
     "image_scroller_cbFL7N",
