@@ -226,6 +226,9 @@ a.two_col_btn:hover{
     background: #1A1A1A;
     color: #FFFFFF;
 }
+.image_slides_block {
+    position: relative;
+}
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
