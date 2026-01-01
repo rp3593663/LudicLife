@@ -399,6 +399,10 @@ a.marquee_product_block {
 body:not(.template-index) .newsletter-heading{
     display: none;
 }
+.template-index h2.newsletter-heading {
+    line-height: 24px;
+    margin-bottom: 20px;
+}
 .template-index .newsletter-heading img {
     width: 80px;
     height: 24px;
