@@ -37,34 +37,16 @@
   <div class="{{ container }}">
     <div class="sliders_slide_inner">
         <div class="image_slides_block">
-            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Background-KB.png?v=1767246824" class="main_slider_img">
+            <img src="{{ section.settings.main_image | image_url }}" class="main_slider_img" id="main-slider-{{ section.id }}" >
             <div class="all_sliders_slide">
-                <div class="slider_image active">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/KB.png?v=1767246285">
+                {% for block in section.blocks %}
+                <div class="slider_image {% if forloop.first %}active{% endif %}" data-main-image="{{ block.settings.main_image | image_url }}">
+                    <img src="{{ block.settings.thumb_image | image_url }}">
                 </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/JB.png?v=1767246285">
-                </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/CG.png?v=1767246285">
-                </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/PP.png?v=1767246285">
-                </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/TB.png?v=1767246285">
-                </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/GR.png?v=1767246285">
-                </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/BC.png?v=1767246285">
-                </div>
-                <div class="slider_image">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/CW.png?v=1767246284">
-                </div>
+                {% endfor %}
             </div>
         </div>
+
         <div class="sliders_content_block">
             <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/ludic_sliders_svg.svg?v=1767246434">
             <div class="description">
