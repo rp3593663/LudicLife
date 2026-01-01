@@ -277,9 +277,6 @@ a.two_col_btn:hover{
   flex: 0 0 auto;
   margin-right: 64px;
 }
-.products_marquee_wrapper:hover .marquee-track {
-  animation-play-state: paused;
-}
 .marquee_product__img img {
     mix-blend-mode: multiply;
 }
