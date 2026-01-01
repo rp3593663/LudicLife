@@ -1,0 +1,363 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .video-section.section-{{ section.id }}-padding {
+      position: relative;
+      height: 100vh;
+  }
+  .video-section.section-{{ section.id }}-padding:before {
+    background: linear-gradient(183.3deg, rgba(26, 26, 26, 0) 27.45%, #1A1A1A 92.18%);
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    content: "";
+    z-index: 3;
+}
+  .video-section.section-{{ section.id }}-padding:after {
+    content: "";
+    background: #1A1A1A4D;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-section.section-{{ section.id }}-padding .video-mobile video {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+.video-section.section-{{ section.id }}-padding .video-mobile { 
+  display: none; 
+}
+.video-section.section-{{ section.id }}-padding .video-mobile a{
+  display: block;
+}
+.video-section.section-{{ section.id }}-padding .video-desktop video{
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  height: 100vh;
+}
+section#shopify-section-{{ section.id }} {
+    z-index: 5;
+    position: relative;
+}
+a.floating_join_btn {
+    position: fixed;
+    bottom: -60px; /* start hidden below screen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999999999;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #FFF;
+    background: #1A1A1AAA;
+    width: 152px;
+    height: 42px;
+    border: 1px solid #FFFFFF2B;
+    border-radius: 8px;
+    box-shadow: 0px -1px 1px 1px #0000004A inset;
+    backdrop-filter: blur(4.25px);
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s ease;
+}
+
+a.floating_join_btn.show {
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  a.floating_join_btn {
+     width: 128px;
+    height: 38px;
+    font-size: 12px;
+    letter-spacing: -0.36px;
+    line-height: 12px;
+  }
+  .video-section.section-{{ section.id }}-padding .video-desktop {
+      display: none; 
+    }
+  .video-section.section-{{ section.id }}-padding .video-mobile { 
+    display: block; 
+  }
+}
+{%- endstyle -%}
+
+{%- liquid
+  assign video_id = section.settings.video.id | default: section.settings.video_url.id
+  assign video_alt = section.settings.video.alt | default: section.settings.description
+  assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+  assign poster = section.settings.video.preview_image | default: section.settings.cover_image
+
+  if section.settings.video != null
+    assign ratio_diff = section.settings.video.aspect_ratio | minus: poster.aspect_ratio | abs
+    if ratio_diff < 0.01 and ratio_diff > 0
+      assign fix_ratio = true
+    endif
+  endif
+-%}
+
+{%- capture sizes -%}
+  {% if section.settings.full_width -%}
+    100vw
+  {%- else -%}
+    (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px)
+    calc(100vw - 10rem), 100vw
+  {%- endif %}
+{%- endcapture -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="video-section isolate{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding">
+    <div class="video-desktop">
+      {{ section.settings.video | video_tag: autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
+    </div>
+    <div class="video-mobile">
+      {{ section.settings.mobile_video | video_tag: image_size: '1100x', autoplay: true, loop: section.settings.enable_video_looping, controls: false, muted: true, playsinline: true }}
+    </div>
+    <div class="video_content">
+        <h5>What's your drive?</h5>
+        <a class="below_svg" href="#">
+            <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_189_20358" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="19">
+                <path d="M16 0H0V18.25H16V0Z" fill="white"/>
+                </mask>
+                <g mask="url(#mask0_189_20358)">
+                <path d="M1.125 4.03345L7.61609 10.0948L14.0557 4.08156" stroke="white" stroke-width="1.03008"/>
+                </g>
+            </svg>
+        </a>
+    </div>
+    <a href="#join_waitlist" class="floating_join_btn" id="floatingBtn">
+      Join the waitlist
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6L8 10L12 6" stroke="#D9D9D9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("floatingBtn");
+  const target = document.getElementById("join_waitlist");
+
+  const showAfter = 150;
+  let isInTarget = false;
+
+  // Observe when target section enters viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        isInTarget = entry.isIntersecting;
+        if (isInTarget) {
+          btn.classList.remove("show");
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.1
+    }
+  );
+
+  observer.observe(target);
+
+  function onScroll() {
+    if (isInTarget) {
+      btn.classList.remove("show");
+      return;
+    }
+
+    if (window.scrollY > showAfter) {
+      btn.classList.add("show");
+    } else {
+      btn.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+
+  // Smooth scroll with 100px offset on click
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const y =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      100;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+
+
+
+
+{% schema %}
+{
+  "name": "DS Moto Video",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.video.settings.heading.default",
+      "label": "t:sections.video.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "t:sections.video.settings.enable_video_looping.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__1.content"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video.settings.video.label"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__2.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.video.settings.paragraph.content"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "t:sections.video.settings.video_url.label",
+      "info": "t:sections.video.settings.video_url.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.video.settings.cover_image.label"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "t:sections.video.settings.description.label",
+      "info": "t:sections.video.settings.description.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__3.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.video.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Moto Video"
+    }
+  ]
+}
+{% endschema %}

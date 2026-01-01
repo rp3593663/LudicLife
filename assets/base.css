@@ -6956,7 +6956,7 @@ body.Sliders .product__info-wrapper .short_description{
     border-radius: 2px;
     background: linear-gradient(90deg, #F0EFEF 0%, rgba(240, 239, 239, 0) 123.5%);
     display: inline-flex;
-    padding: 10px 8px;
+    padding: 10px 6px;
     align-items: center;
     gap: 3px;
 }
@@ -6979,7 +6979,8 @@ body.Sliders .product__info-wrapper .short_description{
 .coupon-container .offer strong .coupon_highlight,
 .fw-coupon-container .offer strong .coupon_highlight {
     font-weight: 700;
-    color: #E60013;
+    /* color: #E60013; */
+    color: #000;
 }
 .coupon-container .offer strong span:not(.coupon_highlight),
 .fw-coupon-container .offer strong span:not(.coupon_highlight){

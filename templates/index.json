@@ -12,20 +12,43 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
-        "slide_FcnyT8": {
+        "slide_Jdr8FX": {
           "type": "slide",
           "settings": {
-            "slide_custom_class": "bf_slider",
-            "image": "shopify://shop_images/IMG_7870.png",
-            "mobile_image": "shopify://shop_images/IMG_7871.png",
-            "banner_url": "shopify://collections/sliders",
-            "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
+            "slide_custom_class": "ls-moto-slider",
+            "desktop_video": "shopify://files/videos/NEW DESKTOP.mp4",
+            "mobile_video": "shopify://files/videos/MOBILE_53fd67d0-0072-4d52-a779-4ca8c87ca963.mp4",
+            "banner_url": "shopify://pages/ds-moto-ludic",
+            "heading": "What's your drive?",
             "heading_size": "h1",
-            "subheading": "Two offers. Extra rush.",
-            "mobile_subheading": "It's Black Friday!",
-            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
-            "link": "shopify://collections/sliders",
-            "button_style_secondary": true,
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "Join Waitlist",
+            "link": "shopify://pages/ds-moto-ludic",
+            "button_style_secondary": false,
+            "box_align": "bottom-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_xbMa3M": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "twosday_slide",
+            "desktop_video": "shopify://files/videos/Heavy Grain FX Horizontal_e69127b9-47bd-434e-8611-684be5f7fff0.mp4",
+            "mobile_video": "shopify://files/videos/Heavy Grain FX Vertical_060ad87d-7027-4088-9466-f1a59ebd3ba8.mp4",
+            "banner_url": "shopify://pages/twos-day-sale",
+            "heading": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.",
+            "heading_size": "h1",
+            "subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
+            "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
+            "button_label": "Discover",
+            "link": "shopify://pages/twos-day-sale",
+            "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
             "text_alignment": "center",
@@ -37,7 +60,6 @@
         },
         "slide_LE8H3A": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "reworked_slide",
             "image": "shopify://shop_images/desktop_reworked_banner.png",
@@ -59,21 +81,21 @@
             "varaint_product_id": []
           }
         },
-        "slide_xbMa3M": {
+        "slide_FcnyT8": {
           "type": "slide",
           "disabled": true,
           "settings": {
-            "slide_custom_class": "twosday_slide",
-            "desktop_video": "shopify://files/videos/Core-T-Bundle-Desktop.mp4",
-            "mobile_video": "shopify://files/videos/Core-T-Bundle-Mobile.mp4",
-            "banner_url": "shopify://pages/twos-day-sale",
-            "heading": "BUNDLE OFFERS. EVERY TUESDAY OF THE MONTH.",
+            "slide_custom_class": "bf_slider",
+            "image": "shopify://shop_images/IMG_7870.png",
+            "mobile_image": "shopify://shop_images/IMG_7871.png",
+            "banner_url": "shopify://collections/sliders",
+            "heading": "Grab Flat 500 OFF Sitewide and BOGO on Sliders.",
             "heading_size": "h1",
-            "subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
-            "mobile_subheading": "<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/twos-sale-svg1.svg?v=1761991128\" class=\"slide1_svg\">",
-            "button_label": "Discover",
-            "link": "shopify://pages/twos-day-sale",
-            "button_style_secondary": false,
+            "subheading": "Two offers. Extra rush.",
+            "mobile_subheading": "It's Black Friday!",
+            "button_label": "Use code <span>BF500</span> and <span>SLIDERSBOGO</span>",
+            "link": "shopify://collections/sliders",
+            "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": true,
             "text_alignment": "center",
@@ -85,7 +107,6 @@
         },
         "slide_xwDNcy": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
@@ -264,9 +285,10 @@
         }
       },
       "block_order": [
-        "slide_FcnyT8",
-        "slide_LE8H3A",
+        "slide_Jdr8FX",
         "slide_xbMa3M",
+        "slide_LE8H3A",
+        "slide_FcnyT8",
         "slide_xwDNcy",
         "slide_iBgjiF",
         "slide_E6BA8B",
@@ -280,7 +302,7 @@
         "slide_height": "adapt_image",
         "slider_visual": "dots",
         "auto_rotate": true,
-        "change_slides_speed": 5,
+        "change_slides_speed": 7,
         "image_behavior": "none",
         "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"

@@ -1,0 +1,199 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = 'container-fluid' -%}
+{%- endif -%}
+
+<section id="ds-moto-{{ section.id }}" class="ludic-section ds-moto-animate {{ section.settings.custom_class }}">
+  <div class="{{ container }}">
+    <div class="ds-moto-inner">
+      <div class="ds-moto-images">
+        <img class="moto-img img-1" src="{{ section.settings.image_1 | image_url }}" alt="">
+        <img class="moto-img img-2" src="{{ section.settings.image_2  | image_url }}" alt="">
+      </div>
+
+      <div class="ds-moto-text">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#ds-moto-{{ section.id }} {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/BG_LINES.svg?v=1766388068);
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ds-moto-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.ds-moto-images {
+  position: relative;
+  width: 190px;
+  height: 220px;
+}
+
+.ds-moto-images .moto-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform-origin: center;
+  opacity: 0;
+}
+.ds-moto-images .img-1 {
+  z-index: 2;
+}
+
+.ds-moto-images .img-2 {
+    top: -10px;
+    left: 52px;
+    z-index: 1;
+    
+}
+.ds-moto-text {
+    max-width: 600px;
+    color: #fff;
+    opacity: 0;
+    font-family: Public Sans;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: -1.4px;
+    text-align: center;
+    vertical-align: middle;
+}
+@media (max-width: 767px) {
+  .ds-moto-text {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -.8px;
+    max-width: 300px;
+  }
+  .ds-moto-inner {
+    gap: 48px;
+  }
+  #ds-moto-{{ section.id }} {
+    min-height: unset;
+    padding: 31px 0px 100px 0px;
+  }
+  .ds-moto-images {
+    position: relative;
+    width: 105px;
+    height: 130px;
+}
+}
+</style>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  if (!window.gsap || !window.ScrollTrigger) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const section = document.getElementById("ds-moto-{{ section.id }}");
+  if (!section) return;
+
+  const img1 = section.querySelector(".img-1");
+  const img2 = section.querySelector(".img-2");
+  const text = section.querySelector(".ds-moto-text");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom-=100", // 🔥 KEY FIX
+      once: true
+      // markers: true // enable if you want to debug
+    }
+  });
+
+  tl.fromTo(img1,
+    { x: -200, y: -200, opacity: 0 },
+    { x: 0, y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+  )
+  .fromTo(img2,
+    { x: 200, y: -200, opacity: 0 },
+    { x: 0, y: 0, rotate: 2, opacity: 1, duration: 1, ease: "power3.out" },
+    "-=0.6"
+  )
+  .fromTo(text,
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+    "-=0.4"
+  );
+
+  /* 🔥 FORCE recalculation AFTER scroll-scrub section */
+  setTimeout(() => {
+    ScrollTrigger.refresh(true);
+    window.dispatchEvent(new Event("scroll"));
+  }, 500);
+
+});
+</script>
+
+
+
+{% schema %}
+{
+  "name": "DS Moto Animated",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Family drives. Racing dreams. Late-night speed stories. The obsession stayed with us.<br>Now it's taking shape.</p>"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Moto Animated"
+    }
+  ]
+}
+{% endschema %}
