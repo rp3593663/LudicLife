@@ -552,9 +552,70 @@
     },
     "marquee_products_Ak4PAW": {
       "type": "marquee_products",
+      "blocks": {
+        "product_yxxMRC": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-chaas-white"
+          }
+        },
+        "product_NkbpdT": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-tandoor-black"
+          }
+        },
+        "product_cQtq8c": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-chutney-green"
+          }
+        },
+        "product_BJqhXT": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-kadak-brown"
+          }
+        },
+        "product_pnk9xi": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-jamun-blue"
+          }
+        },
+        "product_gXgPhc": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-go-red"
+          }
+        },
+        "product_nW9GQH": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-banana-chips"
+          }
+        },
+        "product_MXm4Vg": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-purple-pyaaz"
+          }
+        }
+      },
+      "block_order": [
+        "product_yxxMRC",
+        "product_NkbpdT",
+        "product_cQtq8c",
+        "product_BJqhXT",
+        "product_pnk9xi",
+        "product_gXgPhc",
+        "product_nW9GQH",
+        "product_MXm4Vg"
+      ],
       "name": "Marquee Products",
       "settings": {
         "layout": "full-width",
+        "speed": 40,
         "padding": "0px 0px 0px 0px",
         "margin": "52px 0px 102px | | | 32px 0px 100px"
       }
