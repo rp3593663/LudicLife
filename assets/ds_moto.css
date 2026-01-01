@@ -456,6 +456,10 @@ body:not(.template-index) footer-menu:last-child{
     color: #969696;
     margin-bottom: 12px;
 }
+.template-index .footer-menu ul.footer-block__details-content {
+    display: grid;
+    gap: 4px;
+}
 
 
 @media (max-width: 1599.98px) {
