@@ -386,8 +386,13 @@ a.marquee_product_block {
     background: #FAFAFA;
     border: 1px solid #EDEDED;
 }
-.footer-block.grid__item.footer-brand-info--menu {
+.template-index .footer-block.grid__item.footer-brand-info--menu {
     display: none;
+}
+@media (max-width: 1599.98px) {
+    .template-index .footer-block--menu {
+        max-width: 60% !important;
+    }
 }
 
 @media (min-width: 576px) {
