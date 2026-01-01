@@ -368,6 +368,15 @@ a.marquee_product_block {
     letter-spacing: -0.7px;
     text-align: center;
 }
+.multicolumn-card__info .rte {
+    margin-top: 6px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.36px;
+    vertical-align: middle;
+    color: #1A1A1A;
+}
 
 @media (min-width: 576px) {
     .section--sliders-slide .container {
