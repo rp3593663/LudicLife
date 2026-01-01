@@ -48,13 +48,21 @@
         </div>
 
         <div class="sliders_content_block">
-            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/ludic_sliders_svg.svg?v=1767246434">
+            {% if section.settings.content_image != blank %}
+                <img src="{{ section.settings.content_image | image_url }}" alt="">
+            {% endif %}
+
             <div class="description">
-                <p>Always the one cloud that's under your feet. CloudFrame comfort, cloud-like wear, and an recovery EVA footbed that doesn't hold back on the support.<br/>Ludic Sliders for the play**.</p>
-                <p>Loved by 30,000 customers.</p>
+                {{ section.settings.description }}
             </div>
-            <a href="#" class="slider_shop_btn ds_moto_btn">Shop Sliders</a>
+
+            {% if section.settings.button_text != blank %}
+                <a href="{{ section.settings.button_link }}" class="slider_shop_btn ds_moto_btn">
+                {{ section.settings.button_text }}
+                </a>
+            {% endif %}
         </div>
+
     </div>
   </div>
 </section>
