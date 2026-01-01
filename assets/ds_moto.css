@@ -289,9 +289,18 @@ a.marquee_product_block {
     width: max-content;
     text-align: center;
     display: grid;
-    gap: 10px;
+    gap: 6px;
 }
-
+.marquee_product__content .title {
+    margin: 0px;
+    color: #1a1a1a;
+    text-decoration: unset;
+    font-size: 12px;
+    line-height: 17.1px;
+    display: block;
+    margin-right: 15px;
+    letter-spacing: -.36px;
+}
 
 @media (min-width: 576px) {
     .section--sliders-slide .container {
