@@ -472,6 +472,9 @@ body:not(.template-index) footer-menu:last-child{
 .template-index .footer-menu:nth-child(4) {
     order: -1;
 }
+.template-index .footer__content-top.footer {
+    padding: 60px 0 30px;
+}
 
 
 @media (max-width: 1599.98px) {
