@@ -354,7 +354,9 @@ a.marquee_product_block {
 }
 
 
-
+.home_features{
+    background: #FFFFFF;
+}
 .home_features .media {
     padding-bottom: 16%!important;
 }
@@ -376,6 +378,11 @@ a.marquee_product_block {
     letter-spacing: -0.36px;
     vertical-align: middle;
     color: #1A1A1A;
+}
+
+footer.gradient {
+    background: #FAFAFA;
+    border: 1px solid #EDEDED;
 }
 
 @media (min-width: 576px) {
