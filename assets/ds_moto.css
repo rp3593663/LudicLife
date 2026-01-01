@@ -274,7 +274,23 @@ a.two_col_btn:hover{
     align-items: center;
     gap: 64px;
 }
-
+a.marquee_product_block {
+    display: block;
+    position: relative;
+    width: 258px;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+.marquee_product__content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    text-align: center;
+    display: grid;
+    gap: 10px;
+}
 
 
 @media (min-width: 576px) {
