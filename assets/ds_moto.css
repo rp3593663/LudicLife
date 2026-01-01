@@ -200,10 +200,12 @@ a.two_col_btn:hover{
     gap: 8px;
 }
 
-
-
 .section--sliders-slide .container {
     margin-left: 0px;
     padding-left: 0px;
-    max-width: calc(((100vw - 1320px) / 2) + 1320px);
+}
+@media (min-width: 1400px) {
+    .section--sliders-slide .container {
+        max-width: calc(((100vw - 1320px) / 2) + 1320px);
+    }
 }
