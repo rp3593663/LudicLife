@@ -432,8 +432,11 @@ body:not(.template-index) .newsletter-heading{
     text-align: center;
     vertical-align: middle;
 }
-.footer__newsletter .newsletter-form__button svg {
+.template-index .footer__newsletter .newsletter-form__button svg {
     border: 1px solid #C7C8CA;
+}
+.template-index .footer__newsletter .newsletter-form__button svg path {
+    fill: #C7C8CA;
 }
 
 
