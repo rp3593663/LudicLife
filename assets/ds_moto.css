@@ -475,6 +475,9 @@ body:not(.template-index) footer-menu:last-child{
 .template-index .footer__content-top.footer {
     padding: 60px 0 30px;
 }
+.template-index .footer__content-top .copyright-content.footer__blocks-wrapper {
+    justify-content: flex-start;
+}
 
 
 @media (max-width: 1599.98px) {
