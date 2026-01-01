@@ -2652,15 +2652,15 @@ button#setReminderBtn {
     margin-bottom: 20px;
 }
 .reworked-main-product button.product-form__submit {
-    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/add_cart_bg.png?v=1762846143);
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/add_cart_bg.png?v=1762846143)!important;
     background-color: unset!important;
     background-size: cover;
-    height: 56px;
+    height: 56px!important;
     font-weight: 600!important;
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 15px!important;
+    line-height: 15px!important;
     letter-spacing: 0;
-    text-transform: uppercase;
+    text-transform: uppercase!important;
 }
 
 
