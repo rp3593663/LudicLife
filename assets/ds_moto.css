@@ -258,6 +258,7 @@ a.two_col_btn:hover{
 .all_sliders_slide .slider_image{
     position: relative;
     background: #FFFFFF;
+    cursor: pointer;
 }
 .all_sliders_slide .slider_image img{
     width: 56px;
