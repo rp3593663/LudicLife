@@ -448,6 +448,74 @@
     },
     "home_sliders_slide_Ek6TLj": {
       "type": "home_sliders_slide",
+      "blocks": {
+        "slider_GjPDYV": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/KB.png",
+            "main_image": "shopify://shop_images/Background-KB.png"
+          }
+        },
+        "slider_HMPgmd": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/JB.png",
+            "main_image": "shopify://shop_images/Background-JB.png"
+          }
+        },
+        "slider_6bWbEN": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/CG.png",
+            "main_image": "shopify://shop_images/Background-CG.png"
+          }
+        },
+        "slider_3RezaA": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/PP.png",
+            "main_image": "shopify://shop_images/Background-PP.png"
+          }
+        },
+        "slider_NHhrh4": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/TB.png",
+            "main_image": "shopify://shop_images/Background-TB.png"
+          }
+        },
+        "slider_xN3axh": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/GR.png",
+            "main_image": "shopify://shop_images/Background-GR.png"
+          }
+        },
+        "slider_X6hyew": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/BC.png",
+            "main_image": "shopify://shop_images/Background-BC.png"
+          }
+        },
+        "slider_Fi4j3K": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/CW.png",
+            "main_image": "shopify://shop_images/Background-CW.png"
+          }
+        }
+      },
+      "block_order": [
+        "slider_GjPDYV",
+        "slider_HMPgmd",
+        "slider_6bWbEN",
+        "slider_3RezaA",
+        "slider_NHhrh4",
+        "slider_xN3axh",
+        "slider_X6hyew",
+        "slider_Fi4j3K"
+      ],
       "name": "Sliders Slide",
       "settings": {
         "layout": "box_width",
