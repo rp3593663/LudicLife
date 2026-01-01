@@ -389,6 +389,9 @@ a.marquee_product_block {
 .template-index .footer-block.grid__item.footer-brand-info--menu {
     display: none;
 }
+.template-index .footer__blocks-wrapper {
+    justify-content: space-between;
+}
 @media (max-width: 1599.98px) {
     .template-index .footer-block--menu {
         max-width: 60% !important;
