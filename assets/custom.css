@@ -2522,13 +2522,13 @@ button#setReminderBtn {
     background: unset!important;
     border-radius: 0px;
 }
-.reworked-main-product .splide__slide img {
+.template-product.template-product\.rework-pdp.splide__slide img {
   max-width: calc(100vh - 200px);
   width: 100%;
   cursor: crosshair;
   border-radius: 0;
 }
-.reworked-main-product .fw-modal .fw-modal-slider .slick-list .slick-track {
+.template-product.template-product\.rework-pdp.fw-modal .fw-modal-slider .slick-list .slick-track {
     height: 100%!important;
     text-align: center;
     margin: auto;
@@ -2536,13 +2536,13 @@ button#setReminderBtn {
     align-items: center;
     justify-content: center;
 }
-.reworked-main-product .fw-modal .fw-modal-slider img {
+.template-product.template-product\.rework-pdp.fw-modal .fw-modal-slider img {
     margin: 0 auto;
     height: 100%;
     width: auto!important;
     text-align: center;
 }
-.reworked-main-product .product__info-wrapper {
+.template-product.template-product\.rework-pdp.product__info-wrapper {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923);
     background-size: cover;
     padding: 33px 52px 32px 40px !important;
@@ -2564,7 +2564,7 @@ button#setReminderBtn {
     color: #1a1a1a;
     text-decoration: unset;
 }
-.reworked-main-product .product__info-container {
+.template-product.template-product\.rework-pdp.product__info-container {
     max-width: 100%;
 }
 .reworked_product_title_info a.product__title h2{
@@ -2576,82 +2576,82 @@ button#setReminderBtn {
     vertical-align: middle;
     text-transform: uppercase;
 }
-.reworked-main-product .price .badge, .reworked-main-product .price__container {
+.template-product.template-product\.rework-pdp.price .badge, .template-product.template-product\.rework-pdp.price__container {
     margin-bottom: 0!important;
 }
-.reworked-main-product .price--large, 
-.reworked-main-product .price__regular,
+.template-product.template-product\.rework-pdp.price--large, 
+.template-product.template-product\.rework-pdp.price__regular,
 .reworked-product_price div {
     line-height: 16px!important;
 }
-.template-product .reworked-main-product .price-item.price-item--regular {
+.template-product .template-product.template-product\.rework-pdp.price-item.price-item--regular {
     color: #1a1a1a;
     font-weight: 700;
     font-size: 16px;
     line-height: 16.61px!important;
     letter-spacing: -0.8px;
 }
-.reworked-main-product .short_description {
+.template-product.template-product\.rework-pdp.short_description {
     margin: 0px 0 6px!important;
 }
-.reworked-main-product .short_description .metafield-rich_text_field {
+.template-product.template-product\.rework-pdp.short_description .metafield-rich_text_field {
     line-height: 15.74px!important;
 }
-.reworked-main-product .short_description .metafield-rich_text_field p {
+.template-product.template-product\.rework-pdp.short_description .metafield-rich_text_field p {
     margin-bottom: 6px!important;
 }
-.reworked-main-product .short_description .metafield-rich_text_field p:last-child {
+.template-product.template-product\.rework-pdp.short_description .metafield-rich_text_field p:last-child {
   margin-bottom: 0px!important;
 }
-.reworked-main-product .product__specifications {
+.template-product.template-product\.rework-pdp.product__specifications {
     gap: 14px;
     margin: 0px 0 20px!important;
 }
-.reworked-main-product .specification {
+.template-product.template-product\.rework-pdp.specification {
     gap: 4px;
     line-height: 14.23px;
 }
-.reworked-main-product .specification img {
+.template-product.template-product\.rework-pdp.specification img {
     width: 10px;
 }
-.reworked-main-product .custom_variants {
+.template-product.template-product\.rework-pdp.custom_variants {
     margin: 0!important;
 }
-.reworked-main-product .custom-variant-product p {
+.template-product.template-product\.rework-pdp.custom-variant-product p {
     font-size: 12px;
     line-height: 12px;
     margin-bottom: 14px;
 }
-.reworked-main-product .custom-variant-image-color {
+.template-product.template-product\.rework-pdp.custom-variant-image-color {
     display: block!important;
     width: 32px;
     height: 32px;
 }
-.reworked-main-product .custom-variant-image {
+.template-product.template-product\.rework-pdp.custom-variant-image {
     width: 100%!important;
     gap: 12px!important;
 }
-.reworked-main-product .custom-variant-image img {
+.template-product.template-product\.rework-pdp.custom-variant-image img {
     width: 51px;
     height: 51px;
     border-radius: 4px;
 }
-.reworked-main-product .custom-variant-image a.selected {
+.template-product.template-product\.rework-pdp.custom-variant-image a.selected {
     border: 1px solid #B88348;
     border-radius: 4px;
 }
-.reworked-main-product .custom-variant-image a {
+.template-product.template-product\.rework-pdp.custom-variant-image a {
     border: 1px solid #C7C8CA;
     border-radius: 4px;
     overflow: hidden;
 }
-.reworked-main-product product-form.product-form {
+.template-product.template-product\.rework-pdpproduct-form.product-form {
     margin: 0px!important;
 }
-.reworked-main-product .custom-variant-product {
+.template-product.template-product\.rework-pdp.custom-variant-product {
     margin-bottom: 20px;
 }
-.reworked-main-product button.product-form__submit {
+.template-product.template-product\.rework-pdpbutton.product-form__submit {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/add_cart_bg.png?v=1762846143)!important;
     background-color: unset!important;
     background-size: cover;
@@ -2899,7 +2899,7 @@ button#setReminderBtn {
   .name_block>div img {
     width: 12px;
   }
-  .reworked-main-product .product__info-wrapper {
+  .template-product.template-product\.rework-pdp.product__info-wrapper {
     right: 50px;
   }
 }
@@ -2924,7 +2924,7 @@ button#setReminderBtn {
     line-height: 18px;
     letter-spacing: -.45px;
   }
-  .reworked-main-product .product__info-wrapper {
+  .template-product.template-product\.rework-pdp.product__info-wrapper {
     right: 50px;
   }
 }
@@ -2977,7 +2977,7 @@ button#setReminderBtn {
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .reworked-main-product .wish-with-button.mobile button.product-form__submit {
+  .template-product.template-product\.rework-pdp.wish-with-button.mobile button.product-form__submit {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/sticky_cart_btn_bg.png?v=1762925628);
   }
   .template-product.template-product\.rework-pdp product-info {
@@ -3015,7 +3015,7 @@ button#setReminderBtn {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  body.template-product .reworked-main-product .product__info-wrapper{
+  body.template-product .template-product.template-product\.rework-pdp.product__info-wrapper{
     padding: 28px 41px 28px 36px !important;
     position: relative;
     z-index: 2;
@@ -3026,43 +3026,43 @@ button#setReminderBtn {
     margin: auto;
     background-color: unset !important;
   }
-  .reworked-main-product .short_description {
+  .template-product.template-product\.rework-pdp.short_description {
     order: unset;
     padding: 0px;
     border: unset;
   }
-  .reworked-main-product .short_description .metafield-rich_text_field p {
+  .template-product.template-product\.rework-pdp.short_description .metafield-rich_text_field p {
     margin-bottom: 4px;
   }
-  .reworked-main-product .custom-variant-product p {
+  .template-product.template-product\.rework-pdp.custom-variant-product p {
     font-size: 9px;
     line-height: 9px;
     margin-bottom: 12px;
     letter-spacing: -0.27px;
   }
-  .reworked-main-product .custom-variant-image {
+  .template-product.template-product\.rework-pdp.custom-variant-image {
     gap: 9.95px!important;
   }
-  .reworked-main-product .custom-variant-image img {
+  .template-product.template-product\.rework-pdp.custom-variant-image img {
     width: 43px;
     height: 43px;
     border-radius: 3px;
   }
-  .reworked-main-product .custom-variant-image-color{
+  .template-product.template-product\.rework-pdp.custom-variant-image-color{
     width: 28px;
     height: 28px;
   }
-  .reworked-main-product .custom-variant-image a,
-  .reworked-main-product .custom-variant-image a.selected {
+  .template-product.template-product\.rework-pdp.custom-variant-image a,
+  .template-product.template-product\.rework-pdp.custom-variant-image a.selected {
       border-radius: 3px;
   }
-  .reworked-main-product .custom-variant-product{
+  .template-product.template-product\.rework-pdp.custom-variant-product{
     margin-bottom: 16px!important;
   }
-  .reworked-main-product  .custom_main_btn {
+  .template-product.template-product\.rework-pdp .custom_main_btn {
     margin-top: 0px!important;
   }
-  .reworked-main-product button.product-form__submit {
+  .template-product.template-product\.rework-pdpbutton.product-form__submit {
     height: 47px;
     font-size: 12.65px;
     line-height: 13px;
@@ -3071,24 +3071,24 @@ button#setReminderBtn {
     margin-bottom: 10px;
   }
   .reworked_product_title_info a.product__title h2,
-  .template-product .reworked-main-product .price-item.price-item--regular {
+  .template-product .template-product.template-product\.rework-pdp.price-item.price-item--regular {
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -.7px;
   }
-  .reworked-main-product .price--large, .reworked-main-product .price__regular, .reworked-product_price div {
+  .template-product.template-product\.rework-pdp.price--large, .template-product.template-product\.rework-pdp.price__regular, .reworked-product_price div {
     line-height: 14px!important;
   }
-  .reworked-main-product .short_description .metafield-rich_text_field {
+  .template-product.template-product\.rework-pdp.short_description .metafield-rich_text_field {
     line-height: 13.27px;
     font-size: 9.95px;
     letter-spacing: -.27px;
   }
-  .reworked-main-product .product__specifications {
+  .template-product.template-product\.rework-pdp.product__specifications {
     gap: 12px;
     margin: 0 0 16px!important;
   }
-  .reworked-main-product .specification {
+  .template-product.template-product\.rework-pdp.specification {
     line-height: 12px;
   }
   .reworked_faq_right .faq_main {
@@ -3105,13 +3105,13 @@ button#setReminderBtn {
   #faq_questions_list {
     gap: 8px;
   }
-  .reworked-main-product .splide__slide img {
+  .template-product.template-product\.rework-pdp.splide__slide img {
     max-width: 50vh;
   }
-  .reworked-main-product .fw_product_gallery {
+  .template-product.template-product\.rework-pdp.fw_product_gallery {
     margin-bottom: 25px;
   }
-  .reworked-main-product .fw-modal .fw-modal-slider img {
+  .template-product.template-product\.rework-pdp.fw-modal .fw-modal-slider img {
     margin: 0 auto;
     height: auto;
     width: 100%!important;
