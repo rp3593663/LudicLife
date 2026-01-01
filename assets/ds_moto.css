@@ -385,9 +385,11 @@ a.marquee_product_block {
 .template-index footer.gradient {
     background: #FAFAFA;
     border: 1px solid #EDEDED;
+}
+.template-index .footer__blocks-wrapper{
     position: relative;
 }
-.template-index footer.gradient:before {
+.template-index .footer__blocks-wrapper:before {
     content: "";
     background-image: url(/cdn/shop/files/Always_at_Play.svg?v=1767257547);
     position: absolute;
