@@ -280,6 +280,9 @@ a.two_col_btn:hover{
 .products_marquee_wrapper:hover .marquee-track {
   animation-play-state: paused;
 }
+.marquee_product__img img {
+    mix-blend-mode: multiply;
+}
 @keyframes marquee-scroll-products {
   from {
     transform: translateX(-50%);
