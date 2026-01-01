@@ -231,7 +231,7 @@ a.two_col_btn:hover{
 }
 .all_sliders_slide {
     position: absolute;
-    bottom: 0;
+    bottom: 64px;
     left: 50%;
     transform: translateX(-50%);
     background: #0000004D;
@@ -240,6 +240,7 @@ a.two_col_btn:hover{
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    width: max-content;
 }
 .all_sliders_slide .slider_image{
     position: relative;
