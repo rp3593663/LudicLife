@@ -269,21 +269,21 @@ a.two_col_btn:hover{
 }
 
 
-#shopify-section-{{ section.id }} .products_marquee_wrapper {
+.products_marquee_wrapper {
   overflow: hidden;
   position: relative;
 }
-#shopify-section-{{ section.id }} .marquee-track {
+.marquee-track {
   display: flex;
   width: max-content;
   animation: marquee-scroll-{{ section.id }} linear infinite;
   animation-duration: {{ section.settings.speed }}s;
 }
-#shopify-section-{{ section.id }} .marquee_product_block {
+.marquee_product_block {
   flex: 0 0 auto;
   margin-right: 64px;
 }
-#shopify-section-{{ section.id }} .products_marquee_wrapper:hover .marquee-track {
+.products_marquee_wrapper:hover .marquee-track {
   animation-play-state: paused;
 }
 @keyframes marquee-scroll-{{ section.id }} {
