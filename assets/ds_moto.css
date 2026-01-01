@@ -212,6 +212,17 @@ a.two_col_btn:hover{
 .sliders_content_block img {
     width: 165px;
 }
+.sliders_content_block .description {
+    margin: 16px 0px 32px;
+    display: grid;
+    gap: 12px;
+    font-family: Public Sans;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+    text-align: justify;
+}
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
