@@ -219,3 +219,13 @@ a.two_col_btn:hover{
         max-width: calc(((100vw - 960px) / 2) + 960px);
     }
 }
+@media (min-width: 768px) {
+    .section--sliders-slide .container {
+        max-width: calc(((100vw - 720px) / 2) + 720px);
+    }
+}
+@media (min-width: 576px) {
+    .section--sliders-slide .container {
+        max-width: calc(((100vw - 540px) / 2) + 540px);
+    }
+}
