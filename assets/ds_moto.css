@@ -353,6 +353,13 @@ a.marquee_product_block {
     color: #1A1A1A;
 }
 
+
+
+.home_features img.multicolumn-card__image {
+    width: 16px;
+    height: 16px;
+}
+
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
