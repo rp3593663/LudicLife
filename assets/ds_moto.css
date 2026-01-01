@@ -242,6 +242,19 @@ a.two_col_btn:hover{
     gap: 6px;
     width: max-content;
 }
+.all_sliders_slide .slider_image.active {
+    margin-right: 6px;
+}
+.slider_image.active:after {
+    width: 2px;
+    height: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    right: -7px;
+    top: 0px;
+    background: #FFF;
+}
 .all_sliders_slide .slider_image{
     position: relative;
     background: #FFFFFF;
