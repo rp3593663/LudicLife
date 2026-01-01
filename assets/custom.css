@@ -2499,3 +2499,965 @@ button#setReminderBtn {
     row-gap: 8px;
   }
 }
+
+
+
+.template-product.template-product\.rework-pdp #MainContent{
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_body_bg.svg?v=1762841346);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* .template-product.template-product\.rework-pdp{
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked_body_bg.svg?v=1762841346);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+.product.reworked-main-product {
+    background: unset!important;
+    border-radius: 0px;
+}
+.reworked-main-product .splide__slide img {
+  max-width: calc(100vh - 200px);
+  width: 100%;
+  cursor: crosshair;
+  border-radius: 0;
+}
+.reworked-main-product .fw-modal .fw-modal-slider .slick-list .slick-track {
+    height: 100%!important;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reworked-main-product .fw-modal .fw-modal-slider img {
+    margin: 0 auto;
+    height: 100%;
+    width: auto!important;
+    text-align: center;
+}
+.reworked-main-product .product__info-wrapper {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923);
+    background-size: cover;
+    padding: 33px 52px 32px 40px !important;
+    background-position: center;
+    position: absolute;
+    bottom: 24px;
+    right: 90px;
+    max-width: 446px;
+    width: 100%;
+}
+.reworked_product_title_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.reworked_product_title_info a.product__title {
+    margin: 0px;
+    color: #1a1a1a;
+    text-decoration: unset;
+}
+.reworked-main-product .product__info-container {
+    max-width: 100%;
+}
+.reworked_product_title_info a.product__title h2{
+    margin: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16.61px;
+    letter-spacing: -0.8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+.reworked-main-product .price .badge, .reworked-main-product .price__container {
+    margin-bottom: 0!important;
+}
+.reworked-main-product .price--large, 
+.reworked-main-product .price__regular,
+.reworked-product_price div {
+    line-height: 16px!important;
+}
+.template-product .reworked-main-product .price-item.price-item--regular {
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16.61px!important;
+    letter-spacing: -0.8px;
+}
+.reworked-main-product .short_description {
+    margin: 0px 0 6px;
+}
+.reworked-main-product .short_description .metafield-rich_text_field {
+    line-height: 15.74px;
+}
+.reworked-main-product .short_description .metafield-rich_text_field p {
+    margin-bottom: 6px;
+}
+.reworked-main-product .short_description .metafield-rich_text_field p:last-child {
+  margin-bottom: 0px;
+}
+.reworked-main-product .product__specifications {
+    gap: 14px;
+    margin: 0px 0 20px!important;
+}
+.reworked-main-product .specification {
+    gap: 4px;
+    line-height: 14.23px;
+}
+.reworked-main-product .specification img {
+    width: 10px;
+}
+.reworked-main-product .custom_variants {
+    margin: 0!important;
+}
+.reworked-main-product .custom-variant-product p {
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 14px;
+}
+.reworked-main-product .custom-variant-image-color {
+    display: block!important;
+    width: 32px;
+    height: 32px;
+}
+.reworked-main-product .custom-variant-image {
+    width: 100%!important;
+    gap: 12px!important;
+}
+.reworked-main-product .custom-variant-image img {
+    width: 51px;
+    height: 51px;
+    border-radius: 4px;
+}
+.reworked-main-product .custom-variant-image a.selected {
+    border: 1px solid #B88348;
+    border-radius: 4px;
+}
+.reworked-main-product .custom-variant-image a {
+    border: 1px solid #C7C8CA;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.reworked-main-product product-form.product-form {
+    margin: 0px!important;
+}
+.reworked-main-product .custom-variant-product {
+    margin-bottom: 20px;
+}
+.reworked-main-product button.product-form__submit {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/add_cart_bg.png?v=1762846143);
+    background-color: unset!important;
+    background-size: cover;
+    height: 56px;
+    font-weight: 600!important;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+
+
+.reworked_product_bundle {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 132px;
+}
+.reworked_block {
+    position: relative;
+}
+.name_block {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/1234.png?v=1762854702);
+    background-size: cover;
+    max-width: 140px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    position: absolute;
+    width: 100%;
+    left: -58px;
+    top: -20px;
+}
+.name_block > div img {
+    width: 15px;
+    height: auto;
+}
+.name_block > div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.12px;
+    letter-spacing: -0.45px;
+    text-align: justify;
+    vertical-align: middle;
+}
+.image_block {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/reworked2.svg?v=1762847516);
+    background-size: cover;
+    max-width: 210px;
+    height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image_block img {
+    width: 55%;
+    height: auto;
+}
+
+
+.reworked_faq_inner {
+    display: grid;
+    grid-template-columns: 1.27fr 0.73fr;
+    gap: 58px;
+    align-items: flex-start;
+}
+.reworked_faq_img {
+    border-radius: 14px;
+    overflow: hidden;
+}
+.reworked_faq_img img {
+    object-fit: cover;
+    object-position: center;
+}
+#faq_questions_list{
+  display: grid;
+  gap: 10px;
+}
+.reworked_faq_right .faq_main {
+    cursor: pointer;
+    font-weight: 650;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.7px;
+    vertical-align: middle;
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFF;
+}
+.reworked_faq_right .meta_question_icon{
+  font-size: 16px;
+  font-weight: 600;
+}
+.reworked_faq_right span.meta_question_icon_minus {
+  display: none;
+}
+.reworked_faq_right .meta_question.active .meta_question_icon_minus {
+   display: block!important;
+}
+.reworked_faq_right .meta_question.active .meta_question_icon_pluse{
+  display: none;
+}
+.reworked_video {
+    margin: 22px auto 0px;
+}
+.reworked_faq_right .meta_answer {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.36px;
+  text-align: justify;
+  vertical-align: middle;
+  color: #fff;
+  display: grid;
+  gap: 6px;
+}
+.fits_blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.fits_box {
+    background: #f9f9f9ba;
+    border-radius: 6px;
+    aspect-ratio: 1/1.08;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.08;
+    overflow: hidden;
+}
+.fits_box img {
+    width: 94px;
+    height: auto;
+    position: absolute;
+    right: 15px;
+    bottom: 11px;
+}
+.fits_info {
+    display: grid;
+    gap: 4px;
+}
+.fits_info h5 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    vertical-align: middle;
+    color: #10100F;
+    margin: 0px;
+}
+.fits_info p {
+    color: #10100F;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+    letter-spacing: -0.24px;
+    text-align: justify;
+    vertical-align: middle;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 0px;
+}
+
+
+
+.reworked_slide .slideshow__text.banner__box {
+    text-align: left!important;
+    top: 0!important;
+    max-width: 374px!important;
+    width: 100%!important;
+    min-width: unset!important;
+}
+.reworked_slide h2.banner__heading.inline-richtext.h1 {
+    font-family: Reenie Beanie;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 39.6px;
+    letter-spacing: -0.34px;
+    vertical-align: middle;
+    color: #FFFFFF;
+}
+.reworked_slide .banner__text.rte.desktop_subheading {
+    font-family: Public Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.36px;
+    text-align: justify;
+    color: #FFFFFF;
+    margin: 0px;
+    padding: 5px 0px 20px;
+}
+.reworked_slide .banner__buttons {
+    justify-content: left;
+}
+.reworked_slide a.button.button--primary {
+    padding: 0px;
+    width: 100px;
+    height: 29px;
+    border-radius: 0px;
+    font-family: Public Sans;
+    font-weight: 700;
+    font-size: 9.06px;
+    line-height: 100%;
+    letter-spacing: -0.27px;
+    text-align: center;
+    background-color: unset;
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/slider_btn_bg.png?v=1763032476);
+    background-size: cover;
+}
+
+
+@media only screen and (max-width: 1199px) and (min-width: 1024px)  {
+  .reworked_product_bundle {
+      gap: 70px;
+  }
+}
+@media only screen and (max-width: 1023px) and (min-width: 992px)  {
+  .reworked_product_bundle {
+      gap: 50px;
+  }
+  .name_block {
+    max-width: 100px;
+    height: 32px;
+    width: 100%;
+    left: -38px;
+    top: -12px;
+  }
+  .name_block>div {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -.45px;
+  }
+  .name_block>div img {
+    width: 12px;
+  }
+  .reworked-main-product .product__info-wrapper {
+    right: 50px;
+  }
+}
+@media only screen and (max-width: 991px) and (min-width: 768px)  {
+  .reworked_faq_inner {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+  }
+  .reworked_product_bundle {
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .name_block {
+    max-width: 120px;
+    height: 39px;
+    width: 100%;
+    left: -38px;
+    top: -12px;
+  }
+  .name_block>div {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -.45px;
+  }
+  .reworked-main-product .product__info-wrapper {
+    right: 50px;
+  }
+}
+@media(max-width: 767px){
+  .reworked_slide h2.banner__heading.inline-richtext.h1 {
+    font-size: 29.66px;
+    line-height: 24.71px;
+    letter-spacing: -1.45px;
+  }
+  .reworked_slide .banner__buttons {
+    justify-content: center;
+  }
+  .reworked_slide a.button.button--primary {
+    width: 74px;
+    height: 21px;
+    font-size: 6.78px;
+    letter-spacing: -.18px;
+  }
+  .reworked_slide .banner__text.rte.mobile_subheading {
+    font-family: Public Sans;
+    font-weight: 400;
+    font-style: ;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -0.3px;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+  }
+  .reworked_slide .slideshow__text.banner__box {
+    text-align: center!important;
+    top: 108px!important;
+    transform: translate(-50%, 0)!important;
+    padding: 0px !important;
+    max-width: 264px !important;
+  }
+  .fits_box img {
+    width: 70px;
+    right: 5px;
+    bottom: 5px;
+  }
+  .reworked_block {
+    margin: auto;
+    text-align: center;
+    position: relative;
+  }
+  .template-product.template-product\.rework-pdp #MainContent{
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/mobile_bg_new.svg?v=1762925398);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .reworked-main-product .wish-with-button.mobile button.product-form__submit {
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/sticky_cart_btn_bg.png?v=1762925628);
+  }
+  .template-product.template-product\.rework-pdp product-info {
+    padding-top: 24px!important;
+    padding-bottom: 24px!important;
+  }
+  .reworked_pdp_grid {
+    padding-top: 60px!important;
+    padding-bottom: 48px!important;
+  }
+  .reworked_product_bundle {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 40px;
+  }
+  .image_block {
+    max-width: 125px;
+    height: 90px;
+  }
+  .name_block {
+    max-width: 83px;
+    height: 26px;
+    left: -30px;
+    top: -10px;
+  }
+  .name_block>div {
+    font-size: 10px;
+    line-height: 13.18px;
+    letter-spacing: -.27px;
+  }
+  .name_block>div img {
+    width: 8px;
+    height: auto;
+  }
+  .reworked_faq_inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  body.template-product .reworked-main-product .product__info-wrapper{
+    padding: 28px 41px 28px 36px !important;
+    position: relative;
+    z-index: 2;
+    bottom: unset;
+    right: unset;
+    max-width: 376px;
+    width: 100%;
+    margin: auto;
+    background-color: unset !important;
+  }
+  .reworked-main-product .short_description {
+    order: unset;
+    padding: 0px;
+    border: unset;
+  }
+  .reworked-main-product .short_description .metafield-rich_text_field p {
+    margin-bottom: 4px;
+  }
+  .reworked-main-product .custom-variant-product p {
+    font-size: 9px;
+    line-height: 9px;
+    margin-bottom: 12px;
+    letter-spacing: -0.27px;
+  }
+  .reworked-main-product .custom-variant-image {
+    gap: 9.95px!important;
+  }
+  .reworked-main-product .custom-variant-image img {
+    width: 43px;
+    height: 43px;
+    border-radius: 3px;
+  }
+  .reworked-main-product .custom-variant-image-color{
+    width: 28px;
+    height: 28px;
+  }
+  .reworked-main-product .custom-variant-image a,
+  .reworked-main-product .custom-variant-image a.selected {
+      border-radius: 3px;
+  }
+  .reworked-main-product .custom-variant-product{
+    margin-bottom: 16px!important;
+  }
+  .reworked-main-product  .custom_main_btn {
+    margin-top: 0px!important;
+  }
+  .reworked-main-product button.product-form__submit {
+    height: 47px;
+    font-size: 12.65px;
+    line-height: 13px;
+  }
+  .reworked_product_title_info {
+    margin-bottom: 10px;
+  }
+  .reworked_product_title_info a.product__title h2,
+  .template-product .reworked-main-product .price-item.price-item--regular {
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -.7px;
+  }
+  .reworked-main-product .price--large, .reworked-main-product .price__regular, .reworked-product_price div {
+    line-height: 14px!important;
+  }
+  .reworked-main-product .short_description .metafield-rich_text_field {
+    line-height: 13.27px;
+    font-size: 9.95px;
+    letter-spacing: -.27px;
+  }
+  .reworked-main-product .product__specifications {
+    gap: 12px;
+    margin: 0 0 16px!important;
+  }
+  .reworked-main-product .specification {
+    line-height: 12px;
+  }
+  .reworked_faq_right .faq_main {
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.6px;
+    padding: 15px 0;
+  }
+  .reworked_faq_right .meta_answer {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -.3px;
+  }
+  #faq_questions_list {
+    gap: 8px;
+  }
+  .reworked-main-product .splide__slide img {
+    max-width: 50vh;
+  }
+  .reworked-main-product .fw_product_gallery {
+    margin-bottom: 25px;
+  }
+  .reworked-main-product .fw-modal .fw-modal-slider img {
+    margin: 0 auto;
+    height: auto;
+    width: 100%!important;
+    text-align: center;
+}
+}
+
+
+.ls-moto-slider .banner__content {
+    z-index: 2;
+}
+.ls-moto-slider .banner__buttons a.button {
+    color: #fff;
+    background: #e60013;
+    border-radius: 3px;
+    padding: 11px 35px;
+    letter-spacing: normal;
+    min-height: unset;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: -.6px;
+}
+.template-page.template-page\.ds-moto-ludic{
+  background: #1a1a1a;
+}
+.template-page.template-page\.ds-moto-ludic .header-wrapper,
+.template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main  {
+    background-color: #ffffff00 !important;   
+}
+.template-page.template-page\.ds-moto-ludic .header-wrapper:hover,
+.template-page.template-page\.ds-moto-ludic .shopify-section-header-sticky .header-main:hover {
+    background-color: #FFFFFF!important;
+}
+.template-page.template-page\.ds-moto-ludic .scrolled-past-header .header-wrapper,
+.template-page.template-page\.ds-moto-ludic .scrolled-past-header .shopify-section-header-sticky .header-main  {
+    background-color: #ffffff !important;   
+}
+
+.template-page.template-page\.ds-moto-ludic .section-header.shopify-section-group-header-group {
+    z-index: 6;
+}
+.template-page.template-page\.ds-moto-ludic .container-fluid{
+  padding: 0px!important
+}
+.template-page.template-page\.ds-moto-ludic .shopify-section-group-footer-group{
+  display: none;
+}
+main#MainContent.ds-moto-ludic {
+    margin-top: -74px;
+}
+.video_content {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: grid;
+    gap: 24px;
+    z-index: 4;
+    width: 100%;
+}
+
+.video_content h5 {
+    margin-bottom: 0px;
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #FFF;
+}
+.ds_moto_head {
+    display: grid;
+    gap: 12px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+.ds_moto_head h5 {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 36px;
+    letter-spacing: -0.96px;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    margin-bottom: 0px;
+}
+.ds_moto_head p {
+    margin-bottom: 0px;
+    color: #979393;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+    text-align: center;
+    vertical-align: middle;
+}
+.ds_moto_newsletter_form {
+    max-width: 576px;
+    margin: auto;
+}
+.ds-field input, .ds-field select {
+    background: unset;
+    border: unset;
+    padding: 0px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.42px;
+    color: #FFFFFF;
+    width: 100%;
+}
+.ds-field input::placeholder{
+   color: #FFFFFF99;
+}
+#ds-age {
+  color: #FFFFFF99;
+}
+#ds-age.is-selected {
+  color: #FFFFFF;
+}
+.ds-field select {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.ds-field select option {
+  background-color: #000;
+  color: #fff;
+}
+
+
+.ds-field input:-internal-autofill-selected {
+    background-color: unset !important;
+    color: #FFFFFF99 !important;
+}
+.ds-field {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid #FFFFFF33;
+    margin-bottom: 24px;
+}
+.ds-field svg {
+    min-width: 24px;
+}
+button.ds-submit-btn {
+    background: #434242;
+    backdrop-filter: blur(100.19999694824219px);
+    border: unset;
+    width: 100%;
+    height: 56px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.48px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
+.ds-privacy {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-align: justify;
+    vertical-align: middle;
+    color: #FFFFFF99;
+}
+.ds-privacy a{
+  color: #FFFFFF;
+  text-decoration: unset;
+}
+.ds-privacy label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#DSMotoNewsletter p.form-success {
+    color: #6BBC3B;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: -0.6px;
+    margin-top: 20px;
+    background: #434242;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 2px;
+}
+#DSMotoNewsletter p.form-success svg {
+    width: 14px;
+    height: 14px;
+}
+#DSMotoNewsletter p.form-error,
+#DSMotoNewsletter .errors ul li{
+    text-align: center;
+    color: #bb0000;
+    font-weight: 600;
+    margin-top: 20px;
+}
+#DSMotoNewsletter .errors ul{
+  list-style-type: none;
+}
+.below_svg {
+  display: inline-block;
+  animation: arrowBounce 2s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.7;
+  }
+}
+.ls-moto-slider .slideshow__text.banner__box {
+    line-height: 15px;
+    font-size: 12px;
+    color: #1a1a1a;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    top: -30px;
+}
+.ls-moto-slider h2.banner__heading {
+    font-family: Druk Text Wide Trial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    margin-bottom: 28px;
+}
+.ls-moto-slider .banner__buttons{
+  margin-top: 0px!important;
+}
+.announcement-bar__message .desktop-text, 
+.announcement-bar__message .mobile-text{
+  white-space: nowrap;
+  animation: carSpeedText 3s infinite ease-in-out;
+}
+@keyframes carSpeedText {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  41% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  55% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media(max-width: 767px){
+  .ls-moto-slider h2.banner__heading {
+    font-size: 20px;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+  .ls-moto-slider .banner__buttons a.button {
+    padding: 10px 30px;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -.5px;
+    margin: 0;
+}
+ .ls-moto-slider .banner__box {
+    top: 86%!important;
+}
+main#MainContent.ds-moto-ludic {
+    margin-top: -58px;
+}
+  #DSMotoNewsletter p.form-success {
+    font-size: 10px;
+    letter-spacing: -0.5px;
+    gap: 5px;
+  }
+  #DSMotoNewsletter p.form-success svg {
+    width: 12px;
+    height: 12px;
+  }
+  .video_content {
+    gap: 20px;
+  }
+  .video_content h5 {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .video_content svg {
+    width: 15px;
+    height: 12px;
+  }
+  .ds_moto_head {
+    gap: 8px;
+    margin-bottom: 58px;
+  }
+  .ds_moto_head h5 {
+    font-size: 26px;
+    line-height: 26px;
+  }
+  .ds_moto_head p {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -.36px;
+  }
+  .ds-field {
+    gap: 14px;
+  }
+  button.ds-submit-btn {
+    height: 48px;
+  }
+  .ds-privacy {
+    font-size: 11px;
+  }
+}
