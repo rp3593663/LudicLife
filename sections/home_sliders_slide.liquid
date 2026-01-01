@@ -78,11 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
       thumb.addEventListener('click', function () {
         const newImage = this.dataset.mainImage;
         if (!newImage) return;
-
-        // change main image
         mainImage.src = newImage;
-
-        // active class handling
         thumbs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
       });
@@ -109,6 +105,28 @@ document.addEventListener('DOMContentLoaded', function () {
       "type": "image_picker",
       "id": "main_image",
       "label": "Default Main Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "content_image",
+        "label": "Content Image / Logo"
+    },
+    {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>Always the one cloud that's under your feet. CloudFrame comfort, cloud-like wear, and a recovery EVA footbed that doesn't hold back on the support.</p><p><strong>Loved by 30,000 customers.</strong></p>"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Shop Sliders"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
     },
     {
       "type": "text",
