@@ -47,8 +47,7 @@
                 </div>
                 <div class="marquee_product__content">
                   <div class="title">
-                    {{ product.product_type }} /
-                    <span>{{ product.title }}</span>
+                    {{ product.metafields.custom.product_name_breadcrumb }} {% if product.metafields.custom.product_color_name != blank %}/{% endif %} <strong>{{ product.metafields.custom.product_color_name }}</strong>  
                   </div>
                   <div class="price">
                     {{ product.price | money }}
