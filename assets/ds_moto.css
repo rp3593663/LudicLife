@@ -469,6 +469,9 @@ body:not(.template-index) footer-menu:last-child{
     letter-spacing: -0.36px;
     vertical-align: middle;
 }
+.template-index .footer-menu:nth-child(4) {
+    order: -1;
+}
 
 
 @media (max-width: 1599.98px) {
