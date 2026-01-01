@@ -232,6 +232,34 @@
                         </ul>
                        </div>
                       {%- endif -%}
+                      {%- if block.settings.menu4 != blank -%}
+                       <div class="footer-menu">
+                          {%- if block.settings.heading4 != blank -%}
+                            <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading3 -}}</h2>
+                          {%- endif -%}
+                          <ul class="footer-block__details-content list-unstyled">
+                          {%- for link in block.settings.menu4.links -%}
+                            <li>
+                              {% if block.settings.heading4 == "Social" %}
+                                <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}" 
+                              target="_blank">
+                                {{ link.title }}
+                              </a>
+                              {% else %}
+                              <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                              >
+                                {{ link.title }}
+                              </a>
+                              {% endif %}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                       </div>
+                      {%- endif -%}
                       <div class="footer-menu-content">
                         <h2 class="footer-block__heading rte">{{ block.settings.title }}</h2>
                         <div class="footer-block__content rte">{{ block.settings.description }}</div>
