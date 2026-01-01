@@ -31,12 +31,18 @@
     {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
   }
 }
+.product-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-products linear infinite;
+  animation-duration: {{ section.settings.speed }}s;
+}
 {%- endstyle -%}
 
 <section class="ludic-section ludic-section-{{ section.id }} section--marquee-products">
   <div class="{{ container }}">
     <div class="products_marquee_wrapper">
-      <div class="products_marquee_inner marquee-track">
+      <div class="products_marquee_inner product-marquee-track">
         {% for i in (1..2) %}
           {% for block in section.blocks %}
             {% assign product = block.settings.product %}

@@ -273,12 +273,6 @@ a.two_col_btn:hover{
   overflow: hidden;
   position: relative;
 }
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll-products linear infinite;
-  animation-duration: {{ section.settings.speed }}s;
-}
 .marquee_product_block {
   flex: 0 0 auto;
   margin-right: 64px;
