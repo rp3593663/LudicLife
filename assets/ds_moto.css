@@ -209,3 +209,8 @@ a.two_col_btn:hover{
         max-width: calc(((100vw - 1320px) / 2) + 1320px);
     }
 }
+@media (min-width: 1200px) {
+    .section--sliders-slide .container {
+        max-width: calc(((100vw - 1140px) / 2) + 1140px);
+    }
+}
