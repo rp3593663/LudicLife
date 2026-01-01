@@ -1286,8 +1286,8 @@
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 32
+        "padding_top": 44,
+        "padding_bottom": 44
       }
     }
   },
