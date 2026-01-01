@@ -1426,6 +1426,21 @@ $(document).on('click', '.product-form__input .size_var', function(){
     $('.size-chart-popup-overlay').addClass('show');
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
+    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+          if (input.checked) {
+            const selectedSize = input.value;
+             sizeSpecSpans.forEach(span => {
+              if (span.dataset.variantTitle === selectedSize) {
+                span.style.display = 'block';
+              } else {
+                span.style.display = 'none';
+              }
+            });
+          }
+        });
+    });
   }
   function closeVariantPopup() {
     $('.size-chart-popup__content').fadeOut(100);

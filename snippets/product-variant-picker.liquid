@@ -13,11 +13,6 @@
     display: none !important;
   }
 
-  .size-guide-label{
-    font-size:12px;
-    line-height:15px;
-  }
-
   .template-product\.accessories variant-selects {
     display: none;
   }
@@ -117,34 +112,56 @@
     <script type="application/json" data-selected-variant>{{ product.selected_or_first_available_variant | json }}</script>
   </variant-selects>
 
-{% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+{% comment %} {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
   <div class="sliders-tab">
     <button class="slider-tab-btn active" data-tab="all">All</button>
     <button class="slider-tab-btn" data-tab="slider">Slider 2.0</button>
   </div>
-{% endif %}
+{% endif %} {% endcomment %}
 
-  <div class="custom_variants">
-<div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content active {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
-      {% if template != 'product.accessories' %}
-      <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
-      {% else %}
-      <p><span> {{ product.metafields.custom.product_color_name }}</span></p>
+    <div class="custom_variants">
+
+      {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+        <div class="custom-variant-product slider-tab-content" id="tab-slider">
+          <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+          <div class="custom-variant-image">
+            {% assign slider_product = product.metafields.custom.sliders_2_0_products %}
+            {% for slider_product in product.metafields.custom.sliders_2_0_products.value %}
+              {% if slider_product.handle == product.handle %}
+                <a href="" class="selected">
+                  <img src="{{ slider_product.featured_image | img_url:'master' }}">
+                </a>
+              {% else %}
+                <a href="{{ slider_product.url }}">
+                  {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+                  {% if slider_product.metafields.custom.new_product == true %} 
+                      <div class="new-product-dot"></div> 
+                    {% endif %}
+                  {% endif %}
+                  <img src="{{ slider_product.featured_image | img_url:'master' }}">
+                  </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       {% endif %}
+
+      <div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
+        {% if template != 'product.accessories' %}
+        <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+        {% else %}
+        <p><span> {{ product.metafields.custom.product_color_name }}</span></p>
+        {% endif %} 
         <div class="custom-variant-image">
           {% assign paired_products = product.metafields.custom.pair_with_product %}
           {% for pair_product in product.metafields.custom.pair_with_product.value %}
             {% if pair_product.handle == product.handle %}
-              <a href="" class="selected">
-                {% if product.title == "Re : Worked Bundle" %}
-                  <div class="custom-variant-image-color" style="background-color:{{ pair_product.metafields.custom.hexa_code.value }}"></div>
-                {% else %}
-                   <img src="{{ pair_product.featured_image | img_url:'master' }}">
-                {% endif %}
+              <a href="" class="selected" data-color-name="{{ pair_product.metafields.custom.product_color_name }}">
+                <img src="{{ pair_product.featured_image | img_url:'master' }}">
               </a>
             {% else %}
               <!-- Otherwise, link to the pair_product's URL -->
-              <a href="{{ pair_product.url }}">
+              <a href="{{ pair_product.url }}" data-color-name="{{ pair_product.metafields.custom.product_color_name }}">
                 {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
                  {% if pair_product.metafields.custom.new_product == true %} 
                     <div class="new-product-dot"></div> 
@@ -161,30 +178,7 @@
         </div>
       </div>
 
-      {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
-      <div class="custom-variant-product slider-tab-content" id="tab-slider">
-        <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
-         <div class="custom-variant-image">
-          {% assign slider_product = product.metafields.custom.sliders_2_0_products %}
-          {% for slider_product in product.metafields.custom.sliders_2_0_products.value %}
-            {% if slider_product.handle == product.handle %}
-              <a href="" class="selected">
-                <img src="{{ slider_product.featured_image | img_url:'master' }}">
-              </a>
-            {% else %}
-              <a href="{{ slider_product.url }}">
-                {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
-                 {% if slider_product.metafields.custom.new_product == true %} 
-                    <div class="new-product-dot"></div> 
-                  {% endif %}
-                {% endif %}
-                <img src="{{ slider_product.featured_image | img_url:'master' }}">
-                </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
+      
 
 
 
@@ -207,21 +201,81 @@
             <div class="varaint-size-header" style="display:flex;justify-content:space-between">
             <!-- <legend class="form__label">{{ option.name }}{% if option.name == 'Choose color variant' %} / {% endif %}<span class="variant_title"{%- if option.name != 'Choose color variant' -%} style="display: none;"{% endif %}>{{ option.selected_value }}</span>{%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}<span class="size_var is_selected" data-icon="uk">UK</span><span class="size_var" data-icon="eu">EU</span><span class="size_var" data-icon="us">US</span>{% endif %}</legend> -->
             <legend class="form__label">
-              {%- if option.name == 'Choose color variant' -%}{{ option.name | replace: 'Choose color variant', 'Colour' }}{% elsif option.name == 'Select your size (in UK)' or option.name == 'Size' or option.name == 'Select your size' %}Size{% else %}{{ option.name }}{% endif %}
+              {%- if option.name == 'Choose color variant' -%}
+                {{ option.name | replace: 'Choose color variant', 'Colour' }}
+              {% elsif option.name == 'Select your size (in UK)' or option.name == 'Size' or option.name == 'Select your size' %}   
+                Size /<span class="selected_size"></span>
+              {% else %}
+                {{ option.name }}
+              {% endif %}
               {% if option.name == 'Choose color variant' %} / {% endif %}
               <span class="variant_title"
               {%- if option.name != 'Choose color variant' -%} style="display: none;"{% endif %}>{{ option.selected_value }}</span>
-              {%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}
+            </legend>
+            {%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}
+              <div class="size_tab_head">
                 <span class="size_var is_selected" data-icon="uk">UK</span>
                 <span class="size_var" data-icon="eu">EU</span>
-                <span class="size_var" data-icon="us">US</span>{% endif %}
-            </legend>
-            <div id="openPopupBtn" style="min-width:90px;cursor:pointer;font-size:12px;line-height:17.1px;letter-spacing: -0.36px;color:#939598;font-weight: bold;text-align:end;">Size Guide</div>
+                <span class="size_var" data-icon="us">US</span>
+              </div>
+            {% endif %}
+            <div id="openPopupBtn" style="min-width:90px;cursor:pointer;font-size:12px;line-height:12px;letter-spacing: -0.36px;color:#1a1a1a;font-weight: 400;text-align:end;">Size Guide</div>
               {%- if template == 'product.fw-product' and product.title == 'Circuit Shirt' -%}
                 <div class="fw_sizeguidePopupBtn"
                   style="min-width:90px;cursor:pointer;font-size:10px;line-height:12px;color:#1a1a1a;font-weight: bold;text-align:end;letter-spacing: -0.5px;">
                   Size Guide</div>
               {%- endif -%}
+
+              {% comment %} <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                  // alert('333333333');
+                  var modal = document.getElementById("cspopupModal");
+
+                  // Get the button that opens the modal
+                  var btn = document.getElementById("openPopupBtn");
+                  var btn_size_popup = document.getElementById("sizeBtnPopup");
+                  var btnSecond = document.querySelector(".custom_variants-mobile .custom-variant-label");
+
+                  // Get the <span> element that closes the modal
+                  var closeBtn = document.getElementsByClassName("close-btn")[0];
+
+
+
+                  // When the user clicks on the close button, close the modal
+                  closeBtn.onclick = function() {
+                    modal.style.display = "none";
+                    document.querySelector('body').classList.remove('cs-popup-is-opened');
+                  }
+                  // When the user clicks anywhere outside the modal, close it
+                  window.onclick = function(event) {
+                    if (event.target == modal) {
+                      modal.style.display = "none";
+                      document.querySelector('body').classList.remove('cs-popup-is-opened');
+                    }
+                  }
+
+
+                  
+                  // When the user clicks the button, open the modal
+                  btn.onclick = function() {
+                    modal.style.display = "flex";
+                    document.querySelector('body').classList.add('cs-popup-is-opened');
+                  }
+                  btn_size_popup.onclick = function() {
+                    modal.style.display = "flex";
+                    document.querySelector('body').classList.add('cs-popup-is-opened');
+                  }
+                  if(btnSecond) {
+                    btnSecond.onclick = function() {
+                      modal.style.display = "flex";
+                      document.querySelector('body').classList.add('cs-popup-is-opened');
+                      document.querySelector('.custom-mobile-variants').classList.remove('size-activate');
+                    }
+                  }
+
+                 
+                });
+              </script> {% endcomment %}
             </div>
             {%- if option.name == 'Select your size' -%}
                 {% render 'product-variant-options',
@@ -337,6 +391,18 @@
 
            
           </fieldset>
+
+          <div class="size_specifications">
+            {% for variant in product.variants %}
+              <span class="size_specification_value" data-variant-title="{{ variant.title }}" style="display: none;">
+                {{ variant.metafields.custom.size_specification }}
+              </span>
+            {% endfor %}
+          </div>
+
+          {% if product.metafields.custom.information != blank %}            
+            <div class="meta_pro_information">{{ product.metafields.custom.information | metafield_tag }}</div>
+          {% endif %}
           {% comment %} <div class="main-reserve">
           {% if product.id == 9672026095920 %}
             {% assign option_disabled = false %}
@@ -357,43 +423,90 @@
           <div class="csmodal-content">
             <div style="" class="csmodal-heading">
               <span class="size-guide-label">Size Guide</span>
-              <span class="close-btn">&times;</span>
+              <span class="close-btn">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.75 0.75L0.75 10.75M0.75 0.75L10.75 10.75" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
             </div>
+            
+
+            <div class="csmodal-subheading">
+              {{ product.metafields.custom.size_chart_subheading }}
+            </div>
+            
             <div class="cs-modal-inner-content">
-              {% if product.metafields.custom.size_chart_table_image != blank %}
-                <img
-                src="{{ product.metafields.custom.size_chart_table_image | image_url:width:600 }}"
-                srcset="{{ product.metafields.custom.size_chart_table_image | image_url:width:400 }} 1x, {{ product.metafields.custom.size_chart_table_image | image_url:width:800 }} 2x"
-                loading="lazy"
-                alt="{{ product.title }}"
-                style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                width=""
-                height=""
-              >
+              {% if product.collections contains collections['footwear'] %}
+                {% if product.collections contains collections['slider'] %}
+                    <div class="slider_size_info">
+                      <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711">
+                        <p>Regular or Narrow feet?<span>go one size down</span></p>
+                      </div>
+                      <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711">
+                        <p>Wide foot?<span>stick to your usual size.</span></p>
+                      </div>
+                    </div>
+                {% else %}
+                 
+                {% endif %}
               {% else %}
-              <img
-                src="{{ product.featured_image | image_url:width:600 }}"
-                srcset="{{ product.featured_image | image_url:width:400 }} 1x, {{ product.featured_image | image_url:width:800 }} 2x"
-                loading="lazy"
-                alt="{{ product.title }}"
-                style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
-                width=""
-                height=""
-              >
-              {% endif %}
-                <div class="cs-table">
-                  {% if request.path contains 'sliders' %}
-                  <div class="slider-note">
-                    <p>*This footwear runs a size bigger, so we recommend taking one size down from your regular size.</p>
-                  </div>
-                  {% endif %}
-                  {% if request.path contains 'weekend-shirt' %}
-                  <div class="slider-note">
-                    <p>*This shirt runs a size bigger, so we recommend taking one size down from your regular size.</p>
-                  </div>
-                  {% endif %}
-                  {{ product.metafields.custom.size_chart_table }}
+                {% if product.metafields.custom.size_chart_table_image != blank %}
+                  <div class="size_img">
+                    <img
+                    src="{{ product.metafields.custom.size_chart_table_image | image_url:width:600 }}"
+                    srcset="{{ product.metafields.custom.size_chart_table_image | image_url:width:400 }} 1x, {{ product.metafields.custom.size_chart_table_image | image_url:width:800 }} 2x"
+                    loading="lazy"
+                    alt="{{ product.title }}"
+                    style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                    width=""
+                    height=""
+                  >
                 </div>
+                {% else %}
+                  <div class="size_img">
+                    <img
+                      src="{{ product.featured_image | image_url:width:600 }}"
+                      srcset="{{ product.featured_image | image_url:width:400 }} 1x, {{ product.featured_image | image_url:width:800 }} 2x"
+                      loading="lazy"
+                      alt="{{ product.title }}"
+                      style="max-width:100%;aspect-ratio:1.25/1;object-fit:cover"
+                      width=""
+                      height=""
+                    >
+                    </div>
+                {% endif %}
+              {% endif %}
+              <div class="cs-table">
+                {{ product.metafields.custom.size_chart_table }}
+              </div>
+              {% if request.path contains 'sliders' %}
+                <div class="slider-instructuions">
+                  <h4>How to measure</h4>
+                  <div class="instructuions_steps">
+                    <div class="measurement_step">
+                      <h6>Step 1 :</h6>
+                      <p>Step on a piece of paper with your heel slightly touching a wall behind.</p>
+                    </div>
+                    <div class="measurement_step">
+                      <h6>Step 2 :</h6>
+                      <p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p>
+                    </div>
+                    <div class="measurement_step">
+                      <h6>Step 3 :</h6>
+                      <p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+              <div class="sizechart_note">
+                <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176">
+                <div class="note_text">
+                  <h6>Not sure about the fit?</h6>
+                  <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -426,7 +539,7 @@
 
 {% comment %} Active toggle tab shows first and remains active if pages changes or reloads {% endcomment %}
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+{% comment %} document.addEventListener('DOMContentLoaded', function () {
   const tabsContainer = document.querySelector('.sliders-tab');
   if (!tabsContainer) return;
 
@@ -475,6 +588,6 @@ document.addEventListener('DOMContentLoaded', function () {
       activateTab(this.dataset.tab, true);
     });
   });
-});
+}); {% endcomment %}
 </script>
 
