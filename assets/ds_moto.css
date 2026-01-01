@@ -413,6 +413,18 @@ body:not(.template-index) .newsletter-heading{
 .template-index .newsletter-descrition p:last-child {
     display: none;
 }
+.template-index .newsletter-form__field-wrapper .field input {
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid #C7C8CA;
+    font-family: Public Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.6px;
+    text-align: center;
+    vertical-align: middle;
+}
 
 
 
