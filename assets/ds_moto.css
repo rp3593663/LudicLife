@@ -268,6 +268,15 @@ a.two_col_btn:hover{
     height: 56px;
 }
 
+
+.products_marquee_inner {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+
+
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
