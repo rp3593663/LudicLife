@@ -628,6 +628,15 @@
         "margin": "52px 0px 102px | | | 32px 0px 100px"
       }
     },
+    "ds_moto_banner_RJKCXq": {
+      "type": "ds-moto-banner",
+      "name": "DS Moto Banner",
+      "settings": {
+        "layout": "full-width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "80px 0px | | | 36px 0px"
+      }
+    },
     "csk_custom_text_Knc7fd": {
       "type": "csk-custom-text",
       "disabled": true,
@@ -1282,6 +1291,7 @@
     "ds_moto_images_text_UmdXGf",
     "home_sliders_slide_Ek6TLj",
     "marquee_products_Ak4PAW",
+    "ds_moto_banner_RJKCXq",
     "csk_custom_text_Knc7fd",
     "fw_description_b4empb",
     "image_scroller_cbFL7N",
