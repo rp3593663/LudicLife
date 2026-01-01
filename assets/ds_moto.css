@@ -327,10 +327,20 @@ a.marquee_product_block {
     position: absolute;
     top: 158px;
     left: 80px;
-    max-width: 305px;
+    max-width: 310px;
 }
 .ds_moto_banner_content img {
     width: 198px;
+}
+.ds_moto_banner_content p {
+    margin: 10px 0px 18px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.7px;
+    vertical-align: middle;
+    color: #FFF;
 }
 
 @media (min-width: 576px) {
