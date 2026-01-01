@@ -6,37 +6,32 @@
 {% assign margin  = section.settings.margin | split: "|" %}
 
 {%- style -%}
-#shopify-section-{{ section.id }} .section--marquee-products{
+#shopify-section-{{ section.id }} .section--ds_moto_banner{
   {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
   {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
 }
 
 @media (max-width:1199px){
-  #shopify-section-{{ section.id }} .section--marquee-products{
+  #shopify-section-{{ section.id }} .section--ds_moto_banner{
     {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
     {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
   }
 }
 
 @media (max-width:991px){
-  #shopify-section-{{ section.id }} .section--marquee-products{
+  #shopify-section-{{ section.id }} .section--ds_moto_banner{
     {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
     {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
   }
 }
 
 @media (max-width:767px){
-  #shopify-section-{{ section.id }} .section--marquee-products{
+  #shopify-section-{{ section.id }} .section--ds_moto_banner{
     {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
     {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
   }
 }
-.product-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll-products linear infinite;
-  animation-duration: {{ section.settings.speed }}s;
-}
+
 {%- endstyle -%}
 
 <section class="ludic-section ludic-section-{{ section.id }} section--ds_moto_banner">
