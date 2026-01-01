@@ -229,6 +229,26 @@ a.two_col_btn:hover{
 .image_slides_block {
     position: relative;
 }
+.all_sliders_slide {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0000004D;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.all_sliders_slide .slider_image{
+    position: relative;
+}
+.all_sliders_slide .slider_image{
+    width: 56px;
+    height: 56px;
+}
+
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
