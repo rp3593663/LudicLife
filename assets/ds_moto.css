@@ -226,6 +226,25 @@ a.two_col_btn:hover{
 .sliders_content_block .description > * {
     margin: 0px;
 }
+.slider_shop_btn {
+    width: 305px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    text-decoration: unset;
+    border: 1px solid #1A1A1A;
+    border-radius: 4px;
+    color: #1A1A1A;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.6px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+}
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
