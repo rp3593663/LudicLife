@@ -59,6 +59,30 @@
   </div>
 </section>
 
+
+{% javascript %}
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.section--sliders-slide').forEach(section => {
+    const mainImage = section.querySelector('.main_slider_img');
+    const thumbs = section.querySelectorAll('.slider_image');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function () {
+        const newImage = this.dataset.mainImage;
+        if (!newImage) return;
+
+        // change main image
+        mainImage.src = newImage;
+
+        // active class handling
+        thumbs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  });
+});
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "Sliders Slide",
@@ -72,6 +96,11 @@
         { "value": "full-width", "label": "Full Width" },
         { "value": "box_width", "label": "Box Width" }
       ]
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Default Main Image"
     },
     {
       "type": "text",
@@ -88,16 +117,38 @@
       "info": "Desktop | 1200px | 991px | 767px"
     }
   ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumb_image",
+          "label": "Thumbnail Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image on Click"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Sliders Slide",
-      "category": "Custom"
+      "category": "Custom",
+      "blocks": [
+        { "type": "slider" },
+        { "type": "slider" },
+        { "type": "slider" }
+      ]
     }
   ]
 }
 {% endschema %}
 
+
 {% stylesheet %}
 {% endstylesheet %}
-{% javascript %}
-{% endjavascript %}
