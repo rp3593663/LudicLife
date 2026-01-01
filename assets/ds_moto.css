@@ -410,6 +410,9 @@ body:not(.template-index) .newsletter-heading{
 .template-index .newsletter-descrition p:first-child {
     color: #1A1A1A;
 }
+.template-index .newsletter-descrition p:last-child {
+    display: none;
+}
 
 
 
