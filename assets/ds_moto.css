@@ -323,6 +323,15 @@ a.marquee_product_block {
 .ds_moto_banner_inner {
     position: relative;
 }
+.ds_moto_banner_content {
+    position: absolute;
+    top: 158px;
+    left: 80px;
+    max-width: 305px;
+}
+.ds_moto_banner_content img {
+    width: 198px;
+}
 
 @media (min-width: 576px) {
     .section--sliders-slide .container {
