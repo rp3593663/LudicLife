@@ -478,6 +478,12 @@ body:not(.template-index) footer-menu:last-child{
 .template-index .footer__content-top .copyright-content.footer__blocks-wrapper {
     justify-content: flex-start;
 }
+@media (min-width: 768px) {
+    .template-index footer .footer__copyright__text {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}
 
 
 @media (max-width: 1599.98px) {
