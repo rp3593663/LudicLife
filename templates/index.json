@@ -1274,6 +1274,7 @@
       ],
       "custom_css": [],
       "settings": {
+        "custom_class": "home_features",
         "title": "",
         "heading_size": "h1",
         "image_width": "third",
