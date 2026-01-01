@@ -432,7 +432,9 @@ body:not(.template-index) .newsletter-heading{
     text-align: center;
     vertical-align: middle;
 }
-
+.footer__newsletter .newsletter-form__button svg {
+    border: 1px solid #C7C8CA;
+}
 
 
 @media (max-width: 1599.98px) {
