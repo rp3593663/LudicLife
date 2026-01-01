@@ -291,14 +291,14 @@ a.marquee_product_block {
     display: grid;
     gap: 6px;
 }
-.marquee_product__content .title {
+.marquee_product__content .title,
+.marquee_product__content .price {
     margin: 0px;
     color: #1a1a1a;
     text-decoration: unset;
     font-size: 12px;
     line-height: 12px;
     display: block;
-    margin-right: 15px;
     letter-spacing: -.36px;
 }
 .marquee_product__content .title span{
