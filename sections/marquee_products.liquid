@@ -49,7 +49,7 @@
             {% if product != blank %}
               <a href="{{ product.url }}" class="marquee_product_block">
                 <div class="marquee_product__img">
-                  <img src="{{ product.featured_image }}" alt="{{ product.title | escape }}" loading="lazy">
+                  <img src="{{ product.featured_image | image_url }}" alt="{{ product.title | escape }}" loading="lazy">
                 </div>
                 <div class="marquee_product__content">
                   <div class="title">
