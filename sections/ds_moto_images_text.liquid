@@ -36,23 +36,37 @@
 <section class="ludic-section ludic-section-{{ section.id }} section--ds_moto_imgs_text">
   <div class="{{ container }}">
     <div class="ds_moto_imgs_text_inner">
-        <div class="ds_moto_content">
-            <h4>DS MOTO</h4>
-            <div class="description">
-                <p>An obsession echoed loud. Like from roaring from the grandstand to feeling the revs build through the pedal. From dreaming in apexes to the never-ending jolts of downforce.</p>
-                <p>A collection designed as a tribute to driving enthusiasts with a deep love for automobiles. Built with absolute adrenaline and love for speed, delivering a product that keeps you close to the feeling. Control, wear, vibe -- everything captured end-to-end in Ludic's in-house Low Profile Lifestyle Outsole. Takes cues from racing ergonomics. Truly functional, intentional, and dedicated. </p>
-                <p>Made in premium suede with the outsole engraved with five iconic racetracks from around the world, underfoot.</p>
-                <p>Not race gear.<br/>Not merch.<br/>Just something for the motor-heads to feel in their bones.</p>
-            </div>
-            <a href="#" class="ds_moto_shop_btn ds_moto_btn">SHOP NOW</a>
-        </div>
-        <div class="ds_moto_imgs">
-            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Background-1.png?v=1767186393">
-            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Background-2.png?v=1767186393">
-        </div>
+
+      <div class="ds_moto_content">
+        {% if section.settings.heading != blank %}
+          <h4>{{ section.settings.heading }}</h4>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="ds_moto_shop_btn ds_moto_btn">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="ds_moto_imgs">
+        {% for block in section.blocks %}
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url  }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+          {% endif %}
+        {% endfor %}
+      </div>
+
     </div>
   </div>
 </section>
+
 
 {% schema %}
 {
@@ -70,6 +84,29 @@
     },
     {
       "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "DS MOTO"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>An obsession echoed loud. Like from roaring from the grandstand to feeling the revs build through the pedal.</p><p>A collection designed as a tribute to driving enthusiasts with a deep love for automobiles.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
       "id": "padding",
       "label": "Padding",
       "default": "0px 0px 0px 0px",
@@ -83,14 +120,32 @@
       "info": "Desktop | 1200px | 991px | 767px"
     }
   ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "DS Moto Images with Text",
-      "category": "Custom"
+      "category": "Custom",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" }
+      ]
     }
   ]
 }
 {% endschema %}
+
 
 {% stylesheet %}
 {% endstylesheet %}
