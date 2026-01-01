@@ -289,7 +289,7 @@ a.marquee_product_block {
     width: max-content;
     text-align: center;
     display: grid;
-    gap: 6px;
+    gap: 8px;
 }
 .marquee_product__content .title,
 .marquee_product__content .price {
