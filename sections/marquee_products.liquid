@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 {% schema %}
 {
-  "name": "Sliders Slide",
+  "name": "Marquee Products",
   "settings": [
     {
       "type": "select",
@@ -100,33 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { "value": "full-width", "label": "Full Width" },
         { "value": "box_width", "label": "Box Width" }
       ]
-    },
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Default Main Image"
-    },
-    {
-        "type": "image_picker",
-        "id": "content_image",
-        "label": "Content Image / Logo"
-    },
-    {
-        "type": "richtext",
-        "id": "description",
-        "label": "Description",
-        "default": "<p>Always the one cloud that's under your feet. CloudFrame comfort, cloud-like wear, and a recovery EVA footbed that doesn't hold back on the support.</p><p><strong>Loved by 30,000 customers.</strong></p>"
-    },
-    {
-        "type": "text",
-        "id": "button_text",
-        "label": "Button Text",
-        "default": "Shop Sliders"
-    },
-    {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button Link"
     },
     {
       "type": "text",
@@ -141,24 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
       "label": "Margin",
       "default": "80px 0px | | | 36px 0px",
       "info": "Desktop | 1200px | 991px | 767px"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "slider",
-      "name": "Slider Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "thumb_image",
-          "label": "Thumbnail Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "main_image",
-          "label": "Main Image on Click"
-        }
-      ]
     }
   ],
   "presets": [
