@@ -204,6 +204,11 @@ a.two_col_btn:hover{
     margin-left: 0px;
     padding-left: 0px;
 }
+.sliders_slide_inner {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: 1fr 1fr;
+}
 @media (min-width: 576px) {
     .section--sliders-slide .container {
         max-width: calc(((100vw - 540px) / 2) + 540px);
