@@ -1,0 +1,121 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin | split: "|" %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} .section--two-column-banner{
+  {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+  {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--two-column-banner{
+    {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+    {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--two-column-banner{
+    {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+    {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--two-column-banner{
+    {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+    {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+  }
+}
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--two-column-banner">
+  <div class="{{ container }}">
+    <div class="two_column_inner">
+
+      <!-- Left Image -->
+      <div class="two_col_left">
+        {% if section.settings.left_image != blank %}
+          <img 
+            src="{{ section.settings.left_image | image_url }}"
+            alt="{{ section.settings.left_image_alt | escape }}"
+            loading="lazy">
+        {% endif %}
+      </div>
+
+      <!-- Right Image + Content -->
+      <div class="two_col_right">
+        {% if section.settings.right_image != blank %}
+          <img 
+            src="{{ section.settings.right_image | image_url }}"
+            alt="{{ section.settings.right_image_alt | escape }}"
+            loading="lazy">
+        {% endif %}
+
+        <div class="two_col_content">
+          {% if section.settings.heading != blank %}
+            <h4>{{ section.settings.heading }}</h4>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <p>{{ section.settings.description }}</p>
+          {% endif %}
+
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="two_col_btn">
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sliders Slide",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sliders Slide",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}
