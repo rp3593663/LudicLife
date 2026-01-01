@@ -396,6 +396,13 @@ a.marquee_product_block {
     max-width: 25%;
     width: 100%;
 }
+body:not(.template-index) .newsletter-heading{
+    display: none;
+}
+.template-index .newsletter-heading img {
+    width: 80px;
+    height: 24px;
+}
 @media (max-width: 1599.98px) {
     .template-index .footer-block--menu {
         max-width: 60% !important;
