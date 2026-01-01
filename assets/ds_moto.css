@@ -276,7 +276,7 @@ a.two_col_btn:hover{
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll-{{ section.id }} linear infinite;
+  animation: marquee-scroll-products linear infinite;
   animation-duration: {{ section.settings.speed }}s;
 }
 .marquee_product_block {
@@ -286,7 +286,7 @@ a.two_col_btn:hover{
 .products_marquee_wrapper:hover .marquee-track {
   animation-play-state: paused;
 }
-@keyframes marquee-scroll-{{ section.id }} {
+@keyframes marquee-scroll-products {
   from {
     transform: translateX(-50%);
   }
