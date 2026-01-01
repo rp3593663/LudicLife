@@ -388,13 +388,14 @@ a.marquee_product_block {
 }
 .template-index .footer__blocks-wrapper:not(.copyright-content){
     position: relative;
+    padding-bottom: 170px;
 }
 .template-index .footer__blocks-wrapper:not(.copyright-content):before {
     content: "";
     background-image: url(/cdn/shop/files/Always_at_Play.svg?v=1767257547);
     position: absolute;
     left: 50%;
-    bottom: 64px;
+    bottom: 50px;
     transform: translate(-50%);
     width: 100%;
     height: 167px;
