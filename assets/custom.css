@@ -1257,6 +1257,7 @@ body.size-chart-popup-pdp #MainContent{
 }
 .twosday_slide .slideshow__text.banner__box {
     top: unset!important;
+    z-index: 2;
 }
 .twosday_slide a.button.button--primary:hover:after,
 .twosday_slide a.button.button--primary:hover:before{
