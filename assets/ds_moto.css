@@ -230,7 +230,7 @@ a.two_col_btn:hover{
     position: relative;
 }
 .main_slider_img{
-  transition: opacity 0.45s ease-in-out;
+  transition: opacity 2s ease-in-out;
 }
 .main_slider_img.is-fading{
   opacity: 0;
