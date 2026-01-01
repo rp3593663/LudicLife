@@ -520,10 +520,6 @@
             "main_image": "shopify://shop_images/Background-BC.png"
           }
         },
-        "slider_4ncQzB": {
-          "type": "slider",
-          "settings": {}
-        },
         "slider_Fi4j3K": {
           "type": "slider",
           "settings": {
@@ -540,7 +536,6 @@
         "slider_NHhrh4",
         "slider_xN3axh",
         "slider_X6hyew",
-        "slider_4ncQzB",
         "slider_Fi4j3K"
       ],
       "name": "Sliders Slide",
