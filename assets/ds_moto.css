@@ -361,6 +361,13 @@ a.marquee_product_block {
 .multicolumn-card__info {
     padding: 16px 0px 0px!important;
 }
+.multicolumn-card__info h3.inline-richtext {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.7px;
+    text-align: center;
+}
 
 @media (min-width: 576px) {
     .section--sliders-slide .container {
