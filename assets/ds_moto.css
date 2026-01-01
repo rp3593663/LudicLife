@@ -407,6 +407,12 @@ body:not(.template-index) .newsletter-heading{
     width: 80px;
     height: 24px;
 }
+.template-index .newsletter-descrition p:first-child {
+    color: #1A1A1A;
+}
+
+
+
 @media (max-width: 1599.98px) {
     .template-index .footer-block--menu {
         max-width: 60% !important;
