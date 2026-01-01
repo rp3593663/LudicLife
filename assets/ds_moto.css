@@ -229,13 +229,6 @@ a.two_col_btn:hover{
 .image_slides_block {
     position: relative;
 }
-.main_slider_img{
-  transition: opacity 2s ease-in-out;
-}
-.main_slider_img.is-fading{
-  opacity: 0;
-}
-
 .all_sliders_slide {
     position: absolute;
     bottom: 64px;
