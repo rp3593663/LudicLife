@@ -238,9 +238,12 @@ a.two_col_btn:hover{
     padding: 6px;
     border-radius: 6px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 6px;
-    width: max-content;
+    max-width: max-content;
+    width: 95%;
 }
 .all_sliders_slide .slider_image.active {
     margin-right: 6px;
