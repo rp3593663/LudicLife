@@ -511,6 +511,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__icon--menu span.line {
     background: #FFF!important;
 }
+body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) path#svgkp-path {
+    stroke: #ffffff;
+    fill: #FFF;
+}
 
 
 
