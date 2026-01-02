@@ -572,4 +572,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         text-transform: uppercase;
         margin-bottom: 0px;
     }
+    .ds_moto_banner1 .banner__buttons {
+        margin-top: 18px!important;
+    }
 }
