@@ -762,6 +762,7 @@ a.marquee_product_block {
     letter-spacing: -.6px;
     height: 36px;
     padding: 10px!important;
+    color: #000;
 }
 .template-index .footer__newsletter .field__label {
     top: 10px;
