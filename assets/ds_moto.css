@@ -694,18 +694,14 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     }   
     .sliders_content_block {
         padding: 0px 16px;
-        margin: auto;
-        text-align: center;
     }
     .sliders_content_block img {
         width: 142px;
-        margin: auto;
-        text-align: center;
     }
     .sliders_content_block .description {
         margin: 14px 0 32px;
         display: grid;
-        font-size: 22px;
+        font-size: 19px;
         line-height: 28px;
         letter-spacing: -1.1px;
         text-align: left;
