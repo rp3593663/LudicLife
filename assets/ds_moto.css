@@ -663,5 +663,16 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .all_sliders_slide .slider_image.active {
         margin-bottom: 4px;
         margin-right: 0px;
-    }       
+    }     
+    .slider_image.active:after {
+        width: 100%;
+        height: 1px;
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: unset;
+        bottom: -4px;
+        background: #fff;
+    }  
 }
