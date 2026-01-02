@@ -780,6 +780,7 @@ a.marquee_product_block {
 .template-index .footer-menu-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 24px;
 }
 .template-index .footer-menu {
     max-width: 100%;
@@ -787,5 +788,6 @@ a.marquee_product_block {
 }
 .footer-menu:first-child {
     order: -1;
+    grid-row: span 2;
 }
 }
