@@ -559,7 +559,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         top: unset!important;
         padding: 0!important;
         z-index: 3;
-        bottom: 0;
+        bottom: 100px;
+        transform: translateX(-50%)!important;
     }
     .ds_moto_banner1 h2.banner__heading.h1 {
         line-height: 38px;
