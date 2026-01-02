@@ -394,7 +394,7 @@ a.marquee_product_block {
     left: 50%;
     bottom: 25px;
     transform: translate(-50%);
-    width: 100%;
+    width: calc(100% - 32px);
     height: auto;
     aspect-ratio: 1260 / 168;
     background-repeat: no-repeat;
