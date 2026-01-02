@@ -357,17 +357,17 @@ a.marquee_product_block {
 .home_features .media {
     padding-bottom: 16%!important;
 }
-.multicolumn-card__info {
+.home_features .multicolumn-card__info {
     padding: 16px 0px 0px!important;
 }
-.multicolumn-card__info h3.inline-richtext {
+.home_features .multicolumn-card__info h3.inline-richtext {
     font-weight: 650;
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -0.7px;
     text-align: center;
 }
-.multicolumn-card__info .rte {
+.home_features .multicolumn-card__info .rte {
     margin-top: 6px;
     font-weight: 400;
     font-size: 12px;
