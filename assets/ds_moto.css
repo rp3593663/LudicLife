@@ -628,4 +628,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         line-height: 18px;
         letter-spacing: -.6px;
     }
+    .sliders_slide_inner {
+        gap: 32px;
+        grid-template-columns: 1fr;
+    }
 }
