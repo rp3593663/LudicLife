@@ -764,8 +764,12 @@ a.marquee_product_block {
     padding: 10px!important;
     color: #000;
 }
+.template-index .newsletter-form__field-wrapper .field input::placeholder {
+    opacity: 1!important;
+    display: block!important;
+}
 .template-index .footer__newsletter .field__label {
-    top: 10px;
+   display: none;
 }
 .template-index .newsletter-form__field-wrapper .field input:focus + label,
 .template-index .newsletter-form__field-wrapper .field input:focus-visible + label,
