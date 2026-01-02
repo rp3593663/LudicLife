@@ -554,3 +554,11 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         gap: 40px;
     }
 }
+@media(max-width: 767px){
+    .ds_moto_banner1 .slideshow__text.banner__box {
+        top: unset!important;
+        padding: 0!important;
+        z-index: 3;
+        bottom: 0;
+    }
+}
