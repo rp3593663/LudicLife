@@ -803,7 +803,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         display: none;
     }
     .template-index .footer__blocks-wrapper:not(.copyright-content) {
-        padding: 0px 24px 100px;
+        padding: 0px 24px 90px;
         margin-bottom: 0px;
     }
     .template-index .footer__blocks-wrapper:not(.copyright-content):before {
