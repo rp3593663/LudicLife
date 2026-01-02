@@ -499,6 +499,9 @@ body:not(.template-index) footer-menu:last-child{
 .header__heading-logo-wrapper img:first-child {
     filter: grayscale(1) invert(1);
 }
+.header__menu-item {
+    color: #ffffff;
+}
 
 
 
