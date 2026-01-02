@@ -561,4 +561,15 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         z-index: 3;
         bottom: 0;
     }
+    .ds_moto_banner1 h2.banner__heading.h1 {
+        line-height: 38px;
+        letter-spacing: 0;
+        color: #fff;
+        font-weight: 700;
+        font-size: 38px;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+    }
 }
