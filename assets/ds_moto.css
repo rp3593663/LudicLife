@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Druk Trial';
     src: url('https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Druk-BoldItalic-Trial.otf?v=1767179779') format('opentype');
-    font-weight: 650;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -11,7 +11,7 @@
     max-width: 100%!important;
 }
 .ds_home_text .rich-text__text {
-    font-weight: 650;
+    font-weight: 700;
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.72px;
@@ -29,7 +29,7 @@
     border-radius: 4px;
     opacity: 1;
     font-family: Public Sans;
-    font-weight: 650;
+    font-weight: 700;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: -0.6px;
@@ -50,7 +50,7 @@
 }
 .ds_moto_banner1 h2.banner__heading.h1 {
     font-family: 'Druk Trial';
-    font-weight: 650;
+    font-weight: 700;
     font-size: 64px;
     line-height: 64px;
     letter-spacing: 0;
@@ -70,7 +70,7 @@
     border-radius: 4px;
     opacity: 1;
     font-family: Public Sans;
-    font-weight: 650;
+    font-weight: 700;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: -0.6px;
@@ -93,7 +93,7 @@
     text-decoration: unset;
     border-radius: 4px;
     font-family: Inter;
-    font-weight: 650;
+    font-weight: 700;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: -0.6px;
@@ -120,7 +120,7 @@
     margin: 0px;
     color: #FFF;
     font-family: Inter;
-    font-weight: 650;
+    font-weight: 700;
     font-size: 26px;
     line-height: 30px;
     letter-spacing: -1.3px;
@@ -153,7 +153,7 @@ a.two_col_btn:hover{
 }
 .ds_moto_content h4 {
     font-family: 'Druk Trial';
-    font-weight: 650;
+    font-weight: 700;
     font-size: 26px;
     line-height: 30px;
     letter-spacing: 0;
@@ -207,7 +207,7 @@ a.two_col_btn:hover{
     display: grid;
     gap: 12px;
     font-family: Public Sans;
-    font-weight: 650;
+    font-weight: 700;
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.72px;
@@ -333,7 +333,7 @@ a.marquee_product_block {
     margin: 10px 0px 18px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: -0.7px;
     vertical-align: middle;
@@ -357,17 +357,17 @@ a.marquee_product_block {
 .home_features .media {
     padding-bottom: 16%!important;
 }
-.home_features .multicolumn-card__info {
+.multicolumn-card__info {
     padding: 16px 0px 0px!important;
 }
-.home_features .multicolumn-card__info h3.inline-richtext {
-    font-weight: 650;
+.multicolumn-card__info h3.inline-richtext {
+    font-weight: 700;
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -0.7px;
     text-align: center;
 }
-.home_features .multicolumn-card__info .rte {
+.multicolumn-card__info .rte {
     margin-top: 6px;
     font-weight: 400;
     font-size: 12px;
@@ -389,7 +389,7 @@ a.marquee_product_block {
 }
 .template-index .footer__blocks-wrapper:not(.copyright-content):before {
     content: "";
-    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Always_at_Play.svg?v=1767334333);
+    background-image: url(/cdn/shop/files/Always_at_Play.svg?v=1767257547);
     position: absolute;
     left: 50%;
     bottom: 25px;
@@ -495,22 +495,6 @@ body:not(.template-index) footer-menu:last-child{
     color: #969696;
     letter-spacing: -.6px;
 }
-
-body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__heading-logo-wrapper img:first-child {
-    filter: grayscale(1) invert(1) brightness(3);
-}
-body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__menu-item:not(.menu-active),
-body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__icon {
-    color: #ffffff;
-}
-body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__icon--menu span.line {
-    background: #FFF!important;
-}
-
-
-
-
-
 @media (min-width: 768px) {
     .template-index footer .footer__copyright__text {
         justify-content: flex-start;
@@ -549,190 +533,4 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .section--sliders-slide .container {
         max-width: calc(((100vw - 1320px) / 2) + 1320px);
     }
-}
-@media(max-width: 991px){
-    .ds_moto_imgs_text_inner {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
-@media(max-width: 767px){
-    .ds_moto_banner1 .slideshow__text.banner__box {
-        top: unset!important;
-        padding: 0!important;
-        z-index: 3;
-        bottom: 100px;
-        transform: translateX(-50%)!important;
-    }
-    .ds_moto_banner1 h2.banner__heading.h1 {
-        line-height: 38px;
-        letter-spacing: 0;
-        color: #fff;
-        font-weight: 700;
-        font-size: 38px;
-        text-align: center;
-        vertical-align: middle;
-        text-transform: uppercase;
-        margin-bottom: 0px;
-    }
-    .ds_moto_banner1 .banner__buttons {
-        margin-top: 18px!important;
-    }
-    .ds_moto_banner1 .banner__buttons a.button {
-        width: 168px;
-        height: 30px;
-        border-radius: 2px;
-        font-size: 11px;
-        letter-spacing: -.5px;
-        margin: 0px!important;
-    }
-    .ds_home_text .rich-text__text {
-        font-size: 19px;
-        line-height: 22px;
-        letter-spacing: -.95px;
-        text-align: justify;
-    }
-    .ds_home_text .rich-text__buttons a.button {
-        width: 100%;
-        height: 36px;
-        border-radius: 2px;
-        font-size: 11px;
-        letter-spacing: -.5px;
-    }
-    .two_column_inner {
-        grid-template-columns: 1fr;
-    }
-    .two_col_content {
-        top: unset;
-        left: 18px;
-        bottom: 35px;
-        max-width: 358px;
-    }
-    .two_col_content p {
-        margin: 4px 0 14px;
-    }
-    .ds_moto_btn {
-        height: 36px;
-        border-radius: 2px;
-        font-size: 11px;
-        line-height: 16px;
-        letter-spacing: -.5px;
-    }
-    .ds_moto_content h4 {
-        font-size: 24px;
-        line-height: 28px;
-    }
-    .ds_moto_content .description {
-        font-size: 12px;
-        line-height: 18px;
-        letter-spacing: -.6px;
-    }
-    .sliders_slide_inner {
-        gap: 32px;
-        grid-template-columns: 1fr;
-    }
-    .image_slides_block {
-        padding-top: 150%;
-    }   
-    .image_slides_block .main_slider_img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-    .all_sliders_slide {
-        position: absolute;
-        bottom: unset;
-        left: unset;
-        right: 16px;
-        top: 16px;
-        transform: unset;
-        padding: 4px;
-        border-radius: 4px;
-        display: grid;
-        gap: 4px;
-        width: 100%;
-    }
-    .all_sliders_slide .slider_image img {
-        width: 44px;
-        height: 44px;
-    }
-    .all_sliders_slide .slider_image.active {
-        margin-bottom: 4px;
-        margin-right: 0px;
-    }     
-    .slider_image.active:after {
-        width: 100%;
-        height: 1px;
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0px;
-        top: unset;
-        bottom: -4px;
-        background: #fff;
-    }  
-    .section--sliders-slide .container {
-        margin: 0;
-        padding: 0;
-    }   
-    .sliders_content_block {
-        padding: 0px 16px;
-        margin: auto;
-        text-align: center;
-    }
-    .sliders_content_block img {
-        width: 142px;
-        margin: auto;
-        text-align: center;
-    }
-    .sliders_content_block .description {
-    margin: 14px 0 32px;
-    display: grid;
-    font-size: 22px;
-    line-height: 28px;
-    letter-spacing: -1.1px;
-    text-align: left;
-}
-a.marquee_product_block {
-    width: 176px;
-}
-.ds_moto_banner_content {
-    position: absolute;
-    top: 78px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 283px;
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
-.ds_moto_banner_content img {
-    width: 185px;
-}
-.home_features .multicolumn-list .multicolumn-list__item {
-    margin-bottom: 20px;
-    border-bottom: 0;
-}
-.home_features {
-    padding: 34px 0px 60px;
-}
-.home_features .multicolumn-list {
-    gap: 40px;
-}
-.home_features .multicolumn-list li{
-    margin-bottom: 0px!important;
-}
-.template-index .footer-text--menu .footer-block__newsletter {
-    max-width: 100%;
-    width: 100%;
-}
-.template-index h2.newsletter-heading {
-    line-height: 24px;
-    margin-bottom: 20px;
-    position: relative;
-}
 }
