@@ -816,4 +816,7 @@ a.marquee_product_block {
     margin: 0 auto 20px;
     padding: 0px;
 }
+.template-index .footer__content-top.footer {
+    padding: 24px 0 32px;
+}
 }
