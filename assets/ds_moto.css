@@ -619,4 +619,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         line-height: 16px;
         letter-spacing: -.5px;
     }
+    .ds_moto_content h4 {
+        font-size: 24px;
+        line-height: 28px;
+    }
 }
