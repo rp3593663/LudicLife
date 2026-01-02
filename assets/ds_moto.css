@@ -773,5 +773,8 @@ a.marquee_product_block {
 .template-index .footer-block__details-content {
     margin-bottom: 0;
 }
-
+.template-index .footer-block--menu {
+    max-width: 100%!important;
+    margin-top: 20px!important;
+}
 }
