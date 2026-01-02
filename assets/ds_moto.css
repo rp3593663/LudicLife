@@ -603,4 +603,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .two_column_inner {
         grid-template-columns: 1fr;
     }
+    .two_col_content {
+        top: unset;
+        left: 18px;
+        bottom: 35px;
+        max-width: 358px;
+    }
 }
