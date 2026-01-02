@@ -710,4 +710,11 @@ a.marquee_product_block {
     margin: auto;
     width: 100%;
 }
+.ds_moto_banner_content img {
+    width: 185px;
+}
+.home_features .multicolumn-list .multicolumn-list__item {
+    margin-bottom: 20px;
+    border-bottom: 0;
+}
 }
