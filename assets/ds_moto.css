@@ -633,6 +633,6 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         grid-template-columns: 1fr;
     }
     .image_slides_block {
-        height: 600px;
+        padding-top: 150%;
     }   
 }
