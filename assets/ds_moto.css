@@ -398,6 +398,7 @@ a.marquee_product_block {
     height: auto;
     aspect-ratio: 1260 / 168;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 .template-index .footer-block.grid__item.footer-brand-info--menu {
     display: none;
