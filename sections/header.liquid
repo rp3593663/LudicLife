@@ -624,6 +624,7 @@ endfor
         megaMenu.addEventListener("mouseleave", function () {
            megaMenu.style.display = "none";
             overlay.style.display = "none";
+             document.body.classList.remove("hover-header");
             headerMain.style.backgroundColor = "transparent"; 
             collectionBlocks.forEach(block => {
                block.style.display = "none";
