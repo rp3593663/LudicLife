@@ -234,7 +234,7 @@ slider-component.slider-component-full-width {
 }
 
 .slider::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--color-foreground));
+  background-color: red;
   border-radius: 0.4rem;
   border: 0;
 }
