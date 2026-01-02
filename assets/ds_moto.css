@@ -5,6 +5,10 @@
     font-style: normal;
 }
 
+.slideshow {
+    height: 100vh;
+}
+
 .ds_home_text .rich-text__wrapper,
 .ds_home_text .rich-text__blocks {
     width: 100%!important;
@@ -699,124 +703,124 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         text-align: center;
     }
     .sliders_content_block .description {
-    margin: 14px 0 32px;
-    display: grid;
-    font-size: 22px;
-    line-height: 28px;
-    letter-spacing: -1.1px;
-    text-align: left;
-}
-a.marquee_product_block {
-    width: 176px;
-}
-.ds_moto_banner_content {
-    position: absolute;
-    top: 78px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 283px;
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
-.ds_moto_banner_content img {
-    width: 185px;
-}
-.home_features .multicolumn-list .multicolumn-list__item {
-    margin-bottom: 20px;
-    border-bottom: 0;
-}
-.home_features {
-    padding: 34px 0px 60px;
-}
-.home_features .multicolumn-list {
-    gap: 40px;
-}
-.home_features .multicolumn-list li{
-    margin-bottom: 0px!important;
-}
-.template-index .footer-text--menu .footer-block__newsletter {
-    max-width: 100%;
-    width: 100%;
-}
-.template-index h2.newsletter-heading {
-    margin-bottom: 24px;
-    position: relative;
-}
-.template-index h2.newsletter-heading:after {
-    content: "";
-    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/footer_red_stars.svg?v=1767257010);
-    background-size: cover;
-    width: 28px;
-    height: 14px;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.template-index .newsletter-descrition {
-    margin-bottom: 24px;
-}
-.template-index .newsletter-descrition p{
-    margin-bottom: 0;
-}
-.template-index .newsletter-form__field-wrapper .field input {
-    border-radius: 4px;
-    background: transparent;
-    border: 1px solid #C7C8CA;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 12px;
-    letter-spacing: -.6px;
-    height: 36px;
-    padding: 10px!important;
-    color: #000;
-}
-.template-index form#ContactFooter {
-    margin-bottom: 0!important;
-}
-.template-index .footer-block__details-content {
-    margin-bottom: 0;
-}
-.template-index .footer-block--menu {
-    max-width: 100%!important;
-    margin-top: 20px!important;
-}
-.template-index .footer-menu-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-.template-index .footer-menu {
-    max-width: 100%;
-    width: 100%;
-}
-.footer-menu:first-child {
-    order: -1;
-    grid-row: span 2;
-}
-.template-index .footer-menu.footer-img-wrapper {
-    display: none;
-}
-.template-index .footer__blocks-wrapper:not(.copyright-content) {
-    padding: 0px 24px 100px;
-    margin-bottom: 0px;
-}
-.template-index .footer__blocks-wrapper:not(.copyright-content):before {
-    bottom: 12px;
-}
-.template-index .footer__copyright__text .copyright__content {
-    font-size: 10px;
-    line-height: 12px;
-    letter-spacing: -.3px;
-}
-.template-index .shopify-section-group-footer-group footer {
-    max-width: calc(100% - 32px);
-    margin: 0 auto 20px;
-    padding: 0px;
-}
-.template-index .footer__content-top.footer {
-    padding: 24px 0 32px;
-}
+        margin: 14px 0 32px;
+        display: grid;
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: -1.1px;
+        text-align: left;
+    }
+    a.marquee_product_block {
+        width: 176px;
+    }
+    .ds_moto_banner_content {
+        position: absolute;
+        top: 78px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 283px;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+    .ds_moto_banner_content img {
+        width: 185px;
+    }
+    .home_features .multicolumn-list .multicolumn-list__item {
+        margin-bottom: 20px;
+        border-bottom: 0;
+    }
+    .home_features {
+        padding: 34px 0px 60px;
+    }
+    .home_features .multicolumn-list {
+        gap: 40px;
+    }
+    .home_features .multicolumn-list li{
+        margin-bottom: 0px!important;
+    }
+    .template-index .footer-text--menu .footer-block__newsletter {
+        max-width: 100%;
+        width: 100%;
+    }
+    .template-index h2.newsletter-heading {
+        margin-bottom: 24px;
+        position: relative;
+    }
+    .template-index h2.newsletter-heading:after {
+        content: "";
+        background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/footer_red_stars.svg?v=1767257010);
+        background-size: cover;
+        width: 28px;
+        height: 14px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .template-index .newsletter-descrition {
+        margin-bottom: 24px;
+    }
+    .template-index .newsletter-descrition p{
+        margin-bottom: 0;
+    }
+    .template-index .newsletter-form__field-wrapper .field input {
+        border-radius: 4px;
+        background: transparent;
+        border: 1px solid #C7C8CA;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.6px;
+        height: 36px;
+        padding: 10px!important;
+        color: #000;
+    }
+    .template-index form#ContactFooter {
+        margin-bottom: 0!important;
+    }
+    .template-index .footer-block__details-content {
+        margin-bottom: 0;
+    }
+    .template-index .footer-block--menu {
+        max-width: 100%!important;
+        margin-top: 20px!important;
+    }
+    .template-index .footer-menu-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    .template-index .footer-menu {
+        max-width: 100%;
+        width: 100%;
+    }
+    .footer-menu:first-child {
+        order: -1;
+        grid-row: span 2;
+    }
+    .template-index .footer-menu.footer-img-wrapper {
+        display: none;
+    }
+    .template-index .footer__blocks-wrapper:not(.copyright-content) {
+        padding: 0px 24px 100px;
+        margin-bottom: 0px;
+    }
+    .template-index .footer__blocks-wrapper:not(.copyright-content):before {
+        bottom: 12px;
+    }
+    .template-index .footer__copyright__text .copyright__content {
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: -.3px;
+    }
+    .template-index .shopify-section-group-footer-group footer {
+        max-width: calc(100% - 32px);
+        margin: 0 auto 20px;
+        padding: 0px;
+    }
+    .template-index .footer__content-top.footer {
+        padding: 24px 0 32px;
+    }
 }
