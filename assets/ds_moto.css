@@ -496,10 +496,10 @@ body:not(.template-index) footer-menu:last-child{
     letter-spacing: -.6px;
 }
 
-.shopify-section-group-header-group:not(.scrolled-past-header) .header__heading-logo-wrapper img:first-child {
+body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__heading-logo-wrapper img:first-child {
     filter: grayscale(1) invert(1);
 }
-.shopify-section-group-header-group:not(.scrolled-past-header) .header__menu-item:not(.menu-active) {
+body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__menu-item:not(.menu-active) {
     color: #ffffff;
 }
 
