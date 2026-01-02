@@ -822,4 +822,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .template-index .footer__content-top.footer {
         padding: 24px 0 32px;
     }
+    .template-index .footer__content-top .copyright-content.footer__blocks-wrapper {
+        padding: 0px 24px;
+    }
 }
