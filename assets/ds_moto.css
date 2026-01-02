@@ -746,4 +746,10 @@ a.marquee_product_block {
     top: 50%;
     transform: translateY(-50%);
 }
+.template-index .newsletter-descrition {
+    margin-bottom: 24px;
+}
+.template-index .newsletter-descrition p{
+    margin-bottom: 0;
+}
 }
