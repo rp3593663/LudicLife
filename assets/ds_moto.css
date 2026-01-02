@@ -730,4 +730,8 @@ a.marquee_product_block {
     max-width: 100%;
     width: 100%;
 }
+.template-index h2.newsletter-heading {
+    margin-bottom: 24px;
+    position: relative;
+}
 }
