@@ -726,4 +726,8 @@ a.marquee_product_block {
 .home_features .multicolumn-list li{
     margin-bottom: 0px!important;
 }
+.template-index .footer-text--menu .footer-block__newsletter {
+    max-width: 100%;
+    width: 100%;
+}
 }
