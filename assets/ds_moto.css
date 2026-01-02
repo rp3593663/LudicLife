@@ -706,6 +706,9 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         letter-spacing: -1.1px;
         text-align: left;
     }
+    .slider_shop_btn{
+        width: 100%;
+    }
     a.marquee_product_block {
         width: 176px;
     }
