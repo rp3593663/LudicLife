@@ -496,10 +496,10 @@ body:not(.template-index) footer-menu:last-child{
     letter-spacing: -.6px;
 }
 
-.header__heading-logo-wrapper img:first-child {
+.shopify-section-group-header-group:not(.scrolled-past-header) .header__heading-logo-wrapper img:first-child {
     filter: grayscale(1) invert(1);
 }
-.header__menu-item {
+.shopify-section-group-header-group:not(.scrolled-past-header) .header__menu-item {
     color: #ffffff;
 }
 
