@@ -767,6 +767,8 @@ a.marquee_product_block {
     padding: 10px!important;
     color: #000;
 }
-
+.template-index form#ContactFooter {
+    margin-bottom: 0!important;
+}
 
 }
