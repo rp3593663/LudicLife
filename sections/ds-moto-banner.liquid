@@ -1,5 +1,7 @@
 {%- if section.settings.layout == 'box_width' -%}
   {%- assign container = 'container' -%}
+{%- else -%}
+  {%- assign container = '' -%}
 {%- endif -%}
 
 {% assign padding = section.settings.padding | split: "|" %}
@@ -31,62 +33,56 @@
     {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
   }
 }
-
 {%- endstyle -%}
 
-<section class="ludic-section ludic-section-{{ section.id }} section--ds_moto_banner">
+<section class="ludic-section section--ds_moto_banner">
   <div class="{{ container }}">
     <div class="ds_moto_banner_inner">
-        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/ds_moto_banner.png?v=1767253211" class="ds_moto_banner_bg">
-        <div class="ds_moto_banner_content">
-            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/futurworks_logo_svg.svg?v=1767253379">
-            <p>Mindful products for mindless pursuits. An alternate realm of Ludic featuring future from the past.</p>
-            <a href="#" class="ds_moto_btn ds_moto_banner_btn">Discover Futurworks</a>
-        </div>
+
+      <!-- Banner Image -->
+      {% if section.settings.desktop_image != blank %}
+        <picture>
+          {% if section.settings.mobile_image != blank %}
+            <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_image | image_url: width: 900 }}">
+          {% endif %}
+          <img
+            src="{{ section.settings.desktop_image | image_url: width: 1800 }}"
+            alt="{{ section.settings.heading | escape }}"
+            class="ds_moto_banner_bg"
+            loading="lazy"
+          >
+        </picture>
+      {% endif %}
+
+      <!-- Content -->
+      <div class="ds_moto_banner_content">
+
+        {% if section.settings.logo != blank %}
+          <img
+            src="{{ section.settings.logo | image_url: width: 300 }}"
+            alt="Logo"
+            loading="lazy"
+          >
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p>{{ section.settings.description }}</p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="ds_moto_btn ds_moto_banner_btn"
+          >
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+
+      </div>
     </div>
   </div>
 </section>
-
-
-
-{% schema %}
-{
-  "name": "DS Moto Banner",
-  "settings": [
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "default": "box_width",
-      "options": [
-        { "value": "full-width", "label": "Full Width" },
-        { "value": "box_width", "label": "Box Width" }
-      ]
-    },
-    {
-      "type": "text",
-      "id": "padding",
-      "label": "Padding",
-      "default": "0px 0px 0px 0px",
-      "info": "Desktop | 1200px | 991px | 767px"
-    },
-    {
-      "type": "text",
-      "id": "margin",
-      "label": "Margin",
-      "default": "80px 0px | | | 36px 0px",
-      "info": "Desktop | 1200px | 991px | 767px"
-    }
-  ],
-  "presets": [
-    {
-      "name": "DS Moto Banner",
-      "category": "Custom"
-    }
-  ]
-}
-{% endschema %}
-
-
-{% stylesheet %}
-{% endstylesheet %}
