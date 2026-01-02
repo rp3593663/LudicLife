@@ -795,4 +795,8 @@ a.marquee_product_block {
 .template-index .footer-menu.footer-img-wrapper {
     display: none;
 }
+.template-index .footer__blocks-wrapper:not(.copyright-content) {
+    padding-bottom: 100px;
+    margin-bottom: 0px;
+}
 }
