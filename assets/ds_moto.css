@@ -808,6 +808,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     }
     .template-index .footer__blocks-wrapper:not(.copyright-content):before {
         bottom: 12px;
+        width: calc(100% - 48px);
     }
     .template-index .footer__copyright__text .copyright__content {
         font-size: 10px;
