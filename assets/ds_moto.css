@@ -632,4 +632,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         gap: 32px;
         grid-template-columns: 1fr;
     }
+    .image_slides_block {
+        height: 600px;
+    }   
 }
