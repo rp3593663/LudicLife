@@ -575,4 +575,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .ds_moto_banner1 .banner__buttons {
         margin-top: 18px!important;
     }
+    .ds_moto_banner1 .banner__buttons a.button {
+        width: 168px;
+        height: 30px;
+        border-radius: 2px;
+        font-size: 11px;
+        letter-spacing: -.5px;
+        margin: 0px!important;
+    }
 }
