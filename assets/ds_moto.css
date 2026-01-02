@@ -600,4 +600,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         font-size: 11px;
         letter-spacing: -.5px;
     }
+    .two_column_inner {
+        grid-template-columns: 1fr;
+    }
 }
