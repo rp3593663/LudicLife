@@ -634,6 +634,12 @@
       "name": "DS Moto Banner",
       "settings": {
         "layout": "full-width",
+        "desktop_image": "shopify://shop_images/ds_moto_banner.png",
+        "mobile_image": "shopify://shop_images/Section_-_Mobile_image_gallery_currently_showing_image_1_of_17.png",
+        "logo": "shopify://shop_images/futurworks_logo_svg.svg",
+        "description": "Mindful products for mindless pursuits. An alternate realm of Ludic featuring future from the past.",
+        "button_text": "Discover Futurworks",
+        "button_link": "shopify://collections/futurworks",
         "padding": "0px 0px 0px 0px",
         "margin": "0px"
       }
