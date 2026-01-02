@@ -433,15 +433,12 @@ body:not(.template-index) .newsletter-heading{
     font-size: 12px;
     line-height: 12px;
     letter-spacing: -0.6px;
-    color: #000;
 }
-.template-index .newsletter-form__field-wrapper .field input::placeholder {
-    opacity: 1!important;
-    display: block!important; 
+.template-index .newsletter-form__field-wrapper .field input+label {
     color: #C7C8CA;
-}
-.template-index .footer__newsletter .field__label {
-   display: none;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.6px;
 }
 .template-index .footer__newsletter .newsletter-form__button svg {
     border: 1px solid #C7C8CA;
@@ -734,39 +731,8 @@ a.marquee_product_block {
     width: 100%;
 }
 .template-index h2.newsletter-heading {
-    margin-bottom: 24px;
+    line-height: 24px;
+    margin-bottom: 20px;
     position: relative;
 }
-.template-index h2.newsletter-heading:after {
-    content: "";
-    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/footer_red_stars.svg?v=1767257010);
-    background-size: cover;
-    width: 28px;
-    height: 14px;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.template-index .newsletter-descrition {
-    margin-bottom: 24px;
-}
-.template-index .newsletter-descrition p{
-    margin-bottom: 0;
-}
-.template-index .newsletter-form__field-wrapper .field input {
-    border-radius: 4px;
-    background: transparent;
-    border: 1px solid #C7C8CA;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 12px;
-    letter-spacing: -.6px;
-    height: 36px;
-    padding: 10px!important;
-    color: #000;
-}
-
-
 }
