@@ -800,7 +800,7 @@ a.marquee_product_block {
     display: none;
 }
 .template-index .footer__blocks-wrapper:not(.copyright-content) {
-    padding-bottom: 100px;
+    padding: 0px 24px 100px;
     margin-bottom: 0px;
 }
 .template-index .footer__blocks-wrapper:not(.copyright-content):before {
