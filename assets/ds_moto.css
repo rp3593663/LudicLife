@@ -717,4 +717,13 @@ a.marquee_product_block {
     margin-bottom: 20px;
     border-bottom: 0;
 }
+.home_features {
+    padding: 34px 0px 60px;
+}
+.home_features .multicolumn-list {
+    gap: 40px;
+}
+.home_features .multicolumn-list li{
+    margin-bottom: 0px!important;
+}
 }
