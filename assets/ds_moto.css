@@ -660,4 +660,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         width: 44px;
         height: 44px;
     }
+    .all_sliders_slide .slider_image.active {
+        margin-bottom: 4px;
+        margin-right: 0px;
+    }       
 }
