@@ -587,4 +587,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         letter-spacing: -.5px;
         margin: 0px!important;
     }
+    .ds_home_text .rich-text__text {
+        font-size: 19px;
+        line-height: 22px;
+        letter-spacing: -.95px;
+        text-align: justify;
+    }
 }
