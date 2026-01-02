@@ -772,9 +772,5 @@ a.marquee_product_block {
 .template-index .footer__newsletter .field__label {
    display: none;
 }
-.template-index .newsletter-form__field-wrapper .field input:focus + label,
-.template-index .newsletter-form__field-wrapper .field input:focus-visible + label,
-.template-index .newsletter-form__field-wrapper .field input:focus-within + label {
-    display: none;
-}
+
 }
