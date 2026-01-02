@@ -770,5 +770,8 @@ a.marquee_product_block {
 .template-index form#ContactFooter {
     margin-bottom: 0!important;
 }
+.template-index .footer-block__details-content {
+    margin-bottom: 0;
+}
 
 }
