@@ -435,11 +435,13 @@ body:not(.template-index) .newsletter-heading{
     letter-spacing: -0.6px;
     color: #000;
 }
-.template-index .newsletter-form__field-wrapper .field input+label {
+.template-index .newsletter-form__field-wrapper .field input::placeholder {
+    opacity: 1!important;
+    display: block!important; 
     color: #C7C8CA;
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: -0.6px;
+}
+.template-index .footer__newsletter .field__label {
+   display: none;
 }
 .template-index .footer__newsletter .newsletter-form__button svg {
     border: 1px solid #C7C8CA;
@@ -765,12 +767,6 @@ a.marquee_product_block {
     padding: 10px!important;
     color: #000;
 }
-.template-index .newsletter-form__field-wrapper .field input::placeholder {
-    opacity: 1!important;
-    display: block!important;
-}
-.template-index .footer__newsletter .field__label {
-   display: none;
-}
+
 
 }
