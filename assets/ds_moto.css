@@ -763,4 +763,7 @@ a.marquee_product_block {
     height: 36px;
     padding: 10px!important;
 }
+.template-index .footer__newsletter .field__label {
+    top: 10px;
+}
 }
