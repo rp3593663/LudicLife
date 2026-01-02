@@ -656,4 +656,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         gap: 4px;
         width: 100%;
     }
+    .all_sliders_slide .slider_image img {
+        width: 44px;
+        height: 44px;
+    }
 }
