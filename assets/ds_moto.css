@@ -734,4 +734,16 @@ a.marquee_product_block {
     margin-bottom: 24px;
     position: relative;
 }
+.template-index h2.newsletter-heading:after {
+    content: "";
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/footer_red_stars.svg?v=1767257010);
+    background-size: cover;
+    width: 28px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
 }
