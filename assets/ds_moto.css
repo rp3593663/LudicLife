@@ -689,4 +689,15 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         margin: auto;
         text-align: center;
     }
+    .sliders_content_block .description {
+    margin: 14px 0 32px;
+    display: grid;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: -1.1px;
+    text-align: left;
+}
+a.marquee_product_block {
+    width: 176px;
+}
 }
