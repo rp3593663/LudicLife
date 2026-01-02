@@ -635,4 +635,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .image_slides_block {
         padding-top: 150%;
     }   
+    .image_slides_block img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 }
