@@ -612,4 +612,11 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .two_col_content p {
         margin: 4px 0 14px;
     }
+    .ds_moto_btn {
+        height: 36px;
+        border-radius: 2px;
+        font-size: 11px;
+        line-height: 16px;
+        letter-spacing: -.5px;
+    }
 }
