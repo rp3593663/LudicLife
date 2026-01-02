@@ -547,3 +547,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         max-width: calc(((100vw - 1320px) / 2) + 1320px);
     }
 }
+@media(max-width: 991px){
+    .ds_moto_imgs_text_inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
