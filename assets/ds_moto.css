@@ -681,5 +681,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     }   
     .sliders_content_block {
         padding: 0px 16px;
+        margin: auto;
+        text-align: center;
+    }
+    .sliders_content_block img {
+        width: 142px;
+        margin: auto;
+        text-align: center;
     }
 }
