@@ -422,8 +422,8 @@ body:not(.template-index) .newsletter-heading{
     margin-bottom: 20px;
 }
 .template-index .newsletter-heading img {
-    width: 80px;
-    height: 24px;
+    width: auto;
+    height: 20px;
 }
 .template-index .newsletter-descrition p:first-child {
     color: #1A1A1A;
