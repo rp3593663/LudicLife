@@ -609,4 +609,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         bottom: 35px;
         max-width: 358px;
     }
+    .two_col_content p {
+        margin: 4px 0 14px;
+    }
 }
