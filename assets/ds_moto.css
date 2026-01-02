@@ -792,4 +792,7 @@ a.marquee_product_block {
     order: -1;
     grid-row: span 2;
 }
+.template-index .footer-menu.footer-img-wrapper {
+    display: none;
+}
 }
