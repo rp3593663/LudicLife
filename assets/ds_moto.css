@@ -785,4 +785,7 @@ a.marquee_product_block {
     max-width: 100%;
     width: 100%;
 }
+.footer-menu:first-child {
+    order: -1;
+}
 }
