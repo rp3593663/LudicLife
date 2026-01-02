@@ -675,4 +675,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         bottom: -4px;
         background: #fff;
     }  
+    .section--sliders-slide .container {
+        margin: 0;
+        padding: 0;
+    }   
 }
