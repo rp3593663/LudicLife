@@ -700,4 +700,14 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 a.marquee_product_block {
     width: 176px;
 }
+.ds_moto_banner_content {
+    position: absolute;
+    top: 78px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 283px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
 }
