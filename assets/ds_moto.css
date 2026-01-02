@@ -777,4 +777,12 @@ a.marquee_product_block {
     max-width: 100%!important;
     margin-top: 20px!important;
 }
+.template-index .footer-menu-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.template-index .footer-menu {
+    max-width: 100%;
+    width: 100%;
+}
 }
