@@ -477,7 +477,7 @@ body:not(.template-product) .newsletter-heading,{
 }
 .template-index .footer-menu.footer-img-wrapper .black_stars,
 body:not(.template-product) .footer-menu.footer-img-wrapper .red_stars,
-body:not(.template-index) .footer-menu.footer-img-wrapper .red_stars,
+/* body:not(.template-index) .footer-menu.footer-img-wrapper .red_stars, */
 body:not(.template-index) footer-menu:last-child,
 .template-product .footer-menu.footer-img-wrapper .black_stars,
 body:not(.template-product) footer-menu:last-child{
