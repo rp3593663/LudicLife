@@ -287,6 +287,9 @@
                   type="submit"
                   name="add"
                   class="product-form__submit button scroll-btn button--full-width vgffg"
+                  {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+                    data-from-slider="true"
+                  {% endif %}
                   {% if product.selected_or_first_available_variant.available == false
                     or quantity_rule_soldout
                     or product.selected_or_first_available_variant == null
