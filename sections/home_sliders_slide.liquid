@@ -38,7 +38,7 @@
     <div class="sliders_slide_inner">
         <div class="image_slides_block">
             <img src="{{ section.settings.main_image | image_url }}" class="main_slider_img_desktop" id="main-slider-{{ section.id }}" >
-            <img src="{{ section.settings.main_image | image_url }}" class="main_slider_img_mobile" id="main-slider-{{ section.id }}" >
+            <img src="{{ section.settings.main_image_mobile | image_url }}" class="main_slider_img_mobile" id="main-slider-{{ section.id }}" >
             <div class="all_sliders_slide">
                 {% for block in section.blocks %}
                 <div class="slider_image {% if forloop.first %}active{% endif %}" data-main-image="{{ block.settings.main_image | image_url }}">
@@ -157,6 +157,11 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           "type": "image_picker",
           "id": "main_image",
+          "label": "Main Image on Click"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image_mobile",
           "label": "Main Image on Click"
         }
       ]
