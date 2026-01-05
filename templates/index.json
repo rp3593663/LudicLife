@@ -37,6 +37,7 @@
         },
         "slide_xbMa3M": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "twosday_slide",
             "desktop_video": "shopify://files/videos/Heavy Grain FX Horizontal_e69127b9-47bd-434e-8611-684be5f7fff0.mp4",
