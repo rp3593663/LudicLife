@@ -171,7 +171,7 @@
                   <div class="tax-text">(Incl. of all taxes)</div>
                 </div>
 
-                {% comment %} {% if product.title contains 'Sliders' %}
+                {% if product.title contains 'Sliders' %}
                   <div class="coupon-container">
                     <span class="offer">
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -190,7 +190,7 @@
                         </svg>
                     </span>
                   </div>  
-                {%- endif -%} {% endcomment %}
+                {%- endif -%}
 
                 {% comment %}
                 {% if request.path contains 'nova-pro' %}
