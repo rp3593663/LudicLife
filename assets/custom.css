@@ -969,6 +969,13 @@ body.size-chart-popup-pdp #MainContent{
   color: #fff;
   border-radius: 4px;
 }
+.cs-table tr:hover td:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.cs-table tr:hover td:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
 .cs-table tr:hover td{
   font-weight:700;
 }
