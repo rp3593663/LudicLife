@@ -6943,12 +6943,13 @@ body.Sliders .product__info-wrapper .short_description{
     font-weight: 500;
     line-height: 12px;
     letter-spacing: -.6px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #F0EFEF 0%, rgba(240, 239, 239, 0) 123.5%);
     display: inline-flex;
     padding: 10px 6px;
     align-items: center;
     gap: 3px;
+    border-radius: 4px;
+    background: #F9F9F9;
+    backdrop-filter: blur(6px);
 }
 
 .coupon-container .coupon-code {
