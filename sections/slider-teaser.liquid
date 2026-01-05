@@ -313,7 +313,7 @@
   // });
 
 
-  {% comment %} document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     // Set the target date and time for the countdown
     const targetDate = new Date("2025-01-07T00:00:00"); // Updated to Tuesday, January 7, 2025
 
@@ -343,38 +343,7 @@
     // Update the countdown every second
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown(); // Initial call to display the countdown immediately
-}); {% endcomment %}
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Countdown till 20th January 2025 (midnight)
-  const targetDate = new Date("2025-01-20T00:00:00");
-
-  function updateCountdown() {
-    const now = new Date();
-    const timeDifference = targetDate - now;
-
-    if (timeDifference > 0) {
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-      document.getElementById("timer").innerHTML = `
-        ${String(days).padStart(2, '0')} :
-        ${String(hours).padStart(2, '0')} :
-        ${String(minutes).padStart(2, '0')} :
-        ${String(seconds).padStart(2, '0')}
-      `;
-    } else {
-      clearInterval(countdownInterval);
-      document.getElementById("timer").innerHTML = "00 : 00 : 00 : 00";
-    }
-  }
-
-  const countdownInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
 });
-
 
 </script>
 
