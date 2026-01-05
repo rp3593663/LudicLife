@@ -393,7 +393,8 @@ a.marquee_product_block {
     position: relative;
     padding-bottom: 135px;
 }
-.template-index .footer__blocks-wrapper:not(.copyright-content):before {
+.template-index .footer__blocks-wrapper:not(.copyright-content):before,
+.template-product .footer__blocks-wrapper:not(.copyright-content):before{
     content: "";
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Always_at_Play.svg?v=1767334333);
     position: absolute;
