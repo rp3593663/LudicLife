@@ -429,8 +429,13 @@ body:not(.template-product) .newsletter-heading,{
     line-height: 24px;
     margin-bottom: 20px;
 }
+
+.newsletter-heading img{
+    display:none;
+}
 .template-index .newsletter-heading img,
 .template-product .newsletter-heading img {
+    display:block;
     width: auto;
     height: 20px;
 }
