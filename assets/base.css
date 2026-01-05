@@ -8093,7 +8093,8 @@ p.sticky-coupon-text {
     display: flex;
     /* width: 325px; */
     flex-wrap: wrap;
-    gap: 10px;
+    /* gap: 10px; */
+    gap: 16px;
 }
 
 .custom-variant-image img {
