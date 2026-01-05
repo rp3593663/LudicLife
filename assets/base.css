@@ -6916,6 +6916,12 @@ new-cart-drawer-items::-webkit-scrollbar-thumb{
   .price-item:not(.price-item--sale) {
   font-size: 14px;
 }
+
+.template-product:not(.template-product\.fw-product) .product__info-wrapper .price  .price__sale .price-item:not(.price-item--sale){
+    line-height:14px;
+    color:#E60013;
+    font-weight:400;
+}
 .product__info-wrapper .price .price__regular .price-item {
   text-decoration: unset;
 }
