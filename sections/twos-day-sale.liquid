@@ -108,60 +108,8 @@
     window.open(googleCalendarUrl, "_blank");
   });
 </script> {% endcomment %}
-
-
-
-
-
-
 <script>
 (function () {
-  const TZ = 'Asia/Kolkata';
-
-  // 🎯 TARGET: 20 Jan 2025, 11:00 AM IST
-  const TARGET_ISO = '2025-01-20T11:00:00+05:30';
-  const targetDate = new Date(TARGET_ISO);
-
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
-
-  function setCountdownToZeros() {
-    daysEl.innerText = '00';
-    hoursEl.innerText = '00';
-    minutesEl.innerText = '00';
-    secondsEl.innerText = '00';
-  }
-
-  function refresh() {
-    const now = new Date();
-    const distance = targetDate.getTime() - now.getTime();
-
-    if (distance <= 0) {
-      setCountdownToZeros();
-      clearInterval(timerInterval);
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
-
-    daysEl.innerText = String(days).padStart(2, '0');
-    hoursEl.innerText = String(hours).padStart(2, '0');
-    minutesEl.innerText = String(minutes).padStart(2, '0');
-    secondsEl.innerText = String(seconds).padStart(2, '0');
-  }
-
-  refresh();
-  const timerInterval = setInterval(refresh, 1000);
-})();
-</script>
-
-<script>
-{% comment %} (function () {
   // ---------- CONFIG ----------
   const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
   const SALE_START_HOUR = 11;   // 11:00 IST
@@ -352,7 +300,7 @@
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(refresh, 1000);
 
-})(); {% endcomment %}
+})();
 </script> 
 
 {% schema %}
