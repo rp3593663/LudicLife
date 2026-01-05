@@ -1432,6 +1432,31 @@
                 </div>
                 <div class="size-chart-size-box-update-btn">
                   <button class="size-chart-add-to-cart-btn">ADD TO BAG</button>
+                    <button
+                    id="ProductSubmitButton-{{ section_id }}"
+                    type="submit"
+                    name="add"
+                    class="product-form__submit button scroll-btn button--full-width vgffg"
+                    {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+                      data-from-slider="true"
+                    {% endif %}
+                    {% if product.selected_or_first_available_variant.available == false
+                      or quantity_rule_soldout
+                      or product.selected_or_first_available_variant == null
+                    %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span class="text-wrap">
+                      <span class="text default">
+                        {{ 'products.product.add_to_cart' | t }}
+                      </span>
+                      <span class="text hover">
+                        {{ 'products.product.add_to_cart' | t }}
+                      </span>
+                    </span>
+                    {%- render 'loading-spinner' -%}
+                  </button>
                   {% comment %} <button class="size-chart-update-btn" onclick="closeVariantPopup()">Update</button>
                   <a href="javascript:void(0)" onclick="closeVariantPopupKeep()">Keep my current size</a> {% endcomment %}
                 </div>
