@@ -967,6 +967,7 @@ body.size-chart-popup-pdp #MainContent{
 .cs-table tr:hover {
   background: #eb0013;
   color: #fff;
+  border-radius: 4px;
 }
 .cs-table tr:hover td{
   font-weight:700;
