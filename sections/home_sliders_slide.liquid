@@ -41,8 +41,12 @@
             <img src="{{ section.settings.main_image_mobile | image_url }}" class="main_slider_img_mobile" id="main-slider-{{ section.id }}" >
             <div class="all_sliders_slide">
                 {% for block in section.blocks %}
-                <div class="slider_image {% if forloop.first %}active{% endif %}" data-main-image="{{ block.settings.main_image | image_url }}">
-                    <img src="{{ block.settings.thumb_image | image_url }}">
+                <div
+                  class="slider_image {% if forloop.first %}active{% endif %}"
+                  data-main-image-desktop="{{ block.settings.main_image | image_url }}"
+                  data-main-image-mobile="{{ block.settings.main_image_mobile | image_url }}"
+                >
+                  <img src="{{ block.settings.thumb_image | image_url }}">
                 </div>
                 {% endfor %}
             </div>
