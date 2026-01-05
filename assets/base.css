@@ -7369,7 +7369,7 @@ product-form form .product-form__submit.button:disabled,
   }
 
   .slideshow__slide .banner__media:before {
-    padding-top: 176% !important;
+    /* padding-top: 176% !important; */
   }
   .slider.slider--everywhere .slider__slide .banner__media {
     position: relative;
