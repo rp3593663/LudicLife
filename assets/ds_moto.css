@@ -550,7 +550,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 
 
 @media (min-width: 768px) {
-    .template-index footer .footer__copyright__text {
+    .template-index footer .footer__copyright__text,
+    .template-product footer .footer__copyright__text {
         justify-content: flex-start;
         gap: 20px;
     }
@@ -558,7 +559,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 
 
 @media (max-width: 1599.98px) {
-    .template-index .footer-block--menu {
+    .template-index .footer-block--menu,
+     .template-product .footer-block--menu {
         max-width: 60% !important;
     }
 }
