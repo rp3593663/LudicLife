@@ -124,6 +124,7 @@
     },
     "product_shop_the_look_37E6CA": {
       "type": "product-shop-the-look",
+      "disabled": true,
       "name": "Product Shop The Look",
       "settings": {
         "heading": "Shop the look",
