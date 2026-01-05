@@ -478,7 +478,9 @@ body:not(.template-index) .newsletter-heading,
 .template-index .footer-menu.footer-img-wrapper .black_stars,
 .template-product .footer-menu.footer-img-wrapper .black_stars,
 body:not(.template-index) .footer-menu.footer-img-wrapper .red_stars,
-body:not(.template-index) footer-menu:last-child{
+body:not(.template-product) .footer-menu.footer-img-wrapper .red_stars,
+body:not(.template-index) footer-menu:last-child,
+body:not(.template-product) footer-menu:last-child{
     display: none;
 }
 .template-index .footer-menu h2.footer-block__heading,
