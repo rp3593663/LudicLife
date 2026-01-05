@@ -5,9 +5,9 @@
     font-style: normal;
 }
 
-/* .slideshow {
-    height: 100vh;
-} */
+.slideshow {
+    height: 100dvh;
+}
 
 .ds_home_text .rich-text__wrapper,
 .ds_home_text .rich-text__blocks {
