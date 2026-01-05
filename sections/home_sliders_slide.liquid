@@ -72,21 +72,32 @@
 {% javascript %}
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.section--sliders-slide').forEach(section => {
-    const mainImage = section.querySelector('.main_slider_img_desktop , .main_slider_img_mobile');
+
+    const mainImages = section.querySelectorAll(
+      '.main_slider_img_desktop, .main_slider_img_mobile'
+    );
+
     const thumbs = section.querySelectorAll('.slider_image');
 
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', function () {
         const newImage = this.dataset.mainImage;
         if (!newImage) return;
-        mainImage.src = newImage;
+
+        // ✅ Update BOTH desktop & mobile images
+        mainImages.forEach(img => {
+          img.src = newImage;
+        });
+
         thumbs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
       });
     });
+
   });
 });
 {% endjavascript %}
+
 
 {% schema %}
 {
