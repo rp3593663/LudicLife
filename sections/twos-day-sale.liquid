@@ -251,7 +251,8 @@
 
   function refresh() {
     const now = new Date(); 
-    if (isSaleLiveNow(now)) {
+    {% comment %} if (isSaleLiveNow(now)) { {% endcomment %}
+    if (false && isSaleLiveNow(now)) {
       setCountdownToZeros();
       const p = getIstParts(now);
       const { thisTue11Utc } = getThisTuesdayAndWednesday11(now);
