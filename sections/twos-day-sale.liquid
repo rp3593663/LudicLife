@@ -159,7 +159,7 @@
     const ss = String(second).padStart(2, '0');
     return `${year}-${mm}-${dd}T${hh}:${min}:${ss}+05:30`;
   }
-  function getNextTuesday11IST(now = new Date()) {
+  {% comment %} function getNextTuesday11IST(now = new Date()) {
     const p = getIstParts(now);
     let delta = (SALE_START_WEEKDAY - p.weekdayNum + 7) % 7;
 
@@ -170,7 +170,12 @@
       } else {
         delta = 0;
       }
+    } {% endcomment %}
+
+    function getNextTuesday11IST() {
+      return new Date('2025-01-20T11:00:00+05:30');
     }
+
 
     // Build today's midnight IST (as Date obj), then add delta days and 11 hours
     const todayMidnightIso = buildIstIso(p.year, p.month, p.day, 0, 0, 0);
@@ -188,11 +193,16 @@
   }
 
 
-  function isSaleLiveNow(now = new Date()) {
+  {% comment %} function isSaleLiveNow(now = new Date()) {
     const { thisTue11Utc, thisWed11Utc } = getThisTuesdayAndWednesday11(now);
     const nowUtc = new Date(buildIstIso(getIstParts(now).year, getIstParts(now).month, getIstParts(now).day, getIstParts(now).hour, getIstParts(now).minute, getIstParts(now).second));
     return nowUtc.getTime() >= thisTue11Utc.getTime() && nowUtc.getTime() < thisWed11Utc.getTime();
+  } {% endcomment %}
+
+  function isSaleLiveNow() {
+    return false;
   }
+
 
   function buildGoogleCalendarUrl(dateObj, title, description, location, durationMinutes, rrule) {
     const start = dateObj.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
