@@ -77,21 +77,23 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.section--sliders-slide').forEach(section => {
 
-    const mainImages = section.querySelectorAll(
-      '.main_slider_img_desktop, .main_slider_img_mobile'
-    );
-
+    const desktopImg = section.querySelector('.main_slider_img_desktop');
+    const mobileImg  = section.querySelector('.main_slider_img_mobile');
     const thumbs = section.querySelectorAll('.slider_image');
 
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', function () {
-        const newImage = this.dataset.mainImage;
-        if (!newImage) return;
 
-        // ✅ Update BOTH desktop & mobile images
-        mainImages.forEach(img => {
-          img.src = newImage;
-        });
+        const desktopSrc = this.dataset.mainImageDesktop;
+        const mobileSrc  = this.dataset.mainImageMobile;
+
+        if (desktopSrc && desktopImg) {
+          desktopImg.src = desktopSrc;
+        }
+
+        if (mobileSrc && mobileImg) {
+          mobileImg.src = mobileSrc;
+        }
 
         thumbs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
@@ -101,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 {% endjavascript %}
+
 
 
 {% schema %}
