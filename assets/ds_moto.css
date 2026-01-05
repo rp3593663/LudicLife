@@ -407,34 +407,43 @@ a.marquee_product_block {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.template-index .footer-block.grid__item.footer-brand-info--menu {
+.template-index .footer-block.grid__item.footer-brand-info--menu
+.template-product .footer-block.grid__item.footer-brand-info--menu {
     display: none;
 }
-.template-index .footer__blocks-wrapper {
+.template-index .footer__blocks-wrapper,
+.template-product .footer__blocks-wrapper {
     justify-content: space-between;
 }
-.template-index .footer-menu {
+.template-index .footer-menu ,
+.template-product .footer-menu{
     max-width: 25%;
     width: 100%;
 }
-body:not(.template-index) .newsletter-heading{
+body:not(.template-index) .newsletter-heading,
+.template-product .newsletter-heading{
     display: none;
 }
-.template-index h2.newsletter-heading {
+.template-index h2.newsletter-heading,
+.template-product h2.newsletter-heading {
     line-height: 24px;
     margin-bottom: 20px;
 }
-.template-index .newsletter-heading img {
+.template-index .newsletter-heading img,
+.template-product .newsletter-heading img {
     width: auto;
     height: 20px;
 }
-.template-index .newsletter-descrition p:first-child {
+.template-index .newsletter-descrition p:first-child ,
+.template-product .newsletter-descrition p:first-child{
     color: #1A1A1A;
 }
-.template-index .newsletter-descrition p:last-child {
+.template-index .newsletter-descrition p:last-child,
+.template-product .newsletter-descrition p:last-child {
     display: none;
 }
-.template-index .newsletter-form__field-wrapper .field input {
+.template-index .newsletter-form__field-wrapper .field input,
+.template-product .newsletter-form__field-wrapper .field input {
     border-radius: 8px;
     background: transparent;
     border: 1px solid #C7C8CA;
@@ -444,21 +453,26 @@ body:not(.template-index) .newsletter-heading{
     letter-spacing: -0.6px;
     color: #000;
 }
-.template-index .newsletter-form__field-wrapper .field input::placeholder {
+.template-index .newsletter-form__field-wrapper .field input::placeholder,
+.template-product .newsletter-form__field-wrapper .field input::placeholder {
     opacity: 1!important;
     display: block!important; 
     color: #C7C8CA;
 }
-.template-index .footer__newsletter .field__label {
+.template-index .footer__newsletter .field__label ,
+.template-product .footer__newsletter .field__label {
    display: none;
 }
-.template-index .footer__newsletter .newsletter-form__button svg {
+.template-index .footer__newsletter .newsletter-form__button svg,
+.template-product .footer__newsletter .newsletter-form__button svg {
     border: 1px solid #C7C8CA;
 }
-.template-index .footer__newsletter .newsletter-form__button svg path {
+.template-index .footer__newsletter .newsletter-form__button svg path,
+.template-product .footer__newsletter .newsletter-form__button svg path {
     fill: #C7C8CA;
 }
-.template-index .footer-menu.footer-img-wrapper {
+.template-index .footer-menu.footer-img-wrapper,
+.template-product .footer-menu.footer-img-wrapper {
     max-width: 32px;
 }
 .template-index .footer-menu.footer-img-wrapper .black_stars,
