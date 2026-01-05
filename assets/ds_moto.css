@@ -476,6 +476,7 @@ body:not(.template-index) .newsletter-heading,
     max-width: 32px;
 }
 .template-index .footer-menu.footer-img-wrapper .black_stars,
+.template-product .footer-menu.footer-img-wrapper .black_stars,
 body:not(.template-index) .footer-menu.footer-img-wrapper .red_stars,
 body:not(.template-index) footer-menu:last-child{
     display: none;
