@@ -476,56 +476,64 @@
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/KB.png",
-            "main_image": "shopify://shop_images/KB.jpg"
+            "main_image": "shopify://shop_images/KB.jpg",
+            "main_image_mobile": "shopify://shop_images/KB_1.jpg"
           }
         },
         "slider_HMPgmd": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/JB.png",
-            "main_image": "shopify://shop_images/JB.jpg"
+            "main_image": "shopify://shop_images/JB.jpg",
+            "main_image_mobile": "shopify://shop_images/JB_1.jpg"
           }
         },
         "slider_6bWbEN": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/CG.png",
-            "main_image": "shopify://shop_images/CG.jpg"
+            "main_image": "shopify://shop_images/CG.jpg",
+            "main_image_mobile": "shopify://shop_images/CG_1.jpg"
           }
         },
         "slider_3RezaA": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/PP.png",
-            "main_image": "shopify://shop_images/PP.jpg"
+            "main_image": "shopify://shop_images/PP.jpg",
+            "main_image_mobile": "shopify://shop_images/PP_1.jpg"
           }
         },
         "slider_NHhrh4": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/TB.png",
-            "main_image": "shopify://shop_images/TB.jpg"
+            "main_image": "shopify://shop_images/TB.jpg",
+            "main_image_mobile": "shopify://shop_images/TB_1.jpg"
           }
         },
         "slider_xN3axh": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/GR.png",
-            "main_image": "shopify://shop_images/GR.jpg"
+            "main_image": "shopify://shop_images/GR.jpg",
+            "main_image_mobile": "shopify://shop_images/GR_1.jpg"
           }
         },
         "slider_X6hyew": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/BC.png",
-            "main_image": "shopify://shop_images/BC.jpg"
+            "main_image": "shopify://shop_images/BC.jpg",
+            "main_image_mobile": "shopify://shop_images/BC_1.jpg"
           }
         },
         "slider_Fi4j3K": {
           "type": "slider",
           "settings": {
             "thumb_image": "shopify://shop_images/CW.png",
-            "main_image": "shopify://shop_images/CW.jpg"
+            "main_image": "shopify://shop_images/CW.jpg",
+            "main_image_mobile": "shopify://shop_images/CW_1.jpg"
           }
         }
       },
