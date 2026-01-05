@@ -383,11 +383,13 @@ a.marquee_product_block {
 
 
 
-.template-index footer.gradient {
+.template-index footer.gradient,
+.template-product footer.gradient {
     background: #FAFAFA;
     border: 1px solid #EDEDED;
 }
-.template-index .footer__blocks-wrapper:not(.copyright-content){
+.template-index .footer__blocks-wrapper:not(.copyright-content),
+.template-product .footer__blocks-wrapper:not(.copyright-content){
     position: relative;
     padding-bottom: 135px;
 }
