@@ -1659,7 +1659,8 @@ h2.size-chart-popup__title {
 .size-chart-popup__size-box .default_variant_uk {
     gap: 10px 15px;
 }
-button.size-chart-update-btn {
+button.size-chart-update-btn,
+.size-chart-add-to-cart-btn {
   border: none;
   background: #e60013;
   font-size: 12px;
@@ -1671,8 +1672,7 @@ button.size-chart-update-btn {
   border-radius: 4px;
   margin-top: 0;
 }
-.size-chart-size-box-update-btn a,
-.size-chart-add-to-cart-btn {
+.size-chart-size-box-update-btn a {
   font-size: 12px;
   line-height: 10px;
   font-weight: 600;
