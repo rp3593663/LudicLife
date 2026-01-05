@@ -421,7 +421,7 @@ a.marquee_product_block {
     width: 100%;
 }
 body:not(.template-index) .newsletter-heading,
-.template-product .newsletter-heading{
+body:not(.template-product) .newsletter-heading,{
     display: none;
 }
 .template-index h2.newsletter-heading,
