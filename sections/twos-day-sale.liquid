@@ -158,23 +158,33 @@
     }
   }
 
-    function buildGoogleCalendarUrl(dateObj) {
-      const start = dateObj.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-      const endDate = new Date(dateObj.getTime() + EVENT_DURATION_MINUTES * 60000);
-      const end = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+function buildGoogleCalendarUrl(dateObj) {
+  function formatForCalendar(d) {
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mi = String(d.getMinutes()).padStart(2, '0');
+    const ss = String(d.getSeconds()).padStart(2, '0');
+    return `${yyyy}${mm}${dd}T${hh}${mi}${ss}`;
+  }
 
-      const params = new URLSearchParams({
-        action: 'TEMPLATE',
-        text: EVENT_TITLE,
-        dates: `${start}/${end}`,
-        details: EVENT_DESCRIPTION,
-        location: EVENT_LOCATION
-      });
+  const start = formatForCalendar(dateObj);
+  const endDate = new Date(dateObj.getTime() + EVENT_DURATION_MINUTES * 60000);
+  const end = formatForCalendar(endDate);
 
-      params.append('recur', RRULE);
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: EVENT_TITLE,
+    dates: `${start}/${end}`,
+    details: EVENT_DESCRIPTION,
+    location: EVENT_LOCATION,
+    ctz: 'Asia/Kolkata' // 🔥 important
+  });
 
-      return `https://calendar.google.com/calendar/render?${params.toString()}`;
-    }
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 
   // ---------- MAIN ----------
   function refresh() {
