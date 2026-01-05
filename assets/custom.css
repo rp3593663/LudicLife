@@ -964,6 +964,11 @@ body.size-chart-popup-pdp #MainContent{
     border-bottom: 1px solid #F0F0F0;
 }
 
+.cs-table tr:hover {
+  background: #eb0012;
+  color: #fff;
+}
+
 .csmodal-heading,
 .size_guide_header{
   display:flex;
