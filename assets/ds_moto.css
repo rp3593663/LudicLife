@@ -514,8 +514,13 @@ body:not(.template-product) footer-menu:last-child{
     letter-spacing: -0.36px;
     vertical-align: middle;
 }
+
+.footer-menu:nth-child(4){
+    display:none;
+}
 .template-index .footer-menu:nth-child(4),
 .template-product .footer-menu:nth-child(4) {
+    display:block;
     order: -1;
 }
 .template-index .footer__content-top.footer,
