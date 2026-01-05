@@ -7353,7 +7353,7 @@ product-form form .product-form__submit.button:disabled,
 
 @media (max-width: 767.98px) {
   .product__info-wrapper .coupon-container{
-    margin-top: 14px;
+    margin-top: 0;
     font-size: 12px;
     width: fit-content;
   }
