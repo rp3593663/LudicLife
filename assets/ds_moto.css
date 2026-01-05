@@ -687,13 +687,17 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .image_slides_block {
         padding-top: 150%;
     }   
-    .image_slides_block .main_slider_img_desktop {
+    .image_slides_block .main_slider_img_desktop{
+        display:none;
+    }
+    .image_slides_block .main_slider_img_mobile {
         position: absolute;
         top: 0;
         left: 0;
         object-fit: cover;
         width: 100%;
         height: 100%;
+        display:block;
     }
     .all_sliders_slide {
         position: absolute;
