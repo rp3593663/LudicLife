@@ -516,12 +516,12 @@ body:not(.template-index) footer-menu:last-child{
     padding: 60px 0 30px;
 }
 .template-index .footer__content-top .copyright-content.footer__blocks-wrapper,
-.template-product {
+.template-product  .footer__content-top .copyright-content.footer__blocks-wrapper{
     justify-content: flex-start;
     position: relative;
 }
 .template-index .footer__copyright__text .copyright__content,
-.template-product {
+.template-product  .footer__copyright__text .copyright__content{
     font-size: 12px;
     line-height: 17.1px;
     font-weight: 400;
