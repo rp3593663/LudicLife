@@ -1434,7 +1434,10 @@
 
                 </div>
                 <div class="size-chart-size-box-update-btn">
-                  <button class="size-chart-add-to-cart-btn" onclick="closeVariantPopup()">ADD TO BAG</button>
+                  {% comment %} <button class="size-chart-add-to-cart-btn" onclick="closeVariantPopup()">ADD TO BAG</button> {% endcomment %}
+                  <button class="size-chart-add-to-cart-btn" id="popupAddToCartBtn">
+                    Add to Bag
+                  </button>
                 </div>
               </div>
             </div>
