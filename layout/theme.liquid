@@ -502,7 +502,7 @@
   </head>
 
 
-  <body class="{% if product.title == 'Sliders' %}is-sliders{% endif %} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }} template-{{ template }} {{ collection.handle }} {{ product.title }}" id="template--{{ page.template_suffix }}">
+  <body class="{% if product.title contains 'Sliders' %}is-sliders{% endif %} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }} template-{{ template }} {{ collection.handle }} {{ product.title }}" id="template--{{ page.template_suffix }}">
   
      <script language="javascript" type="text/javascript">
     function sc(v){
