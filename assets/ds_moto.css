@@ -387,6 +387,7 @@ a.marquee_product_block {
 .template-product footer.gradient {
     background: #FAFAFA;
     border: 1px solid #EDEDED;
+    padding: 0px 50px;
 }
 .template-index .footer__blocks-wrapper:not(.copyright-content),
 .template-product .footer__blocks-wrapper:not(.copyright-content){
