@@ -1484,7 +1484,7 @@ $(document).on('change', '.custom_variants input, .product-form__input input', f
       $('.product-form__submit span').text('Notify Me');
       $('.size-chart-add-to-cart-btn').text('Notify Me');
       $('.product-form__submit').addClass('disabled');
-      $('.size-chart-add-to-cart-btn').addClass('Notify Me');
+      $('.size-chart-add-to-cart-btn').addClass('disabled');
     } else {
       $('.product-form__submit span').text('Add to Bag');
       $('.product-form__submit').prop('disabled', false).removeClass('disabled');
