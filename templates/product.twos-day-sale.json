@@ -12,18 +12,18 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "title_YPKRmg": {
+        "title": {
           "type": "title",
           "settings": {}
         },
-        "price_NaH3zL": {
+        "price": {
           "type": "price",
           "settings": {}
         }
       },
       "block_order": [
-        "title_YPKRmg",
-        "price_NaH3zL"
+        "title",
+        "price"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -31,7 +31,7 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "columns",
         "media_position": "left",
         "image_zoom": "none",
         "mobile_thumbnails": "show",
@@ -41,28 +41,25 @@
         "padding_bottom": 0
       }
     },
-    "custom_liquid_egExCp": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
+    "product_extra_description_jAqhgQ": {
+      "type": "product-extra-description",
+      "name": "Product Description",
       "settings": {
-        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nBuilt in <span>cotton-based</span> comfort-led knit, they're designed to <span>complement your Sliders,</span> and to <span>style with everything</span> you can think of.</div></div>",
-        "color_scheme": "",
-        "padding_top": 96,
-        "padding_bottom": 96
+        "padding_top": 122,
+        "padding_bottom": 98
       }
     },
-    "product_usp_BbQUrV": {
+    "product_usp_RBXp6w": {
       "type": "product-usp",
       "name": "Product USPs",
       "settings": {
-        "heading": "Video",
+        "heading": "",
         "padding_top": 0,
         "padding_bottom": 58
       }
     },
-    "product_reels_8hMhjg": {
+    "product_reels_hfnMRD": {
       "type": "product-reels",
-      "disabled": true,
       "name": "Product Reels",
       "settings": {
         "heading": "#LudicEdits",
@@ -130,8 +127,8 @@
       "name": "Custom Featured Products",
       "settings": {
         "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "80px 0px | | | 36px 0px",
+        "padding": "58px 0px 100px 0px | | | 68px 0px 48px 0px",
+        "margin": "0px",
         "section_heading": "Always more",
         "enable_view_all": true,
         "enable_view_url": "",
@@ -200,9 +197,9 @@
   },
   "order": [
     "main",
-    "custom_liquid_egExCp",
-    "product_usp_BbQUrV",
-    "product_reels_8hMhjg",
+    "product_extra_description_jAqhgQ",
+    "product_usp_RBXp6w",
+    "product_reels_hfnMRD",
     "related-products",
     "custom_featured_collection_QWytyH",
     "multicolumn_MJtHkx"

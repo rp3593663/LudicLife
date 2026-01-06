@@ -103,9 +103,11 @@
         class="keep_size"
       {% endif %}
       {% if product.url contains 'sliders' %}
-        onclick="openVariantPopup()"
+        onclick="openVariantPopup(event)"
       {% endif %}
       {{ input_dataset }}
+      data-variant-id="{{ value.variant.id }}"
+
     >
     {%- assign opt = option.name -%}
     {%- assign opt_index = option_index -%}
@@ -158,4 +160,4 @@
     </option>
   {%- endif -%}
 {%- endfor -%}
-<div class="new_size_guide">Size Guide</div>
+{% comment %} <div class="new_size_guide">Size Guide</div> {% endcomment %}
