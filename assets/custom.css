@@ -1368,6 +1368,7 @@ body.size-chart-popup-pdp #MainContent{
     width: fit-content;
     display: inline-block;
     float: right;
+    text-align: right;
 }
 .template-product:not(.template-product\.fw-product) .product__info-wrapper .price .price-item{
     font-size: 24px;
