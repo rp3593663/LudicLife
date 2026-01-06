@@ -1431,6 +1431,19 @@ let defaultSelectedSize = null;
     }
 
     console.log('defaultSelectedSize:', defaultSelectedSize);
+    btn.innerText = 'Confirm Size';
+
+    document
+      .querySelectorAll('.size-chart-popup__size-box input[type="radio"]')
+      .forEach(input => {
+        input.onchange = () => {
+          if (input.value === defaultSelectedSize) {
+            btn.innerText = 'Confirm Size';
+          } else {
+            btn.innerText = 'Update Size';
+          }
+        };
+      });
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
