@@ -201,7 +201,7 @@
             endif
           endif
         -%}
-          <fieldset class="js product-form__input product-form__input--pill tttttttt{% if option.name == 'Select your size (in UK)' or option.name == 'Size'  %} size_variant{% endif %}">
+          <fieldset id="sizeSelectionBox" class="js product-form__input product-form__input--pill tttttttt{% if option.name == 'Select your size (in UK)' or option.name == 'Size'  %} size_variant{% endif %}">
             <div class="varaint-size-header" style="display:flex;justify-content:space-between">
             <!-- <legend class="form__label">{{ option.name }}{% if option.name == 'Choose color variant' %} / {% endif %}<span class="variant_title"{%- if option.name != 'Choose color variant' -%} style="display: none;"{% endif %}>{{ option.selected_value }}</span>{%- if option.name == 'Select your size (in UK)' or option.name == 'Size' -%}<span class="size_var is_selected" data-icon="uk">UK</span><span class="size_var" data-icon="eu">EU</span><span class="size_var" data-icon="us">US</span>{% endif %}</legend> -->
             <legend class="form__label">
