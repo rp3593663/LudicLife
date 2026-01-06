@@ -23,7 +23,7 @@
                 <div class="USP_img">
                   {% for meta_img  in product.metafields.custom.scroll_image.value %}
                   {% assign meta_image = meta_img | split: '||'  %}
-                    <img src="{{ usp.image | img_url: '800x' }}" alt="{{ usp.title }}">
+                    <img src="{{ meta_image[0] }}">
                   {% endfor %}
                 </div>
                 <div class="USP_content">
