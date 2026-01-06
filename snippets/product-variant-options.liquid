@@ -106,6 +106,8 @@
         onclick="openVariantPopup()"
       {% endif %}
       {{ input_dataset }}
+      data-variant-id="{{ value.variant.id }}"
+
     >
     {%- assign opt = option.name -%}
     {%- assign opt_index = option_index -%}
