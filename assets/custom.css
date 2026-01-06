@@ -3479,11 +3479,3 @@ main#MainContent.ds-moto-ludic {
   }
 }
 
-
-.desktop-zoom-hover {
-  touch-action: manipulation;
-}
-
-.desktop-zoom-hover.zoom-active {
-  touch-action: none; /* iOS scroll lock when zoomed */
-}
