@@ -1416,34 +1416,41 @@ $(document).on('click', '.product-form__input .size_var', function(){
 
 let defaultSelectedSize = null;
   function openVariantPopup() {
-    const btn = document.getElementById('sizeConfirmBtn');
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
-    if (!defaultSelectedSize) {
-      const checkedRadio = document.querySelector(
-        '.size-chart-popup__size-box input[type="radio"]:checked'
-      );
+    const btn = document.getElementById('sizeConfirmBtn');
 
-      if (checkedRadio) {
-        defaultSelectedSize = checkedRadio.value;
-        localStorage.setItem('Keep Size old', defaultSelectedSize);
-      }
+  // ✅ Capture default size ONLY once
+  if (!defaultSelectedSize) {
+    const checked = document.querySelector(
+      '.default_variant_uk input[type="radio"]:checked'
+    );
+
+    if (checked) {
+      defaultSelectedSize = checked.value;
+      localStorage.setItem('Keep Size old', defaultSelectedSize);
     }
+  }
 
-    console.log('defaultSelectedSize:', defaultSelectedSize);
-    btn.innerText = 'Confirm Size';
+  console.log('defaultSelectedSize:', defaultSelectedSize);
 
-    document
-      .querySelectorAll('.size-chart-popup__size-box input[type="radio"]')
-      .forEach(input => {
-        input.onchange = () => {
-          if (input.value === defaultSelectedSize) {
-            btn.innerText = 'Confirm Size';
-          } else {
-            btn.innerText = 'Update Size';
-          }
-        };
-      });
+  // Default button state
+  btn.innerText = 'Confirm Size';
+
+  // ✅ Listen to REAL variant change
+  document
+    .querySelectorAll('.default_variant_uk input[type="radio"]')
+    .forEach(input => {
+      input.onchange = () => {
+        console.log('changed to:', input.value);
+
+        if (input.value === defaultSelectedSize) {
+          btn.innerText = 'Confirm Size';
+        } else {
+          btn.innerText = 'Update Size';
+        }
+      };
+    });
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
