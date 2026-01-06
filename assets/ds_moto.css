@@ -547,7 +547,7 @@ body:not(.template-index):not(.template-product) .footer-menu.footer-img-wrapper
     letter-spacing: -.6px;
 }
 
-body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__heading-logo-wrapper img:first-child {
+body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__heading-logo-wrapper .logo-scroll-container img:first-child {
     filter: grayscale(1) invert(1) brightness(3);
 }
 body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__menu-item:not(.menu-active),
