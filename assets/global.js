@@ -1422,6 +1422,7 @@ let defaultSelectedSize = null;
     if (event && event.target && event.target.value) {
       defaultSelectedSize = event.target.value;
     }
+    console.log('defaultSelectedSize', defaultSelectedSize);
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
