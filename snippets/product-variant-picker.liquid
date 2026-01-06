@@ -156,7 +156,7 @@
           {% assign paired_products = product.metafields.custom.pair_with_product %}
           {% for pair_product in product.metafields.custom.pair_with_product.value %}
             {% if pair_product.handle == product.handle %}
-              <a href="" class="selected">
+              <a href="" class="selected" data-color-name="{{ pair_product.metafields.custom.product_color_name }}">
                 {% if product.title == "Re : Worked Bundle" %}
                   <div class="custom-variant-image-color" style="background-color:{{ pair_product.metafields.custom.hexa_code.value }}"></div>
                 {% else %}
@@ -165,7 +165,7 @@
               </a>
             {% else %}
               <!-- Otherwise, link to the pair_product's URL -->
-              <a href="{{ pair_product.url }}">
+              <a href="{{ pair_product.url }}" data-color-name="{{ pair_product.metafields.custom.product_color_name }}">
                 {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
                  {% if pair_product.metafields.custom.new_product == true %} 
                     <div class="new-product-dot"></div> 
