@@ -1419,6 +1419,18 @@ $(document).on('click', '.product-form__input .size_var', function(){
     const btn = document.getElementById('sizeConfirmBtn');
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
+    if (!defaultSelectedSize) {
+      const checkedRadio = document.querySelector(
+        '.size-chart-popup__size-box input[type="radio"]:checked'
+      );
+
+      if (checkedRadio) {
+        defaultSelectedSize = checkedRadio.value;
+        localStorage.setItem('Keep Size old', defaultSelectedSize);
+      }
+    }
+
+    console.log('defaultSelectedSize:', defaultSelectedSize);
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
