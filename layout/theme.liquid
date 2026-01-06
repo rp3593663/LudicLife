@@ -1347,17 +1347,21 @@ document.addEventListener('DOMContentLoaded', () => {
     addToBagButton.addEventListener('click', (event) => {
       const isAnySizeChecked = Array.from(sizeInputs).some(input => input.checked);
 
+      // ❌ NO SIZE SELECTED
       if (!isAnySizeChecked) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        // ✅ SLIDERS → OPEN POPUP
+        if (isSlidersProduct) {
+          openVariantPopup();
+          return;
+        }
+
+        // ❌ OTHER PRODUCTS → SHOW ERROR
         if (errorMessage) {
           errorMessagetext.textContent = 'Please select your size.';
           errorMessage.style.display = 'block';
-        }
-        event.preventDefault();
-        event.stopPropagation();
-      } else {
-        if (errorMessage) {
-          errorMessage.style.display = 'none';
-          errorMessagetext.textContent = '';
         }
       }
     });
