@@ -480,7 +480,9 @@ body:not(.template-product) .newsletter-heading,{
 .template-product .footer-menu.footer-img-wrapper {
     max-width: 32px;
 }
-
+.footer-block.footer-text--menu {
+    padding-left: 0;
+}
 .template-index .footer-menu.footer-img-wrapper .black_stars,
 .template-product .footer-menu.footer-img-wrapper .black_stars {
   display: none;
