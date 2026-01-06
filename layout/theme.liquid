@@ -1315,17 +1315,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sizeInputs.forEach(input => {
       input.checked = false;
     });
-
-    {% comment %} function hideErrorOnSizeSelection() {
-      sizeInputs.forEach(input => {
-        input.addEventListener('change', () => {
-          if (input.checked && errorMessage) {
-            errorMessage.style.display = 'none';
-            errorMessagetext.textContent = '';
-          }
-        });
-      });
-    } {% endcomment %}
     function handleSizeSelection() {
       sizeInputs.forEach(input => {
         input.addEventListener('change', () => {
