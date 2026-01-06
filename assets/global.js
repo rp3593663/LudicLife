@@ -1530,7 +1530,7 @@ $(document).ready(function() {
 function addPopupVariantToCart() {
 
   const selectedVariant = document.querySelector(
-    '.default_variant_uk input[type="radio"]:checked'
+    '.size-chart-popup input[type="radio"]:checked'
   );
 
   if (!selectedVariant) {
