@@ -1468,6 +1468,51 @@ $(document).on('click', '.product-form__input .size_var', function(){
     });
   }
 
+  function addPopupVariantToCart() {
+
+  const selectedVariant = document.querySelector(
+    '.size-chart-popup input[type="radio"]:checked'
+  );
+
+  if (!selectedVariant) {
+    alert('Please select a size');
+    return;
+  }
+
+  const variantId = selectedVariant.getAttribute('data-variant-id');
+
+  if (!variantId) {
+    alert('Invalid variant selected');
+    return;
+  }
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: 1
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('Variant added:', data);
+
+    // Close popup
+    if (typeof closeVariantPopup === 'function') {
+      closeVariantPopup();
+    }
+
+    // Refresh cart / open drawer
+    document.dispatchEvent(new CustomEvent('cart:refresh'));
+
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Something went wrong. Please try again.');
+  });
+}
+
   // Run once on load
   document.addEventListener('DOMContentLoaded', updateRadioDataVals);
 
@@ -1527,50 +1572,7 @@ $(document).ready(function() {
 });
 
 
-function addPopupVariantToCart() {
 
-  const selectedVariant = document.querySelector(
-    '.size-chart-popup input[type="radio"]:checked'
-  );
-
-  if (!selectedVariant) {
-    alert('Please select a size');
-    return;
-  }
-
-  const variantId = selectedVariant.getAttribute('data-option-value-id');
-
-  if (!variantId) {
-    alert('Invalid variant selected');
-    return;
-  }
-
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      id: variantId,
-      quantity: 1
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log('Variant added:', data);
-
-    // Close popup
-    if (typeof closeVariantPopup === 'function') {
-      closeVariantPopup();
-    }
-
-    // Refresh cart / open drawer
-    document.dispatchEvent(new CustomEvent('cart:refresh'));
-
-  })
-  .catch(err => {
-    console.error(err);
-    alert('Something went wrong. Please try again.');
-  });
-}
 
 
 
