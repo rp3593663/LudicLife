@@ -2237,207 +2237,120 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 {% endif %}
 {% if template != 'product.fw-product' %}
-
-<script>
-document.addEventListener("DOMContentLoaded", () => { 
-
-  const isMobile = window.innerWidth <= 768; // Mobile breakpoint
-  const wrappers = document.querySelectorAll(".desktop-zoom-hover");
-
-  wrappers.forEach(wrapper => { 
-    const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
-    if (!img) return;
-
-    // ---------------- DESKTOP ZOOM ----------------
-    if (!isMobile) {
-      let active = false;
-      wrapper.addEventListener("mouseenter", () => { 
-        active = true; 
-        img.style.transition = "transform 0.5s ease"; 
-        img.style.transform = "scale(1.8)"; 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { 
+      document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
+        const img = wrapper.querySelector(".zoom-image:not(.hover_blur)"); 
+        let active = false; 
+        wrapper.addEventListener("mouseenter", () => { 
+          active = true; 
+          img.style.transition = "transform 0.5s ease"; 
+          img.style.transform = "scale(1.8)"; 
+        }); 
+        wrapper.addEventListener("mousemove", (e) => { 
+          if (!active) return; 
+          const rect = wrapper.getBoundingClientRect(); 
+          const x = e.clientX - rect.left; 
+          const y = e.clientY - rect.top; 
+          const px = Math.min(Math.max(0, x), rect.width); 
+          const py = Math.min(Math.max(0, y), rect.height); 
+          img.style.transformOrigin = `${px}px ${py}px`; 
+        }); 
+        wrapper.addEventListener("mouseleave", () => { 
+          active = false; 
+          img.style.transition = "transform 0.5s ease"; 
+          img.style.transform = "scale(1) translate(0,0)"; 
+        }); 
       }); 
-      wrapper.addEventListener("mousemove", (e) => { 
-        if (!active) return; 
-        const rect = wrapper.getBoundingClientRect(); 
-        const x = e.clientX - rect.left; 
-        const y = e.clientY - rect.top; 
-        const px = Math.min(Math.max(0, x), rect.width); 
-        const py = Math.min(Math.max(0, y), rect.height); 
-        img.style.transformOrigin = `${px}px ${py}px`; 
-      }); 
-      wrapper.addEventListener("mouseleave", () => { 
-        active = false; 
-        img.style.transition = "transform 0.5s ease"; 
-        img.style.transform = "scale(1) translate(0,0)"; 
-      }); 
-      return; // Skip mobile logic
-    }
-
-    // ---------------- MOBILE ZOOM ----------------
-    let isZoomed = false;
-    let scale = 1;
-    let startX = 0, startY = 0;
-    let translateX = 0, translateY = 0;
-    let lastTouchX = 0, lastTouchY = 0;
-
-    wrapper.addEventListener("touchstart", (e) => {
-      if (e.touches.length > 1) return; // Ignore multi-touch
-      const touch = e.touches[0];
-      const rect = wrapper.getBoundingClientRect();
-      const originX = touch.clientX - rect.left;
-      const originY = touch.clientY - rect.top;
-
-      if (!isZoomed) {
-        // Zoom in
-        scale = 2; // Zoom factor
-        img.style.transition = "transform 0.3s ease";
-        img.style.transformOrigin = `${originX}px ${originY}px`;
-        img.style.transform = `scale(${scale})`;
-        isZoomed = true;
-        startX = originX;
-        startY = originY;
-        translateX = 0;
-        translateY = 0;
-      } else {
-        // Zoom out
-        scale = 1;
-        img.style.transition = "transform 0.3s ease";
-        img.style.transform = `scale(1) translate(0,0)`;
-        isZoomed = false;
-        translateX = 0;
-        translateY = 0;
-      }
-
-      lastTouchX = touch.clientX;
-      lastTouchY = touch.clientY;
     });
-
-    wrapper.addEventListener("touchmove", (e) => {
-      if (!isZoomed || e.touches.length > 1) return; // Only move when zoomed
-      e.preventDefault(); // Prevent page scroll
-
-      const touch = e.touches[0];
-      const dx = touch.clientX - lastTouchX;
-      const dy = touch.clientY - lastTouchY;
-
-      translateX += dx;
-      translateY += dy;
-
-      // Limit panning to image edges
-      const rect = wrapper.getBoundingClientRect();
-      const maxX = (img.offsetWidth * scale - rect.width) / 2;
-      const maxY = (img.offsetHeight * scale - rect.height) / 2;
-      translateX = Math.max(Math.min(translateX, maxX), -maxX);
-      translateY = Math.max(Math.min(translateY, maxY), -maxY);
-
-      img.style.transform = `scale(${scale}) translate(${translateX / scale}px, ${translateY / scale}px)`;
-
-      lastTouchX = touch.clientX;
-      lastTouchY = touch.clientY;
-    });
-
-    wrapper.addEventListener("touchend", (e) => {
-      if (!isZoomed) {
-        translateX = 0;
-        translateY = 0;
-      }
-    });
-
-  });
-});
-</script>
-
+  </script>
 {% endif %}
+{% if template != 'product.fw-product' %}
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
+  <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
+  <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
+{% endif %}
+{% if template != 'product.fw-product' %}
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
 
-{% if template != 'product.fw-product' %} 
-<!-- Only initialize PhotoSwipe on desktop -->
-<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
-<script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
-<script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
+    // Custom Arrow SVG
+    const leftArrowSVGString = `
+      <svg aria-hidden="true" class="pswp__icn" viewBox="0 0 100 125" width="100" height="125">
+        <path d="M5,50L50,5l3,3L11,50l42,42l-3,3L5,50z M92,95l3-3L53,50L95,8l-3-3L47,50L92,95z"/>
+      </svg>
+    `;
 
-<script type="module">
-  const isMobile = window.innerWidth <= 768;
-    if (isMobile) return;
-import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.product__media-list',
+      children: '.desktop-zoom-hover',
+      pswpModule: () => import('https://unpkg.com/photoswipe'),
+      arrowPrevSVG: leftArrowSVGString,
+      arrowNextSVG: leftArrowSVGString,
+      bgOpacity: 1,
+      mouseMovePan: true,
+      initialZoomLevel: 'fit',
+      secondaryZoomLevel: 1.2,
+      maxZoomLevel: 1,
+      showHideAnimationType: 'fade',
+      showAnimationDuration: 500,
+      hideAnimationDuration: 500,
+      mainClass: 'pswp--custom-icon-colors'
+    });
 
-// Custom Arrow SVG
-const leftArrowSVGString = `
-  <svg aria-hidden="true" class="pswp__icn" viewBox="0 0 100 125" width="100" height="125">
-    <path d="M5,50L50,5l3,3L11,50l42,42l-3,3L5,50z M92,95l3-3L53,50L95,8l-3-3L47,50L92,95z"/>
-  </svg>
-`;
+    lightbox.on('uiRegister', () => {
+      lightbox.pswp.ui.registerElement({
+        name: 'bulletsIndicator',
+        className: 'pswp__bullets-indicator',
+        appendTo: 'wrapper',
 
-const lightbox = new PhotoSwipeLightbox({
-  gallery: '.product__media-list',
-  children: '.desktop-zoom-hover',
-  pswpModule: () => import('https://unpkg.com/photoswipe'),
-  arrowPrevSVG: leftArrowSVGString,
-  arrowNextSVG: leftArrowSVGString,
-  bgOpacity: 1,
-  mouseMovePan: true,
-  initialZoomLevel: 'fit',
-  secondaryZoomLevel: 1.2,
-  maxZoomLevel: 1,
-  showHideAnimationType: 'fade',
-  showAnimationDuration: 500,
-  hideAnimationDuration: 500,
-  mainClass: 'pswp--custom-icon-colors'
-});
-
-lightbox.on('uiRegister', () => {
-  lightbox.pswp.ui.registerElement({
-    name: 'bulletsIndicator',
-    className: 'pswp__bullets-indicator',
-    appendTo: 'wrapper',
-
-    onInit: (el, pswp) => {
-      const bullets = [];
-      let prevIndex = -1;
-      for (let i = 0; i < pswp.getNumItems(); i++) {
-        const bullet = document.createElement('div');
-        bullet.className = 'pswp__bullet';
-        bullet.onclick = (evt) => {
-          pswp.goTo(bullets.indexOf(evt.target));
-        };
-        el.appendChild(bullet);
-        bullets.push(bullet);
-      }
-      pswp.on('change', () => {
-        if (prevIndex >= 0) {
-          bullets[prevIndex].classList.remove('pswp__bullet--active');
+        onInit: (el, pswp) => {
+          const bullets = [];
+          let prevIndex = -1;
+          for (let i = 0; i < pswp.getNumItems(); i++) {
+            const bullet = document.createElement('div');
+            bullet.className = 'pswp__bullet';
+            bullet.onclick = (evt) => {
+              pswp.goTo(bullets.indexOf(evt.target));
+            };
+            el.appendChild(bullet);
+            bullets.push(bullet);
+          }
+          pswp.on('change', () => {
+            if (prevIndex >= 0) {
+              bullets[prevIndex].classList.remove('pswp__bullet--active');
+            }
+            bullets[pswp.currIndex].classList.add('pswp__bullet--active');
+            prevIndex = pswp.currIndex;
+          });
         }
-        bullets[pswp.currIndex].classList.add('pswp__bullet--active');
-        prevIndex = pswp.currIndex;
       });
+    });
+
+    lightbox.init();
+    let autoSlideInterval;
+    function startAutoplay() {
+      autoSlideInterval = setInterval(() => {
+        const pswp = lightbox.pswp;
+        let nextIndex = pswp.currIndex + 1;
+
+        if (nextIndex >= pswp.getNumItems()) {
+          nextIndex = 0; // Loop to first
+        }
+
+        pswp.goTo(nextIndex);
+      }, 10000);
     }
-  });
-});
-
-lightbox.init();
-let autoSlideInterval;
-function startAutoplay() {
-  autoSlideInterval = setInterval(() => {
-    const pswp = lightbox.pswp;
-    let nextIndex = pswp.currIndex + 1;
-
-    if (nextIndex >= pswp.getNumItems()) {
-      nextIndex = 0; // Loop to first
-    }
-
-    pswp.goTo(nextIndex);
-  }, 10000);
-}
-lightbox.on('change', () => {
-  clearInterval(autoSlideInterval);
-  startAutoplay();
-});
-lightbox.on('close', () => {
-  clearInterval(autoSlideInterval);
-});
-lightbox.on('open', startAutoplay);
-</script>
+    lightbox.on('change', () => {
+      clearInterval(autoSlideInterval);
+      startAutoplay();
+    });
+    lightbox.on('close', () => {
+      clearInterval(autoSlideInterval);
+    });
+    lightbox.on('open', startAutoplay);
+  </script>
 {% endif %}
-
 
 
 
