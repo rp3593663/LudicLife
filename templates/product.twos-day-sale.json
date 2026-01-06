@@ -135,54 +135,64 @@
         "column_lg": 4
       }
     },
-    "multicolumn_MJtHkx": {
+    "multicolumn_rrfNXw": {
       "type": "multicolumn",
       "blocks": {
-        "column_Kywzyw": {
+        "column_9KNdC4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/verified-badge-line.svg",
-            "title": "<strong>Fast & secure delivery</strong>",
-            "text": "",
+            "image": "shopify://shop_images/icon1.svg",
+            "title": "Free Delivery",
+            "text": "<p>Across india with cash on delivery</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_pYb7zP": {
+        "column_xd76AV": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/box-3-line.svg",
-            "title": "<strong>Free shipping across India <br> (COD available)</strong>",
-            "text": "",
+            "image": "shopify://shop_images/icon2.svg",
+            "title": "Returns & Exchange",
+            "text": "<p>Up to 7 days to from delivery.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_jWX6L3": {
+        "column_jmt9MR": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/arrow-turn-back-line.svg",
-            "title": "<strong>7-day easy returns</strong>",
-            "text": "",
+            "image": "shopify://shop_images/icon3.svg",
+            "title": "100% Secured Payment",
+            "text": "<p>Multiple payment options offered.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LB9BbL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon4.svg",
+            "title": "Customer Service",
+            "text": "<p>Monday-Friday: 10AM-6PM</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_Kywzyw",
-        "column_pYb7zP",
-        "column_jWX6L3"
+        "column_9KNdC4",
+        "column_xd76AV",
+        "column_jmt9MR",
+        "column_LB9BbL"
       ],
-      "custom_css": [
-        ".multicolumn-card__image-wrapper {width: 28px; height: 32px;}"
-      ],
+      "custom_css": [],
       "settings": {
+        "custom_class": "home_features",
         "title": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
@@ -190,8 +200,8 @@
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 28
+        "padding_top": 44,
+        "padding_bottom": 44
       }
     }
   },
@@ -202,6 +212,6 @@
     "product_reels_hfnMRD",
     "related-products",
     "custom_featured_collection_QWytyH",
-    "multicolumn_MJtHkx"
+    "multicolumn_rrfNXw"
   ]
 }
