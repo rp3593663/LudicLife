@@ -1557,14 +1557,10 @@ $(document).on('change', '.custom_variants input, .product-form__input input', f
   setTimeout(() => {
     if ($(this).hasClass('disabled')) {
       $('.product-form__submit span').text('Out of Stock');
-      $('.size-chart-update-btn').text('Out of Stock');
       $('.product-form__submit').addClass('disabled');
-      $('.size-chart-update-btn').addClass('disabled');
     } else {
       $('.product-form__submit span').text('Add to Bag');
-      $('.size-chart-update-btn').text('Confirm Size');
       $('.product-form__submit').prop('disabled', false).removeClass('disabled');
-      $('.size-chart-update-btn').prop('disabled', false).removeClass('disabled');
     }
   }, 500);
 });
