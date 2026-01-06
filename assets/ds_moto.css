@@ -554,7 +554,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__icon {
     color: #ffffff;
 }
-body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__icon--menu span.line {
+body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) .header__icon--menu .hamburger:not(.open) span.line {
     background: #FFF!important;
 }
 body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.scrolled-past-header) path#svgkp-path {
