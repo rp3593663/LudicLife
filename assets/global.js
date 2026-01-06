@@ -1527,8 +1527,58 @@ $(document).ready(function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
 
+  const addToCartBtn = document.getElementById("popupAddToCartBtn");
 
+  if (!addToCartBtn) return;
+
+  addToCartBtn.addEventListener("click", function () {
+
+    /* 1️⃣ Get selected variant ID (from checked radio) */
+    const selectedInput = document.querySelector(
+      'input[type="radio"][data-option-value-id]:checked'
+    );
+
+    if (!selectedInput) {
+      alert("Please select a size first.");
+      return;
+    }
+
+    const variantId = selectedInput.getAttribute("data-option-value-id");
+
+    /* 2️⃣ Add to cart using Shopify AJAX */
+    fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: variantId,
+        quantity: 1
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log("Added to cart:", data);
+
+      /* 3️⃣ Close popup (optional) */
+      if (typeof closeVariantPopup === "function") {
+        closeVariantPopup();
+      }
+
+      /* 4️⃣ Trigger cart refresh / drawer if needed */
+      document.dispatchEvent(new CustomEvent("cart:refresh"));
+
+    })
+    .catch(err => {
+      console.error("Cart error:", err);
+      alert("Something went wrong. Please try again.");
+    });
+
+  });
+
+});
 
 
   // const faqs2 = document.querySelectorAll("#faq_section_2");
