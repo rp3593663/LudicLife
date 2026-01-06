@@ -1416,6 +1416,12 @@ $(document).on('click', '.product-form__input .size_var', function(){
 
 let defaultSelectedSize = null;
   function openVariantPopup() {
+     const btn = document.getElementById('sizeConfirmBtn');
+
+    // ✅ Store default selected size when popup opens
+    if (event && event.target && event.target.value) {
+      defaultSelectedSize = event.target.value;
+    }
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
@@ -1426,6 +1432,16 @@ let defaultSelectedSize = null;
     $('.size-chart-popup-overlay').addClass('show');
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
+    btn.innerText = 'Confirm Size';
+    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+        if (input.value === defaultSelectedSize) {
+          btn.innerText = 'Confirm Size';
+        } else {
+          btn.innerText = 'Update Size';
+        }
+      });
+    });
     const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
     document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
       input.addEventListener('change', () => {
