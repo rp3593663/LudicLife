@@ -1542,11 +1542,26 @@ document.addEventListener('click', function (event) {
 });
 
 
-function copyCoupon(icon) {
+{% comment %} function copyCoupon(icon) {
   let couponText = icon.previousElementSibling.innerText;
   navigator.clipboard.writeText(couponText);
   icon.classList.add("copied");
+} {% endcomment %}
+function copyCoupon(icon) {
+  const couponText = icon.previousElementSibling.innerText;
+
+  navigator.clipboard.writeText(couponText).then(() => {
+    icon.classList.add("copied");
+    icon.setAttribute("data-tooltip", "Copied");
+
+    // Optional: reset tooltip text after 2 seconds
+    setTimeout(() => {
+      icon.setAttribute("data-tooltip", "Click to copy");
+      icon.classList.remove("copied");
+    }, 2000);
+  });
 }
+
 
 </script>
 
