@@ -2237,7 +2237,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 {% endif %}
 {% if template != 'product.fw-product' %}
-  <!-- DESKTOP HOVER ZOOM -->
+  <!-- DESKTOP HOVER ZOOM + MOBILE PINCH-ZOOM + SWIPE -->
   <script>
     document.addEventListener("DOMContentLoaded", () => { 
       const isMobile = window.innerWidth <= 768; // Mobile breakpoint
@@ -2271,7 +2271,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // ---------------- MOBILE PINCH-ZOOM + SWIPE ----------------
-      // Load PinchZoom library
       const script = document.createElement('script');
       script.src = "https://cdn.jsdelivr.net/npm/pinch-zoom-js@2.3.0/dist/pinch-zoom.min.js";
       script.onload = () => {
@@ -2288,6 +2287,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         containers.forEach((wrapper, idx) => {
           if (idx > 0) wrapper.style.display = 'none';
+
+          // Initialize PinchZoom
           const zoom = new PinchZoom(wrapper, {
             tapZoomFactor: 2,
             maxZoom: 3,
@@ -2296,18 +2297,21 @@ document.addEventListener("DOMContentLoaded", function () {
             panLock: false
           });
 
-          let startX = 0;
+          // Prevent mobile click from opening image
+          wrapper.addEventListener('click', (e) => e.preventDefault());
+          wrapper.removeAttribute('href');
 
+          // Swipe left/right
+          let startX = 0;
           wrapper.addEventListener('touchstart', (e) => {
-            if (zoom.scale > 1) return; // do not swipe when zoomed
+            if (zoom.scale > 1) return;
             startX = e.touches[0].clientX;
           });
-
           wrapper.addEventListener('touchend', (e) => {
-            if (zoom.scale > 1) return; // do not swipe when zoomed
+            if (zoom.scale > 1) return;
             const endX = e.changedTouches[0].clientX;
             const diffX = endX - startX;
-            if (Math.abs(diffX) > 50) { // swipe threshold
+            if (Math.abs(diffX) > 50) {
               if (diffX < 0) currentIndex = (currentIndex + 1) % containers.length;
               else currentIndex = (currentIndex - 1 + containers.length) % containers.length;
               updateImage(currentIndex);
@@ -2397,6 +2401,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   </script>
 {% endif %}
+
 
 
 
