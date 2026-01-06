@@ -2238,36 +2238,118 @@ document.addEventListener("DOMContentLoaded", function () {
 {% endif %}
 {% if template != 'product.fw-product' %}
   <script>
-    document.addEventListener("DOMContentLoaded", () => { 
-       document.querySelectorAll('.desktop-zoom-hover').forEach(a => {
-          a.addEventListener('click', (e) => e.preventDefault());
-          a.removeAttribute('href');
-        });
-      document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
-        const img = wrapper.querySelector(".zoom-image:not(.hover_blur)"); 
-        let active = false; 
-        wrapper.addEventListener("mouseenter", () => { 
-          active = true; 
-          img.style.transition = "transform 0.5s ease"; 
-          img.style.transform = "scale(1.8)"; 
-        }); 
-        wrapper.addEventListener("mousemove", (e) => { 
-          if (!active) return; 
-          const rect = wrapper.getBoundingClientRect(); 
-          const x = e.clientX - rect.left; 
-          const y = e.clientY - rect.top; 
-          const px = Math.min(Math.max(0, x), rect.width); 
-          const py = Math.min(Math.max(0, y), rect.height); 
-          img.style.transformOrigin = `${px}px ${py}px`; 
-        }); 
-        wrapper.addEventListener("mouseleave", () => { 
-          active = false; 
-          img.style.transition = "transform 0.5s ease"; 
-          img.style.transform = "scale(1) translate(0,0)"; 
-        }); 
-      }); 
-    });
-  </script>
+document.addEventListener("DOMContentLoaded", () => { 
+  const isMobile = window.innerWidth <= 768; // mobile breakpoint
+
+  document.querySelectorAll('.desktop-zoom-hover').forEach(wrapper => {
+    const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
+    if (!img) return;
+
+    if (!isMobile) {
+      // ---------------- DESKTOP HOVER ZOOM ----------------
+      let active = false;
+      wrapper.addEventListener("mouseenter", () => { 
+        active = true; 
+        img.style.transition = "transform 0.5s ease"; 
+        img.style.transform = "scale(1.8)"; 
+      });
+      wrapper.addEventListener("mousemove", (e) => { 
+        if (!active) return; 
+        const rect = wrapper.getBoundingClientRect(); 
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top; 
+        const px = Math.min(Math.max(0, x), rect.width); 
+        const py = Math.min(Math.max(0, y), rect.height); 
+        img.style.transformOrigin = `${px}px ${py}px`; 
+      });
+      wrapper.addEventListener("mouseleave", () => { 
+        active = false; 
+        img.style.transition = "transform 0.5s ease"; 
+        img.style.transform = "scale(1) translate(0,0)"; 
+      });
+    } else {
+      // ---------------- MOBILE TOUCH ZOOM ----------------
+      let zoomed = false;
+      let lastScale = 1;
+      let startDistance = 0;
+      let startX = 0;
+      let startY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      wrapper.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!zoomed) {
+          zoomed = true;
+          lastScale = 2; // initial zoom
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
+        } else {
+          zoomed = false;
+          lastScale = 1;
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(1) translate(0px, 0px)`;
+        }
+      });
+
+      wrapper.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 2) {
+          // pinch start
+          startDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          startX = currentX;
+          startY = currentY;
+        } else if (e.touches.length === 1 && zoomed) {
+          startX = e.touches[0].clientX - currentX;
+          startY = e.touches[0].clientY - currentY;
+        }
+      }, { passive: false });
+
+      wrapper.addEventListener("touchmove", (e) => {
+        if (!zoomed) return;
+        e.preventDefault();
+        if (e.touches.length === 2) {
+          // pinch zoom
+          const distance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          const scaleChange = distance / startDistance;
+          const newScale = Math.min(Math.max(lastScale * scaleChange, 1), 5); // limit zoom
+          img.style.transition = "transform 0s";
+          img.style.transform = `scale(${newScale}) translate(${currentX}px, ${currentY}px)`;
+        } else if (e.touches.length === 1) {
+          // drag
+          currentX = e.touches[0].clientX - startX;
+          currentY = e.touches[0].clientY - startY;
+          img.style.transition = "transform 0s";
+          img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
+        }
+      }, { passive: false });
+
+      wrapper.addEventListener("touchend", (e) => {
+        if (e.touches.length === 0 && zoomed) {
+          // save last scale
+          const style = window.getComputedStyle(img);
+          const matrix = new WebKitCSSMatrix(style.transform);
+          lastScale = matrix.a; // extract scaleX
+        }
+      });
+    }
+
+    // remove default link behavior
+    wrapper.addEventListener('click', e => e.preventDefault());
+    wrapper.removeAttribute('href');
+  });
+});
+</script>
+
 {% endif %}
 {% if template != 'product.fw-product' %}
   <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
