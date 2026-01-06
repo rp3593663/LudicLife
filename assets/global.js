@@ -1433,7 +1433,7 @@ let defaultSelectedSize = null;
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
     btn.innerText = 'Confirm Size';
-    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
+    document.querySelectorAll('.size-chart-popup__size-box input[type="radio"]').forEach(input => {
       input.addEventListener('change', () => {
         if (input.value === defaultSelectedSize) {
           btn.innerText = 'Confirm Size';
