@@ -1309,6 +1309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorMessagetext = document.querySelector('.sold_out_error span');
   const selectedSizeBox = document.querySelector('.selected_size');
   const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+  const isSlidersProduct = document.body.classList.contains('is-sliders');
 
   if (sizeInputs.length > 0) {
     // Ensure no size is selected by default
