@@ -2950,7 +2950,7 @@ details[open] > .header__submenu {
 .header__menu {
   padding: 0 1rem;
 }
-a#HeaderMenu-ludic-life ,
+/* a#HeaderMenu-ludic-life , */
 a#HeaderMenu-payday-sale{
    color: var(--color-primary);
 }
