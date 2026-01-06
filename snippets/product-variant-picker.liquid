@@ -128,11 +128,11 @@
             {% assign slider_product = product.metafields.custom.sliders_2_0_products %}
             {% for slider_product in product.metafields.custom.sliders_2_0_products.value %}
               {% if slider_product.handle == product.handle %}
-                <a href="" class="selected" data-color-name="{{ pair_product.metafields.custom.product_color_name }}">
+                <a href="" class="selected" data-color-name="{{ slider_product.metafields.custom.product_color_name }}">
                   <img src="{{ slider_product.featured_image | img_url:'master' }}">
                 </a>
               {% else %}
-                <a href="{{ slider_product.url }}" data-color-name="{{ pair_product.metafields.custom.product_color_name }}">
+                <a href="{{ slider_product.url }}" data-color-name="{{ slider_product.metafields.custom.product_color_name }}">
                   {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
                   {% if slider_product.metafields.custom.new_product == true %} 
                       <div class="new-product-dot"></div> 
