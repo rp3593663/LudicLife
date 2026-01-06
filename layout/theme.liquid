@@ -2270,6 +2270,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return; // Skip mobile code
       }
 
+      document.querySelectorAll('.desktop-zoom-hover').forEach(a => {
+        a.addEventListener('click', (e) => e.preventDefault());
+        a.removeAttribute('href');
+      });
+
       // ---------------- MOBILE PINCH-ZOOM + SWIPE ----------------
       const script = document.createElement('script');
       script.src = "https://cdn.jsdelivr.net/npm/pinch-zoom-js@2.3.0/dist/pinch-zoom.min.js";
