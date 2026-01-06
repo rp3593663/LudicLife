@@ -2239,37 +2239,39 @@ document.addEventListener("DOMContentLoaded", function () {
 {% if template != 'product.fw-product' %}
 <script>
 document.addEventListener("DOMContentLoaded", () => { 
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 768; // mobile breakpoint
 
   document.querySelectorAll('.desktop-zoom-hover').forEach(wrapper => {
     const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
     if (!img) return;
 
-    /* Prevent navigation but keep href */
+    /* ======================================================
+       PREVENT LINK NAVIGATION (KEEP href)
+    ====================================================== */
     wrapper.addEventListener('click', e => e.preventDefault());
 
     /* ================= DESKTOP ================= */
     if (!isMobile) {
       let active = false;
 
-      wrapper.addEventListener("mouseenter", () => {
-        active = true;
-        img.style.transition = "transform 0.5s ease";
-        img.style.transform = "scale(1.8)";
+      wrapper.addEventListener("mouseenter", () => { 
+        active = true; 
+        img.style.transition = "transform 0.5s ease"; 
+        img.style.transform = "scale(1.8)"; 
       });
 
-      wrapper.addEventListener("mousemove", e => {
-        if (!active) return;
-        const rect = wrapper.getBoundingClientRect();
-        const x = Math.min(Math.max(0, e.clientX - rect.left), rect.width);
-        const y = Math.min(Math.max(0, e.clientY - rect.top), rect.height);
-        img.style.transformOrigin = `${x}px ${y}px`;
+      wrapper.addEventListener("mousemove", (e) => { 
+        if (!active) return; 
+        const rect = wrapper.getBoundingClientRect(); 
+        const x = Math.min(Math.max(0, e.clientX - rect.left), rect.width); 
+        const y = Math.min(Math.max(0, e.clientY - rect.top), rect.height); 
+        img.style.transformOrigin = `${x}px ${y}px`; 
       });
 
-      wrapper.addEventListener("mouseleave", () => {
-        active = false;
-        img.style.transition = "transform 0.5s ease";
-        img.style.transform = "scale(1)";
+      wrapper.addEventListener("mouseleave", () => { 
+        active = false; 
+        img.style.transition = "transform 0.5s ease"; 
+        img.style.transform = "scale(1) translate(0,0)"; 
       });
 
       return;
@@ -2284,72 +2286,54 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentX = 0;
     let currentY = 0;
 
-    /* iOS direction lock helpers */
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let lockDirection = null;
+    /* 🔥 BLOCK GALLERY SWIPE ON iOS (KEY FIX) */
+    wrapper.addEventListener("touchmove", (e) => {
+      e.stopPropagation(); // stops parent gallery swipe
+    }, { passive: true });
 
-    /* TAP TO ZOOM */
-    wrapper.addEventListener("click", e => {
+    /* TAP TO ZOOM IN / OUT */
+    wrapper.addEventListener("click", (e) => {
       e.preventDefault();
 
-      zoomed = !zoomed;
-      wrapper.classList.toggle("zoom-active", zoomed);
+      if (!zoomed) {
+        zoomed = true;
+        wrapper.classList.add("zoom-active");
 
-      img.style.transition = "transform 0.3s ease";
-
-      if (zoomed) {
         lastScale = 2;
         currentX = 0;
         currentY = 0;
-        img.style.transform = `scale(${lastScale}) translate(0,0)`;
+        img.style.transition = "transform 0.3s ease";
+        img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
       } else {
+        zoomed = false;
+        wrapper.classList.remove("zoom-active");
+
         lastScale = 1;
         currentX = 0;
         currentY = 0;
-        img.style.transform = `scale(1) translate(0,0)`;
+        img.style.transition = "transform 0.3s ease";
+        img.style.transform = `scale(1) translate(0px, 0px)`;
       }
     });
 
     /* TOUCH START */
-    wrapper.addEventListener("touchstart", e => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      lockDirection = null;
-
+    wrapper.addEventListener("touchstart", (e) => {
       if (e.touches.length === 2) {
         startDistance = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
         );
-      } else if (zoomed) {
+      } else if (e.touches.length === 1 && zoomed) {
         startX = e.touches[0].clientX - currentX;
         startY = e.touches[0].clientY - currentY;
       }
     }, { passive: false });
 
-    /* 🔥 DIRECTION LOCK — ONLY WHEN ZOOMED */
-    wrapper.addEventListener("touchmove", e => {
-      if (!zoomed) return; // ✅ gallery swipe allowed
-
-      const dx = e.touches[0].clientX - touchStartX;
-      const dy = e.touches[0].clientY - touchStartY;
-
-      if (!lockDirection) {
-        lockDirection = Math.abs(dx) > Math.abs(dy) ? "horizontal" : "vertical";
-      }
-
-      if (lockDirection === "horizontal") {
-        e.preventDefault();     // block gallery swipe
-        e.stopPropagation();
-      }
-    }, { passive: false });
-
-    /* TOUCH MOVE (IMAGE DRAG / PINCH) */
-    wrapper.addEventListener("touchmove", e => {
+    /* TOUCH MOVE (ZOOM / DRAG) */
+    wrapper.addEventListener("touchmove", (e) => {
       if (!zoomed) return;
 
-      e.preventDefault();
+      e.preventDefault(); // iOS scroll lock
       img.style.transition = "transform 0s";
 
       if (e.touches.length === 2) {
@@ -2375,8 +2359,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-
 
 
 {% endif %}
