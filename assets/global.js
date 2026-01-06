@@ -1440,25 +1440,25 @@ let defaultSelectedSize = null;
   input.onchange = function () {
     console.log('changed to:', this.value);
 
-    // 🔴 Out of stock
-    if (this.classList.contains('disabled')) {
-      ConfirmBtn.innerText = 'Out of Stock';
-      ConfirmBtn.classList.add('disabled');
-      ConfirmBtn.disabled = true;
-      return;
-    }
+      // 🔴 Out of stock
+      if (this.classList.contains('disabled')) {
+        ConfirmBtn.innerText = 'Out of Stock';
+        ConfirmBtn.classList.add('disabled');
+        ConfirmBtn.disabled = true;
+        return;
+      }
 
-    // 🟢 In stock
-    ConfirmBtn.classList.remove('disabled');
-    ConfirmBtn.disabled = false;
+      // 🟢 In stock
+      ConfirmBtn.classList.remove('disabled');
+      ConfirmBtn.disabled = false;
 
-    if (this.value !== defaultSelectedSize) {
-      ConfirmBtn.innerText = 'Update Size';
-    } else {
-      ConfirmBtn.innerText = 'Confirm Size';
-    }
-  };
-});
+      if (this.value !== defaultSelectedSize) {
+        ConfirmBtn.innerText = 'Update Size';
+      } else {
+        ConfirmBtn.innerText = 'Confirm Size';
+      }
+    };
+  });
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
