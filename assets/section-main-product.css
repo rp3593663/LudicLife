@@ -1672,6 +1672,10 @@ button.size-chart-update-btn,
   border-radius: 4px;
   margin-top: 0;
 }
+button.size-chart-add-to-cart-btn.disabled{
+  cursor: not-allowed;
+  opacity: .5;
+}
 .size-chart-size-box-update-btn a {
   font-size: 12px;
   line-height: 10px;
