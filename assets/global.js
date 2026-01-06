@@ -1414,43 +1414,20 @@ $(document).on('click', '.product-form__input .size_var', function(){
     // openVariantPopup();
   });
 
-function openVariantPopup() {
-  const btn = document.getElementById('sizeConfirmBtn');
 
-  // ✅ Capture default ONLY ON FIRST OPEN
-  if (!defaultSelectedSize) {
-    const checkedRadio = document.querySelector(
-      '.size-chart-popup__size-box input[type="radio"]:checked'
-    );
+  function openVariantPopup() {
+    const btn = document.getElementById('sizeConfirmBtn');
+    const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
-    if (checkedRadio) {
-      defaultSelectedSize = checkedRadio.value;
-      localStorage.setItem('Keep Size old', defaultSelectedSize);
+    if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
+      localStorage.setItem('Keep Size old', event.target.value);
+      console.log('Stored size from popup:', event.target.value);
     }
-  }
-
-  console.log('defaultSelectedSize:', defaultSelectedSize);
-
-  $('.size-chart-popup__content').fadeIn(100);
-  $('.size-chart-popup-overlay').addClass('show');
-  $('.size-chart-size-box-sizes').addClass('popup-active');
-  $('body').addClass('size-chart-popup-pdp');
-
-  // Default state
-  btn.innerText = 'Confirm Size';
-
-  // ✅ Change handler (NO overwrite)
-  document.querySelectorAll('.size-chart-popup__size-box input[type="radio"]').forEach(input => {
-      input.onchange = () => {
-        if (input.value === defaultSelectedSize) {
-          btn.innerText = 'Confirm Size';
-        } else {
-          btn.innerText = 'Update Size';
-        }
-      };
-    });
-
-     const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+    $('.size-chart-popup__content').fadeIn(100);
+    $('.size-chart-popup-overlay').addClass('show');
+    $('.size-chart-size-box-sizes').addClass('popup-active');
+    $('body').addClass('size-chart-popup-pdp');
+    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
     document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
       input.addEventListener('change', () => {
           if (input.checked) {
@@ -1465,10 +1442,7 @@ function openVariantPopup() {
           }
         });
     });
-  
-}
-
-   
+  }
   function closeVariantPopup() {
     $('.size-chart-popup__content').fadeOut(100);
     $('.size-chart-popup-overlay').removeClass('show');
