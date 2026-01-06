@@ -1444,10 +1444,10 @@ let defaultSelectedSize = null;
       input.onchange = () => {
         console.log('changed to:', input.value);
 
-        if (input.value === defaultSelectedSize) {
-          btn.innerText = 'Confirm Size';
-        } else {
+        if (input.value != defaultSelectedSize) {
           btn.innerText = 'Update Size';
+        } else {
+          btn.innerText = 'Confirm Size';
         }
       };
     });
