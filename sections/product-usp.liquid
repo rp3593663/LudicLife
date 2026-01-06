@@ -18,14 +18,17 @@
     <div class="product_USPs content-container section-{{ section.id }}-padding">
         <div class="container">
           <div class="product_USP_container">
-            {% for usp in product.metafields.custom.product_lifestyle_usps.value %}
+           {% for usp in product.metafields.custom.product_lifestyle_usps.value %}
               <div class="product_USP">
                 <div class="USP_img">
-                  {% for meta_img  in product.metafields.custom.scroll_image.value %}
-                  {% assign meta_image = meta_img | split: '||'  %}
+                  {% assign image_index = forloop.index0 %}
+                  {% assign meta_img = product.metafields.custom.scroll_image.value[image_index] %}
+                  {% if meta_img %}
+                    {% assign meta_image = meta_img | split: '||' %}
                     <img src="{{ meta_image[0] }}">
-                  {% endfor %}
+                  {% endif %}
                 </div>
+
                 <div class="USP_content">
                   <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/red-askrisk.svg?v=1761730959" class="USP_icon">
                   <div class="USP_info">
@@ -35,6 +38,7 @@
                 </div>
               </div>
             {% endfor %}
+
           </div>
         </div>
     </div>
