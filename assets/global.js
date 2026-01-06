@@ -1487,7 +1487,7 @@ $(document).on('change', '.custom_variants input, .product-form__input input', f
       $('.size-chart-add-to-cart-btn').addClass('disabled');
     } else {
       $('.product-form__submit span').text('Add to Bag');
-      $('.size-chart-add-to-cart-btn').text('Notify Me');
+      $('.size-chart-add-to-cart-btn').text('Add to Bag');
       $('.product-form__submit').prop('disabled', false).removeClass('disabled');
       $('.size-chart-add-to-cart-btn').prop('disabled', false).removeClass('disabled');
     }
