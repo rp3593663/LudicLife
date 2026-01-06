@@ -150,71 +150,10 @@
         "padding_bottom": 98
       }
     },
-    "multicolumn_MJtHkx": {
+    "multicolumn_bUpkJr": {
       "type": "multicolumn",
       "blocks": {
-        "column_Kywzyw": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/verified-badge-line.svg",
-            "title": "<strong>Fast & secure delivery</strong>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_pYb7zP": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/box-3-line.svg",
-            "title": "<strong>Free shipping across India <br> (COD available)</strong>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_jWX6L3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/arrow-turn-back-line.svg",
-            "title": "<strong>7-day easy returns</strong>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_Kywzyw",
-        "column_pYb7zP",
-        "column_jWX6L3"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".multicolumn-card__image-wrapper {width: 28px; height: 32px;}"
-      ],
-      "settings": {
-        "custom_class": "",
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 28
-      }
-    },
-    "multicolumn_pLepti": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_F4HThT": {
+        "column_dwGQj8": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/icon1.svg",
@@ -224,7 +163,7 @@
             "link": ""
           }
         },
-        "column_3D83iT": {
+        "column_qjJEMx": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/icon2.svg",
@@ -234,7 +173,7 @@
             "link": ""
           }
         },
-        "column_7FKaiN": {
+        "column_wGeXm8": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/icon3.svg",
@@ -244,7 +183,7 @@
             "link": ""
           }
         },
-        "column_qBGmef": {
+        "column_kwhaHQ": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/icon4.svg",
@@ -256,10 +195,10 @@
         }
       },
       "block_order": [
-        "column_F4HThT",
-        "column_3D83iT",
-        "column_7FKaiN",
-        "column_qBGmef"
+        "column_dwGQj8",
+        "column_qjJEMx",
+        "column_wGeXm8",
+        "column_kwhaHQ"
       ],
       "custom_css": [],
       "settings": {
@@ -288,11 +227,6 @@
     "product_reels_6kwDTk",
     "product_shop_the_look_37E6CA",
     "related-products",
-    "custom_featured_collection_i6cpzJ",
-    "collection_list_xLiTqt",
-    "collection_list_DaUP9U",
-    "custom_liquid_xWmCkp",
-    "multicolumn_MJtHkx",
-    "multicolumn_pLepti"
+    "multicolumn_bUpkJr"
   ]
 }
