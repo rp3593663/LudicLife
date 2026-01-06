@@ -2288,7 +2288,7 @@ button#setReminderBtn {
 .sticky_cart_btn {
     padding-right: 16px;
 }
-.sticky_cart_btn button {
+.sticky_cart_btn a {
     margin-bottom: 0px;
     width: 135px;
     border-radius: 4px !important;

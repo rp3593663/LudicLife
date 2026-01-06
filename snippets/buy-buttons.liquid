@@ -418,7 +418,7 @@
                 </span>
                 {%- render 'loading-spinner' -%}
               </a>
-              {% if template != 'product.fw-product' %}
+              {% comment %} {% if template != 'product.fw-product' %}
                 {% comment %} Button with scroll effect {% endcomment %}
                 {% if product.metafields.custom.pre_book %}
                   <button
@@ -524,7 +524,7 @@
                     {%- render 'loading-spinner' -%}
                   </button>
                 {% endif %}
-              {% endif %}
+              {% endif %} {% endcomment %}
             </div>
           </div>
         </div>
