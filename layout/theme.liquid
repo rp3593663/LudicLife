@@ -2241,8 +2241,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => { 
   const isMobile = window.innerWidth <= 768; // Mobile breakpoint
 
-  // ---------------- DESKTOP HOVER ZOOM (UNCHANGED) ----------------
+  // ---------------- DESKTOP HOVER ZOOM + PHOTOSWIPE ----------------
   if (!isMobile) {
+    // Desktop hover zoom
     document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
       const img = wrapper.querySelector(".zoom-image:not(.hover_blur)"); 
       let active = false; 
@@ -2266,7 +2267,9 @@ document.addEventListener("DOMContentLoaded", () => {
         img.style.transform = "scale(1) translate(0,0)"; 
       }); 
     });
-    return; // Skip mobile code if desktop
+
+    // Return here to prevent mobile code execution
+    return;
   }
 
   // ---------------- MOBILE TOUCH ZOOM + SWIPE ----------------
@@ -2280,8 +2283,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = wrapper.parentElement.querySelectorAll('.desktop-zoom-hover');
     images.forEach((imgWrapper, i) => {
       imgWrapper.style.display = i === index ? 'block' : 'none';
-      imgWrapper.querySelector('img').style.transform = 'scale(1)';
-      imgWrapper.querySelector('img').style.transition = 'transform 0.3s ease';
+      const img = imgWrapper.querySelector('img');
+      img.style.transform = 'scale(1)';
+      img.style.transition = 'transform 0.3s ease';
     });
   };
 
@@ -2311,11 +2315,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     wrapper.addEventListener('touchmove', (e) => {
-      if (!isZoomed) return; // swipe for slide change
+      if (!isZoomed) return; // swipe to change slide if not zoomed
       const moveX = e.touches[0].clientX - startX;
       const moveY = e.touches[0].clientY - startY;
       img.style.transform = `scale(1.8) translate(${moveX}px, ${moveY}px)`;
-      e.preventDefault();
+      e.preventDefault(); // prevent scrolling
     });
 
     wrapper.addEventListener('touchend', (e) => {
@@ -2344,90 +2348,81 @@ document.addEventListener("DOMContentLoaded", () => {
 {% endif %}
 
 {% if template != 'product.fw-product' %}
+  <!-- Desktop only PhotoSwipe CSS & JS -->
   <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
   <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
   <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
 {% endif %}
+
 {% if template != 'product.fw-product' %}
-  <script type="module">
-    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+<script type="module">
+import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
 
-    // Custom Arrow SVG
-    const leftArrowSVGString = `
-      <svg aria-hidden="true" class="pswp__icn" viewBox="0 0 100 125" width="100" height="125">
-        <path d="M5,50L50,5l3,3L11,50l42,42l-3,3L5,50z M92,95l3-3L53,50L95,8l-3-3L47,50L92,95z"/>
-      </svg>
-    `;
+const isMobile = window.innerWidth <= 768; 
+if (!isMobile) {
+  // Custom Arrow SVG
+  const leftArrowSVGString = `
+    <svg aria-hidden="true" class="pswp__icn" viewBox="0 0 100 125" width="100" height="125">
+      <path d="M5,50L50,5l3,3L11,50l42,42l-3,3L5,50z M92,95l3-3L53,50L95,8l-3-3L47,50L92,95z"/>
+    </svg>
+  `;
 
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: '.product__media-list',
-      children: '.desktop-zoom-hover',
-      pswpModule: () => import('https://unpkg.com/photoswipe'),
-      arrowPrevSVG: leftArrowSVGString,
-      arrowNextSVG: leftArrowSVGString,
-      bgOpacity: 1,
-      mouseMovePan: true,
-      initialZoomLevel: 'fit',
-      secondaryZoomLevel: 1.2,
-      maxZoomLevel: 1,
-      showHideAnimationType: 'fade',
-      showAnimationDuration: 500,
-      hideAnimationDuration: 500,
-      mainClass: 'pswp--custom-icon-colors'
-    });
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.product__media-list',
+    children: '.desktop-zoom-hover',
+    pswpModule: () => import('https://unpkg.com/photoswipe'),
+    arrowPrevSVG: leftArrowSVGString,
+    arrowNextSVG: leftArrowSVGString,
+    bgOpacity: 1,
+    mouseMovePan: true,
+    initialZoomLevel: 'fit',
+    secondaryZoomLevel: 1.2,
+    maxZoomLevel: 1,
+    showHideAnimationType: 'fade',
+    showAnimationDuration: 500,
+    hideAnimationDuration: 500,
+    mainClass: 'pswp--custom-icon-colors'
+  });
 
-    lightbox.on('uiRegister', () => {
-      lightbox.pswp.ui.registerElement({
-        name: 'bulletsIndicator',
-        className: 'pswp__bullets-indicator',
-        appendTo: 'wrapper',
-
-        onInit: (el, pswp) => {
-          const bullets = [];
-          let prevIndex = -1;
-          for (let i = 0; i < pswp.getNumItems(); i++) {
-            const bullet = document.createElement('div');
-            bullet.className = 'pswp__bullet';
-            bullet.onclick = (evt) => {
-              pswp.goTo(bullets.indexOf(evt.target));
-            };
-            el.appendChild(bullet);
-            bullets.push(bullet);
-          }
-          pswp.on('change', () => {
-            if (prevIndex >= 0) {
-              bullets[prevIndex].classList.remove('pswp__bullet--active');
-            }
-            bullets[pswp.currIndex].classList.add('pswp__bullet--active');
-            prevIndex = pswp.currIndex;
-          });
+  lightbox.on('uiRegister', () => {
+    lightbox.pswp.ui.registerElement({
+      name: 'bulletsIndicator',
+      className: 'pswp__bullets-indicator',
+      appendTo: 'wrapper',
+      onInit: (el, pswp) => {
+        const bullets = [];
+        let prevIndex = -1;
+        for (let i = 0; i < pswp.getNumItems(); i++) {
+          const bullet = document.createElement('div');
+          bullet.className = 'pswp__bullet';
+          bullet.onclick = (evt) => { pswp.goTo(bullets.indexOf(evt.target)); };
+          el.appendChild(bullet);
+          bullets.push(bullet);
         }
-      });
+        pswp.on('change', () => {
+          if (prevIndex >= 0) bullets[prevIndex].classList.remove('pswp__bullet--active');
+          bullets[pswp.currIndex].classList.add('pswp__bullet--active');
+          prevIndex = pswp.currIndex;
+        });
+      }
     });
+  });
 
-    lightbox.init();
-    let autoSlideInterval;
-    function startAutoplay() {
-      autoSlideInterval = setInterval(() => {
-        const pswp = lightbox.pswp;
-        let nextIndex = pswp.currIndex + 1;
-
-        if (nextIndex >= pswp.getNumItems()) {
-          nextIndex = 0; // Loop to first
-        }
-
-        pswp.goTo(nextIndex);
-      }, 10000);
-    }
-    lightbox.on('change', () => {
-      clearInterval(autoSlideInterval);
-      startAutoplay();
-    });
-    lightbox.on('close', () => {
-      clearInterval(autoSlideInterval);
-    });
-    lightbox.on('open', startAutoplay);
-  </script>
+  lightbox.init();
+  let autoSlideInterval;
+  function startAutoplay() {
+    autoSlideInterval = setInterval(() => {
+      const pswp = lightbox.pswp;
+      let nextIndex = pswp.currIndex + 1;
+      if (nextIndex >= pswp.getNumItems()) nextIndex = 0;
+      pswp.goTo(nextIndex);
+    }, 10000);
+  }
+  lightbox.on('change', () => { clearInterval(autoSlideInterval); startAutoplay(); });
+  lightbox.on('close', () => { clearInterval(autoSlideInterval); });
+  lightbox.on('open', startAutoplay);
+}
+</script>
 {% endif %}
 
 
