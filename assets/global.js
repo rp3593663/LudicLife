@@ -1537,7 +1537,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* 1️⃣ Get selected variant ID (from checked radio) */
     const selectedInput = document.querySelector(
-      'input[type="radio"][data-option-value-id]:checked'
+      '.size-chart-popup input[type="radio"][data-option-value-id]:checked'
     );
 
     if (!selectedInput) {
