@@ -662,6 +662,7 @@ span.badge.price__badge-sale.color-scheme-4 {
 }
 .template-product:not(.template-product\.fw-product) product-info .product .product__media-wrapper .product__media-list .product__media-item .product__media {
     padding-top: 100%;
+    background: #f9f9f9;
 }
 .template-product:not(.template-product\.fw-product) product-info .product {
     background: #FFFFFF;
