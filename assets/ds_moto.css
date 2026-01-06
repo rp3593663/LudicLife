@@ -480,14 +480,15 @@ body:not(.template-product) .newsletter-heading,{
 .template-product .footer-menu.footer-img-wrapper {
     max-width: 32px;
 }
-.template-index .footer-menu.footer-img-wrapper .black_stars
-.template-product .footer-menu.footer-img-wrapper .black_stars,{
-    display: none;
+
+.template-index .footer-menu.footer-img-wrapper .black_stars,
+.template-product .footer-menu.footer-img-wrapper .black_stars {
+  display: none;
 }
-body:not(.template-index) .footer-menu.footer-img-wrapper .red_stars,
-body:not(.template-product) .footer-menu.footer-img-wrapper .red_stars{
-    display: none;
+body:not(.template-index):not(.template-product) .footer-menu.footer-img-wrapper .red_stars {
+  display: none;
 }
+
 .template-index .footer-menu h2.footer-block__heading,
 .template-product .footer-menu h2.footer-block__heading {
     font-family: Public Sans;
