@@ -3478,3 +3478,12 @@ main#MainContent.ds-moto-ludic {
     font-size: 11px;
   }
 }
+
+
+.desktop-zoom-hover {
+  touch-action: manipulation;
+}
+
+.desktop-zoom-hover.zoom-active {
+  touch-action: none; /* iOS scroll lock when zoomed */
+}
