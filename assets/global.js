@@ -1434,18 +1434,22 @@ let defaultSelectedSize = null;
 
   console.log('defaultSelectedSize:', defaultSelectedSize);
 
-  // ✅ Listen to REAL variant change
-  document
-    .querySelectorAll('.default_variant_uk input[type="radio"]')
-    .forEach(input => {
+
+
+  document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
       input.onchange = () => {
         console.log('changed to:', input.value);
-
-        if (input.value != defaultSelectedSize) {
-          ConfirmBtn.innerText = 'Update Size';
-        } else {
-          ConfirmBtn.innerText = 'Confirm Size';
+        if ($(this).hasClass('disabled')) {
+          ConfirmBtn.innerText = 'Out of Stock';
+          ConfirmBtn.addClass('disabled');
+        }else{
+          if (input.value != defaultSelectedSize) {
+            ConfirmBtn.innerText = 'Update Size';
+          } else {
+            ConfirmBtn.innerText = 'Confirm Size';
+          }
         }
+          
       };
     });
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
