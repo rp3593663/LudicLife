@@ -2242,8 +2242,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const isMobile = window.innerWidth <= 768; // mobile breakpoint
 
   document.querySelectorAll('.desktop-zoom-hover').forEach(wrapper => {
-    const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
-    if (!img) return;
+    if (!isMobile) {
+      const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
+      if (!img) return;
+    }
 
     if (!isMobile) {
       // ---------------- DESKTOP HOVER ZOOM ----------------
