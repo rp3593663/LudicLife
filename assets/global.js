@@ -1414,7 +1414,7 @@ $(document).on('click', '.product-form__input .size_var', function(){
     // openVariantPopup();
   });
 
-
+let defaultSelectedSize = null;
   function openVariantPopup() {
     const btn = document.getElementById('sizeConfirmBtn');
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
