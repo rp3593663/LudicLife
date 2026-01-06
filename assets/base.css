@@ -6923,6 +6923,9 @@ new-cart-drawer-items::-webkit-scrollbar-thumb{
     font-weight:400;
     letter-spacing: -0.7px;
 }
+.template-product:not(.template-product\.fw-product) .product__info-wrapper .price  .price__sale price-item--sale {
+  color: #E60013;
+}
 .product__info-wrapper .price .price__regular .price-item {
   text-decoration: unset;
 }
