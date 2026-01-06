@@ -1562,7 +1562,7 @@ $(document).on('change', '.custom_variants input, .product-form__input input', f
       $('.size-chart-update-btn').addClass('disabled');
     } else {
       $('.product-form__submit span').text('Add to Bag');
-      $('.size-chart-update-btn').text('Add to Bag');
+      $('.size-chart-update-btn').text('Confirm Size');
       $('.product-form__submit').prop('disabled', false).removeClass('disabled');
       $('.size-chart-update-btn').prop('disabled', false).removeClass('disabled');
     }
