@@ -2237,6 +2237,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 {% endif %}
 {% if template != 'product.fw-product' %}
+
 <script>
 document.addEventListener("DOMContentLoaded", () => { 
 
@@ -2336,7 +2337,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     wrapper.addEventListener("touchend", (e) => {
-      // If zoomed out, reset translations
       if (!isZoomed) {
         translateX = 0;
         translateY = 0;
@@ -2346,10 +2346,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 {% endif %}
 
-{% if template != 'product.fw-product' %}
-
+{% if template != 'product.fw-product' and window.innerWidth > 768 %} 
+<!-- Only initialize PhotoSwipe on desktop -->
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
 <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
 <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
