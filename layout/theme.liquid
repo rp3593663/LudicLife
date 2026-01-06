@@ -2284,7 +2284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentX = 0;
     let currentY = 0;
 
-    /* 🔥 iOS DIRECTION LOCK */
+    /* iOS direction lock helpers */
     let touchStartX = 0;
     let touchStartY = 0;
     let lockDirection = null;
@@ -2328,8 +2328,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, { passive: false });
 
-    /* 🔥 FIRST TOUCHMOVE — DIRECTION DECISION */
+    /* 🔥 DIRECTION LOCK — ONLY WHEN ZOOMED */
     wrapper.addEventListener("touchmove", e => {
+      if (!zoomed) return; // ✅ gallery swipe allowed
+
       const dx = e.touches[0].clientX - touchStartX;
       const dy = e.touches[0].clientY - touchStartY;
 
@@ -2338,12 +2340,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (lockDirection === "horizontal") {
-        e.preventDefault();     // 🔥 stops iOS gallery swipe
+        e.preventDefault();     // block gallery swipe
         e.stopPropagation();
       }
     }, { passive: false });
 
-    /* TOUCH MOVE (ZOOM / DRAG) */
+    /* TOUCH MOVE (IMAGE DRAG / PINCH) */
     wrapper.addEventListener("touchmove", e => {
       if (!zoomed) return;
 
@@ -2373,6 +2375,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
 
