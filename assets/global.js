@@ -1414,51 +1414,49 @@ $(document).on('click', '.product-form__input .size_var', function(){
     // openVariantPopup();
   });
 
-let defaultSelectedSize = null;
+  let defaultSelectedSize = null;
   function openVariantPopup() {
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
     const ConfirmBtn = document.getElementById('sizeConfirmBtn');
 
-  // ✅ Capture default size ONLY once
-  if (!defaultSelectedSize) {
-    const checked = document.querySelector(
-      '.default_variant_uk input[type="radio"]:checked'
-    );
+    // ✅ Capture default size ONLY once
+    if (!defaultSelectedSize) {
+      const checked = document.querySelector(
+        '.default_variant_uk input[type="radio"]:checked'
+      );
 
-    if (checked) {
-      defaultSelectedSize = checked.value;
-      localStorage.setItem('Keep Size old', defaultSelectedSize);
+      if (checked) {
+        defaultSelectedSize = checked.value;
+        localStorage.setItem('Keep Size old', defaultSelectedSize);
+      }
     }
-  }
 
-  console.log('defaultSelectedSize:', defaultSelectedSize);
+    console.log('defaultSelectedSize:', defaultSelectedSize);
 
+    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
+    input.onchange = function () {
+      console.log('changed to:', this.value);
 
+        // 🔴 Out of stock
+        if (this.classList.contains('disabled')) {
+          ConfirmBtn.innerText = 'Out of Stock';
+          ConfirmBtn.classList.add('disabled');
+          ConfirmBtn.disabled = true;
+          return;
+        }
 
-  document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
-  input.onchange = function () {
-    console.log('changed to:', this.value);
+        // 🟢 In stock
+        ConfirmBtn.classList.remove('disabled');
+        ConfirmBtn.disabled = false;
 
-      // 🔴 Out of stock
-      if (this.classList.contains('disabled')) {
-        ConfirmBtn.innerText = 'Out of Stock';
-        ConfirmBtn.classList.add('disabled');
-        ConfirmBtn.disabled = true;
-        return;
-      }
-
-      // 🟢 In stock
-      ConfirmBtn.classList.remove('disabled');
-      ConfirmBtn.disabled = false;
-
-      if (this.value !== defaultSelectedSize) {
-        ConfirmBtn.innerText = 'Update Size';
-      } else {
-        ConfirmBtn.innerText = 'Confirm Size';
-      }
-    };
-  });
+        if (this.value !== defaultSelectedSize) {
+          ConfirmBtn.innerText = 'Update Size';
+        } else {
+          ConfirmBtn.innerText = 'Confirm Size';
+        }
+      };
+    });
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
@@ -1484,6 +1482,7 @@ let defaultSelectedSize = null;
     });
   }
   function closeVariantPopup() {
+    defaultSelectedSize = null;
     $('.size-chart-popup__content').fadeOut(100);
     $('.size-chart-popup-overlay').removeClass('show');
     $('.size-chart-size-box-sizes').removeClass('popup-active');
