@@ -1413,52 +1413,63 @@ $(document).on('click', '.product-form__input .size_var', function(){
     }
     // openVariantPopup();
   });
-
 let defaultSelectedSize = null;
-  function openVariantPopup() {
-     const btn = document.getElementById('sizeConfirmBtn');
 
-    // ✅ Store default selected size when popup opens
-    if (event && event.target && event.target.value) {
-      defaultSelectedSize = event.target.value;
-    }
-    console.log('defaultSelectedSize', defaultSelectedSize);
-    const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
+function openVariantPopup(event) {
+  const btn = document.getElementById('sizeConfirmBtn');
 
-    if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
-      localStorage.setItem('Keep Size old', event.target.value);
-      console.log('Stored size from popup:', event.target.value);
-    }
-    $('.size-chart-popup__content').fadeIn(100);
-    $('.size-chart-popup-overlay').addClass('show');
-    $('.size-chart-size-box-sizes').addClass('popup-active');
-    $('body').addClass('size-chart-popup-pdp');
-    btn.innerText = 'Confirm Size';
-    document.querySelectorAll('.size-chart-popup__size-box input[type="radio"]').forEach(input => {
-      input.addEventListener('change', () => {
+  // ✅ Get currently selected size safely
+  const checkedRadio = document.querySelector(
+    '.size-chart-popup__size-box input[type="radio"]:checked'
+  );
+
+  if (checkedRadio) {
+    defaultSelectedSize = checkedRadio.value;
+    localStorage.setItem('Keep Size old', defaultSelectedSize);
+  }
+
+  console.log('defaultSelectedSize:', defaultSelectedSize);
+
+  $('.size-chart-popup__content').fadeIn(100);
+  $('.size-chart-popup-overlay').addClass('show');
+  $('.size-chart-size-box-sizes').addClass('popup-active');
+  $('body').addClass('size-chart-popup-pdp');
+
+  // ✅ Default button state
+  btn.innerText = 'Confirm Size';
+
+  // ✅ Remove old listeners before adding new
+  document
+    .querySelectorAll('.size-chart-popup__size-box input[type="radio"]')
+    .forEach(input => {
+      input.onchange = () => {
         if (input.value === defaultSelectedSize) {
           btn.innerText = 'Confirm Size';
         } else {
           btn.innerText = 'Update Size';
         }
-      });
+      };
     });
-    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
-    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
-      input.addEventListener('change', () => {
-          if (input.checked) {
-            const selectedSize = input.value;
-             sizeSpecSpans.forEach(span => {
-              if (span.dataset.variantTitle === selectedSize) {
-                span.style.display = 'block';
-              } else {
-                span.style.display = 'none';
-              }
-            });
-          }
+
+  // ✅ Size specification toggle (unchanged logic, optimized)
+  const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+
+  document
+    .querySelectorAll('.default_variant_uk input[type="radio"]')
+    .forEach(input => {
+      input.onchange = () => {
+        if (!input.checked) return;
+
+        const selectedSize = input.value;
+
+        sizeSpecSpans.forEach(span => {
+          span.style.display =
+            span.dataset.variantTitle === selectedSize ? 'block' : 'none';
         });
+      };
     });
-  }
+}
+
   function closeVariantPopup() {
     $('.size-chart-popup__content').fadeOut(100);
     $('.size-chart-popup-overlay').removeClass('show');
