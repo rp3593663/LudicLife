@@ -103,7 +103,7 @@
         class="keep_size"
       {% endif %}
       {% if product.url contains 'sliders' %}
-        onclick="openVariantPopup()"
+        onclick="openVariantPopup(event)"
       {% endif %}
       {{ input_dataset }}
       data-variant-id="{{ value.variant.id }}"
