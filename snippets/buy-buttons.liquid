@@ -413,12 +413,12 @@
             <div class="sticky_cart_btn">
               <a href="#" class="product-form__submit button scroll-btn button--full-width kjhg">
                 <span class="text-wrap">
-                  <span class="text default">Pre-book</span>
-                  <span class="text hover">Pre-book</span>
+                  <span class="text default">Add to Bag</span>
+                  <span class="text hover">Add to Bag</span>
                 </span>
                 {%- render 'loading-spinner' -%}
               </a>
-              {% if template != 'product.fw-product' %}
+              {% comment %} {% if template != 'product.fw-product' %}
                 {% comment %} Button with scroll effect {% endcomment %}
                 {% if product.metafields.custom.pre_book %}
                   <button
@@ -524,7 +524,7 @@
                     {%- render 'loading-spinner' -%}
                   </button>
                 {% endif %}
-              {% endif %}
+              {% endif %} {% endcomment %}
             </div>
           </div>
         </div>
