@@ -1434,9 +1434,6 @@ let defaultSelectedSize = null;
 
   console.log('defaultSelectedSize:', defaultSelectedSize);
 
-  // Default button state
-  ConfirmBtn.innerText = 'Confirm Size';
-
   // ✅ Listen to REAL variant change
   document
     .querySelectorAll('.default_variant_uk input[type="radio"]')
