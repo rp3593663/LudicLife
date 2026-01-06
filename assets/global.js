@@ -1503,6 +1503,7 @@ $(document).on('click', '.product-form__input .size_var', function(){
       closeVariantPopup();
     }
 
+    render_cart();
     // Refresh cart / open drawer
     document.dispatchEvent(new CustomEvent('cart:refresh'));
 
