@@ -2290,6 +2290,7 @@ document.addEventListener("DOMContentLoaded", () => {
           img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
         } else {
           zoomed = false;
+          wrapper.classList.remove("zoom-active");
           lastScale = 1;
           currentX = 0;
           currentY = 0;
