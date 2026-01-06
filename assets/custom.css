@@ -2090,6 +2090,50 @@ p.USP_description {
 }
 
 
+.copy-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Tooltip bubble */
+.copy-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Tooltip arrow */
+.copy-icon::before {
+  content: "";
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.copy-icon:hover::after,
+.copy-icon:hover::before {
+  opacity: 1;
+}
+
+
+
 .twos_sale_day_video {
   width: 100%;
   height: calc(100vh - 120px);
