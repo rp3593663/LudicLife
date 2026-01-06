@@ -2237,7 +2237,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 {% endif %}
 {% if template != 'product.fw-product' %}
-<script>
+  <script>
 document.addEventListener("DOMContentLoaded", () => { 
   const isMobile = window.innerWidth <= 768; // mobile breakpoint
 
@@ -2245,121 +2245,112 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
     if (!img) return;
 
-    /* ======================================================
-       PREVENT LINK NAVIGATION (KEEP href)
-    ====================================================== */
-    wrapper.addEventListener('click', e => e.preventDefault());
 
-    /* ================= DESKTOP ================= */
     if (!isMobile) {
+      // ---------------- DESKTOP HOVER ZOOM ----------------
       let active = false;
-
       wrapper.addEventListener("mouseenter", () => { 
         active = true; 
         img.style.transition = "transform 0.5s ease"; 
         img.style.transform = "scale(1.8)"; 
       });
-
       wrapper.addEventListener("mousemove", (e) => { 
         if (!active) return; 
         const rect = wrapper.getBoundingClientRect(); 
-        const x = Math.min(Math.max(0, e.clientX - rect.left), rect.width); 
-        const y = Math.min(Math.max(0, e.clientY - rect.top), rect.height); 
-        img.style.transformOrigin = `${x}px ${y}px`; 
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top; 
+        const px = Math.min(Math.max(0, x), rect.width); 
+        const py = Math.min(Math.max(0, y), rect.height); 
+        img.style.transformOrigin = `${px}px ${py}px`; 
       });
-
       wrapper.addEventListener("mouseleave", () => { 
         active = false; 
         img.style.transition = "transform 0.5s ease"; 
         img.style.transform = "scale(1) translate(0,0)"; 
       });
+    } else {
+      // ---------------- MOBILE TOUCH ZOOM ----------------
+      let zoomed = false;
+      let lastScale = 1;
+      let startDistance = 0;
+      let startX = 0;
+      let startY = 0;
+      let currentX = 0;
+      let currentY = 0;
 
-      return;
+      wrapper.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!zoomed) {
+          zoomed = true;
+           wrapper.classList.add("zoom-active"); // 🔥 ADD THIS
+          lastScale = 2; // initial zoom
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
+        } else {
+          zoomed = false;
+          wrapper.classList.remove("zoom-active");
+          lastScale = 1;
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(1) translate(0px, 0px)`;
+        }
+      });
+
+      wrapper.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 2) {
+          // pinch start
+          startDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          startX = currentX;
+          startY = currentY;
+        } else if (e.touches.length === 1 && zoomed) {
+          startX = e.touches[0].clientX - currentX;
+          startY = e.touches[0].clientY - currentY;
+        }
+      }, { passive: false });
+
+      wrapper.addEventListener("touchmove", (e) => {
+        if (!zoomed) return;
+        e.preventDefault();
+        if (e.touches.length === 2) {
+          // pinch zoom
+          const distance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          const scaleChange = distance / startDistance;
+          const newScale = Math.min(Math.max(lastScale * scaleChange, 1), 5); // limit zoom
+          img.style.transition = "transform 0s";
+          img.style.transform = `scale(${newScale}) translate(${currentX}px, ${currentY}px)`;
+        } else if (e.touches.length === 1) {
+          // drag
+          currentX = e.touches[0].clientX - startX;
+          currentY = e.touches[0].clientY - startY;
+          img.style.transition = "transform 0s";
+          img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
+        }
+      }, { passive: false });
+
+      wrapper.addEventListener("touchend", (e) => {
+        if (e.touches.length === 0 && zoomed) {
+          // save last scale
+          const style = window.getComputedStyle(img);
+          const matrix = new WebKitCSSMatrix(style.transform);
+          lastScale = matrix.a; // extract scaleX
+        }
+      });
     }
 
-    /* ================= MOBILE ================= */
-    let zoomed = false;
-    let lastScale = 1;
-    let startDistance = 0;
-    let startX = 0;
-    let startY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    /* 🔥 BLOCK GALLERY SWIPE ON iOS (KEY FIX) */
-    wrapper.addEventListener("touchmove", (e) => {
-      e.stopPropagation(); // stops parent gallery swipe
-    }, { passive: true });
-
-    /* TAP TO ZOOM IN / OUT */
-    wrapper.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      if (!zoomed) {
-        zoomed = true;
-        wrapper.classList.add("zoom-active");
-
-        lastScale = 2;
-        currentX = 0;
-        currentY = 0;
-        img.style.transition = "transform 0.3s ease";
-        img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
-      } else {
-        zoomed = false;
-        wrapper.classList.remove("zoom-active");
-
-        lastScale = 1;
-        currentX = 0;
-        currentY = 0;
-        img.style.transition = "transform 0.3s ease";
-        img.style.transform = `scale(1) translate(0px, 0px)`;
-      }
-    });
-
-    /* TOUCH START */
-    wrapper.addEventListener("touchstart", (e) => {
-      if (e.touches.length === 2) {
-        startDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-      } else if (e.touches.length === 1 && zoomed) {
-        startX = e.touches[0].clientX - currentX;
-        startY = e.touches[0].clientY - currentY;
-      }
-    }, { passive: false });
-
-    /* TOUCH MOVE (ZOOM / DRAG) */
-    wrapper.addEventListener("touchmove", (e) => {
-      if (!zoomed) return;
-
-      e.preventDefault(); // iOS scroll lock
-      img.style.transition = "transform 0s";
-
-      if (e.touches.length === 2) {
-        const distance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-        const scale = Math.min(Math.max((distance / startDistance) * lastScale, 1), 5);
-        img.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
-      } else {
-        currentX = e.touches[0].clientX - startX;
-        currentY = e.touches[0].clientY - startY;
-        img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
-      }
-    }, { passive: false });
-
-    /* TOUCH END */
-    wrapper.addEventListener("touchend", () => {
-      if (!zoomed) return;
-      const matrix = new WebKitCSSMatrix(getComputedStyle(img).transform);
-      lastScale = matrix.a;
-    });
+    // remove default link behavior
+    wrapper.addEventListener('click', e => e.preventDefault());
   });
 });
 </script>
-
 
 {% endif %}
 {% if template != 'product.fw-product' %}
