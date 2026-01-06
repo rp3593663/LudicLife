@@ -481,7 +481,6 @@ body:not(.template-product) .newsletter-heading,{
     max-width: 32px;
 }
 .template-index .footer-menu.footer-img-wrapper .black_stars
-body:not(.template-index) footer-menu:last-child,
 .template-product .footer-menu.footer-img-wrapper .black_stars,{
     display: none;
 }
