@@ -1,0 +1,209 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin | split: "|" %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} .section--sliders-slide{
+  {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+  {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--sliders-slide{
+    {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+    {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--sliders-slide{
+    {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+    {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--sliders-slide{
+    {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+    {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+  }
+}
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--sliders-slide">
+  <div class="{{ container }}">
+    <div class="sliders_slide_inner">
+        <div class="image_slides_block">
+            <img src="{{ section.settings.main_image | image_url }}" class="main_slider_img_desktop" id="main-slider-{{ section.id }}" >
+            <img src="{{ section.settings.main_image_mobile | image_url }}" class="main_slider_img_mobile" id="main-slider-{{ section.id }}" >
+            <div class="all_sliders_slide">
+                {% for block in section.blocks %}
+                <div
+                  class="slider_image {% if forloop.first %}active{% endif %}"
+                  data-main-image-desktop="{{ block.settings.main_image | image_url }}"
+                  data-main-image-mobile="{{ block.settings.main_image_mobile | image_url }}"
+                >
+                  <img src="{{ block.settings.thumb_image | image_url }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="sliders_content_block">
+            {% if section.settings.content_image != blank %}
+                <img src="{{ section.settings.content_image | image_url }}" alt="">
+            {% endif %}
+
+            <div class="description">
+                {{ section.settings.description }}
+            </div>
+
+            {% if section.settings.button_text != blank %}
+                <a href="{{ section.settings.button_link }}" class="slider_shop_btn ds_moto_btn">
+                {{ section.settings.button_text }}
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% javascript %}
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.section--sliders-slide').forEach(section => {
+
+    const desktopImg = section.querySelector('.main_slider_img_desktop');
+    const mobileImg  = section.querySelector('.main_slider_img_mobile');
+    const thumbs = section.querySelectorAll('.slider_image');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function () {
+
+        const desktopSrc = this.dataset.mainImageDesktop;
+        const mobileSrc  = this.dataset.mainImageMobile;
+
+        if (desktopSrc && desktopImg) {
+          desktopImg.src = desktopSrc;
+        }
+
+        if (mobileSrc && mobileImg) {
+          mobileImg.src = mobileSrc;
+        }
+
+        thumbs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+  });
+});
+{% endjavascript %}
+
+
+
+{% schema %}
+{
+  "name": "Sliders Slide",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Default Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image_mobile",
+      "label": "Default Main Image Mobile"
+    },
+    {
+        "type": "image_picker",
+        "id": "content_image",
+        "label": "Content Image / Logo"
+    },
+    {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>Always the one cloud that's under your feet. CloudFrame comfort, cloud-like wear, and a recovery EVA footbed that doesn't hold back on the support.</p><p><strong>Loved by 30,000 customers.</strong></p>"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Shop Sliders"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumb_image",
+          "label": "Thumbnail Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image on Click"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image_mobile",
+          "label": "Main Image on Click Mobile"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sliders Slide",
+      "category": "Custom",
+      "blocks": [
+        { "type": "slider" },
+        { "type": "slider" },
+        { "type": "slider" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}

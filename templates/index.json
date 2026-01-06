@@ -12,8 +12,32 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_hikXef": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "ds_moto_banner1",
+            "image": "shopify://shop_images/DS_moto_banner1.png",
+            "mobile_image": "shopify://shop_images/291a53f2f1a085fb59393b2e68647d59ce7aa16c.mp4.png",
+            "banner_url": "shopify://pages/ds-moto-ludic",
+            "heading": "what's your drive?",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "discover",
+            "link": "shopify://pages/ds-moto-ludic",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_Jdr8FX": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "ls-moto-slider",
             "desktop_video": "shopify://files/videos/NEW DESKTOP.mp4",
@@ -37,6 +61,7 @@
         },
         "slide_xbMa3M": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "twosday_slide",
             "desktop_video": "shopify://files/videos/Heavy Grain FX Horizontal_e69127b9-47bd-434e-8611-684be5f7fff0.mp4",
@@ -60,6 +85,7 @@
         },
         "slide_LE8H3A": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "reworked_slide",
             "image": "shopify://shop_images/desktop_reworked_banner.png",
@@ -107,6 +133,7 @@
         },
         "slide_xwDNcy": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "",
             "image": "shopify://shop_images/30-OFF-Button-Down.png",
@@ -285,6 +312,7 @@
         }
       },
       "block_order": [
+        "slide_hikXef",
         "slide_Jdr8FX",
         "slide_xbMa3M",
         "slide_LE8H3A",
@@ -308,21 +336,321 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "video_y7EJPR": {
-      "type": "video",
-      "disabled": true,
+    "rich_text_ey6YpV": {
+      "type": "rich-text",
+      "blocks": {
+        "text_RYfVeK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Born from motorsport obsession and built for real-world movement.  <br/>Low-profile and yet loud, this one’s for those who never outgrew the feeling. Premium suede, echoes from racetracks, ripples of the revs, and a build that never Box — this is a 360 obsession made in Ludic’s Low Profile Lifestyle Outsole.</p>"
+          }
+        },
+        "button_6rdfg8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore DS Moto",
+            "button_link": "shopify://pages/ds-moto-ludic",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_RYfVeK",
+        "button_6rdfg8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": true,
-        "video": "shopify://files/videos/NEW WEB.mp4",
-        "mobile_video": "shopify://files/videos/New Mob.mp4",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": true,
+        "desktop_content_position": "left",
+        "content_alignment": "left",
         "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "full_width": false,
+        "padding_top": 56,
+        "padding_bottom": 38,
+        "custom_class": "ds_home_text"
+      }
+    },
+    "custom_featured_collection_hEdr4A": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_LFwNNn": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-tarmac-black",
+            "variant_name": ""
+          }
+        },
+        "product_pYyzBJ": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-martini-blue",
+            "variant_name": ""
+          }
+        },
+        "product_XmxtLf": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-jdm-orange",
+            "variant_name": ""
+          }
+        },
+        "product_4rgGBn": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-lemans-green",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_LFwNNn",
+        "product_pYyzBJ",
+        "product_XmxtLf",
+        "product_4rgGBn"
+      ],
+      "name": "Custom Featured Products",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0px",
+        "section_heading": "",
+        "enable_view_all": false,
+        "enable_view_url": "",
+        "column_lg": 4
+      }
+    },
+    "two_column_banner_7jdiFX": {
+      "type": "two-column-banner",
+      "name": "Two Colum Banner",
+      "settings": {
+        "layout": "full-width",
+        "left_image": "shopify://shop_images/two_banner_img1.png",
+        "left_image_alt": "",
+        "right_image": "shopify://shop_images/two_banner_img2.png",
+        "right_image_alt": "",
+        "heading": "New Tooling",
+        "description": "Low Profile Lifestyle Outsole made thin for a true feel of the pedal.",
+        "button_text": "Explore DS Moto",
+        "button_link": "shopify://pages/ds-moto-ludic",
+        "padding": "0px 0px 0px 0px",
+        "margin": "60px 0px 120px | | | 60px 0px"
+      }
+    },
+    "ds_moto_images_text_UmdXGf": {
+      "type": "ds_moto_images_text",
+      "blocks": {
+        "image_qpREqk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Background-1.png"
+          }
+        },
+        "image_tTKind": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Background-2.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_qpREqk",
+        "image_tTKind"
+      ],
+      "name": "DS Moto Images with Text",
+      "settings": {
+        "layout": "box_width",
+        "heading": "DS MOTO",
+        "description": "<p>An obsession echoed loud. Like from roaring from the grandstand to feeling the revs build through the pedal. From dreaming in apexes to the never-ending jolts of downforce.</p><p>A collection designed as a tribute to driving enthusiasts with a deep love for automobiles. Built with absolute adrenaline and love for speed, delivering a product that keeps you close to the feeling. Control, wear, vibe -- everything captured end-to-end in Ludic's in-house Low Profile Lifestyle Outsole. Takes cues from racing ergonomics. Truly functional, intentional, and dedicated. </p><p>Made in premium suede with the outsole engraved with five iconic racetracks from around the world, underfoot.</p><p>Not race gear.<br/>Not merch.<br/>Just something for the motor-heads to feel in their bones.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/ds-moto",
+        "padding": "0px 0px 0px 0px",
+        "margin": "120px 0px | | | 60px 0px"
+      }
+    },
+    "home_sliders_slide_Ek6TLj": {
+      "type": "home_sliders_slide",
+      "blocks": {
+        "slider_GjPDYV": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/KB.png",
+            "main_image": "shopify://shop_images/KB.jpg",
+            "main_image_mobile": "shopify://shop_images/KB_1.jpg"
+          }
+        },
+        "slider_HMPgmd": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/JB.png",
+            "main_image": "shopify://shop_images/JB.jpg",
+            "main_image_mobile": "shopify://shop_images/JB_1.jpg"
+          }
+        },
+        "slider_6bWbEN": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/CG.png",
+            "main_image": "shopify://shop_images/CG.jpg",
+            "main_image_mobile": "shopify://shop_images/CG_1.jpg"
+          }
+        },
+        "slider_3RezaA": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/PP.png",
+            "main_image": "shopify://shop_images/PP.jpg",
+            "main_image_mobile": "shopify://shop_images/PP_1.jpg"
+          }
+        },
+        "slider_NHhrh4": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/TB.png",
+            "main_image": "shopify://shop_images/TB.jpg",
+            "main_image_mobile": "shopify://shop_images/TB_1.jpg"
+          }
+        },
+        "slider_xN3axh": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/GR.png",
+            "main_image": "shopify://shop_images/GR.jpg",
+            "main_image_mobile": "shopify://shop_images/GR_1.jpg"
+          }
+        },
+        "slider_X6hyew": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/BC.png",
+            "main_image": "shopify://shop_images/BC.jpg",
+            "main_image_mobile": "shopify://shop_images/BC_1.jpg"
+          }
+        },
+        "slider_Fi4j3K": {
+          "type": "slider",
+          "settings": {
+            "thumb_image": "shopify://shop_images/CW.png",
+            "main_image": "shopify://shop_images/CW.jpg",
+            "main_image_mobile": "shopify://shop_images/CW_1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slider_GjPDYV",
+        "slider_HMPgmd",
+        "slider_6bWbEN",
+        "slider_3RezaA",
+        "slider_NHhrh4",
+        "slider_xN3axh",
+        "slider_X6hyew",
+        "slider_Fi4j3K"
+      ],
+      "name": "Sliders Slide",
+      "settings": {
+        "layout": "box_width",
+        "main_image": "shopify://shop_images/KB.jpg",
+        "main_image_mobile": "shopify://shop_images/KB_1.jpg",
+        "content_image": "shopify://shop_images/ludic_sliders_svg.svg",
+        "description": "<p>Always the one cloud that's under your feet. CloudFrame comfort, cloud-like wear, and an recovery EVA footbed that doesn't hold back on the support.<br/>Ludic Sliders for the play**.</p><p>Loved by 30,000 customers.</p>",
+        "button_text": "Shop Sliders",
+        "button_link": "shopify://collections/sliders",
+        "padding": "0px 0px 0px 0px",
+        "margin": "120px 0px 52px | | | 60px 0px 32px"
+      }
+    },
+    "marquee_products_Ak4PAW": {
+      "type": "marquee_products",
+      "blocks": {
+        "product_yxxMRC": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-chaas-white",
+            "custom_image": "shopify://shop_images/CW.png"
+          }
+        },
+        "product_NkbpdT": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-tandoor-black",
+            "custom_image": "shopify://shop_images/TB.png"
+          }
+        },
+        "product_cQtq8c": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-chutney-green",
+            "custom_image": "shopify://shop_images/CG.png"
+          }
+        },
+        "product_BJqhXT": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-kadak-brown",
+            "custom_image": "shopify://shop_images/KB.png"
+          }
+        },
+        "product_pnk9xi": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-jamun-blue",
+            "custom_image": "shopify://shop_images/JB.png"
+          }
+        },
+        "product_gXgPhc": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-go-red",
+            "custom_image": "shopify://shop_images/GR.png"
+          }
+        },
+        "product_nW9GQH": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-banana-chips",
+            "custom_image": "shopify://shop_images/BC.png"
+          }
+        },
+        "product_MXm4Vg": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-purple-pyaaz",
+            "custom_image": "shopify://shop_images/PP.png"
+          }
+        }
+      },
+      "block_order": [
+        "product_yxxMRC",
+        "product_NkbpdT",
+        "product_cQtq8c",
+        "product_BJqhXT",
+        "product_pnk9xi",
+        "product_gXgPhc",
+        "product_nW9GQH",
+        "product_MXm4Vg"
+      ],
+      "name": "Marquee Products",
+      "settings": {
+        "layout": "full-width",
+        "speed": 40,
+        "padding": "0px 0px 0px 0px",
+        "margin": "52px 0px 102px | | | 32px 0px 100px"
+      }
+    },
+    "ds_moto_banner_RJKCXq": {
+      "type": "ds-moto-banner",
+      "name": "DS Moto Banner",
+      "settings": {
+        "layout": "full-width",
+        "desktop_image": "shopify://shop_images/ds_moto_banner.png",
+        "mobile_image": "shopify://shop_images/Section_-_Mobile_image_gallery_currently_showing_image_1_of_17.png",
+        "logo": "shopify://shop_images/futurworks_logo_svg.svg",
+        "description": "Mindful products for mindless pursuits. An alternate realm of Ludic featuring future from the past.",
+        "button_text": "Discover Futurworks",
+        "button_link": "shopify://collections/futurworks",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0px"
       }
     },
     "csk_custom_text_Knc7fd": {
@@ -590,6 +918,7 @@
         "image_erTfHB",
         "image_cBhJrt"
       ],
+      "disabled": true,
       "settings": {
         "custom_class": ""
       }
@@ -641,6 +970,7 @@
     },
     "image_with_product_ca4xDg": {
       "type": "image-with-product",
+      "disabled": true,
       "settings": {
         "custom_video": "shopify://files/videos/black.mp4",
         "heading": "Upgraded in all the right places.",
@@ -746,672 +1076,9 @@
         "custom_class": "home-page-custom-csk-slider"
       }
     },
-    "custom_collection_W9DDCJ": {
-      "type": "custom-collection",
-      "blocks": {
-        "collection_i9Uix3": {
-          "type": "collection",
-          "settings": {
-            "collection_img": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0369_2x_0e60cb17-4943-4990-8f3d-533c716e5462.jpg",
-            "collection_img_mobile": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0369_2x_10b96782-6c81-48ec-a7da-d5fb75048d4c.jpg",
-            "collection_info": "Tandoor Black",
-            "collection_title1": "",
-            "collection_link1": "",
-            "collection_title2": "",
-            "collection_link2": "",
-            "collection_title3": "",
-            "collection_link3": "",
-            "collection_title4": "",
-            "collection_link4": "",
-            "collection_title5": "",
-            "collection_link5": "",
-            "collection_url": "shopify://products/sliders-tandoor-black"
-          }
-        },
-        "collection_MNqCgg": {
-          "type": "collection",
-          "settings": {
-            "collection_img": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0799_2x_4d53078c-59ed-4aec-9d27-95a8be85bbce.jpg",
-            "collection_img_mobile": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0799_2x_464023fb-77b0-4bfb-bda6-58836157ac30.jpg",
-            "collection_info": "Chaas White",
-            "collection_title1": "",
-            "collection_link1": "",
-            "collection_title2": "",
-            "collection_link2": "",
-            "collection_title3": "",
-            "collection_link3": "",
-            "collection_title4": "",
-            "collection_link4": "",
-            "collection_title5": "",
-            "collection_link5": "",
-            "collection_url": "shopify://products/sliders-chaas-white"
-          }
-        },
-        "collection_KpTNbP": {
-          "type": "collection",
-          "settings": {
-            "collection_img": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0527_2x_1235c3c3-ff33-40a4-9cd3-1797e5a23171.jpg",
-            "collection_img_mobile": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0527_2x_2a742fd7-6dbe-4551-827e-7114b0086692.jpg",
-            "collection_info": "Go Red",
-            "collection_title1": "",
-            "collection_link1": "",
-            "collection_title2": "",
-            "collection_link2": "",
-            "collection_title3": "",
-            "collection_link3": "",
-            "collection_title4": "",
-            "collection_link4": "",
-            "collection_title5": "",
-            "collection_link5": "",
-            "collection_url": "shopify://products/sliders-go-red"
-          }
-        },
-        "collection_DeRcyi": {
-          "type": "collection",
-          "settings": {
-            "collection_img": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0485_2x_b0dbb9b5-a67d-4624-a690-ba945db15034.jpg",
-            "collection_img_mobile": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0485_2x_d62c4621-6460-494e-a2e3-43adaad41a95.jpg",
-            "collection_info": "Jamun Blue",
-            "collection_title1": "",
-            "collection_link1": "",
-            "collection_title2": "",
-            "collection_link2": "",
-            "collection_title3": "",
-            "collection_link3": "",
-            "collection_title4": "",
-            "collection_link4": "",
-            "collection_title5": "",
-            "collection_link5": "",
-            "collection_url": "shopify://products/sliders-jamun-blue"
-          }
-        },
-        "collection_N83m9R": {
-          "type": "collection",
-          "settings": {
-            "collection_img": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0550_2x_c9185401-cdce-46ec-8eda-e1c3105473b1.jpg",
-            "collection_img_mobile": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0550_2x_3aed5546-4da6-49c3-b3e8-fe82a4d8f838.jpg",
-            "collection_info": "Chutney Green",
-            "collection_title1": "",
-            "collection_link1": "",
-            "collection_title2": "",
-            "collection_link2": "",
-            "collection_title3": "",
-            "collection_link3": "",
-            "collection_title4": "",
-            "collection_link4": "",
-            "collection_title5": "",
-            "collection_link5": "",
-            "collection_url": "shopify://products/sliders-chutney-green"
-          }
-        },
-        "collection_yGcwtx": {
-          "type": "collection",
-          "settings": {
-            "collection_img": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0360_2x_2977c4ce-83b2-4473-b1ab-1c2e294c2209.jpg",
-            "collection_img_mobile": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0360_2x_10f4530a-856a-413e-94be-12973ba696c9.jpg",
-            "collection_info": "Kadak Brown",
-            "collection_title1": "",
-            "collection_link1": "",
-            "collection_title2": "",
-            "collection_link2": "",
-            "collection_title3": "",
-            "collection_link3": "",
-            "collection_title4": "",
-            "collection_link4": "",
-            "collection_title5": "",
-            "collection_link5": "",
-            "collection_url": "shopify://products/sliders-kadak-brown"
-          }
-        }
-      },
-      "block_order": [
-        "collection_i9Uix3",
-        "collection_MNqCgg",
-        "collection_KpTNbP",
-        "collection_DeRcyi",
-        "collection_N83m9R",
-        "collection_yGcwtx"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "56px 0px 80px | | | 32px 0px 54px",
-        "section_heading": "This here is it. Just slide in.",
-        "custom_class": "slider-product-section"
-      }
-    },
-    "image_with_text_rVFJzN": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_NnJpMa": {
-          "type": "heading",
-          "settings": {
-            "heading": "Designed for Indian Feet.",
-            "heading_size": "h2"
-          }
-        },
-        "text_33Vyj4": {
-          "type": "text",
-          "settings": {
-            "text": "<p>  </p>",
-            "mobile_content": "<p>    </p>",
-            "text_style": "body"
-          }
-        },
-        "button_9DwYTG": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections/sliders",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_NnJpMa",
-        "text_33Vyj4",
-        "button_9DwYTG"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0859_2x_b6f4a781-0716-4d64-a11f-12c6538c8a35.jpg",
-        "mobile_image": "shopify://shop_images/Ludic_Slides_KSJD_14.10.2024_0859_c2b60031-e4ea-4315-89d5-5686c9b034d3.svg",
-        "container_width": "container",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "slider-text-image"
-      }
-    },
-    "custom_product_collection_x8iJaj": {
-      "type": "custom-product-collection",
-      "blocks": {
-        "product_hEankz": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-go-red",
-            "variant_name": ""
-          }
-        },
-        "product_n6WeYn": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-banana-chips",
-            "variant_name": ""
-          }
-        },
-        "product_Fxjtad": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-jamun-blue",
-            "variant_name": ""
-          }
-        },
-        "product_4m7mVn": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-kadak-brown",
-            "variant_name": ""
-          }
-        },
-        "product_PWirMK": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-sand-tan",
-            "variant_name": ""
-          }
-        },
-        "product_3YVmtn": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-chalk-white",
-            "variant_name": ""
-          }
-        },
-        "product_8nyMgW": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-slate-black",
-            "variant_name": ""
-          }
-        },
-        "product_CjCJ98": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-canary-melon",
-            "variant_name": ""
-          }
-        },
-        "product_8qnLLh": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-watermelon",
-            "variant_name": ""
-          }
-        },
-        "product_YDjzqx": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-lychee",
-            "variant_name": ""
-          }
-        },
-        "product_WbDhyq": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-chiku",
-            "variant_name": ""
-          }
-        },
-        "product_XBAYpG": {
-          "type": "product",
-          "settings": {
-            "product": "the-sport-bag",
-            "variant_name": ""
-          }
-        },
-        "product_mkzWkP": {
-          "type": "product",
-          "settings": {
-            "product": "the-sport-bag-1",
-            "variant_name": ""
-          }
-        },
-        "product_EVNWrb": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt",
-            "variant_name": ""
-          }
-        },
-        "product_wTegjN": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt-1",
-            "variant_name": ""
-          }
-        },
-        "product_AzWctN": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt-2",
-            "variant_name": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_hEankz",
-        "product_n6WeYn",
-        "product_Fxjtad",
-        "product_4m7mVn",
-        "product_PWirMK",
-        "product_3YVmtn",
-        "product_8nyMgW",
-        "product_CjCJ98",
-        "product_8qnLLh",
-        "product_YDjzqx",
-        "product_WbDhyq",
-        "product_XBAYpG",
-        "product_mkzWkP",
-        "product_EVNWrb",
-        "product_wTegjN",
-        "product_AzWctN"
-      ],
-      "name": "Custom Product Collection",
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "80px 0px | | | 36px 0px",
-        "section_heading": "",
-        "enable_view_all": true,
-        "enable_view_url": "",
-        "column_lg": 4
-      }
-    },
-    "custom_featured_collection_R6HVVU": {
-      "type": "custom-featured-collection",
-      "blocks": {
-        "product_tYjqwM": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-purple-pyaaz",
-            "variant_name": ""
-          }
-        },
-        "product_7RF4jV": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-tandoor-black-2-0",
-            "variant_name": ""
-          }
-        },
-        "product_B9UTUi": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-banana-chips",
-            "variant_name": ""
-          }
-        },
-        "product_q8GfKn": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-sand-tan",
-            "variant_name": ""
-          }
-        },
-        "product_pfAUdJ": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-slate-black",
-            "variant_name": ""
-          }
-        },
-        "product_rzQiUi": {
-          "type": "product",
-          "settings": {
-            "product": "nova-play-chalk-white",
-            "variant_name": ""
-          }
-        },
-        "product_QciGPW": {
-          "type": "product",
-          "settings": {
-            "product": "ec-pro-tosh",
-            "variant_name": ""
-          }
-        },
-        "product_WDp3nh": {
-          "type": "product",
-          "settings": {
-            "product": "enhanced-canvas-low",
-            "variant_name": ""
-          }
-        },
-        "product_TCmVQt": {
-          "type": "product",
-          "settings": {
-            "product": "nova-pro",
-            "variant_name": ""
-          }
-        },
-        "product_zrfiCf": {
-          "type": "product",
-          "settings": {
-            "product": "enhanced-canvas-pro",
-            "variant_name": ""
-          }
-        },
-        "product_eDWtW9": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-tandoor-black",
-            "variant_name": "Tandoor Black"
-          }
-        },
-        "product_qArz4i": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-chaas-white",
-            "variant_name": "Chaas White"
-          }
-        },
-        "product_t4fL7f": {
-          "type": "product",
-          "settings": {
-            "product": "sliders-go-red",
-            "variant_name": "Go red"
-          }
-        },
-        "product_qVA6Mq": {
-          "type": "product",
-          "settings": {
-            "product": "ec-pro-pumice",
-            "variant_name": "Pumice"
-          }
-        },
-        "product_nL7jEM": {
-          "type": "product",
-          "settings": {
-            "product": "ec-pro-raven",
-            "variant_name": "Raven"
-          }
-        }
-      },
-      "block_order": [
-        "product_tYjqwM",
-        "product_7RF4jV",
-        "product_B9UTUi",
-        "product_q8GfKn",
-        "product_pfAUdJ",
-        "product_rzQiUi",
-        "product_QciGPW",
-        "product_WDp3nh",
-        "product_TCmVQt",
-        "product_zrfiCf",
-        "product_eDWtW9",
-        "product_qArz4i",
-        "product_t4fL7f",
-        "product_qVA6Mq",
-        "product_nL7jEM"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "80px 0px | | | 0px 0px 52px",
-        "section_heading": "Footwear",
-        "enable_view_all": true,
-        "enable_view_url": "shopify://collections/footwear",
-        "column_lg": 4
-      }
-    },
-    "custom_featured_collection_U9pqcQ": {
-      "type": "custom-featured-collection",
-      "blocks": {
-        "product_wV9Ejn": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-chiku",
-            "variant_name": ""
-          }
-        },
-        "product_YxfwYx": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-lychee",
-            "variant_name": ""
-          }
-        },
-        "product_tUUzce": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-watermelon",
-            "variant_name": ""
-          }
-        },
-        "product_cwymXP": {
-          "type": "product",
-          "settings": {
-            "product": "weekend-shirt-canary-melon",
-            "variant_name": ""
-          }
-        },
-        "product_fAtGdE": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt",
-            "variant_name": ""
-          }
-        },
-        "product_AcWYRE": {
-          "type": "product",
-          "settings": {
-            "product": "circuit-shirt-1",
-            "variant_name": ""
-          }
-        },
-        "product_Pnpgfk": {
-          "type": "product",
-          "settings": {
-            "product": "core-polo-classic-black",
-            "variant_name": "Core Polo"
-          }
-        },
-        "product_X9wVV9": {
-          "type": "product",
-          "settings": {
-            "product": "core-polo-lagoon-green",
-            "variant_name": "Green Polo"
-          }
-        },
-        "product_F3g3jw": {
-          "type": "product",
-          "settings": {
-            "product": "core-polo-vine-red",
-            "variant_name": "Vine Red Polo"
-          }
-        },
-        "product_BtAaka": {
-          "type": "product",
-          "settings": {
-            "product": "chroma-t-dune-beige",
-            "variant_name": "Chroma T Dune Beige"
-          }
-        },
-        "product_wmyRkV": {
-          "type": "product",
-          "settings": {
-            "product": "chroma-t-little-lavender",
-            "variant_name": "Chroma T Litter Lavender"
-          }
-        },
-        "product_VGGMRd": {
-          "type": "product",
-          "settings": {
-            "product": "chroma-t-classic-black",
-            "variant_name": ""
-          }
-        },
-        "product_jHfY7C": {
-          "type": "product",
-          "settings": {
-            "product": "core-polo-crisp-white",
-            "variant_name": "White Polo"
-          }
-        },
-        "product_pB7dft": {
-          "type": "product",
-          "settings": {
-            "product": "core-polo-galaxy-navy",
-            "variant_name": "Navy Polo"
-          }
-        }
-      },
-      "block_order": [
-        "product_wV9Ejn",
-        "product_YxfwYx",
-        "product_tUUzce",
-        "product_cwymXP",
-        "product_fAtGdE",
-        "product_AcWYRE",
-        "product_Pnpgfk",
-        "product_X9wVV9",
-        "product_F3g3jw",
-        "product_BtAaka",
-        "product_wmyRkV",
-        "product_VGGMRd",
-        "product_jHfY7C",
-        "product_pB7dft"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "80px 0px | | | 0px 0px 52px",
-        "section_heading": "Apparel",
-        "enable_view_all": true,
-        "enable_view_url": "shopify://collections/apparel",
-        "column_lg": 4
-      }
-    },
-    "custom_featured_collection_qckkEJ": {
-      "type": "custom-featured-collection",
-      "blocks": {
-        "product_JtLQqP": {
-          "type": "product",
-          "settings": {
-            "product": "the-sport-bag",
-            "variant_name": ""
-          }
-        },
-        "product_3mad48": {
-          "type": "product",
-          "settings": {
-            "product": "the-sport-bag-1",
-            "variant_name": ""
-          }
-        },
-        "product_8ec7fE": {
-          "type": "product",
-          "settings": {
-            "product": "mesh-cap-black",
-            "variant_name": ""
-          }
-        },
-        "product_zzVKAC": {
-          "type": "product",
-          "settings": {
-            "product": "loop-cap-red",
-            "variant_name": ""
-          }
-        },
-        "product_dpppEn": {
-          "type": "product",
-          "settings": {
-            "product": "mesh-cap-red",
-            "variant_name": ""
-          }
-        },
-        "product_CycDAY": {
-          "type": "product",
-          "settings": {
-            "product": "loop-cap-blue",
-            "variant_name": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_JtLQqP",
-        "product_3mad48",
-        "product_8ec7fE",
-        "product_zzVKAC",
-        "product_dpppEn",
-        "product_CycDAY"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "layout": "box_width",
-        "padding": "0px 0px 0px 0px",
-        "margin": "0px | | | 0px 0px 56px",
-        "section_heading": "Accessories",
-        "enable_view_all": false,
-        "enable_view_url": "shopify://collections/futurworks",
-        "column_lg": 4
-      }
-    },
     "new_launch_discover_RAt4m6": {
       "type": "new-launch-discover",
+      "disabled": true,
       "settings": {
         "layout": "box_width",
         "padding": "90px 0px | | | 56px 0px 56px",
@@ -1426,6 +1093,7 @@
     },
     "custom_liquid_zicrMU": {
       "type": "custom-liquid",
+      "disabled": true,
       "custom_css": [
         ".festival-banner-desktop {display: block;}",
         ".festival-banner-mobile {display: none;}",
@@ -1484,6 +1152,7 @@
         "collection_7ibaCd",
         "collection_AXpm6n"
       ],
+      "disabled": true,
       "custom_css": [
         ".custom_img a {pointer-events: none;}"
       ],
@@ -1497,6 +1166,7 @@
     },
     "rich_text_button_c3FNFr": {
       "type": "rich-text-button",
+      "disabled": true,
       "custom_css": [
         "span.mobile-a {display: none;}",
         "@media screen and (max-width: 768px) {span.mobile-a {display: inline-block; } span.desktop-a {display: none; }}"
@@ -1505,7 +1175,7 @@
         "layout": "box_width",
         "padding": "80px 0px 0px 0px | | | 32px 0px 0px",
         "margin": "80px 0px 0px | | | 0px 0px 0px",
-        "title": "We're building <span class=\"desktop-a\">a</span><br><span class=\"mobile-a\">a</span> footwear - first lifestyle brand.",
+        "title": "We're building aa footwear - first lifestyle brand.",
         "btn_text": "Know more",
         "btn_url": "shopify://pages/about"
       }
@@ -1552,6 +1222,7 @@
         "featured_collection_iRVzFB",
         "featured_collection_cMDJk3"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "padding": "80px 0px 0px 0px | | | 56px 0px 0px 0px",
@@ -1570,52 +1241,61 @@
     "multicolumn_aXYUwU": {
       "type": "multicolumn",
       "blocks": {
-        "column_mjTQiU": {
+        "column_nQAYyG": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/verified-badge-line.svg",
-            "title": "<strong>Fast & secure delivery</strong>",
-            "text": "",
+            "image": "shopify://shop_images/icon1.svg",
+            "title": "Free Delivery",
+            "text": "<p>Across india with cash on delivery</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_f9Tdtd": {
+        "column_JbBGbT": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/box-3-line.svg",
-            "title": "<strong>Free shipping across India <br> (COD available)</strong>",
-            "text": "",
+            "image": "shopify://shop_images/icon2.svg",
+            "title": "Returns & Exchange",
+            "text": "<p>Up to 7 days to from delivery.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_mE7L4x": {
+        "column_RimcLj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/arrow-turn-back-line.svg",
-            "title": "<strong>7-day easy returns</strong>",
-            "text": "",
+            "image": "shopify://shop_images/icon3.svg",
+            "title": "100% Secured Payment",
+            "text": "<p>Multiple payment options offered.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_CBrRpN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon4.svg",
+            "title": "Customer Service",
+            "text": "<p>Monday-Friday: 10AM-6PM</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_mjTQiU",
-        "column_f9Tdtd",
-        "column_mE7L4x"
+        "column_nQAYyG",
+        "column_JbBGbT",
+        "column_RimcLj",
+        "column_CBrRpN"
       ],
-      "custom_css": [
-        ".multicolumn-card__image-wrapper--third-width {width: 28px;}",
-        ".multicolumn-list h3 {font-size: 14px;}"
-      ],
+      "custom_css": [],
       "settings": {
+        "custom_class": "home_features",
         "title": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
@@ -1623,14 +1303,20 @@
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 32
+        "padding_top": 44,
+        "padding_bottom": 44
       }
     }
   },
   "order": [
     "slideshow_f88WAr",
-    "video_y7EJPR",
+    "rich_text_ey6YpV",
+    "custom_featured_collection_hEdr4A",
+    "two_column_banner_7jdiFX",
+    "ds_moto_images_text_UmdXGf",
+    "home_sliders_slide_Ek6TLj",
+    "marquee_products_Ak4PAW",
+    "ds_moto_banner_RJKCXq",
     "csk_custom_text_Knc7fd",
     "fw_description_b4empb",
     "image_scroller_cbFL7N",
@@ -1638,12 +1324,6 @@
     "product_slide_text_qE4iJz",
     "image_with_product_ca4xDg",
     "csk_custom_slider_jx8U8h",
-    "custom_collection_W9DDCJ",
-    "image_with_text_rVFJzN",
-    "custom_product_collection_x8iJaj",
-    "custom_featured_collection_R6HVVU",
-    "custom_featured_collection_U9pqcQ",
-    "custom_featured_collection_qckkEJ",
     "new_launch_discover_RAt4m6",
     "custom_liquid_zicrMU",
     "custom_collection_d4wD3n",

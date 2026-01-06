@@ -26,6 +26,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "custom_css": [
         ".html-marquee img {height: 12px; width: 26px; margin: 0px 40px;}",
         ".html-marquee span b {font-weight: 650;}",

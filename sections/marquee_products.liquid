@@ -1,0 +1,151 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin | split: "|" %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} .section--marquee-products{
+  {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+  {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--marquee-products{
+    {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+    {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--marquee-products{
+    {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+    {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--marquee-products{
+    {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+    {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+  }
+}
+.product-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-products linear infinite;
+  animation-duration: {{ section.settings.speed }}s;
+}
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--marquee-products">
+  <div class="{{ container }}">
+    <div class="products_marquee_wrapper">
+      <div class="products_marquee_inner product-marquee-track">
+        {% for i in (1..2) %}
+          {% for block in section.blocks %}
+            {% assign product = block.settings.product %}
+            {% if product != blank %}
+              <a href="{{ product.url }}" class="marquee_product_block">
+               <div class="marquee_product__img">
+                    {% if block.settings.custom_image != blank %}
+                        <img src="{{ block.settings.custom_image | image_url }}" alt="{{ product.title | escape }}" loading="lazy">
+                    {% elsif product.featured_image != blank %}
+                        <img src="{{ product.featured_image | image_url }}" alt="{{ product.title | escape }}" loading="lazy">
+                    {% endif %}
+                </div>
+                <div class="marquee_product__content">
+                  <div class="title">
+                    {{ product.metafields.custom.product_name_breadcrumb }} {% if product.metafields.custom.product_color_name != blank %}/{% endif %} <strong>{{ product.metafields.custom.product_color_name }}</strong>  
+                  </div>
+                  <div class="price">
+                    {{ product.price | money }}
+                  </div>
+                </div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Marquee Products",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Marquee Speed (seconds)",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+            "type": "image_picker",
+            "id": "custom_image",
+            "label": "Custom Image (Optional)",
+            "info": "If added, this image will be used instead of the product image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Products",
+      "category": "Custom",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}

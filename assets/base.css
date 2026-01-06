@@ -7374,7 +7374,7 @@ product-form form .product-form__submit.button:disabled,
   }
 
   .slideshow__slide .banner__media:before {
-    padding-top: 176% !important;
+    padding-top: 169% !important;
   }
   .slider.slider--everywhere .slider__slide .banner__media {
     position: relative;
@@ -7499,7 +7499,7 @@ product-form form .product-form__submit.button:disabled,
     .copyright-content.footer__blocks-wrapper
     .footer__copyright {
     max-width: 100%;
-    padding-top: 20px;
+    padding-top: 4px;
   }
 
   .multi-image-with-text {
