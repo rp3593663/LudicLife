@@ -1672,7 +1672,7 @@ button.size-chart-update-btn,
   border-radius: 4px;
   margin-top: 0;
 }
-button.size-chart-add-to-cart-btn.disabled{
+button.size-chart-update-btn.disabled{
   cursor: not-allowed;
   opacity: .5;
 }
