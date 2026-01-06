@@ -2237,34 +2237,112 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 {% endif %}
 {% if template != 'product.fw-product' %}
-  <script>
-    document.addEventListener("DOMContentLoaded", () => { 
-      document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
-        const img = wrapper.querySelector(".zoom-image:not(.hover_blur)"); 
-        let active = false; 
-        wrapper.addEventListener("mouseenter", () => { 
-          active = true; 
-          img.style.transition = "transform 0.5s ease"; 
-          img.style.transform = "scale(1.8)"; 
-        }); 
-        wrapper.addEventListener("mousemove", (e) => { 
-          if (!active) return; 
-          const rect = wrapper.getBoundingClientRect(); 
-          const x = e.clientX - rect.left; 
-          const y = e.clientY - rect.top; 
-          const px = Math.min(Math.max(0, x), rect.width); 
-          const py = Math.min(Math.max(0, y), rect.height); 
-          img.style.transformOrigin = `${px}px ${py}px`; 
-        }); 
-        wrapper.addEventListener("mouseleave", () => { 
-          active = false; 
-          img.style.transition = "transform 0.5s ease"; 
-          img.style.transform = "scale(1) translate(0,0)"; 
-        }); 
+<script>
+document.addEventListener("DOMContentLoaded", () => { 
+  const isMobile = window.innerWidth <= 768; // Mobile breakpoint
+
+  // ---------------- DESKTOP HOVER ZOOM (UNCHANGED) ----------------
+  if (!isMobile) {
+    document.querySelectorAll(".desktop-zoom-hover").forEach(wrapper => { 
+      const img = wrapper.querySelector(".zoom-image:not(.hover_blur)"); 
+      let active = false; 
+      wrapper.addEventListener("mouseenter", () => { 
+        active = true; 
+        img.style.transition = "transform 0.5s ease"; 
+        img.style.transform = "scale(1.8)"; 
+      }); 
+      wrapper.addEventListener("mousemove", (e) => { 
+        if (!active) return; 
+        const rect = wrapper.getBoundingClientRect(); 
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top; 
+        const px = Math.min(Math.max(0, x), rect.width); 
+        const py = Math.min(Math.max(0, y), rect.height); 
+        img.style.transformOrigin = `${px}px ${py}px`; 
+      }); 
+      wrapper.addEventListener("mouseleave", () => { 
+        active = false; 
+        img.style.transition = "transform 0.5s ease"; 
+        img.style.transform = "scale(1) translate(0,0)"; 
       }); 
     });
-  </script>
+    return; // Skip mobile code if desktop
+  }
+
+  // ---------------- MOBILE TOUCH ZOOM + SWIPE ----------------
+  const containers = document.querySelectorAll('.desktop-zoom-hover');
+  let currentIndex = 0;
+  let startX = 0, startY = 0;
+  let isZoomed = false;
+  let lastTouchTime = 0;
+
+  const updateImage = (wrapper, index) => {
+    const images = wrapper.parentElement.querySelectorAll('.desktop-zoom-hover');
+    images.forEach((imgWrapper, i) => {
+      imgWrapper.style.display = i === index ? 'block' : 'none';
+      imgWrapper.querySelector('img').style.transform = 'scale(1)';
+      imgWrapper.querySelector('img').style.transition = 'transform 0.3s ease';
+    });
+  };
+
+  containers.forEach((wrapper, idx) => {
+    if (idx > 0) wrapper.style.display = 'none'; // only first visible initially
+    const img = wrapper.querySelector('.zoom-image:not(.hover_blur)');
+
+    wrapper.addEventListener('touchstart', (e) => {
+      const now = new Date().getTime();
+      if (now - lastTouchTime < 300) {
+        // Double tap: toggle zoom
+        if (isZoomed) {
+          img.style.transform = 'scale(1)';
+          isZoomed = false;
+        } else {
+          img.style.transform = 'scale(1.8)';
+          img.style.transformOrigin = '50% 50%';
+          isZoomed = true;
+        }
+        lastTouchTime = 0;
+        return;
+      }
+      lastTouchTime = now;
+
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    wrapper.addEventListener('touchmove', (e) => {
+      if (!isZoomed) return; // swipe for slide change
+      const moveX = e.touches[0].clientX - startX;
+      const moveY = e.touches[0].clientY - startY;
+      img.style.transform = `scale(1.8) translate(${moveX}px, ${moveY}px)`;
+      e.preventDefault();
+    });
+
+    wrapper.addEventListener('touchend', (e) => {
+      if (isZoomed) return; // do not swipe slides if zoomed
+
+      const endX = e.changedTouches[0].clientX;
+      const diffX = endX - startX;
+
+      const parent = wrapper.parentElement;
+      const images = parent.querySelectorAll('.desktop-zoom-hover');
+
+      if (Math.abs(diffX) > 50) { // swipe threshold
+        if (diffX < 0) {
+          // swipe left → next image
+          currentIndex = (currentIndex + 1) % images.length;
+        } else {
+          // swipe right → prev image
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+        updateImage(wrapper, currentIndex);
+      }
+    });
+  });
+});
+</script>
 {% endif %}
+
 {% if template != 'product.fw-product' %}
   <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
   <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
