@@ -1302,7 +1302,73 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+<script>
 document.addEventListener('DOMContentLoaded', () => {
+  const addToBagButton = document.querySelector('.product-form__submit');
+  const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
+  const errorMessage = document.querySelector('.sold_out_error');
+  const errorMessagetext = document.querySelector('.sold_out_error span');
+  const selectedSizeBox = document.querySelector('.selected_size');
+  const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+
+  const isSlidersProduct = document.body.classList.contains('is-sliders');
+
+  // ❌ Uncheck all by default
+  sizeInputs.forEach(input => input.checked = false);
+
+  // ✅ Size selection handler
+  sizeInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      if (!input.checked) return;
+
+      const selectedSize = input.value;
+
+      // Hide error
+      if (errorMessage) {
+        errorMessage.style.display = 'none';
+        errorMessagetext.textContent = '';
+      }
+
+      // Set selected size text
+      if (selectedSizeBox) {
+        selectedSizeBox.innerHTML = `<span>${selectedSize}</span>`;
+      }
+
+      // Size specification toggle
+      sizeSpecSpans.forEach(span => {
+        span.style.display =
+          span.dataset.variantTitle === selectedSize ? 'block' : 'none';
+      });
+    });
+  });
+
+  // 🛒 Add to bag validation
+  addToBagButton.addEventListener('click', (event) => {
+    const isAnySizeChecked = Array.from(sizeInputs).some(input => input.checked);
+
+    // ❌ NO SIZE SELECTED
+    if (!isAnySizeChecked) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      // ✅ SLIDERS → OPEN POPUP
+      if (isSlidersProduct) {
+        openVariantPopup();
+        return;
+      }
+
+      // ❌ OTHER PRODUCTS → SHOW ERROR
+      if (errorMessage) {
+        errorMessagetext.textContent = 'Please select your size.';
+        errorMessage.style.display = 'block';
+      }
+    }
+  });
+});
+</script>
+
+
+{% comment %} document.addEventListener('DOMContentLoaded', () => {
   const addToBagButton = document.querySelector('.product-form__submit');
   const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
   const errorMessage = document.querySelector('.sold_out_error');
@@ -1364,7 +1430,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call the function to hide the error when a size is selected
     handleSizeSelection();
   }
-});
+}); {% endcomment %}
     </script>
 
 <script>
