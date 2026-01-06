@@ -2176,21 +2176,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const variantContainer = document.querySelector(".custom-variant-product");
-    if (!variantContainer) return; // Stop if not on product page or component not present
+document.addEventListener("DOMContentLoaded", function () {
+  const variantBlocks = document.querySelectorAll(".custom-variant-product");
+  if (!variantBlocks.length) return;
 
-    const colorTextEl = variantContainer.querySelector("p span");
-    if (!colorTextEl) return; // Stop if no color name span found
+  variantBlocks.forEach(block => {
+    const colorTextEl = block.querySelector("p span");
+    if (!colorTextEl) return;
 
     const defaultColorName = colorTextEl.textContent.trim();
-    const variantLinks = variantContainer.querySelectorAll(".custom-variant-image a");
-
-    if (!variantLinks.length) return; // Stop if no variant links found
+    const variantLinks = block.querySelectorAll(".custom-variant-image a");
+    if (!variantLinks.length) return;
 
     variantLinks.forEach(link => {
       const hoverName = link.getAttribute("data-color-name");
-      if (!hoverName) return; // Skip if no color name metafield
+      if (!hoverName) return;
 
       link.addEventListener("mouseenter", () => {
         colorTextEl.textContent = hoverName;
@@ -2201,7 +2201,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+});
 </script>
+
 {% if template == 'product.apparels' %}
   <script>
     document.addEventListener("DOMContentLoaded", function() {
