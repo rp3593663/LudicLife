@@ -1418,7 +1418,7 @@ let defaultSelectedSize = null;
   function openVariantPopup() {
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
-    const btn = document.getElementById('sizeConfirmBtn');
+    const ConfirmBtn = document.getElementById('sizeConfirmBtn');
 
   // ✅ Capture default size ONLY once
   if (!defaultSelectedSize) {
@@ -1435,7 +1435,7 @@ let defaultSelectedSize = null;
   console.log('defaultSelectedSize:', defaultSelectedSize);
 
   // Default button state
-  btn.innerText = 'Confirm Size';
+  ConfirmBtn.innerText = 'Confirm Size';
 
   // ✅ Listen to REAL variant change
   document
@@ -1445,9 +1445,9 @@ let defaultSelectedSize = null;
         console.log('changed to:', input.value);
 
         if (input.value != defaultSelectedSize) {
-          btn.innerText = 'Update Size';
+          ConfirmBtn.innerText = 'Update Size';
         } else {
-          btn.innerText = 'Confirm Size';
+          ConfirmBtn.innerText = 'Confirm Size';
         }
       };
     });
