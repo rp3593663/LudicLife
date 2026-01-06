@@ -1468,51 +1468,50 @@ $(document).on('click', '.product-form__input .size_var', function(){
     });
   }
 
-  function addPopupVariantToCart() {
+  // function addPopupVariantToCart() {
+  //   const selectedVariant = document.querySelector(
+  //     '.size-chart-popup input[type="radio"]:checked'
+  //   );
 
-  const selectedVariant = document.querySelector(
-    '.size-chart-popup input[type="radio"]:checked'
-  );
+  //   if (!selectedVariant) {
+  //     alert('Please select a size');
+  //     return;
+  //   }
 
-  if (!selectedVariant) {
-    alert('Please select a size');
-    return;
-  }
+  //   const variantId = selectedVariant.getAttribute('data-variant-id');
 
-  const variantId = selectedVariant.getAttribute('data-variant-id');
+  //   if (!variantId) {
+  //     alert('Invalid variant selected');
+  //     return;
+  //   }
 
-  if (!variantId) {
-    alert('Invalid variant selected');
-    return;
-  }
+  //   fetch('/cart/add.js', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       id: variantId,
+  //       quantity: 1
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log('Variant added:', data);
 
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      id: variantId,
-      quantity: 1
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log('Variant added:', data);
+  //     // Close popup
+  //     if (typeof closeVariantPopup === 'function') {
+  //       closeVariantPopup();
+  //     }
 
-    // Close popup
-    if (typeof closeVariantPopup === 'function') {
-      closeVariantPopup();
-    }
+  //     render_cart();
+  //     // Refresh cart / open drawer
+  //     document.dispatchEvent(new CustomEvent('cart:refresh'));
 
-    render_cart();
-    // Refresh cart / open drawer
-    document.dispatchEvent(new CustomEvent('cart:refresh'));
-
-  })
-  .catch(err => {
-    console.error(err);
-    alert('Something went wrong. Please try again.');
-  });
-}
+  //   })
+  //   .catch(err => {
+  //     console.error(err);
+  //     alert('Something went wrong. Please try again.');
+  //   });
+  // }
 
   // Run once on load
   document.addEventListener('DOMContentLoaded', updateRadioDataVals);
