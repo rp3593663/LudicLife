@@ -65,28 +65,28 @@
     margin-top: 0px!important;
 }
 .ds_moto_banner1 .banner__buttons a.button {
-    width: 178px;
-    height: 34px;
-    border: 1px solid #FFFFFF !important;
-    padding: 0px;
-    background: transparent;
-    color: #FFFFFF;
+    width: 228px;
+    height: 38px;
+    border: 1px solid #FFFFFF!important;
+    padding: 0;
+    background: #ffffff;
+    color: #1A1A1A;
     border-radius: 4px;
     opacity: 1;
     font-family: Public Sans;
     font-weight: 650;
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: -0.6px;
+    letter-spacing: -.6px;
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
     min-height: unset;
-    transition: all 0.2s ease-in;
+    transition: all .2s ease-in;
 }
 .ds_moto_banner1 .banner__buttons a.button:hover {
-    background: #FFFFFF;
-    color: #1A1A1A;
+    background: transparent;
+    color: #FFFFFF;
 }
 
 
