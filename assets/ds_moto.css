@@ -839,7 +839,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         line-height: 12px;
         letter-spacing: -.3px;
     }
-    footer .shopify-section-group-footer-group footer {
+    .shopify-section-group-footer-group footer {
         max-width: calc(100% - 32px);
         margin: 0 auto 20px;
         padding: 0px;
