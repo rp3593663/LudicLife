@@ -851,3 +851,16 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         padding: 0px 24px;
     }
 }
+
+/* Disable page scroll when zooming */
+body.zoom-lock {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Prevent Safari gesture handling */
+.desktop-zoom-hover.zoom-active {
+  touch-action: none;
+  overscroll-behavior: contain;
+}
