@@ -2343,14 +2343,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }, { passive: false });
 
-      wrapper.addEventListener("touchend", (e) => {
-        if (e.touches.length === 0 && zoomed) {
-          // save last scale
-          const style = window.getComputedStyle(img);
-          const matrix = new WebKitCSSMatrix(style.transform);
-          lastScale = matrix.a; // extract scaleX
-        }
-      });
+     wrapper.addEventListener("touchend", (e) => {
+  if (e.touches.length === 0 && zoomed) {
+    const style = window.getComputedStyle(img);
+    const matrix = new WebKitCSSMatrix(style.transform);
+    lastScale = matrix.a;
+
+    // 🔥 RESUME AUTOPLAY AFTER USER FINISHES INTERACTION
+    const gallery = wrapper.closest('media-gallery');
+    gallery?.resumeFromZoom();
+  }
+});
+
     }
 
     // remove default link behavior
