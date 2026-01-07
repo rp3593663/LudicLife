@@ -444,13 +444,13 @@
         "image_qpREqk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Background-1.png"
+            "image": "shopify://shop_images/Background.png"
           }
         },
         "image_tTKind": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Background-2.png"
+            "image": "shopify://shop_images/Jack_Knife.png"
           }
         }
       },
