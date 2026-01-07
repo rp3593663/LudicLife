@@ -786,7 +786,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         margin-bottom: 24px;
     }
     footer .newsletter-descrition p{
-        margin-bottom: 0;
+        margin-bottom: 0!important;
     }
     footer .newsletter-form__field-wrapper .field input {
         border-radius: 4px;
