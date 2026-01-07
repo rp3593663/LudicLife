@@ -287,7 +287,7 @@ section--bestseller-products .section_heading .view_all_btn a {
     opacity: 1;
   }
   .product__info-container .custom-mobile-variants .product-form__input {
-    margin: 0;
+    margin: 0!important;
     max-width: 100%;
   }
   .custom-mobile-variants .custom_variants-mobile {
