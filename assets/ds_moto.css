@@ -545,8 +545,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 
 
 @media (min-width: 768px) {
-    .template-index footer .footer__copyright__text,
-    .template-product footer .footer__copyright__text {
+    footer .footer__copyright__text {
         justify-content: flex-start;
         gap: 20px;
     }
@@ -554,8 +553,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 
 
 @media (max-width: 1599.98px) {
-    .template-index .footer-block--menu,
-     .template-product .footer-block--menu {
+    .footer-block--menu {
         max-width: 60% !important;
     }
 }
@@ -764,15 +762,15 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .home_features .multicolumn-list li{
         margin-bottom: 0px!important;
     }
-    .template-index .footer-text--menu .footer-block__newsletter {
+    footer .footer-text--menu .footer-block__newsletter {
         max-width: 100%;
         width: 100%;
     }
-    .template-index h2.newsletter-heading {
+    footer h2.newsletter-heading {
         margin-bottom: 24px;
         position: relative;
     }
-    .template-index h2.newsletter-heading:after {
+    footer h2.newsletter-heading:after {
         content: "";
         background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/footer_red_stars.svg?v=1767257010);
         background-size: cover;
@@ -784,13 +782,13 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         top: 50%;
         transform: translateY(-50%);
     }
-    .template-index .newsletter-descrition {
+    footer .newsletter-descrition {
         margin-bottom: 24px;
     }
-    .template-index .newsletter-descrition p{
+    footer .newsletter-descrition p{
         margin-bottom: 0;
     }
-    .template-index .newsletter-form__field-wrapper .field input {
+    footer .newsletter-form__field-wrapper .field input {
         border-radius: 4px;
         background: transparent;
         border: 1px solid #C7C8CA;
@@ -802,54 +800,54 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         padding: 10px!important;
         color: #000;
     }
-    .template-index form#ContactFooter {
+    footer form#ContactFooter {
         margin-bottom: 0!important;
     }
-    .template-index .footer-block__details-content {
+    footer .footer-block__details-content {
         margin-bottom: 0;
     }
-    .template-index .footer-block--menu {
+    footer .footer-block--menu {
         max-width: 100%!important;
         margin-top: 20px!important;
     }
-    .template-index .footer-menu-wrapper {
+    footer .footer-menu-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 24px;
     }
-    .template-index .footer-menu {
+    footer .footer-menu {
         max-width: 100%;
         width: 100%;
     }
-    .footer-menu:first-child {
+    footer .footer-menu:first-child {
         order: -1;
         grid-row: span 2;
     }
-    .template-index .footer-menu.footer-img-wrapper {
+    footer .footer-menu.footer-img-wrapper {
         display: none;
     }
-    .template-index .footer__blocks-wrapper:not(.copyright-content) {
+    footer .footer__blocks-wrapper:not(.copyright-content) {
         padding: 0px 24px 76px;
         margin-bottom: 0px;
     }
-    .template-index .footer__blocks-wrapper:not(.copyright-content):before {
+    footer .footer__blocks-wrapper:not(.copyright-content):before {
         bottom: 12px;
         width: calc(100% - 48px);
     }
-    .template-index .footer__copyright__text .copyright__content {
+    footer .footer__copyright__text .copyright__content {
         font-size: 10px;
         line-height: 12px;
         letter-spacing: -.3px;
     }
-    .template-index .shopify-section-group-footer-group footer {
+    footer .shopify-section-group-footer-group footer {
         max-width: calc(100% - 32px);
         margin: 0 auto 20px;
         padding: 0px;
     }
-    .template-index .footer__content-top.footer {
+    footer .footer__content-top.footer {
         padding: 24px 0 32px;
     }
-    .template-index .footer__content-top .copyright-content.footer__blocks-wrapper {
+    footer .footer__content-top .copyright-content.footer__blocks-wrapper {
         padding: 0px 24px;
     }
 }
