@@ -16,10 +16,10 @@
           "type": "slide",
           "settings": {
             "slide_custom_class": "ds_moto_banner1",
-            "image": "shopify://shop_images/DS_moto_banner1.png",
-            "mobile_image": "shopify://shop_images/291a53f2f1a085fb59393b2e68647d59ce7aa16c.mp4.png",
+            "image": "shopify://shop_images/DS-moto-slider1-desktop.png",
+            "mobile_image": "shopify://shop_images/DS-moto-slider1-mobile.png",
             "banner_url": "shopify://pages/ds-moto-ludic",
-            "heading": "what's your drive?",
+            "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "mobile_subheading": "",
