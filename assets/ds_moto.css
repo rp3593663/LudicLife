@@ -498,25 +498,18 @@ footer .footer-menu ul.footer-block__details-content a {
     letter-spacing: -0.36px;
     vertical-align: middle;
 }
-.footer-menu:nth-child(4){
-    display:none;
-}
-.template-index .footer-menu:nth-child(4),
-.template-product .footer-menu:nth-child(4) {
+.footer-menu:nth-child(4) {
     display:block;
     order: -1;
 }
-.template-index .footer__content-top.footer,
-.template-product .footer__content-top.footer {
+.footer__content-top.foote {
     padding: 60px 0 30px;
 }
-.template-index .footer__content-top .copyright-content.footer__blocks-wrapper,
-.template-product  .footer__content-top .copyright-content.footer__blocks-wrapper{
+.footer__content-top .copyright-content.footer__blocks-wrapper{
     justify-content: flex-start;
     position: relative;
 }
-.template-index .footer__copyright__text .copyright__content,
-.template-product  .footer__copyright__text .copyright__content{
+.footer__copyright__text .copyright__content{
     font-size: 12px;
     line-height: 17.1px;
     font-weight: 400;
