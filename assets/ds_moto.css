@@ -826,11 +826,11 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     footer .footer-menu.footer-img-wrapper {
         display: none;
     }
-    footer .footer__blocks-wrapper:not(.copyright-content) {
+    .footer__blocks-wrapper:not(.copyright-content) {
         padding: 0px 24px 76px;
         margin-bottom: 0px;
     }
-    footer .footer__blocks-wrapper:not(.copyright-content):before {
+    .footer__blocks-wrapper:not(.copyright-content):before {
         bottom: 12px;
         width: calc(100% - 48px);
     }
