@@ -2362,6 +2362,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const matrix = new WebKitCSSMatrix(style.transform);
       lastScale = matrix.a || 1;
     });
+    wrapper.addEventListener('click', e => e.preventDefault());
   });
 });
 
