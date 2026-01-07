@@ -6939,7 +6939,7 @@ body.Sliders .product__info-wrapper .short_description{
     color: #000;
     font-size: 12px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 12px;
     letter-spacing: -.6px;
     display: inline-flex;
@@ -6966,7 +6966,7 @@ body.Sliders .product__info-wrapper .short_description{
 }
 .coupon-container .offer strong,
 .fw-coupon-container .offer strong {
-    font-weight: 500;
+    font-weight: 400;
 }
 .coupon-container .offer strong .coupon_highlight,
 .fw-coupon-container .offer strong .coupon_highlight {
