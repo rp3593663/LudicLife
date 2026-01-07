@@ -2275,26 +2275,36 @@ document.addEventListener("DOMContentLoaded", () => {
       let currentX = 0;
       let currentY = 0;
 
-      wrapper.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (!zoomed) {
-          zoomed = true;
-           wrapper.classList.add("zoom-active"); // 🔥 ADD THIS
-          lastScale = 2; // initial zoom
-          currentX = 0;
-          currentY = 0;
-          img.style.transition = "transform 0.3s ease";
-          img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
-        } else {
-          zoomed = false;
-          wrapper.classList.remove("zoom-active");
-          lastScale = 1;
-          currentX = 0;
-          currentY = 0;
-          img.style.transition = "transform 0.3s ease";
-          img.style.transform = `scale(1) translate(0px, 0px)`;
-        }
-      });
+    const gallery = wrapper.closest('media-gallery');
+
+    wrapper.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!zoomed) {
+        zoomed = true;
+        wrapper.classList.add("zoom-active");
+
+        gallery?.pauseFromZoom(); // 🛑 STOP AUTOPLAY
+
+        lastScale = 2;
+        currentX = 0;
+        currentY = 0;
+        img.style.transition = "transform 0.3s ease";
+        img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
+      } else {
+        zoomed = false;
+        wrapper.classList.remove("zoom-active");
+
+        lastScale = 1;
+        currentX = 0;
+        currentY = 0;
+        img.style.transition = "transform 0.3s ease";
+        img.style.transform = `scale(1) translate(0px, 0px)`;
+
+        gallery?.resumeFromZoom(); // ▶️ RESUME AUTOPLAY
+      }
+    });
+
 
       wrapper.addEventListener("touchstart", (e) => {
         if (e.touches.length === 2) {
