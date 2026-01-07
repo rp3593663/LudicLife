@@ -2267,92 +2267,80 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       // ---------------- MOBILE TOUCH ZOOM ----------------
-      // ---------------- MOBILE TOUCH ZOOM ----------------
-let zoomed = false;
-let lastScale = 1;
-let startDistance = 0;
-let startX = 0;
-let startY = 0;
-let currentX = 0;
-let currentY = 0;
+      let zoomed = false;
+      let lastScale = 1;
+      let startDistance = 0;
+      let startX = 0;
+      let startY = 0;
+      let currentX = 0;
+      let currentY = 0;
 
-wrapper.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
+      wrapper.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!zoomed) {
+          zoomed = true;
+           wrapper.classList.add("zoom-active"); // 🔥 ADD THIS
+          lastScale = 2; // initial zoom
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
+        } else {
+          zoomed = false;
+          wrapper.classList.remove("zoom-active");
+          lastScale = 1;
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(1) translate(0px, 0px)`;
+        }
+      });
 
-  if (!zoomed) {
-    zoomed = true;
-    wrapper.classList.add("zoom-active");
-    document.body.classList.add("zoom-lock"); // 🔥 LOCK PAGE
+      wrapper.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 2) {
+          // pinch start
+          startDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          startX = currentX;
+          startY = currentY;
+        } else if (e.touches.length === 1 && zoomed) {
+          startX = e.touches[0].clientX - currentX;
+          startY = e.touches[0].clientY - currentY;
+        }
+      }, { passive: false });
 
-    lastScale = 2;
-    currentX = 0;
-    currentY = 0;
+      wrapper.addEventListener("touchmove", (e) => {
+        if (!zoomed) return;
+        e.preventDefault();
+        if (e.touches.length === 2) {
+          // pinch zoom
+          const distance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          const scaleChange = distance / startDistance;
+          const newScale = Math.min(Math.max(lastScale * scaleChange, 1), 5); // limit zoom
+          img.style.transition = "transform 0s";
+          img.style.transform = `scale(${newScale}) translate(${currentX}px, ${currentY}px)`;
+        } else if (e.touches.length === 1) {
+          // drag
+          currentX = e.touches[0].clientX - startX;
+          currentY = e.touches[0].clientY - startY;
+          img.style.transition = "transform 0s";
+          img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
+        }
+      }, { passive: false });
 
-    img.style.transition = "transform 0.3s ease";
-    img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
-  } else {
-    zoomed = false;
-    wrapper.classList.remove("zoom-active");
-    document.body.classList.remove("zoom-lock"); // 🔥 UNLOCK PAGE
-
-    lastScale = 1;
-    currentX = 0;
-    currentY = 0;
-
-    img.style.transition = "transform 0.3s ease";
-    img.style.transform = `scale(1) translate(0px, 0px)`;
-  }
-});
-
-wrapper.addEventListener("touchstart", (e) => {
-  if (!zoomed) return;
-
-  e.preventDefault();
-  e.stopPropagation();
-
-  if (e.touches.length === 2) {
-    startDistance = Math.hypot(
-      e.touches[0].clientX - e.touches[1].clientX,
-      e.touches[0].clientY - e.touches[1].clientY
-    );
-  } else if (e.touches.length === 1) {
-    startX = e.touches[0].clientX - currentX;
-    startY = e.touches[0].clientY - currentY;
-  }
-}, { passive: false });
-
-wrapper.addEventListener("touchmove", (e) => {
-  if (!zoomed) return;
-
-  e.preventDefault();     // 🔥 REQUIRED
-  e.stopPropagation();    // 🔥 REQUIRED
-
-  if (e.touches.length === 2) {
-    const distance = Math.hypot(
-      e.touches[0].clientX - e.touches[1].clientX,
-      e.touches[0].clientY - e.touches[1].clientY
-    );
-
-    const scaleChange = distance / startDistance;
-    const newScale = Math.min(Math.max(lastScale * scaleChange, 1), 4);
-
-    img.style.transform = `scale(${newScale}) translate(${currentX}px, ${currentY}px)`;
-  } else if (e.touches.length === 1) {
-    currentX = e.touches[0].clientX - startX;
-    currentY = e.touches[0].clientY - startY;
-
-    img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
-  }
-}, { passive: false });
-
-wrapper.addEventListener("touchend", () => {
-  if (!zoomed) return;
-
-  const matrix = new WebKitCSSMatrix(getComputedStyle(img).transform);
-  lastScale = matrix.a;
-});
-
+      wrapper.addEventListener("touchend", (e) => {
+        if (e.touches.length === 0 && zoomed) {
+          // save last scale
+          const style = window.getComputedStyle(img);
+          const matrix = new WebKitCSSMatrix(style.transform);
+          lastScale = matrix.a; // extract scaleX
+        }
+      });
     }
 
     // remove default link behavior
