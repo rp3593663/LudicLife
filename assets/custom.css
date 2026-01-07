@@ -334,6 +334,7 @@ section--bestseller-products .section_heading .view_all_btn a {
     font-weight: bold;
     padding: 20px 40px;
     border-bottom: 1px solid #C7C8CA;
+    background: #f9f9f9;
   }
   .collection-list__item .card--media{
     border-radius:4px !important;
