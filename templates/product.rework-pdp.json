@@ -191,7 +191,7 @@
           "settings": {
             "image": "shopify://shop_images/icon2.svg",
             "title": "Returns & Exchange",
-            "text": "<p>Up to 7 days to from delivery.</p>",
+            "text": "<p>Up to 7 days from delivery.</p>",
             "link_label": "",
             "link": ""
           }
