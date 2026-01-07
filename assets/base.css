@@ -7340,10 +7340,6 @@ product-form form .product-form__submit.button:disabled,
   .mobile_only {
     display: none;
   }
-  .shopify-section-group-footer-group footer .footer__copyright__text {
-    justify-content: flex-end;
-    gap: 20px;
-  }
   .variant_card_media .variant_list .variant_item .card_variant {
     padding: 21px 5px 20px;
   }
