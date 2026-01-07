@@ -6838,13 +6838,13 @@ new-cart-drawer-items::-webkit-scrollbar-thumb{
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
-  animation: borderTimeline 12s linear forwards;
+  animation: borderTimeline 10s linear forwards;
   opacity: 0.7;
 }
 
 
 [data-target] button[aria-current="true"]::before {
-  animation: borderTimeline 12s linear forwards;
+  animation: borderTimeline 10s linear forwards;
 }
 
 @keyframes borderTimeline {
