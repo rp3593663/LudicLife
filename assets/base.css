@@ -6574,9 +6574,7 @@ new-cart-drawer .cart__ctas .button {
 .template-collection .collection-list__item .card-wrapper .card__information {
   margin-bottom: 0;
 }
-.template-collection .multicolumn {
-  background-color: #f9f9f9;
-}
+
 
 .cart-drawer .cart-items td.cart-item__details {
   padding-right: 1rem;
