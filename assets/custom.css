@@ -320,7 +320,7 @@ section--bestseller-products .section_heading .view_all_btn a {
     font-size: 10px!important;
     line-height: 12px!Important;
     margin: 0!Important;
-    border-bottom: 1px solid #C7C8CA;
+    border-bottom: 1px solid #C7C8CA!important;
     padding-top: 21px!Important;
     padding-bottom: 20px!important;
     font-weight: 400!important;
