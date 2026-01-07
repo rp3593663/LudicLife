@@ -592,10 +592,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 }
 @media(max-width: 767px){
     .ds_moto_banner1 .slideshow__text.banner__box {
-        top: unset!important;
+        top: 50%!important;
         padding: 0!important;
         z-index: 3;
-        bottom: 100px;
+        bottom: unset;
         transform: translateX(-50%)!important;
     }
     .ds_moto_banner1 h2.banner__heading.h1 {
