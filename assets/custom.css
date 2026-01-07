@@ -314,14 +314,14 @@ section--bestseller-products .section_heading .view_all_btn a {
     justify-content: space-between;
   }
   .custom-mobile-variants .product-form__input--pill .is_tab_active input[type="radio"] + label {
-  	width: 33.33%!Important;
-  	border: none;
-  	border-radius: 0!Important;
+  	width: 33.33%!important;
+  	border: none!important;
+  	border-radius: 0!important;
     font-size: 10px!important;
-    line-height: 12px!Important;
-    margin: 0!Important;
+    line-height: 12px!important;
+    margin: 0!important;
     border-bottom: 1px solid #C7C8CA!important;
-    padding-top: 21px!Important;
+    padding-top: 21px!important;
     padding-bottom: 20px!important;
     font-weight: 400!important;
   }
