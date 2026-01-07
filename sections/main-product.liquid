@@ -631,12 +631,14 @@
                           We suggest one size down
                         </div>
                       {%- endif -%} 
-                      <div class="custom_icon_text exciting_offer" id="open_offer_tab">
-                        <div class="dot_icon green">
-                          <span class="dot"></span>
+                      {% if product.title != "DS Moto" %}
+                        <div class="custom_icon_text exciting_offer" id="open_offer_tab">
+                          <div class="dot_icon green">
+                            <span class="dot"></span>
+                          </div>
+                          Exciting Offers +
                         </div>
-                        Exciting Offers +
-                      </div>
+                      {%- endif -%} 
                     </div>
                   {%- endif -%} 
 
