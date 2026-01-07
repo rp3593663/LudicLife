@@ -426,9 +426,11 @@
       "name": "Two Colum Banner",
       "settings": {
         "layout": "full-width",
-        "left_image": "shopify://shop_images/desktop_1_d7e222d5-eb52-4087-bee6-54c85624a434.png",
+        "left_image_desktop": "shopify://shop_images/desktop_1_d7e222d5-eb52-4087-bee6-54c85624a434.png",
+        "left_image_mobile": "shopify://shop_images/mobile_1_3c1c6e9f-c511-4d67-84f9-71d7fd54228e.png",
         "left_image_alt": "",
-        "right_image": "shopify://shop_images/desktp_2.png",
+        "right_image_desktop": "shopify://shop_images/desktp_2.png",
+        "right_image_mobile": "shopify://shop_images/mobile_2_a832b300-3b3f-4cc3-88b0-be565b7bdfe8.png",
         "right_image_alt": "",
         "heading": "New Tooling",
         "description": "Low Profile Lifestyle Outsole made thin for a true feel of the pedal.",
