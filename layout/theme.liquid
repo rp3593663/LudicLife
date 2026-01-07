@@ -2279,7 +2279,6 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         if (!zoomed) {
           zoomed = true;
-           wrapper.classList.add("zoom-active"); // 🔥 ADD THIS
           lastScale = 2; // initial zoom
           currentX = 0;
           currentY = 0;
@@ -2287,7 +2286,6 @@ document.addEventListener("DOMContentLoaded", () => {
           img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
         } else {
           zoomed = false;
-          wrapper.classList.remove("zoom-active");
           lastScale = 1;
           currentX = 0;
           currentY = 0;
