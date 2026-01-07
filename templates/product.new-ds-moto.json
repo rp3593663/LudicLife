@@ -150,6 +150,55 @@
         "padding_bottom": 98
       }
     },
+    "custom_featured_collection_xjdFQz": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_8RfjbL": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-kadak-brown",
+            "variant_name": ""
+          }
+        },
+        "product_kndUpe": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-go-red",
+            "variant_name": ""
+          }
+        },
+        "product_tzhzCe": {
+          "type": "product",
+          "settings": {
+            "product": "weekend-shirt-chiku",
+            "variant_name": ""
+          }
+        },
+        "product_BBdFWB": {
+          "type": "product",
+          "settings": {
+            "product": "weekend-shirt-watermelon",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_8RfjbL",
+        "product_kndUpe",
+        "product_tzhzCe",
+        "product_BBdFWB"
+      ],
+      "name": "Custom Featured Products",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0px 98px",
+        "section_heading": "Always More",
+        "enable_view_all": true,
+        "enable_view_url": "",
+        "column_lg": 3
+      }
+    },
     "multicolumn_bUpkJr": {
       "type": "multicolumn",
       "blocks": {
@@ -227,6 +276,7 @@
     "product_reels_6kwDTk",
     "product_shop_the_look_37E6CA",
     "related-products",
+    "custom_featured_collection_xjdFQz",
     "multicolumn_bUpkJr"
   ]
 }
