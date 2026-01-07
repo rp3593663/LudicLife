@@ -1,0 +1,232 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "short_description_zBkWcx": {
+          "type": "short_description",
+          "settings": {}
+        },
+        "product_specification_47fawB": {
+          "type": "product_specification",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_i4B7gj": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_icon_with_text_bCF3YE": {
+          "type": "custom_icon_with_text",
+          "settings": {}
+        },
+        "product_fetures_with_icon_NrQimq": {
+          "type": "product_fetures_with_icon",
+          "settings": {}
+        },
+        "product_detail_accordion_EGedQQ": {
+          "type": "product_detail_accordion",
+          "settings": {}
+        },
+        "buy_it_with_iWdwde": {
+          "type": "buy_it_with",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "short_description_zBkWcx",
+        "product_specification_47fawB",
+        "variant_picker",
+        "buy_buttons_i4B7gj",
+        "custom_icon_with_text_bCF3YE",
+        "product_fetures_with_icon_NrQimq",
+        "product_detail_accordion_EGedQQ",
+        "buy_it_with_iWdwde"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "columns",
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "product_extra_description_7thhQm": {
+      "type": "product-extra-description",
+      "name": "Product Description",
+      "settings": {
+        "padding_top": 122,
+        "padding_bottom": 122
+      }
+    },
+    "product_usp_XebkrP": {
+      "type": "product-usp",
+      "name": "Product USPs",
+      "settings": {
+        "heading": "",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    },
+    "product_reels_6kwDTk": {
+      "type": "product-reels",
+      "name": "Product Reels",
+      "settings": {
+        "heading": "#LudicEdits",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    },
+    "product_shop_the_look_37E6CA": {
+      "type": "product-shop-the-look",
+      "name": "Product Shop The Look",
+      "settings": {
+        "heading": "Shop the look",
+        "description": "This is a style ecosystem. Every product is designed to complement the other, coming together to build a complete look that feels intentional, balanced, and true to Ludic. Each piece holds its own, but works even better as part of the whole. Picked one? Explore the rest to bring the full look together.",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Always more",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 98
+      }
+    },
+    "multicolumn_bUpkJr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dwGQj8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon1.svg",
+            "title": "Free Delivery",
+            "text": "<p>Across india with cash on delivery</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qjJEMx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon2.svg",
+            "title": "Returns & Exchange",
+            "text": "<p>Up to 7 days from delivery.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wGeXm8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon3.svg",
+            "title": "100% Secured Payment",
+            "text": "<p>Multiple payment options offered.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kwhaHQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon4.svg",
+            "title": "Customer Service",
+            "text": "<p>Monday-Friday: 10AM-6PM</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dwGQj8",
+        "column_qjJEMx",
+        "column_wGeXm8",
+        "column_kwhaHQ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "custom_class": "home_features",
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_extra_description_7thhQm",
+    "product_usp_XebkrP",
+    "product_reels_6kwDTk",
+    "product_shop_the_look_37E6CA",
+    "related-products",
+    "multicolumn_bUpkJr"
+  ]
+}
