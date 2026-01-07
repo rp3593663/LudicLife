@@ -80,6 +80,7 @@
         "product_detail_accordion_EGedQQ",
         "buy_it_with_iWdwde"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -134,6 +135,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "Always more",
         "heading_size": "h2",
@@ -192,7 +194,7 @@
       "settings": {
         "layout": "box_width",
         "padding": "0px 0px 0px 0px",
-        "margin": "0px 98px",
+        "margin": "0px 0px 98px",
         "section_heading": "Always More",
         "enable_view_all": true,
         "enable_view_url": "",
