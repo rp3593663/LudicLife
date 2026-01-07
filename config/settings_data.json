@@ -182,6 +182,34 @@
       "material-colors": {
         "type": "material-colors",
         "blocks": {
+          "color_GM4VRk": {
+            "type": "color",
+            "settings": {
+              "color_1": "#000000",
+              "title": "Tarmac Black"
+            }
+          },
+          "color_9knYi7": {
+            "type": "color",
+            "settings": {
+              "color_1": "#265b92",
+              "title": "Martini Blue"
+            }
+          },
+          "color_AHUQdz": {
+            "type": "color",
+            "settings": {
+              "color_1": "#da5343",
+              "title": "JDM Orange"
+            }
+          },
+          "color_FxcPpz": {
+            "type": "color",
+            "settings": {
+              "color_1": "#2a484d",
+              "title": "Lemans Green"
+            }
+          },
           "color_TxppTJ": {
             "type": "color",
             "settings": {
@@ -282,6 +310,10 @@
           }
         },
         "block_order": [
+          "color_GM4VRk",
+          "color_9knYi7",
+          "color_AHUQdz",
+          "color_FxcPpz",
           "color_TxppTJ",
           "color_D6bPq6",
           "color_KpqGF7",
@@ -329,11 +361,6 @@
       },
       "15223879327137715448": {
         "type": "shopify://apps/helium-analytics-ai-agent/blocks/pulse/bd7f751b-63f8-4aea-b99c-3592ca942aa9",
-        "disabled": true,
-        "settings": {}
-      },
-      "12259953783823832876": {
-        "type": "shopify://apps/helium-analytics-ai-agent/blocks/pulse-2/bd7f751b-63f8-4aea-b99c-3592ca942aa9",
         "disabled": true,
         "settings": {}
       },
