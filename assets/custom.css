@@ -1417,7 +1417,7 @@ body.size-chart-popup-pdp #MainContent{
     margin-top: 28px!important;
 }
 .template-product:not(.template-product\.fw-product) .custom_variants .form__label {
-    margin-bottom: 16px!important;
+    margin-bottom: 0px!important;
 }
 .template-product:not(.template-product\.fw-product) .product__info-wrapper .form__label {
     line-height: 12px;
@@ -1442,7 +1442,7 @@ body.size-chart-popup-pdp #MainContent{
 .template-product:not(.template-product\.fw-product) fieldset.js.product-form__input {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 16px;
+    gap: 16px;
     margin: 0 0 12px;
 }
 span.size_specification_value {;
