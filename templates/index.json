@@ -382,6 +382,13 @@
             "variant_name": ""
           }
         },
+        "product_4rgGBn": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-lemans-green",
+            "variant_name": ""
+          }
+        },
         "product_pYyzBJ": {
           "type": "product",
           "settings": {
@@ -395,20 +402,13 @@
             "product": "ds-moto-jdm-orange",
             "variant_name": ""
           }
-        },
-        "product_4rgGBn": {
-          "type": "product",
-          "settings": {
-            "product": "ds-moto-lemans-green",
-            "variant_name": ""
-          }
         }
       },
       "block_order": [
         "product_LFwNNn",
+        "product_4rgGBn",
         "product_pYyzBJ",
-        "product_XmxtLf",
-        "product_4rgGBn"
+        "product_XmxtLf"
       ],
       "name": "Custom Featured Products",
       "settings": {
