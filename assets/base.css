@@ -7351,7 +7351,7 @@ product-form form .product-form__submit.button:disabled,
   .product__info-wrapper .coupon-container{
     margin-top: 0;
     font-size: 12px;
-    width: fit-content;
+    /* width: fit-content; */
   }
   .header .header__heading-logo-wrapper {
     max-width: 69px;
