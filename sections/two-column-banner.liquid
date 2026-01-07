@@ -37,23 +37,37 @@
   <div class="{{ container }}">
     <div class="two_column_inner">
 
-      <!-- Left Image -->
+      <!-- LEFT IMAGE -->
       <div class="two_col_left">
-        {% if section.settings.left_image != blank %}
-          <img 
-            src="{{ section.settings.left_image | image_url }}"
-            alt="{{ section.settings.left_image_alt | escape }}"
-            loading="lazy">
+        {% if section.settings.left_image_desktop != blank %}
+          <picture>
+            {% if section.settings.left_image_mobile != blank %}
+              <source
+                media="(max-width: 767px)"
+                srcset="{{ section.settings.left_image_mobile | image_url: width: 900 }}">
+            {% endif %}
+            <img
+              src="{{ section.settings.left_image_desktop | image_url: width: 1800 }}"
+              alt="{{ section.settings.left_image_alt | escape }}"
+              loading="lazy">
+          </picture>
         {% endif %}
       </div>
 
-      <!-- Right Image + Content -->
+      <!-- RIGHT IMAGE + CONTENT -->
       <div class="two_col_right">
-        {% if section.settings.right_image != blank %}
-          <img 
-            src="{{ section.settings.right_image | image_url }}"
-            alt="{{ section.settings.right_image_alt | escape }}"
-            loading="lazy">
+        {% if section.settings.right_image_desktop != blank %}
+          <picture>
+            {% if section.settings.right_image_mobile != blank %}
+              <source
+                media="(max-width: 767px)"
+                srcset="{{ section.settings.right_image_mobile | image_url: width: 900 }}">
+            {% endif %}
+            <img
+              src="{{ section.settings.right_image_desktop | image_url: width: 1800 }}"
+              alt="{{ section.settings.right_image_alt | escape }}"
+              loading="lazy">
+          </picture>
         {% endif %}
 
         <div class="two_col_content">
@@ -94,8 +108,13 @@
 
     {
       "type": "image_picker",
-      "id": "left_image",
-      "label": "Left Image"
+      "id": "left_image_desktop",
+      "label": "Left Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image_mobile",
+      "label": "Left Image (Mobile)"
     },
     {
       "type": "text",
@@ -105,8 +124,13 @@
 
     {
       "type": "image_picker",
-      "id": "right_image",
-      "label": "Right Image"
+      "id": "right_image_desktop",
+      "label": "Right Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image_mobile",
+      "label": "Right Image (Mobile)"
     },
     {
       "type": "text",
@@ -162,8 +186,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-{% javascript %}
-{% endjavascript %}
