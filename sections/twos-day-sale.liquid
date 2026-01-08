@@ -108,7 +108,125 @@
     window.open(googleCalendarUrl, "_blank");
   });
 </script> {% endcomment %}
+
+
+
+
 <script>
+(function () {
+  // ---------- CONFIG ----------
+  const TZ = 'Asia/Kolkata';
+
+  // 🎯 FIXED TARGET: 20 Jan 2025, 11:00 AM IST
+  const TARGET_DATE = new Date('2026-01-20T11:00:00+05:30');
+
+  const EVENT_TITLE = 'Weekly bundle offers from Ludic, every Tuesday.';
+  const EVENT_LOCATION = 'https://ludic.life';
+  const EVENT_DESCRIPTION = 'https://ludic.life/pages/twos-day-sale';
+  const EVENT_DURATION_MINUTES = 60 * 24;
+  const LOCALSTORAGE_PREFIX = 'weekly_sale_reminder_';
+  const RRULE = 'RRULE:FREQ=WEEKLY;BYDAY=TU';
+
+  // ---------- DOM ----------
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+  const setBtn = document.getElementById('setReminderBtn');
+
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  // ---------- HELPERS ----------
+  function setCountdownToZeros() {
+    daysEl.innerText = '00';
+    hoursEl.innerText = '00';
+    minutesEl.innerText = '00';
+    secondsEl.innerText = '00';
+  }
+
+  function markReminderAdded(key) {
+    try {
+      localStorage.setItem(LOCALSTORAGE_PREFIX + key, '1');
+    } catch (e) {}
+  }
+
+  function isReminderAdded(key) {
+    try {
+      return !!localStorage.getItem(LOCALSTORAGE_PREFIX + key);
+    } catch (e) {
+      return false;
+    }
+  }
+function buildGoogleCalendarUrl(dateObj) {
+  function formatForCalendar(d) {
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mi = String(d.getMinutes()).padStart(2, '0');
+    const ss = String(d.getSeconds()).padStart(2, '0');
+    return `${yyyy}${mm}${dd}T${hh}${mi}${ss}`;
+  }
+
+  const start = formatForCalendar(dateObj);
+  const endDate = new Date(dateObj.getTime() + EVENT_DURATION_MINUTES * 60000);
+  const end = formatForCalendar(endDate);
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: EVENT_TITLE,
+    dates: `${start}/${end}`,
+    details: EVENT_DESCRIPTION,
+    location: EVENT_LOCATION,
+    ctz: 'Asia/Kolkata' // 🔥 important
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+  // ---------- MAIN ----------
+  function refresh() {
+    const now = new Date();
+    const distance = TARGET_DATE.getTime() - now.getTime();
+
+    if (distance <= 0) {
+      setCountdownToZeros();
+      clearInterval(timerInterval);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    daysEl.innerText = String(days).padStart(2, '0');
+    hoursEl.innerText = String(hours).padStart(2, '0');
+    minutesEl.innerText = String(minutes).padStart(2, '0');
+    secondsEl.innerText = String(seconds).padStart(2, '0');
+
+    const key = '2025-01-20';
+
+    if (!isReminderAdded(key) && setBtn) {
+      setBtn.disabled = false;
+      setBtn.style.opacity = '1';
+      setBtn.style.cursor = 'pointer';
+      setBtn.innerText = 'Set a reminder';
+
+      setBtn.onclick = function () {
+        const url = buildGoogleCalendarUrl(TARGET_DATE);
+        window.open(url, '_blank');
+        markReminderAdded(key);
+      };
+    }
+  }
+
+  refresh();
+  const timerInterval = setInterval(refresh, 1000);
+})();
+</script>
+
+{% comment %} <script>
 (function () {
   // ---------- CONFIG ----------
   const SALE_START_WEEKDAY = 2; // Tuesday (0 = Sun, 1 = Mon, 2 = Tue, ...)
@@ -301,7 +419,7 @@
   timerInterval = setInterval(refresh, 1000);
 
 })();
-</script> 
+</script>  {% endcomment %}
 
 {% schema %}
 {
