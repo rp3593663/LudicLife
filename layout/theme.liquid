@@ -1197,35 +1197,28 @@
   });
 </script>
 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2DV9DDK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">
+  var mid = '5228';
+</script>
+<script src="https://checkout-merchant.snapmint.com/js/v1/5228" defer></script>
+<!-- End Shopify-payment JavaScript -->
 
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2DV9DDK"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- Begin Shopify–payment-cart JavaScript -->
-      <script type="text/javascript">
-
-        var mid = '5228';
-
-      </script>
-      <script src="https://checkout-merchant.snapmint.com/js/v1/5228" defer></script>
-      <!-- End Shopify-payment JavaScript -->
-
-      <script src='https://static-cdn.trackier.com/js/trackier-web-sdk.js'></script>
-      <script>window.TrackierWebSDK.init();</script>
+<script src='https://static-cdn.trackier.com/js/trackier-web-sdk.js'></script>
+<script>window.TrackierWebSDK.init();</script>
 
 <script>
   $(document).ready(function () {
     $("#write_to_us_btn").on("click", function (e) {
       e.preventDefault();
-
       $(".error").text("");
       let isValid = true;
-
       const name = $("#ContactForm-name").val().trim();
       if (name === "") {
         $("#nameError").text("Name is required.");
         isValid = false;
       }
-
       const emailerror = $("#ContactForm-email").val().trim();
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailerror === "") {
@@ -1235,7 +1228,6 @@
         $("#emailError").text("Enter a valid email address.");
         isValid = false;
       }
-
       const phoneerror = $("#ContactForm-phone").val().trim();
       const phoneRegex = /^[0-9]{10}$/;
       if (phoneerror === "") {
@@ -1245,24 +1237,18 @@
         $("#phoneError").text("Enter a valid 10-digit phone number.");
         isValid = false;
       }
-
       const subjecterror = $("input[name='subject']:checked").val();
       if (!subjecterror) {
         $("#subjectError").text("Please select at least one subject.");
         isValid = false;
       }
-
       if (!isValid) return;
-
       $("#write_to_us_btn").addClass('disable_btn');
-
       const subject = $("input[name='subject']:checked").val();
       const email = $("#ContactForm-email").val();
       const full_name = $("#ContactForm-name").val();
       const phone = $("#ContactForm-phone").val();
       const message = $("#ContactForm-body").val();
-
-      // === EXCHANGE / RETURN HANDLING
       if (subject === 'exchange' || subject === 'return') {
         const formData = {
           email: email,
