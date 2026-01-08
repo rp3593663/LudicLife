@@ -5,11 +5,15 @@
     font-style: normal;
 }
 
-.slideshow .ds_moto_banner1 img{
+.slideshow .ds_moto_banner1{
     height: calc(100dvh - 34px);
-    object-fit: cover;
 }
 
+.slideshow .ds_moto_banner1 img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .ds_home_text .rich-text__wrapper,
 .ds_home_text .rich-text__blocks {
     width: 100%!important;
