@@ -1165,46 +1165,36 @@
 </script>
 
 <script>
- document.addEventListener("DOMContentLoaded", () => {
-  const poster = document.querySelector('[id^="Deferred-Poster-"]');
-
-  if (poster) {
-    poster.click();
-  }
-
-  const mediaContainers = document.querySelectorAll(".product-media-container .deferred-media");
-
-  mediaContainers.forEach((container) => {
-    const videoElement = container.querySelector("video");
-
-    if (videoElement) {
-      // Set required attributes for autoplay
-      videoElement.setAttribute("autoplay", "true");
-      videoElement.setAttribute("muted", "true");
-      videoElement.setAttribute("loop", "true");
-      videoElement.setAttribute("playsinline", "true");
-
-      // Ensure video is loaded and try to play
-      videoElement.load();
-      videoElement.play().catch((error) => {
-        console.warn("Autoplay failed for video:", error);
-
-        // Fallback: Display play button for manual interaction
-        const playButton = container.querySelector(".deferred-media__poster-button");
-        if (playButton) {
-          playButton.style.display = "block";
-          playButton.addEventListener("click", () => {
-            videoElement.muted = true; // Ensure muted
-            videoElement.play().catch((playError) => {
-              console.error("Manual play failed:", playError);
-            });
-          });
-        }
-      });
+  document.addEventListener("DOMContentLoaded", () => {
+    const poster = document.querySelector('[id^="Deferred-Poster-"]');
+    if (poster) {
+      poster.click();
     }
+    const mediaContainers = document.querySelectorAll(".product-media-container .deferred-media");
+    mediaContainers.forEach((container) => {
+      const videoElement = container.querySelector("video");
+      if (videoElement) {
+        videoElement.setAttribute("autoplay", "true");
+        videoElement.setAttribute("muted", "true");
+        videoElement.setAttribute("loop", "true");
+        videoElement.setAttribute("playsinline", "true");
+        videoElement.load();
+        videoElement.play().catch((error) => {
+          console.warn("Autoplay failed for video:", error);
+          const playButton = container.querySelector(".deferred-media__poster-button");
+          if (playButton) {
+            playButton.style.display = "block";
+            playButton.addEventListener("click", () => {
+              videoElement.muted = true; 
+              videoElement.play().catch((playError) => {
+                console.error("Manual play failed:", playError);
+              });
+            });
+          }
+        });
+      }
+    });
   });
-});
-
 </script>
 
 
