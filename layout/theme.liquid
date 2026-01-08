@@ -1536,195 +1536,196 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const variantBlocks = document.querySelectorAll(".custom-variant-product");
-  if (!variantBlocks.length) return;
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const variantBlocks = document.querySelectorAll(".custom-variant-product");
+        if (!variantBlocks.length) return;
 
-  variantBlocks.forEach(block => {
-    const colorTextEl = block.querySelector("p span");
-    if (!colorTextEl) return;
+        variantBlocks.forEach(block => {
+          const colorTextEl = block.querySelector("p span");
+          if (!colorTextEl) return;
 
-    const defaultColorName = colorTextEl.textContent.trim();
-    const variantLinks = block.querySelectorAll(".custom-variant-image a");
-    if (!variantLinks.length) return;
+          const defaultColorName = colorTextEl.textContent.trim();
+          const variantLinks = block.querySelectorAll(".custom-variant-image a");
+          if (!variantLinks.length) return;
 
-    variantLinks.forEach(link => {
-      const hoverName = link.getAttribute("data-color-name");
-      if (!hoverName) return;
+          variantLinks.forEach(link => {
+            const hoverName = link.getAttribute("data-color-name");
+            if (!hoverName) return;
 
-      link.addEventListener("mouseenter", () => {
-        colorTextEl.textContent = hoverName;
-      });
+            link.addEventListener("mouseenter", () => {
+              colorTextEl.textContent = hoverName;
+            });
 
-      link.addEventListener("mouseleave", () => {
-        colorTextEl.textContent = defaultColorName;
-      });
-    });
-  });
-});
-</script>
+            link.addEventListener("mouseleave", () => {
+              colorTextEl.textContent = defaultColorName;
+            });
+          });
+        });
+      }); 
+    </script>
 
-{% if template == 'product.apparels' %}
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      function filterImages(selected) {
-        const slides = document.querySelectorAll('.product__media-item');
-        slides.forEach(slide => {
-          const img = slide.querySelector('img');
-          if (!img || !img.alt || img.alt.trim() === "") {
-            slide.style.display = "";
-            return;
+    {% if template == 'product.apparels' %}
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          function filterImages(selected) {
+            const slides = document.querySelectorAll('.product__media-item');
+            slides.forEach(slide => {
+              const img = slide.querySelector('img');
+              if (!img || !img.alt || img.alt.trim() === "") {
+                slide.style.display = "";
+                return;
+              }
+              const beforePipe = img.alt.split("|")[0].trim();
+              if (beforePipe.toLowerCase() === selected.toLowerCase()) {
+                slide.style.display = "";
+              } else {
+                slide.style.display = "none";
+              }
+            });
           }
-          const beforePipe = img.alt.split("|")[0].trim();
-          if (beforePipe.toLowerCase() === selected.toLowerCase()) {
-            slide.style.display = "";
+
+          const radios = document.querySelectorAll('input[name="model"]');
+          radios.forEach(radio => {
+            radio.addEventListener("change", (e) => {
+              filterImages(e.target.value);
+              document.querySelector(".selected_value").textContent = e.target.value;
+            });
+          });
+
+          const defaultModel = "Male";
+          filterImages(defaultModel);
+          document.querySelector(".selected_value").textContent = defaultModel;
+        });
+      </script>
+    {% endif %}
+
+    {% if template != 'product.fw-product' %}
+      <script>
+      document.addEventListener("DOMContentLoaded", () => { 
+        const isMobile = window.innerWidth <= 768; // mobile breakpoint
+
+        document.querySelectorAll('.desktop-zoom-hover').forEach(wrapper => {
+          const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
+          if (!img) return;
+          if (!isMobile) {
+            // ---------------- DESKTOP HOVER ZOOM ----------------
+            let active = false;
+            wrapper.addEventListener("mouseenter", () => { 
+              active = true; 
+              img.style.transition = "transform 0.5s ease"; 
+              img.style.transform = "scale(1.8)"; 
+            });
+            wrapper.addEventListener("mousemove", (e) => { 
+              if (!active) return; 
+              const rect = wrapper.getBoundingClientRect(); 
+              const x = e.clientX - rect.left; 
+              const y = e.clientY - rect.top; 
+              const px = Math.min(Math.max(0, x), rect.width); 
+              const py = Math.min(Math.max(0, y), rect.height); 
+              img.style.transformOrigin = `${px}px ${py}px`; 
+            });
+            wrapper.addEventListener("mouseleave", () => { 
+              active = false; 
+              img.style.transition = "transform 0.5s ease"; 
+              img.style.transform = "scale(1) translate(0,0)"; 
+            });
           } else {
-            slide.style.display = "none";
+            // ---------------- MOBILE TOUCH ZOOM ----------------
+            let zoomed = false;
+            let lastScale = 1;
+            let startDistance = 0;
+            let startX = 0;
+            let startY = 0;
+            let currentX = 0;
+            let currentY = 0;
+
+            const gallery = wrapper.closest('media-gallery');
+            wrapper.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              if (!zoomed) {
+                zoomed = true;
+                wrapper.classList.add("zoom-active");
+
+                gallery?.pauseFromZoom(); // 🛑 STOP AUTOPLAY
+
+                lastScale = 2;
+                currentX = 0;
+                currentY = 0;
+                img.style.transition = "transform 0.3s ease";
+                img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
+              } else {
+                zoomed = false;
+                wrapper.classList.remove("zoom-active");
+
+                lastScale = 1;
+                currentX = 0;
+                currentY = 0;
+                img.style.transition = "transform 0.3s ease";
+                img.style.transform = `scale(1) translate(0px, 0px)`;
+
+                gallery?.resumeFromZoom(); // ▶️ RESUME AUTOPLAY
+              }
+            });
+            wrapper.addEventListener("touchstart", (e) => {
+              if (e.touches.length === 2) {
+                // pinch start
+                startDistance = Math.hypot(
+                  e.touches[0].clientX - e.touches[1].clientX,
+                  e.touches[0].clientY - e.touches[1].clientY
+                );
+                startX = currentX;
+                startY = currentY;
+              } else if (e.touches.length === 1 && zoomed) {
+                startX = e.touches[0].clientX - currentX;
+                startY = e.touches[0].clientY - currentY;
+              }
+            }, { passive: false });
+            wrapper.addEventListener("touchmove", (e) => {
+              if (!zoomed) return;
+              e.preventDefault();
+              if (e.touches.length === 2) {
+                // pinch zoom
+                const distance = Math.hypot(
+                  e.touches[0].clientX - e.touches[1].clientX,
+                  e.touches[0].clientY - e.touches[1].clientY
+                );
+                const scaleChange = distance / startDistance;
+                const newScale = Math.min(Math.max(lastScale * scaleChange, 1), 5); // limit zoom
+                img.style.transition = "transform 0s";
+                img.style.transform = `scale(${newScale}) translate(${currentX}px, ${currentY}px)`;
+              } else if (e.touches.length === 1) {
+                // drag
+                currentX = e.touches[0].clientX - startX;
+                currentY = e.touches[0].clientY - startY;
+                img.style.transition = "transform 0s";
+                img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
+              }
+            }, { passive: false });
+            wrapper.addEventListener("touchend", (e) => {
+              if (e.touches.length === 0 && zoomed) {
+                const style = window.getComputedStyle(img);
+                const matrix = new WebKitCSSMatrix(style.transform);
+                lastScale = matrix.a;
+
+                // 🔥 RESUME AUTOPLAY AFTER USER FINISHES INTERACTION
+                const gallery = wrapper.closest('media-gallery');
+                gallery?.resumeFromZoom();
+              }
+            });
           }
-        });
-      }
-
-      const radios = document.querySelectorAll('input[name="model"]');
-      radios.forEach(radio => {
-        radio.addEventListener("change", (e) => {
-          filterImages(e.target.value);
-          document.querySelector(".selected_value").textContent = e.target.value;
+          wrapper.addEventListener('click', e => e.preventDefault());
         });
       });
+      </script>
+    {% endif %}
 
-      const defaultModel = "Male";
-      filterImages(defaultModel);
-      document.querySelector(".selected_value").textContent = defaultModel;
-    });
-  </script>
-{% endif %}
-{% if template != 'product.fw-product' %}
-<script>
-document.addEventListener("DOMContentLoaded", () => { 
-  const isMobile = window.innerWidth <= 768; // mobile breakpoint
-
-  document.querySelectorAll('.desktop-zoom-hover').forEach(wrapper => {
-    const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
-    if (!img) return;
-    if (!isMobile) {
-      // ---------------- DESKTOP HOVER ZOOM ----------------
-      let active = false;
-      wrapper.addEventListener("mouseenter", () => { 
-        active = true; 
-        img.style.transition = "transform 0.5s ease"; 
-        img.style.transform = "scale(1.8)"; 
-      });
-      wrapper.addEventListener("mousemove", (e) => { 
-        if (!active) return; 
-        const rect = wrapper.getBoundingClientRect(); 
-        const x = e.clientX - rect.left; 
-        const y = e.clientY - rect.top; 
-        const px = Math.min(Math.max(0, x), rect.width); 
-        const py = Math.min(Math.max(0, y), rect.height); 
-        img.style.transformOrigin = `${px}px ${py}px`; 
-      });
-      wrapper.addEventListener("mouseleave", () => { 
-        active = false; 
-        img.style.transition = "transform 0.5s ease"; 
-        img.style.transform = "scale(1) translate(0,0)"; 
-      });
-    } else {
-      // ---------------- MOBILE TOUCH ZOOM ----------------
-      let zoomed = false;
-      let lastScale = 1;
-      let startDistance = 0;
-      let startX = 0;
-      let startY = 0;
-      let currentX = 0;
-      let currentY = 0;
-
-      const gallery = wrapper.closest('media-gallery');
-      wrapper.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        if (!zoomed) {
-          zoomed = true;
-          wrapper.classList.add("zoom-active");
-
-          gallery?.pauseFromZoom(); // 🛑 STOP AUTOPLAY
-
-          lastScale = 2;
-          currentX = 0;
-          currentY = 0;
-          img.style.transition = "transform 0.3s ease";
-          img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
-        } else {
-          zoomed = false;
-          wrapper.classList.remove("zoom-active");
-
-          lastScale = 1;
-          currentX = 0;
-          currentY = 0;
-          img.style.transition = "transform 0.3s ease";
-          img.style.transform = `scale(1) translate(0px, 0px)`;
-
-          gallery?.resumeFromZoom(); // ▶️ RESUME AUTOPLAY
-        }
-      });
-      wrapper.addEventListener("touchstart", (e) => {
-        if (e.touches.length === 2) {
-          // pinch start
-          startDistance = Math.hypot(
-            e.touches[0].clientX - e.touches[1].clientX,
-            e.touches[0].clientY - e.touches[1].clientY
-          );
-          startX = currentX;
-          startY = currentY;
-        } else if (e.touches.length === 1 && zoomed) {
-          startX = e.touches[0].clientX - currentX;
-          startY = e.touches[0].clientY - currentY;
-        }
-      }, { passive: false });
-      wrapper.addEventListener("touchmove", (e) => {
-        if (!zoomed) return;
-        e.preventDefault();
-        if (e.touches.length === 2) {
-          // pinch zoom
-          const distance = Math.hypot(
-            e.touches[0].clientX - e.touches[1].clientX,
-            e.touches[0].clientY - e.touches[1].clientY
-          );
-          const scaleChange = distance / startDistance;
-          const newScale = Math.min(Math.max(lastScale * scaleChange, 1), 5); // limit zoom
-          img.style.transition = "transform 0s";
-          img.style.transform = `scale(${newScale}) translate(${currentX}px, ${currentY}px)`;
-        } else if (e.touches.length === 1) {
-          // drag
-          currentX = e.touches[0].clientX - startX;
-          currentY = e.touches[0].clientY - startY;
-          img.style.transition = "transform 0s";
-          img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
-        }
-      }, { passive: false });
-      wrapper.addEventListener("touchend", (e) => {
-        if (e.touches.length === 0 && zoomed) {
-          const style = window.getComputedStyle(img);
-          const matrix = new WebKitCSSMatrix(style.transform);
-          lastScale = matrix.a;
-
-          // 🔥 RESUME AUTOPLAY AFTER USER FINISHES INTERACTION
-          const gallery = wrapper.closest('media-gallery');
-          gallery?.resumeFromZoom();
-        }
-      });
-    }
-    wrapper.addEventListener('click', e => e.preventDefault());
-  });
-});
-</script>
-
-{% endif %}
-{% if template != 'product.fw-product' %}
-  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
-  <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
-  <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
-{% endif %}
+    {% if template != 'product.fw-product' %}
+      <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css" />
+      <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"></script>
+      <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.umd.min.js"></script>
+    {% endif %}
 
     {% if template != 'product.fw-product' %}
       <script type="module">
