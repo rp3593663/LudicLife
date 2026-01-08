@@ -1607,8 +1607,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.desktop-zoom-hover').forEach(wrapper => {
     const img = wrapper.querySelector(".zoom-image:not(.hover_blur)");
     if (!img) return;
-
-
     if (!isMobile) {
       // ---------------- DESKTOP HOVER ZOOM ----------------
       let active = false;
@@ -1641,37 +1639,34 @@ document.addEventListener("DOMContentLoaded", () => {
       let currentX = 0;
       let currentY = 0;
 
-    const gallery = wrapper.closest('media-gallery');
+      const gallery = wrapper.closest('media-gallery');
+      wrapper.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    wrapper.addEventListener("click", (e) => {
-      e.preventDefault();
+        if (!zoomed) {
+          zoomed = true;
+          wrapper.classList.add("zoom-active");
 
-      if (!zoomed) {
-        zoomed = true;
-        wrapper.classList.add("zoom-active");
+          gallery?.pauseFromZoom(); // 🛑 STOP AUTOPLAY
 
-        gallery?.pauseFromZoom(); // 🛑 STOP AUTOPLAY
+          lastScale = 2;
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
+        } else {
+          zoomed = false;
+          wrapper.classList.remove("zoom-active");
 
-        lastScale = 2;
-        currentX = 0;
-        currentY = 0;
-        img.style.transition = "transform 0.3s ease";
-        img.style.transform = `scale(${lastScale}) translate(0px, 0px)`;
-      } else {
-        zoomed = false;
-        wrapper.classList.remove("zoom-active");
+          lastScale = 1;
+          currentX = 0;
+          currentY = 0;
+          img.style.transition = "transform 0.3s ease";
+          img.style.transform = `scale(1) translate(0px, 0px)`;
 
-        lastScale = 1;
-        currentX = 0;
-        currentY = 0;
-        img.style.transition = "transform 0.3s ease";
-        img.style.transform = `scale(1) translate(0px, 0px)`;
-
-        gallery?.resumeFromZoom(); // ▶️ RESUME AUTOPLAY
-      }
-    });
-
-
+          gallery?.resumeFromZoom(); // ▶️ RESUME AUTOPLAY
+        }
+      });
       wrapper.addEventListener("touchstart", (e) => {
         if (e.touches.length === 2) {
           // pinch start
@@ -1686,7 +1681,6 @@ document.addEventListener("DOMContentLoaded", () => {
           startY = e.touches[0].clientY - currentY;
         }
       }, { passive: false });
-
       wrapper.addEventListener("touchmove", (e) => {
         if (!zoomed) return;
         e.preventDefault();
@@ -1708,22 +1702,18 @@ document.addEventListener("DOMContentLoaded", () => {
           img.style.transform = `scale(${lastScale}) translate(${currentX}px, ${currentY}px)`;
         }
       }, { passive: false });
+      wrapper.addEventListener("touchend", (e) => {
+        if (e.touches.length === 0 && zoomed) {
+          const style = window.getComputedStyle(img);
+          const matrix = new WebKitCSSMatrix(style.transform);
+          lastScale = matrix.a;
 
-     wrapper.addEventListener("touchend", (e) => {
-  if (e.touches.length === 0 && zoomed) {
-    const style = window.getComputedStyle(img);
-    const matrix = new WebKitCSSMatrix(style.transform);
-    lastScale = matrix.a;
-
-    // 🔥 RESUME AUTOPLAY AFTER USER FINISHES INTERACTION
-    const gallery = wrapper.closest('media-gallery');
-    gallery?.resumeFromZoom();
-  }
-});
-
+          // 🔥 RESUME AUTOPLAY AFTER USER FINISHES INTERACTION
+          const gallery = wrapper.closest('media-gallery');
+          gallery?.resumeFromZoom();
+        }
+      });
     }
-
-    // remove default link behavior
     wrapper.addEventListener('click', e => e.preventDefault());
   });
 });
