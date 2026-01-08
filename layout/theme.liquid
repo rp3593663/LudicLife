@@ -962,211 +962,207 @@
     </style>
 
 <script>
-$('.variant_card_size_guide').on('click', function(e) {
-    e.preventDefault();
-    var productHandle = $(this).data('id');
-    var productImage = $(this).data('image');
-    var productTitle = $(this).data('product-title');
-    console.log("===============Product Title:", productTitle);
-    var metafieldContent = '';
-    var query = `
-        {
-          product(handle: "${productHandle}") {
-            metafield_size_chart: metafield(key: "size_chart_table", namespace: "custom") {
-              value
-            }
-            metafield_size_subheading: metafield(key: "size_chart_subheading", namespace: "custom") {
-              value
-            }
-          }
-        }
-    `;
-    $.ajax({
-        url: 'https://080ed3-2.myshopify.com/api/2023-10/graphql.json',
-        type: 'POST',
-        contentType: 'application/json',
-        headers: {
-            'X-Shopify-Storefront-Access-Token': '64d878bf58a78229e233bc3fb3452498',
-        },
-        data: JSON.stringify({ query: query }),
-        success: function(response) {
-            var metafieldContent = response.data.product.metafield;
-            var additionalText = '';
-
-            // Check if product title contains "Sliders" exactly as written
-            if (productTitle && productTitle.includes("Sliders")) {
-              $('.card_size_guide .slider_size_info').html('<div><img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711"><p>Regular or Narrow feet?<span>go one size down</span></p></div><div><img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711"><p>Wide foot?<span>stick to your usual size.</span></p></div>');
-              $('.card_size_guide .slider-instructuions').html('<h4>How to measure</h4><div class="instructuions_steps"><div class="measurement_step"><h6>Step 1 :</h6><p>Step on a piece of paper with your heel slightly touching a wall behind.</p></div><div class="measurement_step"><h6>Step 2 :</h6><p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p></div><div class="measurement_step"><h6>Step 3 :</h6><p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p></div></div>');
-            } else {
-              $('.card_size_guide .slider-instructuions').css('display', 'none');
-            }
-
-            if (productTitle.includes("Sliders") || productTitle.includes("Nova") || productTitle.includes("Enhanced Canvas") || productTitle.includes("Eclipse") ) {
-              $('.card_size_guide .size_guide_p_img').css('display', 'none');
-            }
-
-            $('.card_size_guide .sizechart_note').html(' <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176"><div class="note_text"> <h6>Not sure about the fit?</h6> <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p> </div>');
-
-            var metafieldContentHTML = response?.data?.product?.metafield_size_chart?.value || null;
-            var metafieldsubheadingText = response?.data?.product?.metafield_size_subheading?.value || null;
-            if (!metafieldContentHTML) {
-              $('.size_guide_popup_content').html('<h2 class="nodata">No size data available</h2>');
-            }else{
-              $('.size_guide_popup_content').html(metafieldContentHTML);
-            }
-            if (!metafieldsubheadingText) {
-              $('.size_guide_subheading').html('');
-            }else{
-              $('.size_guide_subheading').html(metafieldsubheadingText);
-            }
-            
-            $('.size_guide_p_img').html(`<img src="${productImage}" alt="Size Guide Image" style="max-width:100%; height:auto;" />`);
-            $('body').addClass('compare-popup-open');
-            $('body').css('overflow', 'hidden');
-            $('.card_size_guide_overlay').fadeIn().addClass('size_popup_overlay_visible');
-            $('.card_size_guide').fadeIn().addClass('size_popup_visible');
-        },
-        error: function(xhr) {
-            console.error('Failed to fetch product data:', xhr);
-            $('.size_guide_content').html('<p>Error loading size guide. Please try again later.</p>');
-        }
-    });
-});
-
-$('.close_size_guide').on('click', function(e) {
-    e.stopPropagation();
-    $('body').removeClass('compare-popup-open');
-    $('body').css('overflow', '');
-    $('.card_size_guide_overlay').fadeOut().removeClass('size_popup_overlay_visible');
-    $('.card_size_guide').fadeOut().removeClass('size_popup_visible');
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth <= 768) {
-
-    const mobileStickyBtn = document.querySelector('.wish-with-button.mobile');
-    const MobileMainBtn = document.querySelector('.wish-with-button.desktop');
-
-    mobileStickyBtn.style.display = 'none';
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // If main button is visible anywhere → hide sticky
-          if (entry.isIntersecting) {
-            mobileStickyBtn.style.display = 'none';
-          } else {
-            const rect = entry.boundingClientRect;
-            if (rect.top < 100) {
-              mobileStickyBtn.style.display = 'block';
-            }
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-
-    observer.observe(MobileMainBtn);
-  }
-});
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth >= 767) {
-    const stickyBtn = document.querySelector('.sticky_information_desktop');
-    const mainBtn = document.querySelector('.wish-with-button.desktop');
-
-    stickyBtn.style.display = 'none';
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // If main button is visible anywhere → hide sticky
-          if (entry.isIntersecting) {
-            stickyBtn.style.display = 'none';
-          } else {
-            const rect = entry.boundingClientRect;
-            if (rect.top < 0) {
-              stickyBtn.style.display = 'flex';
-            }
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-
-    observer.observe(mainBtn);
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const addToBagButton = document.querySelector('.product-form__submit');
-  const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
-  const errorMessage = document.querySelector('.sold_out_error');
-  const errorMessagetext = document.querySelector('.sold_out_error span');
-  const selectedSizeBox = document.querySelector('.selected_size');
-  const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
-  const isSlidersProduct = document.body.classList.contains('is-sliders');
-
-  if (sizeInputs.length > 0) {
-    // Ensure no size is selected by default
-    sizeInputs.forEach(input => {
-      input.checked = false;
-    });
-    function handleSizeSelection() {
-      sizeInputs.forEach(input => {
-        input.addEventListener('change', () => {
-          if (input.checked) {
-            const selectedSize = input.value;
-            // Hide error
-            if (errorMessage) {
-              errorMessage.style.display = 'none';
-              errorMessagetext.textContent = '';
-            }
-
-            // ✅ Set selected size text
-            if (selectedSizeBox) {
-              selectedSizeBox.innerHTML = ` <span>${input.value}</span>`;
-            }
-
-             sizeSpecSpans.forEach(span => {
-              if (span.dataset.variantTitle === selectedSize) {
-                span.style.display = 'block';
-              } else {
-                span.style.display = 'none';
+  $('.variant_card_size_guide').on('click', function(e) {
+      e.preventDefault();
+      var productHandle = $(this).data('id');
+      var productImage = $(this).data('image');
+      var productTitle = $(this).data('product-title');
+      console.log("===============Product Title:", productTitle);
+      var metafieldContent = '';
+      var query = `
+          {
+            product(handle: "${productHandle}") {
+              metafield_size_chart: metafield(key: "size_chart_table", namespace: "custom") {
+                value
               }
-            });
+              metafield_size_subheading: metafield(key: "size_chart_subheading", namespace: "custom") {
+                value
+              }
+            }
           }
-        });
+      `;
+      $.ajax({
+          url: 'https://080ed3-2.myshopify.com/api/2023-10/graphql.json',
+          type: 'POST',
+          contentType: 'application/json',
+          headers: {
+              'X-Shopify-Storefront-Access-Token': '64d878bf58a78229e233bc3fb3452498',
+          },
+          data: JSON.stringify({ query: query }),
+          success: function(response) {
+              var metafieldContent = response.data.product.metafield;
+              var additionalText = '';
+
+              // Check if product title contains "Sliders" exactly as written
+              if (productTitle && productTitle.includes("Sliders")) {
+                $('.card_size_guide .slider_size_info').html('<div><img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/wide-foot.png?v=1746688711"><p>Regular or Narrow feet?<span>go one size down</span></p></div><div><img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/narrow-foot.png?v=1746688711"><p>Wide foot?<span>stick to your usual size.</span></p></div>');
+                $('.card_size_guide .slider-instructuions').html('<h4>How to measure</h4><div class="instructuions_steps"><div class="measurement_step"><h6>Step 1 :</h6><p>Step on a piece of paper with your heel slightly touching a wall behind.</p></div><div class="measurement_step"><h6>Step 2 :</h6><p>Mark the end of your longest toe on the paper and measure from the wall  to the marking.</p></div><div class="measurement_step"><h6>Step 3 :</h6><p>Do the same for the other foot and compare measurements with our size chart to get the right size.</p></div></div>');
+              } else {
+                $('.card_size_guide .slider-instructuions').css('display', 'none');
+              }
+
+              if (productTitle.includes("Sliders") || productTitle.includes("Nova") || productTitle.includes("Enhanced Canvas") || productTitle.includes("Eclipse") ) {
+                $('.card_size_guide .size_guide_p_img').css('display', 'none');
+              }
+
+              $('.card_size_guide .sizechart_note').html(' <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/info.png?v=1762753176"><div class="note_text"> <h6>Not sure about the fit?</h6> <p>No problem, we offer free exchanges & returns for 30 days in the US. <a href="#">Learn More</a></p> </div>');
+
+              var metafieldContentHTML = response?.data?.product?.metafield_size_chart?.value || null;
+              var metafieldsubheadingText = response?.data?.product?.metafield_size_subheading?.value || null;
+              if (!metafieldContentHTML) {
+                $('.size_guide_popup_content').html('<h2 class="nodata">No size data available</h2>');
+              }else{
+                $('.size_guide_popup_content').html(metafieldContentHTML);
+              }
+              if (!metafieldsubheadingText) {
+                $('.size_guide_subheading').html('');
+              }else{
+                $('.size_guide_subheading').html(metafieldsubheadingText);
+              }
+              
+              $('.size_guide_p_img').html(`<img src="${productImage}" alt="Size Guide Image" style="max-width:100%; height:auto;" />`);
+              $('body').addClass('compare-popup-open');
+              $('body').css('overflow', 'hidden');
+              $('.card_size_guide_overlay').fadeIn().addClass('size_popup_overlay_visible');
+              $('.card_size_guide').fadeIn().addClass('size_popup_visible');
+          },
+          error: function(xhr) {
+              console.error('Failed to fetch product data:', xhr);
+              $('.size_guide_content').html('<p>Error loading size guide. Please try again later.</p>');
+          }
       });
+  });
+  $('.close_size_guide').on('click', function(e) {
+      e.stopPropagation();
+      $('body').removeClass('compare-popup-open');
+      $('body').css('overflow', '');
+      $('.card_size_guide_overlay').fadeOut().removeClass('size_popup_overlay_visible');
+      $('.card_size_guide').fadeOut().removeClass('size_popup_visible');
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 768) {
+
+      const mobileStickyBtn = document.querySelector('.wish-with-button.mobile');
+      const MobileMainBtn = document.querySelector('.wish-with-button.desktop');
+
+      mobileStickyBtn.style.display = 'none';
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // If main button is visible anywhere → hide sticky
+            if (entry.isIntersecting) {
+              mobileStickyBtn.style.display = 'none';
+            } else {
+              const rect = entry.boundingClientRect;
+              if (rect.top < 100) {
+                mobileStickyBtn.style.display = 'block';
+              }
+            }
+          });
+        },
+        { threshold: 0 }
+      );
+
+      observer.observe(MobileMainBtn);
     }
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth >= 767) {
+      const stickyBtn = document.querySelector('.sticky_information_desktop');
+      const mainBtn = document.querySelector('.wish-with-button.desktop');
 
-    addToBagButton.addEventListener('click', (event) => {
-      const isAnySizeChecked = Array.from(sizeInputs).some(input => input.checked);
+      stickyBtn.style.display = 'none';
 
-      // ❌ NO SIZE SELECTED
-      if (!isAnySizeChecked) {
-        event.preventDefault();
-        event.stopPropagation();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // If main button is visible anywhere → hide sticky
+            if (entry.isIntersecting) {
+              stickyBtn.style.display = 'none';
+            } else {
+              const rect = entry.boundingClientRect;
+              if (rect.top < 0) {
+                stickyBtn.style.display = 'flex';
+              }
+            }
+          });
+        },
+        { threshold: 0 }
+      );
 
-        // ✅ SLIDERS → OPEN POPUP
-        if (isSlidersProduct) {
-          openVariantPopup();
-          return;
-        }
+      observer.observe(mainBtn);
+    }
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    const addToBagButton = document.querySelector('.product-form__submit');
+    const sizeInputs = document.querySelectorAll('.custom_variants .product-form__input--pill input[type="radio"]');
+    const errorMessage = document.querySelector('.sold_out_error');
+    const errorMessagetext = document.querySelector('.sold_out_error span');
+    const selectedSizeBox = document.querySelector('.selected_size');
+    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+    const isSlidersProduct = document.body.classList.contains('is-sliders');
 
-        // ❌ OTHER PRODUCTS → SHOW ERROR
-        if (errorMessage) {
-          errorMessagetext.textContent = 'Please select your size.';
-          errorMessage.style.display = 'block';
-        }
+    if (sizeInputs.length > 0) {
+      // Ensure no size is selected by default
+      sizeInputs.forEach(input => {
+        input.checked = false;
+      });
+      function handleSizeSelection() {
+        sizeInputs.forEach(input => {
+          input.addEventListener('change', () => {
+            if (input.checked) {
+              const selectedSize = input.value;
+              // Hide error
+              if (errorMessage) {
+                errorMessage.style.display = 'none';
+                errorMessagetext.textContent = '';
+              }
+
+              // ✅ Set selected size text
+              if (selectedSizeBox) {
+                selectedSizeBox.innerHTML = ` <span>${input.value}</span>`;
+              }
+
+              sizeSpecSpans.forEach(span => {
+                if (span.dataset.variantTitle === selectedSize) {
+                  span.style.display = 'block';
+                } else {
+                  span.style.display = 'none';
+                }
+              });
+            }
+          });
+        });
       }
-    });
 
-    // Call the function to hide the error when a size is selected
-    handleSizeSelection();
-  }
-});
-    </script>
+      addToBagButton.addEventListener('click', (event) => {
+        const isAnySizeChecked = Array.from(sizeInputs).some(input => input.checked);
+
+        // ❌ NO SIZE SELECTED
+        if (!isAnySizeChecked) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          // ✅ SLIDERS → OPEN POPUP
+          if (isSlidersProduct) {
+            openVariantPopup();
+            return;
+          }
+
+          // ❌ OTHER PRODUCTS → SHOW ERROR
+          if (errorMessage) {
+            errorMessagetext.textContent = 'Please select your size.';
+            errorMessage.style.display = 'block';
+          }
+        }
+      });
+
+      // Call the function to hide the error when a size is selected
+      handleSizeSelection();
+    }
+  });
+</script>
 
 <script>
  document.addEventListener("DOMContentLoaded", () => {
