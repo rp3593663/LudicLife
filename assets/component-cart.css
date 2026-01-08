@@ -111,6 +111,20 @@ cart-items.is-empty .title-wrapper-with-link,
 .cart__login-title {
   margin: 5.5rem 0 0.5rem;
 }
+.cart__warnings a.button {
+    letter-spacing: -.36px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 17.1px;
+    display: inline-block;
+    min-height: auto;
+    font-size: 12px;
+    background: #e60013;
+    padding: 13px 21px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 20px auto 100px;
+}
 
 .cart__login-paragraph {
   margin-top: 0.8rem;
