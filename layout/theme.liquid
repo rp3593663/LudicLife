@@ -2114,7 +2114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!--dsMoto_promo_popup Start-->
 
-    <div id="ds_moto_popup" style="display: none;">
+    {% comment %} <div id="ds_moto_popup" style="display: none;">
       <div class="ds_moto_popup-overlay"> </div>
       <div class="ds_moto_popup-box">
         <button class="ds_popup-close">
@@ -2128,44 +2128,36 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-
-       const path = window.location.pathname;
-
-  /* ❌ Pages where popup should NOT appear */
-  const blockedPaths = [
-    "/", // home
-    "/pages/ds-moto-ludic"
-  ];
-
-  if (blockedPaths.includes(path)) {
-    return;
-  }
-
+        const path = window.location.pathname;
+        /* ❌ Pages where popup should NOT appear */
+        const blockedPaths = [
+          "/", // home
+          "/pages/ds-moto-ludic"
+        ];
+        if (blockedPaths.includes(path)) {
+          return;
+        }
         const popup = document.getElementById("ds_moto_popup");
         const closeBtn = document.querySelector(".ds_popup-close");
         const ctaBtn = document.getElementById("ds_popup-cta");
 
         const sessionClosed = sessionStorage.getItem("DsPopupClosed");
         const permanentlyClosed = localStorage.getItem("DsPopupDontShow");
-
         // Show popup only if within IST time range + no close history
         if (!sessionClosed && !permanentlyClosed) { 
           setTimeout(() => popup.style.display = "flex", Math.random() * 2000 + 3000);
         } 
-
         closeBtn.addEventListener("click", () => {
           popup.style.display = "none";
           sessionStorage.setItem("DsPopupClosed", "true");
         });
-
         ctaBtn.addEventListener("click", () => {
           popup.style.display = "none";
           localStorage.setItem("DsPopupDontShow", "true");
           window.location.href = 'https://ludic.life/pages/ds-moto-ludic';
         });
-
       });
-    </script>
+    </script> {% endcomment %}
 
 <!--dsMoto_promo_popup End-->
 
