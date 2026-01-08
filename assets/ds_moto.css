@@ -5,8 +5,9 @@
     font-style: normal;
 }
 
-.slideshow .ds_moto_banner1{
+.slideshow .ds_moto_banner1 img{
     height: calc(100dvh - 34px);
+    object-fit: cover;
 }
 
 .ds_home_text .rich-text__wrapper,
