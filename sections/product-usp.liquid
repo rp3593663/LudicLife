@@ -20,12 +20,12 @@
           <div class="product_USP_container">
            {% for usp in product.metafields.custom.product_lifestyle_usps.value %}
               <div class="product_USP">
-                <div class="USP_img">
+                <div class="USP_img desktop-zoom-hover">
                   {% assign image_index = forloop.index0 %}
                   {% assign meta_img = product.metafields.custom.scroll_image.value[image_index] %}
                   {% if meta_img %}
                     {% assign meta_image = meta_img | split: '||' %}
-                    <img src="{{ meta_image[0] }}">
+                    <img src="{{ meta_image[0] }}" class="zoom-image" loading="lazy" draggable="false">
                   {% endif %}
                 </div>
 
