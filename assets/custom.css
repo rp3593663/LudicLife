@@ -2007,6 +2007,7 @@ h2.reels_title {
 .USP_img {
     position: relative;
     padding-top: 100%;
+    background: #f9f9f9;
 }
 .USP_img img {
     position: absolute;
