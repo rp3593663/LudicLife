@@ -1534,54 +1534,6 @@ document.addEventListener("DOMContentLoaded", function () {
 <!--twosDay_promo_popup End-->
 
 
-<!--dsMoto_promo_popup Start-->
-
-    {% comment %} <div id="ds_moto_popup" style="display: none;">
-      <div class="ds_moto_popup-overlay"> </div>
-      <div class="ds_moto_popup-box">
-        <button class="ds_popup-close">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.8999 0.899902L0.899902 10.8999M0.899902 0.899902L10.8999 10.8999" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <h2>What's your drive?</h2>
-        <button id="ds_popup-cta" class="popup-cta-btn">Join Waitlist</button>
-      </div>
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const path = window.location.pathname;
-        /* ❌ Pages where popup should NOT appear */
-        const blockedPaths = [
-          "/", // home
-          "/pages/ds-moto-ludic"
-        ];
-        if (blockedPaths.includes(path)) {
-          return;
-        }
-        const popup = document.getElementById("ds_moto_popup");
-        const closeBtn = document.querySelector(".ds_popup-close");
-        const ctaBtn = document.getElementById("ds_popup-cta");
-
-        const sessionClosed = sessionStorage.getItem("DsPopupClosed");
-        const permanentlyClosed = localStorage.getItem("DsPopupDontShow");
-        // Show popup only if within IST time range + no close history
-        if (!sessionClosed && !permanentlyClosed) { 
-          setTimeout(() => popup.style.display = "flex", Math.random() * 2000 + 3000);
-        } 
-        closeBtn.addEventListener("click", () => {
-          popup.style.display = "none";
-          sessionStorage.setItem("DsPopupClosed", "true");
-        });
-        ctaBtn.addEventListener("click", () => {
-          popup.style.display = "none";
-          localStorage.setItem("DsPopupDontShow", "true");
-          window.location.href = 'https://ludic.life/pages/ds-moto-ludic';
-        });
-      });
-    </script> {% endcomment %}
-
-<!--dsMoto_promo_popup End-->
 
 
 <script>
