@@ -13,6 +13,7 @@
   }
 {%- endstyle -%}
 
+{% if product.metafields.custom.product_reel_video %}
 <section id="section_product_reels">
     <div class="product_reels content-container section-{{ section.id }}-padding">
         <div class="container">
@@ -111,6 +112,7 @@
         </div>
     </div>
 </section>
+{% endif %}
 
 {% schema %}
 {

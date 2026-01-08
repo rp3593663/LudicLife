@@ -12,18 +12,18 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "title": {
+        "title_YPKRmg": {
           "type": "title",
           "settings": {}
         },
-        "price": {
+        "price_NaH3zL": {
           "type": "price",
           "settings": {}
         }
       },
       "block_order": [
-        "title",
-        "price"
+        "title_YPKRmg",
+        "price_NaH3zL"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -31,7 +31,7 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "columns",
+        "gallery_layout": "stacked",
         "media_position": "left",
         "image_zoom": "none",
         "mobile_thumbnails": "show",
@@ -41,25 +41,28 @@
         "padding_bottom": 0
       }
     },
-    "product_extra_description_jAqhgQ": {
-      "type": "product-extra-description",
-      "name": "Product Description",
+    "custom_liquid_egExCp": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "padding_top": 122,
-        "padding_bottom": 98
+        "custom_liquid": "<div class=\"container\"><div class=\"product_extra_content\">\nBuilt in <span>cotton-based</span> comfort-led knit, they're designed to <span>complement your Sliders,</span> and to <span>style with everything</span> you can think of.</div></div>",
+        "color_scheme": "",
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     },
-    "product_usp_RBXp6w": {
+    "product_usp_BbQUrV": {
       "type": "product-usp",
       "name": "Product USPs",
       "settings": {
-        "heading": "",
+        "heading": "Video",
         "padding_top": 0,
         "padding_bottom": 58
       }
     },
-    "product_reels_hfnMRD": {
+    "product_reels_8hMhjg": {
       "type": "product-reels",
+      "disabled": true,
       "name": "Product Reels",
       "settings": {
         "heading": "#LudicEdits",
@@ -127,72 +130,62 @@
       "name": "Custom Featured Products",
       "settings": {
         "layout": "box_width",
-        "padding": "58px 0px 100px 0px | | | 68px 0px 48px 0px",
-        "margin": "0px",
+        "padding": "0px 0px 0px 0px",
+        "margin": "80px 0px | | | 36px 0px",
         "section_heading": "Always more",
         "enable_view_all": true,
         "enable_view_url": "",
         "column_lg": 4
       }
     },
-    "multicolumn_rrfNXw": {
+    "multicolumn_MJtHkx": {
       "type": "multicolumn",
       "blocks": {
-        "column_9KNdC4": {
+        "column_Kywzyw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon1.svg",
-            "title": "Free Delivery",
-            "text": "<p>Across india with cash on delivery</p>",
+            "image": "shopify://shop_images/verified-badge-line.svg",
+            "title": "<strong>Fast & secure delivery</strong>",
+            "text": "",
             "link_label": "",
             "link": ""
           }
         },
-        "column_xd76AV": {
+        "column_pYb7zP": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon2.svg",
-            "title": "Returns & Exchange",
-            "text": "<p>Up to 7 days to from delivery.</p>",
+            "image": "shopify://shop_images/box-3-line.svg",
+            "title": "<strong>Free shipping across India <br> (COD available)</strong>",
+            "text": "",
             "link_label": "",
             "link": ""
           }
         },
-        "column_jmt9MR": {
+        "column_jWX6L3": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon3.svg",
-            "title": "100% Secured Payment",
-            "text": "<p>Multiple payment options offered.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_LB9BbL": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/icon4.svg",
-            "title": "Customer Service",
-            "text": "<p>Monday-Friday: 10AM-6PM</p>",
+            "image": "shopify://shop_images/arrow-turn-back-line.svg",
+            "title": "<strong>7-day easy returns</strong>",
+            "text": "",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_9KNdC4",
-        "column_xd76AV",
-        "column_jmt9MR",
-        "column_LB9BbL"
+        "column_Kywzyw",
+        "column_pYb7zP",
+        "column_jWX6L3"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".multicolumn-card__image-wrapper {width: 28px; height: 32px;}"
+      ],
       "settings": {
-        "custom_class": "home_features",
         "title": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
@@ -200,18 +193,18 @@
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 44
+        "padding_top": 56,
+        "padding_bottom": 28
       }
     }
   },
   "order": [
     "main",
-    "product_extra_description_jAqhgQ",
-    "product_usp_RBXp6w",
-    "product_reels_hfnMRD",
+    "custom_liquid_egExCp",
+    "product_usp_BbQUrV",
+    "product_reels_8hMhjg",
     "related-products",
     "custom_featured_collection_QWytyH",
-    "multicolumn_rrfNXw"
+    "multicolumn_MJtHkx"
   ]
 }

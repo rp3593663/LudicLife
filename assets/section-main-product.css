@@ -1578,8 +1578,8 @@ body.Sliders .custom_variants {
 }
 .size-chart-popup__content {
   width: 100%;
-  max-width: 408px;
-  padding: 35px;
+  max-width: 360px;
+  padding: 28px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1590,44 +1590,46 @@ body.Sliders .custom_variants {
   display: none;
 }
 h2.size-chart-popup__title {
-  font-size: 28px;
-  line-height: 33px;
+  font-size: 22px;
+  line-height: 22px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  letter-spacing: -1.1px;
 }
 .size-chart-popup__header p {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.36px;
   font-weight: 400;
   color: #949598;
-  margin-bottom: 17px;
+  margin-bottom: 20px;
 }
 .size-chart-popup__body {
   display: flex;
   text-align: center;
-  gap: 10px;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 .size-chart-popup__body div {
   background: #F0F0F0;
-  padding: 8px 13px;
-  border-radius: 5px;
+  padding: 9px 12px 10px;
+  border-radius: 4px;
   width: 100%;
 }
 .size-chart-popup__body img {
-  width: 100%;
-  max-width: 34px;
-  min-height: 88px;
+  width: auto;
+  height: 74px;
   object-fit: contain;
 }
 .size-chart-popup__body p {
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 9px;
+  line-height: 9px;
+  letter-spacing: -0.27px;
   font-weight: 600;
   display: grid;
   text-align: center;
-  margin: 0;
-  margin-top: 10px;
+  margin: 12px 0 0;
+  gap: 4px;
 }
 .size-chart-popup__body p span {
   color:#E60013;
@@ -1636,44 +1638,55 @@ h2.size-chart-popup__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 17px;
+  margin-bottom: 12px;
 }
 .size-chart-size-box-heading h4 {
-  font-size: 15px;
+  font-size: 12px;
+  letter-spacing: -0.6px;
   line-height: 100%;
   font-weight: 700;
   margin: 0;
 }
 .size-chart-size-box-heading p {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 100%;
+  letter-spacing: -0.3px;
   font-weight: 600;
   color: #949598;
   margin: 0;
   cursor: pointer;
 }
-button.size-chart-update-btn {
+.size-chart-popup__size-box .default_variant_uk {
+    gap: 10px 15px;
+}
+button.size-chart-update-btn,
+.size-chart-add-to-cart-btn {
   border: none;
-  background: #E60013;
-  font-size: 12px;
-  line-height: 20px;
+  background: #e60013;
+  font-size: 14px;
+  line-height: 14px;
   font-weight: 700;
   color: #fff;
   width: 100%;
-  padding: 11px 0;
-  border-radius: 6px;
-  margin-top: 17px;
+  padding: 12px 0;
+  border-radius: 4px;
+  margin-top: 0;
+}
+button.size-chart-update-btn.disabled{
+  cursor: not-allowed;
+  opacity: .5;
 }
 .size-chart-size-box-update-btn a {
   font-size: 12px;
-  line-height: 20px;
+  line-height: 10px;
   font-weight: 600;
-  margin: 0;
-  color: #949598 !important;
-  margin-top: 10px;
+  margin: 16px 0 0;
+  color: #949598!important;
   width: 100%;
   display: block;
   text-align: center;
+  letter-spacing: -0.36px;
+  text-decoration: unset;
 }
 .size-chart-size-box-sizes variant-selects, .size-chart-size-box-sizes .custom-variant-product {
   display: none;
@@ -1755,40 +1768,14 @@ button.size-chart-update-btn {
 
 
 @media screen and (max-width: 749px) {
-  button.size-chart-update-btn,
-  .size-chart-size-box-update-btn a{
-    font-size: 10px;
-  }
   .size-chart-popup__content {
-    max-width: 321px;
-    padding: 28px;
-  }
-  h2.size-chart-popup__title {
-    font-size: 22px;
-    line-height: 26px;
-    margin-bottom: 8px;
-  }
-  .size-chart-popup__header p {
-    font-size: 12px;
-    line-height: 16px;
-    margin-bottom: 14px;
-  }
-  .size-chart-popup__body p {
-    font-size: 8px;
-    line-height: 10px;
-  }
-  .size-chart-popup__body {
-    margin-bottom: 24px;
-  }
-  .size-chart-popup__body img {
-    max-width: 24px;
-    min-height: 65px;
-  }
-  .size-chart-size-box-heading h4 {
-    font-size: 12px;
-  }
-  .size-chart-size-box-heading p {
-    font-size: 10px;
+    max-width: 100%;
+    padding: 30px 20px;
+    top: unset;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 22px 22px 0px 0px;
   }
 }
 .custom-product-slider .swiper-pagination-bullet {

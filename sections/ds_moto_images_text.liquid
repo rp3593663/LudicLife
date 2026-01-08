@@ -1,0 +1,153 @@
+{%- if section.settings.layout == 'box_width' -%}
+  {%- assign container = 'container' -%}
+{%- endif -%}
+
+{% assign padding = section.settings.padding | split: "|" %}
+{% assign margin  = section.settings.margin | split: "|" %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} .section--ds_moto_imgs_text{
+  {%- if padding[0] != blank -%} padding: {{ padding[0] }}; {%- endif -%}
+  {%- if margin[0] != blank -%} margin: {{ margin[0] }}; {%- endif -%}
+}
+
+@media (max-width:1199px){
+  #shopify-section-{{ section.id }} .section--ds_moto_imgs_text{
+    {%- if padding[1] != blank -%} padding: {{ padding[1] }}; {%- endif -%}
+    {%- if margin[1] != blank -%} margin: {{ margin[1] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:991px){
+  #shopify-section-{{ section.id }} .section--ds_moto_imgs_text{
+    {%- if padding[2] != blank -%} padding: {{ padding[2] }}; {%- endif -%}
+    {%- if margin[2] != blank -%} margin: {{ margin[2] }}; {%- endif -%}
+  }
+}
+
+@media (max-width:767px){
+  #shopify-section-{{ section.id }} .section--ds_moto_imgs_text{
+    {%- if padding[3] != blank -%} padding: {{ padding[3] }}; {%- endif -%}
+    {%- if margin[3] != blank -%} margin: {{ margin[3] }}; {%- endif -%}
+  }
+}
+{%- endstyle -%}
+
+<section class="ludic-section ludic-section-{{ section.id }} section--ds_moto_imgs_text">
+  <div class="{{ container }}">
+    <div class="ds_moto_imgs_text_inner">
+
+      <div class="ds_moto_content">
+        {% if section.settings.heading != blank %}
+          <h4>{{ section.settings.heading }}</h4>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="ds_moto_shop_btn ds_moto_btn">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="ds_moto_imgs">
+        {% for block in section.blocks %}
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url  }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "DS Moto Images with Text",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "box_width",
+      "options": [
+        { "value": "full-width", "label": "Full Width" },
+        { "value": "box_width", "label": "Box Width" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "DS MOTO"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>An obsession echoed loud. Like from roaring from the grandstand to feeling the revs build through the pedal.</p><p>A collection designed as a tribute to driving enthusiasts with a deep love for automobiles.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "0px 0px 0px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    },
+    {
+      "type": "text",
+      "id": "margin",
+      "label": "Margin",
+      "default": "80px 0px | | | 36px 0px",
+      "info": "Desktop | 1200px | 991px | 767px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS Moto Images with Text",
+      "category": "Custom",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

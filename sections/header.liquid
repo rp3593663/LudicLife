@@ -380,7 +380,7 @@ endfor
       <div class="container main-mega-menu-inner d-flex">
         <div class="mega-menu-left">
           <a href="/collections/all" class="mega-menu-left-links">All</a>
-          <a href="/products/the-sport-bag" class="mega-menu-left-links">New Arrivals</a>
+          <a href="/collections/ds-moto" class="mega-menu-left-links">New Arrivals</a>
           <a href="/collections/sliders" class="mega-menu-left-links">Best Seller</a>
           <a href="/collections/futurworks" class="mega-menu-left-links">Futurworks<sup>™</sup></a>
         </div>
@@ -495,7 +495,7 @@ endfor
                       </li>
                     </a>
               {% endfor %}
-              <a href="/collections/csk-fragrance">
+              {% comment %} <a href="/collections/csk-fragrance">
                 <li>
                   <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Frame_149-10.png?v=1753166640">
                   <div>
@@ -512,7 +512,7 @@ endfor
                     <p class="">Men • Fresh Aqua • 100 ml</p>
                   </div>
                 </li>
-              </a>
+              </a> {% endcomment %}
             </ul>
             {% endif %}
           </div>
@@ -589,7 +589,7 @@ endfor
               megaMenu.style.display = "block";
               overlay.style.display = "block";
               headerMain.style.backgroundColor = "white";
-
+              document.body.classList.add("hover-header");
               collectionBlocks.forEach(block => {
                 block.style.display = "none";
               });
@@ -600,6 +600,7 @@ endfor
             } else {
               megaMenu.style.display = "none";
               overlay.style.display = "none";
+              document.body.classList.remove("hover-header");
               headerMain.style.backgroundColor = "transparent";
               listMenu.querySelector(`.header__menu-item[data-menu-id="${menuId}"]`).classList.remove("menu-active");
             }
@@ -623,6 +624,7 @@ endfor
         megaMenu.addEventListener("mouseleave", function () {
            megaMenu.style.display = "none";
             overlay.style.display = "none";
+             document.body.classList.remove("hover-header");
             headerMain.style.backgroundColor = "transparent"; 
             collectionBlocks.forEach(block => {
                block.style.display = "none";

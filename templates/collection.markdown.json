@@ -1,1 +1,188 @@
-{"sections":{"banner":{"type":"main-collection-banner","disabled":true,"settings":{"show_collection_description":true,"show_collection_image":false,"color_scheme":"scheme-1"}},"product-grid":{"type":"main-collection-product-grid","blocks":{"product_grid_slider_hd3mHL":{"type":"product_grid_slider","settings":{}},"product_grid_slider_iYHfFh":{"type":"product_grid_slider","settings":{}},"product_grid_slider_f97Nh8":{"type":"product_grid_slider","settings":{}}},"block_order":["product_grid_slider_hd3mHL","product_grid_slider_iYHfFh","product_grid_slider_f97Nh8"],"settings":{"products_per_page":40,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":false,"show_vendor":false,"show_rating":false,"quick_add":"none","enable_filtering":true,"filter_type":"drawer","enable_sorting":false,"columns_mobile":"2","padding_top":72,"padding_bottom":32}},"multi_image_with_text_fVVi9Q":{"type":"multi-image-with-text","disabled":true,"settings":{"first_image":"shopify:\/\/shop_images\/Left_414x414_3a8d2350-2d26-4b8d-b4f6-df4e425e2e48.png","second_image":"shopify:\/\/shop_images\/Right_836x414_e8a4c039-e9ff-4b0f-acbd-276f59f34340.png","hadding":"Designed by us, developed for you, produced in India.","description":"<p>Flip a coin, heads or tails?<br\/>Classic or Modern? <br\/><br\/>The Enhanced Canvas Collection serves both. <br\/><br\/>Whether you lean towards the timeless elegance of our Classic or the daring edge of our Modern, we have a collection to fit every mood and occasion. These footwear come with an extra pair of laces, giving you the freedom to switch things up whenever you like. <br\/><br\/>Classic or modern, laced or no-tie, your style, your way.<\/p>","icon":"shopify:\/\/shop_images\/icon.png"}},"collection_list_VTfBFL":{"type":"collection-list","blocks":{"featured_collection_cCh7Mm":{"type":"featured_collection","settings":{"collection":"apparel","img":"shopify:\/\/shop_images\/i1.png","img_mobile":"shopify:\/\/shop_images\/i1m.png","custom_title":"Shop Apparel"}},"featured_collection_eEwLP3":{"type":"featured_collection","settings":{"collection":"accessories","img":"shopify:\/\/shop_images\/2ndImage.jpg","img_mobile":"shopify:\/\/shop_images\/2ndImage.jpg","custom_title":"Shop Accessories"}}},"block_order":["featured_collection_cCh7Mm","featured_collection_eEwLP3"],"settings":{"padding":"80px 0px 0px 0px | | 36px 0px 0px 0px","margin":"56px 0px 0px | | | 36px 0px","title":"","heading_size":"h1","image_ratio":"adapt","columns_desktop":2,"color_scheme":"","show_view_all":false,"columns_mobile":"2","swipe_on_mobile":false,"custom_class":"category-list-main"}},"multicolumn_rfbecX":{"type":"multicolumn","blocks":{"column_Xpdyjq":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/verified-badge-line.svg","title":"<strong>Fast & secure delivery<\/strong>","text":"","link_label":"","link":""}},"column_3wgmcG":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/box-3-line.svg","title":"<strong>Free shipping across India <br> (COD available)<\/strong>","text":"","link_label":"","link":""}},"column_c67Nhr":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/arrow-turn-back-line.svg","title":"<strong>7-day easy returns<\/strong>","text":"","link_label":"","link":""}}},"block_order":["column_Xpdyjq","column_3wgmcG","column_c67Nhr"],"custom_css":[".multicolumn-card__image-wrapper--third-width {width: 28px;}",".multicolumn-list h3 {font-size: 16px;}"],"settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","columns_desktop":3,"column_alignment":"center","background_style":"none","button_label":"","button_link":"","color_scheme":"","columns_mobile":"1","swipe_on_mobile":false,"padding_top":60,"padding_bottom":32}}},"order":["banner","product-grid","multi_image_with_text_fVVi9Q","collection_list_VTfBFL","multicolumn_rfbecX"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "product_grid_slider_hd3mHL": {
+          "type": "product_grid_slider",
+          "settings": {}
+        },
+        "product_grid_slider_iYHfFh": {
+          "type": "product_grid_slider",
+          "settings": {}
+        },
+        "product_grid_slider_f97Nh8": {
+          "type": "product_grid_slider",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_grid_slider_hd3mHL",
+        "product_grid_slider_iYHfFh",
+        "product_grid_slider_f97Nh8"
+      ],
+      "settings": {
+        "products_per_page": 40,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 72,
+        "padding_bottom": 32
+      }
+    },
+    "multi_image_with_text_fVVi9Q": {
+      "type": "multi-image-with-text",
+      "disabled": true,
+      "settings": {
+        "first_image": "shopify://shop_images/Left_414x414_3a8d2350-2d26-4b8d-b4f6-df4e425e2e48.png",
+        "second_image": "shopify://shop_images/Right_836x414_e8a4c039-e9ff-4b0f-acbd-276f59f34340.png",
+        "hadding": "Designed by us, developed for you, produced in India.",
+        "description": "<p>Flip a coin, heads or tails?<br/>Classic or Modern? <br/><br/>The Enhanced Canvas Collection serves both. <br/><br/>Whether you lean towards the timeless elegance of our Classic or the daring edge of our Modern, we have a collection to fit every mood and occasion. These footwear come with an extra pair of laces, giving you the freedom to switch things up whenever you like. <br/><br/>Classic or modern, laced or no-tie, your style, your way.</p>",
+        "icon": "shopify://shop_images/icon.png"
+      }
+    },
+    "collection_list_VTfBFL": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_cCh7Mm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "apparel",
+            "img": "shopify://shop_images/i1.png",
+            "img_mobile": "shopify://shop_images/i1m.png",
+            "custom_title": "Shop Apparel"
+          }
+        },
+        "featured_collection_eEwLP3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessories",
+            "img": "shopify://shop_images/2ndImage.jpg",
+            "img_mobile": "shopify://shop_images/2ndImage.jpg",
+            "custom_title": "Shop Accessories"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_cCh7Mm",
+        "featured_collection_eEwLP3"
+      ],
+      "settings": {
+        "padding": "80px 0px 0px 0px | | 36px 0px 0px 0px",
+        "margin": "56px 0px 0px | | | 36px 0px",
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "custom_class": "category-list-main"
+      }
+    },
+    "multicolumn_bWtCmE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_GthKgN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon1.svg",
+            "title": "Free Delivery",
+            "text": "<p>Across india with cash on delivery</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Y3fkbx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon2.svg",
+            "title": "Returns & Exchange",
+            "text": "<p>Up to 7 days from delivery.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dJXU3g": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon3.svg",
+            "title": "100% Secured Payment",
+            "text": "<p>Multiple payment options offered.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7rF3ge": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon4.svg",
+            "title": "Customer Service",
+            "text": "<p>Monday-Friday: 10AM-6PM</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_GthKgN",
+        "column_Y3fkbx",
+        "column_dJXU3g",
+        "column_7rF3ge"
+      ],
+      "custom_css": [],
+      "settings": {
+        "custom_class": "home_features",
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "multi_image_with_text_fVVi9Q",
+    "collection_list_VTfBFL",
+    "multicolumn_bWtCmE"
+  ]
+}

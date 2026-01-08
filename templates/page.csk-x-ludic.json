@@ -1,1 +1,421 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":28,"padding_bottom":28}},"image_banner_hQhz3i":{"type":"image-banner","custom_css":["@media screen and (max-width: 768px) {.csk-custom-image {height: 80vh; }}"],"settings":{"custom_class":"csk-custom-image","image":"shopify:\/\/shop_images\/Master_Image.png","image_mobile":"shopify:\/\/shop_images\/phone_master.png","banner_clickable":false,"banner_url":"","image_overlay_opacity":0,"image_height":"adapt","desktop_content_position":"middle-center","show_text_box":true,"desktop_content_alignment":"center","color_scheme":"","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":false,"show_text_below":false}},"csk_custom_text_K7mhTT":{"type":"csk-custom-text","settings":{"max_width":"645px","padding":"56px 0","mobile_padding":"45px 18px","super_kings_logo":"shopify:\/\/shop_images\/Frame_162.svg","description":"Introducing a culturally charged capsule cheering the champions in Ludic style and CSK spirit. Each product is a nod to the team, designed with iconic elements and referencing colors on Ludic’s bestsellers.","description_2":"Bridging the gap between the #Yellove army and their uncensored fandom.","mobile_description":"Introducing a culturally charged capsule cheering the champions in Ludic style and CSK spirit. Each product is a nod to the team, designed with iconic elements and referencing colors on Ludic’s bestsellers. ","mobile_description_2":"Bridging the gap between the #Yellove army and their uncensored fandom.","mobile_description_3":"","etc_link":"Discover the Campaign","etc_link_url":"shopify:\/\/pages\/csk-x-ludic-campaign","show_solid_button":false}},"newsletter_eDxMHE":{"type":"newsletter","blocks":{"email_form_BgxYPA":{"type":"email_form","settings":{}},"paragraph_xkgarB":{"type":"paragraph","settings":{"text":"<p>By signing up, you agree to Ludic' <a href=\"https:\/\/ludic.life\/pages\/privacy-policy\" title=\"https:\/\/ludic.life\/pages\/privacy-policy\">Privacy and Cookie Policy<\/a>.<\/p>"}}},"block_order":["email_form_BgxYPA","paragraph_xkgarB"],"disabled":true,"custom_css":[".newsletter__subheading {margin-top: 9px;}",".newsletter__subheading p {font-size: 8px; line-height: 6px; font-weight: 400; color: #777272; width: 100%; max-width: 504px; margin: 0 auto;}","@media screen and (max-width: 768px) {.newsletter__subheading {width: 100%; max-width: 294px; margin: 6px auto 0 auto; }}"],"settings":{"color_scheme":"","full_width":true,"padding_top":0,"padding_bottom":36}},"custom_featured_collection_AqawCR":{"type":"custom-featured-collection","blocks":{"product_MbydWP":{"type":"product","settings":{"product":"nova-pro","variant_name":""}},"product_e3gHXV":{"type":"product","settings":{"product":"enhanced-canvas-pro","variant_name":""}},"product_BfcqLi":{"type":"product","settings":{"product":"sliders-banana-chips-1","variant_name":""}},"product_wCnwrT":{"type":"product","settings":{"product":"sliders-marina-blue","variant_name":""}}},"block_order":["product_MbydWP","product_e3gHXV","product_BfcqLi","product_wCnwrT"],"settings":{"layout":"box_width","padding":"0px 0px 0px 0px","margin":"","section_heading":"","enable_view_all":false,"enable_view_url":"","column_lg":4}},"custom_featured_collection_Kjgd9i":{"type":"custom-featured-collection","blocks":{"product_XVL7bN":{"type":"product","settings":{"product":"kaaram","variant_name":""}},"product_QTEVYM":{"type":"product","settings":{"product":"marina-for-men","variant_name":""}},"product_fGFKtA":{"type":"product","settings":{"product":"thangam","variant_name":""}},"product_zMHYKL":{"type":"product","settings":{"product":"malligai","variant_name":""}}},"block_order":["product_XVL7bN","product_QTEVYM","product_fGFKtA","product_zMHYKL"],"settings":{"layout":"box_width","padding":"0px 0px 0px 0px","margin":"56px 0px | | | 32px 0px","section_heading":"","enable_view_all":true,"enable_view_url":"","column_lg":4}},"csk_custom_slider_BUeEqh":{"type":"csk-custom-slider","blocks":{"image_QFmBde":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0019.jpg"}},"image_RUnwnb":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0640.jpg"}},"image_izhJh8":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0057.jpg"}},"image_Rz4KEm":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0964.jpg"}},"image_JJezcz":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0976.jpg"}},"image_Axjdk8":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0929.jpg"}},"image_8ANQnN":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic-CSK_01.03.2025_0929.jpg"}},"image_zRpjqq":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0668.jpg"}},"image_4QKRyt":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0731.jpg"}},"image_djfjig":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0335.jpg"}},"image_8ARQfw":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0387.jpg"}},"image_9UGLqh":{"type":"image","settings":{"slide_image":"shopify:\/\/shop_images\/Ludic_CSK_01.03.2025_0134.jpg"}}},"block_order":["image_QFmBde","image_RUnwnb","image_izhJh8","image_Rz4KEm","image_JJezcz","image_Axjdk8","image_8ANQnN","image_zRpjqq","image_4QKRyt","image_djfjig","image_8ARQfw","image_9UGLqh"],"settings":{"custom_class":""}},"custom_liquid_jczwga":{"type":"custom-liquid","custom_css":[".campaign-custom-main-section {background: #f9f9f9; padding: 37px 0;}",".campaign-custom-images {background: #fed130; padding: 20px 0; display: flex; justify-content: space-around; border-radius: 8px;}",".csk-banner-1,.csk-banner-3 {width: 100%; max-width: 96px;}","img.csk-banner-1 {transform: rotate(180deg);}",".csk-banner-2 {width: 100%; max-width: 232px;}","@media screen and (max-width: 768px) {.csk-banner-1, .csk-banner-3 {max-width: 42px; } .csk-banner-2 {max-width: 103px; } .campaign-custom-images {border-radius: 4px; }}"],"settings":{"custom_liquid":"<div class=\"campaign-custom-main-section\">\n<div class=\"container\">\n<a href=\"\/pages\/csk-x-ludic\">\n<div class=\"campaign-custom-images\">\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0823\/6787\/3328\/files\/csk-logo-2.svg?v=1742795434\" class=\"csk-banner-1\">\n\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0823\/6787\/3328\/files\/csk-logo.svg?v=1742795420\" class=\"csk-banner-2\">\n\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0823\/6787\/3328\/files\/csk-logo-2.svg?v=1742795434\" class=\"csk-banner-3\">\n<\/div>\n<\/a>\n<\/div>\n<\/div>","color_scheme":"","padding_top":52,"padding_bottom":0}},"collection_list_xQhzyB":{"type":"collection-list","blocks":{"featured_collection_Frzawh":{"type":"featured_collection","settings":{"collection":"footwear","img":"shopify:\/\/shop_images\/8_2587b75a-3403-4a53-962b-a4acc2e6b191.png","img_mobile":"shopify:\/\/shop_images\/8_2587b75a-3403-4a53-962b-a4acc2e6b191.png","custom_title":"Shop Footwear"}},"featured_collection_kKR8zW":{"type":"featured_collection","settings":{"collection":"apparel","img":"shopify:\/\/shop_images\/i1.png","img_mobile":"shopify:\/\/shop_images\/i1m.png","custom_title":"Shop Apparel"}}},"block_order":["featured_collection_Frzawh","featured_collection_kKR8zW"],"disabled":true,"settings":{"padding":"80px 0px 0px 0px | | 36px 0px 0px 0px","margin":"56px 0px 0px | | | 36px 0px","title":"","heading_size":"h1","image_ratio":"adapt","columns_desktop":2,"color_scheme":"","show_view_all":false,"columns_mobile":"2","swipe_on_mobile":false,"custom_class":"category-list-main"}},"multicolumn_RxCXzH":{"type":"multicolumn","blocks":{"column_AcHgwY":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/verified-badge-line.svg","title":"<strong>Fast & secure delivery<\/strong>","text":"","link_label":"","link":""}},"column_FfpNmG":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/box-3-line.svg","title":"<strong>Free shipping across India <br> (COD available)<\/strong>","text":"","link_label":"","link":""}},"column_dhPTgk":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/arrow-turn-back-line.svg","title":"<strong>7-day easy returns<\/strong>","text":"","link_label":"","link":""}}},"block_order":["column_AcHgwY","column_FfpNmG","column_dhPTgk"],"custom_css":[".multicolumn-card__image-wrapper--third-width {width: 28px;}",".multicolumn-list h3 {font-size: 16px;}"],"settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","columns_desktop":3,"column_alignment":"center","background_style":"none","button_label":"","button_link":"","color_scheme":"","columns_mobile":"1","swipe_on_mobile":false,"padding_top":60,"padding_bottom":32}}},"order":["main","image_banner_hQhz3i","csk_custom_text_K7mhTT","newsletter_eDxMHE","custom_featured_collection_AqawCR","custom_featured_collection_Kjgd9i","csk_custom_slider_BUeEqh","custom_liquid_jczwga","collection_list_xQhzyB","multicolumn_RxCXzH"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_hQhz3i": {
+      "type": "image-banner",
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.csk-custom-image {height: 80vh; }}"
+      ],
+      "settings": {
+        "custom_class": "csk-custom-image",
+        "image": "shopify://shop_images/Master_Image.png",
+        "image_mobile": "shopify://shop_images/phone_master.png",
+        "banner_clickable": false,
+        "banner_url": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "csk_custom_text_K7mhTT": {
+      "type": "csk-custom-text",
+      "settings": {
+        "max_width": "645px",
+        "padding": "56px 0",
+        "mobile_padding": "45px 18px",
+        "super_kings_logo": "shopify://shop_images/Frame_162.svg",
+        "description": "Introducing a culturally charged capsule cheering the champions in Ludic style and CSK spirit. Each product is a nod to the team, designed with iconic elements and referencing colors on Ludic’s bestsellers.",
+        "description_2": "Bridging the gap between the #Yellove army and their uncensored fandom.",
+        "mobile_description": "Introducing a culturally charged capsule cheering the champions in Ludic style and CSK spirit. Each product is a nod to the team, designed with iconic elements and referencing colors on Ludic’s bestsellers. ",
+        "mobile_description_2": "Bridging the gap between the #Yellove army and their uncensored fandom.",
+        "mobile_description_3": "",
+        "etc_link": "Discover the Campaign",
+        "etc_link_url": "shopify://pages/csk-x-ludic-campaign",
+        "show_solid_button": false
+      }
+    },
+    "newsletter_eDxMHE": {
+      "type": "newsletter",
+      "blocks": {
+        "email_form_BgxYPA": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "paragraph_xkgarB": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>By signing up, you agree to Ludic' <a href=\"https://ludic.life/pages/privacy-policy\" title=\"https://ludic.life/pages/privacy-policy\">Privacy and Cookie Policy</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "email_form_BgxYPA",
+        "paragraph_xkgarB"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".newsletter__subheading {margin-top: 9px;}",
+        ".newsletter__subheading p {font-size: 8px; line-height: 6px; font-weight: 400; color: #777272; width: 100%; max-width: 504px; margin: 0 auto;}",
+        "@media screen and (max-width: 768px) {.newsletter__subheading {width: 100%; max-width: 294px; margin: 6px auto 0 auto; }}"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "custom_featured_collection_AqawCR": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_MbydWP": {
+          "type": "product",
+          "settings": {
+            "product": "nova-pro",
+            "variant_name": ""
+          }
+        },
+        "product_e3gHXV": {
+          "type": "product",
+          "settings": {
+            "product": "enhanced-canvas-pro",
+            "variant_name": ""
+          }
+        },
+        "product_BfcqLi": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-banana-chips-1",
+            "variant_name": ""
+          }
+        },
+        "product_wCnwrT": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-marina-blue",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_MbydWP",
+        "product_e3gHXV",
+        "product_BfcqLi",
+        "product_wCnwrT"
+      ],
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "",
+        "section_heading": "",
+        "enable_view_all": false,
+        "enable_view_url": "",
+        "column_lg": 4
+      }
+    },
+    "custom_featured_collection_Kjgd9i": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_XVL7bN": {
+          "type": "product",
+          "settings": {
+            "product": "kaaram",
+            "variant_name": ""
+          }
+        },
+        "product_QTEVYM": {
+          "type": "product",
+          "settings": {
+            "product": "marina-for-men",
+            "variant_name": ""
+          }
+        },
+        "product_fGFKtA": {
+          "type": "product",
+          "settings": {
+            "product": "thangam",
+            "variant_name": ""
+          }
+        },
+        "product_zMHYKL": {
+          "type": "product",
+          "settings": {
+            "product": "malligai",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_XVL7bN",
+        "product_QTEVYM",
+        "product_fGFKtA",
+        "product_zMHYKL"
+      ],
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "56px 0px | | | 32px 0px",
+        "section_heading": "",
+        "enable_view_all": true,
+        "enable_view_url": "",
+        "column_lg": 4
+      }
+    },
+    "csk_custom_slider_BUeEqh": {
+      "type": "csk-custom-slider",
+      "blocks": {
+        "image_QFmBde": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0019.jpg"
+          }
+        },
+        "image_RUnwnb": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0640.jpg"
+          }
+        },
+        "image_izhJh8": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0057.jpg"
+          }
+        },
+        "image_Rz4KEm": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0964.jpg"
+          }
+        },
+        "image_JJezcz": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0976.jpg"
+          }
+        },
+        "image_Axjdk8": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0929.jpg"
+          }
+        },
+        "image_8ANQnN": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic-CSK_01.03.2025_0929.jpg"
+          }
+        },
+        "image_zRpjqq": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0668.jpg"
+          }
+        },
+        "image_4QKRyt": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0731.jpg"
+          }
+        },
+        "image_djfjig": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0335.jpg"
+          }
+        },
+        "image_8ARQfw": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0387.jpg"
+          }
+        },
+        "image_9UGLqh": {
+          "type": "image",
+          "settings": {
+            "slide_image": "shopify://shop_images/Ludic_CSK_01.03.2025_0134.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_QFmBde",
+        "image_RUnwnb",
+        "image_izhJh8",
+        "image_Rz4KEm",
+        "image_JJezcz",
+        "image_Axjdk8",
+        "image_8ANQnN",
+        "image_zRpjqq",
+        "image_4QKRyt",
+        "image_djfjig",
+        "image_8ARQfw",
+        "image_9UGLqh"
+      ],
+      "settings": {
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_jczwga": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".campaign-custom-main-section {background: #f9f9f9; padding: 37px 0;}",
+        ".campaign-custom-images {background: #fed130; padding: 20px 0; display: flex; justify-content: space-around; border-radius: 8px;}",
+        ".csk-banner-1,.csk-banner-3 {width: 100%; max-width: 96px;}",
+        "img.csk-banner-1 {transform: rotate(180deg);}",
+        ".csk-banner-2 {width: 100%; max-width: 232px;}",
+        "@media screen and (max-width: 768px) {.csk-banner-1, .csk-banner-3 {max-width: 42px; } .csk-banner-2 {max-width: 103px; } .campaign-custom-images {border-radius: 4px; }}"
+      ],
+      "settings": {
+        "custom_liquid": "<div class=\"campaign-custom-main-section\">\n<div class=\"container\">\n<a href=\"/pages/csk-x-ludic\">\n<div class=\"campaign-custom-images\">\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/csk-logo-2.svg?v=1742795434\" class=\"csk-banner-1\">\n\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/csk-logo.svg?v=1742795420\" class=\"csk-banner-2\">\n\n<img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/csk-logo-2.svg?v=1742795434\" class=\"csk-banner-3\">\n</div>\n</a>\n</div>\n</div>",
+        "color_scheme": "",
+        "padding_top": 52,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_xQhzyB": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_Frzawh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "footwear",
+            "img": "shopify://shop_images/8_2587b75a-3403-4a53-962b-a4acc2e6b191.png",
+            "img_mobile": "shopify://shop_images/8_2587b75a-3403-4a53-962b-a4acc2e6b191.png",
+            "custom_title": "Shop Footwear"
+          }
+        },
+        "featured_collection_kKR8zW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "apparel",
+            "img": "shopify://shop_images/i1.png",
+            "img_mobile": "shopify://shop_images/i1m.png",
+            "custom_title": "Shop Apparel"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_Frzawh",
+        "featured_collection_kKR8zW"
+      ],
+      "disabled": true,
+      "settings": {
+        "padding": "80px 0px 0px 0px | | 36px 0px 0px 0px",
+        "margin": "56px 0px 0px | | | 36px 0px",
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "custom_class": "category-list-main"
+      }
+    },
+    "multicolumn_GD7zPM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QpQHeU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon1.svg",
+            "title": "Free Delivery",
+            "text": "<p>Across india with cash on delivery</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kG39ke": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon2.svg",
+            "title": "Returns & Exchange",
+            "text": "<p>Up to 7 days from delivery.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xKFUjb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon3.svg",
+            "title": "100% Secured Payment",
+            "text": "<p>Multiple payment options offered.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ckPefJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon4.svg",
+            "title": "Customer Service",
+            "text": "<p>Monday-Friday: 10AM-6PM</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QpQHeU",
+        "column_kG39ke",
+        "column_xKFUjb",
+        "column_ckPefJ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "custom_class": "home_features",
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_hQhz3i",
+    "csk_custom_text_K7mhTT",
+    "newsletter_eDxMHE",
+    "custom_featured_collection_AqawCR",
+    "custom_featured_collection_Kjgd9i",
+    "csk_custom_slider_BUeEqh",
+    "custom_liquid_jczwga",
+    "collection_list_xQhzyB",
+    "multicolumn_GD7zPM"
+  ]
+}

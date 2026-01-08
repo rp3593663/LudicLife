@@ -232,12 +232,41 @@
                         </ul>
                        </div>
                       {%- endif -%}
+                      {%- if block.settings.menu4 != blank -%}
+                       <div class="footer-menu">
+                          {%- if block.settings.heading4 != blank -%}
+                            <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading4 -}}</h2>
+                          {%- endif -%}
+                          <ul class="footer-block__details-content list-unstyled">
+                          {%- for link in block.settings.menu4.links -%}
+                            <li>
+                              {% if block.settings.heading4 == "Social" %}
+                                <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}" 
+                              target="_blank">
+                                {{ link.title }}
+                              </a>
+                              {% else %}
+                              <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                              >
+                                {{ link.title }}
+                              </a>
+                              {% endif %}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                       </div>
+                      {%- endif -%}
                       <div class="footer-menu-content">
                         <h2 class="footer-block__heading rte">{{ block.settings.title }}</h2>
                         <div class="footer-block__content rte">{{ block.settings.description }}</div>
                       </div>
                       <div class="footer-menu footer-img-wrapper">
-                        <img src="https://cdn.shopify.com/s/files/1/0757/5201/4140/files/stars.png" alt="" class="footer-stars-img" width="100%" height="100%">
+                        <img src="https://cdn.shopify.com/s/files/1/0757/5201/4140/files/stars.png" alt="" class="footer-stars-img black_stars" width="100%" height="100%">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/footer_red_stars.svg?v=1767257010" alt="" class="footer-stars-img red_stars" width="100%" height="100%">
                       </div>
                     </div>
                     
@@ -492,6 +521,19 @@
           "info": "t:sections.footer.blocks.link_list.settings.menu.info"
         },
         {
+          "type": "inline_richtext",
+          "id": "heading4",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu4",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        },
+        {
           "type": "text",
           "id": "title",
           "default": "AlwaysAtPlay",
@@ -540,7 +582,7 @@
       "name": "t:sections.footer.blocks.text.name",
       "settings": [
         {
-          "type": "inline_richtext",
+          "type": "html",
           "id": "newsletter_heading",
           "default": "Subscribe to our emails",
           "label": "Newsletter Heading"

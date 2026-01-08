@@ -42,6 +42,14 @@
 
   if media.media_type == 'image'
     assign image_class = 'zoom-image image-magnify-' | append: section.settings.image_zoom
+    if template == 'product.apparels'
+      assign product_title = product.title | downcase
+      assign alt_text = media.alt | downcase
+
+      if alt_text contains '|' and alt_text != product_title
+        assign image_class = image_class | append: ' hover_blur'
+      endif
+    endif
   endif
 -%}
 
@@ -73,10 +81,12 @@
       -%}
     </span>
     {%- render 'loading-spinner' -%}
-    <a class="product__media media media--transparent desktop-zoom-hover"
+    <a
+      class="product__media media media--transparent desktop-zoom-hover"
       href="{{ media.preview_image | image_url: width: 2000 }}"
       data-pswp-width="1000"
-      data-pswp-height="1000">
+      data-pswp-height="1000"
+    >
       {{
         media.preview_image
         | image_url: width: 1946
@@ -86,6 +96,15 @@
           sizes: sizes,
           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
       }}
+      {% if template == 'product.apparels' %}
+        {% assign product_title = product.title | downcase %}
+        {% assign alt_text = media.alt | downcase %}
+        {% if alt_text contains '|' and alt_text != product_title %}
+          <div class="extra_text hover_img">
+            {{ media.alt | split: '|' | last | strip }}
+          </div>
+        {% endif %}
+      {% endif %}
     </a>
     <button
       class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
@@ -135,7 +154,7 @@
               echo media | external_video_url: autoplay: true, loop: loop | external_video_tag: class: video_class, loading: 'lazy'
             endif
           when 'video'
-            echo media | media_tag: image_size: '2048x', autoplay: true, muted:true, loop: loop, controls: false
+            echo media | media_tag: image_size: '2048x', autoplay: true, muted: true, loop: loop, controls: false
           when 'model'
             echo media | media_tag: image_size: '2048x', toggleable: true
         endcase

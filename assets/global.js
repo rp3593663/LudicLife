@@ -1414,10 +1414,49 @@ $(document).on('click', '.product-form__input .size_var', function(){
     // openVariantPopup();
   });
 
-
+  let defaultSelectedSize = null;
   function openVariantPopup() {
     const isSizePopupVisible = getComputedStyle(document.querySelector('.size-chart-popup__content')).display != 'block';
 
+    const ConfirmBtn = document.getElementById('sizeConfirmBtn');
+
+    // ✅ Capture default size ONLY once
+    if (!defaultSelectedSize) {
+      const checked = document.querySelector(
+        '.default_variant_uk input[type="radio"]:checked'
+      );
+
+      if (checked) {
+        defaultSelectedSize = checked.value;
+        localStorage.setItem('Keep Size old', defaultSelectedSize);
+      }
+    }
+
+    console.log('defaultSelectedSize:', defaultSelectedSize);
+
+    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
+    input.onchange = function () {
+      console.log('changed to:', this.value);
+
+        // 🔴 Out of stock
+        if (this.classList.contains('disabled')) {
+          ConfirmBtn.innerText = 'Out of Stock';
+          ConfirmBtn.classList.add('disabled');
+          ConfirmBtn.disabled = true;
+          return;
+        }
+
+        // 🟢 In stock
+        ConfirmBtn.classList.remove('disabled');
+        ConfirmBtn.disabled = false;
+
+        if (this.value !== defaultSelectedSize) {
+          ConfirmBtn.innerText = 'Update Size';
+        } else {
+          ConfirmBtn.innerText = 'Confirm Size';
+        }
+      };
+    });
     if ( isSizePopupVisible && $('input.keep_size[type="radio"]')) {
       localStorage.setItem('Keep Size old', event.target.value);
       console.log('Stored size from popup:', event.target.value);
@@ -1426,8 +1465,24 @@ $(document).on('click', '.product-form__input .size_var', function(){
     $('.size-chart-popup-overlay').addClass('show');
     $('.size-chart-size-box-sizes').addClass('popup-active');
     $('body').addClass('size-chart-popup-pdp');
+    const sizeSpecSpans = document.querySelectorAll('.size_specification_value');
+    document.querySelectorAll('.default_variant_uk input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+          if (input.checked) {
+            const selectedSize = input.value;
+             sizeSpecSpans.forEach(span => {
+              if (span.dataset.variantTitle === selectedSize) {
+                span.style.display = 'block';
+              } else {
+                span.style.display = 'none';
+              }
+            });
+          }
+        });
+    });
   }
   function closeVariantPopup() {
+    defaultSelectedSize = null;
     $('.size-chart-popup__content').fadeOut(100);
     $('.size-chart-popup-overlay').removeClass('show');
     $('.size-chart-size-box-sizes').removeClass('popup-active');
@@ -1453,6 +1508,51 @@ $(document).on('click', '.product-form__input .size_var', function(){
     });
   }
 
+  // function addPopupVariantToCart() {
+  //   const selectedVariant = document.querySelector(
+  //     '.size-chart-popup input[type="radio"]:checked'
+  //   );
+
+  //   if (!selectedVariant) {
+  //     alert('Please select a size');
+  //     return;
+  //   }
+
+  //   const variantId = selectedVariant.getAttribute('data-variant-id');
+
+  //   if (!variantId) {
+  //     alert('Invalid variant selected');
+  //     return;
+  //   }
+
+  //   fetch('/cart/add.js', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       id: variantId,
+  //       quantity: 1
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log('Variant added:', data);
+
+  //     // Close popup
+  //     if (typeof closeVariantPopup === 'function') {
+  //       closeVariantPopup();
+  //     }
+
+  //     render_cart();
+  //     // Refresh cart / open drawer
+  //     document.dispatchEvent(new CustomEvent('cart:refresh'));
+
+  //   })
+  //   .catch(err => {
+  //     console.error(err);
+  //     alert('Something went wrong. Please try again.');
+  //   });
+  // }
+
   // Run once on load
   document.addEventListener('DOMContentLoaded', updateRadioDataVals);
 
@@ -1466,7 +1566,7 @@ $(document).on('change', '.custom_variants input, .product-form__input input', f
   // alert("xys================");
   setTimeout(() => {
     if ($(this).hasClass('disabled')) {
-      $('.product-form__submit span').text('Notify Me');
+      $('.product-form__submit span').text('Out of Stock');
       $('.product-form__submit').addClass('disabled');
     } else {
       $('.product-form__submit span').text('Add to Bag');

@@ -190,7 +190,7 @@
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
-                  <div class="tax-text">(Incl. of all taxes)</div>
+                  <div class="tax-text">(Inclusive of all taxes)</div>
                 </div>
               {% if product.metafields.custom.short_description != blank %}
                 <div class="short_description">{{ product.metafields.custom.short_description | metafield_tag }}</div>
@@ -535,9 +535,9 @@
                 {% render 'custom-mobile-variants', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
                   <div class="slide-pdp-note">
-                    {% if request.path contains 'sliders-go-red' or request.path contains 'sliders-jamun-blue' or request.path contains 'sliders-kadak-brown' or request.path contains 'sliders-chaas-white' or request.path contains 'sliders-chutney-green' or request.path contains 'sliders-tandoor-black' %}
+                    {% comment %} {% if request.path contains 'sliders-go-red' or request.path contains 'sliders-jamun-blue' or request.path contains 'sliders-kadak-brown' or request.path contains 'sliders-chaas-white' or request.path contains 'sliders-chutney-green' or request.path contains 'sliders-tandoor-black' %}
                       <p>We suggest one size down</p>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                     
                     {% comment %} {% if request.path contains 'ec-pro-raven' %}
                       <p>Dispatches start from Thursday, February 27</p>
