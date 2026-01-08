@@ -62,20 +62,28 @@
             "menu_item_name": "Apparel"
           }
         },
+        "mega_menu_sub_collection_dK4fJX": {
+          "type": "mega_menu_sub_collection",
+          "settings": {
+            "sub_collection_image": "shopify://shop_images/Frame_124_82556f14-f52e-4e56-a325-eef00c204c45.png",
+            "sub_collection_url": "shopify://collections/ds-moto",
+            "sub_collection_name": "DS Moto"
+          }
+        },
+        "mega_menu_sub_collection_CUYzbp": {
+          "type": "mega_menu_sub_collection",
+          "settings": {
+            "sub_collection_image": "shopify://shop_images/Frame_124-1_8f76746d-1c6f-443f-b236-b49990f21eb0.png",
+            "sub_collection_url": "shopify://collections/sliders",
+            "sub_collection_name": "Sliders"
+          }
+        },
         "mega_menu_sub_collection_gPkcCB": {
           "type": "mega_menu_sub_collection",
           "settings": {
             "sub_collection_image": "shopify://shop_images/Frame_124_1417d9e9-364e-4978-8874-fe201bcb4b8c.png",
             "sub_collection_url": "shopify://products/the-sport-bag-1",
             "sub_collection_name": "The Sport Bag"
-          }
-        },
-        "mega_menu_sub_collection_CUYzbp": {
-          "type": "mega_menu_sub_collection",
-          "settings": {
-            "sub_collection_image": "shopify://shop_images/Frame_124-1_64d73a34-cc8c-4fe2-98c7-5cbfb7b9ee5b.png",
-            "sub_collection_url": "shopify://products/circuit-shirt",
-            "sub_collection_name": "Circuit Shirt"
           }
         },
         "mega_menu_sub_collection_QCftjg": {
@@ -85,33 +93,15 @@
             "sub_collection_url": "shopify://products/socks-pack-of-8",
             "sub_collection_name": "Socks - Pack of 8"
           }
-        },
-        "mega_menu_sub_collection_dK4fJX": {
-          "type": "mega_menu_sub_collection",
-          "settings": {
-            "sub_collection_image": "shopify://shop_images/Frame_124-3_cc34ac73-26f7-4e63-b255-073d0f9a4993.png",
-            "sub_collection_url": "shopify://collections/nova-play",
-            "sub_collection_name": "Nova Play"
-          }
-        },
-        "mega_menu_sub_collection_9HThpE": {
-          "type": "mega_menu_sub_collection",
-          "disabled": true,
-          "settings": {
-            "sub_collection_image": "shopify://shop_images/Frame_149-7_c656ef60-1bab-434d-b430-4b43b25d0e7f.png",
-            "sub_collection_url": "shopify://products/the-sport-bag",
-            "sub_collection_name": "The Sport Bag"
-          }
         }
       },
       "block_order": [
         "mega_menu_jB3imT",
         "mega_menu_cq33AY",
-        "mega_menu_sub_collection_gPkcCB",
-        "mega_menu_sub_collection_CUYzbp",
-        "mega_menu_sub_collection_QCftjg",
         "mega_menu_sub_collection_dK4fJX",
-        "mega_menu_sub_collection_9HThpE"
+        "mega_menu_sub_collection_CUYzbp",
+        "mega_menu_sub_collection_gPkcCB",
+        "mega_menu_sub_collection_QCftjg"
       ],
       "custom_css": [
         "a.header__icon.header__icon--account {display: none;}"
