@@ -495,15 +495,15 @@
   <body class="{% if product.title contains 'Sliders' %}is-sliders{% endif %} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }} template-{{ template }} {{ collection.handle }} {{ product.title }}" id="template--{{ page.template_suffix }}">
   
      <script language="javascript" type="text/javascript">
-    function sc(v){
-      if (v===null){
-        return
-      };
-      var dateAf=new Date();
-      dateAf.setTime(dateAf.getTime()+(365*24*60*60*1000));
-      document.cookie="affclick="+v+";"+"expires="+dateAf.toUTCString()+";path=/";
-      localStorage.setItem('affclick',v)}sc((new URLSearchParams(window.location.search)).get("clickid"))
-  </script>
+        function sc(v){
+          if (v===null){
+            return
+          };
+          var dateAf=new Date();
+          dateAf.setTime(dateAf.getTime()+(365*24*60*60*1000));
+          document.cookie="affclick="+v+";"+"expires="+dateAf.toUTCString()+";path=/";
+          localStorage.setItem('affclick',v)}sc((new URLSearchParams(window.location.search)).get("clickid"))
+      </script>
     
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
