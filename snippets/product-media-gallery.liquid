@@ -318,26 +318,3 @@
       </slider-component>
     {%- endif -%}
   </media-gallery>
-
-
-{% comment %} <div class="{% if section.settings.enable_sticky_info %} product__column-sticky {% endif %}">
-  <div class="swiper mySwiper custom-product-slider">
-    <div class="swiper-wrapper">
-      {% for media in product.media %}
-        <div class="swiper-slide">
-          {% case media.media_type %}
-          {% when 'image' %}
-            {{ media.preview_image | image_url: width: media.preview_image.width | image_tag: loading: "lazy" }}
-            
-          {% when 'video' or 'external_video' %}
-            {{ media | media_tag: autoplay: true, controls: false, loop: true, muted: true }}
-              
-          {% when 'model' %}
-            {{ media | media_tag }}
-          {% endcase %} 
-        </div>
-        {% endfor %}
-      </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div> {% endcomment %}
