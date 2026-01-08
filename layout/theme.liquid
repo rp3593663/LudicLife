@@ -1903,47 +1903,6 @@ if (!isMobile) {
 
 })();
 
-{% comment %} document.addEventListener("DOMContentLoaded", function () {
-
-  const priceBox = document.querySelector('.combine-price');
-  const select1 = document.getElementById('bundle_1_select');
-  const select2 = document.getElementById('bundle_2_select');
-
-  const premiumHandles = [
-    "sliders-purple-pyaaz",
-    "sliders-tandoor-black-2-0"
-  ];
-
-  function updateBundlePrice() {
-    const h1 = select1.value;
-    const h2 = select2.value;
-
-    // 🟡 DEFAULT PRICE when not selected
-    if (!h1 || !h2) {
-      priceBox.innerHTML = "₹1999";
-      return;
-    }
-
-    const isH1Premium = premiumHandles.includes(h1);
-    const isH2Premium = premiumHandles.includes(h2);
-
-    let price = 1499; // default when both NOT premium
-
-    // Any case where ONE or BOTH are premium → 1999
-    if (isH1Premium || isH2Premium) {
-      price = 1999;
-    }
-
-    priceBox.innerHTML = `₹${price}`;
-  }
-
-  updateBundlePrice(); // Show default 1999 on load
-
-  select1.addEventListener("change", updateBundlePrice);
-  select2.addEventListener("change", updateBundlePrice);
-
-}); {% endcomment %}
-
 </script>
 
 <script>
@@ -2066,79 +2025,70 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     });
   }
- if ($(window).width() < 767) {
-  if ($('.shop_the_look_products').length > 0) {
-    $('.shop_the_look_products').slick({
-      slidesToShow: 2,
-      slidesToScroll: 1,
-      autoplay: false,
-      autoplaySpeed: 2000,
-      speed: 1000,
-      cssEase: 'ease',
-      infinite: true,
-      arrows: false,
-      pauseOnHover: true,
-      pauseOnFocus: true,
-    });
+  if ($(window).width() < 767) {
+    if ($('.shop_the_look_products').length > 0) {
+      $('.shop_the_look_products').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 1000,
+        cssEase: 'ease',
+        infinite: true,
+        arrows: false,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      });
+    }
   }
-}
-
 </script>
-
 
 <script>
-const reels = document.querySelectorAll(".reel");
-const thumbs = document.querySelectorAll(".thumb");
-
-let currentIndex = 0;
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-// DESKTOP: Play all videos loop
-if (!isMobile) {
-  reels.forEach(reel => {
-    const video = reel.querySelector("video");
-    video.play();
-    video.loop = true;
-  });
-}
-
-// MOBILE: Play only active reel one by one
-if (isMobile) {
-  playReel(currentIndex);
-
-  function playReel(index) {
-    reels.forEach((reel, i) => {
+  const reels = document.querySelectorAll(".reel");
+  const thumbs = document.querySelectorAll(".thumb");
+  let currentIndex = 0;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  if (!isMobile) {
+    reels.forEach(reel => {
       const video = reel.querySelector("video");
-
-      reel.classList.toggle("active", i === index);
-      thumbs[i].classList.toggle("active", i === index);
-
-      video.pause();
-      video.currentTime = 0;
-
-      if (i === index) {
-        video.play();
-        video.onended = () => nextReel();
-      }
+      video.play();
+      video.loop = true;
     });
   }
-
-  function nextReel() {
-    currentIndex = (currentIndex + 1) % reels.length;
+  if (isMobile) {
     playReel(currentIndex);
-  }
 
-  // Thumbnail click
-  thumbs.forEach((thumb, index) => {
-    thumb.addEventListener("click", () => {
-      currentIndex = index;
+    function playReel(index) {
+      reels.forEach((reel, i) => {
+        const video = reel.querySelector("video");
+
+        reel.classList.toggle("active", i === index);
+        thumbs[i].classList.toggle("active", i === index);
+
+        video.pause();
+        video.currentTime = 0;
+
+        if (i === index) {
+          video.play();
+          video.onended = () => nextReel();
+        }
+      });
+    }
+
+    function nextReel() {
+      currentIndex = (currentIndex + 1) % reels.length;
       playReel(currentIndex);
+    }
+
+    // Thumbnail click
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
+        currentIndex = index;
+        playReel(currentIndex);
+      });
     });
-  });
-}
-
+  }
 </script>
-
 
 <script>
 (function() {
