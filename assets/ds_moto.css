@@ -1002,6 +1002,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     letter-spacing: -0.42px;
     color: #1A1A1A;
 }
+.step_input {
+    padding: 16px 18px;
+    line-height: 14px!important;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
 .ds_moto_step_field input::placeholder{
     color: #C7C7C7;
 }
