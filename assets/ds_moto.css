@@ -1014,9 +1014,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
 .error-msg {
-  color: red;
-  font-size: 13px;
-  margin-top: 6px;
+    color: red;
+    font-size: 14px;
+    margin: 0px;
+    font-weight: 600;
 }
 .step_btn {
     border: 1px solid #1A1A1A;
