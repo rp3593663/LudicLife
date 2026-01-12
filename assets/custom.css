@@ -3613,6 +3613,13 @@ main#MainContent.ds-moto-ludic {
     color: #E60013;
     display: block;
 }
+.ds_moto_choose_cat {
+    display: grid;
+    gap: 24px;
+    max-width: 328px;
+    margin: auto;
+    text-align: center;
+}
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
 
