@@ -3584,6 +3584,8 @@ main#MainContent.ds-moto-ludic {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 42px;
 }
 .ds_new_popup_img {
     height: 100%;
