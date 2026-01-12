@@ -861,3 +861,131 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 }
 
 
+
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .4s ease;
+  z-index: 9999;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ds_new_popup-box {
+    background: #f9f9f9;
+    width: 100%;
+    height: 100dvh;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ds_new-popup-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.ds_new-popup-close svg{
+  width: 24px;
+  height: 24px;
+}
+.ds_new_popup_inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.ds_new_popup_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 42px;
+}
+.ds_new_popup_img {
+    height: 100%;
+}
+.ds_new_popup_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ds_new_popup_logo{
+  height: 32px;
+  width: auto;
+}
+.ds_moto_popup_step h2 {
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 46px;
+    letter-spacing: -2.3px;
+    text-align: center;
+    display: grid;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+.ds_moto_popup_step h2 span {
+    color: #E60013;
+    display: block;
+}
+.ds_moto_choose_cat {
+    display: grid;
+    gap: 24px;
+    max-width: 328px;
+    margin: auto;
+    text-align: center;
+}
+.ds_moto_choose_cat h6 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.54px;
+    color: #949598;
+    margin: 0px;
+}
+.all_cat_btn {
+    display: grid;
+    gap: 18px;
+}
+.all_cat_btn button.category-btn {
+    border: 1px solid #1A1A1A;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    font-family: Public Sans;
+    font-weight: 650;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.7px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+}
+.ds_moto_popup_step { display: none; }
+.ds_moto_popup_step.active { display: block; }
+.error-msg {
+  color: red;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+
