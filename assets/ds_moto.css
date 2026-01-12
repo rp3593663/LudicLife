@@ -993,6 +993,17 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 }
 .ds_moto_step_field input {
     width: 100%;
+    border: unset;
+    padding: 0px;
+    background: unset;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.42px;
+    color: #1A1A1A;
+}
+.ds_moto_step_field input::placeholder{
+    color: #C7C7C7;
 }
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
