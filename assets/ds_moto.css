@@ -971,7 +971,6 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     align-items: center;
     justify-content: center;
     background: transparent;
-    font-family: Public Sans;
     font-weight: 650;
     font-size: 14px;
     line-height: 16px;
@@ -979,6 +978,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     text-align: center;
     text-transform: uppercase;
     transition: all 0.2s ease-in;
+}
+.all_cat_btn button.category-btn:hover{
+    background: #1A1A1A;
+    color: #FFFFFF;
 }
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
