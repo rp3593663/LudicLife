@@ -3567,7 +3567,12 @@ main#MainContent.ds-moto-ludic {
   border: none;
   cursor: pointer;
 }
-
+.ds_new_popup_inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
 
