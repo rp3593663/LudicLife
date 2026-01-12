@@ -2152,5 +2152,85 @@
       });
     </script>
 
+
+
+    <div id="signup-popup" class="popup-overlay">
+  <div class="popup-box">
+    <button class="popup-close">&times;</button>
+
+    <div class="popup-step active" data-step="1">
+      <h4>LUDIC</h4>
+      <h2>12% off</h2>
+      <p>On your favourites</p>
+      <button class="next-step">Continue</button>
+    </div>
+
+    <div class="popup-step" data-step="2">
+      <h4>LUDIC</h4>
+      <h3>Sign up</h3>
+      <input type="email" placeholder="Enter email">
+      <button class="next-step">Continue</button>
+    </div>
+
+    <div class="popup-step" data-step="3">
+      <h4>LUDIC</h4>
+      <h3>Finish signing up</h3>
+      <input type="text" placeholder="Your name">
+      <button class="next-step">Continue</button>
+    </div>
+
+    <div class="popup-step" data-step="4">
+      <h4>LUDIC</h4>
+      <h3>Check your inbox</h3>
+      <p>We’ve sent you a confirmation email.</p>
+      <button class="popup-close-btn">Done</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const popup = document.getElementById("signup-popup");
+  const steps = document.querySelectorAll(".popup-step");
+  let currentStep = 0;
+
+  // Show popup after 5 seconds
+  setTimeout(() => {
+    popup.classList.add("active");
+  }, 5000);
+
+  function showStep(index) {
+    steps.forEach(step => step.classList.remove("active"));
+    steps[index].classList.add("active");
+  }
+
+  document.querySelectorAll(".next-step").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  document.querySelectorAll(".popup-close, .popup-close-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      popup.classList.remove("active");
+    });
+  });
+
+});
+if (!localStorage.getItem("popupShown")) {
+  setTimeout(() => {
+    popup.classList.add("active");
+    localStorage.setItem("popupShown", "yes");
+  }, 5000);
+}
+
+</script>
+
+
   </body>
 </html>
