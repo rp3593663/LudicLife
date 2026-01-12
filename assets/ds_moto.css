@@ -930,6 +930,9 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
   height: 32px;
   width: auto;
 }
+.step_head {
+    margin-bottom: 32px;
+}
 .ds_moto_popup_step h2 {
     font-weight: 600;
     font-size: 46px;
@@ -938,7 +941,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     text-align: center;
     display: grid;
     gap: 8px;
-    margin-bottom: 32px;
+    margin: 0px;
 }
 .ds_moto_popup_step h2 span {
     color: #E60013;
