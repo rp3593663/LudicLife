@@ -3595,6 +3595,10 @@ main#MainContent.ds-moto-ludic {
     height: 100%;
     object-fit: cover;
 }
+.ds_new_popup_logo{
+  height: 32px;
+  width: auto;
+}
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
 
