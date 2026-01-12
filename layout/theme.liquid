@@ -2314,9 +2314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => {
       error.textContent = "Something went wrong. Try again.";
-      state.step = 3;
-      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-      showStep(3);
+
     });
   });
 
