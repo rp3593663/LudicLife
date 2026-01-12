@@ -3563,12 +3563,15 @@ main#MainContent.ds-moto-ludic {
 }
 .ds_new-popup-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 22px;
+  top: 16px;
+  left: 16px;
   background: none;
   border: none;
   cursor: pointer;
+}
+.ds_new-popup-close svg{
+  width: 24px;
+  height: 24px;
 }
 .ds_new_popup_inner {
     display: grid;
