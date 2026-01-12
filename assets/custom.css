@@ -3620,6 +3620,14 @@ main#MainContent.ds-moto-ludic {
     margin: auto;
     text-align: center;
 }
+.ds_moto_choose_cat h6 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.54px;
+    color: #949598;
+    margin: 0px;
+}
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
 
