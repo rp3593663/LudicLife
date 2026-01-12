@@ -2156,7 +2156,7 @@
 
 <div id="ludic-popup" class="popup-overlay">
   <div class="popup-box">
-    <button class="popup-close">×</button>
+    <button class="ds_new-popup-close">×</button>
 
     <!-- STEP 1 -->
     <div class="popup-step" data-step="1">
@@ -2232,7 +2232,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---- CLOSE BUTTON (PERMANENT) ----
-  document.querySelector(".popup-close").addEventListener("click", () => {
+  document.querySelector(".ds_new-popup-close").addEventListener("click", () => {
     localStorage.setItem(CLOSED_KEY, "yes");
     popup.classList.remove("active");
   });
