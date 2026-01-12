@@ -2154,82 +2154,113 @@
 
 
 
-    <div id="signup-popup" class="popup-overlay">
+<div id="signup-popup" class="popup-overlay">
   <div class="popup-box">
-    <button class="popup-close">&times;</button>
+    <button class="popup-close">×</button>
 
+    <!-- STEP 1 -->
     <div class="popup-step active" data-step="1">
       <h4>LUDIC</h4>
       <h2>12% off</h2>
       <p>On your favourites</p>
-      <button class="next-step">Continue</button>
+
+      <button class="category-btn" data-collection="/collections/footwear">FOOTWEAR</button>
+      <button class="category-btn" data-collection="/collections/apparel">APPAREL</button>
+      <button class="category-btn" data-collection="/collections/accessories">ACCESSORIES</button>
     </div>
 
+    <!-- STEP 2 -->
     <div class="popup-step" data-step="2">
-      <h4>LUDIC</h4>
-      <h3>Sign up</h3>
-      <input type="email" placeholder="Enter email">
-      <button class="next-step">Continue</button>
+      <h2>12% off</h2>
+      <input type="email" id="popup-email" placeholder="Your email address">
+      <p class="error-msg"></p>
+      <button id="email-next">GET 12% OFF</button>
     </div>
 
+    <!-- STEP 3 -->
     <div class="popup-step" data-step="3">
-      <h4>LUDIC</h4>
-      <h3>Finish signing up</h3>
-      <input type="text" placeholder="Your name">
-      <button class="next-step">Continue</button>
+      <h2>Finish signing up</h2>
+      <input type="tel" id="popup-phone" placeholder="Your phone number">
+      <p class="error-msg"></p>
+      <button id="phone-next">ACTIVATE 12% OFF</button>
     </div>
 
+    <!-- STEP 4 -->
     <div class="popup-step" data-step="4">
-      <h4>LUDIC</h4>
-      <h3>Check your inbox</h3>
-      <p>We’ve sent you a confirmation email.</p>
-      <button class="popup-close-btn">Done</button>
+      <h2>Check your inbox</h2>
+      <button id="continue-shopping">CONTINUE SHOPPING</button>
     </div>
 
   </div>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
   const popup = document.getElementById("signup-popup");
   const steps = document.querySelectorAll(".popup-step");
-  let currentStep = 0;
+  let selectedCollection = "";
 
   // Show popup after 5 seconds
-  setTimeout(() => {
-    popup.classList.add("active");
-  }, 5000);
+  setTimeout(() => popup.classList.add("active"), 5000);
 
-  function showStep(index) {
-    steps.forEach(step => step.classList.remove("active"));
-    steps[index].classList.add("active");
+  function showStep(step) {
+    steps.forEach(s => s.classList.remove("active"));
+    document.querySelector(`[data-step="${step}"]`).classList.add("active");
   }
 
-  document.querySelectorAll(".next-step").forEach(btn => {
+  // STEP 1: Category selection
+  document.querySelectorAll(".category-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      if (currentStep < steps.length - 1) {
-        currentStep++;
-        showStep(currentStep);
-      }
+      selectedCollection = btn.dataset.collection;
+      showStep(2);
     });
   });
 
-  document.querySelectorAll(".popup-close, .popup-close-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      popup.classList.remove("active");
-    });
+  // STEP 2: Email validation
+  document.getElementById("email-next").addEventListener("click", () => {
+    const email = document.getElementById("popup-email").value.trim();
+    const error = document.querySelector('[data-step="2"] .error-msg');
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regex.test(email)) {
+      error.textContent = "Please enter a valid email address";
+      return;
+    }
+
+    error.textContent = "";
+    showStep(3);
+  });
+
+  // STEP 3: Phone validation
+  document.getElementById("phone-next").addEventListener("click", () => {
+    const phone = document.getElementById("popup-phone").value.trim();
+    const error = document.querySelector('[data-step="3"] .error-msg');
+
+    if (!/^\d{10}$/.test(phone)) {
+      error.textContent = "Enter a valid 10-digit phone number";
+      return;
+    }
+
+    error.textContent = "";
+    showStep(4);
+  });
+
+  // STEP 4: Redirect to selected collection
+  document.getElementById("continue-shopping").addEventListener("click", () => {
+    if (selectedCollection) {
+      window.location.href = selectedCollection;
+    }
+  });
+
+  // Close popup
+  document.querySelector(".popup-close").addEventListener("click", () => {
+    popup.classList.remove("active");
   });
 
 });
-if (!localStorage.getItem("popupShown")) {
-  setTimeout(() => {
-    popup.classList.add("active");
-    localStorage.setItem("popupShown", "yes");
-  }, 5000);
-}
-
 </script>
+
 
 
   </body>
