@@ -2154,8 +2154,8 @@
 
 
 
-<div id="ludic-popup" class="popup-overlay">
-  <div class="popup-box">
+<div id="ds_moto_new_popup" class="popup-overlay">
+  <div class="ds_new_popup-box">
     <button class="ds_new-popup-close">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18 6L6 18M6 6L18 18" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2163,7 +2163,7 @@
     </button>
 
     <!-- STEP 1 -->
-    <div class="popup-step" data-step="1">
+    <div class="ds_moto_popup_step" data-step="1">
       <h4>LUDIC</h4>
       <h2>12% off</h2>
       <p>On your favourites</p>
@@ -2174,7 +2174,7 @@
     </div>
 
     <!-- STEP 2 -->
-    <div class="popup-step" data-step="2">
+    <div class="ds_moto_popup_step" data-step="2">
       <h2>12% off</h2>
       <input type="email" id="popup-email" placeholder="Your email address">
       <p class="error-msg"></p>
@@ -2182,7 +2182,7 @@
     </div>
 
     <!-- STEP 3 -->
-    <div class="popup-step" data-step="3">
+    <div class="ds_moto_popup_step" data-step="3">
       <h2>Finish signing up</h2>
       <input type="tel" id="popup-phone" placeholder="Your phone number">
       <p class="error-msg"></p>
@@ -2190,7 +2190,7 @@
     </div>
 
     <!-- STEP 4 -->
-    <div class="popup-step" data-step="4">
+    <div class="ds_moto_popup_step" data-step="4">
       <h2>Check your inbox</h2>
       <button id="continue-shopping">CONTINUE SHOPPING</button>
     </div>
@@ -2201,8 +2201,8 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const popup = document.getElementById("ludic-popup");
-  const steps = document.querySelectorAll(".popup-step");
+  const popup = document.getElementById("ds_moto_new_popup");
+  const steps = document.querySelectorAll(".ds_moto_popup_step");
 
   const CLOSED_KEY = "ludic_popup_closed";
   const STATE_KEY = "ludic_popup_state";
