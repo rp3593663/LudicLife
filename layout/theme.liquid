@@ -2333,7 +2333,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     error.textContent = "";
 
-    fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
+    state.step = 4;
+    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+    showStep(4);
+
+    {% comment %} fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2349,7 +2353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => {
       error.textContent = "Phone update failed";
-    });
+    }); {% endcomment %}
   });
 
   // ---- STEP 4 ----
