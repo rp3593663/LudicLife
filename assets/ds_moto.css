@@ -1016,7 +1016,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 .error-msg {
     color: red;
     font-size: 14px;
-    margin: 0px;
+    margin: -12px 0px 0px;
     font-weight: 600;
 }
 .step_btn {
