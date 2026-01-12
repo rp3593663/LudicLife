@@ -3569,8 +3569,8 @@ main#MainContent.ds-moto-ludic {
   cursor: pointer;
 }
 
-.popup-step { display: none; }
-.popup-step.active { display: block; }
+.ds_moto_popup_step { display: none; }
+.ds_moto_popup_step.active { display: block; }
 
 .error-msg {
   color: red;
