@@ -3557,6 +3557,9 @@ main#MainContent.ds-moto-ludic {
     height: 100dvh;
     padding: 0;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .ds_new-popup-close {
   position: absolute;
@@ -3572,6 +3575,7 @@ main#MainContent.ds-moto-ludic {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 .ds_new_popup_content {
     display: flex;
