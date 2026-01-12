@@ -1010,10 +1010,13 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     line-height: 14px!important;
     border: 1px solid #000000;
     border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
-.step_input.phone_input {
-    padding: 16px 18px 16px 48px;
-    position: relative;
+.step_input img{
+    height: 16px;
+    width: auto;
 }
 .ds_moto_step_field input::placeholder{
     color: #C7C7C7;
