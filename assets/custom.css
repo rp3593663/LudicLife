@@ -3606,8 +3606,7 @@ main#MainContent.ds-moto-ludic {
     letter-spacing: -2.3px;
     text-align: center;
 }
-.ds_moto_popup_step.step_1 h2,
-.ds_moto_popup_step.step_2 h2, {
+.ds_moto_popup_step h2 span {
     color: #E60013;
 }
 .ds_moto_popup_step { display: none; }
