@@ -2197,69 +2197,128 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const popup = document.getElementById("signup-popup");
+  const popup = document.getElementById("ludic-popup");
   const steps = document.querySelectorAll(".popup-step");
-  let selectedCollection = "";
 
-  // Show popup after 5 seconds
-  setTimeout(() => popup.classList.add("active"), 5000);
+  const CLOSED_KEY = "ludic_popup_closed";
+  const STATE_KEY = "ludic_popup_state";
 
+  let state = JSON.parse(sessionStorage.getItem(STATE_KEY)) || {
+    step: 1,
+    collection: "",
+    email: ""
+  };
+
+  // ---- HELPERS ----
   function showStep(step) {
     steps.forEach(s => s.classList.remove("active"));
     document.querySelector(`[data-step="${step}"]`).classList.add("active");
+    state.step = step;
+    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
   }
 
-  // STEP 1: Category selection
+  function openPopup() {
+    popup.classList.add("active");
+    showStep(state.step);
+  }
+
+  // ---- INITIAL LOAD LOGIC ----
+  if (!localStorage.getItem(CLOSED_KEY)) {
+
+    // If user reached step 3 or beyond → never show again
+    if (state.step < 3) {
+      setTimeout(openPopup, 5000);
+    }
+  }
+
+  // ---- CLOSE BUTTON (PERMANENT) ----
+  document.querySelector(".popup-close").addEventListener("click", () => {
+    localStorage.setItem(CLOSED_KEY, "yes");
+    popup.classList.remove("active");
+  });
+
+  // ---- STEP 1 ----
   document.querySelectorAll(".category-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      selectedCollection = btn.dataset.collection;
+      state.collection = btn.dataset.collection;
+      state.step = 2;
+      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
       showStep(2);
     });
   });
 
-  // STEP 2: Email validation
-  document.getElementById("email-next").addEventListener("click", () => {
+  // ---- STEP 2 (EMAIL + API 1) ----
+  document.getElementById("email-submit").addEventListener("click", () => {
     const email = document.getElementById("popup-email").value.trim();
     const error = document.querySelector('[data-step="2"] .error-msg');
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!regex.test(email)) {
-      error.textContent = "Please enter a valid email address";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      error.textContent = "Please enter valid email";
       return;
     }
 
     error.textContent = "";
-    showStep(3);
+    state.email = email;
+
+    fetch("https://Ludic-API.kretosstechnology.com/create-customer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        collection: state.collection
+      })
+    })
+    .then(res => res.json())
+    .then(() => {
+      state.step = 3;
+      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+      showStep(3);
+    })
+    .catch(() => {
+      error.textContent = "Something went wrong. Try again.";
+    });
   });
 
-  // STEP 3: Phone validation
-  document.getElementById("phone-next").addEventListener("click", () => {
+  // ---- STEP 3 (PHONE + API 2) ----
+  document.getElementById("phone-submit").addEventListener("click", () => {
     const phone = document.getElementById("popup-phone").value.trim();
     const error = document.querySelector('[data-step="3"] .error-msg');
 
     if (!/^\d{10}$/.test(phone)) {
-      error.textContent = "Enter a valid 10-digit phone number";
+      error.textContent = "Enter valid 10 digit number";
       return;
     }
 
     error.textContent = "";
-    showStep(4);
+
+    fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: state.email,
+        phone: phone
+      })
+    })
+    .then(res => res.json())
+    .then(() => {
+      state.step = 4;
+      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+      showStep(4);
+    })
+    .catch(() => {
+      error.textContent = "Phone update failed";
+    });
   });
 
-  // STEP 4: Redirect to selected collection
+  // ---- STEP 4 ----
   document.getElementById("continue-shopping").addEventListener("click", () => {
-    if (selectedCollection) {
-      window.location.href = selectedCollection;
-    }
-  });
-
-  // Close popup
-  document.querySelector(".popup-close").addEventListener("click", () => {
     popup.classList.remove("active");
+    window.location.href = state.collection;
   });
 
 });
 </script>
+
 
 
 
