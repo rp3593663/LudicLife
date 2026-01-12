@@ -989,8 +989,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     gap: 18px;
     max-width: 328px;
     align-items: center;
-    justify-content: center;
     margin: auto;
+}
+.ds_moto_step_field input {
+    width: 100%;
 }
 .ds_moto_popup_step { display: none; }
 .ds_moto_popup_step.active { display: block; }
