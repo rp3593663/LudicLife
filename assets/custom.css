@@ -3533,17 +3533,16 @@ main#MainContent.ds-moto-ludic {
 
 
 
-
 .popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.6);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: .4s;
+  transition: .4s ease;
   z-index: 9999;
 }
 
@@ -3554,10 +3553,20 @@ main#MainContent.ds-moto-ludic {
 
 .popup-box {
   background: #fff;
-  padding: 30px;
   max-width: 520px;
   width: 90%;
+  padding: 30px;
   position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .popup-step { display: none; }
@@ -3566,4 +3575,6 @@ main#MainContent.ds-moto-ludic {
 .error-msg {
   color: red;
   font-size: 13px;
+  margin-top: 6px;
 }
+
