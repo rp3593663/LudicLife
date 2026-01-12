@@ -3552,9 +3552,9 @@ main#MainContent.ds-moto-ludic {
 }
 
 .ds_new_popup-box {
-    background: #F9F9F9;
-    max-width: 100vw;
+    background: #f9f9f9;
     width: 100%;
+    height: 100dvh;
     padding: 0;
     position: relative;
 }
