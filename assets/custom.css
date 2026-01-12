@@ -3582,6 +3582,9 @@ main#MainContent.ds-moto-ludic {
     align-items: center;
     justify-content: center;
 }
+.ds_new_popup_img {
+    height: 100%;
+}
 .ds_new_popup_img img {
     width: 100%;
     height: 100%;
