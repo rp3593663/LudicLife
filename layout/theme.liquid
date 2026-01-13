@@ -2176,9 +2176,9 @@
             <div class="ds_moto_choose_cat">
               <h6>What category interests you?</h6>
               <div class="all_cat_btn">
-                <button class="category-btn" data-collection="/collections/footwear">FOOTWEAR</button>
-                <button class="category-btn" data-collection="/collections/apparel">APPAREL</button>
-                <button class="category-btn" data-collection="/collections/accessories">ACCESSORIES</button>
+                <button class="category-btn" data-collection-name="Footwear" data-collection-url="/collections/footwear">FOOTWEAR</button>
+                <button class="category-btn" data-collection-name="Apparel" data-collection-url="/collections/apparel">APPAREL</button>
+                <button class="category-btn" data-collection-name="Accessories" data-collection-url="/collections/accessories">ACCESSORIES</button>
               </div>
             </div>
           </div>
@@ -2306,6 +2306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".category-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       state.collection = btn.dataset.collection;
+      collection = 
       state.step = 2;
       sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
       showStep(2);
