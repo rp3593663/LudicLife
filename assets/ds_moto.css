@@ -1133,7 +1133,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         height: 38px;
     }
     .step_input {
-        padding: 12px;
+        padding: 11px 12px;
         line-height: 12px!important;
         gap: 12px;
     }
