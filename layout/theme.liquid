@@ -2429,8 +2429,58 @@
 
         /* ---------------- STEP 4 ---------------- */
         document.getElementById("continue-shopping")?.addEventListener("click", () => {
-          popup.classList.remove("active");
-          window.location.href = state.collection;
+          const btn = document.getElementById("continue-shopping");
+          const error = document.querySelector('[data-step="4"] .error-msg');
+
+          if (!state.email) {
+            error && (error.textContent = "Email not found");
+            return;
+          }
+
+          setLoading(btn, true, "Sending...");
+
+          fetch("https://Ludic-API.kretosstechnology.com/api/v1/update-customer-tags", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: state.email
+            })
+          })
+          .then(async res => {
+            const data = await res.json();
+
+            console.log("TAG API RESPONSE:", {
+              status: res.status,
+              ok: res.ok,
+              data
+            });
+
+            if (!res.ok) {
+              throw data;
+            }
+
+            return data;
+          })
+          .then(() => {
+            // ✅ success → close popup + redirect
+            popup.classList.remove("active");
+
+            // optional: clear session if you want popup fresh next time
+            sessionStorage.removeItem("ludic_popup_state");
+
+            window.location.href = state.collection;
+          })
+          .catch(err => {
+            console.error("TAG API ERROR:", err);
+            error && (error.textContent =
+              err.message ||
+              err.error ||
+              "Something went wrong. Please try again."
+            );
+          })
+          .finally(() => {
+            setLoading(btn, false);
+          });
         });
 
       });
