@@ -2333,15 +2333,24 @@ document.addEventListener("DOMContentLoaded", () => {
         what_category_interests_you: state.collection
       })
     })
-    .then(res => res.json())
+    .then(async res => {
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      return data;
+    })
     .then(() => {
       state.step = 3;
       sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
       showStep(3);
     })
-    .catch(() => {
-      error.textContent = "Something went wrong. Try again.";
+    .catch(err => {
+      error.textContent = err.message;
     });
+
   });
 
   /* ---------------- STEP 3 (PHONE API +91) ---------------- */
