@@ -2279,6 +2279,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (phoneInput) {
     phoneInput.addEventListener("input", () => {
+
       // Allow only digits
       phoneInput.value = phoneInput.value.replace(/\D/g, "");
 
@@ -2286,6 +2287,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (phoneInput.value.length > 10) {
         phoneInput.value = phoneInput.value.slice(0, 10);
       }
+
+      // Remove error while typing
+      const error = document.querySelector('[data-step="3"] .error-msg');
+      if (error) error.textContent = "";
     });
   }
 
