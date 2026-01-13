@@ -1128,6 +1128,9 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         gap: 18px;
         max-width: 298px;
     }
+    .all_cat_btn button.category-btn {
+        height: 38px;
+    }
 }
 
 
