@@ -1137,6 +1137,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .ds_new_popup_logo {
         height: auto;
         width: 92px;
+        top: -68px;
     }
     .ds_moto_popup_step h2 {
         font-size: 36px;
