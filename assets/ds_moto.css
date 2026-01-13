@@ -917,6 +917,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     justify-content: center;
     flex-direction: column;
     gap: 42px;
+    position: relative;
 }
 .ds_new_popup_img {
     height: 100%;
