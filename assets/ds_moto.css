@@ -935,13 +935,13 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 }
 .step_head p {
     margin-top: 14px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: -0.9px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -.48px;
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     color: #949598;
 }
 .ds_moto_popup_step h2 {
