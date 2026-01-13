@@ -1156,6 +1156,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .step_input img {
         height: 14px;
     }
+    .default_country {
+        gap: 6px;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.36px;
+    }
 }
 
 
