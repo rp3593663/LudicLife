@@ -2344,11 +2344,8 @@ document.addEventListener("DOMContentLoaded", () => {
     error.textContent = "";
     state.email = email;
 
-    state.step = 3;
-    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-    showStep(3);
 
-    {% comment %} fetch("https://Ludic-API.kretosstechnology.com/create-customer", {
+  fetch("https://Ludic-API.kretosstechnology.com/create-customer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2364,7 +2361,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => {
       error.textContent = "Something went wrong. Try again.";
-    }); {% endcomment %}
+    });
   });
 
   // ---- STEP 3 (PHONE + API 2) ----
