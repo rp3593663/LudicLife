@@ -2469,9 +2469,7 @@
           .then(() => {
             // ✅ success → close popup + redirect
             popup.classList.remove("active");
-
-            // optional: clear session if you want popup fresh next time
-            sessionStorage.removeItem("ludic_popup_state");
+            //sessionStorage.removeItem("ludic_popup_state");
 
             window.location.href = state.collection;
           })
