@@ -2383,8 +2383,10 @@ document.addEventListener("DOMContentLoaded", () => {
         err.message ||
         err.error ||
         "Something went wrong. Please try again.";
-    });
-
+    })
+    .finally(() => {
+      setLoading(btn, false);
+    }); 
 
   });
 
@@ -2400,6 +2402,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     error.textContent = "";
     const phoneWithCountryCode = `+91${rawPhone}`;
+
+     setLoading(btn, true, "Activating...");
 
     fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
       method: "POST",
