@@ -2377,11 +2377,13 @@
           .catch(err => {
             // ✅ LOG FULL ERROR RESPONSE
             console.error("API ERROR RESPONSE:", err);
-
-            error.textContent =
+            {% comment %} error.textContent =
               err.message ||
               err.error ||
-              "Something went wrong. Please try again.";
+              "Something went wrong. Please try again."; {% endcomment %}
+            state.step = 3;
+            sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+            showStep(3);
           })
           .finally(() => {
             setLoading(btn, false);
@@ -2421,6 +2423,9 @@
           })
           .catch(() => {
             error.textContent = "Phone update failed";
+            state.step = 4;
+            sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+            showStep(4);
           })
           .finally(() => {
             setLoading(btn, false);
