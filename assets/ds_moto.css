@@ -1114,6 +1114,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .ds_new_popup_content {
         max-width: 298px;
     }
+    .ds_new_popup_logo {
+        height: auto;
+        width: 92px;
+    }
 }
 
 
