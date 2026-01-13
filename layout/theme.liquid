@@ -2275,6 +2275,20 @@ document.addEventListener("DOMContentLoaded", () => {
     showStep(state.step);
   }
 
+  const phoneInput = document.getElementById("popup-phone");
+
+  if (phoneInput) {
+    phoneInput.addEventListener("input", () => {
+      // Allow only digits
+      phoneInput.value = phoneInput.value.replace(/\D/g, "");
+
+      // Max length 10
+      if (phoneInput.value.length > 10) {
+        phoneInput.value = phoneInput.value.slice(0, 10);
+      }
+    });
+  }
+
   // ---- INITIAL LOAD LOGIC ----
   if (!localStorage.getItem(CLOSED_KEY)) {
 
