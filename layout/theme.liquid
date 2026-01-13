@@ -2336,8 +2336,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(async res => {
       const data = await res.json();
 
+      // ✅ LOG FULL RESPONSE
+      console.log("API RESPONSE:", {
+        status: res.status,
+        ok: res.ok,
+        data: data
+      });
+
       if (!res.ok) {
-        throw new Error(data.message || "Something went wrong");
+        // pass full response to catch
+        throw data;
       }
 
       return data;
@@ -2348,9 +2356,15 @@ document.addEventListener("DOMContentLoaded", () => {
       showStep(3);
     })
     .catch(err => {
-      console.log("===========", res.json());
-      error.textContent = err.message;
+      // ✅ LOG FULL ERROR RESPONSE
+      console.error("API ERROR RESPONSE:", err);
+
+      error.textContent =
+        err.message ||
+        err.error ||
+        "Something went wrong. Please try again.";
     });
+
 
   });
 
