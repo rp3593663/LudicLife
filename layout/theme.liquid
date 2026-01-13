@@ -2251,31 +2251,26 @@ document.addEventListener("DOMContentLoaded", () => {
     email: ""
   };
 
-
   function showStep(step) {
-    steps.forEach(s => {
-      s.classList.remove("active", "animate");
-    });
+    steps.forEach(s => s.classList.remove("active", "animate"));
 
     const activeStep = document.querySelector(`[data-step="${step}"]`);
+    if (!activeStep) return;
+
     activeStep.classList.add("active");
-
-    // Force reflow to restart animation
-    void activeStep.offsetWidth;
-
+    void activeStep.offsetWidth; // reflow
     activeStep.classList.add("animate");
 
     state.step = step;
     sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-  } 
-
+  }
 
   function openPopup() {
     popup.classList.add("active");
     showStep(state.step);
   }
 
-
+  /* ---------------- EMAIL INPUT ---------------- */
   const emailInput = document.getElementById("popup-email");
   if (emailInput) {
     emailInput.addEventListener("input", () => {
@@ -2284,44 +2279,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ---------------- PHONE INPUT ---------------- */
   const phoneInput = document.getElementById("popup-phone");
   if (phoneInput) {
-    phoneInput.addEventListener("input", (e) => {
-
-      const prevValue = phoneInput.value;
-
-      // Remove non-digits
-      phoneInput.value = phoneInput.value.replace(/\D/g, "");
-
-      // Enforce max 10 digits
-      if (phoneInput.value.length > 10) {
-        phoneInput.value = phoneInput.value.slice(0, 10);
-      }
-
-      // Clear error ONLY if a digit was entered
-      if (phoneInput.value !== prevValue) {
-        const error = document.querySelector('[data-step="3"] .error-msg');
-        if (error) error.textContent = "";
-      }
+    phoneInput.addEventListener("input", () => {
+      phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+      const error = document.querySelector('[data-step="3"] .error-msg');
+      if (error) error.textContent = "";
     });
   }
 
-  // ---- INITIAL LOAD LOGIC ----
+  /* ---------------- INITIAL LOAD ---------------- */
   if (!localStorage.getItem(CLOSED_KEY)) {
-
-    // If user reached step 3 or beyond → never show again
     if (state.step < 3) {
       setTimeout(openPopup, 5000);
     }
   }
 
-  // ---- CLOSE BUTTON (PERMANENT) ----
-  document.querySelector(".ds_new-popup-close").addEventListener("click", () => {
+  /* ---------------- CLOSE POPUP ---------------- */
+  document.querySelector(".ds_new-popup-close")?.addEventListener("click", () => {
     localStorage.setItem(CLOSED_KEY, "yes");
     popup.classList.remove("active");
   });
 
-  // ---- STEP 1 ----
+  /* ---------------- STEP 1 ---------------- */
   document.querySelectorAll(".category-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       state.collection = btn.dataset.collection;
@@ -2331,9 +2312,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ---- STEP 2 (EMAIL + API 1) ----
-  document.getElementById("email-submit").addEventListener("click", () => {
-    const email = document.getElementById("popup-email").value.trim();
+  /* ---------------- STEP 2 (EMAIL API) ---------------- */
+  document.getElementById("email-submit")?.addEventListener("click", () => {
+    const email = emailInput.value.trim();
     const error = document.querySelector('[data-step="2"] .error-msg');
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -2344,8 +2325,7 @@ document.addEventListener("DOMContentLoaded", () => {
     error.textContent = "";
     state.email = email;
 
-
-  fetch("https://Ludic-API.kretosstechnology.com/api/v1/ds-moto-create-customer", {
+    fetch("https://Ludic-API.kretosstechnology.com/api/v1/ds-moto-create-customer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2364,25 +2344,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ---- STEP 3 (PHONE + API 2) ----
-  document.getElementById("phone-submit").addEventListener("click", () => {
-    const phone = document.getElementById("popup-phone").value.trim();
+  /* ---------------- STEP 3 (PHONE API +91) ---------------- */
+  document.getElementById("phone-submit")?.addEventListener("click", () => {
+    const rawPhone = phoneInput.value.trim();
     const error = document.querySelector('[data-step="3"] .error-msg');
 
-    if (!/^\d{10}$/.test(phone)) {
+    if (!/^\d{10}$/.test(rawPhone)) {
       error.textContent = "Enter valid 10 digit number";
       return;
     }
 
     error.textContent = "";
-
+    const phoneWithCountryCode = `+91${rawPhone}`;
 
     fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        "email": state.email,
-        "phone": phone
+        email: state.email,
+        phone: phoneWithCountryCode
       })
     })
     .then(res => res.json())
@@ -2393,17 +2373,18 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => {
       error.textContent = "Phone update failed";
-    }); 
+    });
   });
 
-  // ---- STEP 4 ----
-  document.getElementById("continue-shopping").addEventListener("click", () => {
+  /* ---------------- STEP 4 ---------------- */
+  document.getElementById("continue-shopping")?.addEventListener("click", () => {
     popup.classList.remove("active");
     window.location.href = state.collection;
   });
 
 });
 </script>
+
 
 
 
