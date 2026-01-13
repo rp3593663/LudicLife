@@ -2249,12 +2249,29 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ---- HELPERS ----
-  function showStep(step) {
+  {% comment %} function showStep(step) {
     steps.forEach(s => s.classList.remove("active"));
     document.querySelector(`[data-step="${step}"]`).classList.add("active");
     state.step = step;
     sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-  }
+  } {% endcomment %}
+  function showStep(step) {
+  steps.forEach(s => {
+    s.classList.remove("active", "animate");
+  });
+
+  const activeStep = document.querySelector(`[data-step="${step}"]`);
+  activeStep.classList.add("active");
+
+  // Force reflow to restart animation
+  void activeStep.offsetWidth;
+
+  activeStep.classList.add("animate");
+
+  state.step = step;
+  sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+} 
+
 
   function openPopup() {
     popup.classList.add("active");
