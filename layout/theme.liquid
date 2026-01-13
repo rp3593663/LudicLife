@@ -2256,21 +2256,21 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
   } {% endcomment %}
   function showStep(step) {
-  steps.forEach(s => {
-    s.classList.remove("active", "animate");
-  });
+    steps.forEach(s => {
+      s.classList.remove("active", "animate");
+    });
 
-  const activeStep = document.querySelector(`[data-step="${step}"]`);
-  activeStep.classList.add("active");
+    const activeStep = document.querySelector(`[data-step="${step}"]`);
+    activeStep.classList.add("active");
 
-  // Force reflow to restart animation
-  void activeStep.offsetWidth;
+    // Force reflow to restart animation
+    void activeStep.offsetWidth;
 
-  activeStep.classList.add("animate");
+    activeStep.classList.add("animate");
 
-  state.step = step;
-  sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-} 
+    state.step = step;
+    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+  } 
 
 
   function openPopup() {
