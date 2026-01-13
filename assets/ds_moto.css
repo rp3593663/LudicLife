@@ -1093,6 +1093,11 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
   animation: fadeUp 0.45s ease forwards;
   animation-delay: 0.15s;
 }
+.step_btn.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
