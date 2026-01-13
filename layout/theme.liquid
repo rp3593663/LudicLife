@@ -2345,12 +2345,12 @@ document.addEventListener("DOMContentLoaded", () => {
     state.email = email;
 
 
-  fetch("https://Ludic-API.kretosstechnology.com/create-customer", {
+  fetch("https://Ludic-API.kretosstechnology.com/api/v1/ds-moto-create-customer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        email: email,
-        collection: state.collection
+        'email': email,
+        "what_category_interests_you": state.collection
       })
     })
     .then(res => res.json())
@@ -2376,11 +2376,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     error.textContent = "";
 
-    state.step = 4;
-    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-    showStep(4);
 
-    {% comment %} fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
+    fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2396,7 +2393,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => {
       error.textContent = "Phone update failed";
-    }); {% endcomment %}
+    }); 
   });
 
   // ---- STEP 4 ----
