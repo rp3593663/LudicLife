@@ -2248,13 +2248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     email: ""
   };
 
-  // ---- HELPERS ----
-  {% comment %} function showStep(step) {
-    steps.forEach(s => s.classList.remove("active"));
-    document.querySelector(`[data-step="${step}"]`).classList.add("active");
-    state.step = step;
-    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-  } {% endcomment %}
+
   function showStep(step) {
     steps.forEach(s => {
       s.classList.remove("active", "animate");
