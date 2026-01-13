@@ -932,6 +932,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
   width: auto;
   position: absolute;
   top: -95px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .step_head {
     margin-bottom: 32px;
