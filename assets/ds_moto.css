@@ -1162,6 +1162,9 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         line-height: 12px;
         letter-spacing: -.36px;
     }
+    .error-msg {
+        font-size: 12px;
+    }
 }
 
 
