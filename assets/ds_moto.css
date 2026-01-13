@@ -1137,6 +1137,11 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         line-height: 12px!important;
         gap: 12px;
     }
+    .ds_moto_step_field input {
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.36px;
+    }
 }
 
 
