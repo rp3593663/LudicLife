@@ -861,3 +861,331 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 }
 
 
+
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .4s ease;
+  z-index: 9999;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ds_new_popup-box {
+    background: #f9f9f9;
+    width: 100%;
+    height: 100dvh;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ds_new-popup-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.ds_new-popup-close svg{
+  width: 24px;
+  height: 24px;
+}
+.ds_new_popup_inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.ds_new_popup_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 42px;
+    position: relative;
+}
+.ds_new_popup_img {
+    height: 100%;
+}
+.ds_new_popup_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ds_new_popup_logo{
+  height: 24px;
+  width: auto;
+  position: absolute;
+  top: -95px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.step_head {
+    margin-bottom: 32px;
+}
+.step_head p {
+    margin-top: 14px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -.48px;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 0;
+    color: #949598;
+}
+.ds_moto_popup_step h2 {
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 46px;
+    letter-spacing: -2.3px;
+    text-align: center;
+    display: grid;
+    gap: 8px;
+    margin: 0px;
+}
+.ds_moto_popup_step h2 span {
+    color: #E60013;
+    display: block;
+}
+.ds_moto_choose_cat {
+    display: grid;
+    gap: 24px;
+    max-width: 328px;
+    margin: auto;
+    text-align: center;
+}
+.ds_moto_choose_cat h6 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -.48px;
+    color: #949598;
+    margin: 0;
+}
+.all_cat_btn {
+    display: grid;
+    gap: 18px;
+}
+.all_cat_btn button.category-btn {
+    border: 1px solid #1A1A1A;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F9F9F9;
+    color: #1A1A1A;
+    font-weight: 650;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 4px;
+    letter-spacing: -0.7px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+}
+.all_cat_btn button.category-btn:hover{
+    background: #1A1A1A;
+    color: #FFFFFF;
+}
+.ds_moto_step_field {
+    display: grid;
+    gap: 18px;
+    max-width: 328px;
+    align-items: center;
+    margin: auto;
+}
+.ds_moto_step_field input {
+    width: 100%;
+    border: unset;
+    padding: 0px;
+    background: unset;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.42px;
+    color: #1A1A1A;
+}
+.default_country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.42px;
+}
+.step_input {
+    padding: 16px 18px;
+    line-height: 14px!important;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #f9f9f9;
+}
+.step_input img{
+    height: 16px;
+    width: auto;
+}
+.ds_moto_step_field input::placeholder{
+    color: #C7C7C7;
+}
+.ds_moto_popup_step { display: none; }
+.ds_moto_popup_step.active { display: block; }
+.error-msg {
+    color: red;
+    font-size: 14px;
+    margin: -12px 0px 0px;
+    font-weight: 600;
+}
+.step_btn {
+    border: 1px solid #1A1A1A;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1A1A1A;
+    color: #FFFFFF;
+    font-weight: 650;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 4px;
+    letter-spacing: -0.7px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+}
+.step_btn:hover{
+    background: transparent;
+    color: #1A1A1A;
+}
+.ds_moto_popup_step {
+  display: none;
+}
+.ds_moto_popup_step.active {
+  display: block;
+}
+.ds_moto_popup_step .step_head,
+.ds_moto_popup_step .ds_moto_choose_cat,
+.ds_moto_popup_step .ds_moto_step_field,
+.ds_moto_popup_step #continue-shopping {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.ds_moto_popup_step.animate .step_head {
+  animation: fadeUp 0.45s ease forwards;
+}
+.ds_moto_popup_step.animate .ds_moto_choose_cat,
+.ds_moto_popup_step.animate .ds_moto_step_field,
+.ds_moto_popup_step.animate #continue-shopping {
+  animation: fadeUp 0.45s ease forwards;
+  animation-delay: 0.15s;
+}
+.step_btn.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+#ds_moto_new_popup.active:hover,
+#ds_moto_new_popup .active:hover {
+    text-decoration: none!important;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media(max-width: 767px){
+    .ds_new_popup-box {
+        background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Popup_Grid.svg?v=1768285441);
+        background-position: center;
+        background-size: cover;
+        background-repeat: repeat;
+    }
+    .ds_new_popup_inner {
+        grid-template-columns: 1fr;
+    }
+    .ds_new_popup_img {
+        display: none;
+    }
+    .ds_new_popup_content {
+        max-width: 298px;
+    }
+    .ds_new_popup_logo {
+        height: auto;
+        width: 92px;
+        top: -68px;
+    }
+    .ds_moto_popup_step h2 {
+        font-size: 36px;
+        line-height: 36px;
+        letter-spacing: -1.8px;
+        gap: 10px;
+    }
+    .ds_moto_choose_cat {
+        gap: 18px;
+        max-width: 298px;
+    }
+    .all_cat_btn button.category-btn {
+        height: 38px;
+    }
+    .step_input {
+        padding: 11px 12px;
+        line-height: 12px!important;
+        gap: 12px;
+    }
+    .ds_moto_step_field input {
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.36px;
+    }
+    .step_btn {
+        height: 38px;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.6px;
+    }
+    .step_head p {
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.36px;
+    }
+    .step_input img {
+        height: 14px;
+    }
+    .default_country {
+        gap: 6px;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -.36px;
+    }
+    .error-msg {
+        font-size: 12px;
+    }
+}
+
+
