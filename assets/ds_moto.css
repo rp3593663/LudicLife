@@ -1106,6 +1106,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 
 
 @media(max-width: 767px){
+    .ds_new_popup-box {
+        background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Popup_Grid.svg?v=1768285441);
+        background-position: center;
+        background-size: cover;
+        background-repeat: repeat;
+    }
     .ds_new_popup_inner {
         grid-template-columns: 1fr;
     }
