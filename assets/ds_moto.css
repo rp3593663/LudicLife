@@ -927,7 +927,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     object-fit: cover;
 }
 .ds_new_popup_logo{
-  height: 32px;
+  height: 24px;
   width: auto;
 }
 .step_head {
@@ -966,12 +966,12 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     text-align: center;
 }
 .ds_moto_choose_cat h6 {
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 16px;
     line-height: 100%;
-    letter-spacing: -0.54px;
+    letter-spacing: -.48px;
     color: #949598;
-    margin: 0px;
+    margin: 0;
 }
 .all_cat_btn {
     display: grid;
