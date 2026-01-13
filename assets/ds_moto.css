@@ -1016,6 +1016,14 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     letter-spacing: -0.42px;
     color: #1A1A1A;
 }
+.default_country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.42px;
+}
 .step_input {
     padding: 16px 18px;
     line-height: 14px!important;
