@@ -2152,295 +2152,289 @@
       });
     </script>
 
+    <!---- DS moto full screen Popup ---->
+    <div id="ds_moto_new_popup" class="popup-overlay">
+      <div class="ds_new_popup-box">
+        <button class="ds_new-popup-close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
 
+        <div class="ds_new_popup_inner">
+          <div class="ds_new_popup_content">
 
-<div id="ds_moto_new_popup" class="popup-overlay">
-  <div class="ds_new_popup-box">
-    <button class="ds_new-popup-close">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6L6 18M6 6L18 18" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Red_Ludic_Logo.png?v=1767359591" class="ds_new_popup_logo">
 
-    <div class="ds_new_popup_inner">
-      <div class="ds_new_popup_content">
-
-        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Red_Ludic_Logo.png?v=1767359591" class="ds_new_popup_logo">
-
-        <div class="ds_new_popup_steps">
-          <!-- STEP 1 -->
-          <div class="ds_moto_popup_step step_1" data-step="1">
-            <div class="step_head">
-              <h2><span>12% off</span> On your favourites</h2>
-            </div>
-            <div class="ds_moto_choose_cat">
-              <h6>What category interests you?</h6>
-              <div class="all_cat_btn">
-                <button class="category-btn" data-collection-name="Footwear" data-collection-url="/collections/footwear">FOOTWEAR</button>
-                <button class="category-btn" data-collection-name="Apparel" data-collection-url="/collections/apparel">APPAREL</button>
-                <button class="category-btn" data-collection-name="Accessories" data-collection-url="/collections/accessories">ACCESSORIES</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- STEP 2 -->
-          <div class="ds_moto_popup_step step_2" data-step="2">
-            <div class="step_head">
-              <h2><span>12% off</span> On your favourites</h2>
-            </div>
-            <div class="ds_moto_step_field">
-              <div class="step_input email_input">
-                <input type="email" id="popup-email" placeholder="Your email address">
-              </div>
-              <p class="error-msg"></p>
-              <button id="email-submit" class="step_btn">GET 12% OFF</button>
-            </div>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="ds_moto_popup_step step_3" data-step="3">
-            <div class="step_head">
-              <h2>Finish signing up</h2>
-              <p class="step_description">An important step. Verify your contact no.</p>
-            </div>
-            <div class="ds_moto_step_field">
-              <div class="step_input phone_input">
-                <div class="default_country">
-                  <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/india.svg?v=1768223613">
-                  <span>+91</span>
+            <div class="ds_new_popup_steps">
+              <!-- STEP 1 -->
+              <div class="ds_moto_popup_step step_1" data-step="1">
+                <div class="step_head">
+                  <h2><span>12% off</span> On your favourites</h2>
                 </div>
-                <input type="tel" id="popup-phone" placeholder="Your phone number" inputmode="numeric" maxlength="10"> 
+                <div class="ds_moto_choose_cat">
+                  <h6>What category interests you?</h6>
+                  <div class="all_cat_btn">
+                    <button class="category-btn" data-collection-name="Footwear" data-collection-url="/collections/footwear">FOOTWEAR</button>
+                    <button class="category-btn" data-collection-name="Apparel" data-collection-url="/collections/apparel">APPAREL</button>
+                    <button class="category-btn" data-collection-name="Accessories" data-collection-url="/collections/accessories">ACCESSORIES</button>
+                  </div>
+                </div>
               </div>
-              <p class="error-msg"></p>
-              <button id="phone-submit" class="step_btn">ACTIVATE 12% OFF</button>
+
+              <!-- STEP 2 -->
+              <div class="ds_moto_popup_step step_2" data-step="2">
+                <div class="step_head">
+                  <h2><span>12% off</span> On your favourites</h2>
+                </div>
+                <div class="ds_moto_step_field">
+                  <div class="step_input email_input">
+                    <input type="email" id="popup-email" placeholder="Your email address">
+                  </div>
+                  <p class="error-msg"></p>
+                  <button id="email-submit" class="step_btn">GET 12% OFF</button>
+                </div>
+              </div>
+
+              <!-- STEP 3 -->
+              <div class="ds_moto_popup_step step_3" data-step="3">
+                <div class="step_head">
+                  <h2>Finish signing up</h2>
+                  <p class="step_description">An important step. Verify your contact no.</p>
+                </div>
+                <div class="ds_moto_step_field">
+                  <div class="step_input phone_input">
+                    <div class="default_country">
+                      <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/india.svg?v=1768223613">
+                      <span>+91</span>
+                    </div>
+                    <input type="tel" id="popup-phone" placeholder="Your phone number" inputmode="numeric" maxlength="10"> 
+                  </div>
+                  <p class="error-msg"></p>
+                  <button id="phone-submit" class="step_btn">ACTIVATE 12% OFF</button>
+                </div>
+              </div>
+
+              <!-- STEP 4 -->
+              <div class="ds_moto_popup_step step_4" data-step="4">
+                <div class="step_head">
+                  <h2>Check your inbox</h2>
+                  <p>We've sent the 12% off code to your email.</p>
+                </div>
+                <button id="continue-shopping" class="step_btn">CONTINUE SHOPPING</button>
+              </div>
             </div>
           </div>
-
-          <!-- STEP 4 -->
-          <div class="ds_moto_popup_step step_4" data-step="4">
-            <div class="step_head">
-              <h2>Check your inbox</h2>
-              <p>We've sent the 12% off code to your email.</p>
-            </div>
-            <button id="continue-shopping" class="step_btn">CONTINUE SHOPPING</button>
+          <div class="ds_new_popup_img">
+            <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Ds_new_popup_img.png?v=1768220396">
           </div>
         </div>
-      </div>
-      <div class="ds_new_popup_img">
-        <img src="https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Ds_new_popup_img.png?v=1768220396">
+
+      
       </div>
     </div>
 
-   
-  </div>
-</div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        const popup = document.getElementById("ds_moto_new_popup");
+        const steps = document.querySelectorAll(".ds_moto_popup_step");
+
+        const CLOSED_KEY = "ludic_popup_closed";
+        const STATE_KEY = "ludic_popup_state";
+
+        function setLoading(btn, isLoading, loadingText = "Loading...") {
+          if (!btn) return;
+
+          if (isLoading) {
+            btn.dataset.originalText = btn.textContent;
+            btn.textContent = loadingText;
+            btn.disabled = true;
+            btn.classList.add("loading");
+          } else {
+            btn.textContent = btn.dataset.originalText || btn.textContent;
+            btn.disabled = false;
+            btn.classList.remove("loading");
+          }
+        }
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+        let state = JSON.parse(sessionStorage.getItem(STATE_KEY)) || {
+          step: 1,
+          collection: "",
+          email: ""
+        };
 
-  const popup = document.getElementById("ds_moto_new_popup");
-  const steps = document.querySelectorAll(".ds_moto_popup_step");
+        function showStep(step) {
+          steps.forEach(s => s.classList.remove("active", "animate"));
 
-  const CLOSED_KEY = "ludic_popup_closed";
-  const STATE_KEY = "ludic_popup_state";
+          const activeStep = document.querySelector(`[data-step="${step}"]`);
+          if (!activeStep) return;
 
-  function setLoading(btn, isLoading, loadingText = "Loading...") {
-    if (!btn) return;
+          activeStep.classList.add("active");
+          void activeStep.offsetWidth; // reflow
+          activeStep.classList.add("animate");
 
-    if (isLoading) {
-      btn.dataset.originalText = btn.textContent;
-      btn.textContent = loadingText;
-      btn.disabled = true;
-      btn.classList.add("loading");
-    } else {
-      btn.textContent = btn.dataset.originalText || btn.textContent;
-      btn.disabled = false;
-      btn.classList.remove("loading");
-    }
-  }
+          state.step = step;
+          sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+        }
 
+        function openPopup() {
+          popup.classList.add("active");
+          showStep(state.step);
+        }
 
-  let state = JSON.parse(sessionStorage.getItem(STATE_KEY)) || {
-    step: 1,
-    collection: "",
-    email: ""
-  };
+        /* ---------------- EMAIL INPUT ---------------- */
+        const emailInput = document.getElementById("popup-email");
+        if (emailInput) {
+          emailInput.addEventListener("input", () => {
+            const error = document.querySelector('[data-step="2"] .error-msg');
+            if (error) error.textContent = "";
+          });
+        }
 
-  function showStep(step) {
-    steps.forEach(s => s.classList.remove("active", "animate"));
+        /* ---------------- PHONE INPUT ---------------- */
+        const phoneInput = document.getElementById("popup-phone");
+        if (phoneInput) {
+          phoneInput.addEventListener("input", () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+            const error = document.querySelector('[data-step="3"] .error-msg');
+            if (error) error.textContent = "";
+          });
+        }
 
-    const activeStep = document.querySelector(`[data-step="${step}"]`);
-    if (!activeStep) return;
+        /* ---------------- INITIAL LOAD ---------------- */
+        if (!localStorage.getItem(CLOSED_KEY)) {
+          if (state.step < 3) {
+            setTimeout(openPopup, 8000);
+          }
+        }
 
-    activeStep.classList.add("active");
-    void activeStep.offsetWidth; // reflow
-    activeStep.classList.add("animate");
+        /* ---------------- CLOSE POPUP ---------------- */
+        document.querySelector(".ds_new-popup-close")?.addEventListener("click", () => {
+          localStorage.setItem(CLOSED_KEY, "yes");
+          popup.classList.remove("active");
+        });
 
-    state.step = step;
-    sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-  }
+        /* ---------------- STEP 1 ---------------- */
+        document.querySelectorAll(".category-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            state.collection = btn.dataset.collectionUrl;
+            state.collectionName = btn.dataset.collectionName;
+            collection = 
+            state.step = 2;
+            sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+            showStep(2);
+          });
+        });
 
-  function openPopup() {
-    popup.classList.add("active");
-    showStep(state.step);
-  }
+        /* ---------------- STEP 2 (EMAIL API) ---------------- */
+        document.getElementById("email-submit")?.addEventListener("click", () => {
+          const btn = document.getElementById("email-submit");
+          const email = emailInput.value.trim();
+          const error = document.querySelector('[data-step="2"] .error-msg');
 
-  /* ---------------- EMAIL INPUT ---------------- */
-  const emailInput = document.getElementById("popup-email");
-  if (emailInput) {
-    emailInput.addEventListener("input", () => {
-      const error = document.querySelector('[data-step="2"] .error-msg');
-      if (error) error.textContent = "";
-    });
-  }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            error.textContent = "Please enter valid email";
+            return;
+          }
 
-  /* ---------------- PHONE INPUT ---------------- */
-  const phoneInput = document.getElementById("popup-phone");
-  if (phoneInput) {
-    phoneInput.addEventListener("input", () => {
-      phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
-      const error = document.querySelector('[data-step="3"] .error-msg');
-      if (error) error.textContent = "";
-    });
-  }
+          error.textContent = "";
+          state.email = email;
 
-  /* ---------------- INITIAL LOAD ---------------- */
-  if (!localStorage.getItem(CLOSED_KEY)) {
-    if (state.step < 3) {
-      setTimeout(openPopup, 5000);
-    }
-  }
+          setLoading(btn, true, "Submitting...");
 
-  /* ---------------- CLOSE POPUP ---------------- */
-  document.querySelector(".ds_new-popup-close")?.addEventListener("click", () => {
-    localStorage.setItem(CLOSED_KEY, "yes");
-    popup.classList.remove("active");
-  });
+          fetch("https://Ludic-API.kretosstechnology.com/api/v1/ds-moto-create-customer", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: email,
+              what_category_interests_you: state.collectionName
+            })
+          })
+          .then(async res => {
+            const data = await res.json();
 
-  /* ---------------- STEP 1 ---------------- */
-  document.querySelectorAll(".category-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      state.collection = btn.dataset.collectionUrl;
-      state.collectionName = btn.dataset.collectionName;
-      collection = 
-      state.step = 2;
-      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-      showStep(2);
-    });
-  });
+            // ✅ LOG FULL RESPONSE
+            console.log("API RESPONSE:", {
+              status: res.status,
+              ok: res.ok,
+              data: data
+            });
 
-  /* ---------------- STEP 2 (EMAIL API) ---------------- */
-  document.getElementById("email-submit")?.addEventListener("click", () => {
-    const btn = document.getElementById("email-submit");
-    const email = emailInput.value.trim();
-    const error = document.querySelector('[data-step="2"] .error-msg');
+            if (!res.ok) {
+              // pass full response to catch
+              throw data;
+            }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      error.textContent = "Please enter valid email";
-      return;
-    }
+            return data;
+          })
+          .then(() => {
+            state.step = 3;
+            sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+            showStep(3);
+          })
+          .catch(err => {
+            // ✅ LOG FULL ERROR RESPONSE
+            console.error("API ERROR RESPONSE:", err);
 
-    error.textContent = "";
-    state.email = email;
+            error.textContent =
+              err.message ||
+              err.error ||
+              "Something went wrong. Please try again.";
+          })
+          .finally(() => {
+            setLoading(btn, false);
+          }); 
 
-    setLoading(btn, true, "Submitting...");
+        });
 
-    fetch("https://Ludic-API.kretosstechnology.com/api/v1/ds-moto-create-customer", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: email,
-        what_category_interests_you: state.collectionName
-      })
-    })
-    .then(async res => {
-      const data = await res.json();
+        /* ---------------- STEP 3 (PHONE API +91) ---------------- */
+        document.getElementById("phone-submit")?.addEventListener("click", () => {
+          const btn = document.getElementById("phone-submit");
+          const rawPhone = phoneInput.value.trim();
+          const error = document.querySelector('[data-step="3"] .error-msg');
 
-      // ✅ LOG FULL RESPONSE
-      console.log("API RESPONSE:", {
-        status: res.status,
-        ok: res.ok,
-        data: data
+          if (!/^\d{10}$/.test(rawPhone)) {
+            error.textContent = "Enter valid 10 digit number";
+            return;
+          }
+
+          error.textContent = "";
+          const phoneWithCountryCode = `${rawPhone}`;
+
+          setLoading(btn, true, "Activating...");
+
+          fetch("https://Ludic-API.kretosstechnology.com/api/v1/da-moto-phone-update", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: state.email,
+              phone: phoneWithCountryCode
+            })
+          })
+          .then(res => res.json())
+          .then(() => {
+            state.step = 4;
+            sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+            showStep(4);
+          })
+          .catch(() => {
+            error.textContent = "Phone update failed";
+          })
+          .finally(() => {
+            setLoading(btn, false);
+          });
+        });
+
+        /* ---------------- STEP 4 ---------------- */
+        document.getElementById("continue-shopping")?.addEventListener("click", () => {
+          popup.classList.remove("active");
+          window.location.href = state.collection;
+        });
+
       });
-
-      if (!res.ok) {
-        // pass full response to catch
-        throw data;
-      }
-
-      return data;
-    })
-    .then(() => {
-      state.step = 3;
-      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-      showStep(3);
-    })
-    .catch(err => {
-      // ✅ LOG FULL ERROR RESPONSE
-      console.error("API ERROR RESPONSE:", err);
-
-      error.textContent =
-        err.message ||
-        err.error ||
-        "Something went wrong. Please try again.";
-    })
-    .finally(() => {
-      setLoading(btn, false);
-    }); 
-
-  });
-
-  /* ---------------- STEP 3 (PHONE API +91) ---------------- */
-  document.getElementById("phone-submit")?.addEventListener("click", () => {
-    const btn = document.getElementById("phone-submit");
-    const rawPhone = phoneInput.value.trim();
-    const error = document.querySelector('[data-step="3"] .error-msg');
-
-    if (!/^\d{10}$/.test(rawPhone)) {
-      error.textContent = "Enter valid 10 digit number";
-      return;
-    }
-
-    error.textContent = "";
-    const phoneWithCountryCode = `${rawPhone}`;
-
-     setLoading(btn, true, "Activating...");
-
-    fetch("https://Ludic-API.kretosstechnology.com/api/v1/da-moto-phone-update", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: state.email,
-        phone: phoneWithCountryCode
-      })
-    })
-    .then(res => res.json())
-    .then(() => {
-      state.step = 4;
-      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-      showStep(4);
-    })
-    .catch(() => {
-      error.textContent = "Phone update failed";
-    })
-    .finally(() => {
-      setLoading(btn, false);
-    });
-  });
-
-  /* ---------------- STEP 4 ---------------- */
-  document.getElementById("continue-shopping")?.addEventListener("click", () => {
-    popup.classList.remove("active");
-    window.location.href = state.collection;
-  });
-
-});
-</script>
-
-
-
-
+    </script>
 
   </body>
 </html>
