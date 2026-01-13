@@ -930,6 +930,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
 .ds_new_popup_logo{
   height: 24px;
   width: auto;
+  position: absolute;
+  top: -95px;
 }
 .step_head {
     margin-bottom: 32px;
