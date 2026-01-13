@@ -2302,24 +2302,6 @@ document.addEventListener("DOMContentLoaded", () => {
     state.step = 3;
     sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
     showStep(3);
-
-    {% comment %} fetch("https://Ludic-API.kretosstechnology.com/create-customer", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: email,
-        collection: state.collection
-      })
-    })
-    .then(res => res.json())
-    .then(() => {
-      state.step = 3;
-      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-      showStep(3);
-    })
-    .catch(() => {
-      error.textContent = "Something went wrong. Try again.";
-    }); {% endcomment %}
   });
 
   // ---- STEP 3 (PHONE + API 2) ----
@@ -2337,24 +2319,6 @@ document.addEventListener("DOMContentLoaded", () => {
     state.step = 4;
     sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
     showStep(4);
-
-    {% comment %} fetch("https://Ludic-API.kretosstechnology.com/update-phone", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: state.email,
-        phone: phone
-      })
-    })
-    .then(res => res.json())
-    .then(() => {
-      state.step = 4;
-      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
-      showStep(4);
-    })
-    .catch(() => {
-      error.textContent = "Phone update failed";
-    }); {% endcomment %}
   });
 
   // ---- STEP 4 ----
