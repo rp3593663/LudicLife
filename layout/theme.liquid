@@ -2332,6 +2332,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------------- STEP 2 (EMAIL API) ---------------- */
   document.getElementById("email-submit")?.addEventListener("click", () => {
+    const btn = document.getElementById("email-submit");
     const email = emailInput.value.trim();
     const error = document.querySelector('[data-step="2"] .error-msg');
 
