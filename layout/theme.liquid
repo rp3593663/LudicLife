@@ -2348,6 +2348,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showStep(3);
     })
     .catch(err => {
+      console.log("===========", res.json());
       error.textContent = err.message;
     });
 
