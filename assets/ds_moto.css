@@ -990,6 +990,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     align-items: center;
     justify-content: center;
     background: #F9F9F9;
+    color: #1A1A1A;
     font-weight: 650;
     font-size: 14px;
     line-height: 16px;
