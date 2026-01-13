@@ -2306,7 +2306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".category-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       state.collection = btn.dataset.collectionUrl;
-      state.collection.name = btn.dataset.collectionName;
+      state.collectionName = btn.dataset.collectionName;
       collection = 
       state.step = 2;
       sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
@@ -2332,7 +2332,7 @@ document.addEventListener("DOMContentLoaded", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: email,
-        what_category_interests_you: state.collection.name
+        what_category_interests_you: state.collectionName
       })
     })
     .then(async res => {
