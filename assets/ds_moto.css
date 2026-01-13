@@ -984,7 +984,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
+    background: #F9F9F9;
     font-weight: 650;
     font-size: 14px;
     line-height: 16px;
