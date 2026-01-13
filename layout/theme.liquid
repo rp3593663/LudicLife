@@ -2276,21 +2276,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const phoneInput = document.getElementById("popup-phone");
-
   if (phoneInput) {
-    phoneInput.addEventListener("input", () => {
+    phoneInput.addEventListener("input", (e) => {
 
-      // Allow only digits
+      const prevValue = phoneInput.value;
+
+      // Remove non-digits
       phoneInput.value = phoneInput.value.replace(/\D/g, "");
 
-      // Max length 10
+      // Enforce max 10 digits
       if (phoneInput.value.length > 10) {
         phoneInput.value = phoneInput.value.slice(0, 10);
       }
 
-      // Remove error while typing
-      const error = document.querySelector('[data-step="3"] .error-msg');
-      if (error) error.textContent = "";
+      // Clear error ONLY if a digit was entered
+      if (phoneInput.value !== prevValue) {
+        const error = document.querySelector('[data-step="3"] .error-msg');
+        if (error) error.textContent = "";
+      }
     });
   }
 
