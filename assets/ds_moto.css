@@ -1097,7 +1097,9 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
   opacity: 0.6;
   cursor: not-allowed;
 }
-
+#ds_moto_new_popup.active:hover {
+    text-decoration: none!important;
+}
 @keyframes fadeUp {
   from {
     opacity: 0;
