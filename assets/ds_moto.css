@@ -1124,6 +1124,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         letter-spacing: -1.8px;
         gap: 10px;
     }
+    .ds_moto_choose_cat {
+        gap: 18px;
+        max-width: 298px;
+    }
 }
 
 
