@@ -2381,8 +2381,8 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        email: state.email,
-        phone: phone
+        "email": state.email,
+        "phone": phone
       })
     })
     .then(res => res.json())
