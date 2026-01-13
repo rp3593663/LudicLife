@@ -1032,6 +1032,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     display: flex;
     gap: 10px;
     align-items: center;
+    background: #f9f9f9;
 }
 .step_input img{
     height: 16px;
