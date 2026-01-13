@@ -2422,7 +2422,7 @@
             showStep(4);
           })
           .catch(() => {
-            error.textContent = "Phone update failed";
+            {% comment %} error.textContent = "Phone update failed"; {% endcomment %}
             state.step = 4;
             sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
             showStep(4);
