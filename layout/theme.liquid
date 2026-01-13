@@ -2342,7 +2342,7 @@
           error.textContent = "";
           state.email = email;
 
-          setLoading(btn, true, "Submitting...");
+          setLoading(btn, true, "Checking...");
 
           fetch("https://Ludic-API.kretosstechnology.com/api/v1/ds-moto-create-customer", {
             method: "POST",
@@ -2403,7 +2403,7 @@
           error.textContent = "";
           const phoneWithCountryCode = `${rawPhone}`;
 
-          setLoading(btn, true, "Activating...");
+          setLoading(btn, true, "Checking...");
 
           fetch("https://Ludic-API.kretosstechnology.com/api/v1/da-moto-phone-update", {
             method: "POST",
