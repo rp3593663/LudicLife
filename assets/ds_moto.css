@@ -1062,5 +1062,50 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     background: transparent;
     color: #1A1A1A;
 }
+/* ===============================
+   STEP ANIMATION BASE
+================================ */
+
+.ds_moto_popup_step {
+  display: none;
+}
+
+.ds_moto_popup_step.active {
+  display: block;
+}
+
+/* Initial hidden state */
+.ds_moto_popup_step .step_head,
+.ds_moto_popup_step .ds_moto_choose_cat,
+.ds_moto_popup_step .ds_moto_step_field,
+.ds_moto_popup_step #continue-shopping {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* HEADER animation */
+.ds_moto_popup_step.animate .step_head {
+  animation: fadeUp 0.45s ease forwards;
+}
+
+/* BODY animation (delayed) */
+.ds_moto_popup_step.animate .ds_moto_choose_cat,
+.ds_moto_popup_step.animate .ds_moto_step_field,
+.ds_moto_popup_step.animate #continue-shopping {
+  animation: fadeUp 0.45s ease forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
