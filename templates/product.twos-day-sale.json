@@ -27,13 +27,18 @@
         "product_specification_8MT8Vg": {
           "type": "product_specification",
           "settings": {}
+        },
+        "twos_day_sale_bundle_kRmmmq": {
+          "type": "twos_day_sale_bundle",
+          "settings": {}
         }
       },
       "block_order": [
         "title",
         "price",
         "short_description_AAh7K9",
-        "product_specification_8MT8Vg"
+        "product_specification_8MT8Vg",
+        "twos_day_sale_bundle_kRmmmq"
       ],
       "settings": {
         "enable_sticky_info": true,
