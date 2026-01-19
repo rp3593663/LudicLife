@@ -2153,7 +2153,7 @@
     </script>
 
     <!---- DS moto full screen Popup ---->
-    <div id="ds_moto_new_popup" class="popup-overlay">
+    <div id="ds_moto_new_popup" class="popup-overlay" style="display:none">
       <div class="ds_new_popup-box">
         <button class="ds_new-popup-close">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2235,7 +2235,7 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+      {% comment %} document.addEventListener("DOMContentLoaded", () => {
 
         const popup = document.getElementById("ds_moto_new_popup");
         const steps = document.querySelectorAll(".ds_moto_popup_step");
@@ -2486,7 +2486,7 @@
           });
         });
 
-      });
+      }); {% endcomment %}
     </script>
 
   </body>
