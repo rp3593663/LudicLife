@@ -280,7 +280,7 @@
                 {%- when 'twos_day_sale_bundle' -%}
                   {% if template == 'product.twos-day-sale' %}
                     <div class="twos_day_bundle">
-                      <h6 class="twos_day_bundle_offer">Buy 1 Get 1</h6>
+                      {% comment %} <h6 class="twos_day_bundle_offer">Buy 1 Get 1</h6> {% endcomment %}
                       {% assign bundle_1 = product.metafields.custom.product_1_bundle.value %}
                       {% assign bundle_2 = product.metafields.custom.product_2_bundle.value %}
 
