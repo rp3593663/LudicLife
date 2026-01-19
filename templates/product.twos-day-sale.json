@@ -43,6 +43,10 @@
         "product_detail_accordion_tyerBf": {
           "type": "product_detail_accordion",
           "settings": {}
+        },
+        "buy_it_with_LACgkR": {
+          "type": "buy_it_with",
+          "settings": {}
         }
       },
       "block_order": [
@@ -53,7 +57,8 @@
         "twos_day_sale_bundle_kRmmmq",
         "custom_icon_with_text_WXg6yT",
         "product_fetures_with_icon_dyYkCT",
-        "product_detail_accordion_tyerBf"
+        "product_detail_accordion_tyerBf",
+        "buy_it_with_LACgkR"
       ],
       "settings": {
         "enable_sticky_info": true,
