@@ -19,11 +19,21 @@
         "price": {
           "type": "price",
           "settings": {}
+        },
+        "short_description_AAh7K9": {
+          "type": "short_description",
+          "settings": {}
+        },
+        "product_specification_8MT8Vg": {
+          "type": "product_specification",
+          "settings": {}
         }
       },
       "block_order": [
         "title",
-        "price"
+        "price",
+        "short_description_AAh7K9",
+        "product_specification_8MT8Vg"
       ],
       "settings": {
         "enable_sticky_info": true,
