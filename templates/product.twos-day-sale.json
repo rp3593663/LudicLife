@@ -31,6 +31,18 @@
         "twos_day_sale_bundle_kRmmmq": {
           "type": "twos_day_sale_bundle",
           "settings": {}
+        },
+        "custom_icon_with_text_WXg6yT": {
+          "type": "custom_icon_with_text",
+          "settings": {}
+        },
+        "product_fetures_with_icon_dyYkCT": {
+          "type": "product_fetures_with_icon",
+          "settings": {}
+        },
+        "product_detail_accordion_tyerBf": {
+          "type": "product_detail_accordion",
+          "settings": {}
         }
       },
       "block_order": [
@@ -38,7 +50,10 @@
         "price",
         "short_description_AAh7K9",
         "product_specification_8MT8Vg",
-        "twos_day_sale_bundle_kRmmmq"
+        "twos_day_sale_bundle_kRmmmq",
+        "custom_icon_with_text_WXg6yT",
+        "product_fetures_with_icon_dyYkCT",
+        "product_detail_accordion_tyerBf"
       ],
       "settings": {
         "enable_sticky_info": true,
