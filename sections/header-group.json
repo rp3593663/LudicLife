@@ -21,10 +21,19 @@
             "mobile_text": "Built with absolute adrenaline - DS Moto Out Now**",
             "link": "shopify://products/ds-moto-tarmac-black"
           }
+        },
+        "announcement_mG3bpc": {
+          "type": "announcement",
+          "settings": {
+            "text": "Your favorites are on BOGO, again.",
+            "mobile_text": "Your favorites are on BOGO, again",
+            "link": "shopify://pages/twos-day-sale"
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_mG3bpc"
       ],
       "custom_css": [
         ".html-marquee img {height: 12px; width: 26px; margin: 0px 40px;}",
@@ -35,10 +44,10 @@
         "color_scheme": "scheme-5",
         "show_line_separator": false,
         "show_social": false,
-        "marquee_text": false,
+        "marquee_text": true,
         "marquee_link": "shopify://products/sliders-purple-pyaaz",
         "auto_rotate": true,
-        "change_slides_speed": 5,
+        "change_slides_speed": 3,
         "enable_country_selector": false,
         "enable_language_selector": false
       }

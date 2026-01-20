@@ -162,12 +162,15 @@
                 </style>
                
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="main-price-section ggg">
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
+                  {% if template != 'product.twos-day-sale' %}
+                    {%- render 'price',
+                      product: product,
+                      use_variant: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                  {% endif %}
+                  <div class="combine-price">₹ 1,499</div>
                   <div class="tax-text">(Inclusive of all taxes)</div>
                 </div>
                 
@@ -193,19 +196,17 @@
                   </div>  
                 {%- endif -%} {% endcomment %}
 
-                {% if template == 'product.twos-day-sale' %}
-                  {% comment %} <div class="title_price_twos_day">
+                {% comment %} {% if template == 'product.twos-day-sale' %}
+                  <div class="title_price_twos_day">
                     <div class="twos_day_title">
                       <h3>Slider</h3>
-                      <h3>Slider 2.0</h3>
                     </div>
                     <div class="twos_day_price">
                       <div class="combine-price">₹ 1,499</div>
-                      <div class="combine-price">₹ 1,999</div>
                       <div class="tax-text">(Inclusive of all taxes)</div>
                     </div>
-                  </div> {% endcomment %}
-                {% endif %}
+                  </div>
+                {% endif %} {% endcomment %}
 
                 {% if template == 'product.twos-day-sale' %}
                   <h6 class="twos_day_bundle_offer">
@@ -557,6 +558,25 @@
                         {% endif %}
 
                       </div>
+
+                      <div class="sale_ends">
+                        <h6>Sale ends in</h6>
+                        <div class="sale_ends_date">
+                          {% comment %} <div class="sale_end" id="days">
+                            <p>0</p><span>Days</span>
+                          </div>  {% endcomment %}
+                          <div class="sale_end" id="hours">
+                            <p>0</p><span>Hours</span>
+                          </div>
+                          <div class="sale_end" id="minuts">
+                            <p>0</p><span>Minutes</span>
+                          </div>
+                          <div class="sale_end" id="seconds">
+                            <p>0</p><span>Seconds</span>
+                          </div>
+                        </div>
+                      </div>
+
                       <button id="bundleAddToCartBtn" class="bundle-add-btn">
                         <span class="text-wrap">
                           <span class="text default">

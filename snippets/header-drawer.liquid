@@ -449,7 +449,7 @@
     padding: 20px;
   } 
 
-  a.menu-tab:nth-child(1), a.menu-tab:nth-child(2), a.menu-tab:nth-child(3){
+  a.menu-tab:nth-child(2), a.menu-tab:nth-child(3){
     padding: 12px 20px 12px;
   }
   {% comment %} a.menu-tab:nth-child(3) {
@@ -459,6 +459,12 @@
     padding: 12px 20px 20px;
   } {% endcomment %}
 
+  a.menu-tab:nth-child(1){
+    border-bottom: 1px solid #EAEAEA;
+  }
+  a.menu-tab:nth-child(1) .arrow-menu{
+    display: none;
+  }
   a.menu-tab:nth-child(4){
     border-bottom: 1px solid #EAEAEA;
     border-top: 1px solid #EAEAEA;

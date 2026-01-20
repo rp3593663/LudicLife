@@ -2298,8 +2298,8 @@ input[type="checkbox"] {
   text-align: center;
   padding: 8px 0;
   font-size: 12px;
-  line-height: 8px;
-  font-weight: 200;
+  line-height: 17px;
+  font-weight: 600;
   margin: 0;
   /* letter-spacing: 0.1rem; */
 }
@@ -2951,7 +2951,8 @@ details[open] > .header__submenu {
   padding: 0 1rem;
 }
 /* a#HeaderMenu-ludic-life , */
-a#HeaderMenu-payday-sale{
+a#HeaderMenu-payday-sale,
+a#HeaderMenu-twos-day-sale{
    color: var(--color-primary);
 }
 .header__menu-item {

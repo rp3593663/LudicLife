@@ -1451,7 +1451,7 @@
           <button id="popup-cta" class="popup-cta-btn">Don't miss out</button>
         </div>
       </div>
-      {% comment %} <script>
+       <script>
         document.addEventListener("DOMContentLoaded", function () {
           if (window.location.pathname === "/pages/ds-moto-ludic") {
             return;
@@ -1504,7 +1504,7 @@
           });
 
         });
-      </script> {% endcomment %}
+      </script>
     <!--twosDay_promo_popup End-->
 
     <script>
@@ -1866,6 +1866,46 @@
         updateSelectedLabels(1);
         updateSelectedLabels(2);
       })();
+      document.addEventListener("DOMContentLoaded", function () {
+
+  const priceBox = document.querySelector('.combine-price');
+  const select1 = document.getElementById('bundle_1_select');
+  const select2 = document.getElementById('bundle_2_select');
+
+  const premiumHandles = [
+    "sliders-purple-pyaaz",
+    "sliders-tandoor-black-2-0"
+  ];
+
+  function updateBundlePrice() {
+    const h1 = select1.value;
+    const h2 = select2.value;
+
+    // 🟡 DEFAULT PRICE when not selected
+    if (!h1 || !h2) {
+      priceBox.innerHTML = "₹1999";
+      return;
+    }
+
+    const isH1Premium = premiumHandles.includes(h1);
+    const isH2Premium = premiumHandles.includes(h2);
+
+    let price = 1499; // default when both NOT premium
+
+    // Any case where ONE or BOTH are premium → 1999
+    if (isH1Premium || isH2Premium) {
+      price = 1999;
+    }
+
+    priceBox.innerHTML = `₹${price}`;
+  }
+
+  updateBundlePrice(); // Show default 1999 on load
+
+  select1.addEventListener("change", updateBundlePrice);
+  select2.addEventListener("change", updateBundlePrice);
+
+}); 
     </script>
 
     <script>
@@ -2083,8 +2123,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Target: 17 Dec 2025 - 11:00 AM
-        const targetDate = new Date("December 31, 2025 11:00:00").getTime();
+        const targetDate = new Date("January 21, 2026 11:00:00").getTime();
 
         const hoursEl   = document.querySelector("#hours p");
         const minutesEl = document.querySelector("#minuts p");
@@ -2114,6 +2153,8 @@
           minutesEl.textContent = minutes < 10 ? "0" + minutes : minutes;
           secondsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
         }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
       })();
     </script>
 
