@@ -2298,8 +2298,8 @@ input[type="checkbox"] {
   text-align: center;
   padding: 8px 0;
   font-size: 12px;
-  line-height: 8px;
-  font-weight: 200;
+  line-height: 17px;
+  font-weight: 600;
   margin: 0;
   /* letter-spacing: 0.1rem; */
 }
