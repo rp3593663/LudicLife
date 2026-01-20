@@ -691,8 +691,9 @@
     </div>
 
     {% comment %} PDP Page video popup {% endcomment %}
-    {% comment %} {% if request.path contains 'products' %}
+    {% if request.path contains 'products' %}
       {% assign allowed_collections = 'sliders' | split: ',' %}
+      {% assign allowed_collections_ds = 'ds-moto' | split: ',' %}
       {% assign allowed_products_1 = 'enhanced-canvas-pro,nova-pro' | split: ',' %}
       {% assign allowed_products_2 = 'ec-pro-raven' | split: ',' %}
       {% assign allowed_products_3 = 'ec-low-sirocco' | split: ',' %}
@@ -728,7 +729,7 @@
           </div>
         </div>
       {% endif %}
-    {% endif %} {% endcomment %}
+    {% endif %}
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
