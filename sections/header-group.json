@@ -25,9 +25,9 @@
         "announcement_mG3bpc": {
           "type": "announcement",
           "settings": {
-            "text": "Built with absolute adrenaline - DS Moto Out Now**",
-            "mobile_text": "Built with absolute adrenaline - DS Moto Out Now**",
-            "link": "shopify://products/ds-moto-tarmac-black"
+            "text": "Your favorites are on BOGO, again:flushed:",
+            "mobile_text": "Your favorites are on BOGO, again",
+            "link": "shopify://pages/twos-day-sale"
           }
         }
       },
