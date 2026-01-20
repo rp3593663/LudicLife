@@ -170,7 +170,9 @@
                       price_class: 'price--large'
                     -%}
                   {% endif %}
-                  <div class="combine-price">₹ 1,499</div>
+                  {% if template == 'product.twos-day-sale' %}
+                    <div class="combine-price">₹ 1,499</div>
+                  {% endif %}
                   <div class="tax-text">(Inclusive of all taxes)</div>
                 </div>
                 
