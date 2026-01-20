@@ -162,12 +162,14 @@
                 </style>
                
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="main-price-section ggg">
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
+                  {% if template != 'product.twos-day-sale' %}
+                    {%- render 'price',
+                      product: product,
+                      use_variant: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                  {% endif %}
                   <div class="combine-price">₹ 1,499</div>
                   <div class="tax-text">(Inclusive of all taxes)</div>
                 </div>
@@ -194,7 +196,7 @@
                   </div>  
                 {%- endif -%} {% endcomment %}
 
-                {% if template == 'product.twos-day-sale' %}
+                {% comment %} {% if template == 'product.twos-day-sale' %}
                   <div class="title_price_twos_day">
                     <div class="twos_day_title">
                       <h3>Slider</h3>
@@ -204,7 +206,7 @@
                       <div class="tax-text">(Inclusive of all taxes)</div>
                     </div>
                   </div>
-                {% endif %}
+                {% endif %} {% endcomment %}
 
                 {% if template == 'product.twos-day-sale' %}
                   <h6 class="twos_day_bundle_offer">
