@@ -2300,6 +2300,7 @@ input[type="checkbox"] {
   font-size: 12px;
   line-height: 17px;
   font-weight: 600;
+  letter-spacing: -0.36px;
   margin: 0;
   /* letter-spacing: 0.1rem; */
 }
