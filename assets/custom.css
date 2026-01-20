@@ -1433,7 +1433,7 @@ body.size-chart-popup-pdp #MainContent{
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 16px !important;
+    /* margin-bottom: 16px !important; */
 }
 .template-product:not(.template-product\.fw-product) span.size_var {
     font-weight: 400;

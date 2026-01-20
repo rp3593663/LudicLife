@@ -693,6 +693,7 @@
     {% comment %} PDP Page video popup {% endcomment %}
     {% if request.path contains 'products' %}
       {% assign allowed_collections = 'sliders' | split: ',' %}
+      {% assign allowed_collections_ds = 'ds-moto' | split: ',' %}
       {% assign allowed_products_1 = 'enhanced-canvas-pro,nova-pro' | split: ',' %}
       {% assign allowed_products_2 = 'ec-pro-raven' | split: ',' %}
       {% assign allowed_products_3 = 'ec-low-sirocco' | split: ',' %}
@@ -702,6 +703,9 @@
       {% for collection in product.collections %}
         {% if allowed_collections contains collection.handle %}
           {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/54b3441e479b4ddc9e33cfd7d61c4fd5.mp4' %}
+        {% endif %}
+        {% if allowed_collections_ds contains collection.handle %}
+          {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/9f127c67187d416997560e08fce58a36.mp4' %}
         {% endif %}
       {% endfor %}
       
