@@ -705,6 +705,9 @@
                       {% if allowed_collections contains collection.handle %}
                         {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/54b3441e479b4ddc9e33cfd7d61c4fd5.mp4' %}
                       {% endif %}
+                      {% if allowed_collections_ds contains collection.handle %}
+                        {% assign video_src = 'https://cdn.shopify.com/videos/c/o/v/9f127c67187d416997560e08fce58a36.mp4' %}
+                      {% endif %}
                     {% endfor %}
                     
                     {% if allowed_products_1 contains product.handle %}
