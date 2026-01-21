@@ -3441,7 +3441,7 @@ button.ds-submit-btn {
 .ls-moto-slider .banner__buttons{
   margin-top: 0px!important;
 }
-/* .announcement-bar__message .desktop-text, 
+.announcement-bar__message .desktop-text, 
 .announcement-bar__message .mobile-text{
   white-space: nowrap;
   animation: carSpeedText 3s infinite ease-in-out;
@@ -3471,7 +3471,7 @@ button.ds-submit-btn {
     transform: translateX(0);
     opacity: 1;
   }
-} */
+} 
 @media(max-width: 767px){
   .ls-moto-slider h2.banner__heading {
     font-size: 20px;
