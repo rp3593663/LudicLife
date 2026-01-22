@@ -365,8 +365,10 @@
   /* Hamburger Button */
   .hamburger {
     position: relative;
-    width: 14px;
-    height: 13px;
+    {% comment %} width: 14px;
+    height: 13px; {% endcomment %}
+    width: 30px;
+    height: 30px;
     display: inline-flex;
     flex-direction: column;
     justify-content: space-around;
@@ -375,7 +377,8 @@
     border: none;
     cursor: pointer;
     z-index: 100;
-    padding:0;
+    {% comment %} padding:0; {% endcomment %}
+    padding:8.5px;
   }
 
   .line {
