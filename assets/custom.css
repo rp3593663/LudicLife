@@ -2443,6 +2443,7 @@ button#setReminderBtn {
   .template-product:not(.template-product\.fw-product) product-info .product .product__info-wrapper {
     padding: 30px 16px 0px!important;
     right:0;
+    background-color:transparent;
   }
   .template-product:not(.template-product\.fw-product) .product__title h1,
   .template-product:not(.template-product\.fw-product) .product__info-wrapper .price .price-item {
