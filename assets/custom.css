@@ -2618,7 +2618,8 @@ button#setReminderBtn {
     text-align: center;
 }
 .template-product.template-product\.rework-pdp .product__info-wrapper {
-    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923);
+    /* background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923); */
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/bg_1.svg?v=1769082697);
     background-size: cover;
     padding: 33px 52px 32px 40px !important;
     background-position: center;
