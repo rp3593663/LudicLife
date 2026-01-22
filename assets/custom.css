@@ -3054,6 +3054,7 @@ button#setReminderBtn {
   .template-product.template-product\.rework-pdp .wish-with-button.mobile button.product-form__submit {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/sticky_cart_btn_bg.png?v=1762925628);
     background-repeat:no-repeat;
+    background-size:cover;
   }
   .template-product.template-product\.rework-pdp product-info {
     padding-top: 24px!important;
