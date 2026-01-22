@@ -249,6 +249,10 @@
   margin-left: 5px;
   color: #E60013;
 }
+
+.main-blog-product-inner p.price .main_price{
+  color:#1a1a1a;
+}
 .main-blog-product-inner p.price{
   text-decoration: line-through;
   display: block;
