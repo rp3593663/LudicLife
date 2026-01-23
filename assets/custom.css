@@ -3451,6 +3451,9 @@ button.ds-submit-btn {
   white-space: nowrap;
   animation: carSpeedText 3s infinite ease-in-out;
 }
+.collection-block.apparel-collection ul a:nth-child(2) {
+    order: -1;
+}
 @keyframes carSpeedText {
   0% {
     transform: translateX(0);
