@@ -2472,6 +2472,7 @@ button#setReminderBtn {
   }
   .USP_content>img {
     width: 10px;
+    min-width: 10px;
   }
   .USP_info {
     gap: 6px;
