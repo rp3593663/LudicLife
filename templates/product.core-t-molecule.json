@@ -139,6 +139,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "Always more",
         "heading_size": "h2",
@@ -153,6 +154,55 @@
         "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 98
+      }
+    },
+    "custom_featured_collection_RfWp4Y": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_XrHkTq": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-chutney-green",
+            "variant_name": ""
+          }
+        },
+        "product_NjUr43": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-tarmac-black",
+            "variant_name": ""
+          }
+        },
+        "product_r8GA99": {
+          "type": "product",
+          "settings": {
+            "product": "the-sport-bag",
+            "variant_name": ""
+          }
+        },
+        "product_QE6RMr": {
+          "type": "product",
+          "settings": {
+            "product": "weekend-shirt-lychee",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_XrHkTq",
+        "product_NjUr43",
+        "product_r8GA99",
+        "product_QE6RMr"
+      ],
+      "name": "Custom Featured Products",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0px 0px 98px",
+        "section_heading": "Always More",
+        "enable_view_all": true,
+        "enable_view_url": "",
+        "column_lg": 4
       }
     },
     "multicolumn_Vynki4": {
@@ -232,6 +282,7 @@
     "product_reels_6j69tD",
     "product_shop_the_look_tiDhiW",
     "related-products",
+    "custom_featured_collection_RfWp4Y",
     "multicolumn_Vynki4"
   ]
 }
