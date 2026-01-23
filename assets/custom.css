@@ -2030,6 +2030,7 @@ h2.reels_title {
     gap: 8px;
 }
 .USP_content > img {
+    min-width: 12px;
     width: 12px;
     height: auto;
 }
