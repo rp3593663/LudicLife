@@ -2030,6 +2030,7 @@ h2.reels_title {
     gap: 8px;
 }
 .USP_content > img {
+    min-width: 12px;
     width: 12px;
     height: auto;
 }
@@ -2442,6 +2443,8 @@ button#setReminderBtn {
   }
   .template-product:not(.template-product\.fw-product) product-info .product .product__info-wrapper {
     padding: 30px 16px 0px!important;
+    right:0;
+    background-color:transparent;
   }
   .template-product:not(.template-product\.fw-product) .product__title h1,
   .template-product:not(.template-product\.fw-product) .product__info-wrapper .price .price-item {
@@ -2469,6 +2472,7 @@ button#setReminderBtn {
   }
   .USP_content>img {
     width: 10px;
+    min-width: 10px;
   }
   .USP_info {
     gap: 6px;
@@ -2616,7 +2620,8 @@ button#setReminderBtn {
     text-align: center;
 }
 .template-product.template-product\.rework-pdp .product__info-wrapper {
-    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923);
+    /* background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/product_info_bg.svg?v=1762842923); */
+    background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/bg_1.svg?v=1769082697);
     background-size: cover;
     padding: 33px 52px 32px 40px !important;
     background-position: center;
@@ -3052,6 +3057,8 @@ button#setReminderBtn {
   }
   .template-product.template-product\.rework-pdp .wish-with-button.mobile button.product-form__submit {
     background-image: url(https://cdn.shopify.com/s/files/1/0823/6787/3328/files/sticky_cart_btn_bg.png?v=1762925628);
+    background-repeat:no-repeat;
+    background-size:cover;
   }
   .template-product.template-product\.rework-pdp product-info {
     padding-top: 24px!important;
@@ -3445,6 +3452,9 @@ button.ds-submit-btn {
 .announcement-bar__message .mobile-text{
   white-space: nowrap;
   animation: carSpeedText 3s infinite ease-in-out;
+}
+.collection-block.apparel-collection ul a:nth-child(2) {
+    order: -1;
 }
 @keyframes carSpeedText {
   0% {

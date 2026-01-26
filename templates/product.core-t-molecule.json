@@ -1,0 +1,288 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "short_description_VkUykc": {
+          "type": "short_description",
+          "settings": {}
+        },
+        "product_specification_amyY93": {
+          "type": "product_specification",
+          "settings": {}
+        },
+        "model_gender_block_xVBMUU": {
+          "type": "model_gender_block",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_icon_with_text_zTLBGc": {
+          "type": "custom_icon_with_text",
+          "settings": {}
+        },
+        "product_fetures_with_icon_8KRhJV": {
+          "type": "product_fetures_with_icon",
+          "settings": {}
+        },
+        "product_detail_accordion_bUJafG": {
+          "type": "product_detail_accordion",
+          "settings": {}
+        },
+        "buy_it_with_L6jNDq": {
+          "type": "buy_it_with",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "short_description_VkUykc",
+        "product_specification_amyY93",
+        "model_gender_block_xVBMUU",
+        "variant_picker",
+        "buy_buttons",
+        "custom_icon_with_text_zTLBGc",
+        "product_fetures_with_icon_8KRhJV",
+        "product_detail_accordion_bUJafG",
+        "buy_it_with_L6jNDq"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "columns",
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "product_extra_description_7HFcLH": {
+      "type": "product-extra-description",
+      "name": "Product Description",
+      "settings": {
+        "padding_top": 122,
+        "padding_bottom": 122
+      }
+    },
+    "product_usp_exXjan": {
+      "type": "product-usp",
+      "name": "Product USPs",
+      "settings": {
+        "heading": "Video",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "product_reels_6j69tD": {
+      "type": "product-reels",
+      "name": "Product Reels",
+      "settings": {
+        "heading": "#LudicEdits",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    },
+    "product_shop_the_look_tiDhiW": {
+      "type": "product-shop-the-look",
+      "name": "Product Shop The Look",
+      "settings": {
+        "heading": "Shop the look",
+        "description": "This is a style ecosystem. Every product is designed to complement the other, coming together to build a complete look that feels intentional, balanced, and true to Ludic. Each piece holds its own, but works even better as part of the whole. Picked one? Explore the rest to bring the full look together.",
+        "padding_top": 0,
+        "padding_bottom": 112
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "Always more",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 98
+      }
+    },
+    "custom_featured_collection_RfWp4Y": {
+      "type": "custom-featured-collection",
+      "blocks": {
+        "product_XrHkTq": {
+          "type": "product",
+          "settings": {
+            "product": "sliders-chutney-green",
+            "variant_name": ""
+          }
+        },
+        "product_NjUr43": {
+          "type": "product",
+          "settings": {
+            "product": "ds-moto-tarmac-black",
+            "variant_name": ""
+          }
+        },
+        "product_r8GA99": {
+          "type": "product",
+          "settings": {
+            "product": "the-sport-bag",
+            "variant_name": ""
+          }
+        },
+        "product_QE6RMr": {
+          "type": "product",
+          "settings": {
+            "product": "weekend-shirt-lychee",
+            "variant_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_XrHkTq",
+        "product_NjUr43",
+        "product_r8GA99",
+        "product_QE6RMr"
+      ],
+      "name": "Custom Featured Products",
+      "settings": {
+        "layout": "box_width",
+        "padding": "0px 0px 0px 0px",
+        "margin": "0px 0px 98px",
+        "section_heading": "Always More",
+        "enable_view_all": true,
+        "enable_view_url": "",
+        "column_lg": 4
+      }
+    },
+    "multicolumn_Vynki4": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xTeRL9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon1.svg",
+            "title": "Free Delivery",
+            "text": "<p>Across india with cash on delivery</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jtQegy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon2.svg",
+            "title": "Returns & Exchange",
+            "text": "<p>Up to 7 days from delivery.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WAF4i7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon3.svg",
+            "title": "100% Secured Payment",
+            "text": "<p>Multiple payment options offered.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_KWX4ex": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon4.svg",
+            "title": "Customer Service",
+            "text": "<p>Monday-Friday: 10AM-6PM</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_xTeRL9",
+        "column_jtQegy",
+        "column_WAF4i7",
+        "column_KWX4ex"
+      ],
+      "custom_css": [],
+      "settings": {
+        "custom_class": "home_features",
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_extra_description_7HFcLH",
+    "product_usp_exXjan",
+    "product_reels_6j69tD",
+    "product_shop_the_look_tiDhiW",
+    "related-products",
+    "custom_featured_collection_RfWp4Y",
+    "multicolumn_Vynki4"
+  ]
+}

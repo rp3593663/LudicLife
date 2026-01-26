@@ -5846,8 +5846,10 @@ footer {
     margin: 0 10px;
   } */
   .menu-drawer-container .header__icon {
-    width: 25.5px;
-    height: 25.5px;
+    /* width: 25.5px;
+    height: 25.5px; */
+    width: 30px;
+    height: 30px;
   }
   .menu-drawer-container .header__icon > span {
     justify-content: left!important;
