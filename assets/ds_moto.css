@@ -19,7 +19,7 @@
     top: 0;
     left: 0;
     z-index: 1;
-    background: linear-gradient(0deg, #f9f9f900, #f9f9f900), linear-gradient(0deg, rgba(249, 249, 249, 0) 81.49%, rgba(0, 0, 0, 0.9) 105.21%);
+    background: linear-gradient(0deg, rgba(249, 249, 249, 0) 81.49%, rgba(0, 0, 0, 0.9) 105.21%);
 }
 .slideshow .ds_moto_banner1 img,
 .slideshow .molecule_banner img{
