@@ -6369,7 +6369,7 @@ new-cart-drawer .cart__ctas .button {
 }
 .slider-mobile-gutter .slideshow + .slideshow__controls,
 .slideshow__controls.container.slideshow__controls--top.slider-buttons{
-  bottom: 40px;
+  bottom: 60px;
 }
 .drawer.active .drawer__inner {
   background-color: #fff;
