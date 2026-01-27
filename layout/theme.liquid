@@ -2117,11 +2117,12 @@
           if (currentUrl === productPage) {
             window.location.href = salePage;
           }
-        } else {
+        } 
+        {% comment %} else {
           if (currentUrl === salePage) {
-            window.location.href = salePage;
+            window.location.href = productPage;
           }
-        }
+        } {% endcomment %}
       })();
     </script>
 
