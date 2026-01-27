@@ -35,6 +35,29 @@
             "varaint_product_id": []
           }
         },
+        "slide_jePz78": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "core_t_molecule_slide",
+            "image": "shopify://shop_images/DS-moto-slider1-desktop.png",
+            "mobile_image": "shopify://shop_images/DS-moto-slider1-mobile.png",
+            "banner_url": "shopify://products/ds-moto-tarmac-black",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "Explore DS Moto",
+            "link": "shopify://products/ds-moto-tarmac-black",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_Jdr8FX": {
           "type": "slide",
           "disabled": true,
@@ -313,6 +336,7 @@
       },
       "block_order": [
         "slide_hikXef",
+        "slide_jePz78",
         "slide_Jdr8FX",
         "slide_xbMa3M",
         "slide_LE8H3A",
