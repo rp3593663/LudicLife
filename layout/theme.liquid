@@ -2113,7 +2113,10 @@
           return false;
         }
         const isSaleActive = isTwosDaySaleActive();
-        if (!isSaleActive) {
+        if (currentUrl === productPage) {
+            window.location.href = salePage;
+        }
+        {% comment %} if (!isSaleActive) {
           if (currentUrl === productPage) {
             window.location.href = salePage;
           }
@@ -2121,7 +2124,7 @@
           if (currentUrl === salePage) {
             window.location.href = productPage;
           }
-        }
+        } {% endcomment %}
       })();
     </script>
 
