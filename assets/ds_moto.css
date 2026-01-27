@@ -98,10 +98,10 @@
 .molecule_banner .banner__buttons a.button {
     width: 228px;
     height: 38px;
-    border: 1px solid #FFFFFF!important;
+    border: 1px solid #E60013!important;
     padding: 0;
-    background: #ffffff;
-    color: #1A1A1A;
+    background: #E60013;
+    color: #FFFFFF;
     border-radius: 4px;
     opacity: 1;
     font-family: Public Sans;
@@ -115,12 +115,14 @@
     min-height: unset;
     transition: all .2s ease-in;
 }
-.ds_moto_banner1 .banner__buttons a.button:hover,
-.molecule_banner .banner__buttons a.button:hover {
+.ds_moto_banner1 .banner__buttons a.button:hover {
     background: transparent;
     color: #FFFFFF;
 }
-
+.molecule_banner .banner__buttons a.button:hover {
+    background: #1A1A1A;
+    color: #FFFFFF;
+}
 
 .ds_moto_btn{
     display: flex;
