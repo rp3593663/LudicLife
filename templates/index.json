@@ -37,9 +37,10 @@
         },
         "slide_jePz78": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slide_custom_class": "core_t_molecule_slide",
-            "image": "shopify://shop_images/DS-moto-slider1-desktop.png",
+            "image": "shopify://shop_images/Banner_2.png",
             "mobile_image": "shopify://shop_images/DS-moto-slider1-mobile.png",
             "banner_url": "shopify://products/ds-moto-tarmac-black",
             "heading": "",
