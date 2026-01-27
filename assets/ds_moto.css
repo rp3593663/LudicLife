@@ -650,13 +650,20 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     .molecule_banner .banner__buttons {
         margin-top: 0px!important;
     }
-    .ds_moto_banner1 .banner__buttons a.button,
-    .molecule_banner .banner__buttons a.button {
+    .ds_moto_banner1 .banner__buttons a.button {
         width: 134px;
         height: 28px;
         border-radius: 2px;
         font-size: 10px;
         letter-spacing: -.5px;
+        margin: 0px!important;
+    }
+    .molecule_banner .banner__buttons a.button {
+        width: 180px;
+        height: 28px;
+        border-radius: 2px;
+        font-size: 10px;
+        letter-spacing: -.3px;
         margin: 0px!important;
     }
     .ds_home_text .rich-text__text {
