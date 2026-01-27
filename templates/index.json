@@ -37,7 +37,6 @@
         },
         "slide_EjVaap": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "slide_custom_class": "molecule_banner",
             "image": "shopify://shop_images/Banner_2.png",
@@ -354,7 +353,7 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": true,
+        "auto_rotate": false,
         "change_slides_speed": 7,
         "image_behavior": "none",
         "show_text_below": false,
