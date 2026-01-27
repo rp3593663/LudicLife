@@ -24,7 +24,7 @@
   background: #939598;
   position: absolute;
   border-radius: 8px;
-  animation: borderTimeline 5s linear forwards;
+  animation: borderTimeline 7s linear forwards;
   transition: all 0.9s ease;
   width: 100%;
   height: 100%;
