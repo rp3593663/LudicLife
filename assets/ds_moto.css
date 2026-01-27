@@ -10,7 +10,24 @@
 {
     height: calc(100dvh - 34px);
 }
-
+.slideshow .molecule_banner:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.65) 25%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.15) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
 .slideshow .ds_moto_banner1 img,
 .slideshow .molecule_banner img{
     height: 100%;
