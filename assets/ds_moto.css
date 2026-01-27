@@ -6,7 +6,7 @@
 }
 
 .slideshow .ds_moto_banner1,
-.slideshow .molecule_banner,
+.slideshow .molecule_banner
 {
     height: calc(100dvh - 34px);
 }
