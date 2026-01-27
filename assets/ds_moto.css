@@ -5,11 +5,24 @@
     font-style: normal;
 }
 
-.slideshow .ds_moto_banner1{
+.slideshow .ds_moto_banner1,
+.slideshow .molecule_banner
+{
     height: calc(100dvh - 34px);
 }
-
-.slideshow .ds_moto_banner1 img{
+.slideshow .molecule_banner:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(249, 249, 249, 0) 81.49%, rgba(0, 0, 0, 0.9) 105.21%);
+}
+.slideshow .ds_moto_banner1 img,
+.slideshow .molecule_banner img{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -52,12 +65,14 @@
     background: #1A1A1A;
     color: #FFF;
 }
-.ds_moto_banner1 .slideshow__text.banner__box {
+.ds_moto_banner1 .slideshow__text.banner__box,
+.molecule_banner .slideshow__text.banner__box {
     top: 0!important;
     padding: 0px!important;
     z-index: 3;
 }
-.ds_moto_banner1 h2.banner__heading.h1 {
+.ds_moto_banner1 h2.banner__heading.h1,
+.molecule_banner h2.banner__heading.h1 {
     font-family: 'Druk Trial';
     font-weight: 650;
     font-size: 64px;
@@ -66,7 +81,8 @@
     color: #FFF;
     text-transform: uppercase;
 }
-.ds_moto_banner1 .banner__buttons {
+.ds_moto_banner1 .banner__buttons,
+.molecule_banner .banner__buttons {
     margin-top: 0px!important;
 }
 .ds_moto_banner1 .banner__buttons a.button {
@@ -89,11 +105,35 @@
     min-height: unset;
     transition: all .2s ease-in;
 }
+.molecule_banner .banner__buttons a.button {
+    width: 228px;
+    height: 38px;
+    border: 1px solid #E60013!important;
+    padding: 0;
+    background: #E60013;
+    color: #FFFFFF;
+    border-radius: 4px;
+    opacity: 1;
+    font-family: Public Sans;
+    font-weight: 650;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -.6px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    min-height: unset;
+    transition: all .2s ease-in;
+}
 .ds_moto_banner1 .banner__buttons a.button:hover {
     background: transparent;
     color: #FFFFFF;
 }
-
+.molecule_banner .banner__buttons a.button:hover {
+    background: #1A1A1A;
+    border-color: #1A1A1A!important;
+    color: #FFFFFF;
+}
 
 .ds_moto_btn{
     display: flex;
@@ -596,14 +636,16 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     }
 }
 @media(max-width: 767px){
-    .ds_moto_banner1 .slideshow__text.banner__box {
+    .ds_moto_banner1 .slideshow__text.banner__box,
+    .molecule_banner .slideshow__text.banner__box {
         top: 50%!important;
         padding: 0!important;
         z-index: 3;
         bottom: unset;
         transform: translateX(-50%)!important;
     }
-    .ds_moto_banner1 h2.banner__heading.h1 {
+    .ds_moto_banner1 h2.banner__heading.h1,
+    .molecule_banner h2.banner__heading.h1 {
         line-height: 38px;
         letter-spacing: 0;
         color: #fff;
@@ -614,7 +656,8 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         text-transform: uppercase;
         margin-bottom: 0px;
     }
-    .ds_moto_banner1 .banner__buttons {
+    .ds_moto_banner1 .banner__buttons,
+    .molecule_banner .banner__buttons {
         margin-top: 0px!important;
     }
     .ds_moto_banner1 .banner__buttons a.button {
@@ -623,6 +666,14 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         border-radius: 2px;
         font-size: 10px;
         letter-spacing: -.5px;
+        margin: 0px!important;
+    }
+    .molecule_banner .banner__buttons a.button {
+        width: 180px;
+        height: 28px;
+        border-radius: 2px;
+        font-size: 10px;
+        letter-spacing: -.3px;
         margin: 0px!important;
     }
     .ds_home_text .rich-text__text {
