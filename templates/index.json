@@ -38,7 +38,7 @@
         "slide_EjVaap": {
           "type": "slide",
           "settings": {
-            "slide_custom_class": "ds_moto_banner1",
+            "slide_custom_class": "molecule_banner",
             "image": "shopify://shop_images/Banner_2.png",
             "mobile_video": "shopify://files/videos/banner mobile-1.mp4",
             "banner_url": "shopify://products/ds-moto-tarmac-black",
