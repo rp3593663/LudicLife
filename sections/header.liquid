@@ -419,6 +419,7 @@ endfor
             
             {% if section.settings.apparel_collection != blank %}
               <ul>
+                 {% if item_index == 2 %}
                 <a href="/products/circuit-shirt">
                   <li>
                     <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_149.png?v=1753082934">
@@ -428,6 +429,7 @@ endfor
                     </div>
                   </li>
                 </a>
+              {% endif %}
               {% for collection in section.settings.apparel_collection %}
                  {% assign has_new_product = false %}
                   {% for product in collection.products %}
