@@ -415,11 +415,10 @@ endfor
             {% endif %}
           </div>
 
-          <div class="collection-block apparel-collection" data-menu-id="apparel">
+          {% comment %} <div class="collection-block apparel-collection" data-menu-id="apparel">
             
             {% if section.settings.apparel_collection != blank %}
               <ul>
-                 {% if item_index == 1 %}
                 <a href="/products/circuit-shirt">
                   <li>
                     <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_149.png?v=1753082934">
@@ -429,7 +428,6 @@ endfor
                     </div>
                   </li>
                 </a>
-              {% endif %}
               {% for collection in section.settings.apparel_collection %}
                  {% assign has_new_product = false %}
                   {% for product in collection.products %}
@@ -455,7 +453,62 @@ endfor
               {% endfor %}
             </ul>
             {% endif %}
+          </div> {% endcomment %}
+
+          <div class="collection-block apparel-collection" data-menu-id="apparel">
+            
+            {% if section.settings.apparel_collection != blank %}
+              <ul>
+
+                {% assign item_index = 0 %}
+
+                {% for collection in section.settings.apparel_collection %}
+
+                  {% assign has_new_product = false %}
+                  {% for product in collection.products %}
+                    {% if product.metafields.custom.new_product == true %}
+                      {% assign has_new_product = true %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {%- comment -%} 👉 Insert Circuit Shirt as 3rd item {%- endcomment -%}
+                  {% if item_index == 2 %}
+                    <a href="/products/circuit-shirt">
+                      <li>
+                        <img src="https://cdn.shopify.com/s/files/1/0885/3834/9878/files/Frame_149.png?v=1753082934">
+                        <div>
+                          <p class="menu-collection-title">Circuit Shirt</p>
+                          <p>3 Colors • Cotton Canvas • Relaxed Fit</p>
+                        </div>
+                      </li>
+                    </a>
+                  {% endif %}
+
+                  <a href="{{ collection.url }}">
+
+                    {% if has_new_product %}
+                      <div class="new-product-dot"></div>
+                    {% endif %}
+                    
+                    <li>
+                      <img src="{{ collection.image | img_url:'master' }}">
+                      <div>
+                        <p class="menu-collection-title">{{ collection.title }}</p>
+                        <p>{{ collection.metafields.custom.menu_sub_text }}</p>
+                      </div>
+                    </li>
+                  </a>
+
+                  {% assign item_index = item_index | plus: 1 %}
+
+                {% endfor %}
+
+              </ul>
+            {% endif %}
+
           </div>
+
 
           <div class="collection-block other-collection" data-menu-id="accessories">
             {% if section.settings.other_collection != blank %}
