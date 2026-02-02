@@ -105,12 +105,12 @@
                 {{ 'general.continue_shopping' | t }}
               </a>
 
-              {%- if shop.customer_accounts_enabled and customer == null -%}
+              {% comment %} {%- if shop.customer_accounts_enabled and customer == null -%}
                 <p class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</p>
                 <p class="cart__login-paragraph">
                   {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
                 </p>
-              {%- endif -%}
+              {%- endif -%} {% endcomment %}
             </div>
           </div>
           {%- if settings.cart_drawer_collection != blank -%}
