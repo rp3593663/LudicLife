@@ -581,11 +581,11 @@
                                       {% assign price_range_parts = price_range | split: 'to' %}
                                       
                                       {% if price_range contains 'Under ₹' %}
-                                        <li class="mobile-facets__item list-menu__item" data-min="0" data-max="{{ price_range | remove: 'Under ₹' | remove: ' ' }}">
+                                        {% comment %} <li class="mobile-facets__item list-menu__item" data-min="0" data-max="{{ price_range | remove: 'Under ₹' | remove: ' ' }}">
                                           <label class="facets__label mobile-facets__label">
                                             <span class="facet-checkbox__text">{{ price_range }}</span>
                                           </label>
-                                        </li>
+                                        </li> {% endcomment %}
                                       {% elsif price_range_parts.size == 1 %}
                                         <li class="mobile-facets__item list-menu__item" data-min="0" data-max="{{ price_range_parts[0] | remove: '₹' | remove: ' ' }}">
                                           <label class="facets__label mobile-facets__label">
