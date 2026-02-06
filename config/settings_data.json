@@ -368,6 +368,11 @@
         "type": "shopify://apps/helium-analytics-ai-agent/blocks/ab-test/bd7f751b-63f8-4aea-b99c-3592ca942aa9",
         "disabled": true,
         "settings": {}
+      },
+      "12314280791104830742": {
+        "type": "shopify://apps/webengage/blocks/webengage-embed/1d458caf-1d70-4697-a570-55048d495614",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
