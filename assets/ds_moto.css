@@ -156,6 +156,11 @@
     justify-content: end;
 }
 
+.custom_banner_ecl .banner__buttons {
+    top: -30px;
+    position: relative;
+}
+
 .two_column_inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
