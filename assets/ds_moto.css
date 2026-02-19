@@ -151,7 +151,8 @@
     transition: all 0.2s ease-in;
 }
 
-.custom_banner_ecl .banner__buttons {
+.custom_banner_ecl .banner__buttons,
+.custom_banner_ds_moto .banner__buttons {
     justify-content: end;
 }
 
