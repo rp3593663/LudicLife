@@ -22,7 +22,7 @@
             "heading": "",
             "heading_size": "h1",
             "subheading": "<span class=\"custom_heading_banner\">ENHANCED CANVAS LOW </span><br><br>\nNew Colorways<br>\nLudic / 2026",
-            "mobile_subheading": "",
+            "mobile_subheading": "<div class=\"mobile_custom_placement\">\n<div>\n<span class=\"custom_heading_banner\">ENHANCED CANVAS LOW </span>\n</div>\n<div>\nNew Colorways<br>\nLudic / 2026</div>\n</div>",
             "button_label": "SHOP ENHANCED CANVAS LOW",
             "link": "shopify://collections/enchanced-canvas-low",
             "button_style_secondary": false,
