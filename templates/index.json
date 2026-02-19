@@ -12,6 +12,52 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_dAVPw6": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "new_ecl",
+            "image": "shopify://shop_images/Frame_1618876480.png",
+            "mobile_image": "shopify://shop_images/291a53f2f1a085fb59393b2e68647d59ce7aa16c.mp4_c20bb0be-7872-4a8b-8a6a-5b4e0b79f1db.png",
+            "banner_url": "",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "SHOP ENHANCED CANVAS LOW",
+            "link": "shopify://collections/enchanced-canvas-low",
+            "button_style_secondary": false,
+            "box_align": "bottom-right",
+            "show_text_box": true,
+            "text_alignment": "right",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "right",
+            "varaint_product_id": []
+          }
+        },
+        "slide_zkVgVQ": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "ds_moto_banner",
+            "image": "shopify://shop_images/Banner.png",
+            "mobile_image": "shopify://shop_images/291a53f2f1a085fb59393b2e68647d59ce7aa16c.mp4-1.png",
+            "banner_url": "",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "EXPLORE DS MOTO",
+            "link": "shopify://collections/ds-moto",
+            "button_style_secondary": false,
+            "box_align": "bottom-right",
+            "show_text_box": true,
+            "text_alignment": "right",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "right",
+            "varaint_product_id": []
+          }
+        },
         "slide_hikXef": {
           "type": "slide",
           "settings": {
@@ -335,6 +381,8 @@
         }
       },
       "block_order": [
+        "slide_dAVPw6",
+        "slide_zkVgVQ",
         "slide_hikXef",
         "slide_EjVaap",
         "slide_Jdr8FX",
