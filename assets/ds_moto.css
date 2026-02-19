@@ -655,7 +655,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
     }
     .custom_banner_ecl .slideshow__text.banner__box{
         transform: translate(-50%)!important;
-        top: 15%!important;
+        top: 20%!important;
         height: 65%;
         justify-content: space-between;
     }
