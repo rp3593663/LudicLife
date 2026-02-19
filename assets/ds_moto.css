@@ -151,6 +151,9 @@
     transition: all 0.2s ease-in;
 }
 
+.custom_banner_ecl .banner__buttons {
+    justify-content: end;
+}
 
 .two_column_inner {
     display: grid;
