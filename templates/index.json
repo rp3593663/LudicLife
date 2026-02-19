@@ -58,29 +58,6 @@
             "varaint_product_id": []
           }
         },
-        "slide_hikXef": {
-          "type": "slide",
-          "settings": {
-            "slide_custom_class": "ds_moto_banner1",
-            "image": "shopify://shop_images/DS-moto-slider1-desktop.png",
-            "mobile_image": "shopify://shop_images/DS-moto-slider1-mobile.png",
-            "banner_url": "shopify://products/ds-moto-tarmac-black",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "mobile_subheading": "",
-            "button_label": "Explore DS Moto",
-            "link": "shopify://products/ds-moto-tarmac-black",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
-        },
         "slide_EjVaap": {
           "type": "slide",
           "settings": {
@@ -94,6 +71,29 @@
             "mobile_subheading": "",
             "button_label": "Explore CORE  T MOLECULE",
             "link": "shopify://collections/core-t-molecule",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
+        "slide_hikXef": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "ds_moto_banner1",
+            "image": "shopify://shop_images/DS-moto-slider1-desktop.png",
+            "mobile_image": "shopify://shop_images/DS-moto-slider1-mobile.png",
+            "banner_url": "shopify://products/ds-moto-tarmac-black",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "Explore DS Moto",
+            "link": "shopify://products/ds-moto-tarmac-black",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -383,8 +383,8 @@
       "block_order": [
         "slide_dAVPw6",
         "slide_zkVgVQ",
-        "slide_hikXef",
         "slide_EjVaap",
+        "slide_hikXef",
         "slide_Jdr8FX",
         "slide_xbMa3M",
         "slide_LE8H3A",
