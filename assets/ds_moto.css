@@ -652,6 +652,10 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         transform: translate(-53%)!important;
         top: 79% !important;
     }
+    .custom_banner_ds_moto .slideshow__text.banner__box{
+        transform: translate(-50%)!important;
+        top: 79% !important;
+    }
     .ds_moto_banner1 h2.banner__heading.h1,
     .molecule_banner h2.banner__heading.h1 {
         line-height: 38px;
