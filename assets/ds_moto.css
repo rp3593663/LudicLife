@@ -658,7 +658,7 @@ body.template-index:not(.hover-header) .shopify-section-group-header-group:not(.
         top: 66% !important;
     }
     .custom_banner_ecl .banner__buttons {
-        top: -40px;
+        top: 0px;
         position: relative;
     }
     .custom_banner_ds_moto .slideshow__text.banner__box{
