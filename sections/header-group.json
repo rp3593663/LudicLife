@@ -14,6 +14,22 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_bUAL8z": {
+          "type": "announcement",
+          "settings": {
+            "text": "The Bestseller Returns • Enhanced Canvas Low upgraded • Limited pairs per colour - Live Now",
+            "mobile_text": "The Bestseller Returns • Enhanced Canvas Low upgraded • Limited pairs per colour - Live Now",
+            "link": "shopify://collections/enchanced-canvas-low"
+          }
+        },
+        "announcement_z7YMJL": {
+          "type": "announcement",
+          "settings": {
+            "text": "Sirocco Restocked • Upgraded build. New Ludic sole • Don’t miss it again.",
+            "mobile_text": "Sirocco Restocked • Upgraded build. New Ludic sole • Don’t miss it again.",
+            "link": "shopify://products/ec-low-sirocco"
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -24,6 +40,8 @@
         }
       },
       "block_order": [
+        "announcement_bUAL8z",
+        "announcement_z7YMJL",
         "announcement-bar-0"
       ],
       "custom_css": [
