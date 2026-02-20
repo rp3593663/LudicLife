@@ -38,7 +38,7 @@
     "variant_pills_shadow_vertical_offset": 4,
     "variant_pills_shadow_blur": 5,
     "outodstock_products": [
-      "ec-low-sirocco"
+      "enhanced-canvas-low-sirocco"
     ],
     "reserve_products": [
       "enhanced-canvas-low-reserve"
@@ -352,21 +352,6 @@
       "773175526901516413": {
         "type": "shopify://apps/referrush/blocks/floating-popup/d0408ea5-16e0-40a7-9589-9fa7ddc4f4ce",
         "disabled": false,
-        "settings": {}
-      },
-      "594523509173532677": {
-        "type": "shopify://apps/helium-analytics-ai-agent/blocks/init/bd7f751b-63f8-4aea-b99c-3592ca942aa9",
-        "disabled": false,
-        "settings": {}
-      },
-      "15223879327137715448": {
-        "type": "shopify://apps/helium-analytics-ai-agent/blocks/pulse/bd7f751b-63f8-4aea-b99c-3592ca942aa9",
-        "disabled": true,
-        "settings": {}
-      },
-      "8606639114659998972": {
-        "type": "shopify://apps/helium-analytics-ai-agent/blocks/ab-test/bd7f751b-63f8-4aea-b99c-3592ca942aa9",
-        "disabled": true,
         "settings": {}
       }
     },
