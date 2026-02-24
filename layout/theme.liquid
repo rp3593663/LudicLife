@@ -2131,8 +2131,8 @@
           if (day === 3 && hours < 11) return true;    
           return false;
         }
-        {% comment %} const isSaleActive = isTwosDaySaleActive();
-        if (currentUrl === productPage) {
+         const isSaleActive = isTwosDaySaleActive();
+        {% comment %}if (currentUrl === productPage) {
             window.location.href = salePage;
         } {% endcomment %}
         if (!isSaleActive) {
