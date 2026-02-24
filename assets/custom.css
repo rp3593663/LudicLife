@@ -69,7 +69,10 @@
 /* .slideshow__slide .banner__media img {
   border-radius: 8px;
 } */
-.slideshow .slideshow__text-wrapper {padding-left: 16px;}
+.slideshow .slideshow__text-wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+}
 .slideshow .slideshow__text-wrapper .slideshow__text.banner__box {
     padding-left: 12px;
     line-height: 15px;
