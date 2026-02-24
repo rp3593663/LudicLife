@@ -12,6 +12,29 @@
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
+        "slide_pE43q4": {
+          "type": "slide",
+          "settings": {
+            "slide_custom_class": "molecule_banner",
+            "desktop_video": "shopify://files/videos/DB.mp4",
+            "mobile_video": "shopify://files/videos/MB.mp4",
+            "banner_url": "shopify://products/sliders-2-0",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "mobile_subheading": "",
+            "button_label": "Explore TWOSDAY SALE",
+            "link": "shopify://products/sliders-2-0",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center",
+            "varaint_product_id": []
+          }
+        },
         "slide_dAVPw6": {
           "type": "slide",
           "settings": {
@@ -326,61 +349,10 @@
               "nova-play-chalk-white"
             ]
           }
-        },
-        "slide_CXBgDD": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "slide_custom_class": "",
-            "image": "shopify://shop_images/new-launch-slider.jpg",
-            "mobile_image": "shopify://shop_images/new-launch-slider-mobile.jpg",
-            "banner_url": "",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "<div class=\"top_content\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0823/6787/3328/files/Futurworks-logo-white.svg?v=1751007318\">\n  <p>This is the future from the past.</p>\n  <p>Grounded in sharp lines and the kind of design that feels like a glitch in time. A realm of essentials where function proves to be better with a little unexpectedness. Unseen but familiarly weird. Worked, not hustled. Smartly efficient, not lazy. Built fiercely intelligent.</p>\n  <p>Step into Futurworks. Bringing mindful products for mindless pursuits.</p>\n</div>\n<div class=\"bottom_content\">\n  <div class=\"timer_block\">\n    <div id=\"days\" class=\"time_info\">\n      <span>DAYS</span>\n      <h2>00</h2>\n    </div>\n    <div id=\"hours\" class=\"time_info\">\n      <span>HOURS</span>\n      <h2>00</h2>\n    </div>\n    <div id=\"minutes\" class=\"time_info\">\n      <span>MINUTES</span>\n      <h2>00</h2>\n    </div>\n    <div id=\"seconds\" class=\"time_info\">\n      <span>SECONDS</span>\n      <h2>00</h2>\n    </div>\n  </div>\n  <a href=\"https://ludic.life/pages/fw-teaser\">Don't miss out</a>\n</div>",
-            "mobile_subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": []
-          }
-        },
-        "slide_3CkxUc": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "slide_custom_class": "",
-            "image": "shopify://shop_images/Frame_163.png",
-            "mobile_image": "shopify://shop_images/Mobile_Banner_from_Chintan_via_Slack_1.jpg",
-            "banner_url": "shopify://products/nova-play-sand-tan",
-            "heading": "A New Lifestyle<span>*</span>",
-            "heading_size": "h1",
-            "subheading": "A quiet rebellion, a self-expression, a personality that expands into seven. This is Nova Play in supple vegan leather and three timeless tones, designed as blank canvases that only speak when you want to. Laces for the play, seven for the days. For every mood shifts, outfit flips, or just like that.",
-            "mobile_subheading": "",
-            "button_label": "Discover",
-            "link": "shopify://products/nova-play-sand-tan",
-            "button_style_secondary": false,
-            "box_align": "bottom-left",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center",
-            "varaint_product_id": [
-              "nova-play-sand-tan",
-              "nova-play-chalk-white",
-              "nova-play-slate-black"
-            ]
-          }
         }
       },
       "block_order": [
+        "slide_pE43q4",
         "slide_dAVPw6",
         "slide_zkVgVQ",
         "slide_EjVaap",
@@ -393,9 +365,7 @@
         "slide_iBgjiF",
         "slide_E6BA8B",
         "slide_4KEdxV",
-        "slide_MzfVex",
-        "slide_CXBgDD",
-        "slide_3CkxUc"
+        "slide_MzfVex"
       ],
       "settings": {
         "layout": "full_bleed",
