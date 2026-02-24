@@ -8934,6 +8934,7 @@ a.banner-url {
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 2 !important;
+  /* z-index: 2 !important; */
+  z-index: 1 !important;
   display: block;
 }
