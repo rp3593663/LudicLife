@@ -134,7 +134,6 @@
     },
     "related-products": {
       "type": "related-products",
-      "disabled": true,
       "settings": {
         "heading": "Always more",
         "heading_size": "h2",
@@ -189,6 +188,7 @@
         "product_tzhzCe",
         "product_BBdFWB"
       ],
+      "disabled": true,
       "name": "Custom Featured Products",
       "settings": {
         "layout": "box_width",
