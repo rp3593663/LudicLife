@@ -122,16 +122,6 @@
         "padding_bottom": 88
       }
     },
-    "product_shop_the_look_37E6CA": {
-      "type": "product-shop-the-look",
-      "name": "Product Shop The Look",
-      "settings": {
-        "heading": "Shop the look",
-        "description": "This is a style ecosystem. Every product is designed to complement the other, coming together to build a complete look that feels intentional, balanced, and true to Ludic. Each piece holds its own, but works even better as part of the whole. Picked one? Explore the rest to bring the full look together.",
-        "padding_top": 0,
-        "padding_bottom": 88
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -148,6 +138,16 @@
         "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 98
+      }
+    },
+    "product_shop_the_look_37E6CA": {
+      "type": "product-shop-the-look",
+      "name": "Product Shop The Look",
+      "settings": {
+        "heading": "Shop the look",
+        "description": "This is a style ecosystem. Every product is designed to complement the other, coming together to build a complete look that feels intentional, balanced, and true to Ludic. Each piece holds its own, but works even better as part of the whole. Picked one? Explore the rest to bring the full look together.",
+        "padding_top": 0,
+        "padding_bottom": 88
       }
     },
     "multicolumn_bUpkJr": {
@@ -225,8 +225,8 @@
     "product_extra_description_7thhQm",
     "product_usp_XebkrP",
     "product_reels_6kwDTk",
-    "product_shop_the_look_37E6CA",
     "related-products",
+    "product_shop_the_look_37E6CA",
     "multicolumn_bUpkJr"
   ]
 }
