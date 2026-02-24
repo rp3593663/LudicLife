@@ -31,7 +31,7 @@ slideshow-component .slideshow.banner {
 @media screen and (min-width: 750px) {
   .slideshow--placeholder.banner--adapt_image {
     /* height: 56rem; */
-    height: 68rem;
+    /* height: 68rem; */
 
   }
 }
