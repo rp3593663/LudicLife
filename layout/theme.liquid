@@ -2131,11 +2131,11 @@
           if (day === 3 && hours < 11) return true;    
           return false;
         }
-        const isSaleActive = isTwosDaySaleActive();
+        {% comment %} const isSaleActive = isTwosDaySaleActive();
         if (currentUrl === productPage) {
             window.location.href = salePage;
-        }
-        {% comment %} if (!isSaleActive) {
+        } {% endcomment %}
+        if (!isSaleActive) {
           if (currentUrl === productPage) {
             window.location.href = salePage;
           }
@@ -2143,7 +2143,7 @@
           if (currentUrl === salePage) {
             window.location.href = productPage;
           }
-        } {% endcomment %}
+        }
       })();
     </script>
 
