@@ -7930,6 +7930,10 @@ p.sticky-coupon-text {
       width: 66.6% !important;
       flex: 0 0 66.6%;
   }
+  fieldset .custom-variant-label:nth-child(n-2) {
+    width: 100%;
+    flex: 0 0 100%;
+}
 
   .mob_meta_sroll_text.meta_sroll_text {
     display: block;
