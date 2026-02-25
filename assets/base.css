@@ -7931,6 +7931,25 @@ p.sticky-coupon-text {
       flex: 0 0 66.6%;
   }
 
+
+  .mobile_default_variant > .new_size_guide:nth-child(3n+1) {
+      width: 100%;
+  }
+
+  /* If Size Guide is in column 2 */
+  .mobile_default_variant > .new_size_guide:nth-child(3n+2) {
+      width: 66.66%;
+  }
+
+  /* Optional: If ever in column 3 */
+  .mobile_default_variant > .new_size_guide:nth-child(3n) {
+      width: 33.33%;
+  }
+
+
+
+
+
   .mob_meta_sroll_text.meta_sroll_text {
     display: block;
   }
