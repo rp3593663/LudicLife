@@ -7919,13 +7919,21 @@ p.sticky-coupon-text {
       padding: 20px 38px!important;
       width: 33.33%;
   }
-  fieldset .custom-variant-label:nth-last-child(2) {
-    width: 66.6%;
+  /* Last item */
+  fieldset .custom-variant-label:nth-last-child(1) {
+      width: 100% !important;
   }
 
-  fieldset .custom-variant-label:nth-last-child(3) {
-      width: 100%;
+  /* 2nd from last */
+  fieldset .custom-variant-label:nth-last-child(2) {
+      width: 66.6% !important;
   }
+
+  /* 3rd from last */
+  fieldset .custom-variant-label:nth-last-child(3) {
+      width: 100% !important;
+  }
+  
   .mob_meta_sroll_text.meta_sroll_text {
     display: block;
   }
