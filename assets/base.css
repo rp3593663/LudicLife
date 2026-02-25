@@ -7933,7 +7933,7 @@ p.sticky-coupon-text {
 
   /* Optional: If ever in column 3 */
   .mobile_default_variant > .new_size_guide:nth-child(3n) {
-      width: 33.33%;
+      width: 66.66%;
   }
 
 
