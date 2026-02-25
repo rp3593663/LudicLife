@@ -7928,6 +7928,7 @@ p.sticky-coupon-text {
   /* 2nd from last */
   fieldset .custom-variant-label:nth-last-child(2) {
       width: 66.6% !important;
+      flex: 0 0 100%;
   }
 
   .mob_meta_sroll_text.meta_sroll_text {
