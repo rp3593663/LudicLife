@@ -150,9 +150,7 @@
         <div class="custom-variant-product slider-tab-content hggh" id="tab-slider">
 
           {% assign slider_products = product.metafields.custom.sliders_2_0_products.value %}
-
-           <p>
-              Slider 2.0 Color / 
+           <p> Slider 2.0 Color / 
               {% for slider_product in slider_products %}
                 {% if slider_product.handle == product.handle %}
                     <span>{{ slider_product.metafields.custom.product_color_name }}</span>
