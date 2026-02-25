@@ -7859,7 +7859,7 @@ p.sticky-coupon-text {
     gap: 10px;
   }
   .new_size_guide {
-    min-width: 88px;
+    /* min-width: 88px;
     border: solid 1px #C7C8CA;
     border-radius: 8px;
     background: #F9F9F9;
@@ -7872,7 +7872,7 @@ p.sticky-coupon-text {
     height: 40px;
     font-weight: 700;
     width: max-content;
-    margin: .5rem .5rem .2rem 0;
+    margin: .5rem .5rem .2rem 0; */
   }
    .size-chart-size-box-sizes .new_size_guide{
     display: none;
