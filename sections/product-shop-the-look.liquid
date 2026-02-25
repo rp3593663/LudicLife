@@ -53,13 +53,13 @@
                                         {% endif %}
                                         {% comment %} Product Badge {% endcomment %}
 
-                                        {% assign badge_text = product.metafields.custom.product_badge | strip %}
+                                        {% comment %} {% assign badge_text = product.metafields.custom.product_badge | strip %}
 
                                         {% if badge_text != blank %}
                                           <div class="product-badge badge-{{ badge_text | handleize }}">
                                             {{ badge_text }}
                                           </div>
-                                        {% endif %}
+                                        {% endif %} {% endcomment %}
 
                                         {% comment %} Product Badge {% endcomment %}
                                         {% assign image_count = 0 %}
