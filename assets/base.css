@@ -7922,6 +7922,7 @@ p.sticky-coupon-text {
   /* Last item */
   fieldset .custom-variant-label:nth-last-child(1) {
       width: 100% !important;
+      flex: 0 0 100%;
   }
 
   /* 2nd from last */
@@ -7929,11 +7930,6 @@ p.sticky-coupon-text {
       width: 66.6% !important;
   }
 
-  /* 3rd from last */
-  fieldset .custom-variant-label:nth-last-child(3) {
-      width: 100% !important;
-  }
-  
   .mob_meta_sroll_text.meta_sroll_text {
     display: block;
   }
