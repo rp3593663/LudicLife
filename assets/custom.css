@@ -276,7 +276,7 @@ section--bestseller-products .section_heading .view_all_btn a {
     position: fixed;
     bottom: 0;
     z-index: 9999;
-    background: #fff;
+    background: #f9f9f9;
     width: 100%;
     left: 0;
     transform: translateY(100%);
