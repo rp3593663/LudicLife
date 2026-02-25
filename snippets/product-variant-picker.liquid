@@ -123,7 +123,7 @@
 
       {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
         <div class="custom-variant-product slider-tab-content hggh" id="tab-slider">
-          <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+          <p>Slider 2.0 Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
           <div class="custom-variant-image">
             {% assign slider_product = product.metafields.custom.sliders_2_0_products %}
             {% for slider_product in product.metafields.custom.sliders_2_0_products.value %}
@@ -148,7 +148,7 @@
 
       <div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
         {% if template != 'product.accessories' %}
-        <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+        <p>Slider Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
         {% else %}
         <p><span> {{ product.metafields.custom.product_color_name }}</span></p>
         {% endif %} 
