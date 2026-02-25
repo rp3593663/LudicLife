@@ -7853,6 +7853,7 @@ p.sticky-coupon-text {
     flex-wrap: wrap;
     /* gap: 7px; */
     gap: 15px;
+    width:100%;
   }
   .size-chart-size-box-sizes .default_variant_uk.is_tab_active{
     gap: 10px;
