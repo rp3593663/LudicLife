@@ -7911,6 +7911,7 @@ p.sticky-coupon-text {
     font-size: 0;
     display: flex;
     flex-wrap: wrap;
+    width:100%;
   }
   fieldset .custom-variant-label {
       padding: 20px 38px!important;
