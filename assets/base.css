@@ -7913,6 +7913,7 @@ p.sticky-coupon-text {
     display: flex;
     flex-wrap: wrap;
     width:100%;
+    justify-content:center;
   }
   fieldset .custom-variant-label {
       padding: 20px 38px!important;
