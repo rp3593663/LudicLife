@@ -806,7 +806,7 @@
                             {%- endif -%}
                             <div class="variant_card_media hover_transform_effect">
                               <a class="product-variant-card__image-link" href="{{ product_url }}">
-                                <div class="product-variant-card__image">
+                                <div class="product-variant-card__image hgfg">
                                   {% if bought_product.metafields.custom.new_product == true %} 
                                     <div class="new-product-dot"></div> 
                                   {% endif %}
@@ -821,7 +821,7 @@
                                     {% endif %}
 
                                     {% comment %} Product Badge {% endcomment %}
-                                     
+
                                   {% assign image_count = 0 %}
                                   {% for media in bought_product.media %}
                                       {% if image_count < 2 %}
