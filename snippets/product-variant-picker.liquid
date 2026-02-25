@@ -121,7 +121,7 @@
 
     <div class="custom_variants">
 
-      {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+      {% comment %} {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
         <div class="custom-variant-product slider-tab-content hggh" id="tab-slider">
           <p>Slider 2.0 Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
           <div class="custom-variant-image">
@@ -143,6 +143,46 @@
               {% endif %}
             {% endfor %}
           </div>
+        </div>
+      {% endif %} {% endcomment %}
+
+      {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+        <div class="custom-variant-product slider-tab-content hggh" id="tab-slider">
+
+          {% assign slider_products = product.metafields.custom.sliders_2_0_products.value %}
+
+          {% for slider_product in slider_products %}
+            {% if slider_product.handle == product.handle %}
+              <p>
+                Slider 2.0 Color / 
+                <span>{{ slider_product.metafields.custom.product_color_name }}</span>
+              </p>
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          <div class="custom-variant-image">
+            {% for slider_product in slider_products %}
+              {% if slider_product.handle == product.handle %}
+                <a href=""
+                  class="selected"
+                  data-color-name="{{ slider_product.metafields.custom.product_color_name }}">
+                  <img src="{{ slider_product.featured_image | img_url:'master' }}">
+                </a>
+              {% else %}
+                <a href="{{ slider_product.url }}"
+                  data-color-name="{{ slider_product.metafields.custom.product_color_name }}">
+
+                  {% if slider_product.metafields.custom.new_product == true %}
+                    <div class="new-product-dot"></div>
+                  {% endif %}
+
+                  <img src="{{ slider_product.featured_image | img_url:'master' }}">
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
         </div>
       {% endif %}
 
