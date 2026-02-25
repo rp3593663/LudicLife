@@ -7918,6 +7918,13 @@ p.sticky-coupon-text {
       padding: 20px 38px!important;
       width: 33.33%;
   }
+  fieldset .custom-variant-label:nth-last-child(2) {
+    width: 66.6%;
+  }
+
+  fieldset .custom-variant-label:nth-last-child(3) {
+      width: 100%;
+  }
   .mob_meta_sroll_text.meta_sroll_text {
     display: block;
   }
