@@ -51,6 +51,17 @@
                                         {% if shop_look_product.metafields.custom.new_product == true %} 
                                             <div class="new-product-dot"></div> 
                                         {% endif %}
+                                        {% comment %} Product Badge {% endcomment %}
+
+                                        {% assign badge_text = product.metafields.custom.product_badge | strip %}
+
+                                        {% if badge_text != blank %}
+                                          <div class="product-badge badge-{{ badge_text | handleize }}">
+                                            {{ badge_text }}
+                                          </div>
+                                        {% endif %}
+
+                                        {% comment %} Product Badge {% endcomment %}
                                         {% assign image_count = 0 %}
                                         {% for media in shop_look_product.media %}
                                             {% if image_count < 2 %}
