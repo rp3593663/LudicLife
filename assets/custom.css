@@ -1137,7 +1137,7 @@ body.size-chart-popup-pdp #MainContent{
     border-radius: 22px 22px 0px 0px;
   }
   .csmodal-content{
-    height: 70dvh;
+    height: 80dvh;
   }
   .csmodal-heading, .size_guide_header {
     margin-bottom: 6px;
