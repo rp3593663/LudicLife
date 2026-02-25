@@ -148,7 +148,11 @@
 
       <div class="custom-variant-product {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}slider-tab-content {% endif %}" {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}id="tab-all" {% endif %}>
         {% if template != 'product.accessories' %}
+          {% if product.title == 'Sliders' or product.title == 'Sliders 2.0' %}
+        <p>Slider Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+          {% else %}
         <p>Color / <span> {{ product.metafields.custom.product_color_name }}</span></p>
+          {% endif %}
         {% else %}
         <p><span> {{ product.metafields.custom.product_color_name }}</span></p>
         {% endif %} 
