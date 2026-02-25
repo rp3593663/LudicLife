@@ -3585,6 +3585,10 @@ main#MainContent.ds-moto-ludic {
     color: #fff;
 }
 
+.frequently_bought_products .product-badge{
+  display:none;
+}
+
 @media (max-width:768px){
   .product-badge {
     top: 10px;
