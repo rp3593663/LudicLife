@@ -7928,7 +7928,7 @@ p.sticky-coupon-text {
 
   /* If Size Guide is in column 2 */
   .mobile_default_variant > .new_size_guide:nth-child(3n+2) {
-      width: 66.66%;
+      width: 33.33%;
   }
 
   /* Optional: If ever in column 3 */
