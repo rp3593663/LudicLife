@@ -259,23 +259,6 @@ function attachRemoveEventListeners() {
 document.addEventListener("DOMContentLoaded", attachRemoveEventListeners);
 
 
-document.addEventListener('click', function(e) {
-
-  const toggle = e.target.closest('.product-dropdown-toggle');
-
-  if (toggle) {
-    const wrapper = toggle.closest('.product-dropdown-wrapper');
-    const dropdown = wrapper.querySelector('.product-dropdown-list');
-    dropdown.classList.toggle('active');
-  } else {
-    document.querySelectorAll('.product-dropdown-list').forEach(el => {
-      el.classList.remove('active');
-    });
-  }
-
-});
-
-
 
 
 
