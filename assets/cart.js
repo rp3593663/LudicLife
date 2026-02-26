@@ -261,6 +261,58 @@ document.addEventListener("DOMContentLoaded", attachRemoveEventListeners);
 
 
 
+// handle color/product change from dropdown
+// when a user selects a different color (related product) from the
+// cart drawer list we need to swap the line item to the new variant
+// that matches the current size.  the link markup populates
+// data-line, data-size and data-product-id so we can fetch the
+// product JSON and locate the correct variant id.
+document.addEventListener('click', function(e){
+  const colorLink = e.target.closest('.dropdown-variant-item.change-color');
+  if (colorLink) {
+    e.preventDefault();
+    const line = colorLink.dataset.line;
+    const currentSize = colorLink.dataset.size;
+    const newProductId = colorLink.dataset.productId;
+
+    if (!line || !newProductId) {
+      console.error('Missing data attributes for color change');
+      return;
+    }
+
+    fetch(`/products/${newProductId}.js`)
+      .then((res) => res.json())
+      .then((product) => {
+        const variant = product.variants.find(
+          (v) => v.title === currentSize && v.available
+        );
+
+        if (!variant) {
+          console.error('✅ Variant not found for size', currentSize);
+          alert('Sorry, that combination is not available');
+          return;
+        }
+
+        // update the existing line to the new variant
+        fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            line: line,
+            id: variant.id,
+            quantity: 1
+          })
+        })
+          .then(() => {
+            refreshCart();
+          })
+          .catch((err) => console.error('Color change error:', err));
+      })
+      .catch((err) => console.error('Failed to fetch product JSON:', err));
+
+    return; // prevent the size-change handler below from running
+  }
+
 // AJAX SIZE CHANGE
 document.addEventListener('click', function(e){
 
