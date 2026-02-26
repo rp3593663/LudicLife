@@ -728,7 +728,8 @@ p.also-bought-price {
   color: #1a1a1a;
 }
 
-.dropdown-variant-item.disabled {
+.dropdown-variant-item.disabled,
+.size-item.disabled  {
   text-decoration: line-through;
   opacity: 0.5;
   cursor: not-allowed;
