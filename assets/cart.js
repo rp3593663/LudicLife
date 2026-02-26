@@ -261,6 +261,38 @@ document.addEventListener("DOMContentLoaded", attachRemoveEventListeners);
 
 
 
+// AJAX SIZE CHANGE
+document.addEventListener('click', function(e){
+
+  const btn = e.target.closest('.change-variant');
+  if (!btn) return;
+
+  e.preventDefault();
+
+  const line = btn.dataset.line;
+  const newVariantId = btn.dataset.variantId;
+
+  if (!line || !newVariantId) return;
+
+  fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      line: line,
+      id: newVariantId,
+      quantity: 1
+    })
+  })
+  .then(res => res.json())
+  .then(() => {
+    refreshCart(); // your existing function
+  })
+  .catch(err => console.error('Variant change error:', err));
+
+});
+
+
+
 
 // ==============================OLD CODE==============================
 
