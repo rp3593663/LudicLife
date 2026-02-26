@@ -735,3 +735,6 @@ p.also-bought-price {
   cursor: not-allowed;
   pointer-events: none;
 }
+.product-dropdown-list.active:hover {
+    text-decoration: none;
+}
