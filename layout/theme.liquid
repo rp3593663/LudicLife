@@ -2587,19 +2587,23 @@ document.addEventListener('click', function(e) {
 
   const toggle = e.target.closest('.size-dropdown-toggle');
 
-  if (toggle) {
-    const wrapper = toggle.closest('.size-dropdown-wrapper');
-    const dropdown = wrapper.querySelector('.size-dropdown-list');
-    dropdown.classList.toggle('active');
-  } else {
-    document.querySelectorAll('.size-dropdown-list').forEach(el => {
-      el.classList.remove('active');
-    });
-  }
+  // CLOSE ALL DROPDOWNS FIRST
+  document.querySelectorAll('.size-dropdown-list').forEach(function(el){
+    el.classList.remove('active');
+  });
+
+  if (!toggle) return;
+
+  const wrapper = toggle.closest('.size-dropdown-wrapper');
+  if (!wrapper) return;
+
+  const dropdown = wrapper.querySelector('.size-dropdown-list');
+  if (!dropdown) return;
+
+  dropdown.classList.add('active');
 
 });
 </script>
-
 
 
   </body>
