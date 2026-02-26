@@ -725,7 +725,8 @@ p.also-bought-price {
   display: block;
 }
 
-.dropdown-variant-item {
+.dropdown-variant-item,
+.size-item {
   display: block;
   padding: 6px 0;
   text-decoration: none;
@@ -742,12 +743,4 @@ p.also-bought-price {
 .product-dropdown-list.active:hover,
 .size-dropdown-list.active:hover {
     text-decoration: none;
-}
-
-.size-item {
-  display: block;
-  padding: 5px 0;
-  text-decoration: none;
-  color: #1a1a1a;
-  font-size: 14px;
 }
