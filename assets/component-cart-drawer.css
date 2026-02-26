@@ -717,7 +717,7 @@ p.also-bought-price {
   padding: 10px 15px;
   display: none;
   z-index: 10;
-  min-width: 200px;
+  width: 200px;
 }
 
 .product-dropdown-list.active,
