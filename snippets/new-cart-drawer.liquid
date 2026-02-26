@@ -325,29 +325,49 @@
                                 {% endfor %}
                             {% endfor %}
                             
-                            <div class="pro_variant_color desktop-variant ssdc">
+                            <div class="pro_variant_color desktop-variant ssdc size-dropdown-wrapper">
+
                               {% assign pro_color = item.product.metafields.custom.product_variant_color %}
-                              {% assign us_size = item.variant.title %}
+                              {% assign current_size = item.variant.title %}
+
                               {% assign is_apparel = false %}
-                            
                               {% for col in item.product.collections %}
                                 {% if col.title == 'Apparel' %}
                                   {% assign is_apparel = true %}
                                   {% break %}
                                 {% endif %}
                               {% endfor %}
-                            
-                              {% if pro_color != blank %}
-                                {% if is_apparel %}
-                                  <span>{{ pro_color }} / {{ us_size }}</span>
-                                {% elsif item.title contains 'Mesh Cap' or item.title contains 'The Sport Bag' %}
+
+                              <div class="size-dropdown-toggle">
+                                {% if pro_color != blank %}
+                                  {% if is_apparel %}
+                                    <span>{{ pro_color }} / {{ current_size }}</span>
+                                  {% elsif item.title contains 'Mesh Cap' or item.title contains 'The Sport Bag' %}
                                     <span>{{ pro_color }} / Free Size</span>
-                                {% elsif item.title contains 'Re : Worked Bundle' %}
-                                  <span>{{ pro_color }}</span>
-                                {% else %}
-                                  <span>{{ pro_color }} / UK {{ us_size }}</span>
+                                  {% elsif item.title contains 'Re : Worked Bundle' %}
+                                    <span>{{ pro_color }}</span>
+                                  {% else %}
+                                    <span>{{ pro_color }} / UK {{ current_size }}</span>
+                                  {% endif %}
                                 {% endif %}
-                              {% endif %}
+                              </div>
+
+                              <div class="size-dropdown-list">
+                                {% for variant in item.product.variants %}
+
+                                  {% if variant.available %}
+                                    <a href="{{ item.url }}?variant={{ variant.id }}" class="size-item">
+                                      {{ variant.title }}
+                                    </a>
+                                  {% else %}
+                                    <span class="size-item disabled">
+                                      {{ variant.title }}
+                                    </span>
+                                  {% endif %}
+
+                                {% endfor %}
+                              </div>
+
                             </div>
                             
                             {%- endif -%}
