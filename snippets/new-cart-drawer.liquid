@@ -170,14 +170,37 @@
                                     {{ item.title }}
                                   {% endif %}
                                 </a>
-                                <div class="product-dropdown">
+                                <div class="product-dropdown product-dropdown-wrapper">
+
+                                <div class="product-dropdown-toggle">
                                   {% if item.product.metafields.custom.product_color_name != blank %}
-                                    <span class="color_v_name"> / {{ item.product.metafields.custom.product_color_name }}</span>
+                                    <span class="color_v_name">
+                                      / {{ item.product.metafields.custom.product_color_name }}
+                                    </span>
                                   {% endif %}
-                                  <svg width="7" height="4" viewBox="0 0 7 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
                                     <path d="M0.5 0.5L3.5 3.5L6.5 0.5" stroke="#1A1A1A" stroke-linecap="round" stroke-linejoin="round"/>
                                   </svg>
                                 </div>
+
+                                {% assign paired_products = item.product.metafields.custom.pair_with_product.value %}
+
+                                {% if paired_products != blank %}
+                                  <div class="product-dropdown-list">
+                                    {% for related_product in paired_products %}
+                                      {% unless related_product.id == item.product.id %}
+                                        <a href="{{ related_product.url }}" class="dropdown-variant-item">
+                                          {{ related_product.title }}
+                                          {% if related_product.metafields.custom.product_color_name != blank %}
+                                            / {{ related_product.metafields.custom.product_color_name }}
+                                          {% endif %}
+                                        </a>
+                                      {% endunless %}
+                                    {% endfor %}
+                                  </div>
+                                {% endif %}
+
+                              </div>
                               </div>
                               <cart-remove-button
                               id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
