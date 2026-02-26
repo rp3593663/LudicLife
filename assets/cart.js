@@ -78,15 +78,15 @@ function addItemToCart(variantId, quantity) {
   .then(cart => {
     console.log('✅ Item restored:', cart);
 
-  // // 🔥 FACEBOOK ADD TO CART EVENT
-  //     if (typeof fbq !== 'undefined') {
-  //       fbq('track', 'AddToCart', {
-  //         content_ids: [data.product_id],
-  //         content_type: 'product',
-  //         value: data.price / 100,
-  //         currency: Shopify.currency.active
-  //       });
-  //     }
+  // 🔥 FACEBOOK ADD TO CART EVENT
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'AddToCart', {
+          content_ids: [data.product_id],
+          content_type: 'product',
+          value: data.price / 100,
+          currency: Shopify.currency.active
+        });
+      }
 
 
     refreshCart(); // Refresh only the cart
