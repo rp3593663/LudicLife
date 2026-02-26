@@ -1,0 +1,512 @@
+<div class="ludic-slider"
+     data-autoplay="{{ section.settings.auto_rotate }}"
+     data-speed="{{ section.settings.rotate_seconds | times: 1000 }}"
+     style="--slide-speed: {{ section.settings.rotate_seconds }}s;">
+
+  <div class="ludic-slider__wrapper">
+
+    {% for block in section.blocks %}
+    <div class="ludic-slide {{ block.settings.custom_class }}"
+         data-index="{{ forloop.index0 }}">
+
+      <!-- MEDIA -->
+        {% if block.settings.banner_link != blank %}
+        <a href="{{ block.settings.banner_link }}" class="ludic-slide__media">
+        {% else %}
+        <div class="ludic-slide__media">
+        {% endif %}
+
+        {% if block.settings.desktop_video != blank %}
+            <video class="desktop-media" autoplay muted loop playsinline>
+            <source src="{{ block.settings.desktop_video.sources[0].url }}">
+            </video>
+        {% elsif block.settings.desktop_image != blank %}
+            <img class="desktop-media"
+                src="{{ block.settings.desktop_image | image_url: width: 2000 }}"
+                alt="">
+        {% endif %}
+
+        {% if block.settings.mobile_video != blank %}
+            <video class="mobile-media" autoplay muted loop playsinline>
+            <source src="{{ block.settings.mobile_video.sources[0].url }}">
+            </video>
+        {% elsif block.settings.mobile_image != blank %}
+            <img class="mobile-media"
+                src="{{ block.settings.mobile_image | image_url: width: 1000 }}"
+                alt="">
+        {% endif %}
+
+        {% if block.settings.banner_link != blank %}
+        </a>
+        {% else %}
+        </div>
+        {% endif %}
+
+      <!-- CONTENT -->
+      {% unless block.settings.content_position == 'none' %}
+      <div class="ludic-slide__content position-{{ block.settings.content_position }}">
+
+        {% if block.settings.title_desktop != blank %}
+          <h2 class="desktop-only">{{ block.settings.title_desktop }}</h2>
+        {% endif %}
+        {% if block.settings.title_mobile != blank %}
+          <h2 class="mobile-only">{{ block.settings.title_mobile }}</h2>
+        {% endif %}
+
+        {% if block.settings.subheading_desktop != blank %}
+          <p class="subheading desktop-only">
+            {{ block.settings.subheading_desktop }}
+          </p>
+        {% endif %}
+        {% if block.settings.subheading_mobile != blank %}
+          <p class="subheading mobile-only">
+            {{ block.settings.subheading_mobile }}
+          </p>
+        {% endif %}
+
+        {% if block.settings.description_desktop != blank %}
+          <p class="description desktop-only">
+            {{ block.settings.description_desktop }}
+          </p>
+        {% endif %}
+        {% if block.settings.description_mobile != blank %}
+          <p class="description mobile-only">
+            {{ block.settings.description_mobile }}
+          </p>
+        {% endif %}
+
+        {% if block.settings.button_link != blank %}
+          <a href="{{ block.settings.button_link }}" class="slider-btn">
+
+            {% if block.settings.button_text_desktop != blank %}
+              <span class="desktop-only">
+                {{ block.settings.button_text_desktop }}
+              </span>
+            {% endif %}
+
+            {% if block.settings.button_text_mobile != blank %}
+              <span class="mobile-only">
+                {{ block.settings.button_text_mobile }}
+              </span>
+            {% endif %}
+
+          </a>
+        {% endif %}
+
+      </div>
+
+      {% else %}
+
+      <div class="ludic-slide__custom">
+
+        <div class="desktop-only">
+          {{ block.settings.custom_text_desktop }}
+        </div>
+
+        <div class="mobile-only">
+          {{ block.settings.custom_text_mobile }}
+        </div>
+
+      </div>
+
+      {% endunless %}
+
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- DOTS -->
+  <div class="ludic-slider__dots">
+    {% for block in section.blocks %}
+      <span class="dot" data-dot="{{ forloop.index0 }}"></span>
+    {% endfor %}
+  </div>
+
+</div>
+
+
+<style>
+    .ludic-slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ludic-slider__wrapper {
+        display: flex;
+        transition: transform 0.6s ease;
+    }
+
+    .ludic-slide {
+        min-width: 100%;
+        position: relative;
+    }
+
+    .ludic-slide__media img,
+    .ludic-slide__media video {
+        width: 100%;
+        height: 95dvh;
+        object-fit: cover;
+    }
+
+    .ludic-slide__custom {
+        position: absolute;
+    }
+
+    .ludic-slider .desktop-media { 
+        display: block; 
+    }
+    .ludic-slider .mobile-media { 
+        display: none; 
+    }
+
+    /* Desktop / Mobile visibility */
+    .desktop-only { 
+        display: block; 
+    }
+    .mobile-only { 
+        display: none; 
+    }
+
+
+    @media (max-width: 768px) {
+        .ludic-slider .desktop-media { 
+            display: none; 
+        }
+        .ludic-slider .mobile-media { 
+            display: block; 
+        }
+        .desktop-only { 
+            display: none; 
+        }
+        .mobile-only { 
+            display: block; 
+        }
+    }
+
+    .ludic-slide__content {
+        position: absolute;
+        width: 100%;
+        padding: 40px;
+        color: #000;
+    }
+
+    /* Position presets */
+    .position-top-left { 
+        top: 0; 
+        left: 0; 
+        text-align: left; 
+    }
+    .position-top-center { 
+        top: 0; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        text-align: center; 
+    }
+    .position-top-right { 
+        top: 0; 
+        right: 0; 
+        text-align: right; 
+    }
+
+    .position-middle-left { 
+        top: 50%; 
+        left: 0; 
+        transform: translateY(-50%); 
+    }
+    .position-middle-center { 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        text-align: center; 
+    }
+    .position-middle-right { 
+        top: 50%; 
+        right: 0; 
+        transform: translateY(-50%); 
+        text-align: right; 
+    }
+
+    .position-bottom-left { 
+        bottom: 0; 
+        left: 0; 
+    }
+    .position-bottom-center { 
+        bottom: 0; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        text-align: center; 
+    }
+    .position-bottom-right { 
+        bottom: 0; 
+        right: 0; 
+    }
+
+    .slider-btn {
+        display: inline-block;
+        background: red;
+        color: #fff;
+        padding: 12px 24px;
+        margin-top: 20px;
+        text-decoration: none;
+    }
+    .ludic-slider__dots {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+    }
+
+    .ludic-slider .dot.active{
+        width: 32px;
+        position: relative;
+    }
+    .ludic-slider .dot.active:after {
+        content: "";
+        background: #939598;
+        position: absolute;
+        border-radius: 8px;
+        animation: borderTimeline 7s linear forwards;
+        transition: all 0.9s ease;
+        width: 100%;
+        height: 100%;
+        left: 0;
+    }
+    .ludic-slider .dot {
+        width: 7px;
+        height: 7px;
+        border-color: #939598;
+        border: 1px solid #00000012;
+        border-radius: 8px;
+        background-color: #00000012;
+        cursor:pointer;
+        transition:0.5s all ease;
+
+    }
+    .ludic-slider .dot:not(.active):hover{
+        border-color: #939598;
+        transform:scale(1.1);
+    }
+
+    @keyframes borderTimeline {
+        from {
+            width: 0%;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+
+
+    {% comment %} Custom Slide CSS {% endcomment %}
+    .ec-low .ludic-slide__custom {
+        top: 80%;
+        left: 10%;
+        transform: translate(-10%,-80%);
+    }
+
+
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector(".ludic-slider");
+  if (!slider) return;
+
+  const wrapper = slider.querySelector(".ludic-slider__wrapper");
+  const slides = slider.querySelectorAll(".ludic-slide");
+  const dots = slider.querySelectorAll(".dot");
+
+  let index = 0;
+  const autoplay = slider.dataset.autoplay === "true";
+  const speed = parseInt(slider.dataset.speed);
+  let interval;
+
+  function goToSlide(i) {
+    index = i;
+    wrapper.style.transform = `translateX(-${i * 100}%)`;
+
+    // Only change active class (CSS handles animation)
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[i]) dots[i].classList.add("active");
+  }
+
+  function startAuto() {
+    if (!autoplay) return;
+
+    interval = setInterval(() => {
+      index = (index + 1) % slides.length;
+      goToSlide(index);
+    }, speed);
+  }
+
+  function resetAuto() {
+    clearInterval(interval);
+    startAuto();
+  }
+
+  // Dot click navigation
+  dots.forEach(dot => {
+    dot.addEventListener("click", function () {
+      const slideIndex = parseInt(this.dataset.dot);
+      goToSlide(slideIndex);
+      resetAuto();
+    });
+  });
+
+  // Init
+  goToSlide(0);
+  startAuto();
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Ludic Advanced Slider",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Enable Auto Rotate",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "rotate_seconds",
+      "min": 2,
+      "max": 15,
+      "step": 1,
+      "default": 5,
+      "label": "Rotation Speed (Seconds)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+
+        { "type": "text", 
+            "id": "custom_class", 
+            "label": "Custom Slide Class" 
+        },
+
+        { 
+            "type": "image_picker", 
+            "id": "desktop_image", 
+            "label": "Desktop Image" 
+        },
+        { 
+            "type": "image_picker", 
+            "id": "mobile_image",
+            "label": "Mobile Image" 
+        },
+        { 
+            "type": "url", 
+            "id": "banner_link", 
+            "label": "Banner Click Link (Image/Video Link)" 
+        },
+        { 
+            "type": "video", 
+            "id": "desktop_video", 
+            "label": "Desktop Video" },
+        { 
+            "type": "video", 
+            "id": "mobile_video", 
+            "label": "Mobile Video" 
+        },
+
+        { 
+            "type": "text", 
+            "id": "title_desktop", 
+            "label": "Title (Desktop)" 
+        },
+        { 
+            "type": "text", 
+            "id": "title_mobile", 
+            "label": "Title (Mobile)" 
+        },
+
+        { 
+            "type": "text", 
+            "id": "subheading_desktop", 
+            "label": "Subheading (Desktop)" 
+        },
+        { 
+            "type": "text", 
+            "id": "subheading_mobile", 
+            "label": "Subheading (Mobile)" 
+        },
+
+        { 
+            "type": "textarea", 
+            "id": "description_desktop", 
+            "label": "Description (Desktop)" 
+        },
+        { 
+            "type": "textarea", 
+            "id": "description_mobile", 
+            "label": "Description (Mobile)" 
+        },
+
+        { 
+            "type": "textarea", 
+            "id": "custom_text_desktop", 
+            "label": "Custom HTML (Desktop)" 
+        },
+        { 
+            "type": "textarea", 
+            "id": "custom_text_mobile", 
+            "label": "Custom HTML (Mobile)" 
+        },
+
+        { 
+            "type": "text", 
+            "id": "button_text_desktop", 
+            "label": "Button Text (Desktop)" 
+        },
+        { 
+            "type": "text", 
+            "id": "button_text_mobile", 
+            "label": "Button Text (Mobile)" 
+        },
+
+        { 
+            "type": "url", 
+            "id": "button_link", 
+            "label": "Button Link" 
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content Position",
+          "default": "middle-left",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" },
+            { "value": "none", "label": "None (Custom Layout)" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ludic Advanced Slider"
+    }
+  ]
+}
+{% endschema %}
