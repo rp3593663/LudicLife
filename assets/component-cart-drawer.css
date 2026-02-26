@@ -744,7 +744,9 @@ p.also-bought-price {
 }
 
 .size-dropdown-toggle {
-  display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .size-dropdown-list {
