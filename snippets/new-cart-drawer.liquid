@@ -168,10 +168,10 @@
                                   {% else %}
                                   {{ item.title }}
                                 {% endif %}
-                                {% if item.product.metafields.custom.product_color_name != blank %}
-                                  <span class="color_v_name"> / {{ item.product.metafields.custom.product_color_name }}</span>
-                                {% endif %}
                               </a>
+                              {% if item.product.metafields.custom.product_color_name != blank %}
+                                <span class="color_v_name"> / {{ item.product.metafields.custom.product_color_name }}</span>
+                              {% endif %}
                               <cart-remove-button
                               id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
                               data-index="{{ forloop.index }}"
