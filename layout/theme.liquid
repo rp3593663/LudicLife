@@ -1974,6 +1974,17 @@
         })
         .then(res => res.json())
         .then(data => {
+           // 🔥 FACEBOOK ADD TO CART EVENT FOR EACH ITEM
+          if (typeof fbq !== 'undefined' && data.items) {
+            data.items.forEach(item => {
+              fbq('track', 'AddToCart', {
+                content_ids: [item.product_id],
+                content_type: 'product',
+                value: item.price / 100,
+                currency: Shopify.currency.active
+              });
+            });
+          }
           render_cart();
           $('new-cart-drawer').addClass('active animate');
         })
