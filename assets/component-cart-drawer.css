@@ -728,3 +728,10 @@ p.also-bought-price {
   color: #1a1a1a;
   font-size: 14px;
 }
+
+.dropdown-variant-item.disabled {
+  text-decoration: line-through;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
