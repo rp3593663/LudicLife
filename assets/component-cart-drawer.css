@@ -737,3 +737,43 @@ p.also-bought-price {
 .product-dropdown-list.active:hover {
     text-decoration: none;
 }
+
+.size-dropdown-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.size-dropdown-toggle {
+  display: inline-block;
+}
+
+.size-dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 8px 12px;
+  display: none;
+  z-index: 20;
+  min-width: 120px;
+}
+
+.size-dropdown-list.active {
+  display: block;
+}
+
+.size-item {
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+.size-item.disabled {
+  text-decoration: line-through;
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
