@@ -720,6 +720,10 @@ p.also-bought-price {
   width: 200px;
 }
 
+.size-dropdown-list.active {
+    left: 0;
+}
+
 .product-dropdown-list.active,
 .size-dropdown-list.active {
   display: block;
