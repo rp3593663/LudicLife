@@ -1345,9 +1345,9 @@ $(document).on('click','.card_variant',function(event){
         // 🔥 FACEBOOK ADD TO CART EVENT
         if (typeof fbq !== 'undefined') {
           fbq('track', 'AddToCart', {
-            content_ids: [data.product_id],
+            content_ids: [cart.product_id],
             content_type: 'product',
-            value: data.price / 100,
+            value: cart.price / 100,
             currency: Shopify.currency.active
           });
         }
