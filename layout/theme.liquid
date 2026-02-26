@@ -2583,24 +2583,30 @@ document.addEventListener('click', function(e) {
  </script>
 
 <script>
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function(e){
 
-  const toggle = e.target.closest('.size-dropdown-toggle');
+  const colorToggle = e.target.closest('.product-dropdown-toggle');
+  const sizeToggle  = e.target.closest('.size-dropdown-toggle');
 
   // CLOSE ALL DROPDOWNS FIRST
-  document.querySelectorAll('.size-dropdown-list').forEach(function(el){
-    el.classList.remove('active');
-  });
+  document.querySelectorAll('.product-dropdown-list, .size-dropdown-list')
+    .forEach(el => el.classList.remove('active'));
 
-  if (!toggle) return;
+  if (colorToggle) {
+    const wrapper = colorToggle.closest('.product-dropdown-wrapper');
+    if (!wrapper) return;
+    const list = wrapper.querySelector('.product-dropdown-list');
+    if (list) list.classList.add('active');
+    return;
+  }
 
-  const wrapper = toggle.closest('.size-dropdown-wrapper');
-  if (!wrapper) return;
-
-  const dropdown = wrapper.querySelector('.size-dropdown-list');
-  if (!dropdown) return;
-
-  dropdown.classList.add('active');
+  if (sizeToggle) {
+    const wrapper = sizeToggle.closest('.size-dropdown-wrapper');
+    if (!wrapper) return;
+    const list = wrapper.querySelector('.size-dropdown-list');
+    if (list) list.classList.add('active');
+    return;
+  }
 
 });
 </script>
