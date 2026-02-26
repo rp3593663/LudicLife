@@ -215,12 +215,14 @@ cart-drawer-items {
  padding: 0px 32px;
 }
 
-.cart-item__details a {
+.cart-item__details a,
+.product-dropdown {
     font-size: 12px;
     line-height: 17.1px;
     letter-spacing: -0.36px;
     margin: 0;
 }
+
 
 @media screen and (max-height: 650px) {
   cart-drawer-items {
