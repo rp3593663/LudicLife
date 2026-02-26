@@ -725,8 +725,6 @@ p.also-bought-price {
   display: block;
   padding: 6px 0;
   text-decoration: none;
-  color: #1a1a1a;
-  font-size: 14px;
 }
 
 .dropdown-variant-item.disabled {
