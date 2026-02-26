@@ -275,6 +275,13 @@ document.addEventListener('click', function(e){
     const currentSize = colorLink.dataset.size;
     const newProductId = colorLink.dataset.productId;
 
+    console.log('🛠️ colorLink clicked', {
+      line,
+      currentSize,
+      newProductId,
+      text: colorLink.textContent.trim()
+    });
+
     if (!line || !newProductId) {
       console.error('Missing data attributes for color change');
       return;
