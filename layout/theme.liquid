@@ -2580,14 +2580,26 @@ document.addEventListener('click', function(e) {
 
 });
 
-document.addEventListener('click', function(e) {
-
-});
-
  </script>
 
 
+<script>
+document.addEventListener('click', function(e) {
 
+  const toggle = e.target.closest('.size-dropdown-toggle');
+
+  if (toggle) {
+    const wrapper = toggle.closest('.size-dropdown-wrapper');
+    const dropdown = wrapper.querySelector('.size-dropdown-list');
+    dropdown.classList.toggle('active');
+  } else {
+    document.querySelectorAll('.size-dropdown-list').forEach(el => {
+      el.classList.remove('active');
+    });
+  }
+
+});
+</script>
 
   </body>
 </html>
