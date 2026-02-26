@@ -227,6 +227,11 @@ cart-drawer-items {
     display: flex;
     gap: 2px;
 }
+.product-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
 
 @media screen and (max-height: 650px) {
