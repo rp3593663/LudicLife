@@ -707,7 +707,8 @@ p.also-bought-price {
   cursor: pointer;
 }
 
-.product-dropdown-list {
+.product-dropdown-list,
+.size-dropdown-list {
   position: absolute;
   top: 100%;
   right:0;
@@ -743,19 +744,7 @@ p.also-bought-price {
 }
 
 
-.size-dropdown-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  padding: 8px 12px;
-  display: none;
-  z-index: 20;
-  min-width: 120px;
-}
-
-.size-dropdown-list.active {
+ {
   display: block;
 }
 
