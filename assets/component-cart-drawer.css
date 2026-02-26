@@ -223,6 +223,11 @@ cart-drawer-items {
     margin: 0;
 }
 
+.main_cart-product_name {
+    display: flex;
+    gap: 2px;
+}
+
 
 @media screen and (max-height: 650px) {
   cart-drawer-items {
