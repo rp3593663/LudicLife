@@ -694,7 +694,8 @@ p.also-bought-price {
 
 /* New Cart Dropdown Design */
 
-.product-dropdown-wrapper {
+.product-dropdown-wrapper ,
+.size-dropdown-wrapper{
   position: relative;
 }
 
@@ -741,10 +742,6 @@ p.also-bought-price {
     text-decoration: none;
 }
 
-.size-dropdown-wrapper {
-  position: relative;
-  cursor: pointer;
-}
 
 .size-dropdown-list {
   position: absolute;
