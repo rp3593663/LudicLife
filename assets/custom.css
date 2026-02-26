@@ -3577,12 +3577,14 @@ main#MainContent.ds-moto-ludic {
     color: #1a1a1a;
 }
 .badge-new-launch {
-    background: #008764;
-    color: #fff;
+    background: transparent;
+    color: #008764;
+    border: 1px solid #008764;
 }
 .badge-moving-fast {
-    background: #E60013;
-    color: #fff;
+    background: transparent;
+    color: #e60013;
+    border: 1px solid #e60013;
 }
 
 .frequently_bought_products .product-badge{
