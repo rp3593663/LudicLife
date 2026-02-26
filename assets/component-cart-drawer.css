@@ -728,14 +728,13 @@ p.also-bought-price {
   color: #1a1a1a;
 }
 
-.dropdown-variant-item.disabled, {
+.dropdown-variant-item.disabled {
   text-decoration: line-through;
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
-.product-dropdown-list.active:hover,
-.size-dropdown-list.active:hover {
+.product-dropdown-list.active:hover {
     text-decoration: none;
 }
 
@@ -772,4 +771,11 @@ p.also-bought-price {
   text-decoration: none;
   color: #1a1a1a;
   font-size: 14px;
+}
+
+.size-item.disabled {
+  text-decoration: line-through;
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }
