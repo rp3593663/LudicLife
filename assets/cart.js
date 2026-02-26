@@ -267,8 +267,14 @@ document.addEventListener("DOMContentLoaded", attachRemoveEventListeners);
 // that matches the current size.  the link markup populates
 // data-line, data-size and data-product-id so we can fetch the
 // product JSON and locate the correct variant id.
+// debug global loader
+console.log('cart.js loaded');
+
+// top‑level click handler for colour/product links
 document.addEventListener('click', function(e){
   const colorLink = e.target.closest('.dropdown-variant-item.change-color');
+  console.log('cart click', e.target, 'closest colorLink:', colorLink);
+
   if (colorLink) {
     e.preventDefault();
     const line = colorLink.dataset.line;
@@ -317,13 +323,38 @@ document.addEventListener('click', function(e){
       })
       .catch((err) => console.error('Failed to fetch product JSON:', err));
 
-    return; // prevent the size-change handler below from running
+    return; // prevent the size-change handler from running for this click
   }
+});
 
 // AJAX SIZE CHANGE
+// (separate listener, not nested)
 document.addEventListener('click', function(e){
-
   const btn = e.target.closest('.change-variant');
+  if (!btn) return;
+
+  e.preventDefault();
+
+  const line = btn.dataset.line;
+  const newVariantId = btn.dataset.variantId;
+
+  if (!line || !newVariantId) return;
+
+  fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      line: line,
+      id: newVariantId,
+      quantity: 1
+    })
+  })
+  .then(res => res.json())
+  .then(() => {
+    refreshCart(); // your existing function
+  })
+  .catch(err => console.error('Variant change error:', err));
+});
   if (!btn) return;
 
   e.preventDefault();
