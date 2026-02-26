@@ -162,20 +162,22 @@
                               </a>
                             {% else %}
                             <div class="product-name-cart-custom">
-                              <a href="{{ item.url }}" class="cart-item__name h4 break">
-                                {% if item.product.metafields.custom.product_name_breadcrumb != blank %}
-                                  {{ item.product.metafields.custom.product_name_breadcrumb }} 
-                                  {% else %}
-                                  {{ item.title }}
-                                {% endif %}
-                              </a>
-                              <div class="product-dropdown">
-                              {% if item.product.metafields.custom.product_color_name != blank %}
-                                <span class="color_v_name"> / {{ item.product.metafields.custom.product_color_name }}</span>
-                              {% endif %}
-                              <svg width="7" height="4" viewBox="0 0 7 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0.5L3.5 3.5L6.5 0.5" stroke="#1A1A1A" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
+                              <div class="main_cart-product_name">
+                                <a href="{{ item.url }}" class="cart-item__name h4 break">
+                                  {% if item.product.metafields.custom.product_name_breadcrumb != blank %}
+                                    {{ item.product.metafields.custom.product_name_breadcrumb }} 
+                                    {% else %}
+                                    {{ item.title }}
+                                  {% endif %}
+                                </a>
+                                <div class="product-dropdown">
+                                  {% if item.product.metafields.custom.product_color_name != blank %}
+                                    <span class="color_v_name"> / {{ item.product.metafields.custom.product_color_name }}</span>
+                                  {% endif %}
+                                  <svg width="7" height="4" viewBox="0 0 7 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.5 0.5L3.5 3.5L6.5 0.5" stroke="#1A1A1A" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                </div>
                               </div>
                               <cart-remove-button
                               id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
