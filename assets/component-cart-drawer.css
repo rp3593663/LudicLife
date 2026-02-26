@@ -698,7 +698,8 @@ p.also-bought-price {
   position: relative;
 }
 
-.product-dropdown-toggle {
+.product-dropdown-toggle,
+.size-dropdown-toggle  {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -743,12 +744,6 @@ p.also-bought-price {
 .size-dropdown-wrapper {
   position: relative;
   cursor: pointer;
-}
-
-.size-dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
 .size-dropdown-list {
