@@ -6203,7 +6203,7 @@ footer {
 
 .cart-drawer
   .cart-item__details
-  *:not(.cart-item__name):not(.pro_variant_name):not(.pro_variant_name span):not(.color_v_name):not(.new-product-option):not(.new-product-option-price):not(.pro_variant_color):not(.pro_variant_color span):not(.new-product-option span):not(.mobile-remove-button):not(.mobile-remove-button .cart-remove-button):not(.mobile-remove-button .mobile-remove-btn):not(.dispatch-date):not(.item_quantity):not(.product-name-cart-custom):not(cart-remove-button):not(cart-remove-button button):not(cart-remove-button button svg):not(cart-remove-button button svg path),
+  *:not(.cart-item__name):not(.pro_variant_name):not(.pro_variant_name span):not(.color_v_name):not(.new-product-option):not(.new-product-option-price):not(.pro_variant_color):not(.pro_variant_color span):not(.new-product-option span):not(.mobile-remove-button):not(.mobile-remove-button .cart-remove-button):not(.mobile-remove-button .mobile-remove-btn):not(.dispatch-date):not(.item_quantity):not(.product-name-cart-custom):not(cart-remove-button):not(cart-remove-button button):not(cart-remove-button button svg):not(cart-remove-button button svg path):not(.product-dropdown),
 .cart-drawer .cart-item__totals,
 .cart-drawer .quantity-popover-container,
 .cart-drawer .cart-items thead,
