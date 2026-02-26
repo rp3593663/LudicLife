@@ -362,11 +362,8 @@
                               <div class="size-dropdown-list">
                                 {% for variant in item.product.variants %}
 
-                                 {% if variant.available %}
-                                    <a href="#"
-                                      class="size-item change-variant"
-                                      data-line="{{ forloop.parentloop.index }}"
-                                      data-variant-id="{{ variant.id }}">
+                                  {% if variant.available %}
+                                    <a href="{{ item.url }}?variant={{ variant.id }}" class="size-item">
                                       {{ variant.title }}
                                     </a>
                                   {% else %}
