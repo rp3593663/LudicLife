@@ -708,7 +708,7 @@ p.also-bought-price {
 .product-dropdown-list {
   position: absolute;
   top: 100%;
-  left:-140%;
+  right:0;
   background: #fff;
   border: 1px solid #e5e5e5;
   padding: 10px 15px;
