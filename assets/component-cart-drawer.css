@@ -720,7 +720,8 @@ p.also-bought-price {
   min-width: 200px;
 }
 
-.product-dropdown-list.active {
+.product-dropdown-list.active,
+.size-dropdown-list.active {
   display: block;
 }
 
@@ -741,11 +742,6 @@ p.also-bought-price {
 .product-dropdown-list.active:hover,
 .size-dropdown-list.active:hover {
     text-decoration: none;
-}
-
-
- {
-  display: block;
 }
 
 .size-item {
