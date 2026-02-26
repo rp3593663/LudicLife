@@ -379,6 +379,8 @@ document.addEventListener('click', function(e){
   })
   .catch(err => console.error('Variant change error:', err));
 
+});
+
 
 
 
