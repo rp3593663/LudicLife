@@ -203,7 +203,11 @@
                                         {% endfor %}
 
                                         {% if size_available %}
-                                          <a href="{{ related_product.url }}" class="dropdown-variant-item">
+                                          <a href="#"
+                                            class="dropdown-variant-item change-color"
+                                            data-line="{{ forloop.parentloop.index }}"
+                                            data-size="{{ current_size }}"
+                                            data-product-id="{{ related_product.id }}">
                                             {{ related_product.title }}
                                             {% if related_product.metafields.custom.product_color_name != blank %}
                                               / {{ related_product.metafields.custom.product_color_name }}
