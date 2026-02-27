@@ -2628,26 +2628,19 @@ document.addEventListener('click', function(e){
 
   if (typeof fbq === 'undefined') return;
 
-  window.__fbLastCartEvent = window.__fbLastCartEvent || {};
+  window.__fbCartEventLock = false;
 
   function fireAddToCart(item) {
-    if (!item) return;
+    if (!item || window.__fbCartEventLock) return;
 
-    var variantId = item.variant_id || item.id;
-    var now = Date.now();
+    window.__fbCartEventLock = true;
 
-    if (window.__fbLastCartEvent.id === String(variantId) &&
-        now - window.__fbLastCartEvent.ts < 1500) {
-      return;
-    }
-
-    window.__fbLastCartEvent = {
-      id: String(variantId),
-      ts: now
-    };
+    setTimeout(function () {
+      window.__fbCartEventLock = false;
+    }, 1000);
 
     fbq('track', 'AddToCart', {
-      content_ids: [variantId],
+      content_ids: [item.variant_id || item.id],
       content_name: item.product_title || item.title || '',
       content_type: 'product',
       value: (item.price || 0) / 100,
@@ -2656,7 +2649,7 @@ document.addEventListener('click', function(e){
     });
   }
 
-  // 🔥 Intercept fetch (covers /cart/add and /cart/add.js)
+  // 🔥 Intercept fetch ONLY
   const originalFetch = window.fetch;
   window.fetch = function () {
     return originalFetch.apply(this, arguments).then(async response => {
@@ -2666,14 +2659,14 @@ document.addEventListener('click', function(e){
 
         if (url.includes('/cart/add')) {
 
-          // Instead of relying on response,
-          // fetch the updated cart to get correct item data
-          const cartRes = await originalFetch('/cart.js');
-          const cart = await cartRes.json();
+          const cloned = response.clone();
+          const data = await cloned.json();
 
-          if (cart && cart.items && cart.items.length > 0) {
-            const lastItem = cart.items[cart.items.length - 1];
-            fireAddToCart(lastItem);
+          // Handle bundle or multi-add
+          if (data.items && Array.isArray(data.items)) {
+            fireAddToCart(data.items[0]);
+          } else {
+            fireAddToCart(data);
           }
         }
 
@@ -2682,25 +2675,6 @@ document.addEventListener('click', function(e){
       return response;
     });
   };
-
-  // 🔥 Intercept jQuery AJAX
-  if (window.jQuery) {
-    $(document).ajaxSuccess(async function (event, xhr, settings) {
-      if (settings.url && settings.url.includes('/cart/add')) {
-
-        try {
-          const cartRes = await fetch('/cart.js');
-          const cart = await cartRes.json();
-
-          if (cart && cart.items && cart.items.length > 0) {
-            const lastItem = cart.items[cart.items.length - 1];
-            fireAddToCart(lastItem);
-          }
-
-        } catch (e) {}
-      }
-    });
-  }
 
 })();
 </script>
