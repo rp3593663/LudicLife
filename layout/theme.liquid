@@ -2682,101 +2682,101 @@ document.addEventListener('click', function(e){
 </script>
 
 
-{% comment %} ALl product event with {% endcomment %}
+{% comment %} ALl product event but trigger 2 3 times {% endcomment %}
 <script>
-(function () {
+// (function () {
 
-  if (typeof fbq === 'undefined') return;
+//   if (typeof fbq === 'undefined') return;
 
-  window.__fbCartEventLock = false;
+//   window.__fbCartEventLock = false;
 
-  function fireAddToCart(item) {
-    if (!item || window.__fbCartEventLock) return;
+//   function fireAddToCart(item) {
+//     if (!item || window.__fbCartEventLock) return;
 
-    window.__fbCartEventLock = true;
+//     window.__fbCartEventLock = true;
 
-    setTimeout(function () {
-      window.__fbCartEventLock = false;
-    }, 1000);
+//     setTimeout(function () {
+//       window.__fbCartEventLock = false;
+//     }, 1000);
 
-    fbq('track', 'AddToCart', {
-      content_ids: [item.variant_id || item.id],
-      content_name: item.product_title || item.title || '',
-      content_type: 'product',
-      value: (item.price || 0) / 100,
-      currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-      num_items: item.quantity || 1
-    });
-  }
+//     fbq('track', 'AddToCart', {
+//       content_ids: [item.variant_id || item.id],
+//       content_name: item.product_title || item.title || '',
+//       content_type: 'product',
+//       value: (item.price || 0) / 100,
+//       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+//       num_items: item.quantity || 1
+//     });
+//   }
 
-  /* ============================
-     1️⃣ FETCH INTERCEPT (AJAX)
-  ============================ */
+//   /* ============================
+//      1️⃣ FETCH INTERCEPT (AJAX)
+//   ============================ */
 
-  const originalFetch = window.fetch;
-  window.fetch = function () {
-    const requestUrl = arguments[0]?.toString() || '';
+//   const originalFetch = window.fetch;
+//   window.fetch = function () {
+//     const requestUrl = arguments[0]?.toString() || '';
 
-    return originalFetch.apply(this, arguments).then(async response => {
+//     return originalFetch.apply(this, arguments).then(async response => {
 
-      try {
-        if (requestUrl.includes('/cart/add')) {
+//       try {
+//         if (requestUrl.includes('/cart/add')) {
 
-          const cloned = response.clone();
-          const data = await cloned.json();
+//           const cloned = response.clone();
+//           const data = await cloned.json();
 
-          if (data.items && Array.isArray(data.items)) {
-            fireAddToCart(data.items[0]);
-          } else {
-            fireAddToCart(data);
-          }
-        }
+//           if (data.items && Array.isArray(data.items)) {
+//             fireAddToCart(data.items[0]);
+//           } else {
+//             fireAddToCart(data);
+//           }
+//         }
 
-      } catch (e) {}
+//       } catch (e) {}
 
-      return response;
-    });
-  };
+//       return response;
+//     });
+//   };
 
-  /* ============================
-     2️⃣ FORM SUBMIT FALLBACK
-     (for no-variant products)
-  ============================ */
+//   /* ============================
+//      2️⃣ FORM SUBMIT FALLBACK
+//      (for no-variant products)
+//   ============================ */
 
-  document.addEventListener('submit', function (e) {
+//   document.addEventListener('submit', function (e) {
 
-    const form = e.target;
+//     const form = e.target;
 
-    if (!form.matches('form[action*="/cart/add"]')) return;
+//     if (!form.matches('form[action*="/cart/add"]')) return;
 
-    const variantInput = form.querySelector('input[name="id"]');
-    if (!variantInput) return;
+//     const variantInput = form.querySelector('input[name="id"]');
+//     if (!variantInput) return;
 
-    const variantId = variantInput.value;
-    if (!variantId) return;
+//     const variantId = variantInput.value;
+//     if (!variantId) return;
 
-    // Fetch product info before redirect
-    fetch('/products/' + window.location.pathname.split('/products/')[1].split('?')[0] + '.js')
-      .then(res => res.json())
-      .then(product => {
+//     // Fetch product info before redirect
+//     fetch('/products/' + window.location.pathname.split('/products/')[1].split('?')[0] + '.js')
+//       .then(res => res.json())
+//       .then(product => {
 
-        const variant = product.variants.find(v => v.id == variantId);
+//         const variant = product.variants.find(v => v.id == variantId);
 
-        if (!variant) return;
+//         if (!variant) return;
 
-        fireAddToCart({
-          id: variant.id,
-          product_title: product.title,
-          price: variant.price,
-          quantity: 1
-        });
+//         fireAddToCart({
+//           id: variant.id,
+//           product_title: product.title,
+//           price: variant.price,
+//           quantity: 1
+//         });
 
-      })
-      .catch(() => {});
+//       })
+//       .catch(() => {});
 
-  });
+//   });
 
-})();
+// })();
 </script>
 
 
