@@ -2786,63 +2786,63 @@ document.addEventListener('click', function(e){
 {% comment %} Triggers when product with one varaint one click, multiple trigger with varaint {% endcomment %}
 
 <script>
-// (function () {
+(function () {
 
-//   if (typeof fbq === 'undefined') return;
+  if (typeof fbq === 'undefined') return;
 
-//   let clickLock = false;
+  let clickLock = false;
 
-//   function fireAddToCart(item) {
-//     if (!item || clickLock) return;
+  function fireAddToCart(item) {
+    if (!item || clickLock) return;
 
-//     clickLock = true;
+    clickLock = true;
 
-//     setTimeout(function () {
-//       clickLock = false;
-//     }, 1200);
+    setTimeout(function () {
+      clickLock = false;
+    }, 1200);
 
-//     fbq('track', 'AddToCart', {
-//       content_ids: [item.variant_id || item.id],
-//       content_name: item.product_title || item.title || '',
-//       content_type: 'product',
-//       value: (item.price || 0) / 100,
-//       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-//       num_items: item.quantity || 1
-//     });
-//   }
+    fbq('track', 'AddToCart', {
+      content_ids: [item.variant_id || item.id],
+      content_name: item.product_title || item.title || '',
+      content_type: 'product',
+      value: (item.price || 0) / 100,
+      currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+      num_items: item.quantity || 1
+    });
+  }
 
-//   /* ============================
-//      FETCH INTERCEPT
-//   ============================ */
+  /* ============================
+     FETCH INTERCEPT
+  ============================ */
 
-//   const originalFetch = window.fetch;
+  const originalFetch = window.fetch;
 
-//   window.fetch = function () {
+  window.fetch = function () {
 
-//     const requestUrl = arguments[0]?.toString() || '';
+    const requestUrl = arguments[0]?.toString() || '';
 
-//     return originalFetch.apply(this, arguments).then(async response => {
+    return originalFetch.apply(this, arguments).then(async response => {
 
-//       try {
+      try {
 
-//         if (!requestUrl.includes('/cart/add')) return response;
+        if (!requestUrl.includes('/cart/add')) return response;
 
-//         const cloned = response.clone();
-//         const data = await cloned.json();
+        const cloned = response.clone();
+        const data = await cloned.json();
 
-//         if (data.items && Array.isArray(data.items)) {
-//           fireAddToCart(data.items[0]);
-//         } else {
-//           fireAddToCart(data);
-//         }
+        if (data.items && Array.isArray(data.items)) {
+          fireAddToCart(data.items[0]);
+        } else {
+          fireAddToCart(data);
+        }
 
-//       } catch (e) {}
+      } catch (e) {}
 
-//       return response;
-//     });
-//   };
+      return response;
+    });
+  };
 
-// })();
+})();
 </script>
 
 
