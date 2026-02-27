@@ -2361,3 +2361,49 @@ document.addEventListener('DOMContentLoaded', function () {
       track.style.transform = `translateY(-${translateY}px)`;
     });
   });
+
+
+// Intercept fetch calls to /cart/add (AJAX add-to-cart) and fire Facebook/Meta pixel AddToCart
+(function () {
+  if (!window.fetch) return;
+  const originalFetch = window.fetch.bind(window);
+
+  window.fetch = function (...args) {
+    return originalFetch(...args).then((response) => {
+      try {
+        // Determine the request URL
+        const req = args[0];
+        const url = typeof req === 'string' ? req : req && req.url;
+
+        if (url && url.indexOf('/cart/add') !== -1) {
+          // clone the response so we can parse JSON without breaking original response
+          const cloned = response.clone();
+          cloned
+            .json()
+            .then((data) => {
+              if (typeof fbq !== 'undefined') {
+                try {
+                  var prodId = data.product_id || data.id || null;
+                  var price = (typeof data.price !== 'undefined') ? data.price : 0;
+                  fbq('track', 'AddToCart', {
+                    content_ids: prodId ? [prodId] : [],
+                    content_type: 'product',
+                    value: (price || 0) / 100,
+                    currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD'
+                  });
+                } catch (e) {
+                  console.error('FB pixel AddToCart error (interceptor)', e);
+                }
+              }
+            })
+            .catch(() => {});
+        }
+      } catch (e) {
+        // swallow errors from interceptor so original fetch still works
+        console.error('Fetch interceptor error', e);
+      }
+
+      return response;
+    });
+  };
+})();
