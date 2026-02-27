@@ -2410,61 +2410,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Fallback: delegated click handler on common add-to-cart buttons to catch cases
 // where AJAX response doesn't include product/variant data (single-variant products)
-(function () {
-  if (typeof jQuery === 'undefined') return;
+// (function () {
+//   if (typeof jQuery === 'undefined') return;
 
-  function fireFbAddToCart(variantId, priceCents) {
-    if (typeof fbq === 'undefined' || !variantId) return;
-    try {
-      window._lastAddToCartFired = window._lastAddToCartFired || {};
-      var now = Date.now();
-      if (window._lastAddToCartFired.id === String(variantId) && now - window._lastAddToCartFired.ts < 2000) return;
-      window._lastAddToCartFired = { id: String(variantId), ts: now };
+//   function fireFbAddToCart(variantId, priceCents) {
+//     if (typeof fbq === 'undefined' || !variantId) return;
+//     try {
+//       window._lastAddToCartFired = window._lastAddToCartFired || {};
+//       var now = Date.now();
+//       if (window._lastAddToCartFired.id === String(variantId) && now - window._lastAddToCartFired.ts < 2000) return;
+//       window._lastAddToCartFired = { id: String(variantId), ts: now };
 
-      fbq('track', 'AddToCart', {
-        content_ids: [variantId],
-        content_type: 'product',
-        value: (Number(priceCents) || 0) / 100,
-        currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD',
-      });
-    } catch (e) {
-      console.error('FB pixel AddToCart (fallback) error', e);
-    }
-  }
+//       fbq('track', 'AddToCart', {
+//         content_ids: [variantId],
+//         content_type: 'product',
+//         value: (Number(priceCents) || 0) / 100,
+//         currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD',
+//       });
+//     } catch (e) {
+//       console.error('FB pixel AddToCart (fallback) error', e);
+//     }
+//   }
 
-  $(document).on('click', '.product-form__submit, .custom_product-form__submit', function (e) {
-    try {
-      var $btn = $(this);
-      if ($btn.is('.disabled') || $btn.prop('disabled')) return;
+//   $(document).on('click', '.product-form__submit, .custom_product-form__submit', function (e) {
+//     try {
+//       var $btn = $(this);
+//       if ($btn.is('.disabled') || $btn.prop('disabled')) return;
 
-      var $form = $btn.closest('form');
-      var variantId = '';
-      if ($form.length) {
-        variantId = $form.find('input[name="id"]').val() || $form.find('input[name="variantId"]').val() || $form.find('select[name="id"] option:selected').val() || '';
-      }
+//       var $form = $btn.closest('form');
+//       var variantId = '';
+//       if ($form.length) {
+//         variantId = $form.find('input[name="id"]').val() || $form.find('input[name="variantId"]').val() || $form.find('select[name="id"] option:selected').val() || '';
+//       }
 
-      if (!variantId) {
-        variantId = $btn.data('variant-id') || $btn.attr('data-variant-id') || $btn.data('product-id') || $btn.attr('data-product-id') || '';
-      }
+//       if (!variantId) {
+//         variantId = $btn.data('variant-id') || $btn.attr('data-variant-id') || $btn.data('product-id') || $btn.attr('data-product-id') || '';
+//       }
 
-      var priceCents = 0;
-      if ($form.length) {
-        var priceInput = $form.find('input[name="price"]');
-        if (priceInput.length) priceCents = parseInt(priceInput.val()) || 0;
-      }
+//       var priceCents = 0;
+//       if ($form.length) {
+//         var priceInput = $form.find('input[name="price"]');
+//         if (priceInput.length) priceCents = parseInt(priceInput.val()) || 0;
+//       }
 
-      if (!priceCents) {
-        var $priceEl = $btn.closest('.product__info').find('[data-price-cents]').first();
-        if ($priceEl && $priceEl.length) {
-          priceCents = parseInt($priceEl.data('price-cents')) || parseInt($priceEl.data('price')) || 0;
-        }
-      }
+//       if (!priceCents) {
+//         var $priceEl = $btn.closest('.product__info').find('[data-price-cents]').first();
+//         if ($priceEl && $priceEl.length) {
+//           priceCents = parseInt($priceEl.data('price-cents')) || parseInt($priceEl.data('price')) || 0;
+//         }
+//       }
 
-      if (variantId) {
-        fireFbAddToCart(variantId, priceCents);
-      }
-    } catch (err) {
-      console.error('AddToCart fallback handler error', err);
-    }
-  });
-})();
+//       if (variantId) {
+//         fireFbAddToCart(variantId, priceCents);
+//       }
+//     } catch (err) {
+//       console.error('AddToCart fallback handler error', err);
+//     }
+//   });
+// })();
