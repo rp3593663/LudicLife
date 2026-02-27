@@ -2680,149 +2680,56 @@ document.addEventListener('click', function(e){
 </script>
 
 <script>
-// (function () {
-
-//   if (typeof fbq === 'undefined') return;
-
-//   let lastVariantTracked = null;
-
-//   function trackAddToCart(data) {
-//     if (!data) return;
-
-//     const variantId = data.variant_id || data.id;
-
-//     // prevent duplicate tracking of same variant
-//     if (lastVariantTracked === variantId) return;
-//     lastVariantTracked = variantId;
-
-//     fbq('track', 'AddToCart', {
-//       content_ids: [variantId],
-//       content_name: data.product_title || data.title || '',
-//       content_type: 'product',
-//       value: (data.price || 0) / 100,
-//       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-//       num_items: data.quantity || 1
-//     });
-
-//     // reset lock after small delay
-//     setTimeout(() => {
-//       lastVariantTracked = null;
-//     }, 800);
-//   }
-
-//   /* ============================
-//      FETCH INTERCEPT
-//   ============================ */
-
-//   const originalFetch = window.fetch;
-//   window.fetch = function () {
-
-//     return originalFetch.apply(this, arguments).then(async response => {
-
-//       try {
-//         const url = arguments[0]?.toString() || '';
-
-//         if (url.includes('/cart/add')) {
-//           const cloned = response.clone();
-//           const data = await cloned.json();
-
-//           if (data.items && Array.isArray(data.items)) {
-//             data.items.forEach(item => trackAddToCart(item));
-//           } else {
-//             trackAddToCart(data);
-//           }
-//         }
-
-//       } catch (e) {}
-
-//       return response;
-//     });
-//   };
-
-//   /* ============================
-//      XHR INTERCEPT (for non-fetch themes)
-//   ============================ */
-
-//   const originalOpen = XMLHttpRequest.prototype.open;
-//   XMLHttpRequest.prototype.open = function (method, url) {
-
-//     if (url && url.includes('/cart/add')) {
-//       this.addEventListener('load', function () {
-//         try {
-//           const data = JSON.parse(this.responseText);
-
-//           if (data.items && Array.isArray(data.items)) {
-//             data.items.forEach(item => trackAddToCart(item));
-//           } else {
-//             trackAddToCart(data);
-//           }
-
-//         } catch (e) {}
-//       });
-//     }
-
-//     return originalOpen.apply(this, arguments);
-//   };
-
-// })();
-</script>
-
-
-
-
-
-
-
-<script>
 (function () {
 
   if (typeof fbq === 'undefined') return;
 
-  let lastRequestUrl = null;
+  let lastVariantTracked = null;
 
-  function fireEvent(item, requestUrl) {
+  function trackAddToCart(data) {
+    if (!data) return;
 
-    if (!item) return;
+    const variantId = data.variant_id || data.id;
 
-    // prevent duplicate for same request
-    if (lastRequestUrl === requestUrl) return;
-    lastRequestUrl = requestUrl;
+    // prevent duplicate tracking of same variant
+    if (lastVariantTracked === variantId) return;
+    lastVariantTracked = variantId;
 
     fbq('track', 'AddToCart', {
-      content_ids: [item.variant_id || item.id],
-      content_name: item.product_title || item.title || '',
+      content_ids: [variantId],
+      content_name: data.product_title || data.title || '',
       content_type: 'product',
-      value: (item.price || 0) / 100,
+      value: (data.price || 0) / 100,
       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-      num_items: item.quantity || 1
+      num_items: data.quantity || 1
     });
 
+    // reset lock after small delay
     setTimeout(() => {
-      lastRequestUrl = null;
+      lastVariantTracked = null;
     }, 800);
   }
 
-  /* ==============================
+  /* ============================
      FETCH INTERCEPT
-  ============================== */
+  ============================ */
 
   const originalFetch = window.fetch;
   window.fetch = function () {
 
-    const requestUrl = arguments[0]?.toString() || '';
-
     return originalFetch.apply(this, arguments).then(async response => {
 
       try {
-        if (requestUrl.includes('/cart/add')) {
+        const url = arguments[0]?.toString() || '';
 
+        if (url.includes('/cart/add')) {
           const cloned = response.clone();
           const data = await cloned.json();
 
           if (data.items && Array.isArray(data.items)) {
-            data.items.forEach(item => fireEvent(item, requestUrl));
+            data.items.forEach(item => trackAddToCart(item));
           } else {
-            fireEvent(data, requestUrl);
+            trackAddToCart(data);
           }
         }
 
@@ -2832,24 +2739,22 @@ document.addEventListener('click', function(e){
     });
   };
 
-  /* ==============================
-     XHR INTERCEPT
-  ============================== */
+  /* ============================
+     XHR INTERCEPT (for non-fetch themes)
+  ============================ */
 
   const originalOpen = XMLHttpRequest.prototype.open;
-
   XMLHttpRequest.prototype.open = function (method, url) {
 
     if (url && url.includes('/cart/add')) {
-
       this.addEventListener('load', function () {
         try {
           const data = JSON.parse(this.responseText);
 
           if (data.items && Array.isArray(data.items)) {
-            data.items.forEach(item => fireEvent(item, url));
+            data.items.forEach(item => trackAddToCart(item));
           } else {
-            fireEvent(data, url);
+            trackAddToCart(data);
           }
 
         } catch (e) {}
