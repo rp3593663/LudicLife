@@ -2626,59 +2626,59 @@ document.addEventListener('click', function(e){
 
 {% comment %} Triggering for all products except no varaint product {% endcomment %}
 <script>
-(function () {
+// (function () {
 
-  if (typeof fbq === 'undefined') return;
+//   if (typeof fbq === 'undefined') return;
 
-  window.__fbCartEventLock = false;
+//   window.__fbCartEventLock = false;
 
-  function fireAddToCart(item) {
-    if (!item || window.__fbCartEventLock) return;
+//   function fireAddToCart(item) {
+//     if (!item || window.__fbCartEventLock) return;
 
-    window.__fbCartEventLock = true;
+//     window.__fbCartEventLock = true;
 
-    setTimeout(function () {
-      window.__fbCartEventLock = false;
-    }, 1000);
+//     setTimeout(function () {
+//       window.__fbCartEventLock = false;
+//     }, 1000);
 
-    fbq('track', 'AddToCart', {
-      content_ids: [item.variant_id || item.id],
-      content_name: item.product_title || item.title || '',
-      content_type: 'product',
-      value: (item.price || 0) / 100,
-      currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-      num_items: item.quantity || 1
-    });
-  }
+//     fbq('track', 'AddToCart', {
+//       content_ids: [item.variant_id || item.id],
+//       content_name: item.product_title || item.title || '',
+//       content_type: 'product',
+//       value: (item.price || 0) / 100,
+//       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+//       num_items: item.quantity || 1
+//     });
+//   }
 
-  // 🔥 Intercept fetch ONLY
-  const originalFetch = window.fetch;
-  window.fetch = function () {
-    return originalFetch.apply(this, arguments).then(async response => {
+//   // 🔥 Intercept fetch ONLY
+//   const originalFetch = window.fetch;
+//   window.fetch = function () {
+//     return originalFetch.apply(this, arguments).then(async response => {
 
-      try {
-        const url = arguments[0]?.toString() || '';
+//       try {
+//         const url = arguments[0]?.toString() || '';
 
-        if (url.includes('/cart/add')) {
+//         if (url.includes('/cart/add')) {
 
-          const cloned = response.clone();
-          const data = await cloned.json();
+//           const cloned = response.clone();
+//           const data = await cloned.json();
 
-          // Handle bundle or multi-add
-          if (data.items && Array.isArray(data.items)) {
-            fireAddToCart(data.items[0]);
-          } else {
-            fireAddToCart(data);
-          }
-        }
+//           // Handle bundle or multi-add
+//           if (data.items && Array.isArray(data.items)) {
+//             fireAddToCart(data.items[0]);
+//           } else {
+//             fireAddToCart(data);
+//           }
+//         }
 
-      } catch (e) {}
+//       } catch (e) {}
 
-      return response;
-    });
-  };
+//       return response;
+//     });
+//   };
 
-})();
+// })();
 </script>
 
 <script>
