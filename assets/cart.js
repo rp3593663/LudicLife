@@ -74,19 +74,29 @@ function addItemToCart(variantId, quantity) {
       quantity: quantity
     })
   })
-  .then(response => response.json())
-  .then(response => response.json())
   .then(function (data) {
     console.log('✅ Item restored:', data);
 
     // FIRE FACEBOOK ADD TO CART EVENT (if fbq is loaded)
     if (typeof fbq !== 'undefined') {
       try {
-        var productId = data.product_id || data.id || null;
-        var price = (typeof data.price !== 'undefined') ? data.price : 0;
+        // prefer variant id for dedupe and tracking
+        var variantId = data && (data.id || data.variant_id || data.product_id) ? (data.id || data.variant_id || data.product_id) : null;
+        var price = 0;
+        if (data && typeof data.price !== 'undefined') {
+          price = data.price;
+        } else if (data && data.items && data.items.length === 1 && typeof data.items[0].price !== 'undefined') {
+          price = data.items[0].price;
+        }
+
+        // dedupe marker
+        try {
+          window._lastAddToCartFired = window._lastAddToCartFired || {};
+          if (variantId) window._lastAddToCartFired = { id: String(variantId), ts: Date.now() };
+        } catch (e) {}
 
         fbq('track', 'AddToCart', {
-          content_ids: productId ? [productId] : [],
+          content_ids: variantId ? [variantId] : [],
           content_type: 'product',
           value: (price || 0) / 100,
           currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD'
