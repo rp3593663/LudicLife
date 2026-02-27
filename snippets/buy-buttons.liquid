@@ -196,7 +196,70 @@
             <span></span>
           </p>
           <div class="wish-with-button desktop">
-         
+            {% comment %}
+              {% if product.metafields.custom.pre_book %}
+                <button
+                    id="ProductSubmitButton-{{ section_id }}"
+                    type="text"
+                    name="add"
+                    class="product-form__submit button pre-book button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                    {% if product.selected_or_first_available_variant.available == false
+                      or quantity_rule_soldout
+                      or product.selected_or_first_available_variant == nil
+                    %}
+                      disabled
+                    {% endif %}
+                  >
+                  <span class="pre-book">
+                  Pre-book
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+                <button
+                  style="display: none;"
+                  id="ProductSubmitButton-{{ section_id }}"
+                  type="submit"
+                  name="add"
+                  class="product-form__submit button pre-book button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                  {% if product.selected_or_first_available_variant.available == false
+                    or quantity_rule_soldout
+                    or product.selected_or_first_available_variant == nil
+                  %}
+                    disabled
+                  {% endif %}
+                  >
+                    <span class="pre-book">
+                    Pre-book
+                    </span>
+                    {%- render 'loading-spinner' -%}
+                </button>
+              {% else %}
+                <button
+                    id="ProductSubmitButton-{{ section_id }}"
+                    type="submit"
+                    name="add"
+                    class="product-form__submit button hello button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                    {% if product.selected_or_first_available_variant.available == false
+                      or quantity_rule_soldout
+                      or product.selected_or_first_available_variant == nil
+                    %}
+                      disabled
+                    {% endif %}
+                  >
+                  <span>
+                    {%- if product.selected_or_first_available_variant == nil -%}
+                      {{ 'products.product.unavailable' | t }}
+                    {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- else -%}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              {% endif %}
+            {% endcomment %}
+
             {% if template != 'product.fw-product' %}
               {% comment %} Button with scroll effect {% endcomment %}
               {% if product.metafields.custom.pre_book %}
