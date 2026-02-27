@@ -2684,34 +2684,38 @@ document.addEventListener('click', function(e){
 
   if (typeof fbq === 'undefined') return;
 
-  // GLOBAL LOCK PER REQUEST
-  let lastRequestId = null;
+  let lastVariantTracked = null;
 
-  function fireAddToCart(item, requestId) {
-    if (!item) return;
+  function trackAddToCart(data) {
+    if (!data) return;
 
-    // prevent duplicate per same request
-    if (lastRequestId === requestId) return;
-    lastRequestId = requestId;
+    const variantId = data.variant_id || data.id;
+
+    // prevent duplicate tracking of same variant
+    if (lastVariantTracked === variantId) return;
+    lastVariantTracked = variantId;
 
     fbq('track', 'AddToCart', {
-      content_ids: [item.variant_id || item.id],
-      content_name: item.product_title || item.title || '',
+      content_ids: [variantId],
+      content_name: data.product_title || data.title || '',
       content_type: 'product',
-      value: (item.price || 0) / 100,
+      value: (data.price || 0) / 100,
       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-      num_items: item.quantity || 1
+      num_items: data.quantity || 1
     });
+
+    // reset lock after small delay
+    setTimeout(() => {
+      lastVariantTracked = null;
+    }, 800);
   }
 
-  /* -------------------------
-     1️⃣ FETCH INTERCEPT
-  ------------------------- */
+  /* ============================
+     FETCH INTERCEPT
+  ============================ */
 
   const originalFetch = window.fetch;
   window.fetch = function () {
-
-    const requestId = Date.now() + Math.random();
 
     return originalFetch.apply(this, arguments).then(async response => {
 
@@ -2719,14 +2723,13 @@ document.addEventListener('click', function(e){
         const url = arguments[0]?.toString() || '';
 
         if (url.includes('/cart/add')) {
-
           const cloned = response.clone();
           const data = await cloned.json();
 
           if (data.items && Array.isArray(data.items)) {
-            fireAddToCart(data.items[0], requestId);
+            data.items.forEach(item => trackAddToCart(item));
           } else {
-            fireAddToCart(data, requestId);
+            trackAddToCart(data);
           }
         }
 
@@ -2736,56 +2739,33 @@ document.addEventListener('click', function(e){
     });
   };
 
-  /* -------------------------
-     2️⃣ jQuery AJAX INTERCEPT
-  ------------------------- */
+  /* ============================
+     XHR INTERCEPT (for non-fetch themes)
+  ============================ */
 
-  if (window.jQuery) {
-    $(document).ajaxSuccess(function (event, xhr, settings) {
+  const originalOpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function (method, url) {
 
-      if (settings.url && settings.url.includes('/cart/add')) {
-
+    if (url && url.includes('/cart/add')) {
+      this.addEventListener('load', function () {
         try {
-          const requestId = settings.url + Date.now();
-          const data = JSON.parse(xhr.responseText);
+          const data = JSON.parse(this.responseText);
 
           if (data.items && Array.isArray(data.items)) {
-            fireAddToCart(data.items[0], requestId);
+            data.items.forEach(item => trackAddToCart(item));
           } else {
-            fireAddToCart(data, requestId);
+            trackAddToCart(data);
           }
 
         } catch (e) {}
-      }
-    });
-  }
-
-  /* -------------------------
-     3️⃣ NATIVE FORM SUBMIT
-  ------------------------- */
-
-  document.addEventListener('submit', function (e) {
-
-    const form = e.target;
-    if (!form || !form.action) return;
-
-    if (form.action.includes('/cart/add')) {
-
-      setTimeout(async function () {
-        try {
-          const res = await fetch('/cart.js');
-          const cart = await res.json();
-          if (cart && cart.items && cart.items.length) {
-            const item = cart.items[cart.items.length - 1];
-            fireAddToCart(item, 'form-' + Date.now());
-          }
-        } catch (err) {}
-      }, 500);
+      });
     }
-  });
+
+    return originalOpen.apply(this, arguments);
+  };
 
 })();
-</script>
+</script>s
 
   </body>
 </html>
