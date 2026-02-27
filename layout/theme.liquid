@@ -2849,68 +2849,68 @@ document.addEventListener('click', function(e){
 
 
 <script>
-(function () {
+// (function () {
 
-  if (typeof fbq === 'undefined') return;
+//   if (typeof fbq === 'undefined') return;
 
-  let clickLock = false;
+//   let clickLock = false;
 
-  function fireAddToCart(item) {
-    if (!item || clickLock) return;
+//   function fireAddToCart(item) {
+//     if (!item || clickLock) return;
 
-    clickLock = true;
+//     clickLock = true;
 
-    setTimeout(function () {
-      clickLock = false;
-    }, 1200);
+//     setTimeout(function () {
+//       clickLock = false;
+//     }, 1200);
 
-    fbq('track', 'AddToCart', {
-      content_ids: [item.variant_id || item.id],
-      content_name: item.product_title || item.title || '',
-      content_type: 'product',
-      value: (item.price || 0) / 100,
-      currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
-      num_items: item.quantity || 1
-    });
-  }
+//     fbq('track', 'AddToCart', {
+//       content_ids: [item.variant_id || item.id],
+//       content_name: item.product_title || item.title || '',
+//       content_type: 'product',
+//       value: (item.price || 0) / 100,
+//       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+//       num_items: item.quantity || 1
+//     });
+//   }
 
-  const originalFetch = window.fetch;
+//   const originalFetch = window.fetch;
 
-  window.fetch = function () {
+//   window.fetch = function () {
 
-    const requestUrl = arguments[0]?.toString() || '';
+//     const requestUrl = arguments[0]?.toString() || '';
 
-    return originalFetch.apply(this, arguments).then(async response => {
+//     return originalFetch.apply(this, arguments).then(async response => {
 
-      try {
+//       try {
 
-        if (!requestUrl.includes('/cart/add')) return response;
+//         if (!requestUrl.includes('/cart/add')) return response;
 
-        const cloned = response.clone();
-        const data = await cloned.json();
+//         const cloned = response.clone();
+//         const data = await cloned.json();
 
-        const item = data.items && Array.isArray(data.items)
-          ? data.items[0]
-          : data;
+//         const item = data.items && Array.isArray(data.items)
+//           ? data.items[0]
+//           : data;
 
-        if (!item) return;
+//         if (!item) return;
 
-        /* 🔥 ONLY FIRE IF PRODUCT HAS NO REAL VARIANTS */
-        if (
-          item.variant_title === null ||
-          item.variant_title === '' ||
-          item.variant_title === 'Default Title'
-        ) {
-          fireAddToCart(item);
-        }
+//         /* 🔥 ONLY FIRE IF PRODUCT HAS NO REAL VARIANTS */
+//         if (
+//           item.variant_title === null ||
+//           item.variant_title === '' ||
+//           item.variant_title === 'Default Title'
+//         ) {
+//           fireAddToCart(item);
+//         }
 
-      } catch (e) {}
+//       } catch (e) {}
 
-      return response;
-    });
-  };
+//       return response;
+//     });
+//   };
 
-})();
+// })();
 </script>
 
 
