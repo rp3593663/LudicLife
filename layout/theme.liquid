@@ -1974,15 +1974,22 @@
         })
         .then(res => res.json())
         .then(data => {
-           // 🔥 FACEBOOK ADD TO CART EVENT FOR EACH ITEM
+           // 🔥 FACEBOOK ADD TO CART EVENT FOR EACH ITEM (use shared dedupe token)
           if (typeof fbq !== 'undefined' && data.items) {
             data.items.forEach(item => {
-              fbq('track', 'AddToCart', {
-                content_ids: [item.product_id],
-                content_type: 'product',
-                value: item.price / 100,
-                currency: Shopify.currency.active
-              });
+              var variantId = item.variant_id || item.id || item.product_id;
+              window._lastAddToCartFired = window._lastAddToCartFired || {};
+              var now = Date.now();
+              // Only fire if not recently deduplicated by fetch interceptor
+              if (!variantId || !(window._lastAddToCartFired.id === String(variantId) && now - window._lastAddToCartFired.ts < 2000)) {
+                window._lastAddToCartFired = { id: String(variantId), ts: now };
+                fbq('track', 'AddToCart', {
+                  content_ids: [variantId],
+                  content_type: 'product',
+                  value: item.price ? item.price / 100 : 0,
+                  currency: Shopify.currency.active
+                });
+              }
             });
           }
           render_cart();
