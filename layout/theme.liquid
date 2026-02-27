@@ -2624,20 +2624,75 @@ document.addEventListener('click', function(e){
 
 
 <script>
+// (function () {
+
+//   if (typeof fbq === 'undefined') return;
+
+//   window.__fbCartEventLock = false;
+
+//   function fireAddToCart(item) {
+//     if (!item || window.__fbCartEventLock) return;
+
+//     window.__fbCartEventLock = true;
+
+//     setTimeout(function () {
+//       window.__fbCartEventLock = false;
+//     }, 1000);
+
+//     fbq('track', 'AddToCart', {
+//       content_ids: [item.variant_id || item.id],
+//       content_name: item.product_title || item.title || '',
+//       content_type: 'product',
+//       value: (item.price || 0) / 100,
+//       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+//       num_items: item.quantity || 1
+//     });
+//   }
+
+//   // 🔥 Intercept fetch ONLY
+//   const originalFetch = window.fetch;
+//   window.fetch = function () {
+//     return originalFetch.apply(this, arguments).then(async response => {
+
+//       try {
+//         const url = arguments[0]?.toString() || '';
+
+//         if (url.includes('/cart/add')) {
+
+//           const cloned = response.clone();
+//           const data = await cloned.json();
+
+//           // Handle bundle or multi-add
+//           if (data.items && Array.isArray(data.items)) {
+//             fireAddToCart(data.items[0]);
+//           } else {
+//             fireAddToCart(data);
+//           }
+//         }
+
+//       } catch (e) {}
+
+//       return response;
+//     });
+//   };
+
+// })();
+</script>
+
+<script>
 (function () {
 
   if (typeof fbq === 'undefined') return;
 
-  window.__fbCartEventLock = false;
+  // GLOBAL LOCK PER REQUEST
+  let lastRequestId = null;
 
-  function fireAddToCart(item) {
-    if (!item || window.__fbCartEventLock) return;
+  function fireAddToCart(item, requestId) {
+    if (!item) return;
 
-    window.__fbCartEventLock = true;
-
-    setTimeout(function () {
-      window.__fbCartEventLock = false;
-    }, 1000);
+    // prevent duplicate per same request
+    if (lastRequestId === requestId) return;
+    lastRequestId = requestId;
 
     fbq('track', 'AddToCart', {
       content_ids: [item.variant_id || item.id],
@@ -2649,9 +2704,15 @@ document.addEventListener('click', function(e){
     });
   }
 
-  // 🔥 Intercept fetch ONLY
+  /* -------------------------
+     1️⃣ FETCH INTERCEPT
+  ------------------------- */
+
   const originalFetch = window.fetch;
   window.fetch = function () {
+
+    const requestId = Date.now() + Math.random();
+
     return originalFetch.apply(this, arguments).then(async response => {
 
       try {
@@ -2662,11 +2723,10 @@ document.addEventListener('click', function(e){
           const cloned = response.clone();
           const data = await cloned.json();
 
-          // Handle bundle or multi-add
           if (data.items && Array.isArray(data.items)) {
-            fireAddToCart(data.items[0]);
+            fireAddToCart(data.items[0], requestId);
           } else {
-            fireAddToCart(data);
+            fireAddToCart(data, requestId);
           }
         }
 
@@ -2675,6 +2735,54 @@ document.addEventListener('click', function(e){
       return response;
     });
   };
+
+  /* -------------------------
+     2️⃣ jQuery AJAX INTERCEPT
+  ------------------------- */
+
+  if (window.jQuery) {
+    $(document).ajaxSuccess(function (event, xhr, settings) {
+
+      if (settings.url && settings.url.includes('/cart/add')) {
+
+        try {
+          const requestId = settings.url + Date.now();
+          const data = JSON.parse(xhr.responseText);
+
+          if (data.items && Array.isArray(data.items)) {
+            fireAddToCart(data.items[0], requestId);
+          } else {
+            fireAddToCart(data, requestId);
+          }
+
+        } catch (e) {}
+      }
+    });
+  }
+
+  /* -------------------------
+     3️⃣ NATIVE FORM SUBMIT
+  ------------------------- */
+
+  document.addEventListener('submit', function (e) {
+
+    const form = e.target;
+    if (!form || !form.action) return;
+
+    if (form.action.includes('/cart/add')) {
+
+      setTimeout(async function () {
+        try {
+          const res = await fetch('/cart.js');
+          const cart = await res.json();
+          if (cart && cart.items && cart.items.length) {
+            const item = cart.items[cart.items.length - 1];
+            fireAddToCart(item, 'form-' + Date.now());
+          }
+        } catch (err) {}
+      }, 500);
+    }
+  });
 
 })();
 </script>
