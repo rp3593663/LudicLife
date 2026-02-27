@@ -2848,6 +2848,76 @@ document.addEventListener('click', function(e){
 
 
 
+<script>
+(function () {
+
+  if (typeof fbq === 'undefined') return;
+
+  let clickLock = false;
+
+  function fireAddToCart(item) {
+    if (!item || clickLock) return;
+
+    clickLock = true;
+
+    setTimeout(function () {
+      clickLock = false;
+    }, 1200);
+
+    fbq('track', 'AddToCart', {
+      content_ids: [item.variant_id || item.id],
+      content_name: item.product_title || item.title || '',
+      content_type: 'product',
+      value: (item.price || 0) / 100,
+      currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+      num_items: item.quantity || 1
+    });
+  }
+
+  const originalFetch = window.fetch;
+
+  window.fetch = function () {
+
+    const requestUrl = arguments[0]?.toString() || '';
+
+    return originalFetch.apply(this, arguments).then(async response => {
+
+      try {
+
+        if (!requestUrl.includes('/cart/add')) return response;
+
+        const cloned = response.clone();
+        const data = await cloned.json();
+
+        const item = data.items && Array.isArray(data.items)
+          ? data.items[0]
+          : data;
+
+        if (!item) return;
+
+        /* 🔥 ONLY FIRE IF PRODUCT HAS NO REAL VARIANTS */
+        if (
+          item.variant_title === null ||
+          item.variant_title === '' ||
+          item.variant_title === 'Default Title'
+        ) {
+          fireAddToCart(item);
+        }
+
+      } catch (e) {}
+
+      return response;
+    });
+  };
+
+})();
+</script>
+
+
+
+
+
+
 
 
 
