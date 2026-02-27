@@ -2381,61 +2381,19 @@ document.addEventListener('DOMContentLoaded', function () {
           cloned
             .json()
             .then((data) => {
-              try {
-                // If server returned multiple items (bundle), skip interceptor to avoid
-                // duplicating the explicit bundle handler that may already fire fbq.
-                if (data && data.items && data.items.length > 1) {
-                  return;
-                }
-
-                // Prefer variant id when available for deduplication
-                var variantId = null;
-                var price = 0;
-
-                if (data && data.items && data.items.length === 1) {
-                  var single = data.items[0];
-                  variantId = single.variant_id || single.id || single.product_id || null;
-                  price = typeof single.price !== 'undefined' ? single.price : price;
-                } else {
-                  variantId = data && (data.variant_id || data.id || data.product_id) ? (data.variant_id || data.id || data.product_id) : null;
-                  price = data && typeof data.price !== 'undefined' ? data.price : price;
-                }
-
-                // Deduplicate: skip if another handler recently fired for same id
-                window._lastAddToCartFired = window._lastAddToCartFired || {};
-                var now = Date.now();
-                if (variantId && window._lastAddToCartFired.id === String(variantId) && now - window._lastAddToCartFired.ts < 2000) {
-                  return;
-                }
-
-                // If price missing or zero, try to find price from DOM (fallback)
-                if ((!price || price === 0) && variantId && typeof document !== 'undefined') {
-                  try {
-                    var priceEl = document.querySelector('[data-product-id="' + variantId + '"] [data-price-cents]') ||
-                      document.querySelector('[data-variant-id="' + variantId + '"] [data-price-cents]') ||
-                      document.querySelector('[data-price-cents]');
-                    if (priceEl) {
-                      var v = priceEl.getAttribute('data-price-cents') || priceEl.dataset.priceCents || priceEl.dataset.price;
-                      price = parseInt(v) || price;
-                    }
-                  } catch (e) {
-                    // ignore DOM parse errors
-                  }
-                }
-
-                if (typeof fbq !== 'undefined') {
-                  // mark as fired to help dedupe other handlers
-                  if (variantId) window._lastAddToCartFired = { id: String(variantId), ts: now };
-
+              if (typeof fbq !== 'undefined') {
+                try {
+                  var prodId = data.product_id || data.id || null;
+                  var price = (typeof data.price !== 'undefined') ? data.price : 0;
                   fbq('track', 'AddToCart', {
-                    content_ids: variantId ? [variantId] : [],
+                    content_ids: prodId ? [prodId] : [],
                     content_type: 'product',
                     value: (price || 0) / 100,
                     currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD'
                   });
+                } catch (e) {
+                  console.error('FB pixel AddToCart error (interceptor)', e);
                 }
-              } catch (e) {
-                console.error('FB pixel AddToCart error (interceptor)', e);
               }
             })
             .catch(() => {});
@@ -2448,4 +2406,65 @@ document.addEventListener('DOMContentLoaded', function () {
       return response;
     });
   };
+})();
+
+// Fallback: delegated click handler on common add-to-cart buttons to catch cases
+// where AJAX response doesn't include product/variant data (single-variant products)
+(function () {
+  if (typeof jQuery === 'undefined') return;
+
+  function fireFbAddToCart(variantId, priceCents) {
+    if (typeof fbq === 'undefined' || !variantId) return;
+    try {
+      window._lastAddToCartFired = window._lastAddToCartFired || {};
+      var now = Date.now();
+      if (window._lastAddToCartFired.id === String(variantId) && now - window._lastAddToCartFired.ts < 2000) return;
+      window._lastAddToCartFired = { id: String(variantId), ts: now };
+
+      fbq('track', 'AddToCart', {
+        content_ids: [variantId],
+        content_type: 'product',
+        value: (Number(priceCents) || 0) / 100,
+        currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD',
+      });
+    } catch (e) {
+      console.error('FB pixel AddToCart (fallback) error', e);
+    }
+  }
+
+  $(document).on('click', '.product-form__submit, .custom_product-form__submit', function (e) {
+    try {
+      var $btn = $(this);
+      if ($btn.is('.disabled') || $btn.prop('disabled')) return;
+
+      var $form = $btn.closest('form');
+      var variantId = '';
+      if ($form.length) {
+        variantId = $form.find('input[name="id"]').val() || $form.find('input[name="variantId"]').val() || $form.find('select[name="id"] option:selected').val() || '';
+      }
+
+      if (!variantId) {
+        variantId = $btn.data('variant-id') || $btn.attr('data-variant-id') || $btn.data('product-id') || $btn.attr('data-product-id') || '';
+      }
+
+      var priceCents = 0;
+      if ($form.length) {
+        var priceInput = $form.find('input[name="price"]');
+        if (priceInput.length) priceCents = parseInt(priceInput.val()) || 0;
+      }
+
+      if (!priceCents) {
+        var $priceEl = $btn.closest('.product__info').find('[data-price-cents]').first();
+        if ($priceEl && $priceEl.length) {
+          priceCents = parseInt($priceEl.data('price-cents')) || parseInt($priceEl.data('price')) || 0;
+        }
+      }
+
+      if (variantId) {
+        fireFbAddToCart(variantId, priceCents);
+      }
+    } catch (err) {
+      console.error('AddToCart fallback handler error', err);
+    }
+  });
 })();
