@@ -2388,21 +2388,31 @@ document.addEventListener('DOMContentLoaded', function () {
                   return;
                 }
 
-                var prodId = data && (data.product_id || data.id || data.variant_id) ? (data.product_id || data.id || data.variant_id) : null;
-                var price = data && typeof data.price !== 'undefined' ? data.price : 0;
+                // Prefer variant id when available for deduplication
+                var variantId = null;
+                var price = 0;
+
+                if (data && data.items && data.items.length === 1) {
+                  var single = data.items[0];
+                  variantId = single.variant_id || single.id || single.product_id || null;
+                  price = typeof single.price !== 'undefined' ? single.price : price;
+                } else {
+                  variantId = data && (data.variant_id || data.id || data.product_id) ? (data.variant_id || data.id || data.product_id) : null;
+                  price = data && typeof data.price !== 'undefined' ? data.price : price;
+                }
 
                 // Deduplicate: skip if another handler recently fired for same id
                 window._lastAddToCartFired = window._lastAddToCartFired || {};
                 var now = Date.now();
-                if (prodId && window._lastAddToCartFired.id === String(prodId) && now - window._lastAddToCartFired.ts < 2000) {
+                if (variantId && window._lastAddToCartFired.id === String(variantId) && now - window._lastAddToCartFired.ts < 2000) {
                   return;
                 }
 
                 // If price missing or zero, try to find price from DOM (fallback)
-                if ((!price || price === 0) && prodId && typeof document !== 'undefined') {
+                if ((!price || price === 0) && variantId && typeof document !== 'undefined') {
                   try {
-                    var priceEl = document.querySelector('[data-product-id="' + prodId + '"] [data-price-cents]') ||
-                      document.querySelector('[data-variant-id="' + prodId + '"] [data-price-cents]') ||
+                    var priceEl = document.querySelector('[data-product-id="' + variantId + '"] [data-price-cents]') ||
+                      document.querySelector('[data-variant-id="' + variantId + '"] [data-price-cents]') ||
                       document.querySelector('[data-price-cents]');
                     if (priceEl) {
                       var v = priceEl.getAttribute('data-price-cents') || priceEl.dataset.priceCents || priceEl.dataset.price;
@@ -2415,10 +2425,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (typeof fbq !== 'undefined') {
                   // mark as fired to help dedupe other handlers
-                  if (prodId) window._lastAddToCartFired = { id: String(prodId), ts: now };
+                  if (variantId) window._lastAddToCartFired = { id: String(variantId), ts: now };
 
                   fbq('track', 'AddToCart', {
-                    content_ids: prodId ? [prodId] : [],
+                    content_ids: variantId ? [variantId] : [],
                     content_type: 'product',
                     value: (price || 0) / 100,
                     currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'USD'
