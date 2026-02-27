@@ -2629,11 +2629,29 @@ document.addEventListener('click', function(e){
 
   if (typeof fbq === 'undefined') return;
 
+  // 🔥 DEDUPE STORAGE
+  window.__fbLastCartEvent = window.__fbLastCartEvent || {};
+
   function fireAddToCart(item) {
     if (!item) return;
 
+    var variantId = item.variant_id || item.id;
+    var now = Date.now();
+
+    // 🚫 prevent duplicate firing within 1500ms
+    if (window.__fbLastCartEvent.id === String(variantId) &&
+        now - window.__fbLastCartEvent.ts < 1500) {
+      return;
+    }
+
+    window.__fbLastCartEvent = {
+      id: String(variantId),
+      ts: now
+    };
+
     fbq('track', 'AddToCart', {
-      content_ids: [item.variant_id || item.id],
+      content_ids: [variantId],
+      content_name: item.product_title || item.title || '',
       content_type: 'product',
       value: (item.price || 0) / 100,
       currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
@@ -2641,7 +2659,7 @@ document.addEventListener('click', function(e){
     });
   }
 
-  // 🔥 Intercept fetch()
+  // 🔥 Intercept fetch
   const originalFetch = window.fetch;
   window.fetch = function () {
     return originalFetch.apply(this, arguments).then(async response => {
