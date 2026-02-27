@@ -2767,5 +2767,39 @@ document.addEventListener('click', function(e){
 })();
 </script>
 
+
+<script>
+document.addEventListener('submit', function(e) {
+
+  const form = e.target;
+
+  if (!form.matches('form[action*="/cart/add"]')) return;
+
+  const variantInput = form.querySelector('input[name="id"]');
+  if (!variantInput) return;
+
+  const variantId = variantInput.value;
+
+  if (!variantId || typeof fbq === 'undefined') return;
+
+  // Prevent duplicate tracking
+  if (window.__nativeAddTracked === variantId) return;
+  window.__nativeAddTracked = variantId;
+
+  fbq('track', 'AddToCart', {
+    content_ids: [variantId],
+    content_type: 'product',
+    value: 0, // price not available here
+    currency: (Shopify && Shopify.currency && Shopify.currency.active) || 'INR',
+    num_items: 1
+  });
+
+  setTimeout(() => {
+    window.__nativeAddTracked = null;
+  }, 800);
+
+});
+</script>
+
   </body>
 </html>
