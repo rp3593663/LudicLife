@@ -3,7 +3,10 @@ class CartDrawer extends HTMLElement {
     super();
 
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
-    this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
+    const overlay = this.querySelector('#CartDrawer-Overlay');
+    if (overlay) {
+      overlay.addEventListener('click', this.close.bind(this));
+    }
     // this.setHeaderCartIconAccessibility();
   }
 
@@ -39,7 +42,9 @@ class CartDrawer extends HTMLElement {
           ? this.querySelector('.drawer__inner-empty')
           : document.getElementById('CartDrawer');
         const focusElement = this.querySelector('cart-drawer .drawer__inner') || this.querySelector('cart-drawer .drawer__close');
-        trapFocus(containerToTrapFocusOn, focusElement);
+        if (containerToTrapFocusOn && focusElement) {
+          trapFocus(containerToTrapFocusOn, focusElement);
+        }
       },
       { once: true }
     );
@@ -69,24 +74,39 @@ class CartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
-    this.querySelector('.drawer__inner').classList.contains('is-empty') &&
-      this.querySelector('.drawer__inner').classList.remove('is-empty');
+    const drawerInner = this.querySelector('.drawer__inner');
+    if (drawerInner && drawerInner.classList.contains('is-empty')) {
+      drawerInner.classList.remove('is-empty');
+    }
+    
+    if (!parsedState) return;
+    
     this.productId = parsedState.id;
     this.getSectionsToRender().forEach((section) => {
       const sectionElement = section.selector
         ? document.querySelector(section.selector)
         : document.getElementById(section.id);
-      sectionElement.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
+      
+      if (sectionElement && parsedState.sections && parsedState.sections[section.id]) {
+        sectionElement.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
+      }
     });
 
     setTimeout(() => {
-      this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
+      const overlay = this.querySelector('#CartDrawer-Overlay');
+      if (overlay) {
+        overlay.removeEventListener('click', this.close.bind(this));
+        overlay.addEventListener('click', this.close.bind(this));
+      }
       this.open();
     });
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
-    return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
+    if (!html) return '';
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const element = doc.querySelector(selector);
+    return element ? element.innerHTML : '';
   }
 
   getSectionsToRender() {
@@ -107,7 +127,9 @@ class CartDrawer extends HTMLElement {
   }
 
   getSectionDOM(html, selector = '.shopify-section') {
-    return new DOMParser().parseFromString(html, 'text/html').querySelector(selector);
+    if (!html) return null;
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.querySelector(selector);
   }
 
   setActiveElement(element) {
@@ -140,6 +162,3 @@ class CartDrawerItems extends CartItems {
 }
 
 customElements.define('cart-drawer-items', CartDrawerItems);
-
-
-
