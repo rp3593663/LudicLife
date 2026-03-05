@@ -6639,6 +6639,11 @@ new-cart-drawer-items::-webkit-scrollbar-thumb{
   border-radius: 10px;
 }
 
+new-cart-drawer.active:hover{
+  text-decoration: none;
+}
+
+
 .footer__newsletter .field__label {
   font-size: 13px;
   top: 13px;
