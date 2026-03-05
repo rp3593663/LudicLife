@@ -8805,9 +8805,9 @@ a.mega-menu-left-links {
   border-bottom: 1px solid #EAEAEA;
   border-right: 1px solid #EAEAEA;
 }
-/* .other-collection a{
+.other-collection a{
   max-width: 445px;
-} */
+}
 .footwear-collection a:nth-child(2n+1),
 .apparel-collection a:nth-child(2n+1),
 .other-collection a:nth-child(2n+1),
