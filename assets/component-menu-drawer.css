@@ -48,7 +48,7 @@ menu-drawer > details[open] > summary::before {
   visibility: visible;
   left: 100%;
   transition: left 0.5s ease;
-  top: 36px;
+  top: 28px;
   overflow-y: hidden;
 }
 
