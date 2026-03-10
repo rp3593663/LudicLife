@@ -470,56 +470,7 @@
 
 
 <script>
-    // document.addEventListener("DOMContentLoaded", function () {
-
-    //     const slider = document.querySelector(".ludic-slider");
-    //     if (!slider) return;
-
-    //     const wrapper = slider.querySelector(".ludic-slider__wrapper");
-    //     const slides = slider.querySelectorAll(".ludic-slide");
-    //     const dots = slider.querySelectorAll(".dot");
-
-    //     let index = 0;
-    //     const autoplay = slider.dataset.autoplay === "true";
-    //     const speed = parseInt(slider.dataset.speed);
-    //     let interval;
-
-    //     function goToSlide(i) {
-    //         index = i;
-    //         wrapper.style.transform = `translateX(-${i * 100}%)`;
-
-    //         dots.forEach(dot => dot.classList.remove("active"));
-    //         if (dots[i]) dots[i].classList.add("active");
-    //     }
-
-    //     function startAuto() {
-    //         if (!autoplay) return;
-
-    //         interval = setInterval(() => {
-    //         index = (index + 1) % slides.length;
-    //         goToSlide(index);
-    //         }, speed);
-    //     }
-
-    //     function resetAuto() {
-    //         clearInterval(interval);
-    //         startAuto();
-    //     }
-
-    //     dots.forEach(dot => {
-    //         dot.addEventListener("click", function () {
-    //         goToSlide(parseInt(this.dataset.dot));
-    //         resetAuto();
-    //         });
-    //     });
-
-    //     goToSlide(0);
-    //     startAuto();
-
-    // });
-
-
-    document.addEventListener("DOMContentLoaded", function () {
+    {% comment %} document.addEventListener("DOMContentLoaded", function () {
 
         const slider = document.querySelector(".ludic-slider");
         if (!slider) return;
@@ -605,7 +556,136 @@
         goToSlide(0);
         startAuto();
 
+    }); {% endcomment %}
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const slider = document.querySelector(".ludic-slider");
+    if (!slider) return;
+
+    const wrapper = slider.querySelector(".ludic-slider__wrapper");
+    const slides = slider.querySelectorAll(".ludic-slide");
+    const dots = slider.querySelectorAll(".dot");
+
+    let index = 0;
+    const autoplay = slider.dataset.autoplay === "true";
+    const speed = parseInt(slider.dataset.speed);
+    let interval;
+
+    let wheelLock = false;
+
+    /* ---------- SLIDE CHANGE ---------- */
+
+    function goToSlide(i) {
+        index = i;
+        wrapper.style.transform = `translateX(-${i * 100}%)`;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        if (dots[i]) dots[i].classList.add("active");
+    }
+
+    /* ---------- AUTOPLAY ---------- */
+
+    function startAuto() {
+        if (!autoplay) return;
+
+        interval = setInterval(() => {
+            index = (index + 1) % slides.length;
+            goToSlide(index);
+        }, speed);
+    }
+
+    function resetAuto() {
+        clearInterval(interval);
+        startAuto();
+    }
+
+    /* ---------- DOT CLICK ---------- */
+
+    dots.forEach(dot => {
+        dot.addEventListener("click", function () {
+            goToSlide(parseInt(this.dataset.dot));
+            resetAuto();
+        });
     });
+
+    /* ---------- MOBILE SWIPE ---------- */
+
+    let startX = 0;
+    let endX = 0;
+
+    wrapper.addEventListener("touchstart", function(e){
+        startX = e.touches[0].clientX;
+    });
+
+    wrapper.addEventListener("touchmove", function(e){
+        endX = e.touches[0].clientX;
+    });
+
+    wrapper.addEventListener("touchend", function(){
+
+        const diff = startX - endX;
+
+        if (Math.abs(diff) < 50) return;
+
+        if (diff > 0) {
+            index = (index + 1) % slides.length;
+        } else {
+            index = (index - 1 + slides.length) % slides.length;
+        }
+
+        goToSlide(index);
+        resetAuto();
+    });
+
+    /* ---------- TRACKPAD SWIPE (DESKTOP) ---------- */
+
+    let trackpadLocked = false;
+    let accumulatedDelta = 0;
+
+    slider.addEventListener("wheel", function(e){
+
+        // detect horizontal swipe only
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+
+        e.preventDefault();
+
+        if (trackpadLocked) return;
+
+        accumulatedDelta += e.deltaX;
+
+        const threshold = 120; // swipe sensitivity
+
+        if (Math.abs(accumulatedDelta) > threshold) {
+
+            trackpadLocked = true;
+
+            if (accumulatedDelta > 0) {
+                index = (index + 1) % slides.length;
+            } else {
+                index = (index - 1 + slides.length) % slides.length;
+            }
+
+            goToSlide(index);
+            resetAuto();
+
+            accumulatedDelta = 0;
+
+            setTimeout(() => {
+                trackpadLocked = false;
+            }, 700); // match slide animation
+        }
+
+    }, { passive:false });
+    /* ---------- INIT ---------- */
+
+    goToSlide(0);
+    startAuto();
+
+});
+
+
+
 </script>
 
 {% schema %} 
