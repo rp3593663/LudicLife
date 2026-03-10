@@ -9,6 +9,128 @@
  */
 {
   "sections": {
+    "ludic_advanced_slider_hVDBre": {
+      "type": "ludic-advanced-slider",
+      "blocks": {
+        "slide_wFJ3AT": {
+          "type": "slide",
+          "settings": {
+            "custom_class": "ecl-slip-on",
+            "desktop_image": "shopify://shop_images/Desktop_1_66f05ba3-a15a-4e3b-ac4b-7809a730f471.png",
+            "mobile_image": "shopify://shop_images/mobile_1_d16d2387-7dd3-4932-a92f-212d399e815e.png",
+            "banner_link": "",
+            "title_desktop": "",
+            "title_mobile": "",
+            "subheading_desktop": "",
+            "subheading_mobile": "",
+            "description_desktop": "",
+            "description_mobile": "",
+            "custom_text_desktop": "<p>Enhanced Canvas Slip-ON</p>\n<span>New Launch <br>Ludic / 2026</span>",
+            "custom_text_mobile": "<p>Enhanced Canvas Slip-ON</p>\n<span>New Launch <br>Ludic / 2026</span>",
+            "button_text_desktop": "SHOP EC SLIP ON",
+            "button_text_mobile": "SHOP ENHANCED CANVAS SLIP ON",
+            "button_link": "shopify://collections/enhanced-canvas-slip-on",
+            "content_position": "none"
+          }
+        },
+        "slide_xqxmUC": {
+          "type": "slide",
+          "settings": {
+            "custom_class": "ds-moto",
+            "desktop_image": "shopify://shop_images/Banner_2_0be077eb-0c2a-4dad-82d0-bbf97be89bf1.png",
+            "mobile_image": "shopify://shop_images/291a53f2f1a085fb59393b2e68647d59ce7aa16c.mp4-1_1.png",
+            "banner_link": "",
+            "title_desktop": "",
+            "title_mobile": "",
+            "subheading_desktop": "",
+            "subheading_mobile": "",
+            "description_desktop": "",
+            "description_mobile": "",
+            "custom_text_desktop": "",
+            "custom_text_mobile": "",
+            "button_text_desktop": "EXPLORE DS MOTO",
+            "button_text_mobile": "EXPLORE DS MOTO",
+            "button_link": "shopify://collections/ds-moto",
+            "content_position": "bottom-right"
+          }
+        },
+        "slide_YHXf7g": {
+          "type": "slide",
+          "settings": {
+            "custom_class": "ec-low",
+            "desktop_image": "shopify://shop_images/Frame_1618876481.png",
+            "mobile_image": "shopify://shop_images/291a53f2f1a085fb59393b2e68647d59ce7aa16c.mp4-1_1.png",
+            "banner_link": "shopify://collections/enchanced-canvas-low",
+            "title_desktop": "",
+            "title_mobile": "",
+            "subheading_desktop": "",
+            "subheading_mobile": "",
+            "description_desktop": "",
+            "description_mobile": "",
+            "custom_text_desktop": "<p>ENHANCED CANVAS LOW</p>\n<span>New Colorways<br>\nLudic / 2026</span>",
+            "custom_text_mobile": "<p>ENHANCED CANVAS LOW</p>\n<span>New Colorways\nLudic / 2026</span>",
+            "button_text_desktop": "SHOP ENHANCED CANVAS LOW",
+            "button_text_mobile": "SHOP ECL",
+            "button_link": "shopify://collections/enchanced-canvas-low",
+            "content_position": "none"
+          }
+        },
+        "slide_fADF8q": {
+          "type": "slide",
+          "settings": {
+            "custom_class": "ds-moto",
+            "desktop_image": "shopify://shop_images/banner_2-2.png",
+            "mobile_image": "shopify://shop_images/GIF01.gif",
+            "banner_link": "shopify://collections/core-t-molecule",
+            "title_desktop": "",
+            "title_mobile": "",
+            "subheading_desktop": "",
+            "subheading_mobile": "",
+            "description_desktop": "",
+            "description_mobile": "",
+            "custom_text_desktop": "",
+            "custom_text_mobile": "",
+            "button_text_desktop": "EXPLORE CORE T MOLECULE",
+            "button_text_mobile": "EXPLORE CORE T MOLECULE",
+            "button_link": "shopify://collections/core-t-molecule",
+            "content_position": "middle-center"
+          }
+        },
+        "slide_myiA9m": {
+          "type": "slide",
+          "settings": {
+            "custom_class": "ds-moto-new",
+            "desktop_image": "shopify://shop_images/DS-moto-slider1-desktop.png",
+            "mobile_image": "shopify://shop_images/DS-moto-slider1-mobile.png",
+            "banner_link": "shopify://products/ds-moto-tarmac-black",
+            "title_desktop": "",
+            "title_mobile": "",
+            "subheading_desktop": "",
+            "subheading_mobile": "",
+            "description_desktop": "",
+            "description_mobile": "",
+            "custom_text_desktop": "",
+            "custom_text_mobile": "",
+            "button_text_desktop": "EXPLORE DS MOTO",
+            "button_text_mobile": "EXPLORE DS MOTO",
+            "button_link": "shopify://products/ds-moto-tarmac-black",
+            "content_position": "middle-center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_wFJ3AT",
+        "slide_xqxmUC",
+        "slide_YHXf7g",
+        "slide_fADF8q",
+        "slide_myiA9m"
+      ],
+      "name": "Ludic Advanced Slider",
+      "settings": {
+        "auto_rotate": true,
+        "rotate_seconds": 7
+      }
+    },
     "slideshow_f88WAr": {
       "type": "slideshow",
       "blocks": {
@@ -368,6 +490,7 @@
         "slide_4KEdxV",
         "slide_MzfVex"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -1354,6 +1477,7 @@
     }
   },
   "order": [
+    "ludic_advanced_slider_hVDBre",
     "slideshow_f88WAr",
     "rich_text_ey6YpV",
     "custom_featured_collection_hEdr4A",
